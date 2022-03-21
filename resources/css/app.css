@@ -1,3 +1,29 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: #E5E7EB;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  /* background: #cbd5e0; */
+  background: rgb(56,178,172);
+  background: linear-gradient(90deg, rgb(61, 99, 97) 0%, rgb(26, 89, 97) 35%, rgb(22, 80, 92) 100%);
+  border-radius: 100vh;
+  border: 3px solid #ffffff;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}

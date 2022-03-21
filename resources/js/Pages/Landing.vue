@@ -3,7 +3,9 @@
     <body class="overflow-x-hidden antialiased">
       <TopBanner />
       <MainMenu />
-      <HeroSection />
+      <HeroSection class=""/>
+      <FeaturedTenders />
+      <ServiceIntro />
     </body>
   </div>
 </template>
@@ -12,6 +14,8 @@
 import TopBanner from './Components/TopBanner.vue'
 import MainMenu from './Components/MainMenu.vue'
 import HeroSection from './Components/HeroSection.vue'
+import FeaturedTenders from './Components/FeaturedTenders.vue'
+import ServiceIntro from './Components/ServiceIntro.vue'
 
 export default {
     name:'Landing',
@@ -20,7 +24,9 @@ export default {
     components: {
         TopBanner,
         MainMenu,
-        HeroSection
+        HeroSection,
+        FeaturedTenders,
+        ServiceIntro
     },
     watch: {
     },
