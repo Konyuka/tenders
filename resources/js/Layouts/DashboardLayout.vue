@@ -62,10 +62,10 @@
                             ></path>
                         </svg>
                     </div> -->
-                    <div class=" flex space-x-3 items-center">
+                    <a :href="route('landing')" class=" flex space-x-3 items-center">
                         <img class="p-1 dark:bg-white rounded-full" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg5.svg" alt="circle" />
                         <h1 class=" font-normal text-2xl leading-6 text-gray-800 dark:text-white " >Tender Hub</h1>
-                    </div>
+                    </a>
                     <ul aria-orientation="vertical" class="rounded py-8">
                         <li @click="selectedMenu('tenders')" :class="this.currentMenu == 'tenders' ? 'text-indigo-700' : ''" class="cursor-pointer text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
                             <span class="ml-2">Tenders</span>
@@ -194,7 +194,10 @@
             <div class="container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6">
                 <!-- <div class="w-full h-full rounded border-dashed border-2 border-gray-300">
                 </div> -->
-                <TendersPage />
+                <TendersPage v-if="currentMenu == 'tenders'" />
+                <PaymentsPage v-if="currentMenu == 'payments'" />
+                <SupportPage v-if="currentMenu == 'support'" />
+                <UsersPage v-if="currentMenu == 'users'" />
             </div>
         </div>
     </div>
@@ -202,11 +205,17 @@
 
 <script>
 import TendersPage from '../Pages/Components/Dashboard/TendersPage.vue'
+import PaymentsPage from '../Pages/Components/Dashboard/PaymentsPage.vue'
+import SupportPage from '../Pages/Components/Dashboard/SupportPage.vue'
+import UsersPage from '../Pages/Components/Dashboard/UsersPage.vue'
 
 export default {
     name: "LightWithHeaderAndIcons",
     components:{
         TendersPage,
+        PaymentsPage,
+        SupportPage,
+        UsersPage
     },
     data(){
         return{
