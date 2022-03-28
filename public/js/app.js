@@ -4812,6 +4812,62 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/FiltersModal.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Components/FiltersModal.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'FilterModal',
+  components: {},
+  data: function data() {
+    return {
+      modal: true
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/Hello.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Components/Hello.vue?vue&type=script&lang=js& ***!
@@ -4879,7 +4935,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {},
   computed: {},
-  methods: {}
+  methods: {
+    openModal: function openModal() {
+      this.$emit('modalState', true);
+    }
+  }
 });
 
 /***/ }),
@@ -5293,6 +5353,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_HeroSection_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/HeroSection.vue */ "./resources/js/Pages/Components/HeroSection.vue");
 /* harmony import */ var _Components_FeaturedTenders_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/FeaturedTenders.vue */ "./resources/js/Pages/Components/FeaturedTenders.vue");
 /* harmony import */ var _Components_ServiceIntro_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/ServiceIntro.vue */ "./resources/js/Pages/Components/ServiceIntro.vue");
+/* harmony import */ var _Components_FiltersModal_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Components/FiltersModal.vue */ "./resources/js/Pages/Components/FiltersModal.vue");
 //
 //
 //
@@ -5305,6 +5366,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -5318,16 +5413,21 @@ __webpack_require__.r(__webpack_exports__);
     MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     HeroSection: _Components_HeroSection_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     FeaturedTenders: _Components_FeaturedTenders_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    ServiceIntro: _Components_ServiceIntro_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    ServiceIntro: _Components_ServiceIntro_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    FiltersModal: _Components_FiltersModal_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   watch: {},
   mounted: function mounted() {},
   computed: {},
   data: function data() {
-    return {// showBanner: true,
+    return {
+      modal: true
     };
   },
-  methods: {}
+  methods: {
+    clearFilters: function clearFilters() {},
+    loadFilters: function loadFilters() {}
+  }
 });
 
 /***/ }),
@@ -34093,6 +34193,180 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/FiltersModal.vue?vue&type=template&id=6109ced2&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Components/FiltersModal.vue?vue&type=template&id=6109ced2& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass:
+        "overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full",
+      attrs: { id: "defaultModal", tabindex: "-1", "aria-hidden": "true" }
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "relative p-4 w-full max-w-2xl h-full md:h-auto" },
+        [
+          _c(
+            "div",
+            {
+              staticClass:
+                "relative bg-white rounded-lg shadow dark:bg-gray-700"
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600"
+                },
+                [
+                  _c(
+                    "h3",
+                    {
+                      staticClass:
+                        "text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white"
+                    },
+                    [
+                      _vm._v(
+                        "\n                      Terms of Service\n                  "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white",
+                      attrs: {
+                        type: "button",
+                        "data-modal-toggle": "defaultModal"
+                      }
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-5 h-5",
+                          attrs: {
+                            fill: "currentColor",
+                            viewBox: "0 0 20 20",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "fill-rule": "evenodd",
+                              d:
+                                "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+                              "clip-rule": "evenodd"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._m(1)
+            ]
+          )
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-6 space-y-6" }, [
+      _c(
+        "p",
+        {
+          staticClass:
+            "text-base leading-relaxed text-gray-500 dark:text-gray-400"
+        },
+        [
+          _vm._v(
+            "\n                      With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.\n                  "
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "p",
+        {
+          staticClass:
+            "text-base leading-relaxed text-gray-500 dark:text-gray-400"
+        },
+        [
+          _vm._v(
+            "\n                      The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.\n                  "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass:
+              "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
+            attrs: { "data-modal-toggle": "defaultModal", type: "button" }
+          },
+          [_vm._v("I accept")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600",
+            attrs: { "data-modal-toggle": "defaultModal", type: "button" }
+          },
+          [_vm._v("Decline")]
+        )
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/Hello.vue?vue&type=template&id=0c74ecbc&scoped=true&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Components/Hello.vue?vue&type=template&id=0c74ecbc&scoped=true& ***!
@@ -34132,7 +34406,60 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass:
+          "2xl:mx-auto dark:bg-gray-900 2xl:container md:px-20 px-4 md:py-12 py-9"
+      },
+      [
+        _c("div", { staticClass: "relative rounded-md shadow-2xl" }, [
+          _c("img", {
+            staticClass:
+              "w-full h-full rounded-md  object-center object-fill absolute sm:block hidden",
+            attrs: {
+              src:
+                "https://i.ibb.co/SBpL1cK/pexels-aleksandar-pasaric-325185-1.png",
+              alt: "city view"
+            }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass:
+              "w-full h-full rounded-md absolute object-center object-fill sm:hidden",
+            attrs: {
+              src: "https://i.ibb.co/LQpxBsc/mobile.png",
+              alt: "city view"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "text-xl relative z-20 bg-gradient-to-r from-blue-700 to-transparent w-full h-full z-40 top-0 md:p-16 p-6 flex flex-col justify-between rounded-md "
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "md:mt-12 mt-20" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "text-base font-medium leading-4 text-indigo-700 bg-white sm:w-auto w-full rounded p-4 focus:outline-none hover:bg-gray-100 focus:ring-2 focus:ring-offset-2 focus:ring-white",
+                    on: { click: _vm.openModal }
+                  },
+                  [_vm._v("Tenders Search Filters")]
+                )
+              ])
+            ]
+          )
+        ])
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -34141,76 +34468,24 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c(
-        "div",
+        "h1",
         {
           staticClass:
-            "2xl:mx-auto dark:bg-gray-900 2xl:container md:px-20 px-4 md:py-12 py-9"
+            "md:text-5xl text-3xl font-bold md:leading-10 leading-9 text-white sm:w-auto w-64"
+        },
+        [_vm._v("Connection to the rightful Tender!")]
+      ),
+      _vm._v(" "),
+      _c(
+        "p",
+        {
+          staticClass:
+            "text-lg leading-6 text-white xl:w-5/12 lg:w-8/12 md:w-10/12  2xl:pr-12 mt-4"
         },
         [
-          _c("div", { staticClass: "relative rounded-md shadow-2xl" }, [
-            _c("img", {
-              staticClass:
-                "w-full h-full rounded-md  object-center object-fill absolute sm:block hidden",
-              attrs: {
-                src:
-                  "https://i.ibb.co/SBpL1cK/pexels-aleksandar-pasaric-325185-1.png",
-                alt: "city view"
-              }
-            }),
-            _vm._v(" "),
-            _c("img", {
-              staticClass:
-                "w-full h-full rounded-md absolute object-center object-fill sm:hidden",
-              attrs: {
-                src: "https://i.ibb.co/LQpxBsc/mobile.png",
-                alt: "city view"
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "text-xl relative z-20 bg-gradient-to-r from-blue-700 to-transparent w-full h-full z-40 top-0 md:p-16 p-6 flex flex-col justify-between rounded-md "
-              },
-              [
-                _c("div", [
-                  _c(
-                    "h1",
-                    {
-                      staticClass:
-                        "md:text-5xl text-3xl font-bold md:leading-10 leading-9 text-white sm:w-auto w-64"
-                    },
-                    [_vm._v("Connection to the rightful Tender!")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      staticClass:
-                        "text-lg leading-6 text-white xl:w-5/12 lg:w-8/12 md:w-10/12  2xl:pr-12 mt-4"
-                    },
-                    [
-                      _vm._v(
-                        'A good idiom for kids is "It\'s raining cats and dogs." Kids know what both cats and dogs are from an early age.'
-                      )
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "md:mt-12 mt-20" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "text-base font-medium leading-4 text-indigo-700 bg-white sm:w-auto w-full rounded p-4 focus:outline-none hover:bg-gray-100 focus:ring-2 focus:ring-offset-2 focus:ring-white"
-                    },
-                    [_vm._v("Tenders Search Filters")]
-                  )
-                ])
-              ]
-            )
-          ])
+          _vm._v(
+            'A good idiom for kids is "It\'s raining cats and dogs." Kids know what both cats and dogs are from an early age.'
+          )
         ]
       )
     ])
@@ -35504,17 +35779,191 @@ var render = function() {
         _vm._v(" "),
         _c("MainMenu"),
         _vm._v(" "),
-        _c("HeroSection", {}),
+        _c("HeroSection", {
+          on: {
+            modalState: function($event) {
+              _vm.modal = true
+            }
+          }
+        }),
         _vm._v(" "),
         _c("FeaturedTenders"),
         _vm._v(" "),
-        _c("ServiceIntro")
+        _c("ServiceIntro"),
+        _vm._v(" "),
+        _vm.modal
+          ? _c(
+              "div",
+              {
+                staticClass:
+                  "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
+                attrs: {
+                  id: "defaultModal",
+                  tabindex: "-1",
+                  "aria-hidden": "true"
+                }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "relative p-4 w-full max-w-2xl h-full md:h-auto"
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "relative bg-white rounded-lg shadow-2xl dark:bg-gray-700"
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600"
+                          },
+                          [
+                            _c(
+                              "h3",
+                              {
+                                staticClass:
+                                  "text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                      Tender Search Filters\n                  "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white",
+                                attrs: {
+                                  type: "button",
+                                  "data-modal-toggle": "defaultModal"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    _vm.modal = false
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "w-5 h-5",
+                                    attrs: {
+                                      fill: "currentColor",
+                                      viewBox: "0 0 20 20",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        "fill-rule": "evenodd",
+                                        d:
+                                          "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+                                        "clip-rule": "evenodd"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(0),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
+                          },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
+                                attrs: {
+                                  "data-modal-toggle": "defaultModal",
+                                  type: "button"
+                                },
+                                on: { click: _vm.loadFilters }
+                              },
+                              [_vm._v("Find Tenders")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600",
+                                attrs: {
+                                  "data-modal-toggle": "defaultModal",
+                                  type: "button"
+                                },
+                                on: { click: _vm.clearFilters }
+                              },
+                              [_vm._v("Clear Filters")]
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
       ],
       1
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-6 space-y-6" }, [
+      _c(
+        "p",
+        {
+          staticClass:
+            "text-base leading-relaxed text-gray-500 dark:text-gray-400"
+        },
+        [
+          _vm._v(
+            "\n                      With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.\n                  "
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "p",
+        {
+          staticClass:
+            "text-base leading-relaxed text-gray-500 dark:text-gray-400"
+        },
+        [
+          _vm._v(
+            "\n                      The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.\n                  "
+          )
+        ]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -50553,6 +51002,8 @@ var map = {
 	"./Components/Dashboard/UsersPage.vue": "./resources/js/Pages/Components/Dashboard/UsersPage.vue",
 	"./Components/FeaturedTenders": "./resources/js/Pages/Components/FeaturedTenders.vue",
 	"./Components/FeaturedTenders.vue": "./resources/js/Pages/Components/FeaturedTenders.vue",
+	"./Components/FiltersModal": "./resources/js/Pages/Components/FiltersModal.vue",
+	"./Components/FiltersModal.vue": "./resources/js/Pages/Components/FiltersModal.vue",
 	"./Components/Hello": "./resources/js/Pages/Components/Hello.vue",
 	"./Components/Hello.vue": "./resources/js/Pages/Components/Hello.vue",
 	"./Components/HeroSection": "./resources/js/Pages/Components/HeroSection.vue",
@@ -51084,6 +51535,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FeaturedTenders_vue_vue_type_template_id_0d53bf61_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FeaturedTenders_vue_vue_type_template_id_0d53bf61_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Components/FiltersModal.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/Pages/Components/FiltersModal.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FiltersModal_vue_vue_type_template_id_6109ced2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FiltersModal.vue?vue&type=template&id=6109ced2& */ "./resources/js/Pages/Components/FiltersModal.vue?vue&type=template&id=6109ced2&");
+/* harmony import */ var _FiltersModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FiltersModal.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Components/FiltersModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _FiltersModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FiltersModal_vue_vue_type_template_id_6109ced2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FiltersModal_vue_vue_type_template_id_6109ced2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Components/FiltersModal.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Components/FiltersModal.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/Pages/Components/FiltersModal.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FiltersModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./FiltersModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/FiltersModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FiltersModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Components/FiltersModal.vue?vue&type=template&id=6109ced2&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/Pages/Components/FiltersModal.vue?vue&type=template&id=6109ced2& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FiltersModal_vue_vue_type_template_id_6109ced2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./FiltersModal.vue?vue&type=template&id=6109ced2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/FiltersModal.vue?vue&type=template&id=6109ced2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FiltersModal_vue_vue_type_template_id_6109ced2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FiltersModal_vue_vue_type_template_id_6109ced2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
