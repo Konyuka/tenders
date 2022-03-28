@@ -6,12 +6,12 @@
       <HeroSection @modalState="modal=true"/>
       <FeaturedTenders />
       <ServiceIntro />
-      <!-- <FiltersModal /> -->
+      <MainFooter />
 
       <div v-if="modal" id="defaultModal" tabindex="-1" aria-hidden="true" class="overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full">
         <div class="relative p-4 w-full max-w-5xl h-full md:h-auto">
             <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow-2xl dark:bg-gray-700">
+            <div class="relative bg-gray-50 rounded-lg shadow-2xl dark:bg-gray-700">
                 <!-- Modal header -->
                 <div class="flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
@@ -135,7 +135,7 @@ import MainMenu from './Components/MainMenu.vue'
 import HeroSection from './Components/HeroSection.vue'
 import FeaturedTenders from './Components/FeaturedTenders.vue'
 import ServiceIntro from './Components/ServiceIntro.vue'
-import FiltersModal from './Components/FiltersModal.vue'
+import MainFooter from './Components/MainFooter.vue'
 
 export default {
     name:'Landing',
@@ -147,7 +147,7 @@ export default {
         HeroSection,
         FeaturedTenders,
         ServiceIntro,
-        FiltersModal
+        MainFooter
     },
     watch: {
     },

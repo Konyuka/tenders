@@ -4707,6 +4707,110 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
   components: {//   Categories,
@@ -4853,10 +4957,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/MainMenu.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Components/MainMenu.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/MainFooter.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Components/MainFooter.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4867,6 +4971,96 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'MainFooter',
+  components: {//   Categories,
+  },
+  data: function data() {
+    return {};
+  },
+  watch: {},
+  computed: {},
+  methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/MainMenu.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Components/MainMenu.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -4988,6 +5182,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5262,7 +5467,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_HeroSection_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/HeroSection.vue */ "./resources/js/Pages/Components/HeroSection.vue");
 /* harmony import */ var _Components_FeaturedTenders_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/FeaturedTenders.vue */ "./resources/js/Pages/Components/FeaturedTenders.vue");
 /* harmony import */ var _Components_ServiceIntro_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/ServiceIntro.vue */ "./resources/js/Pages/Components/ServiceIntro.vue");
-/* harmony import */ var _Components_FiltersModal_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Components/FiltersModal.vue */ "./resources/js/Pages/Components/FiltersModal.vue");
+/* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
 //
 //
 //
@@ -5409,7 +5614,7 @@ __webpack_require__.r(__webpack_exports__);
     HeroSection: _Components_HeroSection_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     FeaturedTenders: _Components_FeaturedTenders_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     ServiceIntro: _Components_ServiceIntro_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    FiltersModal: _Components_FiltersModal_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   watch: {},
   mounted: function mounted() {},
@@ -33626,10 +33831,11 @@ var render = function() {
             _c("div", { staticClass: "container px-5 py-24 mx-auto" }, [
               _c("div", { staticClass: "flex flex-wrap -m-12" }, [
                 _c(
-                  "div",
+                  "a",
                   {
                     staticClass:
-                      "p-12 md:w-1/2 flex flex-col min-h-2xl  items-start"
+                      "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
+                    attrs: { href: "#" }
                   },
                   [
                     _c(
@@ -33699,89 +33905,647 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
+                        _vm._m(0),
+                        _vm._v(" "),
+                        _vm._m(1)
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
+                    attrs: { href: "#" }
+                  },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"
+                      },
+                      [_vm._v("USD. 140,000")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "h4",
+                      {
+                        staticClass:
+                          "sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4"
+                      },
+                      [
+                        _vm._v(
+                          "National Highways Authority Of Indi...... Southern Asia"
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "leading-relaxed mb-2" }, [
+                      _vm._v(
+                        "Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab"
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full"
+                      },
+                      [
                         _c(
-                          "span",
+                          "a",
                           {
                             staticClass:
-                              "text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                              "text-indigo-500 inline-flex items-center"
                           },
                           [
+                            _vm._v(
+                              "Purchase Tender\n                              "
+                            ),
                             _c(
                               "svg",
                               {
-                                staticClass: "w-4 h-4 mr-1",
+                                staticClass: "w-4 h-4 ml-2",
                                 attrs: {
+                                  viewBox: "0 0 24 24",
                                   stroke: "currentColor",
                                   "stroke-width": "2",
                                   fill: "none",
                                   "stroke-linecap": "round",
-                                  "stroke-linejoin": "round",
-                                  viewBox: "0 0 24 24"
+                                  "stroke-linejoin": "round"
                                 }
                               },
                               [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
-                                  }
-                                }),
+                                _c("path", { attrs: { d: "M5 12h14" } }),
                                 _vm._v(" "),
-                                _c("circle", {
-                                  attrs: { cx: "12", cy: "12", r: "3" }
-                                })
+                                _c("path", { attrs: { d: "M12 5l7 7-7 7" } })
                               ]
-                            ),
-                            _vm._v("Kenya "),
-                            _c("i", { staticClass: "fab fa-facebook" })
+                            )
                           ]
                         ),
                         _vm._v(" "),
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _vm._m(3)
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
+                    attrs: { href: "#" }
+                  },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"
+                      },
+                      [_vm._v("USD. 140,000")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "h4",
+                      {
+                        staticClass:
+                          "sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4"
+                      },
+                      [
+                        _vm._v(
+                          "National Highways Authority Of Indi...... Southern Asia"
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "leading-relaxed mb-2" }, [
+                      _vm._v(
+                        "Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab"
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full"
+                      },
+                      [
                         _c(
-                          "span",
+                          "a",
                           {
                             staticClass:
-                              "text-gray-400 inline-flex items-center leading-none text-sm"
+                              "text-indigo-500 inline-flex items-center"
                           },
                           [
+                            _vm._v(
+                              "Purchase Tender\n                              "
+                            ),
                             _c(
                               "svg",
                               {
-                                staticClass: "w-4 h-4 mr-1",
+                                staticClass: "w-4 h-4 ml-2",
                                 attrs: {
+                                  viewBox: "0 0 24 24",
                                   stroke: "currentColor",
                                   "stroke-width": "2",
                                   fill: "none",
                                   "stroke-linecap": "round",
-                                  "stroke-linejoin": "round",
-                                  viewBox: "0 0 24 24"
+                                  "stroke-linejoin": "round"
                                 }
                               },
                               [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"
-                                  }
-                                })
+                                _c("path", { attrs: { d: "M5 12h14" } }),
+                                _vm._v(" "),
+                                _c("path", { attrs: { d: "M12 5l7 7-7 7" } })
                               ]
-                            ),
-                            _vm._v("26th Jan 22\n                          ")
+                            )
                           ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(4),
+                        _vm._v(" "),
+                        _vm._m(5)
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
+                    attrs: { href: "#" }
+                  },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"
+                      },
+                      [_vm._v("USD. 140,000")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "h4",
+                      {
+                        staticClass:
+                          "sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4"
+                      },
+                      [
+                        _vm._v(
+                          "National Highways Authority Of Indi...... Southern Asia"
                         )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "leading-relaxed mb-2" }, [
+                      _vm._v(
+                        "Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab"
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full"
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "text-indigo-500 inline-flex items-center"
+                          },
+                          [
+                            _vm._v(
+                              "Purchase Tender\n                              "
+                            ),
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "w-4 h-4 ml-2",
+                                attrs: {
+                                  viewBox: "0 0 24 24",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                  fill: "none",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round"
+                                }
+                              },
+                              [
+                                _c("path", { attrs: { d: "M5 12h14" } }),
+                                _vm._v(" "),
+                                _c("path", { attrs: { d: "M12 5l7 7-7 7" } })
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(6),
+                        _vm._v(" "),
+                        _vm._m(7)
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
+                    attrs: { href: "#" }
+                  },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"
+                      },
+                      [_vm._v("USD. 140,000")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "h4",
+                      {
+                        staticClass:
+                          "sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4"
+                      },
+                      [
+                        _vm._v(
+                          "National Highways Authority Of Indi...... Southern Asia"
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "leading-relaxed mb-2" }, [
+                      _vm._v(
+                        "Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab"
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full"
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "text-indigo-500 inline-flex items-center"
+                          },
+                          [
+                            _vm._v(
+                              "Purchase Tender\n                              "
+                            ),
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "w-4 h-4 ml-2",
+                                attrs: {
+                                  viewBox: "0 0 24 24",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                  fill: "none",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round"
+                                }
+                              },
+                              [
+                                _c("path", { attrs: { d: "M5 12h14" } }),
+                                _vm._v(" "),
+                                _c("path", { attrs: { d: "M12 5l7 7-7 7" } })
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(8),
+                        _vm._v(" "),
+                        _vm._m(9)
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
+                    attrs: { href: "#" }
+                  },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"
+                      },
+                      [_vm._v("USD. 140,000")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "h4",
+                      {
+                        staticClass:
+                          "sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4"
+                      },
+                      [
+                        _vm._v(
+                          "National Highways Authority Of Indi...... Southern Asia"
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "leading-relaxed mb-2" }, [
+                      _vm._v(
+                        "Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab"
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full"
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "text-indigo-500 inline-flex items-center"
+                          },
+                          [
+                            _vm._v(
+                              "Purchase Tender\n                              "
+                            ),
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "w-4 h-4 ml-2",
+                                attrs: {
+                                  viewBox: "0 0 24 24",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                  fill: "none",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round"
+                                }
+                              },
+                              [
+                                _c("path", { attrs: { d: "M5 12h14" } }),
+                                _vm._v(" "),
+                                _c("path", { attrs: { d: "M12 5l7 7-7 7" } })
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(10),
+                        _vm._v(" "),
+                        _vm._m(11)
                       ]
                     )
                   ]
                 )
               ])
-            ])
+            ]),
+            _vm._v(" "),
+            _vm._m(12)
           ]
         )
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass:
+          "text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+      },
+      [
+        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-location-crosshairs" }),
+        _vm._v(" Nairobi, Kenya\n                          ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass:
+          "text-gray-400 inline-flex items-center leading-none text-sm"
+      },
+      [
+        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-calendar" }),
+        _vm._v("26th Jan 22\n                          ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass:
+          "text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+      },
+      [
+        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-location-crosshairs" }),
+        _vm._v(" Nairobi, Kenya\n                          ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass:
+          "text-gray-400 inline-flex items-center leading-none text-sm"
+      },
+      [
+        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-calendar" }),
+        _vm._v("26th Jan 22\n                          ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass:
+          "text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+      },
+      [
+        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-location-crosshairs" }),
+        _vm._v(" Nairobi, Kenya\n                          ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass:
+          "text-gray-400 inline-flex items-center leading-none text-sm"
+      },
+      [
+        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-calendar" }),
+        _vm._v("26th Jan 22\n                          ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass:
+          "text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+      },
+      [
+        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-location-crosshairs" }),
+        _vm._v(" Nairobi, Kenya\n                          ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass:
+          "text-gray-400 inline-flex items-center leading-none text-sm"
+      },
+      [
+        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-calendar" }),
+        _vm._v("26th Jan 22\n                          ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass:
+          "text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+      },
+      [
+        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-location-crosshairs" }),
+        _vm._v(" Nairobi, Kenya\n                          ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass:
+          "text-gray-400 inline-flex items-center leading-none text-sm"
+      },
+      [
+        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-calendar" }),
+        _vm._v("26th Jan 22\n                          ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass:
+          "text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+      },
+      [
+        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-location-crosshairs" }),
+        _vm._v(" Nairobi, Kenya\n                          ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass:
+          "text-gray-400 inline-flex items-center leading-none text-sm"
+      },
+      [
+        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-calendar" }),
+        _vm._v("26th Jan 22\n                          ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "md:mt-12 mt-10" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "text-base font-medium leading-4 text-white hover:text-gray-700 bg-indigo-700 sm:w-auto w-full rounded p-4 focus:outline-none hover:bg-gray-100 focus:ring-2 focus:ring-offset-2 focus:ring-white"
+        },
+        [_vm._v("View All Tenders")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -34092,6 +34856,226 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/MainFooter.vue?vue&type=template&id=77a23d14&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Components/MainFooter.vue?vue&type=template&id=77a23d14&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-32" }, [
+      _c("footer", { staticClass: "bg-gray-800" }, [
+        _c(
+          "div",
+          { staticClass: "grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4" },
+          [
+            _c("div", [
+              _c(
+                "h2",
+                {
+                  staticClass:
+                    "mb-6 text-sm font-semibold text-gray-400 uppercase"
+                },
+                [_vm._v("Company")]
+              ),
+              _vm._v(" "),
+              _c("ul", { staticClass: "text-gray-300" }, [
+                _c("li", { staticClass: "mb-4" }, [
+                  _c(
+                    "a",
+                    { staticClass: " hover:underline", attrs: { href: "#" } },
+                    [_vm._v("About")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "mb-4" }, [
+                  _c(
+                    "a",
+                    { staticClass: "hover:underline", attrs: { href: "#" } },
+                    [_vm._v("Careers")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "mb-4" }, [
+                  _c(
+                    "a",
+                    { staticClass: "hover:underline", attrs: { href: "#" } },
+                    [_vm._v("Brand Center")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "mb-4" }, [
+                  _c(
+                    "a",
+                    { staticClass: "hover:underline", attrs: { href: "#" } },
+                    [_vm._v("Blog")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "h2",
+                {
+                  staticClass:
+                    "mb-6 text-sm font-semibold text-gray-400 uppercase"
+                },
+                [_vm._v("Help center")]
+              ),
+              _vm._v(" "),
+              _c("ul", { staticClass: "text-gray-300" }, [
+                _c("li", { staticClass: "mb-4" }, [
+                  _c(
+                    "a",
+                    { staticClass: "hover:underline", attrs: { href: "#" } },
+                    [_vm._v("Discord Server")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "mb-4" }, [
+                  _c(
+                    "a",
+                    { staticClass: "hover:underline", attrs: { href: "#" } },
+                    [_vm._v("Twitter")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "mb-4" }, [
+                  _c(
+                    "a",
+                    { staticClass: "hover:underline", attrs: { href: "#" } },
+                    [_vm._v("Facebook\n  ")]
+                  )
+                ]),
+                _c("a", {
+                  staticClass: "hover:underline",
+                  attrs: { href: "#" }
+                }),
+                _c("li", { staticClass: "mb-4" }, [
+                  _c("a", {
+                    staticClass: "hover:underline",
+                    attrs: { href: "#" }
+                  }),
+                  _c(
+                    "a",
+                    { staticClass: "hover:underline", attrs: { href: "#" } },
+                    [_vm._v("Contact Us")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "h2",
+                {
+                  staticClass:
+                    "mb-6 text-sm font-semibold text-gray-400 uppercase"
+                },
+                [_vm._v("Legal")]
+              ),
+              _vm._v(" "),
+              _c("ul", { staticClass: "text-gray-300" }, [
+                _c("li", { staticClass: "mb-4" }, [
+                  _c(
+                    "a",
+                    { staticClass: "hover:underline", attrs: { href: "#" } },
+                    [_vm._v("Privacy Policy")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "mb-4" }, [
+                  _c(
+                    "a",
+                    { staticClass: "hover:underline", attrs: { href: "#" } },
+                    [_vm._v("Licensing")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "mb-4" }, [
+                  _c(
+                    "a",
+                    { staticClass: "hover:underline", attrs: { href: "#" } },
+                    [_vm._v("Terms & Conditions")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "py-6 px-4 bg-gray-700 md:flex md:items-center md:justify-between"
+          },
+          [
+            _c(
+              "span",
+              { staticClass: "text-sm text-gray-300 sm:text-center" },
+              [
+                _vm._v("© 2022 "),
+                _c("a", { attrs: { href: "https://flowbite.com" } }, [
+                  _vm._v("Bidders Portal™")
+                ]),
+                _vm._v(". All Rights Reserved.\n  ")
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "flex mt-4 space-x-6 sm:justify-center md:mt-0" },
+              [
+                _c(
+                  "span",
+                  { staticClass: "text-sm text-gray-300 sm:text-center" },
+                  [
+                    _vm._v("Made with "),
+                    _c("i", { staticClass: "fas fa-heart text-red-600" }),
+                    _vm._v(" by"),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "underline",
+                        attrs: { href: "mailto:michaelsaiba84@gmail.com" }
+                      },
+                      [_vm._v(" Michael Saiba.")]
+                    )
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/MainMenu.vue?vue&type=template&id=55e381d0&scoped=true&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Components/MainMenu.vue?vue&type=template&id=55e381d0&scoped=true& ***!
@@ -34193,41 +35177,9 @@ var staticRenderFns = [
                     " flex space-x-5 justify-center  items-center pl-2"
                 },
                 [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "relative dark:bg-white rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 "
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src:
-                            "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-1-svg2.svg",
-                          alt: "chat"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", {
-                        staticClass:
-                          "animate-ping w-1.5 h-1.5 bg-indigo-700 rounded-full absolute -top-1 -right-1 m-auto duration-200"
-                      }),
-                      _vm._v(" "),
-                      _c("div", {
-                        staticClass:
-                          " w-1.5 h-1.5 bg-indigo-700 rounded-full absolute -top-1 -right-1 m-auto shadow-lg"
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("img", {
-                    staticClass:
-                      "cursor-pointer  dark:bg-white rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 ",
-                    attrs: {
-                      src:
-                        "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-1-svg3.svg",
-                      alt: "bell"
-                    }
+                  _c("a", {
+                    staticClass: "fas fa-search fa-xl text-indigo-600",
+                    attrs: { href: "#" }
                   })
                 ]
               )
@@ -34654,10 +35606,15 @@ var render = function() {
         _vm._v(" "),
         _c("hr", { staticClass: "border-gray-200 my-12 dark:border-gray-700" }),
         _vm._v(" "),
+        _vm._m(5),
+        _vm._v(" "),
+        _vm._m(6),
+        _vm._v(" "),
         _c(
           "div",
           {
-            staticClass: "grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5"
+            staticClass:
+              "grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5 mt-10"
           },
           [
             _c(
@@ -34993,6 +35950,39 @@ var staticRenderFns = [
         })
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", {}, [
+      _c(
+        "h1",
+        {
+          staticClass:
+            "text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white"
+        },
+        [_vm._v("Patners & Clients")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-2 " }, [
+      _c("span", {
+        staticClass: "inline-block w-40 h-1 rounded-full bg-blue-500"
+      }),
+      _vm._v(" "),
+      _c("span", {
+        staticClass: "inline-block w-3 h-1 ml-1 rounded-full bg-blue-500"
+      }),
+      _vm._v(" "),
+      _c("span", {
+        staticClass: "inline-block w-1 h-1 ml-1 rounded-full bg-blue-500"
+      })
+    ])
   }
 ]
 render._withStripped = true
@@ -35386,6 +36376,8 @@ var render = function() {
         _vm._v(" "),
         _c("ServiceIntro"),
         _vm._v(" "),
+        _c("MainFooter"),
+        _vm._v(" "),
         _vm.modal
           ? _c(
               "div",
@@ -35410,7 +36402,7 @@ var render = function() {
                       "div",
                       {
                         staticClass:
-                          "relative bg-white rounded-lg shadow-2xl dark:bg-gray-700"
+                          "relative bg-gray-50 rounded-lg shadow-2xl dark:bg-gray-700"
                       },
                       [
                         _c(
@@ -50869,6 +51861,8 @@ var map = {
 	"./Components/Hello.vue": "./resources/js/Pages/Components/Hello.vue",
 	"./Components/HeroSection": "./resources/js/Pages/Components/HeroSection.vue",
 	"./Components/HeroSection.vue": "./resources/js/Pages/Components/HeroSection.vue",
+	"./Components/MainFooter": "./resources/js/Pages/Components/MainFooter.vue",
+	"./Components/MainFooter.vue": "./resources/js/Pages/Components/MainFooter.vue",
 	"./Components/MainMenu": "./resources/js/Pages/Components/MainMenu.vue",
 	"./Components/MainMenu.vue": "./resources/js/Pages/Components/MainMenu.vue",
 	"./Components/Newsletters": "./resources/js/Pages/Components/Newsletters.vue",
@@ -51603,6 +52597,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HeroSection_vue_vue_type_template_id_deed484a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HeroSection_vue_vue_type_template_id_deed484a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Components/MainFooter.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/Pages/Components/MainFooter.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MainFooter_vue_vue_type_template_id_77a23d14_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MainFooter.vue?vue&type=template&id=77a23d14&scoped=true& */ "./resources/js/Pages/Components/MainFooter.vue?vue&type=template&id=77a23d14&scoped=true&");
+/* harmony import */ var _MainFooter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MainFooter.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Components/MainFooter.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MainFooter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MainFooter_vue_vue_type_template_id_77a23d14_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MainFooter_vue_vue_type_template_id_77a23d14_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "77a23d14",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Components/MainFooter.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Components/MainFooter.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/Pages/Components/MainFooter.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MainFooter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./MainFooter.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/MainFooter.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MainFooter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Components/MainFooter.vue?vue&type=template&id=77a23d14&scoped=true&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/Pages/Components/MainFooter.vue?vue&type=template&id=77a23d14&scoped=true& ***!
+  \*************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MainFooter_vue_vue_type_template_id_77a23d14_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./MainFooter.vue?vue&type=template&id=77a23d14&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/MainFooter.vue?vue&type=template&id=77a23d14&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MainFooter_vue_vue_type_template_id_77a23d14_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MainFooter_vue_vue_type_template_id_77a23d14_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -52527,12 +53590,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
- // import { library } from '@fortawesome/fontawesome-svg-core'
-// import { faHatWizard } from '@fortawesome/free-solid-svg-icons'
-// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-// library.add(faHatWizard)
-// library.add(user)
-// Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
   methods: {
