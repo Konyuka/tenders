@@ -2,6 +2,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+
+
 /* width */
 ::-webkit-scrollbar {
   width: 15px;

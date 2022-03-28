@@ -4707,97 +4707,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
   components: {//   Categories,
@@ -5399,6 +5308,92 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5421,7 +5416,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {},
   data: function data() {
     return {
-      modal: true
+      modal: false
     };
   },
   methods: {
@@ -33625,561 +33620,161 @@ var render = function() {
         ),
         _vm._v(" "),
         _c(
-          "div",
-          {
-            staticClass:
-              "grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3"
-          },
+          "section",
+          { staticClass: "text-gray-600 body-font overflow-hidden" },
           [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "shadow-2xl p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl"
-              },
-              [
+            _c("div", { staticClass: "container px-5 py-24 mx-auto" }, [
+              _c("div", { staticClass: "flex flex-wrap -m-12" }, [
                 _c(
-                  "span",
+                  "div",
                   {
-                    staticClass: "inline-block text-blue-500 dark:text-blue-400"
+                    staticClass:
+                      "p-12 md:w-1/2 flex flex-col min-h-2xl  items-start"
                   },
                   [
                     _c(
-                      "svg",
+                      "span",
                       {
-                        staticClass: "w-8 h-8",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor"
-                        }
+                        staticClass:
+                          "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"
+                      },
+                      [_vm._v("USD. 140,000")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "h4",
+                      {
+                        staticClass:
+                          "sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4"
                       },
                       [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            d:
-                              "M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
-                          }
-                        }),
+                        _vm._v(
+                          "National Highways Authority Of Indi...... Southern Asia"
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "leading-relaxed mb-2" }, [
+                      _vm._v(
+                        "Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab"
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full"
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "text-indigo-500 inline-flex items-center"
+                          },
+                          [
+                            _vm._v(
+                              "Purchase Tender\n                              "
+                            ),
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "w-4 h-4 ml-2",
+                                attrs: {
+                                  viewBox: "0 0 24 24",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                  fill: "none",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round"
+                                }
+                              },
+                              [
+                                _c("path", { attrs: { d: "M5 12h14" } }),
+                                _vm._v(" "),
+                                _c("path", { attrs: { d: "M12 5l7 7-7 7" } })
+                              ]
+                            )
+                          ]
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            d:
-                              "M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "h1",
-                  {
-                    staticClass:
-                      "text-2xl font-semibold text-gray-700 capitalize dark:text-white"
-                  },
-                  [_vm._v("Tender One")]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-gray-500 dark:text-gray-300" }, [
-                  _vm._v(
-                    "\n                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet\n                      "
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "inline-flex p-2 text-blue-500 capitalize transition-colors duration-200 transform bg-blue-100 rounded-full dark:bg-blue-500 dark:text-white hover:underline hover:text-blue-600 dark:hover:text-blue-500",
-                    attrs: { href: "#" }
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "w-6 h-6",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            d:
-                              "M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "shadow-2xl p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl"
-              },
-              [
-                _c(
-                  "span",
-                  {
-                    staticClass: "inline-block text-blue-500 dark:text-blue-400"
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "w-8 h-8",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            d:
-                              "M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "h1",
-                  {
-                    staticClass:
-                      "text-2xl font-semibold text-gray-700 capitalize dark:text-white"
-                  },
-                  [_vm._v("Tender Two")]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-gray-500 dark:text-gray-300" }, [
-                  _vm._v(
-                    "\n                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet\n                      "
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "inline-flex p-2 text-blue-500 capitalize transition-colors duration-200 transform bg-blue-100 rounded-full dark:bg-blue-500 dark:text-white hover:underline hover:text-blue-600 dark:hover:text-blue-500",
-                    attrs: { href: "#" }
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "w-6 h-6",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            d:
-                              "M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                          }
-                        })
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "w-4 h-4 mr-1",
+                                attrs: {
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                  fill: "none",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round",
+                                  viewBox: "0 0 24 24"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("circle", {
+                                  attrs: { cx: "12", cy: "12", r: "3" }
+                                })
+                              ]
+                            ),
+                            _vm._v("Kenya "),
+                            _c("i", { staticClass: "fab fa-facebook" })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "text-gray-400 inline-flex items-center leading-none text-sm"
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "w-4 h-4 mr-1",
+                                attrs: {
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                  fill: "none",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round",
+                                  viewBox: "0 0 24 24"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v("26th Jan 22\n                          ")
+                          ]
+                        )
                       ]
                     )
                   ]
                 )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "shadow-2xl p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl"
-              },
-              [
-                _c(
-                  "span",
-                  {
-                    staticClass: "inline-block text-blue-500 dark:text-blue-400"
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "w-8 h-8",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            d:
-                              "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "h1",
-                  {
-                    staticClass:
-                      "text-2xl font-semibold text-gray-700 capitalize dark:text-white"
-                  },
-                  [_vm._v("Tender Three")]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-gray-500 dark:text-gray-300" }, [
-                  _vm._v(
-                    "\n                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet\n                      "
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "inline-flex p-2 text-blue-500 capitalize transition-colors duration-200 transform bg-blue-100 rounded-full dark:bg-blue-500 dark:text-white hover:underline hover:text-blue-600 dark:hover:text-blue-500",
-                    attrs: { href: "#" }
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "w-6 h-6",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            d:
-                              "M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "shadow-2xl p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl"
-              },
-              [
-                _c(
-                  "span",
-                  {
-                    staticClass: "inline-block text-blue-500 dark:text-blue-400"
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "w-8 h-8",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            d:
-                              "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "h1",
-                  {
-                    staticClass:
-                      "text-2xl font-semibold text-gray-700 capitalize dark:text-white"
-                  },
-                  [_vm._v("Tender Four")]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-gray-500 dark:text-gray-300" }, [
-                  _vm._v(
-                    "\n                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet\n                      "
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "inline-flex p-2 text-blue-500 capitalize transition-colors duration-200 transform bg-blue-100 rounded-full dark:bg-blue-500 dark:text-white hover:underline hover:text-blue-600 dark:hover:text-blue-500",
-                    attrs: { href: "#" }
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "w-6 h-6",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            d:
-                              "M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "shadow-2xl p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl"
-              },
-              [
-                _c(
-                  "span",
-                  {
-                    staticClass: "inline-block text-blue-500 dark:text-blue-400"
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "w-8 h-8",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            d:
-                              "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "h1",
-                  {
-                    staticClass:
-                      "text-2xl font-semibold text-gray-700 capitalize dark:text-white"
-                  },
-                  [_vm._v("Tender Five")]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-gray-500 dark:text-gray-300" }, [
-                  _vm._v(
-                    "\n                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet\n                      "
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "inline-flex p-2 text-blue-500 capitalize transition-colors duration-200 transform bg-blue-100 rounded-full dark:bg-blue-500 dark:text-white hover:underline hover:text-blue-600 dark:hover:text-blue-500",
-                    attrs: { href: "#" }
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "w-6 h-6",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            d:
-                              "M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "shadow-2xl p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl"
-              },
-              [
-                _c(
-                  "span",
-                  {
-                    staticClass: "inline-block text-blue-500 dark:text-blue-400"
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "w-8 h-8",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            d:
-                              "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "h1",
-                  {
-                    staticClass:
-                      "text-2xl font-semibold text-gray-700 capitalize dark:text-white"
-                  },
-                  [_vm._v("Tender Six")]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-gray-500 dark:text-gray-300" }, [
-                  _vm._v(
-                    "\n                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet\n                      "
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "inline-flex p-2 text-blue-500 capitalize transition-colors duration-200 transform bg-blue-100 rounded-full dark:bg-blue-500 dark:text-white hover:underline hover:text-blue-600 dark:hover:text-blue-500",
-                    attrs: { href: "#" }
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "w-6 h-6",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            d:
-                              "M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                )
-              ]
-            )
+              ])
+            ])
           ]
         )
       ])
@@ -35808,7 +35403,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "relative p-4 w-full max-w-2xl h-full md:h-auto"
+                      "relative p-4 w-full max-w-5xl h-full md:h-auto"
                   },
                   [
                     _c(
@@ -35935,29 +35530,295 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-6 space-y-6" }, [
+    return _c("div", { staticClass: "p-2 space-y-6" }, [
       _c(
-        "p",
+        "section",
         {
           staticClass:
-            "text-base leading-relaxed text-gray-500 dark:text-gray-400"
+            "max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800"
         },
         [
-          _vm._v(
-            "\n                      With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.\n                  "
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "p",
-        {
-          staticClass:
-            "text-base leading-relaxed text-gray-500 dark:text-gray-400"
-        },
-        [
-          _vm._v(
-            "\n                      The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.\n                  "
+          _c("form", [
+            _c(
+              "div",
+              { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2" },
+              [
+                _c("div", [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "text-gray-700 dark:text-gray-200",
+                      attrs: { for: "username" }
+                    },
+                    [_vm._v("Search Keyword")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass:
+                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                    attrs: { id: "username", type: "text" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "text-gray-700 dark:text-gray-200",
+                      attrs: { for: "emailAddress" }
+                    },
+                    [_vm._v("Within Search Keyword")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass:
+                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                    attrs: { id: "emailAddress", type: "text" }
+                  })
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2" },
+            [
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "username" }
+                  },
+                  [_vm._v("Tender Notice No.")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "username", type: "text" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "emailAddress" }
+                  },
+                  [_vm._v("Bid Detail Ref No.")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "emailAddress", type: "text" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "password" }
+                  },
+                  [_vm._v("Funding")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "password", type: "text" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "passwordConfirmation" }
+                  },
+                  [_vm._v("Tender Value")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass:
+                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                    attrs: {
+                      id: "country",
+                      name: "country",
+                      autocomplete: "country-name"
+                    }
+                  },
+                  [
+                    _c("option", [_vm._v("United States")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Canada")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Mexico")])
+                  ]
+                )
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1" },
+            [
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "username" }
+                  },
+                  [_vm._v("Region / Country")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "username", type: "text" }
+                })
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2" },
+            [
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "username" }
+                  },
+                  [_vm._v("Closing Date")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass:
+                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                    attrs: {
+                      id: "country",
+                      name: "country",
+                      autocomplete: "country-name"
+                    }
+                  },
+                  [
+                    _c("option", [_vm._v("United States")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Canada")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Mexico")])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "emailAddress" }
+                  },
+                  [_vm._v("Sector Classification")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass:
+                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                    attrs: {
+                      id: "country",
+                      name: "country",
+                      autocomplete: "country-name"
+                    }
+                  },
+                  [
+                    _c("option", [_vm._v("United States")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Canada")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Mexico")])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "password" }
+                  },
+                  [_vm._v("Funded")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass:
+                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                    attrs: {
+                      id: "country",
+                      name: "country",
+                      autocomplete: "country-name"
+                    }
+                  },
+                  [
+                    _c("option", [_vm._v("United States")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Canada")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Mexico")])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "passwordConfirmation" }
+                  },
+                  [_vm._v("Tender Type")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass:
+                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                    attrs: {
+                      id: "country",
+                      name: "country",
+                      autocomplete: "country-name"
+                    }
+                  },
+                  [
+                    _c("option", [_vm._v("United States")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Canada")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Mexico")])
+                  ]
+                )
+              ])
+            ]
           )
         ]
       )
@@ -52666,6 +52527,12 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+ // import { library } from '@fortawesome/fontawesome-svg-core'
+// import { faHatWizard } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+// library.add(faHatWizard)
+// library.add(user)
+// Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
   methods: {
