@@ -17,6 +17,16 @@ class LandingController extends Controller
         return Inertia::render('Landing');
     }
 
+    public function selected()
+    {
+        return Inertia::render('Selected');
+    }
+
+    public function listing()
+    {
+        return Inertia::render('Listing');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

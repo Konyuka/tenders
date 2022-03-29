@@ -5112,16 +5112,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
   components: {//   Categories,
   },
   data: function data() {
-    return {};
+    return {
+      activeMenu: ''
+    };
   },
   watch: {},
-  computed: {},
-  methods: {}
+  computed: {
+    currentRouteName: function currentRouteName() {
+      return this.$route.name;
+    }
+  },
+  methods: {
+    selected: function selected(value) {
+      console.log(value);
+      this.activeMenu = value;
+      route('landing'); //   route(`${value}`)
+    }
+  }
 });
 
 /***/ }),
@@ -5615,6 +5628,419 @@ __webpack_require__.r(__webpack_exports__);
     FeaturedTenders: _Components_FeaturedTenders_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     ServiceIntro: _Components_ServiceIntro_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+  },
+  watch: {},
+  mounted: function mounted() {},
+  computed: {},
+  data: function data() {
+    return {
+      modal: false
+    };
+  },
+  methods: {
+    clearFilters: function clearFilters() {},
+    loadFilters: function loadFilters() {}
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Listing.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Listing.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
+/* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
+/* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Landing',
+  props: {},
+  components: {
+    TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  watch: {},
+  mounted: function mounted() {},
+  computed: {},
+  data: function data() {
+    return {
+      modal: false
+    };
+  },
+  methods: {
+    clearFilters: function clearFilters() {},
+    loadFilters: function loadFilters() {}
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/PageTemplate.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/PageTemplate.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
+/* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
+/* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Landing',
+  props: {},
+  components: {
+    TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   watch: {},
   mounted: function mounted() {},
@@ -6414,6 +6840,56 @@ __webpack_require__.r(__webpack_exports__);
         _this2.photoPreview = null;
       });
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Selected.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Selected.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
+/* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
+/* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Landing',
+  props: {},
+  components: {
+    TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  watch: {},
+  mounted: function mounted() {},
+  computed: {},
+  data: function data() {
+    return {
+      modal: false
+    };
+  },
+  methods: {
+    clearFilters: function clearFilters() {},
+    loadFilters: function loadFilters() {}
   }
 });
 
@@ -33835,7 +34311,7 @@ var render = function() {
                   {
                     staticClass:
                       "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
-                    attrs: { href: "#" }
+                    attrs: { href: _vm.route("selected") }
                   },
                   [
                     _c(
@@ -33918,7 +34394,7 @@ var render = function() {
                   {
                     staticClass:
                       "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
-                    attrs: { href: "#" }
+                    attrs: { href: _vm.route("selected") }
                   },
                   [
                     _c(
@@ -34001,7 +34477,7 @@ var render = function() {
                   {
                     staticClass:
                       "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
-                    attrs: { href: "#" }
+                    attrs: { href: _vm.route("selected") }
                   },
                   [
                     _c(
@@ -34084,7 +34560,7 @@ var render = function() {
                   {
                     staticClass:
                       "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
-                    attrs: { href: "#" }
+                    attrs: { href: _vm.route("selected") }
                   },
                   [
                     _c(
@@ -34167,7 +34643,7 @@ var render = function() {
                   {
                     staticClass:
                       "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
-                    attrs: { href: "#" }
+                    attrs: { href: _vm.route("selected") }
                   },
                   [
                     _c(
@@ -35091,201 +35567,203 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "2xl:container 2xl:mx-auto" }, [
+      _c(
+        "div",
+        {
+          staticClass: "bg-white dark:bg-gray-800  rounded shadow-lg py-5 px-7"
+        },
+        [
+          _c("nav", { staticClass: "flex justify-between" }, [
+            _c("ul", { staticClass: "hidden md:flex flex-auto space-x-2" }, [
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded",
+                  attrs: { href: _vm.route("landing") }
+                },
+                [_vm._v("Home")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded",
+                  attrs: { href: _vm.route("listing") }
+                },
+                [_vm._v("Tenders Listing")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded",
+                  attrs: { href: _vm.route("") }
+                },
+                [_vm._v("Product & Services")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded",
+                  attrs: { href: _vm.route("") }
+                },
+                [_vm._v("Partners & Clients")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded",
+                  attrs: { href: _vm.route("") }
+                },
+                [_vm._v("Blogs & Articles")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded",
+                  attrs: { href: _vm.route("") }
+                },
+                [_vm._v("About & Contacts")]
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ]
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "2xl:container 2xl:mx-auto" }, [
+    return _c(
+      "div",
+      { staticClass: " flex space-x-5 justify-center  items-center pl-2" },
+      [
+        _c("a", {
+          staticClass: "fas fa-search fa-xl text-indigo-600",
+          attrs: { href: "#" }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "block md:hidden w-full mt-5 " }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "cursor-pointer px-4 py-3 text-white bg-indigo-600 rounded flex justify-between items-center w-full",
+          attrs: { onclick: "selectNew()" }
+        },
+        [
+          _c("div", { staticClass: "flex space-x-2" }, [
+            _c(
+              "span",
+              {
+                staticClass: "font-semibold text-sm leading-3 hidden",
+                attrs: { id: "s1" }
+              },
+              [_vm._v("Selected: ")]
+            ),
+            _c(
+              "p",
+              {
+                staticClass:
+                  "font-normal text-sm leading-3 focus:outline-none hover:bg-gray-800 duration-100 cursor-pointer ",
+                attrs: { id: "textClicked" }
+              },
+              [_vm._v("Collections")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("img", {
+            attrs: {
+              src:
+                "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-1-svg4.svg",
+              alt: "down arrow"
+            }
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: " relative" }, [
         _c(
-          "div",
+          "ul",
           {
             staticClass:
-              "bg-white dark:bg-gray-800  rounded shadow-lg py-5 px-7"
+              " hidden font-normal text-base leading-4 absolute top-2  w-full rounded shadow-md",
+            attrs: { id: "list" }
           },
           [
-            _c("nav", { staticClass: "flex justify-between" }, [
-              _c("ul", { staticClass: "hidden md:flex flex-auto space-x-2" }, [
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white bg-indigo-600 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded",
-                    attrs: { onclick: "selected()" }
-                  },
-                  [_vm._v("Home")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded",
-                    attrs: { onclick: "selected()" }
-                  },
-                  [_vm._v("Tenders Listing")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded",
-                    attrs: { onclick: "selected()" }
-                  },
-                  [_vm._v("Product & Services")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded",
-                    attrs: { onclick: "selected()" }
-                  },
-                  [_vm._v("Partners & Clients")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded",
-                    attrs: { onclick: "selected()" }
-                  },
-                  [_vm._v("Blogs & Articles")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded",
-                    attrs: { onclick: "selected()" }
-                  },
-                  [_vm._v("About & Contacts")]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    " flex space-x-5 justify-center  items-center pl-2"
-                },
-                [
-                  _c("a", {
-                    staticClass: "fas fa-search fa-xl text-indigo-600",
-                    attrs: { href: "#" }
-                  })
-                ]
-              )
-            ]),
+            _c(
+              "li",
+              {
+                staticClass:
+                  "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
+                attrs: { onclick: "selectedSmall()" }
+              },
+              [_vm._v("Arts")]
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "block md:hidden w-full mt-5 " }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "cursor-pointer px-4 py-3 text-white bg-indigo-600 rounded flex justify-between items-center w-full",
-                  attrs: { onclick: "selectNew()" }
-                },
-                [
-                  _c("div", { staticClass: "flex space-x-2" }, [
-                    _c(
-                      "span",
-                      {
-                        staticClass: "font-semibold text-sm leading-3 hidden",
-                        attrs: { id: "s1" }
-                      },
-                      [_vm._v("Selected: ")]
-                    ),
-                    _c(
-                      "p",
-                      {
-                        staticClass:
-                          "font-normal text-sm leading-3 focus:outline-none hover:bg-gray-800 duration-100 cursor-pointer ",
-                        attrs: { id: "textClicked" }
-                      },
-                      [_vm._v("Collections")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("img", {
-                    attrs: {
-                      src:
-                        "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-1-svg4.svg",
-                      alt: "down arrow"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: " relative" }, [
-                _c(
-                  "ul",
-                  {
-                    staticClass:
-                      " hidden font-normal text-base leading-4 absolute top-2  w-full rounded shadow-md",
-                    attrs: { id: "list" }
-                  },
-                  [
-                    _c(
-                      "li",
-                      {
-                        staticClass:
-                          "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
-                        attrs: { onclick: "selectedSmall()" }
-                      },
-                      [_vm._v("Arts")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass:
-                          "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
-                        attrs: { onclick: "selectedSmall()" }
-                      },
-                      [_vm._v("Space")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass:
-                          "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
-                        attrs: { onclick: "selectedSmall()" }
-                      },
-                      [_vm._v("Game")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass:
-                          "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
-                        attrs: { onclick: "selectedSmall()" }
-                      },
-                      [_vm._v("Utility")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass:
-                          "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
-                        attrs: { onclick: "selectedSmall()" }
-                      },
-                      [_vm._v("Cards")]
-                    )
-                  ]
-                )
-              ])
-            ])
+            _c(
+              "li",
+              {
+                staticClass:
+                  "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
+                attrs: { onclick: "selectedSmall()" }
+              },
+              [_vm._v("Space")]
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                staticClass:
+                  "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
+                attrs: { onclick: "selectedSmall()" }
+              },
+              [_vm._v("Game")]
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                staticClass:
+                  "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
+                attrs: { onclick: "selectedSmall()" }
+              },
+              [_vm._v("Utility")]
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                staticClass:
+                  "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
+                attrs: { onclick: "selectedSmall()" }
+              },
+              [_vm._v("Cards")]
+            )
           ]
         )
       ])
@@ -36823,6 +37301,1500 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Listing.vue?vue&type=template&id=0ad230eb&":
+/*!*****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Listing.vue?vue&type=template&id=0ad230eb& ***!
+  \*****************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "h-screen" }, [
+    _c(
+      "body",
+      { staticClass: "overflow-x-hidden antialiased" },
+      [
+        _c("TopBanner"),
+        _vm._v(" "),
+        _c("MainMenu"),
+        _vm._v(" "),
+        _c("section", { staticClass: "text-gray-600 body-font" }, [
+          _c(
+            "button",
+            {
+              staticClass:
+                "flex mx-auto mt-10 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg",
+              on: {
+                click: function($event) {
+                  _vm.modal = true
+                }
+              }
+            },
+            [_vm._v("Tenders Search Filters")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "container px-5 py-10 mx-auto" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex flex-wrap" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("Shooting Stars")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("The Catalyzer")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("Neptune")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("Melanchole")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("Shooting Stars")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("The Catalyzer")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("Neptune")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("Melanchole")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("Shooting Stars")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("The Catalyzer")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("Neptune")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("Melanchole")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("Shooting Stars")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("The Catalyzer")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("Neptune")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("Melanchole")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("Shooting Stars")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("The Catalyzer")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("Neptune")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60"
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                    },
+                    [_vm._v("Melanchole")]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
+                    _vm._v(
+                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    { staticClass: "text-indigo-500 inline-flex items-center" },
+                    [
+                      _vm._v("Learn More\n              "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-4 h-4 ml-2",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "2",
+                            viewBox: "0 0 24 24"
+                          }
+                        },
+                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
+                      )
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("MainFooter"),
+        _vm._v(" "),
+        _vm.modal
+          ? _c(
+              "div",
+              {
+                staticClass:
+                  "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
+                attrs: {
+                  id: "defaultModal",
+                  tabindex: "-1",
+                  "aria-hidden": "true"
+                }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "relative p-4 w-full max-w-5xl h-full md:h-auto"
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "relative bg-gray-50 rounded-lg shadow-2xl dark:bg-gray-700"
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600"
+                          },
+                          [
+                            _c(
+                              "h3",
+                              {
+                                staticClass:
+                                  "text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                      Tender Search Filters\n                  "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white",
+                                attrs: {
+                                  type: "button",
+                                  "data-modal-toggle": "defaultModal"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    _vm.modal = false
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "w-5 h-5",
+                                    attrs: {
+                                      fill: "currentColor",
+                                      viewBox: "0 0 20 20",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        "fill-rule": "evenodd",
+                                        d:
+                                          "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+                                        "clip-rule": "evenodd"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
+                          },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
+                                attrs: {
+                                  "data-modal-toggle": "defaultModal",
+                                  type: "button"
+                                },
+                                on: { click: _vm.loadFilters }
+                              },
+                              [_vm._v("Find Tenders")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600",
+                                attrs: {
+                                  "data-modal-toggle": "defaultModal",
+                                  type: "button"
+                                },
+                                on: { click: _vm.clearFilters }
+                              },
+                              [_vm._v("Clear Filters")]
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex flex-col text-center w-full mb-6" }, [
+      _c(
+        "h2",
+        {
+          staticClass:
+            "text-xs text-indigo-500 tracking-widest font-medium title-font mb-1"
+        },
+        [_vm._v("BIDDERS PORTAL")]
+      ),
+      _vm._v(" "),
+      _c(
+        "h1",
+        {
+          staticClass:
+            "sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
+        },
+        [_vm._v("All Tenders Listing")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-2 space-y-6" }, [
+      _c(
+        "section",
+        {
+          staticClass:
+            "max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800"
+        },
+        [
+          _c("form", [
+            _c(
+              "div",
+              { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2" },
+              [
+                _c("div", [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "text-gray-700 dark:text-gray-200",
+                      attrs: { for: "username" }
+                    },
+                    [_vm._v("Search Keyword")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass:
+                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                    attrs: { id: "username", type: "text" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "text-gray-700 dark:text-gray-200",
+                      attrs: { for: "emailAddress" }
+                    },
+                    [_vm._v("Within Search Keyword")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass:
+                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                    attrs: { id: "emailAddress", type: "text" }
+                  })
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2" },
+            [
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "username" }
+                  },
+                  [_vm._v("Tender Notice No.")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "username", type: "text" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "emailAddress" }
+                  },
+                  [_vm._v("Bid Detail Ref No.")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "emailAddress", type: "text" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "password" }
+                  },
+                  [_vm._v("Funding")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "password", type: "text" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "passwordConfirmation" }
+                  },
+                  [_vm._v("Tender Value")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass:
+                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                    attrs: {
+                      id: "country",
+                      name: "country",
+                      autocomplete: "country-name"
+                    }
+                  },
+                  [
+                    _c("option", [_vm._v("United States")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Canada")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Mexico")])
+                  ]
+                )
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1" },
+            [
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "username" }
+                  },
+                  [_vm._v("Region / Country")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "username", type: "text" }
+                })
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2" },
+            [
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "username" }
+                  },
+                  [_vm._v("Closing Date")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass:
+                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                    attrs: {
+                      id: "country",
+                      name: "country",
+                      autocomplete: "country-name"
+                    }
+                  },
+                  [
+                    _c("option", [_vm._v("United States")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Canada")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Mexico")])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "emailAddress" }
+                  },
+                  [_vm._v("Sector Classification")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass:
+                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                    attrs: {
+                      id: "country",
+                      name: "country",
+                      autocomplete: "country-name"
+                    }
+                  },
+                  [
+                    _c("option", [_vm._v("United States")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Canada")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Mexico")])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "password" }
+                  },
+                  [_vm._v("Funded")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass:
+                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                    attrs: {
+                      id: "country",
+                      name: "country",
+                      autocomplete: "country-name"
+                    }
+                  },
+                  [
+                    _c("option", [_vm._v("United States")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Canada")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Mexico")])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "passwordConfirmation" }
+                  },
+                  [_vm._v("Tender Type")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass:
+                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                    attrs: {
+                      id: "country",
+                      name: "country",
+                      autocomplete: "country-name"
+                    }
+                  },
+                  [
+                    _c("option", [_vm._v("United States")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Canada")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Mexico")])
+                  ]
+                )
+              ])
+            ]
+          )
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/PageTemplate.vue?vue&type=template&id=e4c2a45c&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/PageTemplate.vue?vue&type=template&id=e4c2a45c& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "h-screen" }, [
+    _c(
+      "body",
+      { staticClass: "overflow-x-hidden antialiased" },
+      [
+        _c("TopBanner"),
+        _vm._v(" "),
+        _c("MainMenu"),
+        _vm._v(" "),
+        _c("MainFooter")
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Profile/DeleteUserForm.vue?vue&type=template&id=4ed1f029&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Profile/DeleteUserForm.vue?vue&type=template&id=4ed1f029& ***!
@@ -38060,6 +40032,43 @@ var render = function() {
       }
     ])
   })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Selected.vue?vue&type=template&id=bd761878&":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Selected.vue?vue&type=template&id=bd761878& ***!
+  \******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "h-screen" }, [
+    _c(
+      "body",
+      { staticClass: "overflow-x-hidden antialiased" },
+      [
+        _c("TopBanner"),
+        _vm._v(" "),
+        _c("MainMenu"),
+        _vm._v(" "),
+        _c("MainFooter")
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -51877,6 +53886,10 @@ var map = {
 	"./Dcopy.vue": "./resources/js/Pages/Dcopy.vue",
 	"./Landing": "./resources/js/Pages/Landing.vue",
 	"./Landing.vue": "./resources/js/Pages/Landing.vue",
+	"./Listing": "./resources/js/Pages/Listing.vue",
+	"./Listing.vue": "./resources/js/Pages/Listing.vue",
+	"./PageTemplate": "./resources/js/Pages/PageTemplate.vue",
+	"./PageTemplate.vue": "./resources/js/Pages/PageTemplate.vue",
 	"./Profile/DeleteUserForm": "./resources/js/Pages/Profile/DeleteUserForm.vue",
 	"./Profile/DeleteUserForm.vue": "./resources/js/Pages/Profile/DeleteUserForm.vue",
 	"./Profile/LogoutOtherBrowserSessionsForm": "./resources/js/Pages/Profile/LogoutOtherBrowserSessionsForm.vue",
@@ -51888,7 +53901,9 @@ var map = {
 	"./Profile/UpdatePasswordForm": "./resources/js/Pages/Profile/UpdatePasswordForm.vue",
 	"./Profile/UpdatePasswordForm.vue": "./resources/js/Pages/Profile/UpdatePasswordForm.vue",
 	"./Profile/UpdateProfileInformationForm": "./resources/js/Pages/Profile/UpdateProfileInformationForm.vue",
-	"./Profile/UpdateProfileInformationForm.vue": "./resources/js/Pages/Profile/UpdateProfileInformationForm.vue"
+	"./Profile/UpdateProfileInformationForm.vue": "./resources/js/Pages/Profile/UpdateProfileInformationForm.vue",
+	"./Selected": "./resources/js/Pages/Selected.vue",
+	"./Selected.vue": "./resources/js/Pages/Selected.vue"
 };
 
 
@@ -53154,6 +55169,144 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Listing.vue":
+/*!****************************************!*\
+  !*** ./resources/js/Pages/Listing.vue ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing_vue_vue_type_template_id_0ad230eb___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing.vue?vue&type=template&id=0ad230eb& */ "./resources/js/Pages/Listing.vue?vue&type=template&id=0ad230eb&");
+/* harmony import */ var _Listing_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Listing.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Listing.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Listing_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Listing_vue_vue_type_template_id_0ad230eb___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Listing_vue_vue_type_template_id_0ad230eb___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Listing.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Listing.vue?vue&type=script&lang=js&":
+/*!*****************************************************************!*\
+  !*** ./resources/js/Pages/Listing.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Listing_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Listing.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Listing.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Listing_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Listing.vue?vue&type=template&id=0ad230eb&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/Pages/Listing.vue?vue&type=template&id=0ad230eb& ***!
+  \***********************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Listing_vue_vue_type_template_id_0ad230eb___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Listing.vue?vue&type=template&id=0ad230eb& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Listing.vue?vue&type=template&id=0ad230eb&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Listing_vue_vue_type_template_id_0ad230eb___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Listing_vue_vue_type_template_id_0ad230eb___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/PageTemplate.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/Pages/PageTemplate.vue ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PageTemplate_vue_vue_type_template_id_e4c2a45c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PageTemplate.vue?vue&type=template&id=e4c2a45c& */ "./resources/js/Pages/PageTemplate.vue?vue&type=template&id=e4c2a45c&");
+/* harmony import */ var _PageTemplate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PageTemplate.vue?vue&type=script&lang=js& */ "./resources/js/Pages/PageTemplate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PageTemplate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PageTemplate_vue_vue_type_template_id_e4c2a45c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PageTemplate_vue_vue_type_template_id_e4c2a45c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/PageTemplate.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/PageTemplate.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/Pages/PageTemplate.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PageTemplate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PageTemplate.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/PageTemplate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PageTemplate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/PageTemplate.vue?vue&type=template&id=e4c2a45c&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/Pages/PageTemplate.vue?vue&type=template&id=e4c2a45c& ***!
+  \****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PageTemplate_vue_vue_type_template_id_e4c2a45c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PageTemplate.vue?vue&type=template&id=e4c2a45c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/PageTemplate.vue?vue&type=template&id=e4c2a45c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PageTemplate_vue_vue_type_template_id_e4c2a45c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PageTemplate_vue_vue_type_template_id_e4c2a45c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Profile/DeleteUserForm.vue":
 /*!*******************************************************!*\
   !*** ./resources/js/Pages/Profile/DeleteUserForm.vue ***!
@@ -53563,6 +55716,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateProfileInformationForm_vue_vue_type_template_id_f38ebb82___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateProfileInformationForm_vue_vue_type_template_id_f38ebb82___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Selected.vue":
+/*!*****************************************!*\
+  !*** ./resources/js/Pages/Selected.vue ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Selected_vue_vue_type_template_id_bd761878___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Selected.vue?vue&type=template&id=bd761878& */ "./resources/js/Pages/Selected.vue?vue&type=template&id=bd761878&");
+/* harmony import */ var _Selected_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Selected.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Selected.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Selected_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Selected_vue_vue_type_template_id_bd761878___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Selected_vue_vue_type_template_id_bd761878___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Selected.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Selected.vue?vue&type=script&lang=js&":
+/*!******************************************************************!*\
+  !*** ./resources/js/Pages/Selected.vue?vue&type=script&lang=js& ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Selected_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Selected.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Selected.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Selected_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Selected.vue?vue&type=template&id=bd761878&":
+/*!************************************************************************!*\
+  !*** ./resources/js/Pages/Selected.vue?vue&type=template&id=bd761878& ***!
+  \************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Selected_vue_vue_type_template_id_bd761878___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Selected.vue?vue&type=template&id=bd761878& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Selected.vue?vue&type=template&id=bd761878&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Selected_vue_vue_type_template_id_bd761878___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Selected_vue_vue_type_template_id_bd761878___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

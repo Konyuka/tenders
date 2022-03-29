@@ -13,7 +13,7 @@
                     <div class="container px-5 py-24 mx-auto">
                         <div class="flex flex-wrap -m-12">
 
-                        <a href="#" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
+                        <a :href="route('selected')" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
                             <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">USD. 140,000</span>
                             <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">National Highways Authority Of Indi...... Southern Asia</h4>
                             <p class="leading-relaxed mb-2">Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab</p>
@@ -33,7 +33,7 @@
                             </div>
                         </a>
 
-                        <a href="#" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
+                        <a :href="route('selected')" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
                             <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">USD. 140,000</span>
                             <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">National Highways Authority Of Indi...... Southern Asia</h4>
                             <p class="leading-relaxed mb-2">Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab</p>
@@ -53,7 +53,7 @@
                             </div>
                         </a>
 
-                        <a href="#" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
+                        <a :href="route('selected')" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
                             <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">USD. 140,000</span>
                             <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">National Highways Authority Of Indi...... Southern Asia</h4>
                             <p class="leading-relaxed mb-2">Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab</p>
@@ -73,7 +73,7 @@
                             </div>
                         </a>
 
-                        <a href="#" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
+                        <a :href="route('selected')" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
                             <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">USD. 140,000</span>
                             <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">National Highways Authority Of Indi...... Southern Asia</h4>
                             <p class="leading-relaxed mb-2">Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab</p>
@@ -93,7 +93,7 @@
                             </div>
                         </a>
 
-                        <a href="#" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
+                        <a :href="route('selected')" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
                             <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">USD. 140,000</span>
                             <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">National Highways Authority Of Indi...... Southern Asia</h4>
                             <p class="leading-relaxed mb-2">Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab</p>

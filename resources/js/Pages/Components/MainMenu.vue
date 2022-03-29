@@ -11,12 +11,13 @@
 
                     <!-- For medium and plus sized devices -->
                     <ul class="hidden md:flex flex-auto space-x-2">
-                        <li onclick="selected()" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white bg-indigo-600 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">Home</li>
-                        <li onclick="selected()" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">Tenders Listing</li>
-                        <li onclick="selected()" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">Product & Services</li>
-                        <li onclick="selected()" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">Partners & Clients</li>
-                        <li onclick="selected()" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">Blogs & Articles</li>
-                        <li onclick="selected()" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">About & Contacts</li>
+                        <!-- <a :href="route('landing')" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white bg-indigo-600 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">Home</a> -->
+                        <a :href="route('landing')" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded">Home</a>
+                        <a :href="route('listing')" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded">Tenders Listing</a>
+                        <a :href="route('')" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded">Product & Services</a>
+                        <a :href="route('')" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded">Partners & Clients</a>
+                        <a :href="route('')" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded">Blogs & Articles</a>
+                        <a :href="route('')" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded">About & Contacts</a>
                     </ul>
                     <div class=" flex space-x-5 justify-center  items-center pl-2">
 
@@ -58,17 +59,24 @@ export default {
   },
   data(){
     return{
-
+        activeMenu:'',
     }
   },
   watch: {
 
   },
   computed: {
-
+      currentRouteName() {
+        return this.$route.name;
+    }
   },
   methods: {
-
+      selected(value){
+          console.log(value)
+          this.activeMenu = value
+          route('landing')
+        //   route(`${value}`)
+      }
   }
 
 }
