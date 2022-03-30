@@ -65,9 +65,9 @@
                         </div>
                     </div>
 
-                    <div class="hidden lg:flex lg:items-center lg:w-1/2 lg:justify-center">
-                        <img class="w-[28rem] h-[28rem] object-cover xl:w-[34rem] xl:h-[34rem] rounded-full" src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=755&q=80" alt="">
-                    </div>
+                    <!-- <div class="hidden lg:flex lg:items-center lg:w-1/2 lg:justify-center">
+                        <img class="w-[28rem] h-[28rem] object-cover xl:w-[34rem] xl:h-[34rem] rounded-xl " src="https://downloader.la/temp/[Downloader.la]-6244326ee02f0.jpg" alt="">
+                    </div> -->
                 </div>
 
                 <hr class="border-gray-200 my-12 dark:border-gray-700">

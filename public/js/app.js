@@ -4660,6 +4660,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Jetstream/Button.vue */ "./resources/js/Jetstream/Button.vue");
 //
 //
 //
@@ -4811,9 +4812,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
-  components: {//   Categories,
+  components: {
+    Button: _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_0__["default"] //   Categories,
+
   },
   data: function data() {
     return {};
@@ -34905,7 +34911,23 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(12)
+            _c(
+              "a",
+              {
+                staticClass: "md:mt-12 mt-7",
+                attrs: { href: _vm.route("listing") }
+              },
+              [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "text-base font-medium leading-4 text-white hover:text-gray-700 bg-indigo-700 sm:w-auto w-full rounded p-4 focus:outline-none hover:bg-gray-100 focus:ring-2 focus:ring-offset-2 focus:ring-white"
+                  },
+                  [_vm._v("View All Tenders")]
+                )
+              ]
+            )
           ]
         )
       ])
@@ -35104,21 +35126,6 @@ var staticRenderFns = [
         _vm._v("26th Jan 22\n                          ")
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "md:mt-12 mt-10" }, [
-      _c(
-        "button",
-        {
-          staticClass:
-            "text-base font-medium leading-4 text-white hover:text-gray-700 bg-indigo-700 sm:w-auto w-full rounded p-4 focus:outline-none hover:bg-gray-100 focus:ring-2 focus:ring-offset-2 focus:ring-white"
-        },
-        [_vm._v("View All Tenders")]
-      )
-    ])
   }
 ]
 render._withStripped = true
@@ -36181,16 +36188,14 @@ var render = function() {
               _vm._v(" "),
               _vm._m(3)
             ])
-          ]),
-          _vm._v(" "),
-          _vm._m(4)
+          ])
         ]),
         _vm._v(" "),
         _c("hr", { staticClass: "border-gray-200 my-12 dark:border-gray-700" }),
         _vm._v(" "),
-        _vm._m(5),
+        _vm._m(4),
         _vm._v(" "),
-        _vm._m(6),
+        _vm._m(5),
         _vm._v(" "),
         _c(
           "div",
@@ -36515,28 +36520,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "hidden lg:flex lg:items-center lg:w-1/2 lg:justify-center"
-      },
-      [
-        _c("img", {
-          staticClass:
-            "w-[28rem] h-[28rem] object-cover xl:w-[34rem] xl:h-[34rem] rounded-full",
-          attrs: {
-            src:
-              "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=755&q=80",
-            alt: ""
-          }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", {}, [
       _c(
         "h1",
@@ -36736,7 +36719,7 @@ var staticRenderFns = [
           staticClass:
             " font-normal text-2xl leading-6 text-gray-800 dark:text-white "
         },
-        [_vm._v("Tender Hub")]
+        [_vm._v("Bidders Portal")]
       )
     ])
   },
@@ -40385,7 +40368,7 @@ var render = function() {
                                 staticClass:
                                   "title-font font-medium text-2xl text-gray-900"
                               },
-                              [_vm._v("$58.00")]
+                              [_vm._v("KES 100")]
                             ),
                             _vm._v(" "),
                             _c(
@@ -40401,7 +40384,7 @@ var render = function() {
                               "button",
                               {
                                 staticClass:
-                                  "rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4"
+                                  "hover:bg-red-500 hover:text-white rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4"
                               },
                               [
                                 _c(

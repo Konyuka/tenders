@@ -139,9 +139,11 @@
 
                     </div>
 
-                    <div class="md:mt-12 mt-10">
+                    <a :href="route('listing')" class="md:mt-12 mt-7">
+
                         <button class="text-base font-medium leading-4 text-white hover:text-gray-700 bg-indigo-700 sm:w-auto w-full rounded p-4 focus:outline-none hover:bg-gray-100 focus:ring-2 focus:ring-offset-2 focus:ring-white">View All Tenders</button>
-                    </div>
+
+                    </a>
 
                 </section>
             </div>
@@ -150,10 +152,12 @@
 </template>
 
 <script>
+import Button from '../../Jetstream/Button.vue'
 
 export default {
   name: 'Header',
   components: {
+    Button
     //   Categories,
   },
   data(){

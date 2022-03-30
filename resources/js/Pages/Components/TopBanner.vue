@@ -12,7 +12,7 @@
                 </div>
                 <div class=" flex space-x-3 items-center">
                     <img class="p-1 dark:bg-white rounded-full" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg5.svg" alt="circle" />
-                    <h1 class=" font-normal text-2xl leading-6 text-gray-800 dark:text-white " >Tender Hub</h1>
+                    <h1 class=" font-normal text-2xl leading-6 text-gray-800 dark:text-white " >Bidders Portal</h1>
                 </div>
                 <div class="hidden sm:flex flex-row space-x-4">
                     <a :href="route('register')" class="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-indigo-700 bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center" >Sign Up</a>
