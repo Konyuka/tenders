@@ -5113,6 +5113,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
   components: {//   Categories,
@@ -5481,6 +5483,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_FeaturedTenders_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/FeaturedTenders.vue */ "./resources/js/Pages/Components/FeaturedTenders.vue");
 /* harmony import */ var _Components_ServiceIntro_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/ServiceIntro.vue */ "./resources/js/Pages/Components/ServiceIntro.vue");
 /* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6872,6 +6879,83 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
 /* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -35674,6 +35758,11 @@ var staticRenderFns = [
         _c("a", {
           staticClass: "fas fa-search fa-xl text-indigo-600",
           attrs: { href: "#" }
+        }),
+        _vm._v(" "),
+        _c("a", {
+          staticClass: "fas fa-cart-arrow-down fa-xl text-indigo-600",
+          attrs: { href: "#" }
         })
       ]
     )
@@ -36849,165 +36938,167 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "body",
-      { staticClass: "overflow-x-hidden antialiased" },
-      [
-        _c("TopBanner"),
-        _vm._v(" "),
-        _c("MainMenu"),
-        _vm._v(" "),
-        _c("HeroSection", {
-          on: {
-            modalState: function($event) {
-              _vm.modal = true
+    _c("body", { staticClass: "overflow-x-hidden antialiased" }, [
+      _c(
+        "div",
+        { staticClass: "flex flex-col h-screen" },
+        [
+          _c("TopBanner"),
+          _vm._v(" "),
+          _c("MainMenu", { staticClass: "sticky top-0 z-50" }),
+          _vm._v(" "),
+          _c("HeroSection", {
+            on: {
+              modalState: function($event) {
+                _vm.modal = true
+              }
             }
-          }
-        }),
-        _vm._v(" "),
-        _c("FeaturedTenders"),
-        _vm._v(" "),
-        _c("ServiceIntro"),
-        _vm._v(" "),
-        _c("MainFooter"),
-        _vm._v(" "),
-        _vm.modal
-          ? _c(
-              "div",
-              {
-                staticClass:
-                  "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
-                attrs: {
-                  id: "defaultModal",
-                  tabindex: "-1",
-                  "aria-hidden": "true"
-                }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "relative p-4 w-full max-w-5xl h-full md:h-auto"
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "relative bg-gray-50 rounded-lg shadow-2xl dark:bg-gray-700"
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600"
-                          },
-                          [
-                            _c(
-                              "h3",
-                              {
-                                staticClass:
-                                  "text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white"
-                              },
-                              [
-                                _vm._v(
-                                  "\n                      Tender Search Filters\n                  "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white",
-                                attrs: {
-                                  type: "button",
-                                  "data-modal-toggle": "defaultModal"
+          }),
+          _vm._v(" "),
+          _c("FeaturedTenders"),
+          _vm._v(" "),
+          _c("ServiceIntro"),
+          _vm._v(" "),
+          _c("MainFooter"),
+          _vm._v(" "),
+          _vm.modal
+            ? _c(
+                "div",
+                {
+                  staticClass:
+                    "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
+                  attrs: {
+                    id: "defaultModal",
+                    tabindex: "-1",
+                    "aria-hidden": "true"
+                  }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "relative p-4 w-full max-w-5xl h-full md:h-auto"
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "relative bg-gray-50 rounded-lg shadow-2xl dark:bg-gray-700"
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600"
+                            },
+                            [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white"
                                 },
-                                on: {
-                                  click: function($event) {
-                                    _vm.modal = false
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass: "w-5 h-5",
-                                    attrs: {
-                                      fill: "currentColor",
-                                      viewBox: "0 0 20 20",
-                                      xmlns: "http://www.w3.org/2000/svg"
-                                    }
+                                [
+                                  _vm._v(
+                                    "\n                      Tender Search Filters\n                  "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white",
+                                  attrs: {
+                                    type: "button",
+                                    "data-modal-toggle": "defaultModal"
                                   },
-                                  [
-                                    _c("path", {
+                                  on: {
+                                    click: function($event) {
+                                      _vm.modal = false
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "w-5 h-5",
                                       attrs: {
-                                        "fill-rule": "evenodd",
-                                        d:
-                                          "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
-                                        "clip-rule": "evenodd"
+                                        fill: "currentColor",
+                                        viewBox: "0 0 20 20",
+                                        xmlns: "http://www.w3.org/2000/svg"
                                       }
-                                    })
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm._m(0),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
-                          },
-                          [
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
-                                attrs: {
-                                  "data-modal-toggle": "defaultModal",
-                                  type: "button"
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "fill-rule": "evenodd",
+                                          d:
+                                            "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+                                          "clip-rule": "evenodd"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm._m(0),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
+                            },
+                            [
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
+                                  attrs: {
+                                    "data-modal-toggle": "defaultModal",
+                                    type: "button"
+                                  },
+                                  on: { click: _vm.loadFilters }
                                 },
-                                on: { click: _vm.loadFilters }
-                              },
-                              [_vm._v("Find Tenders")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600",
-                                attrs: {
-                                  "data-modal-toggle": "defaultModal",
-                                  type: "button"
+                                [_vm._v("Find Tenders")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600",
+                                  attrs: {
+                                    "data-modal-toggle": "defaultModal",
+                                    type: "button"
+                                  },
+                                  on: { click: _vm.clearFilters }
                                 },
-                                on: { click: _vm.clearFilters }
-                              },
-                              [_vm._v("Clear Filters")]
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            )
-          : _vm._e()
-      ],
-      1
-    )
+                                [_vm._v("Clear Filters")]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
+            : _vm._e()
+        ],
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -40125,9 +40216,228 @@ var render = function() {
       "body",
       { staticClass: "overflow-x-hidden antialiased" },
       [
-        _c("TopBanner"),
-        _vm._v(" "),
-        _c("MainMenu"),
+        _c(
+          "div",
+          { staticClass: "flex flex-col h-screen" },
+          [
+            _c("MainMenu", { staticClass: "sticky top-0 z-50" }),
+            _vm._v(" "),
+            _c(
+              "section",
+              { staticClass: "text-gray-600 body-font overflow-hidden" },
+              [
+                _c("div", { staticClass: "container px-5 py-10 mx-auto" }, [
+                  _c(
+                    "div",
+                    { staticClass: "lg:w-4/5 mx-auto flex flex-wrap" },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0" },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "text-sm title-font text-gray-500 tracking-widest",
+                              attrs: { href: "#" }
+                            },
+                            [_vm._v("Tender Category")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "h1",
+                            {
+                              staticClass:
+                                "text-gray-900 text-3xl title-font font-medium mb-4"
+                            },
+                            [
+                              _vm._v(
+                                "General Procurement Notice for North-South"
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm._m(0),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "leading-relaxed mb-4" }, [
+                            _vm._v(
+                              "Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam inxigo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(1),
+                          _vm._v(" "),
+                          _vm._m(2),
+                          _vm._v(" "),
+                          _vm._m(3),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex border-t border-b mb-6 border-gray-200 py-2"
+                            },
+                            [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("Date Posted\n                  "),
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass:
+                                      "bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
+                                  },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "mr-1 w-3 h-3",
+                                        attrs: {
+                                          fill: "currentColor",
+                                          viewBox: "0 0 20 20",
+                                          xmlns: "http://www.w3.org/2000/svg"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "fill-rule": "evenodd",
+                                            d:
+                                              "M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z",
+                                            "clip-rule": "evenodd"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(
+                                      "\n                  3 days ago\n                  "
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-auto text-gray-900" },
+                                [_vm._v("4th March 22")]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex border-t border-b mb-6 border-gray-200 py-2"
+                            },
+                            [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("Expiry Date\n                  "),
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass:
+                                      "bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
+                                  },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "mr-1 w-3 h-3",
+                                        attrs: {
+                                          fill: "currentColor",
+                                          viewBox: "0 0 20 20",
+                                          xmlns: "http://www.w3.org/2000/svg"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "fill-rule": "evenodd",
+                                            d:
+                                              "M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z",
+                                            "clip-rule": "evenodd"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(
+                                      "\n                  3 days ago\n                  "
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-auto text-gray-900" },
+                                [_vm._v("4th April 22")]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm._m(4),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "flex" }, [
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "title-font font-medium text-2xl text-gray-900"
+                              },
+                              [_vm._v("$58.00")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+                              },
+                              [_vm._v("Purchase Tender Details")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4"
+                              },
+                              [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "w-5 h-5",
+                                    attrs: {
+                                      fill: "currentColor",
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round",
+                                      "stroke-width": "2",
+                                      viewBox: "0 0 24 24"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ]
+            )
+          ],
+          1
+        ),
         _vm._v(" "),
         _c("MainFooter")
       ],
@@ -40135,7 +40445,99 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex mb-4" }, [
+      _c(
+        "a",
+        {
+          staticClass:
+            "flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1"
+        },
+        [_vm._v("Description")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex border-t border-gray-200 py-2" }, [
+      _c("span", { staticClass: "text-gray-500" }, [
+        _vm._v("Competition Type")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "ml-auto text-gray-900" }, [
+        _c("span", { staticClass: "ml-auto text-gray-900" }, [
+          _c(
+            "a",
+            {
+              staticClass:
+                "bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
+              attrs: { href: "#" }
+            },
+            [_vm._v("Purchase Tender to view")]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex border-t border-gray-200 py-2" }, [
+      _c("span", { staticClass: "text-gray-500" }, [_vm._v("Funded By")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "ml-auto text-gray-900" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
+            attrs: { href: "#" }
+          },
+          [_vm._v("Purchase Tender to view")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "flex border-t border-b mb-6 border-gray-200 py-2" },
+      [
+        _c("span", { staticClass: "text-gray-500" }, [
+          _vm._v("Tender Value in USD")
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "ml-auto text-gray-900" }, [
+          _vm._v("260,000")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "flex border-t border-b mb-6 border-gray-200 py-2" },
+      [
+        _c("span", { staticClass: "text-gray-500" }, [_vm._v("Country")]),
+        _vm._v(" "),
+        _c("span", { staticClass: "ml-auto text-gray-900" }, [_vm._v("Kenya")])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 

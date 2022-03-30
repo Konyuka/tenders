@@ -1,12 +1,14 @@
 <template>
   <div>
     <body class="overflow-x-hidden antialiased">
+      <div class="flex flex-col h-screen">
       <TopBanner />
-      <MainMenu />
+      <MainMenu class="sticky top-0 z-50" />
       <HeroSection @modalState="modal=true"/>
       <FeaturedTenders />
       <ServiceIntro />
       <MainFooter />
+
 
       <div v-if="modal" id="defaultModal" tabindex="-1" aria-hidden="true" class="overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full">
         <div class="relative p-4 w-full max-w-5xl h-full md:h-auto">
@@ -123,6 +125,9 @@
                 </div>
             </div>
         </div>
+      </div>
+
+      
     </div>
 
     </body>
