@@ -17,6 +17,9 @@ Route::get('/selected', [LandingController::class, 'selected'])
 Route::get('/listing', [LandingController::class, 'listing'])
     ->name('listing');
 
+Route::get('/checkout', [LandingController::class, 'checkout'])
+    ->name('checkout');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');

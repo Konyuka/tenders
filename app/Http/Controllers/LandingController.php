@@ -27,6 +27,11 @@ class LandingController extends Controller
         return Inertia::render('Listing');
     }
 
+    public function checkout()
+    {
+        return Inertia::render('Checkout');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -3670,6 +3670,200 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Checkout.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Checkout.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
+/* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
+/* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Landing',
+  props: {},
+  components: {
+    TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  watch: {},
+  mounted: function mounted() {},
+  computed: {},
+  data: function data() {
+    return {
+      modal: false
+    };
+  },
+  methods: {
+    clearFilters: function clearFilters() {},
+    loadFilters: function loadFilters() {}
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/Dashboard/PaymentsPage.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Components/Dashboard/PaymentsPage.vue?vue&type=script&lang=js& ***!
@@ -6885,6 +7079,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
 /* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+//
 //
 //
 //
@@ -30461,6 +30656,517 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Checkout.vue?vue&type=template&id=610700ef&":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Checkout.vue?vue&type=template&id=610700ef& ***!
+  \******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", {}, [
+    _c(
+      "body",
+      { staticClass: "overflow-x-hidden antialiased" },
+      [
+        _c(
+          "div",
+          { staticClass: "flex flex-col h-screen" },
+          [
+            _c("TopBanner", { staticClass: "sticky top-0 z-50" }),
+            _vm._v(" "),
+            _vm._m(0)
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("MainFooter"),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
+            attrs: { id: "popup-modal", tabindex: "-1" }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "relative p-4 w-full max-w-md h-full md:h-auto" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "relative bg-white rounded-lg shadow dark:bg-gray-700"
+                  },
+                  [
+                    _c("div", { staticClass: "flex justify-end p-2" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white",
+                          attrs: {
+                            type: "button",
+                            "data-modal-toggle": "popup-modal"
+                          }
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "w-5 h-5",
+                              attrs: {
+                                fill: "currentColor",
+                                viewBox: "0 0 20 20",
+                                xmlns: "http://www.w3.org/2000/svg"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  "fill-rule": "evenodd",
+                                  d:
+                                    "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+                                  "clip-rule": "evenodd"
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1)
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "bg-white" }, [
+      _c("div", {
+        staticClass: "hidden lg:block fixed top-0 left-0 w-1/2 h-full bg-white",
+        attrs: { "aria-hidden": "true" }
+      }),
+      _vm._v(" "),
+      _c("div", {
+        staticClass:
+          "hidden lg:block fixed top-0 right-0 w-1/2 h-full bg-indigo-900",
+        attrs: { "aria-hidden": "true" }
+      }),
+      _vm._v(" "),
+      _c(
+        "main",
+        {
+          staticClass:
+            "mt-5 relative grid grid-cols-1 gap-x-16 max-w-7xl mx-auto lg:px-8 lg:grid-cols-2"
+        },
+        [
+          _c("h1", { staticClass: "sr-only" }, [_vm._v("Checkout")]),
+          _vm._v(" "),
+          _c(
+            "section",
+            {
+              staticClass:
+                "bg-indigo-900 text-indigo-300 pt-6 pb-12 md:px-10 lg:max-w-lg lg:w-full lg:mx-auto lg:px-0 lg:pt-0 lg:pb-24 lg:bg-transparent lg:row-start-1 lg:col-start-2",
+              attrs: { "aria-labelledby": "summary-heading" }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "max-w-2xl mx-auto px-4 lg:max-w-none lg:px-0" },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass: "sr-only",
+                      attrs: { id: "summary-heading" }
+                    },
+                    [_vm._v("Order summary")]
+                  ),
+                  _vm._v(" "),
+                  _c("dl", [
+                    _c("dt", { staticClass: "text-sm font-medium" }, [
+                      _vm._v("Cart Value")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "dd",
+                      {
+                        staticClass: "mt-1 text-3xl font-extrabold text-white"
+                      },
+                      [_vm._v("KES 50")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass:
+                        "text-sm font-medium divide-y divide-white divide-opacity-10",
+                      attrs: { role: "list" }
+                    },
+                    [
+                      _c(
+                        "li",
+                        { staticClass: "flex items-start py-6 space-x-4" },
+                        [
+                          _c("div", { staticClass: "flex-auto space-y-1" }, [
+                            _c("h3", { staticClass: "text-white" }, [
+                              _vm._v("Kisumu girls sugar tender")
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v("Tender Value: "),
+                              _c("span", { staticClass: "text-white" }, [
+                                _vm._v("USD 260,000")
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v("Expiry Date: "),
+                              _c("span", { staticClass: "text-white" }, [
+                                _vm._v("4th April 22")
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            {
+                              staticClass:
+                                "flex-none text-base font-medium text-white"
+                            },
+                            [_vm._v("KES 50")]
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "dl",
+                    {
+                      staticClass:
+                        "text-sm font-medium space-y-6 border-t border-white border-opacity-10 pt-6"
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "flex items-center justify-between" },
+                        [
+                          _c("dt", [_vm._v("Subtotal")]),
+                          _vm._v(" "),
+                          _c("dd", [_vm._v("KES 50")])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "flex items-center justify-between" },
+                        [
+                          _c("dt", [_vm._v("Taxes")]),
+                          _vm._v(" "),
+                          _c("dd", [_vm._v("KES 0")])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "flex items-center justify-between border-t border-white border-opacity-10 text-white pt-6"
+                        },
+                        [
+                          _c("dt", { staticClass: "text-base" }, [
+                            _vm._v("Total")
+                          ]),
+                          _vm._v(" "),
+                          _c("dd", { staticClass: "text-base" }, [
+                            _vm._v("KES 50")
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "mt-10 flex justify-end pt-6 border-t border-gray-200"
+                },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "bg-white border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-black hover:bg-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("Pay now")]
+                  )
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "section",
+            {
+              staticClass:
+                "py-16 lg:max-w-lg lg:w-full lg:mx-auto lg:pt-0 lg:pb-24 lg:row-start-1 lg:col-start-1",
+              attrs: { "aria-labelledby": "payment-and-shipping-heading" }
+            },
+            [
+              _c(
+                "h2",
+                {
+                  staticClass: "sr-only",
+                  attrs: { id: "payment-and-shipping-heading" }
+                },
+                [_vm._v("Payment and shipping details")]
+              ),
+              _vm._v(" "),
+              _c("form", [
+                _c(
+                  "div",
+                  {
+                    staticClass: "max-w-2xl mx-auto px-4 lg:max-w-none lg:px-0"
+                  },
+                  [
+                    _c("div", [
+                      _c(
+                        "h3",
+                        {
+                          staticClass: "text-lg font-extrabold text-gray-900",
+                          attrs: { id: "contact-info-heading" }
+                        },
+                        [_vm._v("Contact information")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mt-6 shadow-2xl" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass:
+                              "block text-sm font-medium text-gray-700",
+                            attrs: { for: "email-address" }
+                          },
+                          [_vm._v("Mobile Phone")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "mt-1" }, [
+                          _c("input", {
+                            staticClass:
+                              "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                            attrs: {
+                              placeholder: "254 7XX XXX XXX",
+                              type: "number",
+                              id: "phone-number",
+                              name: "phone-number"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mt-6 shadow-2xl" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass:
+                              "block text-sm font-medium text-gray-700",
+                            attrs: { for: "email-address" }
+                          },
+                          [_vm._v("Email Address")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "mt-1" }, [
+                          _c("input", {
+                            staticClass:
+                              "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                            attrs: {
+                              placeholder: "user@email.com",
+                              type: "email",
+                              id: "email-address",
+                              name: "email-address"
+                            }
+                          })
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "mt-10" }, [
+                      _c(
+                        "h3",
+                        {
+                          staticClass: "text-lg font-extrabold text-gray-900",
+                          attrs: { id: "payment-heading" }
+                        },
+                        [_vm._v("Payment information")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "mt-6 grid grid-cols-3 sm:grid-cols-4 gap-y-6 gap-x-4"
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "col-span-3 sm:col-span-4 shadow-2xl"
+                            },
+                            [
+                              _c(
+                                "label",
+                                {
+                                  staticClass:
+                                    "block text-sm font-medium text-gray-700",
+                                  attrs: { for: "card-number" }
+                                },
+                                [_vm._v("Mpesa / Payment Number")]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "mt-1" }, [
+                                _c("input", {
+                                  staticClass:
+                                    "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                  attrs: {
+                                    placeholder: "254 7XX XXX XXX",
+                                    type: "number",
+                                    id: "email-address",
+                                    name: "email-address"
+                                  }
+                                })
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "col-span-3 sm:col-span-4 shadow-2xl"
+                            },
+                            [
+                              _c(
+                                "label",
+                                {
+                                  staticClass:
+                                    "block text-sm font-medium text-gray-700",
+                                  attrs: { for: "card-number" }
+                                },
+                                [_vm._v("Mpesa Account Name")]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "mt-1" }, [
+                                _c("input", {
+                                  staticClass:
+                                    "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                  attrs: {
+                                    placeholder: "Mark Massai / Blue Inc.",
+                                    type: "text",
+                                    id: "email-address",
+                                    name: "email-address"
+                                  }
+                                })
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "mt-10" }, [
+                      _c("div", { staticClass: "mt-6 flex items-center" }, [
+                        _c("input", {
+                          staticClass:
+                            "h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500",
+                          attrs: {
+                            id: "same-as-shipping",
+                            name: "same-as-shipping",
+                            type: "checkbox",
+                            checked: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "ml-2" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "text-sm font-medium text-gray-900",
+                              attrs: { for: "same-as-shipping" }
+                            },
+                            [_vm._v("Subscribe for news letters")]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]
+                )
+              ])
+            ]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-6 pt-0 text-center" }, [
+      _c("i", { staticClass: "fas fa-coins fa-2xl mb-10" }),
+      _vm._v(" "),
+      _c(
+        "h3",
+        {
+          staticClass:
+            "mb-5 text-lg font-extrabold text-gray-500 dark:text-gray-400"
+        },
+        [_vm._v("Payment Details")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "text-white bg-green-600 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2",
+          attrs: { "data-modal-toggle": "popup-modal", type: "button" }
+        },
+        [_vm._v("\n                      Confirm Payment\n                  ")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/Dashboard/PaymentsPage.vue?vue&type=template&id=bd29bc12&":
 /*!*******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Components/Dashboard/PaymentsPage.vue?vue&type=template&id=bd29bc12& ***!
@@ -40372,10 +41078,11 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c(
-                              "button",
+                              "a",
                               {
                                 staticClass:
-                                  "flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+                                  "flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded",
+                                attrs: { href: _vm.route("checkout") }
                               },
                               [_vm._v("Purchase Tender Details")]
                             ),
@@ -54304,6 +55011,8 @@ var map = {
 	"./API/ApiTokenManager.vue": "./resources/js/Pages/API/ApiTokenManager.vue",
 	"./API/Index": "./resources/js/Pages/API/Index.vue",
 	"./API/Index.vue": "./resources/js/Pages/API/Index.vue",
+	"./Checkout": "./resources/js/Pages/Checkout.vue",
+	"./Checkout.vue": "./resources/js/Pages/Checkout.vue",
 	"./Components/Dashboard/PaymentsPage": "./resources/js/Pages/Components/Dashboard/PaymentsPage.vue",
 	"./Components/Dashboard/PaymentsPage.vue": "./resources/js/Pages/Components/Dashboard/PaymentsPage.vue",
 	"./Components/Dashboard/SupportPage": "./resources/js/Pages/Components/Dashboard/SupportPage.vue",
@@ -54511,6 +55220,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_df56dab8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_df56dab8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Checkout.vue":
+/*!*****************************************!*\
+  !*** ./resources/js/Pages/Checkout.vue ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Checkout_vue_vue_type_template_id_610700ef___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Checkout.vue?vue&type=template&id=610700ef& */ "./resources/js/Pages/Checkout.vue?vue&type=template&id=610700ef&");
+/* harmony import */ var _Checkout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Checkout.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Checkout.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Checkout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Checkout_vue_vue_type_template_id_610700ef___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Checkout_vue_vue_type_template_id_610700ef___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Checkout.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Checkout.vue?vue&type=script&lang=js&":
+/*!******************************************************************!*\
+  !*** ./resources/js/Pages/Checkout.vue?vue&type=script&lang=js& ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Checkout.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Checkout.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Checkout.vue?vue&type=template&id=610700ef&":
+/*!************************************************************************!*\
+  !*** ./resources/js/Pages/Checkout.vue?vue&type=template&id=610700ef& ***!
+  \************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_template_id_610700ef___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Checkout.vue?vue&type=template&id=610700ef& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Checkout.vue?vue&type=template&id=610700ef&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_template_id_610700ef___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_template_id_610700ef___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
