@@ -55,7 +55,7 @@
                 </div>
 
                  <div class="mt-10 flex justify-end pt-6 border-t border-gray-200">
-                    <button type="submit" class="bg-white border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-black hover:bg-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">Pay now</button>
+                    <button @click="paymentModal=true" type="submit" class="bg-white border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-black hover:bg-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">Pay now</button>
                 </div>
                 </section>
 
@@ -126,25 +126,33 @@
 
       <MainFooter/>
 
-      <div  id="popup-modal" tabindex="-1" class="overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full">
+      <div  v-if="paymentModal" id="popup-modal" tabindex="-1" class="overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full">
         <div class="relative p-4 w-full max-w-md h-full md:h-auto">
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
                 <div class="flex justify-end p-2">
-                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="popup-modal">
+                    <button @click="paymentModal=false" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="popup-modal">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button>
                 </div>
                 <!-- Modal body -->
-                <div class="p-6 pt-0 text-center">
+                <div class="p-4 pt-0 text-center">
                     <i class="fas fa-coins fa-2xl mb-10"></i>
                     <h3 class="mb-5 text-lg font-extrabold text-gray-500 dark:text-gray-400">Payment Details</h3>
+                </div>
+                <div class="flex flex-col px-10">
+                    <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Paybill Number: <span class="ml-2 font-extrabold text-xl text-indigo-600"> 320567</span> </h4>
+                    <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Account Number: <span class="ml-2 font-extrabold text-xl text-indigo-600"> IUFLNSD</span> </h4>
+                    <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Payment Amount: <span class="ml-2 font-extrabold text-xl text-indigo-600"> KES 50</span> </h4>
 
-                    <button data-modal-toggle="popup-modal" type="button" class="text-white bg-green-600 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                        Confirm Payment
+                </div>
+                <div class="p-4 pt-0 text-center mt-5">
+                    <button data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        Confirm the Payment
                     </button>
                 </div>
+
             </div>
         </div>
       </div>
@@ -176,6 +184,7 @@ export default {
     data () {
         return {
             modal: false,
+            paymentModal: false
         }
     },
     methods:{
