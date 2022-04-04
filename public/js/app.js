@@ -3299,13 +3299,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3317,6 +3310,9 @@ __webpack_require__.r(__webpack_exports__);
     PaymentsPage: _Pages_Components_Dashboard_PaymentsPage_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     SupportPage: _Pages_Components_Dashboard_SupportPage_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     UsersPage: _Pages_Components_Dashboard_UsersPage_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  props: {
+    user: Object
   },
   data: function data() {
     return {
@@ -4586,187 +4582,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CompactTableWithActionsAndSelect",
   data: function data() {
     return {
-      temp: 0
+      temp: 0,
+      addModal: false
     };
   },
   methods: {
@@ -5586,15 +5407,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'TopBanner',
   components: {//   Categories,
   },
+  props: {
+    user: Object
+  },
   data: function data() {
     return {};
   },
+  mounted: function mounted() {//   let users = this.$page.props.auth.user
+    //   console.log(user)
+    //   console.log(this.$page.props.user)
+  },
   watch: {},
-  computed: {},
+  computed: {
+    user: function user() {// return this.$page.props.user.name
+    }
+  },
   methods: {// authUrl(routeValue) {
     //     // console.log(routeValue);
     //     return route(routeValue);
@@ -5836,7 +5671,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Landing',
-  props: {},
   components: {
     TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -5847,7 +5681,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {},
   mounted: function mounted() {},
-  computed: {},
+  computed: {
+    user: function user() {
+      return this.$page.props.user.name;
+    }
+  },
   data: function data() {
     return {
       modal: false
@@ -29312,7 +29150,7 @@ var render = function() {
                         staticClass:
                           " font-normal text-2xl leading-6 text-gray-800 dark:text-white "
                       },
-                      [_vm._v("Tender Hub")]
+                      [_vm._v("Bidders Portal")]
                     )
                   ]
                 ),
@@ -29537,53 +29375,6 @@ var render = function() {
                       "div",
                       {
                         staticClass:
-                          "h-full w-20 flex items-center justify-center border-r mr-4 cursor-pointer text-gray-600"
-                      },
-                      [
-                        _c(
-                          "svg",
-                          {
-                            staticClass:
-                              "icon icon-tabler icon-tabler-messages",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "28",
-                              height: "28",
-                              viewBox: "0 0 24 24",
-                              "stroke-width": "1.5",
-                              stroke: "currentColor",
-                              fill: "none",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2"
-                              }
-                            })
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
                           "flex items-center relative cursor-pointer",
                         on: {
                           click: function($event) {
@@ -29728,7 +29519,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("p", { staticClass: "text-gray-800 text-sm mx-3" }, [
-                          _vm._v("Jane Doe")
+                          _vm._v("Account Setting")
                         ]),
                         _vm._v(" "),
                         _c(
@@ -29956,8 +29747,7 @@ var staticRenderFns = [
       _c("img", {
         staticClass: "rounded-full h-10 w-10 object-cover",
         attrs: {
-          src:
-            "https://tuk-cdn.s3.amazonaws.com/assets/components/sidebar_layout/sl_1.png",
+          src: "https://downloader.la/temp/[Downloader.la]-6246c91bbab39.jpg",
           alt: "avatar"
         }
       }),
@@ -32959,58 +32749,6 @@ var render = function() {
                     "a",
                     {
                       staticClass:
-                        "text-gray-600 dark:text-gray-400 p-2 border-transparent border bg-gray-100 dark:hover:bg-gray-600 dark:bg-gray-700 hover:bg-gray-200 cursor-pointer rounded focus:outline-none focus:border-gray-800 focus:shadow-outline-gray",
-                      attrs: { href: "javascript: void(0)" }
-                    },
-                    [
-                      _c(
-                        "svg",
-                        {
-                          staticClass:
-                            "icon cursor-pointer icon-tabler icon-tabler-edit",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "20",
-                            height: "20",
-                            viewBox: "0 0 24 24",
-                            "stroke-width": "1.5",
-                            stroke: "currentColor",
-                            fill: "none",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("line", {
-                            attrs: { x1: "16", y1: "5", x2: "19", y2: "8" }
-                          })
-                        ]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass:
                         "text-gray-600 dark:text-gray-400 mx-2 p-2 border-transparent border bg-gray-100 dark:hover:bg-gray-600 dark:bg-gray-700 hover:bg-gray-200 cursor-pointer rounded focus:outline-none focus:border-gray-800 focus:shadow-outline-gray",
                       attrs: { href: "javascript: void(0)" }
                     },
@@ -33050,155 +32788,6 @@ var render = function() {
                         ]
                       )
                     ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass:
-                        "text-gray-600 dark:text-gray-400 mr-2 p-2 border-transparent border bg-gray-100 dark:hover:bg-gray-600 dark:bg-gray-700 hover:bg-gray-200 cursor-pointer rounded focus:outline-none focus:border-gray-800 focus:shadow-outline-gray",
-                      attrs: { href: "javascript: void(0)" }
-                    },
-                    [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "icon icon-tabler icon-tabler-bookmark",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "20",
-                            height: "20",
-                            viewBox: "0 0 24 24",
-                            "stroke-width": "1.5",
-                            stroke: "currentColor",
-                            fill: "none",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M9 4h6a2 2 0 0 1 2 2v14l-5-3l-5 3v-14a2 2 0 0 1 2 -2"
-                            }
-                          })
-                        ]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass:
-                        "text-gray-600 dark:text-gray-400 mr-2 p-2 border-transparent border bg-gray-100 dark:hover:bg-gray-600 dark:bg-gray-700 hover:bg-gray-200 cursor-pointer rounded focus:outline-none focus:border-gray-800 focus:shadow-outline-gray",
-                      attrs: { href: "javascript: void(0)" }
-                    },
-                    [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "icon icon-tabler icon-tabler-copy",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "20",
-                            height: "20",
-                            viewBox: "0 0 24 24",
-                            "stroke-width": "1.5",
-                            stroke: "currentColor",
-                            fill: "none",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                          }),
-                          _vm._v(" "),
-                          _c("rect", {
-                            attrs: {
-                              x: "8",
-                              y: "8",
-                              width: "12",
-                              height: "12",
-                              rx: "2"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"
-                            }
-                          })
-                        ]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass:
-                        "text-red-500 p-2 border-transparent border bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 hover:bg-gray-200 cursor-pointer rounded focus:outline-none focus:border-gray-800 focus:shadow-outline-gray",
-                      attrs: { href: "javascript: void(0)" }
-                    },
-                    [
-                      _c(
-                        "svg",
-                        {
-                          staticClass:
-                            "icon cursor-pointer icon-tabler icon-tabler-trash",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "20",
-                            height: "20",
-                            viewBox: "0 0 24 24",
-                            "stroke-width": "1.5",
-                            stroke: "currentColor",
-                            fill: "none",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                          }),
-                          _vm._v(" "),
-                          _c("line", {
-                            attrs: { x1: "4", y1: "7", x2: "20", y2: "7" }
-                          }),
-                          _vm._v(" "),
-                          _c("line", {
-                            attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
-                          }),
-                          _vm._v(" "),
-                          _c("line", {
-                            attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              d: "M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"
-                            }
-                          })
-                        ]
-                      )
-                    ]
                   )
                 ])
               ]
@@ -33211,199 +32800,19 @@ var render = function() {
                   "w-full lg:w-2/3 flex flex-col lg:flex-row items-start lg:items-center justify-end"
               },
               [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex items-center lg:border-l lg:border-r border-gray-300 py-3 lg:py-0 lg:px-6"
-                  },
-                  [
-                    _c(
-                      "p",
-                      {
-                        staticClass:
-                          "text-base text-gray-600 dark:text-gray-400",
-                        attrs: { id: "page-view" }
-                      },
-                      [_vm._v("Viewing 1 - 20 of 60")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass:
-                          "text-gray-600 dark:text-gray-400 ml-2 border-transparent border cursor-pointer rounded",
-                        attrs: { onclick: "pageView(false)" }
-                      },
-                      [
-                        _c(
-                          "svg",
-                          {
-                            staticClass:
-                              "icon icon-tabler icon-tabler-chevron-left",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "20",
-                              height: "20",
-                              viewBox: "0 0 24 24",
-                              "stroke-width": "1.5",
-                              stroke: "currentColor",
-                              fill: "none",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                            }),
-                            _vm._v(" "),
-                            _c("polyline", {
-                              attrs: { points: "15 6 9 12 15 18" }
-                            })
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass:
-                          "text-gray-600 dark:text-gray-400 border-transparent border rounded focus:outline-none cursor-pointer",
-                        attrs: { onclick: "pageView(true)" }
-                      },
-                      [
-                        _c(
-                          "svg",
-                          {
-                            staticClass:
-                              "icon icon-tabler icon-tabler-chevron-right",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "20",
-                              height: "20",
-                              viewBox: "0 0 24 24",
-                              "stroke-width": "1.5",
-                              stroke: "currentColor",
-                              fill: "none",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                            }),
-                            _vm._v(" "),
-                            _c("polyline", {
-                              attrs: { points: "9 6 15 12 9 18" }
-                            })
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex items-center lg:border-r border-gray-300 pb-3 lg:pb-0 lg:px-6"
-                  },
-                  [
-                    _c("div", { staticClass: "relative w-32 z-10" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "pointer-events-none text-gray-600 dark:text-gray-400 absolute inset-0 m-auto mr-2 xl:mr-4 z-0 w-5 h-5"
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "icon cursor-pointer icon-tabler icon-tabler-chevron-down",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "20",
-                                height: "20",
-                                viewBox: "0 0 24 24",
-                                "stroke-width": "1.5",
-                                stroke: "currentColor",
-                                fill: "none",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                              }),
-                              _vm._v(" "),
-                              _c("polyline", {
-                                attrs: { points: "6 9 12 15 18 9" }
-                              })
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm._m(0)
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
                 _c("div", { staticClass: "lg:ml-6 flex items-center" }, [
                   _c(
                     "button",
                     {
                       staticClass:
-                        "bg-gray-200 transition duration-150 ease-in-out focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-indigo-700 px-5 h-8 flex items-center text-sm"
+                        "bg-indigo-600 transition duration-150 ease-in-out focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-white px-5 h-8 flex items-center text-sm",
+                      on: {
+                        click: function($event) {
+                          _vm.addModal = true
+                        }
+                      }
                     },
-                    [_vm._v("Download All")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "text-white ml-4 cursor-pointer focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray bg-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 w-8 h-8 rounded flex items-center justify-center"
-                    },
-                    [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "icon icon-tabler icon-tabler-plus",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "28",
-                            height: "28",
-                            viewBox: "0 0 24 24",
-                            "stroke-width": "1.5",
-                            stroke: "currentColor",
-                            fill: "none",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                          }),
-                          _vm._v(" "),
-                          _c("line", {
-                            attrs: { x1: "12", y1: "5", x2: "12", y2: "19" }
-                          }),
-                          _vm._v(" "),
-                          _c("line", {
-                            attrs: { x1: "5", y1: "12", x2: "19", y2: "12" }
-                          })
-                        ]
-                      )
-                    ]
+                    [_vm._v("Add Tender")]
                   )
                 ])
               ]
@@ -33413,7 +32822,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "w-full overflow-x-scroll xl:overflow-x-hidden" },
+          { staticClass: "w-full overflow-x-hidden xl:overflow-x-hidden" },
           [
             _c(
               "table",
@@ -33426,7 +32835,10 @@ var render = function() {
                       staticClass: "w-full h-16 border-gray-300 border-b py-8"
                     },
                     [
-                      _vm._m(1),
+                      _c("th", {
+                        staticClass:
+                          "pl-8 text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
+                      }),
                       _vm._v(" "),
                       _c(
                         "th",
@@ -33499,7 +32911,7 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Invoice Number")]
+                        [_vm._v("Tender ID")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -33508,7 +32920,7 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Client")]
+                        [_vm._v("Tender Heading")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -33517,7 +32929,7 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Company Contact")]
+                        [_vm._v("Funded By")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -33526,7 +32938,7 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Amount")]
+                        [_vm._v("Tender Value")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -33535,10 +32947,19 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Date")]
+                        [_vm._v("Posted Date")]
                       ),
                       _vm._v(" "),
-                      _vm._m(2),
+                      _c(
+                        "th",
+                        {
+                          staticClass:
+                            "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
+                        },
+                        [_vm._v("Expiry Date")]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(0),
                       _vm._v(" "),
                       _c(
                         "td",
@@ -33552,71 +32973,14 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("tbody", [
+                _c("tbody", {}, [
                   _c("tr", { staticClass: "h-24 border-gray-300 border-b" }, [
-                    _vm._m(3),
+                    _c("td", {
+                      staticClass:
+                        "pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+                    }),
                     _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "relative w-10 text-gray-600 dark:text-gray-400"
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "absolute top-0 right-0 w-5 h-5 mr-2 -mt-1 rounded-full bg-indigo-700 text-white flex justify-center items-center text-xs"
-                              },
-                              [_vm._v("3")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "svg",
-                              {
-                                staticClass:
-                                  "icon icon-tabler icon-tabler-file",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "28",
-                                  height: "28",
-                                  viewBox: "0 0 24 24",
-                                  "stroke-width": "1.5",
-                                  stroke: "currentColor",
-                                  fill: "none",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: { d: "M14 3v4a1 1 0 0 0 1 1h4" }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"
-                                  }
-                                })
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    ),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c(
                       "td",
@@ -33633,10 +32997,10 @@ var render = function() {
                         staticClass:
                           "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
                       },
-                      [_vm._v("Toyota Motors")]
+                      [_vm._v("Toyota Motors Tender")]
                     ),
                     _vm._v(" "),
-                    _vm._m(4),
+                    _vm._m(2),
                     _vm._v(" "),
                     _c(
                       "td",
@@ -33656,10 +33020,19 @@ var render = function() {
                       [_vm._v("02.03.20")]
                     ),
                     _vm._v(" "),
-                    _vm._m(5),
+                    _c(
+                      "td",
+                      {
+                        staticClass:
+                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+                      },
+                      [_vm._v("02.03.20")]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(3),
                     _vm._v(" "),
                     _c("td", { staticClass: "pr-8 relative" }, [
-                      _vm._m(6),
+                      _vm._m(4),
                       _vm._v(" "),
                       _c(
                         "button",
@@ -33707,754 +33080,6 @@ var render = function() {
                         ]
                       )
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", { staticClass: "h-24 border-gray-300 border-b" }, [
-                    _vm._m(7),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "text-gray-400 relative w-10" },
-                          [
-                            _c(
-                              "svg",
-                              {
-                                staticClass:
-                                  "icon icon-tabler icon-tabler-file",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "28",
-                                  height: "28",
-                                  viewBox: "0 0 24 24",
-                                  "stroke-width": "1.5",
-                                  stroke: "currentColor",
-                                  fill: "none",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: { d: "M14 3v4a1 1 0 0 0 1 1h4" }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"
-                                  }
-                                })
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("#MC10023")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("Toyota Motors")]
-                    ),
-                    _vm._v(" "),
-                    _vm._m(8),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("$2,500")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("02.03.20")]
-                    ),
-                    _vm._v(" "),
-                    _vm._m(9),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "pr-8 relative" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "text-gray-500 rounded cursor-pointer border border-transparent focus:outline-none"
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "icon icon-tabler icon-tabler-dots-vertical dropbtn",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "28",
-                                height: "28",
-                                viewBox: "0 0 24 24",
-                                "stroke-width": "1.5",
-                                stroke: "currentColor",
-                                fill: "none",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round",
-                                onclick: "dropdownFunction(this)"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                              }),
-                              _vm._v(" "),
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "1" }
-                              }),
-                              _vm._v(" "),
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "19", r: "1" }
-                              }),
-                              _vm._v(" "),
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "5", r: "1" }
-                              })
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm._m(10)
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", { staticClass: "h-24 border-gray-300 border-b" }, [
-                    _vm._m(11),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "text-gray-400 relative w-10" },
-                          [
-                            _c(
-                              "svg",
-                              {
-                                staticClass:
-                                  "icon icon-tabler icon-tabler-file",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "28",
-                                  height: "28",
-                                  viewBox: "0 0 24 24",
-                                  "stroke-width": "1.5",
-                                  stroke: "currentColor",
-                                  fill: "none",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: { d: "M14 3v4a1 1 0 0 0 1 1h4" }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"
-                                  }
-                                })
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("#MC10023")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("Toyota Motors")]
-                    ),
-                    _vm._v(" "),
-                    _vm._m(12),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("$2,500")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("02.03.20")]
-                    ),
-                    _vm._v(" "),
-                    _vm._m(13),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "pr-8 relative" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "text-gray-500 rounded cursor-pointer border border-transparent focus:outline-none"
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "icon icon-tabler icon-tabler-dots-vertical dropbtn",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "28",
-                                height: "28",
-                                viewBox: "0 0 24 24",
-                                "stroke-width": "1.5",
-                                stroke: "currentColor",
-                                fill: "none",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round",
-                                onclick: "dropdownFunction(this)"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                              }),
-                              _vm._v(" "),
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "1" }
-                              }),
-                              _vm._v(" "),
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "19", r: "1" }
-                              }),
-                              _vm._v(" "),
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "5", r: "1" }
-                              })
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm._m(14)
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", { staticClass: "h-24 border-gray-300 border-b" }, [
-                    _vm._m(15),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "text-gray-400 relative w-10" },
-                          [
-                            _c(
-                              "svg",
-                              {
-                                staticClass:
-                                  "icon icon-tabler icon-tabler-file",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "28",
-                                  height: "28",
-                                  viewBox: "0 0 24 24",
-                                  "stroke-width": "1.5",
-                                  stroke: "currentColor",
-                                  fill: "none",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: { d: "M14 3v4a1 1 0 0 0 1 1h4" }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"
-                                  }
-                                })
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("#MC10023")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("Toyota Motors")]
-                    ),
-                    _vm._v(" "),
-                    _vm._m(16),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("$2,500")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("02.03.20")]
-                    ),
-                    _vm._v(" "),
-                    _vm._m(17),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "pr-8 relative" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "text-gray-500 rounded cursor-pointer border border-transparent focus:outline-none"
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "icon icon-tabler icon-tabler-dots-vertical dropbtn",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "28",
-                                height: "28",
-                                viewBox: "0 0 24 24",
-                                "stroke-width": "1.5",
-                                stroke: "currentColor",
-                                fill: "none",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round",
-                                onclick: "dropdownFunction(this)"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                              }),
-                              _vm._v(" "),
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "1" }
-                              }),
-                              _vm._v(" "),
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "19", r: "1" }
-                              }),
-                              _vm._v(" "),
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "5", r: "1" }
-                              })
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm._m(18)
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", { staticClass: "h-24 border-gray-300 border-b" }, [
-                    _vm._m(19),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [
-                        _c("div", { staticClass: "relative w-10" }, [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "absolute top-0 right-0 w-5 h-5 mr-2 -mt-1 rounded-full bg-indigo-700 text-white flex justify-center items-center text-xs"
-                            },
-                            [_vm._v("1")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "text-gray-600 dark:text-gray-400" },
-                            [
-                              _c(
-                                "svg",
-                                {
-                                  staticClass:
-                                    "icon icon-tabler icon-tabler-file",
-                                  attrs: {
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    width: "28",
-                                    height: "28",
-                                    viewBox: "0 0 24 24",
-                                    "stroke-width": "1.5",
-                                    stroke: "currentColor",
-                                    fill: "none",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      stroke: "none",
-                                      d: "M0 0h24v24H0z"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("path", {
-                                    attrs: { d: "M14 3v4a1 1 0 0 0 1 1h4" }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]
-                          )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("#MC10023")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("Toyota Motors")]
-                    ),
-                    _vm._v(" "),
-                    _vm._m(20),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("$2,500")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("02.03.20")]
-                    ),
-                    _vm._v(" "),
-                    _vm._m(21),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "pr-8 relative" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "text-gray-500 rounded cursor-pointer border border-transparent focus:outline-none"
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "icon icon-tabler icon-tabler-dots-vertical dropbtn",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "28",
-                                height: "28",
-                                viewBox: "0 0 24 24",
-                                "stroke-width": "1.5",
-                                stroke: "currentColor",
-                                fill: "none",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round",
-                                onclick: "dropdownFunction(this)"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                              }),
-                              _vm._v(" "),
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "1" }
-                              }),
-                              _vm._v(" "),
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "19", r: "1" }
-                              }),
-                              _vm._v(" "),
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "5", r: "1" }
-                              })
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm._m(22)
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", { staticClass: "h-24 border-gray-300 border-b" }, [
-                    _vm._m(23),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [
-                        _c("div", { staticClass: "relative w-10" }, [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "absolute top-0 right-0 w-5 h-5 mr-2 -mt-1 rounded-full bg-indigo-700 text-white flex justify-center items-center text-xs"
-                            },
-                            [_vm._v("5")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "text-gray-600 dark:text-gray-400" },
-                            [
-                              _c(
-                                "svg",
-                                {
-                                  staticClass:
-                                    "icon icon-tabler icon-tabler-file",
-                                  attrs: {
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    width: "28",
-                                    height: "28",
-                                    viewBox: "0 0 24 24",
-                                    "stroke-width": "1.5",
-                                    stroke: "currentColor",
-                                    fill: "none",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      stroke: "none",
-                                      d: "M0 0h24v24H0z"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("path", {
-                                    attrs: { d: "M14 3v4a1 1 0 0 0 1 1h4" }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]
-                          )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("#MC10023")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("Toyota Motors")]
-                    ),
-                    _vm._v(" "),
-                    _vm._m(24),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("$2,500")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass:
-                          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                      },
-                      [_vm._v("02.03.20")]
-                    ),
-                    _vm._v(" "),
-                    _vm._m(25),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "pr-8 relative" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "text-gray-500 rounded cursor-pointer border border-transparent focus:outline-none"
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "icon icon-tabler icon-tabler-dots-vertical dropbtn",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "28",
-                                height: "28",
-                                viewBox: "0 0 24 24",
-                                "stroke-width": "1.5",
-                                stroke: "currentColor",
-                                fill: "none",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round",
-                                onclick: "dropdownFunction(this)"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: { stroke: "none", d: "M0 0h24v24H0z" }
-                              }),
-                              _vm._v(" "),
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "12", r: "1" }
-                              }),
-                              _vm._v(" "),
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "19", r: "1" }
-                              }),
-                              _vm._v(" "),
-                              _c("circle", {
-                                attrs: { cx: "12", cy: "5", r: "1" }
-                              })
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm._m(26)
-                    ])
                   ])
                 ])
               ]
@@ -34462,47 +33087,138 @@ var render = function() {
           ]
         )
       ]
-    )
+    ),
+    _vm._v(" "),
+    _vm.addModal
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
+            attrs: { id: "defaultModal", tabindex: "-1", "aria-hidden": "true" }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "relative p-4 w-full max-w-5xl h-full md:h-auto" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "relative bg-gray-50 rounded-lg shadow-2xl dark:bg-gray-700"
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600"
+                      },
+                      [
+                        _c(
+                          "h3",
+                          {
+                            staticClass:
+                              "text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white"
+                          },
+                          [
+                            _vm._v(
+                              "\n                    Add Tender\n                "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white",
+                            attrs: {
+                              type: "button",
+                              "data-modal-toggle": "defaultModal"
+                            },
+                            on: {
+                              click: function($event) {
+                                _vm.addModal = false
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "w-5 h-5",
+                                attrs: {
+                                  fill: "currentColor",
+                                  viewBox: "0 0 20 20",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d:
+                                      "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+                                    "clip-rule": "evenodd"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
+                            attrs: {
+                              "data-modal-toggle": "defaultModal",
+                              type: "button"
+                            },
+                            on: { click: _vm.loadFilters }
+                          },
+                          [_vm._v("Add Tender")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "text-white bg-orange-400 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-300 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600",
+                            attrs: {
+                              "data-modal-toggle": "defaultModal",
+                              type: "button"
+                            },
+                            on: { click: _vm.clearFilters }
+                          },
+                          [_vm._v("Archive Tender")]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "select",
-      {
-        staticClass:
-          "focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray text-base form-select block w-full py-2 px-2 xl:px-3 rounded text-gray-600 dark:text-gray-400 appearance-none bg-transparent",
-        attrs: { "aria-label": "Selected tab" }
-      },
-      [
-        _c("option", [_vm._v("List View")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("Grid View")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "th",
-      {
-        staticClass:
-          "pl-8 text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
-      },
-      [
-        _c("input", {
-          staticClass:
-            "cursor-pointer relative w-5 h-5 border rounded border-gray-400 bg-white dark:bg-gray-800 outline-none",
-          attrs: { type: "checkbox", onclick: "checkAll(this)" }
-        })
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -34528,14 +33244,14 @@ var staticRenderFns = [
       "td",
       {
         staticClass:
-          "pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
       },
       [
-        _c("input", {
-          staticClass:
-            "cursor-pointer relative w-5 h-5 border rounded border-gray-400 bg-white dark:bg-gray-800 outline-none",
-          attrs: { type: "checkbox", onclick: "tableInteract(this)" }
-        })
+        _c(
+          "div",
+          { staticClass: "relative w-10 text-gray-600 dark:text-gray-400" },
+          [_c("i", { staticClass: "fas fa-caret-right" })]
+        )
       ]
     )
   },
@@ -34545,24 +33261,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("td", { staticClass: "pr-6 whitespace-no-wrap" }, [
       _c("div", { staticClass: "flex items-center" }, [
-        _c("div", { staticClass: "h-8 w-8" }, [
-          _c("img", {
-            staticClass: "h-full w-full rounded-full overflow-hidden shadow",
-            attrs: {
-              src:
-                "https://tuk-cdn.s3.amazonaws.com/assets/components/advance_tables/at_1.png",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
         _c(
           "p",
           {
             staticClass:
               "ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm"
           },
-          [_vm._v("Carrie Anthony")]
+          [_vm._v("Toyota")]
         )
       ])
     ])
@@ -34572,7 +33277,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("td", { staticClass: "pr-6" }, [
-      _c("div", { staticClass: "w-2 h-2 rounded-full bg-indigo-400" })
+      _c("div", { staticClass: "w-2 h-2 rounded-full bg-green-600" })
     ])
   },
   function() {
@@ -34583,7 +33288,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "dropdown-content mt-8 absolute left-0 -ml-12 shadow-md z-10 hidden w-32"
+          "dropdown-content mt-8 absolute left-0 -ml-12 shadow-md z-10 w-32"
       },
       [
         _c(
@@ -34605,7 +33310,7 @@ var staticRenderFns = [
                 staticClass:
                   "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
               },
-              [_vm._v("Delete")]
+              [_vm._v("Archive")]
             ),
             _vm._v(" "),
             _c(
@@ -34614,7 +33319,7 @@ var staticRenderFns = [
                 staticClass:
                   "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
               },
-              [_vm._v("Duplicate")]
+              [_vm._v("Delete")]
             )
           ]
         )
@@ -34625,506 +33330,210 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "td",
-      {
-        staticClass:
-          "pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-      },
-      [
-        _c("input", {
+    return _c("div", { staticClass: "p-2 space-y-6" }, [
+      _c(
+        "section",
+        {
           staticClass:
-            "cursor-pointer relative w-5 h-5 border rounded border-gray-400 bg-white dark:bg-gray-800 outline-none",
-          attrs: { type: "checkbox", onclick: "tableInteract(this)" }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "pr-6 whitespace-no-wrap" }, [
-      _c("div", { staticClass: "flex items-center" }, [
-        _c("div", { staticClass: "h-8 w-8" }, [
-          _c("img", {
-            staticClass: "h-full w-full rounded-full overflow-hidden shadow",
-            attrs: {
-              src:
-                "https://tuk-cdn.s3.amazonaws.com/assets/components/advance_tables/at_2.png",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "p",
-          {
-            staticClass:
-              "ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm"
-          },
-          [_vm._v("Carrie Anthony")]
-        )
-      ])
+            "max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800"
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1" },
+            [
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "username" }
+                  },
+                  [_vm._v("Tender Brief")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "username", type: "text" }
+                })
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1" },
+            [
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "username" }
+                  },
+                  [_vm._v("Tender Funded By")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "username", type: "text" }
+                })
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3" },
+            [
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "username" }
+                  },
+                  [_vm._v("Tender ID")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "username", type: "text" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "emailAddress" }
+                  },
+                  [_vm._v("Tender Value (USD)")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "emailAddress", type: "text" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "emailAddress" }
+                  },
+                  [_vm._v("Tender Country")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "emailAddress", type: "text" }
+                })
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3" },
+            [
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "username" }
+                  },
+                  [_vm._v("Bid Price (KSH)")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "username", type: "text" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "username" }
+                  },
+                  [_vm._v("Competition Type")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "username", type: "text" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "emailAddress" }
+                  },
+                  [_vm._v("Expiry Date")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "emailAddress", type: "text" }
+                })
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2" },
+            [
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass:
+                      "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300",
+                    attrs: { for: "user_avatar" }
+                  },
+                  [_vm._v("Upload Tender Files")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass:
+                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                  attrs: { id: "username", type: "file" }
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "mt-1 text-sm text-gray-500 dark:text-gray-300",
+                    attrs: { id: "user_avatar_help" }
+                  },
+                  [_vm._v("PDF / JPEG / PNG / Excel / Doc")]
+                )
+              ])
+            ]
+          )
+        ]
+      )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "pr-6" }, [
-      _c("div", { staticClass: "w-2 h-2 rounded-full bg-red-400" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "dropdown-content mt-1 absolute left-0 -ml-12 shadow-md z-10 hidden w-32"
-      },
-      [
-        _c(
-          "ul",
-          { staticClass: "bg-white dark:bg-gray-800 shadow rounded py-1" },
-          [
-            _c(
-              "li",
-              {
-                staticClass:
-                  "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-              },
-              [_vm._v("Edit")]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                staticClass:
-                  "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-              },
-              [_vm._v("Delete")]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                staticClass:
-                  "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-              },
-              [_vm._v("Duplicate")]
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "td",
-      {
-        staticClass:
-          "pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-      },
-      [
-        _c("input", {
-          staticClass:
-            "cursor-pointer relative w-5 h-5 border rounded border-gray-400 bg-white dark:bg-gray-800 outline-none",
-          attrs: { type: "checkbox", onclick: "tableInteract(this)" }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "pr-6 whitespace-no-wrap" }, [
-      _c("div", { staticClass: "flex items-center" }, [
-        _c("div", { staticClass: "h-8 w-8" }, [
-          _c("img", {
-            staticClass: "h-full w-full rounded-full overflow-hidden shadow",
-            attrs: {
-              src:
-                "https://tuk-cdn.s3.amazonaws.com/assets/components/advance_tables/at_3.png",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "p",
-          {
-            staticClass:
-              "ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm"
-          },
-          [_vm._v("Carrie Anthony")]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "pr-6" }, [
-      _c("div", { staticClass: "w-2 h-2 rounded-full bg-indigo-400" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "dropdown-content mt-1 absolute left-0 -ml-12 shadow-md z-10 hidden w-32"
-      },
-      [
-        _c(
-          "ul",
-          { staticClass: "bg-white dark:bg-gray-800 shadow rounded py-1" },
-          [
-            _c(
-              "li",
-              {
-                staticClass:
-                  "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-              },
-              [_vm._v("Edit")]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                staticClass:
-                  "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-              },
-              [_vm._v("Delete")]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                staticClass:
-                  "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-              },
-              [_vm._v("Duplicate")]
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "td",
-      {
-        staticClass:
-          "pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-      },
-      [
-        _c("input", {
-          staticClass:
-            "cursor-pointer relative w-5 h-5 border rounded border-gray-400 bg-white dark:bg-gray-800 outline-none",
-          attrs: { type: "checkbox", onclick: "tableInteract(this)" }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "pr-6 whitespace-no-wrap" }, [
-      _c("div", { staticClass: "flex items-center" }, [
-        _c("div", { staticClass: "h-8 w-8" }, [
-          _c("img", {
-            staticClass: "h-full w-full rounded-full overflow-hidden shadow",
-            attrs: {
-              src:
-                "https://tuk-cdn.s3.amazonaws.com/assets/components/advance_tables/at_1.png",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "p",
-          {
-            staticClass:
-              "ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm"
-          },
-          [_vm._v("Carrie Anthony")]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "pr-6" }, [
-      _c("div", { staticClass: "w-2 h-2 rounded-full bg-indigo-400" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "dropdown-content mt-1 absolute left-0 -ml-12 shadow-md z-10 hidden w-32"
-      },
-      [
-        _c(
-          "ul",
-          { staticClass: "bg-white dark:bg-gray-800 shadow rounded py-1" },
-          [
-            _c(
-              "li",
-              {
-                staticClass:
-                  "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-              },
-              [_vm._v("Edit")]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                staticClass:
-                  "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-              },
-              [_vm._v("Delete")]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                staticClass:
-                  "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-              },
-              [_vm._v("Duplicate")]
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "td",
-      {
-        staticClass:
-          "pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-      },
-      [
-        _c("input", {
-          staticClass:
-            "cursor-pointer relative w-5 h-5 border rounded border-gray-400 bg-white dark:bg-gray-800 outline-none",
-          attrs: { type: "checkbox", onclick: "tableInteract(this)" }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "pr-6 whitespace-no-wrap" }, [
-      _c("div", { staticClass: "flex items-center" }, [
-        _c("div", { staticClass: "h-8 w-8" }, [
-          _c("img", {
-            staticClass: "h-full w-full rounded-full overflow-hidden shadow",
-            attrs: {
-              src:
-                "https://tuk-cdn.s3.amazonaws.com/assets/components/advance_tables/at_2.png",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "p",
-          {
-            staticClass:
-              "ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm"
-          },
-          [_vm._v("Carrie Anthony")]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "pr-6" }, [
-      _c("div", { staticClass: "w-2 h-2 rounded-full bg-red-400" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "dropdown-content mt-1 absolute left-0 -ml-12 shadow-md z-10 hidden w-32"
-      },
-      [
-        _c(
-          "ul",
-          { staticClass: "bg-white dark:bg-gray-800 shadow rounded py-1" },
-          [
-            _c(
-              "li",
-              {
-                staticClass:
-                  "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-              },
-              [_vm._v("Edit")]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                staticClass:
-                  "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-              },
-              [_vm._v("Delete")]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                staticClass:
-                  "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-              },
-              [_vm._v("Duplicate")]
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "td",
-      {
-        staticClass:
-          "pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-      },
-      [
-        _c("input", {
-          staticClass:
-            "cursor-pointer relative w-5 h-5 border rounded border-gray-400 bg-white dark:bg-gray-800 outline-none",
-          attrs: { type: "checkbox", onclick: "tableInteract(this)" }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "pr-6 whitespace-no-wrap" }, [
-      _c("div", { staticClass: "flex items-center" }, [
-        _c("div", { staticClass: "h-8 w-8" }, [
-          _c("img", {
-            staticClass: "h-full w-full rounded-full overflow-hidden shadow",
-            attrs: {
-              src:
-                "https://tuk-cdn.s3.amazonaws.com/assets/components/advance_tables/at_3.png",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "p",
-          {
-            staticClass:
-              "ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm"
-          },
-          [_vm._v("Carrie Anthony")]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "pr-6" }, [
-      _c("div", { staticClass: "w-2 h-2 rounded-full bg-gray-600" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "dropdown-content mt-1 absolute left-0 -ml-12 shadow-md z-10 hidden w-32"
-      },
-      [
-        _c(
-          "ul",
-          { staticClass: "bg-white dark:bg-gray-800 shadow rounded py-1" },
-          [
-            _c(
-              "li",
-              {
-                staticClass:
-                  "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-              },
-              [_vm._v("Edit")]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                staticClass:
-                  "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-              },
-              [_vm._v("Delete")]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                staticClass:
-                  "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-              },
-              [_vm._v("Duplicate")]
-            )
-          ]
-        )
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -37345,7 +35754,32 @@ var render = function() {
           _c("div", { staticClass: "flex justify-between " }, [
             _vm._m(0),
             _vm._v(" "),
-            _vm._m(1),
+            _c(
+              "a",
+              {
+                staticClass: "flex space-x-3 items-center",
+                attrs: { href: _vm.route("landing") }
+              },
+              [
+                _c("img", {
+                  staticClass: "p-1 dark:bg-white rounded-full",
+                  attrs: {
+                    src:
+                      "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg5.svg",
+                    alt: "circle"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "h1",
+                  {
+                    staticClass:
+                      " font-normal text-2xl leading-6 text-gray-800 dark:text-white "
+                  },
+                  [_vm._v("Bidders Portal")]
+                )
+              ]
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "hidden sm:flex flex-row space-x-4" }, [
               _c(
@@ -37369,7 +35803,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(2)
+            _vm._m(1)
           ]),
           _vm._v(" "),
           _c(
@@ -37379,31 +35813,33 @@ var render = function() {
               attrs: { id: "MobileNavigation" }
             },
             [
-              _vm._m(3),
+              _vm._m(2),
               _vm._v(" "),
               _c(
                 "div",
                 { staticClass: "flex flex-col gap-4 mt-4 w-80 mx-auto " },
                 [
-                  _c(
-                    "a",
-                    {
-                      staticClass:
-                        "rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-indigo-700 bg-indigo-600 bg-opacity-0 hover:opacity-100 duration-100 border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center",
-                      attrs: { href: _vm.route("register") }
-                    },
-                    [_vm._v("Sign Up")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass:
-                        "rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center",
-                      attrs: { href: _vm.route("login") }
-                    },
-                    [_vm._v("Sign In")]
-                  )
+                  _c("div", [
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-indigo-700 bg-indigo-600 bg-opacity-0 hover:opacity-100 duration-100 border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center",
+                        attrs: { href: _vm.route("register") }
+                      },
+                      [_vm._v("Sign Up")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center",
+                        attrs: { href: _vm.route("login") }
+                      },
+                      [_vm._v("Sign In")]
+                    )
+                  ])
                 ]
               )
             ]
@@ -37463,30 +35899,6 @@ var staticRenderFns = [
         })
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: " flex space-x-3 items-center" }, [
-      _c("img", {
-        staticClass: "p-1 dark:bg-white rounded-full",
-        attrs: {
-          src:
-            "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg5.svg",
-          alt: "circle"
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "h1",
-        {
-          staticClass:
-            " font-normal text-2xl leading-6 text-gray-800 dark:text-white "
-        },
-        [_vm._v("Bidders Portal")]
-      )
-    ])
   },
   function() {
     var _vm = this
@@ -41014,11 +39426,69 @@ var render = function() {
                             )
                           ]),
                           _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "flex border-t border-gray-200 py-2"
+                            },
+                            [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("Competition Type")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-auto text-gray-900" },
+                                [
+                                  _c(
+                                    "span",
+                                    { staticClass: "ml-auto text-gray-900" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
+                                          attrs: { href: _vm.route("checkout") }
+                                        },
+                                        [_vm._v("Purchase Tender to view")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "flex border-t border-gray-200 py-2"
+                            },
+                            [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("Funded By")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-auto text-gray-900" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass:
+                                        "bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
+                                      attrs: { href: _vm.route("checkout") }
+                                    },
+                                    [_vm._v("Purchase Tender to view")]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
                           _vm._m(1),
-                          _vm._v(" "),
-                          _vm._m(2),
-                          _vm._v(" "),
-                          _vm._m(3),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -41124,7 +39594,7 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(4),
+                          _vm._m(2),
                           _vm._v(" "),
                           _c("div", { staticClass: "flex" }, [
                             _c(
@@ -41208,50 +39678,6 @@ var staticRenderFns = [
         },
         [_vm._v("Description")]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex border-t border-gray-200 py-2" }, [
-      _c("span", { staticClass: "text-gray-500" }, [
-        _vm._v("Competition Type")
-      ]),
-      _vm._v(" "),
-      _c("span", { staticClass: "ml-auto text-gray-900" }, [
-        _c("span", { staticClass: "ml-auto text-gray-900" }, [
-          _c(
-            "a",
-            {
-              staticClass:
-                "bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
-              attrs: { href: "#" }
-            },
-            [_vm._v("Purchase Tender to view")]
-          )
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex border-t border-gray-200 py-2" }, [
-      _c("span", { staticClass: "text-gray-500" }, [_vm._v("Funded By")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "ml-auto text-gray-900" }, [
-        _c(
-          "a",
-          {
-            staticClass:
-              "bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Purchase Tender to view")]
-        )
-      ])
     ])
   },
   function() {

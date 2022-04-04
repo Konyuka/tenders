@@ -64,7 +64,7 @@
                     </div> -->
                     <a :href="route('landing')" class=" flex space-x-3 items-center">
                         <img class="p-1 dark:bg-white rounded-full" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg5.svg" alt="circle" />
-                        <h1 class=" font-normal text-2xl leading-6 text-gray-800 dark:text-white " >Tender Hub</h1>
+                        <h1 class=" font-normal text-2xl leading-6 text-gray-800 dark:text-white " >Bidders Portal</h1>
                     </a>
                     <ul aria-orientation="vertical" class="rounded py-8">
                         <li @click="selectedMenu('tenders')" :class="this.currentMenu == 'tenders' ? 'text-indigo-700' : ''" class="cursor-pointer text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
@@ -112,13 +112,6 @@
                                     <div class="w-2 h-2 rounded-full bg-red-400 border border-white absolute inset-0 mt-1 mr-1 m-auto"></div>
                                 </div>
                             </div>
-                            <div class="h-full w-20 flex items-center justify-center border-r mr-4 cursor-pointer text-gray-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-messages" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />
-                                    <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" />
-                                </svg>
-                            </div>
                             <div class="flex items-center relative cursor-pointer" @click="dropdownHandler($event)">
                                 <div class="rounded-full">
                                     <ul class="p-2 w-full border-r bg-white absolute rounded left-0 shadow mt-12 sm:mt-16 hidden">
@@ -144,11 +137,11 @@
                                         </li>
                                     </ul>
                                     <div class="relative">
-                                        <img class="rounded-full h-10 w-10 object-cover" src="https://tuk-cdn.s3.amazonaws.com/assets/components/sidebar_layout/sl_1.png" alt="avatar" />
+                                        <img class="rounded-full h-10 w-10 object-cover" src="https://downloader.la/temp/[Downloader.la]-6246c91bbab39.jpg" alt="avatar" />
                                         <div class="w-2 h-2 rounded-full bg-green-400 border border-white absolute inset-0 mb-0 mr-0 m-auto"></div>
                                     </div>
                                 </div>
-                                <p class="text-gray-800 text-sm mx-3">Jane Doe</p>
+                                <p class="text-gray-800 text-sm mx-3">Account Setting</p>
                                 <div class="cursor-pointer text-gray-600">
                                     <svg aria-haspopup="true" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" />
@@ -216,6 +209,9 @@ export default {
         PaymentsPage,
         SupportPage,
         UsersPage
+    },
+    props: {
+        user: Object,
     },
     data(){
         return{

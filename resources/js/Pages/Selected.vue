@@ -22,14 +22,14 @@
                 <span class="text-gray-500">Competition Type</span>
                 <span class="ml-auto text-gray-900">
                     <span class="ml-auto text-gray-900">
-                        <a href="#" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a>
+                        <a :href="route('checkout')" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a>
                     </span>
                 </span>
                 </div>
                 <div class="flex border-t border-gray-200 py-2">
                 <span class="text-gray-500">Funded By</span>
                 <span class="ml-auto text-gray-900">
-                    <a href="#" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a>
+                    <a :href="route('checkout')" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a>
                 </span>
                 </div>
                 <div class="flex border-t border-b mb-6 border-gray-200 py-2">

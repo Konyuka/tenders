@@ -127,7 +127,7 @@
         </div>
       </div>
 
-      
+
     </div>
 
     </body>
@@ -144,8 +144,6 @@ import MainFooter from './Components/MainFooter.vue'
 
 export default {
     name:'Landing',
-    props: {
-    },
     components: {
         TopBanner,
         MainMenu,
@@ -159,6 +157,9 @@ export default {
     mounted () {
     },
     computed: {
+        user() {
+            return this.$page.props.user.name
+        }
     },
     data () {
         return {
