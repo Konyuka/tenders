@@ -12,9 +12,24 @@ class DashboardController extends Controller
     {
         $posts = Post::all();
         return Inertia::render('Dashboard', ['allPosts' => $posts]);
+    }
 
-        // return Inertia::render('Dashboard', [
-        //     'Posts'=> Post::all()
-        // ]);
+    public function add()
+    {
+        Post::create(
+            Request::validate([
+                'title' => ['required', 'max:50'],
+                'description' => ['required', 'max:50'],
+                'funding' => ['required', 'max:50', 'email'],
+                'identity' => ['required', 'max:50'],
+                'value' => ['required', 'max:50'],
+                'country' => ['required', 'max:50'],
+                'price' => ['required', 'max:50'],
+                'competition' => ['required', 'max:50'],
+                'expiry' => ['required', 'max:50'],
+            ])
+        );
+
+        return Redirect::route('users.index');
     }
 }

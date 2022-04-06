@@ -24,6 +24,9 @@ Route::get('/checkout', [LandingController::class, 'checkout'])
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/post', [DashboardController::class, 'add'])
+    ->name('dashboard');
+
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return Inertia\Inertia::render('Dashboard');
 // })->name('dashboard');
