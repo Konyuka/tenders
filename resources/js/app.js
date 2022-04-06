@@ -4,6 +4,8 @@ import Vue from 'vue';
 
 import { InertiaApp } from '@inertiajs/inertia-vue';
 import { InertiaForm } from 'laravel-jetstream';
+// import { InertiaProgress } from '@inertiajs/progress'
+// InertiaProgress.init()
 import PortalVue from 'portal-vue';
 
 Vue.mixin({ methods: { route } });

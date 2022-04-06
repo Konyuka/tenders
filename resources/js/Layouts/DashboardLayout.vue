@@ -2,6 +2,7 @@
     <div class="flex flex-no-wrap bg-gray-50 min-h-screen">
         <!-- Sidebar starts -->
         <!-- Remove class [ hidden ] and replace [ sm:flex ] with [ flex ] -->
+
         <div class="absolute border-r border-gray-100 sm:relative h-full min-h-screen bg-gray-100 z-20 p-4">
             <div class="flex w-full">
                 <div class="w-1/4 flex justify-center flex-col w-full">
@@ -201,9 +202,9 @@ import TendersPage from '../Pages/Components/Dashboard/TendersPage.vue'
 import PaymentsPage from '../Pages/Components/Dashboard/PaymentsPage.vue'
 import SupportPage from '../Pages/Components/Dashboard/SupportPage.vue'
 import UsersPage from '../Pages/Components/Dashboard/UsersPage.vue'
-
+const app = document.getElementById('app');
 export default {
-    name: "LightWithHeaderAndIcons",
+    name: "DashboardLayout",
     components:{
         TendersPage,
         PaymentsPage,
@@ -211,11 +212,21 @@ export default {
         UsersPage
     },
     props: {
-        user: Object,
+        allPosts: Array,
+        // initialPage: JSON.parse(app.dataset.page),
+    },
+    mounted() {
+        // this.user = this.$page.props.user.name
+    },
+    computed: {
+        // users(){
+        //     return this.$page.props.user
+        // }
     },
     data(){
         return{
             currentMenu: 'tenders',
+            pageData: JSON.parse(app.dataset.page),
         }
     },
     methods: {

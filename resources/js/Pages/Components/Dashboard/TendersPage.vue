@@ -1,5 +1,22 @@
 <template>
     <div class="w-full bg-gray-50">
+        <nav class="mb-4 flex" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                    <svg class="mr-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                    Dashboard
+                </a>
+                </li>
+                <li aria-current="page">
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                    <span class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Tenders Page</span>
+                </div>
+                </li>
+            </ol>
+        </nav>
+
         <div class="mx-auto container bg-white dark:bg-gray-800 dark:bg-gray-800 shadow rounded">
             <div class="flex flex-col lg:flex-row p-4 lg:p-8 justify-between items-start lg:items-stretch w-full">
                 <div class="w-full lg:w-1/3 flex flex-col lg:flex-row items-start lg:items-center">
@@ -77,7 +94,7 @@
                             <th class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4">
                                 <div class="opacity-0 w-2 h-2 rounded-full bg-indigo-400"></div>
                             </th>
-                            <td class="text-gray-600 dark:text-gray-400 font-normal pr-8 text-left text-sm tracking-normal leading-4">More</td>
+                            <td class="text-gray-600 dark:text-gray-400 font-normal pr-8 text-left text-sm tracking-normal leading-4">Actions</td>
                         </tr>
                     </thead>
                     <tbody class="">
@@ -110,20 +127,22 @@
                                 <div class="w-2 h-2 rounded-full bg-green-600"></div>
                             </td>
                             <td class="pr-8 relative">
-                                <div class="dropdown-content mt-8 absolute left-0 -ml-12 shadow-md z-10 w-32">
+                                <!-- <div class="dropdown-content mt-8 absolute left-0 -ml-12 shadow-md z-10 w-32">
                                     <ul class="bg-white dark:bg-gray-800 shadow rounded py-1">
                                         <li class="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Edit</li>
                                         <li class="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Archive</li>
                                         <li class="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Delete</li>
                                     </ul>
-                                </div>
-                                <button class="text-gray-500 rounded cursor-pointer border border-transparent focus:outline-none">
-                                    <svg xmlns="http://www.w3.org/2000/svg" onclick="dropdownFunction(this)" class="icon icon-tabler icon-tabler-dots-vertical dropbtn" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" />
-                                        <circle cx="12" cy="12" r="1" />
-                                        <circle cx="12" cy="19" r="1" />
-                                        <circle cx="12" cy="5" r="1" />
-                                    </svg>
+                                </div> -->
+
+                                <button class="mr-2 text-indigo-600 hover:text-indigo-400 rounded cursor-pointer border border-transparent focus:outline-none">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="mr-2 text-orange-400 hover:text-orange-300 rounded cursor-pointer border border-transparent focus:outline-none">
+                                    <i class="fas fa-pause"></i>
+                                </button>
+                                <button class="mr-2 text-red-600 hover:text-red-400 rounded cursor-pointer border border-transparent focus:outline-none">
+                                    <i class="fas fa-trash"></i>
                                 </button>
                             </td>
                         </tr>
