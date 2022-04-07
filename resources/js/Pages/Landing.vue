@@ -141,7 +141,7 @@ import HeroSection from './Components/HeroSection.vue'
 import FeaturedTenders from './Components/FeaturedTenders.vue'
 import ServiceIntro from './Components/ServiceIntro.vue'
 import MainFooter from './Components/MainFooter.vue'
-
+const app = document.getElementById('app');
 export default {
     name:'Landing',
     components: {
@@ -157,13 +157,14 @@ export default {
     mounted () {
     },
     computed: {
-        user() {
-            return this.$page.props.user.name
+        posts(){
+            return this.pageData.props.allPosts
         }
     },
     data () {
         return {
             modal: false,
+            pageData: JSON.parse(app.dataset.page),
         }
     },
     methods:{

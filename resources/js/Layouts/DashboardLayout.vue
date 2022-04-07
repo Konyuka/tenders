@@ -219,9 +219,9 @@ export default {
         // this.user = this.$page.props.user.name
     },
     computed: {
-        // users(){
-        //     return this.$page.props.user
-        // }
+        posts(){
+            return this.pageData.props.allPosts
+        }
     },
     data(){
         return{

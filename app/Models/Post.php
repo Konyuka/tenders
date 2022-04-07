@@ -15,6 +15,18 @@ class Post extends Eloquent
     protected $connection = 'mongodb';
     protected $collection = 'Posts';
 
+    protected $fillable = [
+        'title',
+        'description',
+        'funding',
+        'identity',
+        'value',
+        'country',
+        'price',
+        'competition',
+        'expiry'
+    ];
+
     // public function orders(){
     //     return $this->hasMany(Order::class);
     // }

@@ -55,9 +55,9 @@ export default {
   components: {
     //   Categories,
   },
-  props: {
-    user: Object,
-  },
+//   props: {
+//     user: Object,
+//   },
   data(){
     return{
 

@@ -11,30 +11,30 @@
             <div class="lg:w-4/5 mx-auto flex flex-wrap">
             <div class="w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
                 <a href="#" class="text-sm title-font text-gray-500 tracking-widest">Tender Category</a>
-                <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">General Procurement Notice for North-South</h1>
+                <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">{{ post.title }}</h1>
                 <div class="flex mb-4">
                 <a class="flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1">Description</a>
                 <!-- <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Reviews</a>
                 <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Details</a> -->
                 </div>
-                <p class="leading-relaxed mb-4">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam inxigo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean.</p>
+                <p class="leading-relaxed mb-4">{{ post.description }}. <br> Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam inxigo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean.</p>
                 <div class="flex border-t border-gray-200 py-2">
                 <span class="text-gray-500">Competition Type</span>
                 <span class="ml-auto text-gray-900">
                     <span class="ml-auto text-gray-900">
-                        <a :href="route('checkout')" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a>
+                        <a :href="route('checkout', post.identity)" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a>
                     </span>
                 </span>
                 </div>
                 <div class="flex border-t border-gray-200 py-2">
                 <span class="text-gray-500">Funded By</span>
                 <span class="ml-auto text-gray-900">
-                    <a :href="route('checkout')" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a>
+                    <a :href="route('checkout', post.identity)" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a>
                 </span>
                 </div>
                 <div class="flex border-t border-b mb-6 border-gray-200 py-2">
                 <span class="text-gray-500">Tender Value in USD</span>
-                <span class="ml-auto text-gray-900">260,000</span>
+                <span class="ml-auto text-gray-900"> {{ post.value }} </span>
                 </div>
                 <div class="flex border-t border-b mb-6 border-gray-200 py-2">
                 <span class="text-gray-500">Date Posted
@@ -43,7 +43,7 @@
                     3 days ago
                     </span>
                 </span>
-                <span class="ml-auto text-gray-900">4th March 22</span>
+                <span class="ml-auto text-gray-900">7th April 22</span>
 
                 </div>
                 <div class="flex border-t border-b mb-6 border-gray-200 py-2">
@@ -53,7 +53,7 @@
                     3 days ago
                     </span>
                 </span>
-                <span class="ml-auto text-gray-900">4th April 22</span>
+                <span class="ml-auto text-gray-900">{{ post.title }}</span>
                 </div>
                 <div class="flex border-t border-b mb-6 border-gray-200 py-2">
                 <span class="text-gray-500">Country</span>
@@ -61,9 +61,8 @@
                 </div>
 
                 <div class="flex">
-                <span class="title-font font-medium text-2xl text-gray-900">KES 100</span>
-                <!-- <a :href="route('checkout')"></a> -->
-                <a :href="route('checkout')" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Purchase Tender Details</a>
+                <span class="title-font font-medium text-2xl text-gray-900">KES {{post.price}}</span>
+                <a :href="route('checkout', post.identity)" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Purchase Tender Details</a>
 
                 <button class="hover:bg-red-500 hover:text-white rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                     <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
@@ -93,8 +92,9 @@ import MainMenu from './Components/MainMenu.vue'
 import MainFooter from './Components/MainFooter.vue'
 
 export default {
-    name:'Landing',
+    name:'Selected',
     props: {
+        post: Object
     },
     components: {
         TopBanner,

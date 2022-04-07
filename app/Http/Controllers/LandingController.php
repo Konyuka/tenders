@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\Post;
 
 class LandingController extends Controller
 {
@@ -14,12 +15,16 @@ class LandingController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Landing');
+        $posts = Post::all();
+        return Inertia::render('Landing', ['allPosts' => $posts]);
     }
 
-    public function selected()
+    public function selected($slug)
     {
-        return Inertia::render('Selected');
+        return Inertia::render('Selected', [
+
+           'post' => Post::where('identity', '=', $slug)->first()
+       ]);
     }
 
     public function listing()
@@ -27,9 +32,12 @@ class LandingController extends Controller
         return Inertia::render('Listing');
     }
 
-    public function checkout()
+    public function checkout($slugs)
     {
-        return Inertia::render('Checkout');
+        return Inertia::render('Checkout', [
+           'post' => Post::where('identity', '=', $slugs)->first()
+       ]);
+
     }
 
     /**

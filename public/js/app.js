@@ -3319,9 +3319,10 @@ var app = document.getElementById('app');
   },
   mounted: function mounted() {// this.user = this.$page.props.user.name
   },
-  computed: {// users(){
-    //     return this.$page.props.user
-    // }
+  computed: {
+    posts: function posts() {
+      return this.pageData.props.allPosts;
+    }
   },
   data: function data() {
     return {
@@ -3856,7 +3857,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Landing',
-  props: {},
+  props: {
+    post: Object
+  },
   components: {
     TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -4499,6 +4502,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "TendersPage",
   data: function data() {
@@ -4515,13 +4522,29 @@ __webpack_require__.r(__webpack_exports__);
         price: null,
         competition: null,
         expiry: null,
-        userID: this.$parent.pageData.props.user.id
+        userID: null
       }
     };
   },
+  mounted: function mounted() {// this.UserId = this.$parent.pageData.props.user.id
+    // this.UserId = parseInt(this.$parent.pageData.props.user.id)
+  },
   methods: {
+    addTender: function addTender() {
+      this.form.UserID = parseInt(this.$parent.pageData.props.user.id);
+      this.addModal = true;
+    },
     submit: function submit() {
-      this.$inertia.post('/post', this.form);
+      var _this = this;
+
+      var response = this.$inertia.post('/post', this.form);
+      console.log(response).then(function (response) {
+        console.log(response);
+        _this.addModal = false;
+        alert('added');
+      })["catch"](function (err) {
+        console.log(err);
+      });
     },
     dropdownFunction: function dropdownFunction(event) {
       var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -4617,108 +4640,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Jetstream/Button.vue */ "./resources/js/Jetstream/Button.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -5347,9 +5268,9 @@ __webpack_require__.r(__webpack_exports__);
   name: 'TopBanner',
   components: {//   Categories,
   },
-  props: {
-    user: Object
-  },
+  //   props: {
+  //     user: Object,
+  //   },
   data: function data() {
     return {};
   },
@@ -5601,6 +5522,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var app = document.getElementById('app');
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Landing',
   components: {
@@ -5614,13 +5536,14 @@ __webpack_require__.r(__webpack_exports__);
   watch: {},
   mounted: function mounted() {},
   computed: {
-    user: function user() {
-      return this.$page.props.user.name;
+    posts: function posts() {
+      return this.pageData.props.allPosts;
     }
   },
   data: function data() {
     return {
-      modal: false
+      modal: false,
+      pageData: JSON.parse(app.dataset.page)
     };
   },
   methods: {
@@ -6894,6 +6817,99 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Selected',
+  props: {
+    post: Object
+  },
+  components: {
+    TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  watch: {},
+  mounted: function mounted() {},
+  computed: {},
+  data: function data() {
+    return {
+      modal: false
+    };
+  },
+  methods: {
+    clearFilters: function clearFilters() {},
+    loadFilters: function loadFilters() {}
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Success.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Success.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
+/* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
+/* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
 //
 //
 //
@@ -30443,7 +30459,140 @@ var render = function() {
                       attrs: { "aria-labelledby": "summary-heading" }
                     },
                     [
-                      _vm._m(0),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "max-w-2xl mx-auto px-4 lg:max-w-none lg:px-0"
+                        },
+                        [
+                          _c(
+                            "h2",
+                            {
+                              staticClass: "sr-only",
+                              attrs: { id: "summary-heading" }
+                            },
+                            [_vm._v("Order summary")]
+                          ),
+                          _vm._v(" "),
+                          _c("dl", [
+                            _c("dt", { staticClass: "text-sm font-medium" }, [
+                              _vm._v("Cart Value")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "dd",
+                              {
+                                staticClass:
+                                  "mt-1 text-3xl font-extrabold text-white"
+                              },
+                              [_vm._v("KES " + _vm._s(_vm.post.price))]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "ul",
+                            {
+                              staticClass:
+                                "text-sm font-medium divide-y divide-white divide-opacity-10",
+                              attrs: { role: "list" }
+                            },
+                            [
+                              _c(
+                                "li",
+                                {
+                                  staticClass: "flex items-start py-6 space-x-4"
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "flex-auto space-y-1" },
+                                    [
+                                      _c("h3", { staticClass: "text-white" }, [
+                                        _vm._v(_vm._s(_vm.post.title))
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("p", [
+                                        _vm._v("Tender Value: "),
+                                        _c(
+                                          "span",
+                                          { staticClass: "text-white" },
+                                          [
+                                            _vm._v(
+                                              "USD " + _vm._s(_vm.post.value)
+                                            )
+                                          ]
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("p", [
+                                        _vm._v("Expiry Date: "),
+                                        _c(
+                                          "span",
+                                          { staticClass: "text-white" },
+                                          [_vm._v(_vm._s(_vm.post.expiry))]
+                                        )
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "flex-none text-base font-medium text-white"
+                                    },
+                                    [_vm._v("KES " + _vm._s(_vm.post.price))]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "dl",
+                            {
+                              staticClass:
+                                "text-sm font-medium space-y-6 border-t border-white border-opacity-10 pt-6"
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "flex items-center justify-between"
+                                },
+                                [
+                                  _c("dt", [_vm._v("Subtotal")]),
+                                  _vm._v(" "),
+                                  _c("dd", [
+                                    _vm._v("KES " + _vm._s(_vm.post.price))
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(0),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "flex items-center justify-between border-t border-white border-opacity-10 text-white pt-6"
+                                },
+                                [
+                                  _c("dt", { staticClass: "text-base" }, [
+                                    _vm._v("Total")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("dd", { staticClass: "text-base" }, [
+                                    _vm._v("KES " + _vm._s(_vm.post.price))
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
                       _vm._v(" "),
                       _c(
                         "div",
@@ -30547,9 +30696,32 @@ var render = function() {
                         _vm._v(" "),
                         _vm._m(2),
                         _vm._v(" "),
-                        _vm._m(3),
+                        _c("div", { staticClass: "flex flex-col px-10" }, [
+                          _vm._m(3),
+                          _vm._v(" "),
+                          _vm._m(4),
+                          _vm._v(" "),
+                          _c(
+                            "h4",
+                            {
+                              staticClass:
+                                "mb-5 text-sm font-bold text-gray-500 dark:text-gray-400"
+                            },
+                            [
+                              _vm._v("Payment Amount: "),
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "ml-2 font-extrabold text-xl text-indigo-600"
+                                },
+                                [_vm._v(" KES " + _vm._s(_vm.post.price))]
+                              )
+                            ]
+                          )
+                        ]),
                         _vm._v(" "),
-                        _vm._m(4)
+                        _vm._m(5)
                       ]
                     )
                   ]
@@ -30567,97 +30739,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "max-w-2xl mx-auto px-4 lg:max-w-none lg:px-0" },
-      [
-        _c("h2", { staticClass: "sr-only", attrs: { id: "summary-heading" } }, [
-          _vm._v("Order summary")
-        ]),
-        _vm._v(" "),
-        _c("dl", [
-          _c("dt", { staticClass: "text-sm font-medium" }, [
-            _vm._v("Cart Value")
-          ]),
-          _vm._v(" "),
-          _c("dd", { staticClass: "mt-1 text-3xl font-extrabold text-white" }, [
-            _vm._v("KES 50")
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "ul",
-          {
-            staticClass:
-              "text-sm font-medium divide-y divide-white divide-opacity-10",
-            attrs: { role: "list" }
-          },
-          [
-            _c("li", { staticClass: "flex items-start py-6 space-x-4" }, [
-              _c("div", { staticClass: "flex-auto space-y-1" }, [
-                _c("h3", { staticClass: "text-white" }, [
-                  _vm._v("Kisumu girls sugar tender")
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v("Tender Value: "),
-                  _c("span", { staticClass: "text-white" }, [
-                    _vm._v("USD 260,000")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v("Expiry Date: "),
-                  _c("span", { staticClass: "text-white" }, [
-                    _vm._v("4th April 22")
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "p",
-                { staticClass: "flex-none text-base font-medium text-white" },
-                [_vm._v("KES 50")]
-              )
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "dl",
-          {
-            staticClass:
-              "text-sm font-medium space-y-6 border-t border-white border-opacity-10 pt-6"
-          },
-          [
-            _c("div", { staticClass: "flex items-center justify-between" }, [
-              _c("dt", [_vm._v("Subtotal")]),
-              _vm._v(" "),
-              _c("dd", [_vm._v("KES 50")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex items-center justify-between" }, [
-              _c("dt", [_vm._v("Taxes")]),
-              _vm._v(" "),
-              _c("dd", [_vm._v("KES 0")])
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "flex items-center justify-between border-t border-white border-opacity-10 text-white pt-6"
-              },
-              [
-                _c("dt", { staticClass: "text-base" }, [_vm._v("Total")]),
-                _vm._v(" "),
-                _c("dd", { staticClass: "text-base" }, [_vm._v("KES 50")])
-              ]
-            )
-          ]
-        )
-      ]
-    )
+    return _c("div", { staticClass: "flex items-center justify-between" }, [
+      _c("dt", [_vm._v("Taxes")]),
+      _vm._v(" "),
+      _c("dd", [_vm._v("KES 0")])
+    ])
   },
   function() {
     var _vm = this
@@ -30874,52 +30960,39 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex flex-col px-10" }, [
-      _c(
-        "h4",
-        {
-          staticClass: "mb-5 text-sm font-bold text-gray-500 dark:text-gray-400"
-        },
-        [
-          _vm._v("Paybill Number: "),
-          _c(
-            "span",
-            { staticClass: "ml-2 font-extrabold text-xl text-indigo-600" },
-            [_vm._v(" 320567")]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "h4",
-        {
-          staticClass: "mb-5 text-sm font-bold text-gray-500 dark:text-gray-400"
-        },
-        [
-          _vm._v("Account Number: "),
-          _c(
-            "span",
-            { staticClass: "ml-2 font-extrabold text-xl text-indigo-600" },
-            [_vm._v(" IUFLNSD")]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "h4",
-        {
-          staticClass: "mb-5 text-sm font-bold text-gray-500 dark:text-gray-400"
-        },
-        [
-          _vm._v("Payment Amount: "),
-          _c(
-            "span",
-            { staticClass: "ml-2 font-extrabold text-xl text-indigo-600" },
-            [_vm._v(" KES 50")]
-          )
-        ]
-      )
-    ])
+    return _c(
+      "h4",
+      {
+        staticClass: "mb-5 text-sm font-bold text-gray-500 dark:text-gray-400"
+      },
+      [
+        _vm._v("Paybill Number: "),
+        _c(
+          "span",
+          { staticClass: "ml-2 font-extrabold text-xl text-indigo-600" },
+          [_vm._v(" 320567")]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h4",
+      {
+        staticClass: "mb-5 text-sm font-bold text-gray-500 dark:text-gray-400"
+      },
+      [
+        _vm._v("Account Number: "),
+        _c(
+          "span",
+          { staticClass: "ml-2 font-extrabold text-xl text-indigo-600" },
+          [_vm._v(" IUFLNSD")]
+        )
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -31298,8 +31371,6 @@ var render = function() {
                         [_vm._v("Payment Time")]
                       ),
                       _vm._v(" "),
-                      _vm._m(0),
-                      _vm._v(" "),
                       _c(
                         "td",
                         {
@@ -31312,7 +31383,7 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(1)
+                _vm._m(0)
               ]
             )
           ]
@@ -31402,7 +31473,7 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(2),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -31450,23 +31521,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "th",
-      {
-        staticClass:
-          "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
-      },
-      [
-        _c("div", {
-          staticClass: "opacity-0 w-2 h-2 rounded-full bg-indigo-400"
-        })
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -31573,10 +31627,6 @@ var staticRenderFns = [
           },
           [_vm._v("02.03.20 17:30")]
         ),
-        _vm._v(" "),
-        _c("td", { staticClass: "pr-6" }, [
-          _c("div", { staticClass: "w-2 h-2 rounded-full bg-green-600" })
-        ]),
         _vm._v(" "),
         _c("td", { staticClass: "pr-8 relative" }, [
           _c(
@@ -32325,11 +32375,7 @@ var render = function() {
                     {
                       staticClass:
                         "bg-indigo-600 transition duration-150 ease-in-out focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-white px-5 h-8 flex items-center text-sm",
-                      on: {
-                        click: function($event) {
-                          _vm.addModal = true
-                        }
-                      }
+                      on: { click: _vm.addTender }
                     },
                     [_vm._v("Add Tender")]
                   )
@@ -32492,7 +32538,90 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(1)
+                _c(
+                  "tbody",
+                  {},
+                  _vm._l(this.$parent.posts, function(post) {
+                    return _c(
+                      "tr",
+                      {
+                        key: post._id,
+                        staticClass: "h-24 border-gray-300 border-b"
+                      },
+                      [
+                        _c("td", {
+                          staticClass:
+                            "pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+                        }),
+                        _vm._v(" "),
+                        _vm._m(1, true),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass:
+                              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+                          },
+                          [_vm._v("#" + _vm._s(post.identity))]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass:
+                              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+                          },
+                          [_vm._v(_vm._s(post.title))]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "pr-6 whitespace-no-wrap" }, [
+                          _c("div", { staticClass: "flex items-center" }, [
+                            _c(
+                              "p",
+                              {
+                                staticClass:
+                                  "ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm"
+                              },
+                              [_vm._v(_vm._s(post.funding))]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass:
+                              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+                          },
+                          [_vm._v(_vm._s(post.value))]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass:
+                              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+                          },
+                          [_vm._v(_vm._s(post.expiry))]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass:
+                              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+                          },
+                          [_vm._v(_vm._s(post.expiry))]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(2, true),
+                        _vm._v(" "),
+                        _vm._m(3, true)
+                      ]
+                    )
+                  }),
+                  0
+                )
               ]
             )
           ]
@@ -32521,510 +32650,497 @@ var render = function() {
                   },
                   [
                     _c(
-                      "div",
+                      "form",
                       {
-                        staticClass:
-                          "flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600"
+                        on: {
+                          submit: function($event) {
+                            $event.preventDefault()
+                            return _vm.submit($event)
+                          }
+                        }
                       },
                       [
                         _c(
-                          "h3",
+                          "div",
                           {
                             staticClass:
-                              "text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white"
-                          },
-                          [
-                            _vm._v(
-                              "\n                    Add Tender\n                "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white",
-                            attrs: {
-                              type: "button",
-                              "data-modal-toggle": "defaultModal"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.addModal = false
-                              }
-                            }
+                              "flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600"
                           },
                           [
                             _c(
-                              "svg",
+                              "h3",
                               {
-                                staticClass: "w-5 h-5",
+                                staticClass:
+                                  "text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    Add Tender\n                "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white",
                                 attrs: {
-                                  fill: "currentColor",
-                                  viewBox: "0 0 20 20",
-                                  xmlns: "http://www.w3.org/2000/svg"
+                                  type: "button",
+                                  "data-modal-toggle": "defaultModal"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    _vm.addModal = false
+                                  }
                                 }
                               },
                               [
-                                _c("path", {
-                                  attrs: {
-                                    "fill-rule": "evenodd",
-                                    d:
-                                      "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
-                                    "clip-rule": "evenodd"
-                                  }
-                                })
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "w-5 h-5",
+                                    attrs: {
+                                      fill: "currentColor",
+                                      viewBox: "0 0 20 20",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        "fill-rule": "evenodd",
+                                        d:
+                                          "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+                                        "clip-rule": "evenodd"
+                                      }
+                                    })
+                                  ]
+                                )
                               ]
                             )
                           ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "p-2 space-y-6" }, [
-                      _c(
-                        "section",
-                        {
-                          staticClass:
-                            "max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800"
-                        },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1"
-                            },
-                            [
-                              _c("div", [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass:
-                                      "text-gray-700 dark:text-gray-200",
-                                    attrs: { for: "username" }
-                                  },
-                                  [_vm._v("Tender Title")]
-                                ),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.title,
-                                      expression: "form.title"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                                  attrs: { id: "username", type: "text" },
-                                  domProps: { value: _vm.form.title },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "title",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1"
-                            },
-                            [
-                              _c("div", [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass:
-                                      "text-gray-700 dark:text-gray-200",
-                                    attrs: { for: "username" }
-                                  },
-                                  [_vm._v("Tender Description")]
-                                ),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.description,
-                                      expression: "form.description"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                                  attrs: { id: "username", type: "text" },
-                                  domProps: { value: _vm.form.description },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "description",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1"
-                            },
-                            [
-                              _c("div", [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass:
-                                      "text-gray-700 dark:text-gray-200",
-                                    attrs: { for: "username" }
-                                  },
-                                  [_vm._v("Tender Funded By")]
-                                ),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.funding,
-                                      expression: "form.funding"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                                  attrs: { id: "username", type: "text" },
-                                  domProps: { value: _vm.form.funding },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "funding",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3"
-                            },
-                            [
-                              _c("div", [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass:
-                                      "text-gray-700 dark:text-gray-200",
-                                    attrs: { for: "username" }
-                                  },
-                                  [_vm._v("Tender ID")]
-                                ),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.identity,
-                                      expression: "form.identity"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                                  attrs: { id: "username", type: "number" },
-                                  domProps: { value: _vm.form.identity },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "identity",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass:
-                                      "text-gray-700 dark:text-gray-200",
-                                    attrs: { for: "emailAddress" }
-                                  },
-                                  [_vm._v("Tender Value (USD)")]
-                                ),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.value,
-                                      expression: "form.value"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                                  attrs: { id: "emailAddress", type: "number" },
-                                  domProps: { value: _vm.form.value },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "value",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass:
-                                      "text-gray-700 dark:text-gray-200",
-                                    attrs: { for: "emailAddress" }
-                                  },
-                                  [_vm._v("Tender Country")]
-                                ),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.country,
-                                      expression: "form.country"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                                  attrs: { id: "emailAddress", type: "text" },
-                                  domProps: { value: _vm.form.country },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "country",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3"
-                            },
-                            [
-                              _c("div", [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass:
-                                      "text-gray-700 dark:text-gray-200",
-                                    attrs: { for: "username" }
-                                  },
-                                  [_vm._v("Bid Price (KSH)")]
-                                ),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.price,
-                                      expression: "form.price"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                                  attrs: { id: "username", type: "number" },
-                                  domProps: { value: _vm.form.price },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "price",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass:
-                                      "text-gray-700 dark:text-gray-200",
-                                    attrs: { for: "username" }
-                                  },
-                                  [_vm._v("Competition Type")]
-                                ),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.competition,
-                                      expression: "form.competition"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "uppercase block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                                  attrs: { id: "username", type: "text" },
-                                  domProps: { value: _vm.form.competition },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "competition",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass:
-                                      "text-gray-700 dark:text-gray-200",
-                                    attrs: { for: "emailAddress" }
-                                  },
-                                  [_vm._v("Expiry Date")]
-                                ),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.expiry,
-                                      expression: "form.expiry"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                                  attrs: { id: "emailAddress", type: "text" },
-                                  domProps: { value: _vm.form.expiry },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "expiry",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _vm._m(2)
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
-                            attrs: {
-                              "data-modal-toggle": "defaultModal",
-                              type: "button"
-                            },
-                            on: { click: _vm.submit }
-                          },
-                          [_vm._v("Add Tender")]
                         ),
                         _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "text-white bg-orange-400 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-300 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600",
-                            attrs: {
-                              "data-modal-toggle": "defaultModal",
-                              type: "button"
+                        _c("div", { staticClass: "p-2 space-y-6" }, [
+                          _c(
+                            "section",
+                            {
+                              staticClass:
+                                "max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800"
                             },
-                            on: { click: _vm.clearFilters }
-                          },
-                          [_vm._v("Archive Tender")]
-                        )
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1"
+                                },
+                                [
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "username" }
+                                      },
+                                      [_vm._v("Tender Title")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.title,
+                                          expression: "form.title"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: { id: "username", type: "text" },
+                                      domProps: { value: _vm.form.title },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "title",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1"
+                                },
+                                [
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "username" }
+                                      },
+                                      [_vm._v("Tender Description")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.description,
+                                          expression: "form.description"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: { id: "username", type: "text" },
+                                      domProps: { value: _vm.form.description },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "description",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1"
+                                },
+                                [
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "username" }
+                                      },
+                                      [_vm._v("Tender Funded By")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.funding,
+                                          expression: "form.funding"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: { id: "username", type: "text" },
+                                      domProps: { value: _vm.form.funding },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "funding",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3"
+                                },
+                                [
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "username" }
+                                      },
+                                      [_vm._v("Tender ID")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.identity,
+                                          expression: "form.identity"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: { id: "username", type: "number" },
+                                      domProps: { value: _vm.form.identity },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "identity",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "emailAddress" }
+                                      },
+                                      [_vm._v("Tender Value (USD)")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.value,
+                                          expression: "form.value"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: {
+                                        id: "emailAddress",
+                                        type: "number"
+                                      },
+                                      domProps: { value: _vm.form.value },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "value",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "emailAddress" }
+                                      },
+                                      [_vm._v("Tender Country")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.country,
+                                          expression: "form.country"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: {
+                                        id: "emailAddress",
+                                        type: "text"
+                                      },
+                                      domProps: { value: _vm.form.country },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "country",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3"
+                                },
+                                [
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "username" }
+                                      },
+                                      [_vm._v("Bid Price (KSH)")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.price,
+                                          expression: "form.price"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: { id: "username", type: "number" },
+                                      domProps: { value: _vm.form.price },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "price",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "username" }
+                                      },
+                                      [_vm._v("Competition Type")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.competition,
+                                          expression: "form.competition"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "uppercase block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: { id: "username", type: "text" },
+                                      domProps: { value: _vm.form.competition },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "competition",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "emailAddress" }
+                                      },
+                                      [_vm._v("Expiry Date")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.expiry,
+                                          expression: "form.expiry"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: {
+                                        id: "emailAddress",
+                                        type: "text"
+                                      },
+                                      domProps: { value: _vm.form.expiry },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "expiry",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(4)
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(5)
                       ]
                     )
                   ]
@@ -33058,119 +33174,60 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tbody", {}, [
-      _c("tr", { staticClass: "h-24 border-gray-300 border-b" }, [
-        _c("td", {
+    return _c(
+      "td",
+      {
+        staticClass:
+          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "relative w-10 text-gray-600 dark:text-gray-400" },
+          [_c("i", { staticClass: "fas fa-caret-right" })]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "pr-6" }, [
+      _c("div", { staticClass: "w-2 h-2 rounded-full bg-green-600" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "pr-8 relative" }, [
+      _c(
+        "button",
+        {
           staticClass:
-            "pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-        }),
-        _vm._v(" "),
-        _c(
-          "td",
-          {
-            staticClass:
-              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "relative w-10 text-gray-600 dark:text-gray-400" },
-              [_c("i", { staticClass: "fas fa-caret-right" })]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "td",
-          {
-            staticClass:
-              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-          },
-          [_vm._v("#MC10023")]
-        ),
-        _vm._v(" "),
-        _c(
-          "td",
-          {
-            staticClass:
-              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-          },
-          [_vm._v("Toyota Motors Tender")]
-        ),
-        _vm._v(" "),
-        _c("td", { staticClass: "pr-6 whitespace-no-wrap" }, [
-          _c("div", { staticClass: "flex items-center" }, [
-            _c(
-              "p",
-              {
-                staticClass:
-                  "ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm"
-              },
-              [_vm._v("Toyota")]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "td",
-          {
-            staticClass:
-              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-          },
-          [_vm._v("$2,500")]
-        ),
-        _vm._v(" "),
-        _c(
-          "td",
-          {
-            staticClass:
-              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-          },
-          [_vm._v("02.03.20")]
-        ),
-        _vm._v(" "),
-        _c(
-          "td",
-          {
-            staticClass:
-              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-          },
-          [_vm._v("02.03.20")]
-        ),
-        _vm._v(" "),
-        _c("td", { staticClass: "pr-6" }, [
-          _c("div", { staticClass: "w-2 h-2 rounded-full bg-green-600" })
-        ]),
-        _vm._v(" "),
-        _c("td", { staticClass: "pr-8 relative" }, [
-          _c(
-            "button",
-            {
-              staticClass:
-                "mr-2 text-indigo-600 hover:text-indigo-400 rounded cursor-pointer border border-transparent focus:outline-none"
-            },
-            [_c("i", { staticClass: "fas fa-edit" })]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass:
-                "mr-2 text-orange-400 hover:text-orange-300 rounded cursor-pointer border border-transparent focus:outline-none"
-            },
-            [_c("i", { staticClass: "fas fa-pause" })]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass:
-                "mr-2 text-red-600 hover:text-red-400 rounded cursor-pointer border border-transparent focus:outline-none"
-            },
-            [_c("i", { staticClass: "fas fa-trash" })]
-          )
-        ])
-      ])
+            "mr-2 text-indigo-600 hover:text-indigo-400 rounded cursor-pointer border border-transparent focus:outline-none"
+        },
+        [_c("i", { staticClass: "fas fa-edit" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "mr-2 text-orange-400 hover:text-orange-300 rounded cursor-pointer border border-transparent focus:outline-none"
+        },
+        [_c("i", { staticClass: "fas fa-pause" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "mr-2 text-red-600 hover:text-red-400 rounded cursor-pointer border border-transparent focus:outline-none"
+        },
+        [_c("i", { staticClass: "fas fa-trash" })]
+      )
     ])
   },
   function() {
@@ -33207,6 +33264,39 @@ var staticRenderFns = [
             [_vm._v("PDF / JPEG / PNG / Excel / Doc")]
           )
         ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass:
+              "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
+            attrs: { "data-modal-toggle": "defaultModal", type: "submit" }
+          },
+          [_vm._v("Add Tender")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "text-white bg-orange-400 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-300 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600",
+            attrs: { "data-modal-toggle": "defaultModal", type: "button" }
+          },
+          [_vm._v("Archive Tender")]
+        )
       ]
     )
   }
@@ -33259,505 +33349,126 @@ var render = function() {
           { staticClass: "text-gray-600 body-font overflow-hidden" },
           [
             _c("div", { staticClass: "container px-5 py-24 mx-auto" }, [
-              _c("div", { staticClass: "flex flex-wrap -m-12" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
-                    attrs: { href: _vm.route("selected") }
-                  },
-                  [
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"
-                      },
-                      [_vm._v("USD. 140,000")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "h4",
-                      {
-                        staticClass:
-                          "sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4"
-                      },
-                      [
+              _c(
+                "div",
+                { staticClass: "flex flex-wrap -m-12" },
+                _vm._l(this.$parent.posts, function(post) {
+                  return _c(
+                    "a",
+                    {
+                      key: post._id,
+                      staticClass:
+                        "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
+                      attrs: { href: _vm.route("selected", post.identity) }
+                    },
+                    [
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"
+                        },
+                        [_vm._v("USD. " + _vm._s(post.price))]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "h4",
+                        {
+                          staticClass:
+                            "sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4"
+                        },
+                        [_vm._v(_vm._s(post.title))]
+                      ),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "leading-relaxed mb-2" }, [
+                        _vm._v(_vm._s(post.description) + " "),
+                        _c("br"),
                         _vm._v(
-                          "National Highways Authority Of Indi...... Southern Asia"
+                          " Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet"
                         )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "leading-relaxed mb-2" }, [
-                      _vm._v(
-                        "Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab"
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full"
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "text-indigo-500 inline-flex items-center"
+                            },
+                            [
+                              _vm._v(
+                                "Purchase Tender\n                              "
+                              ),
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: "w-4 h-4 ml-2",
+                                  attrs: {
+                                    viewBox: "0 0 24 24",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    fill: "none",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("path", { attrs: { d: "M5 12h14" } }),
+                                  _vm._v(" "),
+                                  _c("path", { attrs: { d: "M12 5l7 7-7 7" } })
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            {
+                              staticClass:
+                                "text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                            },
+                            [
+                              _c("i", {
+                                staticClass:
+                                  "w-4 h-4 mr-1 fas fa-location-crosshairs"
+                              }),
+                              _vm._v(
+                                " " +
+                                  _vm._s(post.country) +
+                                  "\n                          "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            {
+                              staticClass:
+                                "text-gray-400 inline-flex items-center leading-none text-sm"
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "w-4 h-4 mr-1 fas fa-calendar"
+                              }),
+                              _vm._v(
+                                _vm._s(post.expiry) +
+                                  "\n                          "
+                              )
+                            ]
+                          )
+                        ]
                       )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full"
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "text-indigo-500 inline-flex items-center"
-                          },
-                          [
-                            _vm._v(
-                              "Purchase Tender\n                              "
-                            ),
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "w-4 h-4 ml-2",
-                                attrs: {
-                                  viewBox: "0 0 24 24",
-                                  stroke: "currentColor",
-                                  "stroke-width": "2",
-                                  fill: "none",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("path", { attrs: { d: "M5 12h14" } }),
-                                _vm._v(" "),
-                                _c("path", { attrs: { d: "M12 5l7 7-7 7" } })
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm._m(0),
-                        _vm._v(" "),
-                        _vm._m(1)
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
-                    attrs: { href: _vm.route("selected") }
-                  },
-                  [
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"
-                      },
-                      [_vm._v("USD. 140,000")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "h4",
-                      {
-                        staticClass:
-                          "sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4"
-                      },
-                      [
-                        _vm._v(
-                          "National Highways Authority Of Indi...... Southern Asia"
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "leading-relaxed mb-2" }, [
-                      _vm._v(
-                        "Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab"
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full"
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "text-indigo-500 inline-flex items-center"
-                          },
-                          [
-                            _vm._v(
-                              "Purchase Tender\n                              "
-                            ),
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "w-4 h-4 ml-2",
-                                attrs: {
-                                  viewBox: "0 0 24 24",
-                                  stroke: "currentColor",
-                                  "stroke-width": "2",
-                                  fill: "none",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("path", { attrs: { d: "M5 12h14" } }),
-                                _vm._v(" "),
-                                _c("path", { attrs: { d: "M12 5l7 7-7 7" } })
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm._m(2),
-                        _vm._v(" "),
-                        _vm._m(3)
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
-                    attrs: { href: _vm.route("selected") }
-                  },
-                  [
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"
-                      },
-                      [_vm._v("USD. 140,000")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "h4",
-                      {
-                        staticClass:
-                          "sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4"
-                      },
-                      [
-                        _vm._v(
-                          "National Highways Authority Of Indi...... Southern Asia"
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "leading-relaxed mb-2" }, [
-                      _vm._v(
-                        "Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab"
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full"
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "text-indigo-500 inline-flex items-center"
-                          },
-                          [
-                            _vm._v(
-                              "Purchase Tender\n                              "
-                            ),
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "w-4 h-4 ml-2",
-                                attrs: {
-                                  viewBox: "0 0 24 24",
-                                  stroke: "currentColor",
-                                  "stroke-width": "2",
-                                  fill: "none",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("path", { attrs: { d: "M5 12h14" } }),
-                                _vm._v(" "),
-                                _c("path", { attrs: { d: "M12 5l7 7-7 7" } })
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm._m(4),
-                        _vm._v(" "),
-                        _vm._m(5)
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
-                    attrs: { href: _vm.route("selected") }
-                  },
-                  [
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"
-                      },
-                      [_vm._v("USD. 140,000")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "h4",
-                      {
-                        staticClass:
-                          "sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4"
-                      },
-                      [
-                        _vm._v(
-                          "National Highways Authority Of Indi...... Southern Asia"
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "leading-relaxed mb-2" }, [
-                      _vm._v(
-                        "Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab"
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full"
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "text-indigo-500 inline-flex items-center"
-                          },
-                          [
-                            _vm._v(
-                              "Purchase Tender\n                              "
-                            ),
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "w-4 h-4 ml-2",
-                                attrs: {
-                                  viewBox: "0 0 24 24",
-                                  stroke: "currentColor",
-                                  "stroke-width": "2",
-                                  fill: "none",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("path", { attrs: { d: "M5 12h14" } }),
-                                _vm._v(" "),
-                                _c("path", { attrs: { d: "M12 5l7 7-7 7" } })
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm._m(6),
-                        _vm._v(" "),
-                        _vm._m(7)
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
-                    attrs: { href: _vm.route("selected") }
-                  },
-                  [
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"
-                      },
-                      [_vm._v("USD. 140,000")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "h4",
-                      {
-                        staticClass:
-                          "sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4"
-                      },
-                      [
-                        _vm._v(
-                          "National Highways Authority Of Indi...... Southern Asia"
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "leading-relaxed mb-2" }, [
-                      _vm._v(
-                        "Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab"
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full"
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "text-indigo-500 inline-flex items-center"
-                          },
-                          [
-                            _vm._v(
-                              "Purchase Tender\n                              "
-                            ),
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "w-4 h-4 ml-2",
-                                attrs: {
-                                  viewBox: "0 0 24 24",
-                                  stroke: "currentColor",
-                                  "stroke-width": "2",
-                                  fill: "none",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("path", { attrs: { d: "M5 12h14" } }),
-                                _vm._v(" "),
-                                _c("path", { attrs: { d: "M12 5l7 7-7 7" } })
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm._m(8),
-                        _vm._v(" "),
-                        _vm._m(9)
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
-                    attrs: { href: "#" }
-                  },
-                  [
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"
-                      },
-                      [_vm._v("USD. 140,000")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "h4",
-                      {
-                        staticClass:
-                          "sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4"
-                      },
-                      [
-                        _vm._v(
-                          "National Highways Authority Of Indi...... Southern Asia"
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "leading-relaxed mb-2" }, [
-                      _vm._v(
-                        "Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab"
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full"
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "text-indigo-500 inline-flex items-center"
-                          },
-                          [
-                            _vm._v(
-                              "Purchase Tender\n                              "
-                            ),
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "w-4 h-4 ml-2",
-                                attrs: {
-                                  viewBox: "0 0 24 24",
-                                  stroke: "currentColor",
-                                  "stroke-width": "2",
-                                  fill: "none",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("path", { attrs: { d: "M5 12h14" } }),
-                                _vm._v(" "),
-                                _c("path", { attrs: { d: "M12 5l7 7-7 7" } })
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm._m(10),
-                        _vm._v(" "),
-                        _vm._m(11)
-                      ]
-                    )
-                  ]
-                )
-              ])
+                    ]
+                  )
+                }),
+                0
+              )
             ]),
             _vm._v(" "),
             _c(
@@ -33783,200 +33494,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass:
-          "text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-      },
-      [
-        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-location-crosshairs" }),
-        _vm._v(" Nairobi, Kenya\n                          ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass:
-          "text-gray-400 inline-flex items-center leading-none text-sm"
-      },
-      [
-        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-calendar" }),
-        _vm._v("26th Jan 22\n                          ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass:
-          "text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-      },
-      [
-        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-location-crosshairs" }),
-        _vm._v(" Nairobi, Kenya\n                          ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass:
-          "text-gray-400 inline-flex items-center leading-none text-sm"
-      },
-      [
-        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-calendar" }),
-        _vm._v("26th Jan 22\n                          ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass:
-          "text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-      },
-      [
-        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-location-crosshairs" }),
-        _vm._v(" Nairobi, Kenya\n                          ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass:
-          "text-gray-400 inline-flex items-center leading-none text-sm"
-      },
-      [
-        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-calendar" }),
-        _vm._v("26th Jan 22\n                          ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass:
-          "text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-      },
-      [
-        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-location-crosshairs" }),
-        _vm._v(" Nairobi, Kenya\n                          ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass:
-          "text-gray-400 inline-flex items-center leading-none text-sm"
-      },
-      [
-        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-calendar" }),
-        _vm._v("26th Jan 22\n                          ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass:
-          "text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-      },
-      [
-        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-location-crosshairs" }),
-        _vm._v(" Nairobi, Kenya\n                          ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass:
-          "text-gray-400 inline-flex items-center leading-none text-sm"
-      },
-      [
-        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-calendar" }),
-        _vm._v("26th Jan 22\n                          ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass:
-          "text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-      },
-      [
-        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-location-crosshairs" }),
-        _vm._v(" Nairobi, Kenya\n                          ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass:
-          "text-gray-400 inline-flex items-center leading-none text-sm"
-      },
-      [
-        _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-calendar" }),
-        _vm._v("26th Jan 22\n                          ")
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -39086,18 +38604,16 @@ var render = function() {
                               staticClass:
                                 "text-gray-900 text-3xl title-font font-medium mb-4"
                             },
-                            [
-                              _vm._v(
-                                "General Procurement Notice for North-South"
-                              )
-                            ]
+                            [_vm._v(_vm._s(_vm.post.title))]
                           ),
                           _vm._v(" "),
                           _vm._m(0),
                           _vm._v(" "),
                           _c("p", { staticClass: "leading-relaxed mb-4" }, [
+                            _vm._v(_vm._s(_vm.post.description) + ". "),
+                            _c("br"),
                             _vm._v(
-                              "Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam inxigo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean."
+                              " Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam inxigo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean."
                             )
                           ]),
                           _vm._v(" "),
@@ -39124,7 +38640,12 @@ var render = function() {
                                         {
                                           staticClass:
                                             "bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
-                                          attrs: { href: _vm.route("checkout") }
+                                          attrs: {
+                                            href: _vm.route(
+                                              "checkout",
+                                              _vm.post.identity
+                                            )
+                                          }
                                         },
                                         [_vm._v("Purchase Tender to view")]
                                       )
@@ -39154,7 +38675,12 @@ var render = function() {
                                     {
                                       staticClass:
                                         "bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
-                                      attrs: { href: _vm.route("checkout") }
+                                      attrs: {
+                                        href: _vm.route(
+                                          "checkout",
+                                          _vm.post.identity
+                                        )
+                                      }
                                     },
                                     [_vm._v("Purchase Tender to view")]
                                   )
@@ -39163,7 +38689,24 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(1),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex border-t border-b mb-6 border-gray-200 py-2"
+                            },
+                            [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("Tender Value in USD")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-auto text-gray-900" },
+                                [_vm._v(" " + _vm._s(_vm.post.value) + " ")]
+                              )
+                            ]
+                          ),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -39212,7 +38755,7 @@ var render = function() {
                               _c(
                                 "span",
                                 { staticClass: "ml-auto text-gray-900" },
-                                [_vm._v("4th March 22")]
+                                [_vm._v("7th April 22")]
                               )
                             ]
                           ),
@@ -39264,12 +38807,12 @@ var render = function() {
                               _c(
                                 "span",
                                 { staticClass: "ml-auto text-gray-900" },
-                                [_vm._v("4th April 22")]
+                                [_vm._v(_vm._s(_vm.post.title))]
                               )
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(2),
+                          _vm._m(1),
                           _vm._v(" "),
                           _c("div", { staticClass: "flex" }, [
                             _c(
@@ -39278,7 +38821,7 @@ var render = function() {
                                 staticClass:
                                   "title-font font-medium text-2xl text-gray-900"
                               },
-                              [_vm._v("KES 100")]
+                              [_vm._v("KES " + _vm._s(_vm.post.price))]
                             ),
                             _vm._v(" "),
                             _c(
@@ -39286,7 +38829,9 @@ var render = function() {
                               {
                                 staticClass:
                                   "flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded",
-                                attrs: { href: _vm.route("checkout") }
+                                attrs: {
+                                  href: _vm.route("checkout", _vm.post.identity)
+                                }
                               },
                               [_vm._v("Purchase Tender Details")]
                             ),
@@ -39363,13 +38908,176 @@ var staticRenderFns = [
       "div",
       { staticClass: "flex border-t border-b mb-6 border-gray-200 py-2" },
       [
-        _c("span", { staticClass: "text-gray-500" }, [
-          _vm._v("Tender Value in USD")
-        ]),
+        _c("span", { staticClass: "text-gray-500" }, [_vm._v("Country")]),
         _vm._v(" "),
-        _c("span", { staticClass: "ml-auto text-gray-900" }, [
-          _vm._v("260,000")
+        _c("span", { staticClass: "ml-auto text-gray-900" }, [_vm._v("Kenya")])
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Success.vue?vue&type=template&id=c83c422c&":
+/*!*****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Success.vue?vue&type=template&id=c83c422c& ***!
+  \*****************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "h-screen" }, [
+    _c("body", { staticClass: "overflow-x-hidden antialiased" }, [
+      _c("section", { staticClass: "text-gray-600 body-font" }, [
+        _c("div", { staticClass: "container px-5 py-24 mx-auto" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex flex-wrap -m-4" }, [
+            _c(
+              "a",
+              {
+                staticClass: "hover:shadow-2xl p-4 md:w-1/2",
+                attrs: { href: _vm.route("dashboard") }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flex rounded-lg h-full bg-gray-100 p-8 flex-col"
+                  },
+                  [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "flex-grow" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass:
+                            "mt-3 text-indigo-500 inline-flex items-center"
+                        },
+                        [
+                          _vm._v("Navigate\n                  "),
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "w-4 h-4 ml-2",
+                              attrs: {
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                "stroke-width": "2",
+                                viewBox: "0 0 24 24"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: { d: "M5 12h14M12 5l7 7-7 7" }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "hover:shadow-2xl  p-4 md:w-1/2",
+                attrs: { href: _vm.route("landing") }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flex rounded-lg h-full bg-gray-100 p-8 flex-col"
+                  },
+                  [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "flex-grow" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass:
+                            "mt-3 text-indigo-500 inline-flex items-center"
+                        },
+                        [
+                          _vm._v("Navigate\n                  "),
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "w-4 h-4 ml-2",
+                              attrs: {
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                "stroke-width": "2",
+                                viewBox: "0 0 24 24"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: { d: "M5 12h14M12 5l7 7-7 7" }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]
+            )
+          ])
         ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "flex flex-col text-center w-full mb-20" },
+      [
+        _c(
+          "h2",
+          {
+            staticClass:
+              "text-xs text-indigo-500 tracking-widest font-medium title-font mb-1"
+          },
+          [_vm._v("Bidders Portal")]
+        ),
+        _vm._v(" "),
+        _c(
+          "h1",
+          {
+            staticClass:
+              "sm:text-3xl text-2xl font-medium title-font text-gray-900"
+          },
+          [_vm._v("Post added Successfully")]
+        )
       ]
     )
   },
@@ -39377,15 +39085,43 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "flex border-t border-b mb-6 border-gray-200 py-2" },
-      [
-        _c("span", { staticClass: "text-gray-500" }, [_vm._v("Country")]),
-        _vm._v(" "),
-        _c("span", { staticClass: "ml-auto text-gray-900" }, [_vm._v("Kenya")])
-      ]
-    )
+    return _c("div", { staticClass: "flex items-center mb-3" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0"
+        },
+        [_c("i", { staticClass: "fas fa-home" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "h2",
+        { staticClass: "text-gray-900 text-lg title-font font-medium" },
+        [_vm._v("Dashboard Page")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex items-center mb-3" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0"
+        },
+        [_c("i", { staticClass: "fas fa-home" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "h2",
+        { staticClass: "text-gray-900 text-lg title-font font-medium" },
+        [_vm._v("Landing Page")]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -53222,7 +52958,9 @@ var map = {
 	"./Profile/UpdateProfileInformationForm": "./resources/js/Pages/Profile/UpdateProfileInformationForm.vue",
 	"./Profile/UpdateProfileInformationForm.vue": "./resources/js/Pages/Profile/UpdateProfileInformationForm.vue",
 	"./Selected": "./resources/js/Pages/Selected.vue",
-	"./Selected.vue": "./resources/js/Pages/Selected.vue"
+	"./Selected.vue": "./resources/js/Pages/Selected.vue",
+	"./Success": "./resources/js/Pages/Success.vue",
+	"./Success.vue": "./resources/js/Pages/Success.vue"
 };
 
 
@@ -55173,6 +54911,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Selected_vue_vue_type_template_id_bd761878___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Selected_vue_vue_type_template_id_bd761878___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Success.vue":
+/*!****************************************!*\
+  !*** ./resources/js/Pages/Success.vue ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Success_vue_vue_type_template_id_c83c422c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Success.vue?vue&type=template&id=c83c422c& */ "./resources/js/Pages/Success.vue?vue&type=template&id=c83c422c&");
+/* harmony import */ var _Success_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Success.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Success.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Success_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Success_vue_vue_type_template_id_c83c422c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Success_vue_vue_type_template_id_c83c422c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Success.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Success.vue?vue&type=script&lang=js&":
+/*!*****************************************************************!*\
+  !*** ./resources/js/Pages/Success.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Success_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Success.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Success.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Success_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Success.vue?vue&type=template&id=c83c422c&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/Pages/Success.vue?vue&type=template&id=c83c422c& ***!
+  \***********************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Success_vue_vue_type_template_id_c83c422c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Success.vue?vue&type=template&id=c83c422c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Success.vue?vue&type=template&id=c83c422c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Success_vue_vue_type_template_id_c83c422c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Success_vue_vue_type_template_id_c83c422c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

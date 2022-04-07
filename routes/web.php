@@ -12,20 +12,23 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', [LandingController::class, 'index'])
     ->name('landing');
 
-Route::get('/selected', [LandingController::class, 'selected'])
+Route::get('/selected/{slug}', [LandingController::class, 'selected'])
     ->name('selected');
 
 Route::get('/listing', [LandingController::class, 'listing'])
     ->name('listing');
 
-Route::get('/checkout', [LandingController::class, 'checkout'])
+Route::get('/checkout/{slugs}', [LandingController::class, 'checkout'])
     ->name('checkout');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/post', [DashboardController::class, 'add'])
-    ->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->post('/post', [DashboardController::class, 'addPost'])
+    ->name('post');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/success', [DashboardController::class, 'success'])
+    ->name('success');
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return Inertia\Inertia::render('Dashboard');

@@ -13,10 +13,10 @@
                     <div class="container px-5 py-24 mx-auto">
                         <div class="flex flex-wrap -m-12">
 
-                        <a :href="route('selected')" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
-                            <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">USD. 140,000</span>
-                            <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">National Highways Authority Of Indi...... Southern Asia</h4>
-                            <p class="leading-relaxed mb-2">Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab</p>
+                        <a v-for="post in this.$parent.posts" :key="post._id" :href="route('selected', post.identity)" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
+                            <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">USD. {{ post.price }}</span>
+                            <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">{{ post.title }}</h4>
+                            <p class="leading-relaxed mb-2">{{ post.description }} <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet</p>
                             <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
                             <a class="text-indigo-500 inline-flex items-center">Purchase Tender
                                 <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -25,115 +25,13 @@
                                 </svg>
                             </a>
                             <span class="text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                                <i class="w-4 h-4 mr-1 fas fa-location-crosshairs"></i> Nairobi, Kenya
+                                <i class="w-4 h-4 mr-1 fas fa-location-crosshairs"></i> {{ post.country }}
                             </span>
                             <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                                <i class="w-4 h-4 mr-1 fas fa-calendar"></i>26th Jan 22
+                                <i class="w-4 h-4 mr-1 fas fa-calendar"></i>{{ post.expiry }}
                             </span>
                             </div>
                         </a>
-
-                        <a :href="route('selected')" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
-                            <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">USD. 140,000</span>
-                            <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">National Highways Authority Of Indi...... Southern Asia</h4>
-                            <p class="leading-relaxed mb-2">Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab</p>
-                            <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
-                            <a class="text-indigo-500 inline-flex items-center">Purchase Tender
-                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
-                            <span class="text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                                <i class="w-4 h-4 mr-1 fas fa-location-crosshairs"></i> Nairobi, Kenya
-                            </span>
-                            <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                                <i class="w-4 h-4 mr-1 fas fa-calendar"></i>26th Jan 22
-                            </span>
-                            </div>
-                        </a>
-
-                        <a :href="route('selected')" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
-                            <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">USD. 140,000</span>
-                            <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">National Highways Authority Of Indi...... Southern Asia</h4>
-                            <p class="leading-relaxed mb-2">Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab</p>
-                            <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
-                            <a class="text-indigo-500 inline-flex items-center">Purchase Tender
-                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
-                            <span class="text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                                <i class="w-4 h-4 mr-1 fas fa-location-crosshairs"></i> Nairobi, Kenya
-                            </span>
-                            <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                                <i class="w-4 h-4 mr-1 fas fa-calendar"></i>26th Jan 22
-                            </span>
-                            </div>
-                        </a>
-
-                        <a :href="route('selected')" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
-                            <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">USD. 140,000</span>
-                            <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">National Highways Authority Of Indi...... Southern Asia</h4>
-                            <p class="leading-relaxed mb-2">Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab</p>
-                            <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
-                            <a class="text-indigo-500 inline-flex items-center">Purchase Tender
-                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
-                            <span class="text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                                <i class="w-4 h-4 mr-1 fas fa-location-crosshairs"></i> Nairobi, Kenya
-                            </span>
-                            <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                                <i class="w-4 h-4 mr-1 fas fa-calendar"></i>26th Jan 22
-                            </span>
-                            </div>
-                        </a>
-
-                        <a :href="route('selected')" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
-                            <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">USD. 140,000</span>
-                            <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">National Highways Authority Of Indi...... Southern Asia</h4>
-                            <p class="leading-relaxed mb-2">Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab</p>
-                            <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
-                            <a class="text-indigo-500 inline-flex items-center">Purchase Tender
-                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
-                            <span class="text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                                <i class="w-4 h-4 mr-1 fas fa-location-crosshairs"></i> Nairobi, Kenya
-                            </span>
-                            <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                                <i class="w-4 h-4 mr-1 fas fa-calendar"></i>26th Jan 22
-                            </span>
-                            </div>
-                        </a>
-
-                        <a href="#" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
-                            <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">USD. 140,000</span>
-                            <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">National Highways Authority Of Indi...... Southern Asia</h4>
-                            <p class="leading-relaxed mb-2">Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. This is a sample of a tender tab</p>
-                            <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
-                            <a class="text-indigo-500 inline-flex items-center">Purchase Tender
-                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
-                            <span class="text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                                <i class="w-4 h-4 mr-1 fas fa-location-crosshairs"></i> Nairobi, Kenya
-                            </span>
-                            <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                                <i class="w-4 h-4 mr-1 fas fa-calendar"></i>26th Jan 22
-                            </span>
-                            </div>
-                        </a>
-
-
 
                         </div>
 

@@ -94,9 +94,9 @@
                             <th class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4">Posted Date</th>
                             <th class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4">Expiry Date</th>
                             <th class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4">Payment Time</th>
-                            <th class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4">
+                            <!-- <th class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4">
                                 <div class="opacity-0 w-2 h-2 rounded-full bg-indigo-400"></div>
-                            </th>
+                            </th> -->
                             <td class="text-gray-600 dark:text-gray-400 font-normal pr-8 text-left text-sm tracking-normal leading-4">Actions</td>
                         </tr>
                     </thead>
@@ -128,9 +128,9 @@
                             <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">02.03.20</td>
                             <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">02.03.20</td>
                             <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">02.03.20 17:30</td>
-                            <td class="pr-6">
+                            <!-- <td class="pr-6">
                                 <div class="w-2 h-2 rounded-full bg-green-600"></div>
-                            </td>
+                            </td> -->
                             <td class="pr-8 relative">
                                 <!-- <div class="dropdown-content mt-8 absolute left-0 -ml-12 shadow-md z-10 w-32">
                                     <ul class="bg-white dark:bg-gray-800 shadow rounded py-1">

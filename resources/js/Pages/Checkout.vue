@@ -19,18 +19,18 @@
 
                     <dl>
                     <dt class="text-sm font-medium">Cart Value</dt>
-                    <dd class="mt-1 text-3xl font-extrabold text-white">KES 50</dd>
+                    <dd class="mt-1 text-3xl font-extrabold text-white">KES {{ post.price }}</dd>
                     </dl>
 
                     <ul role="list" class="text-sm font-medium divide-y divide-white divide-opacity-10">
                     <li class="flex items-start py-6 space-x-4">
                         <!-- <img src="https://tailwindui.com/img/ecommerce-images/checkout-page-07-product-01.jpg" alt="Front of zip tote bag with white canvas, white handles, and black drawstring top." class="flex-none w-20 h-20 rounded-md object-center object-cover"> -->
                         <div class="flex-auto space-y-1">
-                        <h3 class="text-white">Kisumu girls sugar tender</h3>
-                        <p>Tender Value: <span class="text-white">USD 260,000</span> </p>
-                        <p>Expiry Date: <span class="text-white">4th April 22</span> </p>
+                        <h3 class="text-white">{{ post.title }}</h3>
+                        <p>Tender Value: <span class="text-white">USD {{ post.value }}</span> </p>
+                        <p>Expiry Date: <span class="text-white">{{ post.expiry }}</span> </p>
                         </div>
-                        <p class="flex-none text-base font-medium text-white">KES 50</p>
+                        <p class="flex-none text-base font-medium text-white">KES {{ post.price }}</p>
                     </li>
 
                     <!-- More products... -->
@@ -39,7 +39,7 @@
                     <dl class="text-sm font-medium space-y-6 border-t border-white border-opacity-10 pt-6">
                     <div class="flex items-center justify-between">
                         <dt>Subtotal</dt>
-                        <dd>KES 50</dd>
+                        <dd>KES {{ post.price }}</dd>
                     </div>
 
                     <div class="flex items-center justify-between">
@@ -49,7 +49,7 @@
 
                     <div class="flex items-center justify-between border-t border-white border-opacity-10 text-white pt-6">
                         <dt class="text-base">Total</dt>
-                        <dd class="text-base">KES 50</dd>
+                        <dd class="text-base">KES {{ post.price }}</dd>
                     </div>
                     </dl>
                 </div>
@@ -144,7 +144,7 @@
                 <div class="flex flex-col px-10">
                     <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Paybill Number: <span class="ml-2 font-extrabold text-xl text-indigo-600"> 320567</span> </h4>
                     <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Account Number: <span class="ml-2 font-extrabold text-xl text-indigo-600"> IUFLNSD</span> </h4>
-                    <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Payment Amount: <span class="ml-2 font-extrabold text-xl text-indigo-600"> KES 50</span> </h4>
+                    <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Payment Amount: <span class="ml-2 font-extrabold text-xl text-indigo-600"> KES {{ post.price }}</span> </h4>
 
                 </div>
                 <div class="p-4 pt-0 text-center mt-5">
@@ -169,6 +169,7 @@ import MainFooter from './Components/MainFooter.vue'
 export default {
     name:'Landing',
     props: {
+        post: Object
     },
     components: {
         TopBanner,

@@ -64,7 +64,7 @@
                     </div> -->
 
                     <div class="lg:ml-6 flex items-center">
-                        <button @click="addModal=true" class="bg-indigo-600 transition duration-150 ease-in-out focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-white px-5 h-8 flex items-center text-sm">Add Tender</button>
+                        <button @click="addTender" class="bg-indigo-600 transition duration-150 ease-in-out focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-white px-5 h-8 flex items-center text-sm">Add Tender</button>
                     </div>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                         </tr>
                     </thead>
                     <tbody class="">
-                        <tr class="h-24 border-gray-300 border-b">
+                        <tr v-for="post in this.$parent.posts" :key="post._id" class="h-24 border-gray-300 border-b">
                             <td class="pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4">
                                 <!-- <input type="checkbox" class="cursor-pointer relative w-5 h-5 border rounded border-gray-400 bg-white dark:bg-gray-800 outline-none" onclick="tableInteract(this)" /> -->
                             </td>
@@ -113,16 +113,16 @@
                                     <i class="fas fa-caret-right"></i>
                                 </div>
                             </td>
-                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">#MC10023</td>
-                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">Toyota Motors Tender</td>
+                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">#{{post.identity}}</td>
+                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">{{ post.title }}</td>
                             <td class="pr-6 whitespace-no-wrap">
                                 <div class="flex items-center">
-                                    <p class="ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm">Toyota</p>
+                                    <p class="ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm">{{post.funding}}</p>
                                 </div>
                             </td>
-                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">$2,500</td>
-                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">02.03.20</td>
-                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">02.03.20</td>
+                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">{{post.value}}</td>
+                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">{{post.expiry}}</td>
+                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">{{post.expiry}}</td>
                             <td class="pr-6">
                                 <div class="w-2 h-2 rounded-full bg-green-600"></div>
                             </td>
@@ -155,6 +155,7 @@
         <div class="relative p-4 w-full max-w-5xl h-full md:h-auto">
             <!-- Modal content -->
             <div class="relative bg-gray-50 rounded-lg shadow-2xl dark:bg-gray-700">
+                <form  @submit.prevent="submit">
                 <!-- Modal header -->
                 <div class="flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
@@ -247,9 +248,12 @@
                 </div>
                 <!-- Modal footer -->
                 <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                    <button @click="submit" data-modal-toggle="defaultModal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Tender</button>
-                    <button @click="clearFilters" data-modal-toggle="defaultModal" type="button" class="text-white bg-orange-400 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-300 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Archive Tender</button>
+                    <button data-modal-toggle="defaultModal" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Tender</button>
+                    <button data-modal-toggle="defaultModal" type="button" class="text-white bg-orange-400 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-300 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Archive Tender</button>
                 </div>
+
+                </form>
+
             </div>
         </div>
       </div>
@@ -274,13 +278,30 @@ export default {
                 price: null,
                 competition: null,
                 expiry: null,
-                userID: this.$parent.pageData.props.user.id
+                userID: null
             }
         };
     },
+    mounted(){
+        // this.UserId = this.$parent.pageData.props.user.id
+        // this.UserId = parseInt(this.$parent.pageData.props.user.id)
+    },
     methods: {
+        addTender(){
+            this.form.UserID = parseInt(this.$parent.pageData.props.user.id)
+            this.addModal=true
+        },
         submit() {
-            this.$inertia.post('/post', this.form)
+            let response = this.$inertia.post('/post', this.form)
+            console.log(response)
+
+            .then((response) => {
+                console.log(response)
+                this.addModal = false
+                alert('added')
+            }).catch((err) => {
+                console.log(err)
+            });
         },
         dropdownFunction(event) {
             var dropdowns = document.getElementsByClassName("dropdown-content");
