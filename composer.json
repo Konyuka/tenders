@@ -19,7 +19,9 @@
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0",
         "mongodb/mongodb": "^1.12",
-        "tightenco/ziggy": "^0.9.4"
+        "tightenco/ziggy": "^0.9.4",
+        "ext-mongo": "*",
+        "alcaeus/mongo-php-adapter": "dev-composer-replace"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
