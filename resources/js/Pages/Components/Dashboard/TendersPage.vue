@@ -114,7 +114,7 @@
                                 </div>
                             </td>
                             <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">#{{post.identity}}</td>
-                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">{{ post.title }}</td>
+                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"> {{ post.title }} </td>
                             <td class="pr-6 whitespace-no-wrap">
                                 <div class="flex items-center">
                                     <p class="ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm">{{post.funding}}</p>
@@ -124,7 +124,7 @@
                             <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">{{post.expiry}}</td>
                             <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">{{post.expiry}}</td>
                             <td class="pr-6">
-                                <div class="w-2 h-2 rounded-full bg-green-600"></div>
+                                <div class="w-2 h-2 rounded-full bg-green-500"></div>
                             </td>
                             <td class="pr-8 relative">
                                 <!-- <div class="dropdown-content mt-8 absolute left-0 -ml-12 shadow-md z-10 w-32">
@@ -135,13 +135,14 @@
                                     </ul>
                                 </div> -->
 
-                                <button class="mr-2 text-indigo-600 hover:text-indigo-400 rounded cursor-pointer border border-transparent focus:outline-none">
+                                <!-- <button class="mr-2 text-orange-400 hover:text-orange-300 rounded cursor-pointer border border-transparent focus:outline-none">
+                                    <i class="fas fa-eye"></i>
+                                </button> -->
+
+                                <button @click="editPost(post._id)" class="mr-2 text-indigo-600 hover:text-indigo-400 rounded cursor-pointer border border-transparent focus:outline-none">
                                     <i class="fas fa-edit"></i>
                                 </button>
-                                <button class="mr-2 text-orange-400 hover:text-orange-300 rounded cursor-pointer border border-transparent focus:outline-none">
-                                    <i class="fas fa-pause"></i>
-                                </button>
-                                <button class="mr-2 text-red-600 hover:text-red-400 rounded cursor-pointer border border-transparent focus:outline-none">
+                                <button @click="deleteConfirm(post._id)" class="mr-2 text-red-600 hover:text-red-400 rounded cursor-pointer border border-transparent focus:outline-none">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </td>
@@ -248,7 +249,8 @@
                 </div>
                 <!-- Modal footer -->
                 <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                    <button data-modal-toggle="defaultModal" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Tender</button>
+                    <button v-if="modalMode=='add'" data-modal-toggle="defaultModal" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Tender</button>
+                    <button v-if="modalMode=='edit'" @click="updatePost(postEditId)" data-modal-toggle="defaultModal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update Tender</button>
                     <button data-modal-toggle="defaultModal" type="button" class="text-white bg-orange-400 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-300 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Archive Tender</button>
                 </div>
 
@@ -256,7 +258,30 @@
 
             </div>
         </div>
-      </div>
+        </div>
+
+        <div v-if="deletePost" id="popup-modal" tabindex="-1" class="overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex z-50 w-full md:inset-0 h-modal md:h-full">
+            <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <!-- Modal header -->
+                    <div class="flex justify-end p-2">
+                        <!-- <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="popup-modal">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        </button> -->
+                    </div>
+                    <!-- Modal body -->
+                    <div class="p-6 pt-0 text-center">
+                        <svg class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this product?</h3>
+                        <button @click="deletePostMethod(postDeleteId)" data-modal-toggle="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                            Yes, I'm sure
+                        </button>
+                        <button @click="deletePost = false" data-modal-toggle="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No, cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </template>
@@ -268,6 +293,7 @@ export default {
         return {
             temp: 0,
             addModal: false,
+            modalMode: 'add',
             form:{
                 title: null,
                 description: null,
@@ -279,29 +305,61 @@ export default {
                 competition: null,
                 expiry: null,
                 userID: null
-            }
+            },
+            deletePost: false,
+            postDeleteId: '',
+            postEditId: ''
         };
     },
     mounted(){
         // this.UserId = this.$parent.pageData.props.user.id
         // this.UserId = parseInt(this.$parent.pageData.props.user.id)
     },
+    computed: {
+        // posts(){
+        //     return this.$parent.pageData.props.allPosts
+        // }
+    },
     methods: {
+        updatePost(value){
+            console.log(value)
+            this.$inertia.put(`/update/${value}`, this.form)
+        },
+        editPost(value){
+            // this.$parent.posts
+            // this.form.put(route("posts.update", this.post.id));
+            let editedPost = this.$parent.posts.find(d => d._id === value)
+            this.form = editedPost
+            this.modalMode = 'edit'
+            this.postEditId = value
+            this.addModal = true
+            // console.log(editedPost)
+
+        },
+        deleteConfirm(value){
+            this.postDeleteId = value
+            this.deletePost = true
+        },
+        // deleteUser() {
+        //     if (confirm('Are you sure you want to delete this contact?')) {
+        //         this.$inertia.delete(`/destroy/${this.users.id}`)
+        //         .then(() => {
+        //         })
+        //     }
+        // },
+        deletePostMethod(value){
+            // console.log(value)
+            this.$inertia.delete(`/delete/${value}`)
+            .then(() => {
+                // alert('deleted')
+            })
+        },
         addTender(){
             this.form.UserID = parseInt(this.$parent.pageData.props.user.id)
             this.addModal=true
         },
         submit() {
-            let response = this.$inertia.post('/post', this.form)
-            console.log(response)
-
-            .then((response) => {
-                console.log(response)
-                this.addModal = false
-                alert('added')
-            }).catch((err) => {
-                console.log(err)
-            });
+            this.$inertia.post('/post', this.form)
         },
         dropdownFunction(event) {
             var dropdowns = document.getElementsByClassName("dropdown-content");

@@ -4506,12 +4506,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "TendersPage",
   data: function data() {
     return {
       temp: 0,
       addModal: false,
+      modalMode: 'add',
       form: {
         title: null,
         description: null,
@@ -4523,28 +4549,57 @@ __webpack_require__.r(__webpack_exports__);
         competition: null,
         expiry: null,
         userID: null
-      }
+      },
+      deletePost: false,
+      postDeleteId: '',
+      postEditId: ''
     };
   },
   mounted: function mounted() {// this.UserId = this.$parent.pageData.props.user.id
     // this.UserId = parseInt(this.$parent.pageData.props.user.id)
   },
+  computed: {// posts(){
+    //     return this.$parent.pageData.props.allPosts
+    // }
+  },
   methods: {
+    updatePost: function updatePost(value) {
+      console.log(value);
+      this.$inertia.put("/update/".concat(value), this.form);
+    },
+    editPost: function editPost(value) {
+      // this.$parent.posts
+      // this.form.put(route("posts.update", this.post.id));
+      var editedPost = this.$parent.posts.find(function (d) {
+        return d._id === value;
+      });
+      this.form = editedPost;
+      this.modalMode = 'edit';
+      this.postEditId = value;
+      this.addModal = true; // console.log(editedPost)
+    },
+    deleteConfirm: function deleteConfirm(value) {
+      this.postDeleteId = value;
+      this.deletePost = true;
+    },
+    // deleteUser() {
+    //     if (confirm('Are you sure you want to delete this contact?')) {
+    //         this.$inertia.delete(`/destroy/${this.users.id}`)
+    //         .then(() => {
+    //         })
+    //     }
+    // },
+    deletePostMethod: function deletePostMethod(value) {
+      // console.log(value)
+      this.$inertia["delete"]("/delete/".concat(value)).then(function () {// alert('deleted')
+      });
+    },
     addTender: function addTender() {
       this.form.UserID = parseInt(this.$parent.pageData.props.user.id);
       this.addModal = true;
     },
     submit: function submit() {
-      var _this = this;
-
-      var response = this.$inertia.post('/post', this.form);
-      console.log(response).then(function (response) {
-        console.log(response);
-        _this.addModal = false;
-        alert('added');
-      })["catch"](function (err) {
-        console.log(err);
-      });
+      this.$inertia.post('/post', this.form);
     },
     dropdownFunction: function dropdownFunction(event) {
       var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -32571,7 +32626,7 @@ var render = function() {
                             staticClass:
                               "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
                           },
-                          [_vm._v(_vm._s(post.title))]
+                          [_vm._v(" " + _vm._s(post.title) + " ")]
                         ),
                         _vm._v(" "),
                         _c("td", { staticClass: "pr-6 whitespace-no-wrap" }, [
@@ -32616,7 +32671,35 @@ var render = function() {
                         _vm._v(" "),
                         _vm._m(2, true),
                         _vm._v(" "),
-                        _vm._m(3, true)
+                        _c("td", { staticClass: "pr-8 relative" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "mr-2 text-indigo-600 hover:text-indigo-400 rounded cursor-pointer border border-transparent focus:outline-none",
+                              on: {
+                                click: function($event) {
+                                  return _vm.editPost(post._id)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fas fa-edit" })]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "mr-2 text-red-600 hover:text-red-400 rounded cursor-pointer border border-transparent focus:outline-none",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteConfirm(post._id)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fas fa-trash" })]
+                          )
+                        ])
                       ]
                     )
                   }),
@@ -33135,14 +33218,178 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(4)
+                              _vm._m(3)
                             ]
                           )
                         ]),
                         _vm._v(" "),
-                        _vm._m(5)
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
+                          },
+                          [
+                            _vm.modalMode == "add"
+                              ? _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
+                                    attrs: {
+                                      "data-modal-toggle": "defaultModal",
+                                      type: "submit"
+                                    }
+                                  },
+                                  [_vm._v("Add Tender")]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.modalMode == "edit"
+                              ? _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
+                                    attrs: {
+                                      "data-modal-toggle": "defaultModal",
+                                      type: "button"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.updatePost(_vm.postEditId)
+                                      }
+                                    }
+                                  },
+                                  [_vm._v("Update Tender")]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-white bg-orange-400 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-300 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600",
+                                attrs: {
+                                  "data-modal-toggle": "defaultModal",
+                                  type: "button"
+                                }
+                              },
+                              [_vm._v("Archive Tender")]
+                            )
+                          ]
+                        )
                       ]
                     )
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.deletePost
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex z-50 w-full md:inset-0 h-modal md:h-full",
+            attrs: { id: "popup-modal", tabindex: "-1" }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "relative p-4 w-full max-w-md h-full md:h-auto" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "relative bg-white rounded-lg shadow dark:bg-gray-700"
+                  },
+                  [
+                    _c("div", { staticClass: "flex justify-end p-2" }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "p-6 pt-0 text-center" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass:
+                            "mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            viewBox: "0 0 24 24",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              "stroke-width": "2",
+                              d:
+                                "M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "h3",
+                        {
+                          staticClass:
+                            "mb-5 text-lg font-normal text-gray-500 dark:text-gray-400"
+                        },
+                        [
+                          _vm._v(
+                            "Are you sure you want to delete this product?"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2",
+                          attrs: {
+                            "data-modal-toggle": "popup-modal",
+                            type: "button"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.deletePostMethod(_vm.postDeleteId)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        Yes, I'm sure\n                    "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600",
+                          attrs: {
+                            "data-modal-toggle": "popup-modal",
+                            type: "button"
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.deletePost = false
+                            }
+                          }
+                        },
+                        [_vm._v("No, cancel")]
+                      )
+                    ])
                   ]
                 )
               ]
@@ -33194,40 +33441,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("td", { staticClass: "pr-6" }, [
-      _c("div", { staticClass: "w-2 h-2 rounded-full bg-green-600" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "pr-8 relative" }, [
-      _c(
-        "button",
-        {
-          staticClass:
-            "mr-2 text-indigo-600 hover:text-indigo-400 rounded cursor-pointer border border-transparent focus:outline-none"
-        },
-        [_c("i", { staticClass: "fas fa-edit" })]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass:
-            "mr-2 text-orange-400 hover:text-orange-300 rounded cursor-pointer border border-transparent focus:outline-none"
-        },
-        [_c("i", { staticClass: "fas fa-pause" })]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass:
-            "mr-2 text-red-600 hover:text-red-400 rounded cursor-pointer border border-transparent focus:outline-none"
-        },
-        [_c("i", { staticClass: "fas fa-trash" })]
-      )
+      _c("div", { staticClass: "w-2 h-2 rounded-full bg-green-500" })
     ])
   },
   function() {
@@ -33264,39 +33478,6 @@ var staticRenderFns = [
             [_vm._v("PDF / JPEG / PNG / Excel / Doc")]
           )
         ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
-      },
-      [
-        _c(
-          "button",
-          {
-            staticClass:
-              "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
-            attrs: { "data-modal-toggle": "defaultModal", type: "submit" }
-          },
-          [_vm._v("Add Tender")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass:
-              "text-white bg-orange-400 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-300 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600",
-            attrs: { "data-modal-toggle": "defaultModal", type: "button" }
-          },
-          [_vm._v("Archive Tender")]
-        )
       ]
     )
   }
@@ -33457,7 +33638,8 @@ var render = function() {
                                 staticClass: "w-4 h-4 mr-1 fas fa-calendar"
                               }),
                               _vm._v(
-                                _vm._s(post.expiry) +
+                                " " +
+                                  _vm._s(post.expiry) +
                                   "\n                          "
                               )
                             ]

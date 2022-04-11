@@ -30,6 +30,12 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/post', [DashboardControl
 Route::middleware(['auth:sanctum', 'verified'])->get('/success', [DashboardController::class, 'success'])
     ->name('success');
 
+Route::middleware(['auth:sanctum', 'verified'])->delete('/delete/{post}', [DashboardController::class, 'delete'])
+    ->name('delete');
+
+Route::middleware(['auth:sanctum', 'verified'])->put('/update/{post}', [DashboardController::class, 'update'])
+    ->name('update');
+
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return Inertia\Inertia::render('Dashboard');
 // })->name('dashboard');
