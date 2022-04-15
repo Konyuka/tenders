@@ -167,7 +167,7 @@ export default {
     },
     data () {
         return {
-            searchModal: true,
+            searchModal: false,
             pageData: JSON.parse(app.dataset.page),
         }
     },

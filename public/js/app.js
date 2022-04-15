@@ -5629,7 +5629,7 @@ var app = document.getElementById('app');
   },
   data: function data() {
     return {
-      searchModal: true,
+      searchModal: false,
       pageData: JSON.parse(app.dataset.page)
     };
   },
