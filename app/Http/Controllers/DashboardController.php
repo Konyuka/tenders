@@ -47,10 +47,10 @@ class DashboardController extends Controller
         // return Inertia::render('Dashboard');
     }
 
-    public function success()
-    {
-        return Inertia::render('Success', ['Status' => 'add']);
-    }
+    // public function success()
+    // {
+    //     return Inertia::render('Success', ['Status' => 'add']);
+    // }
 
     public function delete($post)
     {

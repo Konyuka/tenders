@@ -3852,11 +3852,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Landing',
+  name: 'Checkout',
   props: {
     post: Object
   },
@@ -3870,6 +3884,16 @@ __webpack_require__.r(__webpack_exports__);
   computed: {},
   data: function data() {
     return {
+      form: {
+        userName: '',
+        userPhone: '',
+        userEmail: '',
+        number: '',
+        account: '',
+        amount: this.post.price // amount: ''
+        // account: this.form.userName,
+
+      },
       modal: false,
       paymentModal: false
     };
@@ -4748,7 +4772,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Header',
+  name: 'FeaturedTenders',
   components: {
     Button: _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_0__["default"] //   Categories,
 
@@ -4757,7 +4781,11 @@ __webpack_require__.r(__webpack_exports__);
     return {};
   },
   watch: {},
-  computed: {},
+  computed: {
+    posts: function posts() {
+      return this.$parent.posts;
+    }
+  },
   methods: {}
 });
 
@@ -5054,7 +5082,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Header',
+  name: 'MainMenu',
   components: {//   Categories,
   },
   data: function data() {
@@ -5597,7 +5625,7 @@ var app = document.getElementById('app');
   },
   data: function data() {
     return {
-      modal: false,
+      searchModal: false,
       pageData: JSON.parse(app.dataset.page)
     };
   },
@@ -5789,183 +5817,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Landing',
-  props: {},
+  props: {
+    Posts: ''
+  },
   components: {
     TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -7018,12 +6877,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Landing',
-  props: {},
+  props: {
+    Status: String
+  },
   components: {
     TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -30675,7 +30538,369 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(1)
+                  _c(
+                    "section",
+                    {
+                      staticClass:
+                        "py-16 lg:max-w-lg lg:w-full lg:mx-auto lg:pt-0 lg:pb-24 lg:row-start-1 lg:col-start-1",
+                      attrs: {
+                        "aria-labelledby": "payment-and-shipping-heading"
+                      }
+                    },
+                    [
+                      _c(
+                        "h2",
+                        {
+                          staticClass: "sr-only",
+                          attrs: { id: "payment-and-shipping-heading" }
+                        },
+                        [_vm._v("Payment and shipping details")]
+                      ),
+                      _vm._v(" "),
+                      _c("form", [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "max-w-2xl mx-auto px-4 lg:max-w-none lg:px-0"
+                          },
+                          [
+                            _c("div", [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "text-lg font-extrabold text-gray-900",
+                                  attrs: { id: "contact-info-heading" }
+                                },
+                                [_vm._v("Contact information")]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: " shadow-2xl" }, [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass:
+                                      "block text-sm font-medium text-gray-700",
+                                    attrs: { for: "email-address" }
+                                  },
+                                  [_vm._v("Contact Name")]
+                                ),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "mt-1" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.userName,
+                                        expression: "form.userName"
+                                      }
+                                    ],
+                                    staticClass:
+                                      "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                    attrs: {
+                                      placeholder: "254 7XX XXX XXX",
+                                      type: "number",
+                                      id: "phone-number",
+                                      name: "phone-number"
+                                    },
+                                    domProps: { value: _vm.form.userName },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "userName",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "mt-6 shadow-2xl" }, [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass:
+                                      "block text-sm font-medium text-gray-700",
+                                    attrs: { for: "email-address" }
+                                  },
+                                  [_vm._v("Contact Phone")]
+                                ),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "mt-1" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.userPhone,
+                                        expression: "form.userPhone"
+                                      }
+                                    ],
+                                    staticClass:
+                                      "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                    attrs: {
+                                      placeholder: "254 7XX XXX XXX",
+                                      type: "number",
+                                      id: "phone-number",
+                                      name: "phone-number"
+                                    },
+                                    domProps: { value: _vm.form.userPhone },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "userPhone",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "mt-6 shadow-2xl" }, [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass:
+                                      "block text-sm font-medium text-gray-700",
+                                    attrs: { for: "email-address" }
+                                  },
+                                  [_vm._v("Contact Email")]
+                                ),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "mt-1" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.userEmail,
+                                        expression: "form.userEmail"
+                                      }
+                                    ],
+                                    staticClass:
+                                      "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                    attrs: {
+                                      placeholder: "user@email.com",
+                                      type: "email",
+                                      id: "email-address",
+                                      name: "email-address"
+                                    },
+                                    domProps: { value: _vm.form.userEmail },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "userEmail",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "mt-10" }, [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "text-lg font-extrabold text-gray-900",
+                                  attrs: { id: "payment-heading" }
+                                },
+                                [_vm._v("Payment information")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "grid grid-cols-3 sm:grid-cols-4 gap-y-6 gap-x-4"
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "col-span-3 sm:col-span-4 shadow-2xl"
+                                    },
+                                    [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "block text-sm font-medium text-gray-700",
+                                          attrs: { for: "card-number" }
+                                        },
+                                        [_vm._v("Mpesa / Payment Number")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "mt-1" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.number,
+                                              expression: "form.number"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                          attrs: {
+                                            placeholder: "254 7XX XXX XXX",
+                                            type: "number",
+                                            id: "email-address",
+                                            name: "email-address"
+                                          },
+                                          domProps: { value: _vm.form.number },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "number",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "col-span-3 sm:col-span-4 shadow-2xl"
+                                    },
+                                    [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "block text-sm font-medium text-gray-700",
+                                          attrs: { for: "card-number" }
+                                        },
+                                        [_vm._v("Mpesa Account Name")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "mt-1" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.account,
+                                              expression: "form.account"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                          attrs: {
+                                            disabled: "",
+                                            type: "text",
+                                            id: "email-address",
+                                            name: "email-address"
+                                          },
+                                          domProps: { value: _vm.form.account },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "account",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "col-span-3 sm:col-span-4 shadow-2xl"
+                                    },
+                                    [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "block text-sm font-medium text-gray-700",
+                                          attrs: { for: "card-number" }
+                                        },
+                                        [_vm._v("Mpesa Payment Amount")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "mt-1" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.post.price,
+                                              expression: "post.price"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                          attrs: {
+                                            disabled: "",
+                                            type: "text",
+                                            id: "email-address",
+                                            name: "email-address"
+                                          },
+                                          domProps: { value: _vm.post.price },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.post,
+                                                "price",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(1)
+                          ]
+                        )
+                      ])
+                    ]
+                  )
                 ]
               )
             ])
@@ -30804,195 +31029,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "section",
-      {
-        staticClass:
-          "py-16 lg:max-w-lg lg:w-full lg:mx-auto lg:pt-0 lg:pb-24 lg:row-start-1 lg:col-start-1",
-        attrs: { "aria-labelledby": "payment-and-shipping-heading" }
-      },
-      [
-        _c(
-          "h2",
-          {
-            staticClass: "sr-only",
-            attrs: { id: "payment-and-shipping-heading" }
-          },
-          [_vm._v("Payment and shipping details")]
-        ),
+    return _c("div", { staticClass: "mt-10" }, [
+      _c("div", { staticClass: "mt-6 flex items-center" }, [
+        _c("input", {
+          staticClass:
+            "h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500",
+          attrs: {
+            id: "same-as-shipping",
+            name: "same-as-shipping",
+            type: "checkbox",
+            checked: ""
+          }
+        }),
         _vm._v(" "),
-        _c("form", [
+        _c("div", { staticClass: "ml-2" }, [
           _c(
-            "div",
-            { staticClass: "max-w-2xl mx-auto px-4 lg:max-w-none lg:px-0" },
-            [
-              _c("div", [
-                _c(
-                  "h3",
-                  {
-                    staticClass: "text-lg font-extrabold text-gray-900",
-                    attrs: { id: "contact-info-heading" }
-                  },
-                  [_vm._v("Contact information")]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "mt-6 shadow-2xl" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "block text-sm font-medium text-gray-700",
-                      attrs: { for: "email-address" }
-                    },
-                    [_vm._v("Mobile Phone")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "mt-1" }, [
-                    _c("input", {
-                      staticClass:
-                        "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
-                      attrs: {
-                        placeholder: "254 7XX XXX XXX",
-                        type: "number",
-                        id: "phone-number",
-                        name: "phone-number"
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "mt-6 shadow-2xl" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "block text-sm font-medium text-gray-700",
-                      attrs: { for: "email-address" }
-                    },
-                    [_vm._v("Email Address")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "mt-1" }, [
-                    _c("input", {
-                      staticClass:
-                        "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
-                      attrs: {
-                        placeholder: "user@email.com",
-                        type: "email",
-                        id: "email-address",
-                        name: "email-address"
-                      }
-                    })
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "mt-10" }, [
-                _c(
-                  "h3",
-                  {
-                    staticClass: "text-lg font-extrabold text-gray-900",
-                    attrs: { id: "payment-heading" }
-                  },
-                  [_vm._v("Payment information")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "mt-6 grid grid-cols-3 sm:grid-cols-4 gap-y-6 gap-x-4"
-                  },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "col-span-3 sm:col-span-4 shadow-2xl" },
-                      [
-                        _c(
-                          "label",
-                          {
-                            staticClass:
-                              "block text-sm font-medium text-gray-700",
-                            attrs: { for: "card-number" }
-                          },
-                          [_vm._v("Mpesa / Payment Number")]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "mt-1" }, [
-                          _c("input", {
-                            staticClass:
-                              "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
-                            attrs: {
-                              placeholder: "254 7XX XXX XXX",
-                              type: "number",
-                              id: "email-address",
-                              name: "email-address"
-                            }
-                          })
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-span-3 sm:col-span-4 shadow-2xl" },
-                      [
-                        _c(
-                          "label",
-                          {
-                            staticClass:
-                              "block text-sm font-medium text-gray-700",
-                            attrs: { for: "card-number" }
-                          },
-                          [_vm._v("Mpesa Account Name")]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "mt-1" }, [
-                          _c("input", {
-                            staticClass:
-                              "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
-                            attrs: {
-                              placeholder: "Mark Massai / Blue Inc.",
-                              type: "text",
-                              id: "email-address",
-                              name: "email-address"
-                            }
-                          })
-                        ])
-                      ]
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "mt-10" }, [
-                _c("div", { staticClass: "mt-6 flex items-center" }, [
-                  _c("input", {
-                    staticClass:
-                      "h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500",
-                    attrs: {
-                      id: "same-as-shipping",
-                      name: "same-as-shipping",
-                      type: "checkbox",
-                      checked: ""
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "ml-2" }, [
-                    _c(
-                      "label",
-                      {
-                        staticClass: "text-sm font-medium text-gray-900",
-                        attrs: { for: "same-as-shipping" }
-                      },
-                      [_vm._v("Subscribe for news letters")]
-                    )
-                  ])
-                ])
-              ])
-            ]
+            "label",
+            {
+              staticClass: "text-sm font-medium text-gray-900",
+              attrs: { for: "same-as-shipping" }
+            },
+            [_vm._v("Subscribe for news letters")]
           )
         ])
-      ]
-    )
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -33533,14 +33594,14 @@ var render = function() {
               _c(
                 "div",
                 { staticClass: "flex flex-wrap -m-12" },
-                _vm._l(this.$parent.posts, function(post) {
+                _vm._l(this.posts, function(post) {
                   return _c(
                     "a",
                     {
-                      key: post._id,
+                      key: post.identity,
                       staticClass:
                         "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
-                      attrs: { href: _vm.route("selected", post.identity) }
+                      attrs: { href: _vm.route("selected", post._id) }
                     },
                     [
                       _c(
@@ -33563,6 +33624,8 @@ var render = function() {
                       _vm._v(" "),
                       _c("p", { staticClass: "leading-relaxed mb-2" }, [
                         _vm._v(_vm._s(post.description) + " "),
+                        _c("br"),
+                        _vm._v(" "),
                         _c("br"),
                         _vm._v(
                           " Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet"
@@ -35485,7 +35548,7 @@ var render = function() {
           _c("HeroSection", {
             on: {
               modalState: function($event) {
-                _vm.modal = true
+                _vm.searchModal = true
               }
             }
           }),
@@ -35496,7 +35559,7 @@ var render = function() {
           _vm._v(" "),
           _c("MainFooter"),
           _vm._v(" "),
-          _vm.modal
+          _vm.searchModal
             ? _c(
                 "div",
                 {
@@ -35554,7 +35617,7 @@ var render = function() {
                                   },
                                   on: {
                                     click: function($event) {
-                                      _vm.modal = false
+                                      _vm.searchModal = false
                                     }
                                   }
                                 },
@@ -35983,971 +36046,78 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("main", { staticClass: "container px-5 py-10 mx-auto" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex flex-wrap" }, [
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
+          _c(
+            "main",
+            { staticClass: "container px-5 py-10 mx-auto" },
+            [
+              _vm._m(0),
               _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+              _vm._l(this.Posts, function(post) {
+                return _c(
+                  "div",
+                  { key: post.identity, staticClass: "flex flex-wrap" },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
+                        attrs: { href: _vm.route("selected", post._id) }
+                      },
+                      [
+                        _c(
+                          "h2",
+                          {
+                            staticClass:
+                              "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                          },
+                          [_vm._v(_vm._s(post.title))]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          { staticClass: "leading-relaxed text-base mb-4" },
+                          [_vm._v(_vm._s(post.description))]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "text-indigo-500 inline-flex items-center",
+                            attrs: { href: _vm.route("selected", post._id) }
+                          },
+                          [
+                            _vm._v(" More Details\n                  "),
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "w-4 h-4 ml-2",
+                                attrs: {
+                                  fill: "none",
+                                  stroke: "currentColor",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round",
+                                  "stroke-width": "2",
+                                  viewBox: "0 0 24 24"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: { d: "M5 12h14M12 5l7 7-7 7" }
+                                })
+                              ]
+                            )
+                          ]
+                        )
+                      ]
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60",
-                  attrs: { href: _vm.route("selected") }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
-                    },
-                    [_vm._v("Shooting Stars")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "leading-relaxed text-base mb-4" }, [
-                    _vm._v(
-                      "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-indigo-500 inline-flex items-center" },
-                    [
-                      _vm._v("Learn More\n              "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            viewBox: "0 0 24 24"
-                          }
-                        },
-                        [_c("path", { attrs: { d: "M5 12h14M12 5l7 7-7 7" } })]
-                      )
-                    ]
-                  )
-                ]
-              )
-            ])
-          ]),
+                  ]
+                )
+              })
+            ],
+            2
+          ),
           _vm._v(" "),
           _vm._m(1)
         ]),
@@ -38825,7 +37995,7 @@ var render = function() {
                                           attrs: {
                                             href: _vm.route(
                                               "checkout",
-                                              _vm.post.identity
+                                              _vm.post._id
                                             )
                                           }
                                         },
@@ -38860,7 +38030,7 @@ var render = function() {
                                       attrs: {
                                         href: _vm.route(
                                           "checkout",
-                                          _vm.post.identity
+                                          _vm.post._id
                                         )
                                       }
                                     },
@@ -39012,7 +38182,7 @@ var render = function() {
                                 staticClass:
                                   "flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded",
                                 attrs: {
-                                  href: _vm.route("checkout", _vm.post.identity)
+                                  href: _vm.route("checkout", _vm.post._id)
                                 }
                               },
                               [_vm._v("Purchase Tender Details")]
@@ -39122,7 +38292,49 @@ var render = function() {
     _c("body", { staticClass: "overflow-x-hidden antialiased" }, [
       _c("section", { staticClass: "text-gray-600 body-font" }, [
         _c("div", { staticClass: "container px-5 py-24 mx-auto" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "flex flex-col text-center w-full mb-20" }, [
+            _c(
+              "h2",
+              {
+                staticClass:
+                  "text-xs text-indigo-500 tracking-widest font-medium title-font mb-1"
+              },
+              [_vm._v("Bidders Portal")]
+            ),
+            _vm._v(" "),
+            _vm.Status == "add"
+              ? _c(
+                  "h1",
+                  {
+                    staticClass:
+                      "sm:text-3xl text-2xl font-medium title-font text-gray-900"
+                  },
+                  [_vm._v("Post Added Successfully")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.Status == "edit"
+              ? _c(
+                  "h1",
+                  {
+                    staticClass:
+                      "sm:text-3xl text-2xl font-medium title-font text-gray-900"
+                  },
+                  [_vm._v("Post Updated Successfully")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.Status == "delete"
+              ? _c(
+                  "h1",
+                  {
+                    staticClass:
+                      "sm:text-3xl text-2xl font-medium title-font text-gray-900"
+                  },
+                  [_vm._v("Post Deleted Successfully")]
+                )
+              : _vm._e()
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "flex flex-wrap -m-4" }, [
             _c(
@@ -39139,7 +38351,7 @@ var render = function() {
                       "flex rounded-lg h-full bg-gray-100 p-8 flex-col"
                   },
                   [
-                    _vm._m(1),
+                    _vm._m(0),
                     _vm._v(" "),
                     _c("div", { staticClass: "flex-grow" }, [
                       _c(
@@ -39191,7 +38403,7 @@ var render = function() {
                       "flex rounded-lg h-full bg-gray-100 p-8 flex-col"
                   },
                   [
-                    _vm._m(2),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c("div", { staticClass: "flex-grow" }, [
                       _c(
@@ -39235,34 +38447,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "flex flex-col text-center w-full mb-20" },
-      [
-        _c(
-          "h2",
-          {
-            staticClass:
-              "text-xs text-indigo-500 tracking-widest font-medium title-font mb-1"
-          },
-          [_vm._v("Bidders Portal")]
-        ),
-        _vm._v(" "),
-        _c(
-          "h1",
-          {
-            staticClass:
-              "sm:text-3xl text-2xl font-medium title-font text-gray-900"
-          },
-          [_vm._v("Post added Successfully")]
-        )
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

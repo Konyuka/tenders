@@ -36,6 +36,9 @@ Route::middleware(['auth:sanctum', 'verified'])->delete('/delete/{post}', [Dashb
 Route::middleware(['auth:sanctum', 'verified'])->put('/update/{post}', [DashboardController::class, 'update'])
     ->name('update');
 
+Route::get('/stkpush', [LandingController::class, 'stkpush'])
+    ->name('stkpush');
+
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return Inertia\Inertia::render('Dashboard');
 // })->name('dashboard');

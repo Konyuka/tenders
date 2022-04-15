@@ -67,17 +67,24 @@
                     <div>
                         <h3 id="contact-info-heading" class="text-lg font-extrabold text-gray-900">Contact information</h3>
 
-                        <div class="mt-6 shadow-2xl">
-                        <label for="email-address" class="block text-sm font-medium text-gray-700">Mobile Phone</label>
+                        <div class=" shadow-2xl">
+                        <label for="email-address" class="block text-sm font-medium text-gray-700">Contact Name</label>
                         <div class="mt-1">
-                            <input placeholder="254 7XX XXX XXX" type="number" id="phone-number" name="phone-number"  class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <input v-model="form.userName" placeholder="254 7XX XXX XXX" type="number" id="phone-number" name="phone-number"  class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
                         </div>
 
                         <div class="mt-6 shadow-2xl">
-                        <label for="email-address" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <label for="email-address" class="block text-sm font-medium text-gray-700">Contact Phone</label>
                         <div class="mt-1">
-                            <input placeholder="user@email.com" type="email" id="email-address" name="email-address" class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <input v-model="form.userPhone" placeholder="254 7XX XXX XXX" type="number" id="phone-number" name="phone-number"  class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
+                        </div>
+
+                        <div class="mt-6 shadow-2xl">
+                        <label for="email-address" class="block text-sm font-medium text-gray-700">Contact Email</label>
+                        <div class="mt-1">
+                            <input v-model="form.userEmail" placeholder="user@email.com" type="email" id="email-address" name="email-address" class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
                         </div>
 
@@ -86,18 +93,25 @@
                     <div class="mt-10">
                         <h3 id="payment-heading" class="text-lg font-extrabold text-gray-900">Payment information</h3>
 
-                        <div class="mt-6 grid grid-cols-3 sm:grid-cols-4 gap-y-6 gap-x-4">
+                        <div class="grid grid-cols-3 sm:grid-cols-4 gap-y-6 gap-x-4">
                         <div class="col-span-3 sm:col-span-4 shadow-2xl">
                             <label for="card-number" class="block text-sm font-medium text-gray-700">Mpesa / Payment Number</label>
                             <div class="mt-1">
-                                <input placeholder="254 7XX XXX XXX" type="number" id="email-address" name="email-address" class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <input v-model="form.number" placeholder="254 7XX XXX XXX" type="number" id="email-address" name="email-address" class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             </div>
                         </div>
 
                         <div class="col-span-3 sm:col-span-4 shadow-2xl">
                             <label for="card-number" class="block text-sm font-medium text-gray-700">Mpesa Account Name</label>
                             <div class="mt-1">
-                                <input placeholder="Mark Massai / Blue Inc." type="text" id="email-address" name="email-address" class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <input v-model="form.account" disabled  type="text" id="email-address" name="email-address" class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            </div>
+                        </div>
+
+                        <div class="col-span-3 sm:col-span-4 shadow-2xl">
+                            <label for="card-number" class="block text-sm font-medium text-gray-700">Mpesa Payment Amount</label>
+                            <div class="mt-1">
+                                <input v-model="post.price" disabled type="text" id="email-address" name="email-address" class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             </div>
                         </div>
 
@@ -167,7 +181,7 @@ import MainMenu from './Components/MainMenu.vue'
 import MainFooter from './Components/MainFooter.vue'
 
 export default {
-    name:'Landing',
+    name:'Checkout',
     props: {
         post: Object
     },
@@ -184,6 +198,16 @@ export default {
     },
     data () {
         return {
+            form:{
+                userName:'',
+                userPhone:'',
+                userEmail:'',
+                number:'',
+                account: '',
+                amount: this.post.price
+                // amount: ''
+                // account: this.form.userName,
+            },
             modal: false,
             paymentModal: false
         }

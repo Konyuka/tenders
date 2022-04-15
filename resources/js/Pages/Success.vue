@@ -6,7 +6,9 @@
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-col text-center w-full mb-20">
             <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">Bidders Portal</h2>
-            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Post added Successfully</h1>
+            <h1 v-if="Status == 'add'" class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Post Added Successfully</h1>
+            <h1 v-if="Status == 'edit'" class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Post Updated Successfully</h1>
+            <h1 v-if="Status == 'delete'" class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Post Deleted Successfully</h1>
             </div>
             <div class="flex flex-wrap -m-4">
             <a :href="route('dashboard')" class="hover:shadow-2xl p-4 md:w-1/2">
@@ -59,6 +61,7 @@ import MainFooter from './Components/MainFooter.vue'
 export default {
     name:'Landing',
     props: {
+        Status: String
     },
     components: {
         TopBanner,

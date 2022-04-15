@@ -13,10 +13,10 @@
                     <div class="container px-5 py-24 mx-auto">
                         <div class="flex flex-wrap -m-12">
 
-                        <a v-for="post in this.$parent.posts" :key="post._id" :href="route('selected', post.identity)" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
+                        <a v-for="post in this.posts" :key="post.identity" :href="route('selected', post._id)" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
                             <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">USD. {{ post.price }}</span>
                             <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">{{ post.title }}</h4>
-                            <p class="leading-relaxed mb-2">{{ post.description }} <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet</p>
+                            <p class="leading-relaxed mb-2">{{ post.description }} <br> <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet</p>
                             <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
                             <a class="text-indigo-500 inline-flex items-center">Purchase Tender
                                 <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -53,7 +53,7 @@
 import Button from '../../Jetstream/Button.vue'
 
 export default {
-  name: 'Header',
+  name: 'FeaturedTenders',
   components: {
     Button
     //   Categories,
@@ -67,7 +67,9 @@ export default {
 
   },
   computed: {
-
+    posts(){
+        return this.$parent.posts
+    }
   },
   methods: {
 

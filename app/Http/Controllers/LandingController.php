@@ -23,86 +23,49 @@ class LandingController extends Controller
     {
         return Inertia::render('Selected', [
 
-           'post' => Post::where('identity', '=', $slug)->first()
+           'post' => Post::where('_id', '=', $slug)->first()
        ]);
     }
 
     public function listing()
     {
-        return Inertia::render('Listing');
+        $posts = Post::all();
+        return Inertia::render('Listing', ['Posts' => $posts]);
     }
 
     public function checkout($slugs)
     {
         return Inertia::render('Checkout', [
-           'post' => Post::where('identity', '=', $slugs)->first()
+           'post' => Post::where('_id', '=', $slugs)->first()
        ]);
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function stkPush(Request $request)
     {
-        //
+        $timestamp = date('YmdHis');
+        $password = env('MPESA_STK_SHORTCODE').env('MPESA_PASSKEY').$timestamp;
+
+        $curl_post_data = array(
+            'BusinessShortCode' => env('MPESA_STK_SHORTCODE'),
+            'Password' => $password,
+            'Timestamp' => $timestamp,
+            'TransactionType' => 'CustomerPayBillOnline',
+            'Amount' => $request->amount,
+            'PartyA' => $request->phone,
+            'PartyB' => env('MPESA_STK_SHORTCODE'),
+            'PhoneNumber' => $request->phone,
+            'CallBackURL' => env('MPESA_TEST_URL'). '/api/stkpush',
+            'AccountReference' => $request->account,
+            'TransactionDesc' => $request->account
+          );
+
+        $url = '/stkpush/v1/processrequest';
+
+        $response = $this->makeHttp($url, $curl_post_data);
+
+        return $response;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
