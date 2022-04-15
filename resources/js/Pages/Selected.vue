@@ -38,22 +38,22 @@
                 </div>
                 <div class="flex border-t border-b mb-6 border-gray-200 py-2">
                 <span class="text-gray-500">Date Posted
-                    <span class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
+                    <span class="bg-green-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
                     <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
-                    3 days ago
+                    {{ ago }}
                     </span>
                 </span>
-                <span class="ml-auto text-gray-900">7th April 22</span>
+                <span class="ml-auto text-gray-900">{{ formatDate(post.created_at) }}</span>
 
                 </div>
                 <div class="flex border-t border-b mb-6 border-gray-200 py-2">
                 <span class="text-gray-500">Expiry Date
-                    <span class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
+                    <span class="bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
                     <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
-                    3 days ago
+                    {{ togo }} to go
                     </span>
                 </span>
-                <span class="ml-auto text-gray-900">{{ post.title }}</span>
+                <span class="ml-auto text-gray-900">{{ formatDate(post.expiry) }}</span>
                 </div>
                 <div class="flex border-t border-b mb-6 border-gray-200 py-2">
                 <span class="text-gray-500">Country</span>
@@ -62,7 +62,7 @@
 
                 <div class="flex">
                 <span class="title-font font-medium text-2xl text-gray-900">KES {{post.price}}</span>
-                <a :href="route('checkout', post._id)" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Purchase Tender Details</a>
+                <a :href="route('checkout', post._id)" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-700 rounded">Purchase Tender Details</a>
 
                 <button class="hover:bg-red-500 hover:text-white rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                     <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
@@ -104,8 +104,16 @@ export default {
     watch: {
     },
     mounted () {
+        console.log(this.post.created_at)
+        console.log(this.post.expiry)
     },
     computed: {
+        ago(){
+            return moment(this.post.created_at).fromNow();
+        },
+        togo(){
+            return moment(this.post.expiry).fromNow(true);
+        },
     },
     data () {
         return {
@@ -113,6 +121,9 @@ export default {
         }
     },
     methods:{
+        formatDate(value) {
+            return moment(value).format('MMMM Do YYYY')
+        },
         clearFilters(){
 
         },

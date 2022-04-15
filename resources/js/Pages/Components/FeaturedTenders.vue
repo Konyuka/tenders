@@ -28,7 +28,7 @@
                                 <i class="w-4 h-4 mr-1 fas fa-location-crosshairs"></i> {{ post.country }}
                             </span>
                             <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                                <i class="w-4 h-4 mr-1 fas fa-calendar"></i> {{ post.expiry }}
+                                <i class="w-4 h-4 mr-1 fas fa-calendar"></i>Expires on {{ formatDate(post.expiry) }}
                             </span>
                             </div>
                         </a>
@@ -72,7 +72,9 @@ export default {
     }
   },
   methods: {
-
+      formatDate(value) {
+            return moment(value).format('MMMM Do YYYY')
+        },
   }
 
 }

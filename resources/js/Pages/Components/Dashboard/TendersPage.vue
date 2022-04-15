@@ -64,7 +64,8 @@
                     </div> -->
 
                     <div class="lg:ml-6 flex items-center">
-                        <button @click="addTender" class="bg-indigo-600 transition duration-150 ease-in-out focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-white px-5 h-8 flex items-center text-sm">Add Tender</button>
+                        <button @click="addTender" class="bg-indigo-600 transition duration-150 ease-in-out focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-white px-5 h-8 flex items-center text-sm mr-4">Add Tender</button>
+                        <button class="bg-indigo-600 transition duration-150 ease-in-out focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-white px-5 h-8 flex items-center text-sm">Upload Tender</button>
                     </div>
                 </div>
             </div>
@@ -121,8 +122,8 @@
                                 </div>
                             </td>
                             <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">{{post.value}}</td>
-                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">{{post.expiry}}</td>
-                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">{{post.expiry}}</td>
+                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">{{ formatDate(post.created_at) }}</td>
+                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">{{ formatDate(post.expiry) }}</td>
                             <td class="pr-6">
                                 <div class="w-2 h-2 rounded-full bg-green-500"></div>
                             </td>
@@ -226,8 +227,18 @@
 
                                 <div>
                                     <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Expiry Date</label>
-                                    <input v-model="form.expiry" id="emailAddress" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                    <vc-date-picker v-model="date">
+                                    <template v-slot="{ inputValue, inputEvents }">
+                                        <input
+                                        :value="inputValue"
+                                        v-on="inputEvents"
+                                        id="emailAddress" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                    </template>
+                                    </vc-date-picker>
+                                    <!-- <input v-model="form.expiry" id="emailAddress" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"> -->
+                                    <!-- <DatePicker v-model="date" /> -->
                                 </div>
+
 
                             </div>
 
@@ -287,10 +298,25 @@
 </template>
 
 <script>
+// import { Calendar, DatePicker } from 'v-calendar';
+import Vue from 'vue';
+import VCalendar from 'v-calendar';
+import moment from 'moment';
+
+
+Vue.use(VCalendar, {
+  componentPrefix: 'vc',  // Use <vc-calendar /> instead of <v-calendar />
+});
+
 export default {
     name: "TendersPage",
+    components: {
+    //   Calendar,
+    //   DatePicker,
+    },
     data() {
         return {
+            date: new Date(),
             temp: 0,
             addModal: false,
             modalMode: 'add',
@@ -321,8 +347,11 @@ export default {
         // }
     },
     methods: {
+        formatDate(value) {
+            return moment(value).format('MMMM Do YYYY')
+        },
         updatePost(value){
-            console.log(value)
+            this.form.expiry = this.date
             this.$inertia.put(`/update/${value}`, this.form)
         },
         editPost(value){
@@ -359,7 +388,13 @@ export default {
             this.addModal=true
         },
         submit() {
-            this.$inertia.post('/post', this.form)
+            this.form.expiry = this.date
+            let today = new Date()
+            if(this.form.expiry < today){
+                this.$inertia.post('/post', this.form)
+            }else{
+                alert('Check Expiry Date')
+            }
         },
         dropdownFunction(event) {
             var dropdowns = document.getElementsByClassName("dropdown-content");
