@@ -352,7 +352,13 @@ export default {
         },
         updatePost(value){
             this.form.expiry = this.date
-            this.$inertia.put(`/update/${value}`, this.form)
+            let today = new Date()
+            if(this.form.expiry > today){
+                // this.$inertia.post('/post', this.form)
+                this.$inertia.put(`/update/${value}`, this.form)
+            }else{
+                alert('Check Expiry Date')
+            }
         },
         editPost(value){
             // this.$parent.posts
@@ -390,7 +396,7 @@ export default {
         submit() {
             this.form.expiry = this.date
             let today = new Date()
-            if(this.form.expiry < today){
+            if(this.form.expiry > today){
                 this.$inertia.post('/post', this.form)
             }else{
                 alert('Check Expiry Date')

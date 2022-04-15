@@ -4592,7 +4592,14 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
     },
     updatePost: function updatePost(value) {
       this.form.expiry = this.date;
-      this.$inertia.put("/update/".concat(value), this.form);
+      var today = new Date();
+
+      if (this.form.expiry > today) {
+        // this.$inertia.post('/post', this.form)
+        this.$inertia.put("/update/".concat(value), this.form);
+      } else {
+        alert('Check Expiry Date');
+      }
     },
     editPost: function editPost(value) {
       // this.$parent.posts
@@ -4629,7 +4636,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
       this.form.expiry = this.date;
       var today = new Date();
 
-      if (this.form.expiry < today) {
+      if (this.form.expiry > today) {
         this.$inertia.post('/post', this.form);
       } else {
         alert('Check Expiry Date');
