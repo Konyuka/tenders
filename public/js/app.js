@@ -5599,6 +5599,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -5625,7 +5629,7 @@ var app = document.getElementById('app');
   },
   data: function data() {
     return {
-      searchModal: false,
+      searchModal: true,
       pageData: JSON.parse(app.dataset.page)
     };
   },
@@ -34375,12 +34379,12 @@ var staticRenderFns = [
       { staticClass: " flex space-x-5 justify-center  items-center pl-2" },
       [
         _c("a", {
-          staticClass: "fas fa-search fa-xl text-indigo-600",
+          staticClass: "fas fa-phone fa-xl text-indigo-600",
           attrs: { href: "#" }
         }),
         _vm._v(" "),
         _c("a", {
-          staticClass: "fas fa-cart-arrow-down fa-xl text-indigo-600",
+          staticClass: "fas fa-envelope fa-xl text-indigo-600",
           attrs: { href: "#" }
         })
       ]
@@ -35715,7 +35719,7 @@ var staticRenderFns = [
           _c("form", [
             _c(
               "div",
-              { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2" },
+              { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1" },
               [
                 _c("div", [
                   _c(
@@ -35732,23 +35736,6 @@ var staticRenderFns = [
                       "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
                     attrs: { id: "username", type: "text" }
                   })
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "text-gray-700 dark:text-gray-200",
-                      attrs: { for: "emailAddress" }
-                    },
-                    [_vm._v("Within Search Keyword")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass:
-                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                    attrs: { id: "emailAddress", type: "text" }
-                  })
                 ])
               ]
             )
@@ -35756,7 +35743,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2" },
+            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3" },
             [
               _c("div", [
                 _c(
@@ -35765,7 +35752,7 @@ var staticRenderFns = [
                     staticClass: "text-gray-700 dark:text-gray-200",
                     attrs: { for: "username" }
                   },
-                  [_vm._v("Tender Notice No.")]
+                  [_vm._v("Ref. No / TID")]
                 ),
                 _vm._v(" "),
                 _c("input", {
@@ -35782,7 +35769,7 @@ var staticRenderFns = [
                     staticClass: "text-gray-700 dark:text-gray-200",
                     attrs: { for: "emailAddress" }
                   },
-                  [_vm._v("Bid Detail Ref No.")]
+                  [_vm._v("Tender Minimum Value")]
                 ),
                 _vm._v(" "),
                 _c("input", {
@@ -35797,69 +35784,15 @@ var staticRenderFns = [
                   "label",
                   {
                     staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "password" }
+                    attrs: { for: "emailAddress" }
                   },
-                  [_vm._v("Funding")]
+                  [_vm._v("Tender Maximum Value")]
                 ),
                 _vm._v(" "),
                 _c("input", {
                   staticClass:
                     "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                  attrs: { id: "password", type: "text" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "passwordConfirmation" }
-                  },
-                  [_vm._v("Tender Value")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    staticClass:
-                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                    attrs: {
-                      id: "country",
-                      name: "country",
-                      autocomplete: "country-name"
-                    }
-                  },
-                  [
-                    _c("option", [_vm._v("United States")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Canada")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Mexico")])
-                  ]
-                )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1" },
-            [
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "username" }
-                  },
-                  [_vm._v("Region / Country")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass:
-                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                  attrs: { id: "username", type: "text" }
+                  attrs: { id: "emailAddress", type: "text" }
                 })
               ])
             ]
@@ -35874,9 +35807,9 @@ var staticRenderFns = [
                   "label",
                   {
                     staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "username" }
+                    attrs: { for: "password" }
                   },
-                  [_vm._v("Closing Date")]
+                  [_vm._v("Due Date")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -35891,11 +35824,95 @@ var staticRenderFns = [
                     }
                   },
                   [
-                    _c("option", [_vm._v("United States")]),
+                    _c("option", [_vm._v("Today")]),
                     _vm._v(" "),
-                    _c("option", [_vm._v("Canada")]),
+                    _c("option", [_vm._v("Tommorow")]),
                     _vm._v(" "),
-                    _c("option", [_vm._v("Mexico")])
+                    _c("option", [_vm._v("Three Days")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Five Days")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("A week")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Two Weeks")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("One Month")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Expired")])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "passwordConfirmation" }
+                  },
+                  [_vm._v("Publish Date")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass:
+                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                    attrs: {
+                      id: "country",
+                      name: "country",
+                      autocomplete: "country-name"
+                    }
+                  },
+                  [
+                    _c("option", [_vm._v("Today")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Yesterday")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Three Days ago")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("A week ago")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Two Weeks ago")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("One Month ago")])
+                  ]
+                )
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3" },
+            [
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-gray-700 dark:text-gray-200",
+                    attrs: { for: "username" }
+                  },
+                  [_vm._v("Region / Country")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass:
+                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                    attrs: {
+                      id: "country",
+                      name: "country",
+                      autocomplete: "country-name"
+                    }
+                  },
+                  [
+                    _c("option", [_vm._v("Kenya")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Uganda")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Tanzania")])
                   ]
                 )
               ]),
@@ -35922,11 +35939,11 @@ var staticRenderFns = [
                     }
                   },
                   [
-                    _c("option", [_vm._v("United States")]),
+                    _c("option", [_vm._v("Information Technology")]),
                     _vm._v(" "),
-                    _c("option", [_vm._v("Canada")]),
+                    _c("option", [_vm._v("Health & Insurance")]),
                     _vm._v(" "),
-                    _c("option", [_vm._v("Mexico")])
+                    _c("option", [_vm._v("Roads & Construction")])
                   ]
                 )
               ]),
@@ -35938,7 +35955,7 @@ var staticRenderFns = [
                     staticClass: "text-gray-700 dark:text-gray-200",
                     attrs: { for: "password" }
                   },
-                  [_vm._v("Funded")]
+                  [_vm._v("Funds")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -35953,42 +35970,9 @@ var staticRenderFns = [
                     }
                   },
                   [
-                    _c("option", [_vm._v("United States")]),
+                    _c("option", [_vm._v("Funded")]),
                     _vm._v(" "),
-                    _c("option", [_vm._v("Canada")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Mexico")])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "passwordConfirmation" }
-                  },
-                  [_vm._v("Tender Type")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    staticClass:
-                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                    attrs: {
-                      id: "country",
-                      name: "country",
-                      autocomplete: "country-name"
-                    }
-                  },
-                  [
-                    _c("option", [_vm._v("United States")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Canada")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Mexico")])
+                    _c("option", [_vm._v("Non Funded")])
                   ]
                 )
               ])

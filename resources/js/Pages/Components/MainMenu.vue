@@ -21,9 +21,9 @@
                     </ul>
                     <div class=" flex space-x-5 justify-center  items-center pl-2">
 
-                        <a href="#" class="fas fa-search fa-xl text-indigo-600"></a>
+                        <a href="#" class="fas fa-phone fa-xl text-indigo-600"></a>
 
-                        <a href="#" class="fas fa-cart-arrow-down fa-xl text-indigo-600"></a>
+                        <a href="#" class="fas fa-envelope fa-xl text-indigo-600"></a>
                     </div>
                 </nav>
                 <!-- for smaller devcies -->

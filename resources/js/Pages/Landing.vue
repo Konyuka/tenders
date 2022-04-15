@@ -29,90 +29,94 @@
 
                         <form>
 
-                            <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2">
+                            <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1">
                                 <div>
                                     <label class="text-gray-700 dark:text-gray-200" for="username">Search Keyword</label>
                                     <input id="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                                 </div>
 
-                                <div>
+                                <!-- <div>
                                     <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Within Search Keyword</label>
                                     <input id="emailAddress" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-                                </div>
+                                </div> -->
 
                             </div>
 
                         </form>
 
-                            <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2">
+                            <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3">
                                 <div>
-                                    <label class="text-gray-700 dark:text-gray-200" for="username">Tender Notice No.</label>
+                                    <label class="text-gray-700 dark:text-gray-200" for="username">Ref. No / TID</label>
                                     <input id="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                                 </div>
 
                                 <div>
-                                    <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Bid Detail Ref No.</label>
+                                    <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Tender Minimum Value</label>
                                     <input id="emailAddress" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                                 </div>
 
                                 <div>
-                                    <label class="text-gray-700 dark:text-gray-200" for="password">Funding</label>
-                                    <input id="password" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                    <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Tender Maximum Value</label>
+                                    <input id="emailAddress" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                                 </div>
 
-                                <div>
-                                    <label class="text-gray-700 dark:text-gray-200" for="passwordConfirmation">Tender Value</label>
-                                    <select id="country" name="country" autocomplete="country-name" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-                                        <option>United States</option>
-                                        <option>Canada</option>
-                                        <option>Mexico</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1">
-                                <div>
-                                    <label class="text-gray-700 dark:text-gray-200" for="username">Region / Country</label>
-                                    <input id="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-                                </div>
                             </div>
 
                             <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2">
                                 <div>
-                                    <label class="text-gray-700 dark:text-gray-200" for="username">Closing Date</label>
+                                    <label class="text-gray-700 dark:text-gray-200" for="password">Due Date</label>
                                     <select id="country" name="country" autocomplete="country-name" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-                                        <option>United States</option>
-                                        <option>Canada</option>
-                                        <option>Mexico</option>
+                                        <option>Today</option>
+                                        <option>Tommorow</option>
+                                        <option>Three Days</option>
+                                        <option>Five Days</option>
+                                        <option>A week</option>
+                                        <option>Two Weeks</option>
+                                        <option>One Month</option>
+                                        <option>Expired</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="text-gray-700 dark:text-gray-200" for="passwordConfirmation">Publish Date</label>
+                                    <select id="country" name="country" autocomplete="country-name" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                        <option>Today</option>
+                                        <option>Yesterday</option>
+                                        <option>Three Days ago</option>
+                                        <option>A week ago</option>
+                                        <option>Two Weeks ago</option>
+                                        <option>One Month ago</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3">
+                                <div>
+                                    <label class="text-gray-700 dark:text-gray-200" for="username">Region / Country</label>
+                                    <select id="country" name="country" autocomplete="country-name" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                        <option>Kenya</option>
+                                        <option>Uganda</option>
+                                        <option>Tanzania</option>
                                     </select>
                                 </div>
 
                                 <div>
                                     <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Sector Classification</label>
                                     <select id="country" name="country" autocomplete="country-name" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-                                        <option>United States</option>
-                                        <option>Canada</option>
-                                        <option>Mexico</option>
+                                        <option>Information Technology</option>
+                                        <option>Health & Insurance</option>
+                                        <option>Roads & Construction</option>
                                     </select>
                                 </div>
 
                                 <div>
-                                    <label class="text-gray-700 dark:text-gray-200" for="password">Funded</label>
+                                    <label class="text-gray-700 dark:text-gray-200" for="password">Funds</label>
                                     <select id="country" name="country" autocomplete="country-name" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-                                        <option>United States</option>
-                                        <option>Canada</option>
-                                        <option>Mexico</option>
+                                        <option>Funded</option>
+                                        <option>Non Funded</option>
                                     </select>
                                 </div>
 
-                                <div>
-                                    <label class="text-gray-700 dark:text-gray-200" for="passwordConfirmation">Tender Type</label>
-                                    <select id="country" name="country" autocomplete="country-name" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-                                        <option>United States</option>
-                                        <option>Canada</option>
-                                        <option>Mexico</option>
-                                    </select>
-                                </div>
                             </div>
 
 
@@ -163,7 +167,7 @@ export default {
     },
     data () {
         return {
-            searchModal: false,
+            searchModal: true,
             pageData: JSON.parse(app.dataset.page),
         }
     },
