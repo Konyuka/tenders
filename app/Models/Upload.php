@@ -4,16 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
-// use Maatwebsite\Excel\Concerns\ToModel;
 
-class Post extends Eloquent
+class Upload extends Model
 {
     use HasFactory;
-
-    protected $connection = 'mongodb';
-    protected $collection = 'Posts';
 
     protected $fillable = [
         'purchasing_Authority',
@@ -29,10 +23,7 @@ class Post extends Eloquent
         'email',
         'link',
         'expiry',
+        'categories'
     ];
-
-    // public function orders(){
-    //     return $this->hasMany(Order::class);
-    // }
 
 }

@@ -4543,6 +4543,73 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // import { Calendar, DatePicker } from 'v-calendar';
 
 
@@ -4558,6 +4625,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
   },
   data: function data() {
     return {
+      filename: '',
+      file: '',
+      uploadModal: true,
       date: new Date(),
       temp: 0,
       addModal: false,
@@ -4587,6 +4657,30 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
     // }
   },
   methods: {
+    upload: function upload(e) {
+      // e.preventDefault();
+      // let currentObj = this;
+      // const config = {
+      // headers: {
+      // 'content-type': 'multipart/form-data',
+      // 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+      // }
+      // }
+      var formData = new FormData();
+      formData.append('file', this.file); // this.$inertia.post('/import', formData, config)
+
+      this.$inertia.post('/import', formData).then(function (response) {
+        currentObj.success = response.data.success;
+        currentObj.filename = "";
+      })["catch"](function (error) {
+        currentObj.output = error;
+      });
+    },
+    onFileChange: function onFileChange(e) {
+      //console.log(e.target.files[0]);
+      this.filename = e.target.files[0].name;
+      this.file = e.target.files[0];
+    },
     formatDate: function formatDate(value) {
       return moment__WEBPACK_IMPORTED_MODULE_2___default()(value).format('MMMM Do YYYY');
     },
@@ -54051,7 +54145,12 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "bg-indigo-600 transition duration-150 ease-in-out focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-white px-5 h-8 flex items-center text-sm"
+                        "bg-indigo-600 transition duration-150 ease-in-out focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-white px-5 h-8 flex items-center text-sm",
+                      on: {
+                        click: function($event) {
+                          _vm.uploadModal = true
+                        }
+                      }
                     },
                     [_vm._v("Upload Tender")]
                   )
@@ -55035,6 +55134,268 @@ var render = function() {
             )
           ]
         )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.uploadModal
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
+            attrs: { id: "defaultModal", tabindex: "-1", "aria-hidden": "true" }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "relative p-4 w-full max-w-5xl h-full md:h-auto" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "relative bg-gray-50 rounded-lg shadow-2xl dark:bg-gray-700"
+                  },
+                  [
+                    _c(
+                      "form",
+                      {
+                        attrs: {
+                          method: "POST",
+                          enctype: "multipart/form-data"
+                        },
+                        on: {
+                          submit: function($event) {
+                            $event.preventDefault()
+                            return _vm.upload($event)
+                          }
+                        }
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600"
+                          },
+                          [
+                            _c(
+                              "h3",
+                              {
+                                staticClass:
+                                  "text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    Upload Tender\n                "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white",
+                                attrs: {
+                                  type: "button",
+                                  "data-modal-toggle": "defaultModal"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    _vm.uploadModal = false
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "w-5 h-5",
+                                    attrs: {
+                                      fill: "currentColor",
+                                      viewBox: "0 0 20 20",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        "fill-rule": "evenodd",
+                                        d:
+                                          "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+                                        "clip-rule": "evenodd"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "p-2 space-y-6" }, [
+                          _c(
+                            "div",
+                            { staticClass: "space-y-8  sm:space-y-5" },
+                            [
+                              _c("div", [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "mt-6 sm:mt-5 space-y-6 sm:space-y-5"
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "sm:grid sm:grid-cols-4 sm:gap-1 sm:items-start sm:pt-5"
+                                      },
+                                      [
+                                        _c("label", {
+                                          staticClass:
+                                            "block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2",
+                                          attrs: { for: "cover-photo" }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "mt-1 sm:mt-0 sm:col-span-2"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "max-w-lg flex justify-around px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "space-y-1 text-center"
+                                                  },
+                                                  [
+                                                    _vm._m(4),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "flex text-sm text-gray-600"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "label",
+                                                          {
+                                                            staticClass:
+                                                              "relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500",
+                                                            attrs: {
+                                                              for: "customFile"
+                                                            }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "span",
+                                                              {
+                                                                staticClass:
+                                                                  "font-bold text-lg text-center"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Select File"
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c("input", {
+                                                              staticClass:
+                                                                "sr-only",
+                                                              attrs: {
+                                                                name: "file",
+                                                                id:
+                                                                  "customFile",
+                                                                type: "file"
+                                                              },
+                                                              on: {
+                                                                change:
+                                                                  _vm.onFileChange
+                                                              }
+                                                            })
+                                                          ]
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "p",
+                                                      {
+                                                        staticClass:
+                                                          "text-xs text-gray-500"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "XLSX or CSV up to 10MB"
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "p",
+                                                      {
+                                                        staticClass:
+                                                          "text-xs text-gray-500"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "Selected File: "
+                                                        ),
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "text-indigo-700 font-bold"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "  " +
+                                                                _vm._s(
+                                                                  _vm.filename
+                                                                ) +
+                                                                " "
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(5)
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          ]
+        )
       : _vm._e()
   ])
 }
@@ -55117,6 +55478,47 @@ var staticRenderFns = [
             [_vm._v("PDF / JPEG / PNG / Excel / Doc")]
           )
         ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "m-5" }, [
+      _c("i", { staticClass: "fas fa-file-csv fa-2xl text-gray-400" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass:
+              "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
+            attrs: { "data-modal-toggle": "defaultModal", type: "submit" }
+          },
+          [_vm._v("Upload Tender")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "text-white bg-orange-400 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-300 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600",
+            attrs: { "data-modal-toggle": "defaultModal", type: "button" }
+          },
+          [_vm._v("Download Template")]
+        )
       ]
     )
   }

@@ -24,6 +24,9 @@ Route::get('/checkout/{slugs}', [LandingController::class, 'checkout'])
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
 
+Route::middleware(['auth:sanctum', 'verified'])->post('/import', [DashboardController::class, 'import'])
+    ->name('import');
+
 Route::middleware(['auth:sanctum', 'verified'])->post('/post', [DashboardController::class, 'addPost'])
     ->name('post');
 
