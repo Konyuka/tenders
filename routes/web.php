@@ -18,8 +18,12 @@ Route::get('/selected/{slug}', [LandingController::class, 'selected'])
 Route::get('/listing', [LandingController::class, 'listing'])
     ->name('listing');
 
+Route::get('/stkpush', [LandingController::class, 'stkpush'])
+    ->name('stkpush');
+
 Route::get('/checkout/{slugs}', [LandingController::class, 'checkout'])
     ->name('checkout');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
@@ -39,8 +43,9 @@ Route::middleware(['auth:sanctum', 'verified'])->delete('/delete/{post}', [Dashb
 Route::middleware(['auth:sanctum', 'verified'])->put('/update/{post}', [DashboardController::class, 'update'])
     ->name('update');
 
-Route::get('/stkpush', [LandingController::class, 'stkpush'])
-    ->name('stkpush');
+Route::middleware(['auth:sanctum', 'verified'])->get('/download', [DashboardController::class, 'download'])
+    ->name('download');
+
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return Inertia\Inertia::render('Dashboard');

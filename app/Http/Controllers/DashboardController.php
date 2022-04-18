@@ -177,4 +177,18 @@ class DashboardController extends Controller
 
     }
 
+    public function download(Request $request)
+    {
+        $file_path = public_path('templates\\upload_tenders.xlsx');
+        return response()->download($file_path);
+        // return response()->download(storage_path($file_path), 'public');
+
+        // return Inertia::render('Dashboard', ['allPosts' => $posts]);
+    }
+
+    public function downloads(Request $request)
+    {
+        // return Storage::disk('myfiles')->download($request->input('file_path_url'));
+    }
+
 }

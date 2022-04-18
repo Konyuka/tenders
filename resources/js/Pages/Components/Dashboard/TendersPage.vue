@@ -324,11 +324,11 @@
                                     <i class="fas fa-file-csv fa-2xl text-gray-400"> </i>
                                     </span>
 
-                                    <div class="flex text-sm text-gray-600">
+                                    <div class="flex justify-center text-sm text-gray-600">
                                     <label for="customFile" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                         <span class="font-bold text-lg text-center">Select File</span>
-                                        <input v-on:change="onFileChange" name="file" id="customFile" type="file" class="sr-only">
                                     </label>
+                                    <input v-on:change="onFileChange" name="file" id="customFile" type="file" class="sr-only">
                                     <!-- <p class="pl-1">or drag and drop</p> -->
                                     </div>
                                     <p class="text-xs text-gray-500">XLSX or CSV up to 10MB</p>
@@ -350,9 +350,11 @@
                     </div> -->
                 </div>
                 <!-- Modal footer -->
-                <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                <div class="flex justify-between items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                    <a :href="route('download')">
+                        <button  data-modal-toggle="defaultModal" type="button" class="text-black bg-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-300 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Download Template</button>
+                    </a>
                     <button data-modal-toggle="defaultModal" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Upload Tender</button>
-                    <button data-modal-toggle="defaultModal" type="button" class="text-white bg-orange-400 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-300 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Download Template</button>
                 </div>
 
                 </form>

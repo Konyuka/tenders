@@ -4610,6 +4610,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 // import { Calendar, DatePicker } from 'v-calendar';
 
 
@@ -55286,48 +55288,24 @@ var render = function() {
                                                       "div",
                                                       {
                                                         staticClass:
-                                                          "flex text-sm text-gray-600"
+                                                          "flex justify-center text-sm text-gray-600"
                                                       },
                                                       [
-                                                        _c(
-                                                          "label",
-                                                          {
-                                                            staticClass:
-                                                              "relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500",
-                                                            attrs: {
-                                                              for: "customFile"
-                                                            }
+                                                        _vm._m(5),
+                                                        _vm._v(" "),
+                                                        _c("input", {
+                                                          staticClass:
+                                                            "sr-only",
+                                                          attrs: {
+                                                            name: "file",
+                                                            id: "customFile",
+                                                            type: "file"
                                                           },
-                                                          [
-                                                            _c(
-                                                              "span",
-                                                              {
-                                                                staticClass:
-                                                                  "font-bold text-lg text-center"
-                                                              },
-                                                              [
-                                                                _vm._v(
-                                                                  "Select File"
-                                                                )
-                                                              ]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c("input", {
-                                                              staticClass:
-                                                                "sr-only",
-                                                              attrs: {
-                                                                name: "file",
-                                                                id:
-                                                                  "customFile",
-                                                                type: "file"
-                                                              },
-                                                              on: {
-                                                                change:
-                                                                  _vm.onFileChange
-                                                              }
-                                                            })
-                                                          ]
-                                                        )
+                                                          on: {
+                                                            change:
+                                                              _vm.onFileChange
+                                                          }
+                                                        })
                                                       ]
                                                     ),
                                                     _vm._v(" "),
@@ -55387,7 +55365,46 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _vm._m(5)
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "flex justify-between items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
+                          },
+                          [
+                            _c(
+                              "a",
+                              { attrs: { href: _vm.route("download") } },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "text-black bg-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-300 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600",
+                                    attrs: {
+                                      "data-modal-toggle": "defaultModal",
+                                      type: "button"
+                                    }
+                                  },
+                                  [_vm._v("Download Template")]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
+                                attrs: {
+                                  "data-modal-toggle": "defaultModal",
+                                  type: "submit"
+                                }
+                              },
+                              [_vm._v("Upload Tender")]
+                            )
+                          ]
+                        )
                       ]
                     )
                   ]
@@ -55494,31 +55511,16 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "div",
+      "label",
       {
         staticClass:
-          "flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
+          "relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500",
+        attrs: { for: "customFile" }
       },
       [
-        _c(
-          "button",
-          {
-            staticClass:
-              "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
-            attrs: { "data-modal-toggle": "defaultModal", type: "submit" }
-          },
-          [_vm._v("Upload Tender")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass:
-              "text-white bg-orange-400 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-300 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600",
-            attrs: { "data-modal-toggle": "defaultModal", type: "button" }
-          },
-          [_vm._v("Download Template")]
-        )
+        _c("span", { staticClass: "font-bold text-lg text-center" }, [
+          _vm._v("Select File")
+        ])
       ]
     )
   }

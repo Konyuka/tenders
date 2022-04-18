@@ -13,6 +13,11 @@ return [
     |
     */
 
+    'myfiles' => [
+        'driver' => 'local',
+        'root'   => storage_path().'/myfiles',
+    ],
+
     'default' => env('FILESYSTEM_DRIVER', 'local'),
 
     /*
