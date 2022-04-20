@@ -7,6 +7,7 @@
             <div class="flex flex-col text-center w-full mb-20">
             <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">Bidders Portal</h2>
             <h1 v-if="Status == 'add'" class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Post Added Successfully</h1>
+            <h1 v-if="Status == 'upload'" class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Posts Uploaded Successfully</h1>
             <h1 v-if="Status == 'edit'" class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Post Updated Successfully</h1>
             <h1 v-if="Status == 'delete'" class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Post Deleted Successfully</h1>
             </div>

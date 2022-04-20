@@ -16,7 +16,7 @@ class Post extends Eloquent
     protected $collection = 'Posts';
 
     protected $fillable = [
-        'purchasing_Authority',
+        'purchasing_authority',
         'tender_number',
         'tender_brief',
         'competition_type',

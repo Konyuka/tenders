@@ -14,18 +14,20 @@ class ImportPost implements ToModel, WithStartRow
     public function model(array $row)
     {
         return new Upload([
-            'purchasing_Authority' => $row[0],
+            'purchasing_authority' => $row[0],
             'tender_number' => $row[1],
             'tender_brief' => $row[2],
             'competition_type' => $row[3],
-            'funded_by' => $row[4],
-            'country' => $row[5],
-            'value' => $row[6],
-            'work_detail' => $row[7],
-            'expiry' => $row[8],
-            'address' => $row[9],
-            // 'email' => $row[11],
-            // 'link' => $row[12],
+            'category' => $row[4],
+            'funded_by' => $row[5],
+            'country' => $row[6],
+            'value' => $row[7],
+            'work_detail' => $row[8],
+            'expiry' => $row[9],
+            'address' => $row[10],
+            'email' => $row[11],
+            'phone' => $row[12],
+            'link' => $row[13],
         ]);
     }
 

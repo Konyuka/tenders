@@ -3320,7 +3320,9 @@ var app = document.getElementById('app');
     allPosts: Array // initialPage: JSON.parse(app.dataset.page),
 
   },
-  mounted: function mounted() {// this.user = this.$page.props.user.name
+  mounted: function mounted() {
+    // this.user = this.$page.props.user.name
+    this.sidebarHandler();
   },
   computed: {
     posts: function posts() {
@@ -4629,7 +4631,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
     return {
       filename: '',
       file: '',
-      uploadModal: true,
+      uploadModal: false,
       date: new Date(),
       temp: 0,
       addModal: false,
@@ -6958,6 +6960,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
 /* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+//
 //
 //
 //
@@ -60284,6 +60287,17 @@ var render = function() {
                       "sm:text-3xl text-2xl font-medium title-font text-gray-900"
                   },
                   [_vm._v("Post Added Successfully")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.Status == "upload"
+              ? _c(
+                  "h1",
+                  {
+                    staticClass:
+                      "sm:text-3xl text-2xl font-medium title-font text-gray-900"
+                  },
+                  [_vm._v("Posts Uploaded Successfully")]
                 )
               : _vm._e(),
             _vm._v(" "),

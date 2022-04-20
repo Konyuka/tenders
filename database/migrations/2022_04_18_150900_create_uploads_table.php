@@ -15,20 +15,20 @@ class CreateUploadsTable extends Migration
     {
         Schema::create('uploads', function (Blueprint $table) {
             $table->id();
-            $table->string('purchasing_Authority')->nullable();
-            // $table->string('email')->unique();
-            $table->text('tender_number')->nullable();
-            $table->text('tender_brief')->nullable();
+            $table->text('purchasing_authority')->nullable();
+            $table->text('tender_number')->unique();
+            $table->longText('tender_brief')->nullable();
             $table->text('competition_type')->nullable();
+            $table->text('category')->nullable();
             $table->text('funded_by')->nullable();
             $table->text('country')->nullable();
-            $table->text('title')->nullable();
             $table->text('value')->nullable();
-            $table->text('work_detail')->nullable();
+            $table->longText('work_detail')->nullable();
+            $table->text('expiry')->nullable();
             $table->text('address')->nullable();
             $table->text('email')->nullable();
+            $table->text('phone')->nullable();
             $table->text('link')->nullable();
-            $table->text('expiry')->nullable();
             $table->timestamps();
         });
     }

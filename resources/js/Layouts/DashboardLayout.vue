@@ -220,6 +220,7 @@ export default {
     },
     mounted() {
         // this.user = this.$page.props.user.name
+        this.sidebarHandler()
     },
     computed: {
         posts(){

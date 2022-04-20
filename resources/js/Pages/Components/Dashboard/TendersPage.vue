@@ -387,7 +387,7 @@ export default {
         return {
             filename: '',
             file: '',
-            uploadModal: true,
+            uploadModal: false,
             date: new Date(),
             temp: 0,
             addModal: false,

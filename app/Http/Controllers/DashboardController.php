@@ -11,7 +11,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ImportPost;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
-// use Excel;
+use Illuminate\Support\Facades\DB;
 use File;
 
 
@@ -31,18 +31,18 @@ class DashboardController extends Controller
             'tender_number' => ['required' ],
             'tender_brief' => [ ],
             'competition_type' => [ ],
+            'category' => [ ],
             'funded_by' => [],
             'country' => [],
-            'title' => [],
             'value' => [],
             'work_detail' => [],
+            'expiry' => [],
             'address' => [],
             'email' => [],
-            'expiry' => [],
         ]);
 
         $postData = Post::create([
-            'purchasing_Authority' => $validated['purchasing_Authority'],
+            'purchasing_authority' => $validated['purchasing_authority'],
             'tender_number' => $validated['tender_number'],
             'tender_brief' => $validated['tender_brief'],
             'competition_type' => $validated['competition_type'],
@@ -66,25 +66,46 @@ class DashboardController extends Controller
     {
         if ($request->file) {
         $file = $request->file;
-        $extension = $file->getClientOriginalExtension(); //Get extension of uploaded file
-        $fileSize = $file->getSize(); //Get size of uploaded file in bytes
-        //Checks to see that the valid file types and sizes were uploaded
+        $extension = $file->getClientOriginalExtension();
+        $fileSize = $file->getSize();
         $this->checkUploadedFileProperties($extension, $fileSize);
         $import = new ImportPost();
-        // Excel::import($import, $request->file);
         Excel::import($import, $request->file('file')->store('files'));
-        // foreach ($import->data as $post) {
-        // //sends email to all users
-        // $this->sendEmail($user->email, $user->name);
-        // }
-        //Return a success response with the number if records uploaded
+        $posts = DB::table('uploads')->get();
+        // return dd($posts);
+        foreach($posts as $row){
+            // $post = Post::find($row['id']);
+            // $post->purchasing_Authority = $row['purchasing_Authority'];
+            // $post->tender_number = $row['tender_number'];
+            // $post->save();
+            Post::firstOrCreate([
+                // $row->purchasing_authority = 'purchasing_authority'
+                // 'purchasing_authority'  => $row['purchasing_authority'],
+                // 'tender_number'  => $row['tender_number']
+                'purchasing_authority'  => $row->purchasing_authority,
+                'tender_number'  => $row->tender_number,
+                'tender_brief'  => $row->tender_brief,
+                'competition_type'  => $row->competition_type,
+                'category'  => $row->category,
+                'funded_by'  => $row->funded_by,
+                'country'  => $row->country,
+                'value'  => $row->value,
+                'work_detail'  => $row->work_detail,
+                'expiry'  => $row->expiry,
+                'address'  => $row->address,
+                'email'  => $row->email,
+                'phone'  => $row->phone,
+                'link'  => $row->link
+            ]);
+        }
+        // $mongoPosts = Post::updateOrCreate(
+        //     $posts
+        // );
         return dd('done');
-        // return response()->json([
-        // 'message' => $import->data->count() ." records successfully uploaded"
-        // ]);
+
+        return Inertia::render('Success', ['Status' => 'upload']);
         } else {
-            return dd('not done');
-        // throw new \Exception('No file was uploaded', Response::HTTP_BAD_REQUEST);
+            return dd('not uploaded correctly');
         }
     }
 
@@ -102,52 +123,8 @@ class DashboardController extends Controller
         }
     }
 
-    public function imports(Request $request){
-
-        //  $this->validate($request, array(
-        //     'file-upload' => 'required',
-        // ));
-
-        // $extension = File::extension($request->file->getClientOriginalName());
-        // if ($extension == "xlsx" || $extension == "xls" || $extension == "csv") {
-
-        //     Excel::import(new EmployeesImport, $request->file);
-        //     return redirect()->back()->with('success', 'File has been uploaded');
-
-        // } else {
-        //     return redirect()->back()->with('error', 'File is a ' . $extension . ' file.!! Please upload a valid EXCEL file..!!');
-
-        // }
-
-        // Excel::toCollection(new ImportPost, $request->file('file-upload')->store('files'));
-        // dd($request->file('file-upload'));
-        // dd(store('files'));
-        // return;
-        // Excel::import(new ImportPost, $request->file('file-upload')->store('files'));
-        // Excel::import(new ImportPost, $request->file('file-upload'));
-        Excel::import(new ImportPost, $request->file);
-
-        $this->validate($request, array(
-            'file' => 'required',
-        ));
-
-        $extension = File::extension($request->file->getClientOriginalName());
-        if ($extension == "xlsx" || $extension == "xls" || $extension == "csv") {
-
-            Excel::import(new EmployeesImport, $request->file);
-            return Inertia::render('Success', ['Status' => 'add']);
-
-        } else {
-            // return redirect()->back()->with('error', 'File is a ' . $extension . ' file.!! Please upload a valid EXCEL file..!!');
-            return dd('No file extension');
-        }
-        // return Inertia::render('Success', ['Status' => 'add']);
-        // return redirect()->back()
-    }
-
     public function delete($post)
     {
-        // $post = Post::find($postId);
         $post = Post::where('_id', '=', $post);
         $post->delete();
         return Inertia::render('Success', ['Status' => 'delete']);
@@ -167,11 +144,6 @@ class DashboardController extends Controller
             'expiry' => ['max:50'],
         ]);
 
-        // $post = Post::where('_id', '=', $post);
-
-        // return dd($post);
-
-
         $post->update($validated);
         return Inertia::render('Success', ['Status' => 'edit']);
 
@@ -181,14 +153,6 @@ class DashboardController extends Controller
     {
         $file_path = public_path('templates\\upload_tenders.xlsx');
         return response()->download($file_path);
-        // return response()->download(storage_path($file_path), 'public');
-
-        // return Inertia::render('Dashboard', ['allPosts' => $posts]);
-    }
-
-    public function downloads(Request $request)
-    {
-        // return Storage::disk('myfiles')->download($request->input('file_path_url'));
     }
 
 }
