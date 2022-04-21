@@ -113,7 +113,7 @@
                                     <i class="fas fa-caret-right"></i>
                                 </div>
                             </td>
-                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">#{{post.tender_number}}</td>
+                            <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">{{post.tender_number}}</td>
                             <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"> {{ post.purchasing_authority }} </td>
                             <!-- <td class="pr-6 whitespace-no-wrap">
                                 <div class="flex items-center">
@@ -169,60 +169,44 @@
                 <div class="p-2 space-y-6">
                     <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
 
-                            <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1">
-                                <div>
-                                    <label class="text-gray-700 dark:text-gray-200" for="username">Tender Title</label>
-                                    <input v-model="form.title" id="username" type="text" class="capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1">
-                                <div>
-                                    <label class="text-gray-700 dark:text-gray-200" for="username">Tender Description</label>
-                                    <input v-model="form.description" id="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1">
-                                <div>
-                                    <label class="text-gray-700 dark:text-gray-200" for="username">Tender Funded By</label>
-                                    <input v-model="form.funding" id="username" type="text" class="capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-                                </div>
-                            </div>
-
-
-
                             <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3">
                                 <div>
-                                    <label class="text-gray-700 dark:text-gray-200" for="username">Tender ID</label>
-                                    <input v-model="form.identity" id="username" type="number" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                    <label class="text-gray-700 dark:text-gray-200" for="username">Purchasing Authority</label>
+                                    <input v-model="form.purchasing_authority" id="username" type="text" class="capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                                 </div>
-
                                 <div>
-                                    <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Tender Value (USD)</label>
-                                    <input v-model="form.value" id="emailAddress" type="number" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                    <label class="text-gray-700 dark:text-gray-200" for="username">Tender Number</label>
+                                    <input v-model="form.tender_number" id="username" type="text" class="capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                                 </div>
-
-                                <div>
-                                    <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Tender Country</label>
-                                    <input v-model="form.country" id="emailAddress" type="text" class="capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-                                </div>
-
-                            </div>
-
-
-
-                            <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3">
-                                <div>
-                                    <label class="text-gray-700 dark:text-gray-200" for="username">Bid Price (KSH)</label>
-                                    <input v-model="form.price" id="username" type="number" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-                                </div>
-
                                 <div>
                                     <label class="text-gray-700 dark:text-gray-200" for="username">Competition Type</label>
-                                    <input v-model="form.competition" id="username" type="text" class="uppercase block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                    <input v-model="form.competition_type" id="username" type="text" class="capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                                 </div>
+                            </div>
 
+                            <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1">
+                                <div>
+                                    <label class="text-gray-700 dark:text-gray-200" for="username">Tender Brief</label>
+                                    <textarea cols="2" v-model="form.tender_brief" id="username" type="text" class="capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1">
+                                <div>
+                                    <label class="text-gray-700 dark:text-gray-200" for="username">Work Details</label>
+                                    <textarea cols="4" v-model="form.work_detail" id="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3">
+                                <div>
+                                    <label class="text-gray-700 dark:text-gray-200" for="username">Funded By</label>
+                                    <input v-model="form.funded_by" id="username" type="text" class="capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                </div>
+                                <div>
+                                    <label class="text-gray-700 dark:text-gray-200" for="username">Country/Region</label>
+                                    <input v-model="form.country" id="username" type="text" class="capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                </div>
                                 <div>
                                     <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Expiry Date</label>
                                     <vc-date-picker v-model="date">
@@ -233,11 +217,22 @@
                                         id="emailAddress" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                                     </template>
                                     </vc-date-picker>
-                                    <!-- <input v-model="form.expiry" id="emailAddress" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"> -->
-                                    <!-- <DatePicker v-model="date" /> -->
                                 </div>
+                            </div>
 
-
+                            <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3">
+                                <div>
+                                    <label class="text-gray-700 dark:text-gray-200" for="username">Physical Address</label>
+                                    <input v-model="form.address" id="username" type="text" class="capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                </div>
+                                <div>
+                                    <label class="text-gray-700 dark:text-gray-200" for="username">Contact Emails</label>
+                                    <input v-model="form.email" id="username" type="text" class="capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                </div>
+                                <div>
+                                    <label class="text-gray-700 dark:text-gray-200" for="username">Contact Numbers</label>
+                                    <input v-model="form.phone" id="username" type="text" class="capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                </div>
                             </div>
 
                             <div class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2">
@@ -391,15 +386,19 @@ export default {
             addModal: false,
             modalMode: 'add',
             form:{
-                title: null,
-                description: null,
-                funding: null,
-                identity: null,
-                value: null,
+                purchasing_authority: null,
+                tender_number: null,
+                tender_brief: null,
+                competition_type: null,
+                category: null,
+                funded_by: null,
                 country: null,
-                price: null,
-                competition: null,
+                work_detail: null,
                 expiry: null,
+                address: null,
+                email: null,
+                phone: null,
+                link: null,
                 userID: null
             },
             deletePost: false,
@@ -426,18 +425,21 @@ export default {
             // 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
             // }
             // }
-
-            let formData = new FormData();
-            formData.append('file', this.file);
-            // this.$inertia.post('/import', formData, config)
-            this.$inertia.post('/import', formData)
-            .then(function (response) {
-            currentObj.success = response.data.success;
-            currentObj.filename = "";
-            })
-            .catch(function (error) {
-            currentObj.output = error;
-            });
+            if(this.filename.length !== 0) {
+                let formData = new FormData();
+                formData.append('file', this.file);
+                // this.$inertia.post('/import', formData, config)
+                this.$inertia.post('/import', formData)
+                .then(function (response) {
+                currentObj.success = response.data.success;
+                currentObj.filename = "";
+                })
+                .catch(function (error) {
+                currentObj.output = error;
+                });
+            }else{
+                alert('No file was Selected')
+            }
         },
         onFileChange(e) {
         //console.log(e.target.files[0]);

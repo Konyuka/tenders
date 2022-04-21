@@ -74,7 +74,7 @@ class DashboardController extends Controller
         $posts = DB::table('uploads')->get();
         // return dd($posts);
         foreach($posts as $row){
-   
+
             Post::firstOrCreate([
                 // $row->purchasing_authority = 'purchasing_authority'
                 // 'purchasing_authority'  => $row['purchasing_authority'],
@@ -98,7 +98,7 @@ class DashboardController extends Controller
         // $mongoPosts = Post::updateOrCreate(
         //     $posts
         // );
-        return dd('done');
+        // return dd('done');
 
         return Inertia::render('Success', ['Status' => 'upload']);
         } else {

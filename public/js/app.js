@@ -4607,11 +4607,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 // import { Calendar, DatePicker } from 'v-calendar';
 
 
@@ -4635,15 +4630,19 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
       addModal: false,
       modalMode: 'add',
       form: {
-        title: null,
-        description: null,
-        funding: null,
-        identity: null,
-        value: null,
+        purchasing_authority: null,
+        tender_number: null,
+        tender_brief: null,
+        competition_type: null,
+        category: null,
+        funded_by: null,
         country: null,
-        price: null,
-        competition: null,
+        work_detail: null,
         expiry: null,
+        address: null,
+        email: null,
+        phone: null,
+        link: null,
         userID: null
       },
       deletePost: false,
@@ -4668,15 +4667,19 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
       // 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
       // }
       // }
-      var formData = new FormData();
-      formData.append('file', this.file); // this.$inertia.post('/import', formData, config)
+      if (this.filename.length !== 0) {
+        var formData = new FormData();
+        formData.append('file', this.file); // this.$inertia.post('/import', formData, config)
 
-      this.$inertia.post('/import', formData).then(function (response) {
-        currentObj.success = response.data.success;
-        currentObj.filename = "";
-      })["catch"](function (error) {
-        currentObj.output = error;
-      });
+        this.$inertia.post('/import', formData).then(function (response) {
+          currentObj.success = response.data.success;
+          currentObj.filename = "";
+        })["catch"](function (error) {
+          currentObj.output = error;
+        });
+      } else {
+        alert('No file was Selected');
+      }
     },
     onFileChange: function onFileChange(e) {
       //console.log(e.target.files[0]);
@@ -5069,35 +5072,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -54352,7 +54326,7 @@ var render = function() {
                             staticClass:
                               "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
                           },
-                          [_vm._v("#" + _vm._s(post.tender_number))]
+                          [_vm._v(_vm._s(post.tender_number))]
                         ),
                         _vm._v(" "),
                         _c(
@@ -54534,150 +54508,6 @@ var render = function() {
                                 "div",
                                 {
                                   staticClass:
-                                    "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1"
-                                },
-                                [
-                                  _c("div", [
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass:
-                                          "text-gray-700 dark:text-gray-200",
-                                        attrs: { for: "username" }
-                                      },
-                                      [_vm._v("Tender Title")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.form.title,
-                                          expression: "form.title"
-                                        }
-                                      ],
-                                      staticClass:
-                                        "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                                      attrs: { id: "username", type: "text" },
-                                      domProps: { value: _vm.form.title },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.form,
-                                            "title",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1"
-                                },
-                                [
-                                  _c("div", [
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass:
-                                          "text-gray-700 dark:text-gray-200",
-                                        attrs: { for: "username" }
-                                      },
-                                      [_vm._v("Tender Description")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.form.description,
-                                          expression: "form.description"
-                                        }
-                                      ],
-                                      staticClass:
-                                        "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                                      attrs: { id: "username", type: "text" },
-                                      domProps: { value: _vm.form.description },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.form,
-                                            "description",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1"
-                                },
-                                [
-                                  _c("div", [
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass:
-                                          "text-gray-700 dark:text-gray-200",
-                                        attrs: { for: "username" }
-                                      },
-                                      [_vm._v("Tender Funded By")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.form.funding,
-                                          expression: "form.funding"
-                                        }
-                                      ],
-                                      staticClass:
-                                        "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                                      attrs: { id: "username", type: "text" },
-                                      domProps: { value: _vm.form.funding },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.form,
-                                            "funding",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
                                     "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3"
                                 },
                                 [
@@ -54689,7 +54519,7 @@ var render = function() {
                                           "text-gray-700 dark:text-gray-200",
                                         attrs: { for: "username" }
                                       },
-                                      [_vm._v("Tender ID")]
+                                      [_vm._v("Purchasing Authority")]
                                     ),
                                     _vm._v(" "),
                                     _c("input", {
@@ -54697,14 +54527,17 @@ var render = function() {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.form.identity,
-                                          expression: "form.identity"
+                                          value: _vm.form.purchasing_authority,
+                                          expression:
+                                            "form.purchasing_authority"
                                         }
                                       ],
                                       staticClass:
-                                        "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                                      attrs: { id: "username", type: "number" },
-                                      domProps: { value: _vm.form.identity },
+                                        "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: { id: "username", type: "text" },
+                                      domProps: {
+                                        value: _vm.form.purchasing_authority
+                                      },
                                       on: {
                                         input: function($event) {
                                           if ($event.target.composing) {
@@ -54712,7 +54545,7 @@ var render = function() {
                                           }
                                           _vm.$set(
                                             _vm.form,
-                                            "identity",
+                                            "purchasing_authority",
                                             $event.target.value
                                           )
                                         }
@@ -54726,9 +54559,9 @@ var render = function() {
                                       {
                                         staticClass:
                                           "text-gray-700 dark:text-gray-200",
-                                        attrs: { for: "emailAddress" }
+                                        attrs: { for: "username" }
                                       },
-                                      [_vm._v("Tender Value (USD)")]
+                                      [_vm._v("Tender Number")]
                                     ),
                                     _vm._v(" "),
                                     _c("input", {
@@ -54736,59 +54569,16 @@ var render = function() {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.form.value,
-                                          expression: "form.value"
-                                        }
-                                      ],
-                                      staticClass:
-                                        "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                                      attrs: {
-                                        id: "emailAddress",
-                                        type: "number"
-                                      },
-                                      domProps: { value: _vm.form.value },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.form,
-                                            "value",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    })
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", [
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass:
-                                          "text-gray-700 dark:text-gray-200",
-                                        attrs: { for: "emailAddress" }
-                                      },
-                                      [_vm._v("Tender Country")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.form.country,
-                                          expression: "form.country"
+                                          value: _vm.form.tender_number,
+                                          expression: "form.tender_number"
                                         }
                                       ],
                                       staticClass:
                                         "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                                      attrs: {
-                                        id: "emailAddress",
-                                        type: "text"
+                                      attrs: { id: "username", type: "text" },
+                                      domProps: {
+                                        value: _vm.form.tender_number
                                       },
-                                      domProps: { value: _vm.form.country },
                                       on: {
                                         input: function($event) {
                                           if ($event.target.composing) {
@@ -54796,55 +54586,7 @@ var render = function() {
                                           }
                                           _vm.$set(
                                             _vm.form,
-                                            "country",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    })
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3"
-                                },
-                                [
-                                  _c("div", [
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass:
-                                          "text-gray-700 dark:text-gray-200",
-                                        attrs: { for: "username" }
-                                      },
-                                      [_vm._v("Bid Price (KSH)")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.form.price,
-                                          expression: "form.price"
-                                        }
-                                      ],
-                                      staticClass:
-                                        "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                                      attrs: { id: "username", type: "number" },
-                                      domProps: { value: _vm.form.price },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.form,
-                                            "price",
+                                            "tender_number",
                                             $event.target.value
                                           )
                                         }
@@ -54868,14 +54610,16 @@ var render = function() {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.form.competition,
-                                          expression: "form.competition"
+                                          value: _vm.form.competition_type,
+                                          expression: "form.competition_type"
                                         }
                                       ],
                                       staticClass:
-                                        "uppercase block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                        "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
                                       attrs: { id: "username", type: "text" },
-                                      domProps: { value: _vm.form.competition },
+                                      domProps: {
+                                        value: _vm.form.competition_type
+                                      },
                                       on: {
                                         input: function($event) {
                                           if ($event.target.composing) {
@@ -54883,7 +54627,200 @@ var render = function() {
                                           }
                                           _vm.$set(
                                             _vm.form,
-                                            "competition",
+                                            "competition_type",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1"
+                                },
+                                [
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "username" }
+                                      },
+                                      [_vm._v("Tender Brief")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.tender_brief,
+                                          expression: "form.tender_brief"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: {
+                                        cols: "2",
+                                        id: "username",
+                                        type: "text"
+                                      },
+                                      domProps: {
+                                        value: _vm.form.tender_brief
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "tender_brief",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1"
+                                },
+                                [
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "username" }
+                                      },
+                                      [_vm._v("Work Details")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.work_detail,
+                                          expression: "form.work_detail"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: {
+                                        cols: "4",
+                                        id: "username",
+                                        type: "text"
+                                      },
+                                      domProps: { value: _vm.form.work_detail },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "work_detail",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3"
+                                },
+                                [
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "username" }
+                                      },
+                                      [_vm._v("Funded By")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.funded_by,
+                                          expression: "form.funded_by"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: { id: "username", type: "text" },
+                                      domProps: { value: _vm.form.funded_by },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "funded_by",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "username" }
+                                      },
+                                      [_vm._v("Country/Region")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.country,
+                                          expression: "form.country"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: { id: "username", type: "text" },
+                                      domProps: { value: _vm.form.country },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "country",
                                             $event.target.value
                                           )
                                         }
@@ -54950,6 +54887,132 @@ var render = function() {
                                     ],
                                     1
                                   )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3"
+                                },
+                                [
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "username" }
+                                      },
+                                      [_vm._v("Physical Address")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.address,
+                                          expression: "form.address"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: { id: "username", type: "text" },
+                                      domProps: { value: _vm.form.address },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "address",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "username" }
+                                      },
+                                      [_vm._v("Contact Emails")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.email,
+                                          expression: "form.email"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: { id: "username", type: "text" },
+                                      domProps: { value: _vm.form.email },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "email",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "username" }
+                                      },
+                                      [_vm._v("Contact Numbers")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.phone,
+                                          expression: "form.phone"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: { id: "username", type: "text" },
+                                      domProps: { value: _vm.form.phone },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "phone",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
                                 ]
                               ),
                               _vm._v(" "),
@@ -56066,148 +56129,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "mt-32" }, [
       _c("footer", { staticClass: "bg-gray-800" }, [
-        _c(
-          "div",
-          { staticClass: "grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4" },
-          [
-            _c("div", [
-              _c(
-                "h2",
-                {
-                  staticClass:
-                    "mb-6 text-sm font-semibold text-gray-400 uppercase"
-                },
-                [_vm._v("Company")]
-              ),
-              _vm._v(" "),
-              _c("ul", { staticClass: "text-gray-300" }, [
-                _c("li", { staticClass: "mb-4" }, [
-                  _c(
-                    "a",
-                    { staticClass: " hover:underline", attrs: { href: "#" } },
-                    [_vm._v("About")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "mb-4" }, [
-                  _c(
-                    "a",
-                    { staticClass: "hover:underline", attrs: { href: "#" } },
-                    [_vm._v("Careers")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "mb-4" }, [
-                  _c(
-                    "a",
-                    { staticClass: "hover:underline", attrs: { href: "#" } },
-                    [_vm._v("Brand Center")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "mb-4" }, [
-                  _c(
-                    "a",
-                    { staticClass: "hover:underline", attrs: { href: "#" } },
-                    [_vm._v("Blog")]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c(
-                "h2",
-                {
-                  staticClass:
-                    "mb-6 text-sm font-semibold text-gray-400 uppercase"
-                },
-                [_vm._v("Help center")]
-              ),
-              _vm._v(" "),
-              _c("ul", { staticClass: "text-gray-300" }, [
-                _c("li", { staticClass: "mb-4" }, [
-                  _c(
-                    "a",
-                    { staticClass: "hover:underline", attrs: { href: "#" } },
-                    [_vm._v("Discord Server")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "mb-4" }, [
-                  _c(
-                    "a",
-                    { staticClass: "hover:underline", attrs: { href: "#" } },
-                    [_vm._v("Twitter")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "mb-4" }, [
-                  _c(
-                    "a",
-                    { staticClass: "hover:underline", attrs: { href: "#" } },
-                    [_vm._v("Facebook\n  ")]
-                  )
-                ]),
-                _c("a", {
-                  staticClass: "hover:underline",
-                  attrs: { href: "#" }
-                }),
-                _c("li", { staticClass: "mb-4" }, [
-                  _c("a", {
-                    staticClass: "hover:underline",
-                    attrs: { href: "#" }
-                  }),
-                  _c(
-                    "a",
-                    { staticClass: "hover:underline", attrs: { href: "#" } },
-                    [_vm._v("Contact Us")]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c(
-                "h2",
-                {
-                  staticClass:
-                    "mb-6 text-sm font-semibold text-gray-400 uppercase"
-                },
-                [_vm._v("Legal")]
-              ),
-              _vm._v(" "),
-              _c("ul", { staticClass: "text-gray-300" }, [
-                _c("li", { staticClass: "mb-4" }, [
-                  _c(
-                    "a",
-                    { staticClass: "hover:underline", attrs: { href: "#" } },
-                    [_vm._v("Privacy Policy")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "mb-4" }, [
-                  _c(
-                    "a",
-                    { staticClass: "hover:underline", attrs: { href: "#" } },
-                    [_vm._v("Licensing")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "mb-4" }, [
-                  _c(
-                    "a",
-                    { staticClass: "hover:underline", attrs: { href: "#" } },
-                    [_vm._v("Terms & Conditions")]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div")
-          ]
-        ),
-        _vm._v(" "),
         _c(
           "div",
           {
