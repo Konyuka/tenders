@@ -1,7 +1,7 @@
 <template>
-  <div class="h-screen">
-    <body class="overflow-x-hidden antialiased">
-        <div class="flex flex-col h-screen">
+  <div class="h-auto">
+    <div class="overflow-y-hidden antialiased">
+        <div class="flex flex-col">
         <!-- <TopBanner /> -->
         <MainMenu class="sticky top-0 z-50" />
 
@@ -9,32 +9,42 @@
             <div class="container px-5 py-10 mx-auto">
 
             <div class="lg:w-4/5 mx-auto flex flex-wrap">
-            <div class="w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+            <div class="w-full h-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
                 <a href="#" class="text-sm title-font text-gray-500 tracking-widest">Tender Category</a>
-                <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">{{ post.title }}</h1>
+                <h1 class="text-gray-900 text-xs title-font font-bold my-4">{{ post.tender_brief }}</h1>
                 <div class="flex mb-4">
                 <a class="flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1">Description</a>
                 <!-- <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Reviews</a>
                 <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Details</a> -->
                 </div>
-                <p class="leading-relaxed mb-4">{{ post.description }}. <br> Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam inxigo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean.</p>
+                <p class="leading-relaxed mb-4 text-sm">{{ post.work_detail }}</p>
                 <div class="flex border-t border-gray-200 py-2">
                 <span class="text-gray-500">Competition Type</span>
                 <span class="ml-auto text-gray-900">
                     <span class="ml-auto text-gray-900">
-                        <a :href="route('checkout', post._id)" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a>
+                        {{ post.competition_type }}
+                        <!-- <a :href="route('checkout', post._id)" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a> -->
                     </span>
                 </span>
                 </div>
                 <div class="flex border-t border-gray-200 py-2">
                 <span class="text-gray-500">Funded By</span>
                 <span class="ml-auto text-gray-900">
+                    <!-- {{ post.funded_by }} -->
                     <a :href="route('checkout', post._id)" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a>
                 </span>
                 </div>
                 <div class="flex border-t border-b mb-6 border-gray-200 py-2">
                 <span class="text-gray-500">Tender Value in USD</span>
-                <span class="ml-auto text-gray-900"> {{ post.value }} </span>
+                <span class="ml-auto text-gray-900">
+                    <a :href="route('checkout', post._id)" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a>
+                </span>
+                </div>
+                <div class="flex border-t border-b mb-6 border-gray-200 py-2">
+                <span class="text-gray-500">Contact & Documents</span>
+                <span class="ml-auto text-gray-900">
+                    <a :href="route('checkout', post._id)" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a>
+                </span>
                 </div>
                 <div class="flex border-t border-b mb-6 border-gray-200 py-2">
                 <span class="text-gray-500">Date Posted
@@ -57,7 +67,7 @@
                 </div>
                 <div class="flex border-t border-b mb-6 border-gray-200 py-2">
                 <span class="text-gray-500">Country</span>
-                <span class="ml-auto text-gray-900">Kenya</span>
+                <span class="ml-auto text-gray-900">{{ post.country }}</span>
                 </div>
 
                 <div class="flex">
@@ -82,7 +92,7 @@
 
 
       <MainFooter/>
-    </body>
+    </div>
   </div>
 </template>
 

@@ -4612,8 +4612,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 // import { Calendar, DatePicker } from 'v-calendar';
 
 
@@ -4885,6 +4883,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'FeaturedTenders',
@@ -4897,6 +4903,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {},
   computed: {
+    // ago(){
+    //         return moment(this.$parent.posts.created_at).fromNow();
+    // },
+    // togo(){
+    //     return moment(this.$parent.posts.expiry).fromNow(true);
+    // },
     posts: function posts() {
       return this.$parent.posts;
     }
@@ -4904,6 +4916,12 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     formatDate: function formatDate(value) {
       return moment(value).format('MMMM Do YYYY');
+    },
+    //   togo(value){
+    //       return moment(value).fromNow();
+    //   },
+    ago: function ago(value) {
+      return moment(value).fromNow();
     }
   }
 });
@@ -6818,6 +6836,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
 /* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -54256,7 +54284,7 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Tender ID")]
+                        [_vm._v("Tender Number")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -54265,25 +54293,7 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Tender Heading")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticClass:
-                            "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
-                        },
-                        [_vm._v("Funded By")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticClass:
-                            "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
-                        },
-                        [_vm._v("Tender Value")]
+                        [_vm._v("Purchasing Authority")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -54342,7 +54352,7 @@ var render = function() {
                             staticClass:
                               "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
                           },
-                          [_vm._v("#" + _vm._s(post.identity))]
+                          [_vm._v("#" + _vm._s(post.tender_number))]
                         ),
                         _vm._v(" "),
                         _c(
@@ -54351,29 +54361,11 @@ var render = function() {
                             staticClass:
                               "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
                           },
-                          [_vm._v(" " + _vm._s(post.title) + " ")]
-                        ),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "pr-6 whitespace-no-wrap" }, [
-                          _c("div", { staticClass: "flex items-center" }, [
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm"
-                              },
-                              [_vm._v(_vm._s(post.funding))]
+                          [
+                            _vm._v(
+                              " " + _vm._s(post.purchasing_authority) + " "
                             )
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          {
-                            staticClass:
-                              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                          },
-                          [_vm._v(_vm._s(post.value))]
+                          ]
                         ),
                         _vm._v(" "),
                         _c(
@@ -55583,20 +55575,41 @@ var render = function() {
                   return _c(
                     "a",
                     {
-                      key: post.identity,
+                      key: post._id,
                       staticClass:
                         "hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start",
                       attrs: { href: _vm.route("selected", post._id) }
                     },
                     [
-                      _c(
-                        "span",
-                        {
-                          staticClass:
-                            "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"
-                        },
-                        [_vm._v("USD. " + _vm._s(post.price))]
-                      ),
+                      _c("div", { staticClass: "flex-col" }, [
+                        _c("div", [
+                          _vm._v(
+                            "\n                                  Posted: "
+                          ),
+                          _c(
+                            "span",
+                            {
+                              staticClass:
+                                "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"
+                            },
+                            [_vm._v(" " + _vm._s(_vm.ago(post.created_at)))]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", [
+                          _vm._v(
+                            "\n                                  Expires: "
+                          ),
+                          _c(
+                            "span",
+                            {
+                              staticClass:
+                                "inline-block py-1 px-2 rounded bg-indigo-50 text-red-500 text-xs font-medium tracking-widest"
+                            },
+                            [_vm._v(" " + _vm._s(post.expiry))]
+                          )
+                        ])
+                      ]),
                       _vm._v(" "),
                       _c(
                         "h4",
@@ -55608,13 +55621,7 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("p", { staticClass: "leading-relaxed mb-2" }, [
-                        _vm._v(_vm._s(post.description) + " "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(
-                          " Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet"
-                        )
+                        _vm._v(_vm._s(post.tender_brief))
                       ]),
                       _vm._v(" "),
                       _c(
@@ -59881,14 +59888,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "h-screen" }, [
+  return _c("div", { staticClass: "h-auto" }, [
     _c(
-      "body",
-      { staticClass: "overflow-x-hidden antialiased" },
+      "div",
+      { staticClass: "overflow-y-hidden antialiased" },
       [
         _c(
           "div",
-          { staticClass: "flex flex-col h-screen" },
+          { staticClass: "flex flex-col" },
           [
             _c("MainMenu", { staticClass: "sticky top-0 z-50" }),
             _vm._v(" "),
@@ -59903,7 +59910,10 @@ var render = function() {
                     [
                       _c(
                         "div",
-                        { staticClass: "w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0" },
+                        {
+                          staticClass:
+                            "w-full h-full lg:pr-10 lg:py-6 mb-6 lg:mb-0"
+                        },
                         [
                           _c(
                             "a",
@@ -59919,20 +59929,18 @@ var render = function() {
                             "h1",
                             {
                               staticClass:
-                                "text-gray-900 text-3xl title-font font-medium mb-4"
+                                "text-gray-900 text-xs title-font font-bold my-4"
                             },
-                            [_vm._v(_vm._s(_vm.post.title))]
+                            [_vm._v(_vm._s(_vm.post.tender_brief))]
                           ),
                           _vm._v(" "),
                           _vm._m(0),
                           _vm._v(" "),
-                          _c("p", { staticClass: "leading-relaxed mb-4" }, [
-                            _vm._v(_vm._s(_vm.post.description) + ". "),
-                            _c("br"),
-                            _vm._v(
-                              " Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam inxigo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean."
-                            )
-                          ]),
+                          _c(
+                            "p",
+                            { staticClass: "leading-relaxed mb-4 text-sm" },
+                            [_vm._v(_vm._s(_vm.post.work_detail))]
+                          ),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -59952,19 +59960,10 @@ var render = function() {
                                     "span",
                                     { staticClass: "ml-auto text-gray-900" },
                                     [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass:
-                                            "bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
-                                          attrs: {
-                                            href: _vm.route(
-                                              "checkout",
-                                              _vm.post._id
-                                            )
-                                          }
-                                        },
-                                        [_vm._v("Purchase Tender to view")]
+                                      _vm._v(
+                                        "\n                      " +
+                                          _vm._s(_vm.post.competition_type) +
+                                          "\n                      "
                                       )
                                     ]
                                   )
@@ -60020,7 +60019,56 @@ var render = function() {
                               _c(
                                 "span",
                                 { staticClass: "ml-auto text-gray-900" },
-                                [_vm._v(" " + _vm._s(_vm.post.value) + " ")]
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass:
+                                        "bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
+                                      attrs: {
+                                        href: _vm.route(
+                                          "checkout",
+                                          _vm.post._id
+                                        )
+                                      }
+                                    },
+                                    [_vm._v("Purchase Tender to view")]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex border-t border-b mb-6 border-gray-200 py-2"
+                            },
+                            [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("Contact & Documents")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-auto text-gray-900" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass:
+                                        "bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
+                                      attrs: {
+                                        href: _vm.route(
+                                          "checkout",
+                                          _vm.post._id
+                                        )
+                                      }
+                                    },
+                                    [_vm._v("Purchase Tender to view")]
+                                  )
+                                ]
                               )
                             ]
                           ),
@@ -60141,7 +60189,24 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(1),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex border-t border-b mb-6 border-gray-200 py-2"
+                            },
+                            [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("Country")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-auto text-gray-900" },
+                                [_vm._v(_vm._s(_vm.post.country))]
+                              )
+                            ]
+                          ),
                           _vm._v(" "),
                           _c("div", { staticClass: "flex" }, [
                             _c(
@@ -60228,20 +60293,6 @@ var staticRenderFns = [
         [_vm._v("Description")]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "flex border-t border-b mb-6 border-gray-200 py-2" },
-      [
-        _c("span", { staticClass: "text-gray-500" }, [_vm._v("Country")]),
-        _vm._v(" "),
-        _c("span", { staticClass: "ml-auto text-gray-900" }, [_vm._v("Kenya")])
-      ]
-    )
   }
 ]
 render._withStripped = true

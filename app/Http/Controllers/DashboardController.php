@@ -74,10 +74,7 @@ class DashboardController extends Controller
         $posts = DB::table('uploads')->get();
         // return dd($posts);
         foreach($posts as $row){
-            // $post = Post::find($row['id']);
-            // $post->purchasing_Authority = $row['purchasing_Authority'];
-            // $post->tender_number = $row['tender_number'];
-            // $post->save();
+   
             Post::firstOrCreate([
                 // $row->purchasing_authority = 'purchasing_authority'
                 // 'purchasing_authority'  => $row['purchasing_authority'],

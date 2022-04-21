@@ -13,10 +13,18 @@
                     <div class="container px-5 py-24 mx-auto">
                         <div class="flex flex-wrap -m-12">
 
-                        <a v-for="post in this.posts" :key="post.identity" :href="route('selected', post._id)" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
-                            <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">USD. {{ post.price }}</span>
+                        <a v-for="post in this.posts" :key="post._id" :href="route('selected', post._id)" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
+                            <!-- <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">{{ post.funded_by }}</span> -->
+                            <div class="flex-col">
+                                <div>
+                                    Posted: <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"> {{ ago(post.created_at) }}</span>
+                                </div>
+                                <div>
+                                    Expires: <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-red-500 text-xs font-medium tracking-widest"> {{ post.expiry }}</span>
+                                </div>
+                            </div>
                             <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">{{ post.title }}</h4>
-                            <p class="leading-relaxed mb-2">{{ post.description }} <br> <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet</p>
+                            <p class="leading-relaxed mb-2">{{ post.tender_brief }}</p>
                             <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
                             <a class="text-indigo-500 inline-flex items-center">Purchase Tender
                                 <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -67,6 +75,12 @@ export default {
 
   },
   computed: {
+    // ago(){
+    //         return moment(this.$parent.posts.created_at).fromNow();
+    // },
+    // togo(){
+    //     return moment(this.$parent.posts.expiry).fromNow(true);
+    // },
     posts(){
         return this.$parent.posts
     }
@@ -74,7 +88,14 @@ export default {
   methods: {
       formatDate(value) {
             return moment(value).format('MMMM Do YYYY')
-        },
+      },
+    //   togo(value){
+    //       return moment(value).fromNow();
+    //   },
+      ago(value){
+          return moment(value).fromNow();
+      },
+
   }
 
 }
