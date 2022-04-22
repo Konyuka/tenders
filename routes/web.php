@@ -18,11 +18,27 @@ Route::get('/selected/{slug}', [LandingController::class, 'selected'])
 Route::get('/listing', [LandingController::class, 'listing'])
     ->name('listing');
 
+Route::get('/checkout/{slugs}', [LandingController::class, 'checkout'])
+    ->name('checkout');
+
 Route::get('/stkpush', [LandingController::class, 'stkpush'])
     ->name('stkpush');
 
-Route::get('/checkout/{slugs}', [LandingController::class, 'checkout'])
-    ->name('checkout');
+Route::post('/get-token', [LandingController::class, 'getAccessToken'])
+    ->name('get-token');
+
+Route::post('/checkout/register-urls', [LandingController::class, 'registerURLS'])
+    ->name('register-urls');
+
+Route::post('/checkout/simulate', [LandingController::class, 'simulateTransaction'])
+    ->name('simulate');
+
+Route::post('/checkout/stkPush', [LandingController::class, 'stkPush'])
+    ->name('simulate');
+
+
+
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class, 'index'])

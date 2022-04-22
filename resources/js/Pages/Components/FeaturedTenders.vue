@@ -20,7 +20,7 @@
                                     Posted: <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"> {{ ago(post.created_at) }}</span>
                                 </div>
                                 <div>
-                                    Expires: <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-red-500 text-xs font-medium tracking-widest"> {{ post.expiry }}</span>
+                                    Expires: <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-red-500 text-xs font-medium tracking-widest"> {{ togo(post.expiry) }}</span>
                                 </div>
                             </div>
                             <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">{{ post.title }}</h4>
@@ -36,7 +36,7 @@
                                 <i class="w-4 h-4 mr-1 fas fa-location-crosshairs"></i> {{ post.country }}
                             </span>
                             <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                                <i class="w-4 h-4 mr-1 fas fa-calendar"></i>Expires on {{ formatDate(post.expiry) }}
+                                <i class="w-4 h-4 mr-1 fas fa-coins"></i>{{ post.funded_by }}
                             </span>
                             </div>
                         </a>
@@ -89,9 +89,9 @@ export default {
       formatDate(value) {
             return moment(value).format('MMMM Do YYYY')
       },
-    //   togo(value){
-    //       return moment(value).fromNow();
-    //   },
+      togo(value){
+          return moment(value).fromNow();
+      },
       ago(value){
           return moment(value).fromNow();
       },

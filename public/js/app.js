@@ -3871,13 +3871,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
+
+
+
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    axios = _require["default"]; // require('./bootstrap');
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Checkout',
   props: {
-    post: Object
+    post: Object,
+    accessTokenResponse: Object,
+    registeredURLSResponse: Object
   },
   components: {
     TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -3900,10 +3919,54 @@ __webpack_require__.r(__webpack_exports__);
 
       },
       modal: false,
-      paymentModal: false
+      paymentModal: true
     };
   },
   methods: {
+    stkPush: function stkPush() {
+      var requestBody = {
+        amount: '10',
+        account: 'Bidders Portal',
+        phone: '0716202298'
+      };
+      axios.post('/checkout/stkPush', requestBody).then(function (response) {
+        if (response.data.ResponseDescription) {
+          console.log(response.data.ResponseDescription);
+          alert('done'); // document.getElementById('c2b_response').innerHTML = response.data.ResponseDescription
+        } else {
+          console.log(response.data.ResponseDescription);
+          alert('not done'); // document.getElementById('c2b_response').innerHTML = response.data.errorMessage
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    simulate: function simulate() {
+      var requestBody = {
+        amount: 1,
+        account: 'Bidders Portal'
+      }; //    this.$inertia.post('simulate', requestBody)
+
+      axios.post('/checkout/simulate', requestBody).then(function (response) {
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    registerURLS: function registerURLS() {
+      this.$inertia.post('register-urls', {}).then(function (response) {
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    requestAccess: function requestAccess() {
+      this.$inertia.post('get-token', {}).then(function (response) {
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
     clearFilters: function clearFilters() {},
     loadFilters: function loadFilters() {}
   }
@@ -4606,7 +4669,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 // import { Calendar, DatePicker } from 'v-calendar';
 
 
@@ -4920,9 +4982,9 @@ __webpack_require__.r(__webpack_exports__);
     formatDate: function formatDate(value) {
       return moment(value).format('MMMM Do YYYY');
     },
-    //   togo(value){
-    //       return moment(value).fromNow();
-    //   },
+    togo: function togo(value) {
+      return moment(value).fromNow();
+    },
     ago: function ago(value) {
       return moment(value).fromNow();
     }
@@ -52873,7 +52935,100 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _vm._m(5)
+                        _c(
+                          "div",
+                          { staticClass: "p-4 pt-0 text-center mt-5" },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2",
+                                attrs: {
+                                  "data-modal-toggle": "popup-modal",
+                                  type: "button"
+                                },
+                                on: { click: _vm.requestAccess }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                      Request Access Token\n                  "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2",
+                                attrs: {
+                                  "data-modal-toggle": "popup-modal",
+                                  type: "button"
+                                },
+                                on: { click: _vm.registerURLS }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                      Register URL's\n                  "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2",
+                                attrs: {
+                                  "data-modal-toggle": "popup-modal",
+                                  type: "button"
+                                },
+                                on: { click: _vm.simulate }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                      Simulate\n                  "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2",
+                                attrs: {
+                                  "data-modal-toggle": "popup-modal",
+                                  type: "button"
+                                },
+                                on: { click: _vm.stkPush }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                      STK\n                  "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2",
+                                attrs: {
+                                  "data-modal-toggle": "popup-modal",
+                                  type: "button"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                      Confirm the Payment\n                  "
+                                )
+                              ]
+                            )
+                          ]
+                        )
                       ]
                     )
                   ]
@@ -52981,26 +53136,6 @@ var staticRenderFns = [
         )
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-4 pt-0 text-center mt-5" }, [
-      _c(
-        "button",
-        {
-          staticClass:
-            "text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2",
-          attrs: { "data-modal-toggle": "popup-modal", type: "button" }
-        },
-        [
-          _vm._v(
-            "\n                      Confirm the Payment\n                  "
-          )
-        ]
-      )
-    ])
   }
 ]
 render._withStripped = true
@@ -55016,7 +55151,53 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(3)
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1"
+                                },
+                                [
+                                  _c("div", [
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass:
+                                          "text-gray-700 dark:text-gray-200",
+                                        attrs: { for: "username" }
+                                      },
+                                      [_vm._v("Document Links")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.link,
+                                          expression: "form.link"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "capitalize block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                      attrs: { id: "username", type: "text" },
+                                      domProps: { value: _vm.form.link },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "link",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]
+                              )
                             ]
                           )
                         ]),
@@ -55340,7 +55521,7 @@ var render = function() {
                                                       "space-y-1 text-center"
                                                   },
                                                   [
-                                                    _vm._m(4),
+                                                    _vm._m(3),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -55349,7 +55530,7 @@ var render = function() {
                                                           "flex justify-center text-sm text-gray-600"
                                                       },
                                                       [
-                                                        _vm._m(5),
+                                                        _vm._m(4),
                                                         _vm._v(" "),
                                                         _c("input", {
                                                           staticClass:
@@ -55523,43 +55704,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2" },
-      [
-        _c("div", [
-          _c(
-            "label",
-            {
-              staticClass:
-                "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300",
-              attrs: { for: "user_avatar" }
-            },
-            [_vm._v("Upload Tender Files")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            staticClass:
-              "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-            attrs: { id: "username", type: "file" }
-          }),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "mt-1 text-sm text-gray-500 dark:text-gray-300",
-              attrs: { id: "user_avatar_help" }
-            },
-            [_vm._v("PDF / JPEG / PNG / Excel / Doc")]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("span", { staticClass: "m-5" }, [
       _c("i", { staticClass: "fas fa-file-csv fa-2xl text-gray-400" })
     ])
@@ -55669,7 +55813,7 @@ var render = function() {
                               staticClass:
                                 "inline-block py-1 px-2 rounded bg-indigo-50 text-red-500 text-xs font-medium tracking-widest"
                             },
-                            [_vm._v(" " + _vm._s(post.expiry))]
+                            [_vm._v(" " + _vm._s(_vm.togo(post.expiry)))]
                           )
                         ])
                       ]),
@@ -55753,11 +55897,10 @@ var render = function() {
                             },
                             [
                               _c("i", {
-                                staticClass: "w-4 h-4 mr-1 fas fa-calendar"
+                                staticClass: "w-4 h-4 mr-1 fas fa-coins"
                               }),
                               _vm._v(
-                                "Expires on " +
-                                  _vm._s(_vm.formatDate(post.expiry)) +
+                                _vm._s(post.funded_by) +
                                   "\n                          "
                               )
                             ]

@@ -162,6 +162,18 @@
 
                 </div>
                 <div class="p-4 pt-0 text-center mt-5">
+                    <button @click="requestAccess" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        Request Access Token
+                    </button>
+                    <button @click="registerURLS" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        Register URL's
+                    </button>
+                    <button @click="simulate" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        Simulate
+                    </button>
+                    <button @click="stkPush" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        STK
+                    </button>
                     <button data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                         Confirm the Payment
                     </button>
@@ -180,10 +192,15 @@ import TopBanner from './Components/TopBanner.vue'
 import MainMenu from './Components/MainMenu.vue'
 import MainFooter from './Components/MainFooter.vue'
 
+const { default: axios } = require('axios');
+// require('./bootstrap');
+
 export default {
     name:'Checkout',
     props: {
-        post: Object
+        post: Object,
+        accessTokenResponse: Object,
+        registeredURLSResponse: Object
     },
     components: {
         TopBanner,
@@ -209,10 +226,68 @@ export default {
                 // account: this.form.userName,
             },
             modal: false,
-            paymentModal: false
+            paymentModal: true
         }
     },
     methods:{
+        stkPush(){
+            const requestBody = {
+               amount: '10',
+               account: 'Bidders Portal',
+               phone: '0716202298',
+           }
+            axios.post('/checkout/stkPush', requestBody)
+            .then((response) => {
+                if(response.data.ResponseDescription){
+                    console.log(response.data.ResponseDescription)
+                    alert('done')
+                    // document.getElementById('c2b_response').innerHTML = response.data.ResponseDescription
+                } else {
+                    console.log(response.data.ResponseDescription)
+                    alert('not done')
+                    // document.getElementById('c2b_response').innerHTML = response.data.errorMessage
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
+        },
+        simulate(){
+           const requestBody = {
+               amount: 1,
+               account: 'Bidders Portal'
+
+           }
+        //    this.$inertia.post('simulate', requestBody)
+            axios.post('/checkout/simulate', requestBody)
+            .then((response) => {
+            console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+        },
+        registerURLS(){
+           this.$inertia.post('register-urls', {})
+            .then((response) => {
+            console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+        },
+        requestAccess(){
+
+            this.$inertia.post('get-token', {})
+            .then((response) => {
+            console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
+        },
         clearFilters(){
 
         },

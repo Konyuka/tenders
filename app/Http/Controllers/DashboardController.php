@@ -34,11 +34,12 @@ class DashboardController extends Controller
             'category' => [ ],
             'funded_by' => [],
             'country' => [],
-            'value' => [],
             'work_detail' => [],
             'expiry' => [],
             'address' => [],
             'email' => [],
+            'phone' => [],
+            'link' => [],
         ]);
 
         $postData = Post::create([
@@ -123,28 +124,31 @@ class DashboardController extends Controller
 
     public function delete($post)
     {
-        $post = Post::where('_id', '=', $post);
-        $postUpload = Upload::where('_id', $post);
-        $post->delete();
-        $postUpload->delete();
+        Upload::where('_id', '=', $post)->delete();
+        Post::where('_id', '=', $post)->delete();
         return Inertia::render('Success', ['Status' => 'delete']);
     }
 
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Post $post, Upload $upload)
     {
         $validated = $request->validate([
-            'title' => ['required', 'max:50'],
-            'description' => ['max:50'],
-            'funding' => ['max:50'],
-            'identity' => ['max:50'],
-            'value' => ['max:50'],
+            'purchasing_authority' => ['required', 'max:50'],
+            'tender_number' => ['max:50'],
+            'tender_brief' => ['max:50'],
+            'competition_type' => ['max:50'],
+            'category' => ['max:50'],
+            'funded_by' => ['max:50'],
             'country' => ['max:50'],
-            'price' => ['max:50'],
-            'competition' => ['max:50'],
+            'work_detail' => ['max:50'],
             'expiry' => ['max:50'],
+            'address' => ['max:50'],
+            'email' => ['max:50'],
+            'phone' => ['max:50'],
+            'link' => ['max:50'],
         ]);
 
         $post->update($validated);
+        $upload->update($validated);
         return Inertia::render('Success', ['Status' => 'edit']);
 
     }
