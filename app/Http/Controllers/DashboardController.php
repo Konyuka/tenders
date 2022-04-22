@@ -151,7 +151,7 @@ class DashboardController extends Controller
 
     public function download(Request $request)
     {
-        $file_path = public_path('templates\\upload_tenders.xlsx');
+        $file_path = public_path('templates/upload_tenders.xlsx');
         return response()->download($file_path);
     }
 
