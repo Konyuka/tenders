@@ -15,6 +15,7 @@ class CreateUploadsTable extends Migration
     {
         Schema::create('uploads', function (Blueprint $table) {
             $table->id();
+            $table->text('_id')->unique()->nullable();
             $table->text('purchasing_authority')->nullable();
             $table->text('tender_number')->unique();
             $table->longText('tender_brief')->nullable();

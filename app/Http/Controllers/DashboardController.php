@@ -76,9 +76,6 @@ class DashboardController extends Controller
         foreach($posts as $row){
 
             Post::firstOrCreate([
-                // $row->purchasing_authority = 'purchasing_authority'
-                // 'purchasing_authority'  => $row['purchasing_authority'],
-                // 'tender_number'  => $row['tender_number']
                 'purchasing_authority'  => $row->purchasing_authority,
                 'tender_number'  => $row->tender_number,
                 'tender_brief'  => $row->tender_brief,
@@ -95,11 +92,15 @@ class DashboardController extends Controller
                 'link'  => $row->link
             ]);
         }
-        // $mongoPosts = Post::updateOrCreate(
-        //     $posts
-        // );
-        // return dd('done');
 
+        $mongoPosts = Post::all();
+        foreach($mongoPosts as $index => $row){
+            Upload::where('tender_number', $row->tender_number)->update(
+                [
+                    '_id' => $row->_id
+                ]
+            );
+        }
         return Inertia::render('Success', ['Status' => 'upload']);
         } else {
             return dd('not uploaded correctly');
@@ -123,7 +124,9 @@ class DashboardController extends Controller
     public function delete($post)
     {
         $post = Post::where('_id', '=', $post);
+        $postUpload = Upload::where('_id', $post);
         $post->delete();
+        $postUpload->delete();
         return Inertia::render('Success', ['Status' => 'delete']);
     }
 

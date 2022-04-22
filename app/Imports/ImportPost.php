@@ -23,7 +23,7 @@ class ImportPost implements ToModel, WithStartRow
             'country' => $row[6],
             'value' => $row[7],
             'work_detail' => $row[8],
-            'expiry' => $row[9],
+            'expiry' => $this->transformDate($row[9]),
             'address' => $row[10],
             'email' => $row[11],
             'phone' => $row[12],
@@ -35,4 +35,13 @@ class ImportPost implements ToModel, WithStartRow
     {
         return 2;
     }
+
+    public function transformDate($value, $format = 'Y-m-d')
+{
+    try {
+        return \Carbon\Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($value));
+    } catch (\ErrorException $e) {
+        return \Carbon\Carbon::createFromFormat($format, $value);
+    }
+}
 }
