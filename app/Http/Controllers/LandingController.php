@@ -114,7 +114,7 @@ class LandingController extends Controller
 
         $curl_post_data = array(
             'BusinessShortCode' => env('MPESA_STK_SHORTCODE'),
-            'Password' => $password,
+            'Password' => base64_encode($password),
             'Timestamp' => $timestamp,
             'TransactionType' => 'CustomerPayBillOnline',
             'Amount' => $request->amount,
@@ -137,7 +137,7 @@ class LandingController extends Controller
     {
         $body = array(
             'ShortCode' => env('MPESA_SHORTCODE'),
-            'Msisdn' => '254716202298',
+            'Msisdn' => 254716202298,
             'Amount' => $request->amount,
             'BillRefNumber' => $request->account,
             'CommandID' => 'CustomerPayBillOnline'
@@ -147,6 +147,27 @@ class LandingController extends Controller
         $response = $this->makeHttp($url, $body);
 
         return $response;
+        return $response;
+    }
+
+    public function transactionStatus(Request $request)
+    {
+        $body =  array(
+            'Initiator' => env('MPESA_B2C_INITIATOR'),
+            'SecurityCredential' => env('MPESA_B2C_PASSWORD'),
+            'CommandID' => 'TransactionStatusQuery',
+            'TransactionID' => $request->transactionid,
+            'PartyA' => env('MPESA_SHORTCODE'),
+            'IdentifierType' => '4',
+            'ResultURL' => env('MPESA_TEST_URL'). '/api/transaction-status/result_url',
+            'QueueTimeOutURL' => env('MPESA_TEST_URL'). '/api/transaction-status/timeout_url',
+            'Remarks' => 'CheckTransaction',
+            'Occasion' => 'VerifyTransaction'
+          );
+
+        $url =  'transactionstatus/v1/query';
+        $response = $this->makeHttp($url, $body);
+
         return $response;
     }
 

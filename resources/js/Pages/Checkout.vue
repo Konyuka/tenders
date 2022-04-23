@@ -234,7 +234,7 @@ export default {
             const requestBody = {
                amount: '10',
                account: 'Bidders Portal',
-               phone: '0716202298',
+               phone: '254716202298',
            }
             axios.post('/checkout/stkPush', requestBody)
             .then((response) => {

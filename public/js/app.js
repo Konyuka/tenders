@@ -3927,7 +3927,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       var requestBody = {
         amount: '10',
         account: 'Bidders Portal',
-        phone: '0716202298'
+        phone: '254716202298'
       };
       axios.post('/checkout/stkPush', requestBody).then(function (response) {
         if (response.data.ResponseDescription) {

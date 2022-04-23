@@ -24,7 +24,7 @@ Route::get('/checkout/{slugs}', [LandingController::class, 'checkout'])
 Route::get('/stkpush', [LandingController::class, 'stkpush'])
     ->name('stkpush');
 
-Route::post('/get-token', [LandingController::class, 'getAccessToken'])
+Route::post('/checkout/get-token', [LandingController::class, 'getAccessToken'])
     ->name('get-token');
 
 Route::post('/checkout/register-urls', [LandingController::class, 'registerURLS'])
