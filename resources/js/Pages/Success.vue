@@ -62,7 +62,8 @@ import MainFooter from './Components/MainFooter.vue'
 export default {
     name:'Landing',
     props: {
-        Status: String
+        Status: String,
+        Payment: String
     },
     components: {
         TopBanner,

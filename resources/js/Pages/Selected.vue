@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="flex">
-                <span class="title-font font-medium text-2xl text-gray-900">KES {{post.price}}</span>
+                <span class="title-font font-medium text-2xl text-gray-900">KES {{this.amount}}</span>
                 <a :href="route('checkout', post._id)" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-700 rounded">Purchase Tender Details</a>
 
                 <button class="hover:bg-red-500 hover:text-white rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
@@ -118,6 +118,24 @@ export default {
         console.log(this.post.expiry)
     },
     computed: {
+        amount(){
+            if(this.daysDiff <= 7){
+                return 100;
+            }else if(this.daysDiff >= 8 && this.daysDiff <= 14){
+                return 75;
+            }else{
+                return 50;
+            }
+
+        },
+        daysDiff(){
+            // var given = moment("2018-03-10", "YYYY-MM-DD");
+            var given = moment(this.post.created_at, "YYYY-MM-DD");
+            var current = moment().startOf('day');
+            //Difference in number of days
+            var diff = moment.duration(current.diff(given)).asDays();
+            return diff
+        },
         ago(){
             return moment(this.post.created_at).fromNow();
         },

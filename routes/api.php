@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
-use App\Http\Controllers\MPESAResponsesController;
+use App\Http\Controllers\MpesaResponseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +16,12 @@ use App\Http\Controllers\MPESAResponsesController;
 |
 */
 
-Route::post('validation', [MPESAResponsesController::class, 'validation']);
-Route::post('confirmation', [MPESAResponsesController::class, 'confirmation']);
-Route::post('stkpush', [MPESAResponsesController::class, 'stkPush']);
-Route::post('b2ccallback', [MPESAResponsesController::class, 'b2cCallback']);
-Route::post('transaction-status/result_url', [MPESAResponsesController::class, 'transactionStatusResponse']);
-Route::post('reversal/result_url', [MPESAResponsesController::class, 'transactionReversal']);
+Route::post('validation', [MPESAResponseController::class, 'validation']);
+Route::post('confirmation', [MPESAResponseController::class, 'confirmation']);
+Route::post('stkpush', [MPESAResponseController::class, 'stkPush']);
+Route::post('b2ccallback', [MPESAResponseController::class, 'b2cCallback']);
+Route::post('transaction-status/result_url', [MPESAResponseController::class, 'transactionStatusResponse']);
+Route::post('reversal/result_url', [MPESAResponseController::class, 'transactionReversal']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

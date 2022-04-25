@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PaymentsController;
 
 
 // Route::get('/', function () {
@@ -21,8 +22,11 @@ Route::get('/listing', [LandingController::class, 'listing'])
 Route::get('/checkout/{slugs}', [LandingController::class, 'checkout'])
     ->name('checkout');
 
-Route::get('/stkpush', [LandingController::class, 'stkpush'])
-    ->name('stkpush');
+// Route::get('/stkpush', [LandingController::class, 'stkpush'])
+//     ->name('stkpush');
+
+// Route::get('/stkpush', [PaymentsController::class, 'triggerStk'])
+//     ->name('stkpush');
 
 Route::post('/checkout/get-token', [LandingController::class, 'getAccessToken'])
     ->name('get-token');
@@ -33,8 +37,15 @@ Route::post('/checkout/register-urls', [LandingController::class, 'registerURLS'
 Route::post('/checkout/simulate', [LandingController::class, 'simulateTransaction'])
     ->name('simulate');
 
-Route::post('/checkout/stkPush', [LandingController::class, 'stkPush'])
-    ->name('simulate');
+// Route::post('/checkout/stkPush', [LandingController::class, 'stkPush'])
+//     ->name('stk');
+
+Route::post('/checkout/stkPush', [PaymentsController::class, 'triggerStk'])
+    ->name('stk');
+
+Route::post('/confirm/ebook/payment', [PaymentsController::class, 'confirm'])
+    ->name('confirm');
+
 
 
 
@@ -50,7 +61,7 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/import', [DashboardContr
 Route::middleware(['auth:sanctum', 'verified'])->post('/post', [DashboardController::class, 'addPost'])
     ->name('post');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/success', [DashboardController::class, 'success'])
+Route::get('/success', [DashboardController::class, 'success'])
     ->name('success');
 
 Route::middleware(['auth:sanctum', 'verified'])->delete('/delete/{post}', [DashboardController::class, 'delete'])

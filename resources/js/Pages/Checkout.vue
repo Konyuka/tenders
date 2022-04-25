@@ -19,19 +19,18 @@
 
                     <dl>
                     <dt class="text-sm font-medium">Cart Value</dt>
-                    <dd class="mt-1 text-3xl font-extrabold text-white">KES {{ post.price }}</dd>
+                    <dd class="mt-1 text-3xl font-extrabold text-white">KES {{ this.amount }}</dd>
                     </dl>
 
                     <ul role="list" class="text-sm font-medium divide-y divide-white divide-opacity-10">
-                    <li class="flex items-start py-6 space-x-4">
-                        <!-- <img src="https://tailwindui.com/img/ecommerce-images/checkout-page-07-product-01.jpg" alt="Front of zip tote bag with white canvas, white handles, and black drawstring top." class="flex-none w-20 h-20 rounded-md object-center object-cover"> -->
+                    <!-- <li class="flex items-start py-6 space-x-4">
                         <div class="flex-auto space-y-1">
                         <h3 class="text-white">{{ post.title }}</h3>
-                        <p>Tender Value: <span class="text-white">USD {{ post.value }}</span> </p>
-                        <p>Expiry Date: <span class="text-white">{{ post.expiry }}</span> </p>
+                        <p>Payment Amount: <span class="text-white">USD {{ post.value }}</span> </p>
+                        <p>Expiry Date: <span class="text-white">{{ formatDate(post.expiry) }}</span> </p>
                         </div>
-                        <p class="flex-none text-base font-medium text-white">KES {{ post.price }}</p>
-                    </li>
+                        <p class="flex-none text-base font-medium text-white">KES {{ this.amount }}</p>
+                    </li> -->
 
                     <!-- More products... -->
                     </ul>
@@ -39,7 +38,7 @@
                     <dl class="text-sm font-medium space-y-6 border-t border-white border-opacity-10 pt-6">
                     <div class="flex items-center justify-between">
                         <dt>Subtotal</dt>
-                        <dd>KES {{ post.price }}</dd>
+                        <dd>KES {{ this.amount }}</dd>
                     </div>
 
                     <div class="flex items-center justify-between">
@@ -49,13 +48,14 @@
 
                     <div class="flex items-center justify-between border-t border-white border-opacity-10 text-white pt-6">
                         <dt class="text-base">Total</dt>
-                        <dd class="text-base">KES {{ post.price }}</dd>
+                        <dd class="text-base">KES {{ this.amount }}</dd>
                     </div>
                     </dl>
                 </div>
 
                  <div class="mt-10 flex justify-end pt-6 border-t border-gray-200">
-                    <button @click="paymentModal=true" type="submit" class="bg-white border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-black hover:bg-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">Pay now</button>
+                    <button @click="stkPush" type="submit" class="bg-white border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-black hover:bg-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">Pay now</button>
+                    <!-- <button @click="paymentModal=true" type="submit" class="bg-white border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-black hover:bg-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">Pay now</button> -->
                 </div>
                 </section>
 
@@ -70,7 +70,7 @@
                         <div class=" shadow-2xl">
                         <label for="email-address" class="block text-sm font-medium text-gray-700">Contact Name</label>
                         <div class="mt-1">
-                            <input v-model="form.userName" placeholder="254 7XX XXX XXX" type="number" id="phone-number" name="phone-number"  class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <input v-model="form.userName" placeholder="Mark Massai" type="text" id="phone-number" name="phone-number"  class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
                         </div>
 
@@ -97,23 +97,23 @@
                         <div class="col-span-3 sm:col-span-4 shadow-2xl">
                             <label for="card-number" class="block text-sm font-medium text-gray-700">Mpesa / Payment Number</label>
                             <div class="mt-1">
-                                <input v-model="form.number" placeholder="254 7XX XXX XXX" type="number" id="email-address" name="email-address" class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <input v-model="form.number" placeholder="254 7XX XXX XXX (Number to make the payment) " type="number" id="email-address" name="email-address" class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             </div>
                         </div>
 
-                        <div class="col-span-3 sm:col-span-4 shadow-2xl">
+                        <!-- <div class="col-span-3 sm:col-span-4 shadow-2xl">
                             <label for="card-number" class="block text-sm font-medium text-gray-700">Mpesa Account Name</label>
                             <div class="mt-1">
                                 <input v-model="form.account" disabled  type="text" id="email-address" name="email-address" class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="col-span-3 sm:col-span-4 shadow-2xl">
+                        <!-- <div class="col-span-3 sm:col-span-4 shadow-2xl">
                             <label for="card-number" class="block text-sm font-medium text-gray-700">Mpesa Payment Amount</label>
                             <div class="mt-1">
                                 <input v-model="post.price" disabled type="text" id="email-address" name="email-address" class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             </div>
-                        </div>
+                        </div> -->
 
                         </div>
                     </div>
@@ -153,16 +153,15 @@
                 <!-- Modal body -->
                 <div class="p-4 pt-0 text-center">
                     <i class="fas fa-coins fa-2xl mb-10"></i>
-                    <h3 class="mb-5 text-lg font-extrabold text-gray-500 dark:text-gray-400">Payment Details</h3>
+                    <h3 class="mb-5 text-sm font-extrabold text-gray-500 dark:text-gray-400">Kindly Check your phone to input the pin</h3>
                 </div>
                 <div class="flex flex-col px-10">
-                    <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Paybill Number: <span class="ml-2 font-extrabold text-xl text-indigo-600"> 320567</span> </h4>
-                    <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Account Number: <span class="ml-2 font-extrabold text-xl text-indigo-600"> IUFLNSD</span> </h4>
-                    <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Payment Amount: <span class="ml-2 font-extrabold text-xl text-indigo-600"> KES {{ post.price }}</span> </h4>
-
+                    <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Phone Number: <span class="ml-2 font-extrabold text-xl text-indigo-600"> {{ this.form.number }}</span> </h4>
+                    <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Account Number: <span class="ml-2 font-extrabold text-xl text-indigo-600"> Bidders Portal</span> </h4>
+                    <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Payment Amount: <span class="ml-2 font-extrabold text-xl text-indigo-600"> KES {{ this.amount }}</span> </h4>
                 </div>
                 <div class="p-4 pt-0 text-center mt-5">
-                    <button @click="requestAccess" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                    <!-- <button @click="requestAccess" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                         Request Access Token
                     </button>
                     <button @click="registerURLS" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
@@ -173,7 +172,7 @@
                     </button>
                     <button @click="stkPush" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                         STK
-                    </button>
+                    </button> -->
                     <button data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                         Confirm the Payment
                     </button>
@@ -200,7 +199,8 @@ export default {
     props: {
         post: Object,
         accessTokenResponse: Object,
-        registeredURLSResponse: Object
+        registeredURLSResponse: Object,
+        payment: null
     },
     components: {
         TopBanner,
@@ -212,9 +212,28 @@ export default {
     mounted () {
     },
     computed: {
+        amount(){
+            if(this.daysDiff <= 7){
+                return 100;
+            }else if(this.daysDiff >= 8 && this.daysDiff <= 14){
+                return 75;
+            }else{
+                return 50;
+            }
+
+        },
+        daysDiff(){
+            // var given = moment("2018-03-10", "YYYY-MM-DD");
+            var given = moment(this.post.created_at, "YYYY-MM-DD");
+            var current = moment().startOf('day');
+            //Difference in number of days
+            var diff = moment.duration(current.diff(given)).asDays();
+            return diff
+        },
     },
     data () {
         return {
+            paymentLog: '',
             form:{
                 userName:'',
                 userPhone:'',
@@ -226,27 +245,36 @@ export default {
                 // account: this.form.userName,
             },
             modal: false,
-            paymentModal: true
+            paymentModal: false
         }
     },
     methods:{
+        formatDate(value) {
+            return moment(value).format('MMMM Do YYYY')
+        },
         stkPush(){
+            // paymentModal=true
             const requestBody = {
-               amount: '10',
+               amount: '1',
                account: 'Bidders Portal',
-               phone: '254716202298',
+            //    phone: this.form.number,
+               phone: 254716202298,
            }
             axios.post('/checkout/stkPush', requestBody)
             .then((response) => {
-                if(response.data.ResponseDescription){
-                    console.log(response.data.ResponseDescription)
-                    alert('done')
-                    // document.getElementById('c2b_response').innerHTML = response.data.ResponseDescription
-                } else {
-                    console.log(response.data.ResponseDescription)
-                    alert('not done')
-                    // document.getElementById('c2b_response').innerHTML = response.data.errorMessage
-                }
+                console.log(response)
+
+                // this.$inertia.get('confirm')
+                // if(response.data.ResponseDescription){
+                //     console.log(response.data.ResponseDescription)
+                //     // alert('done')
+                //     // document.getElementById('c2b_response').innerHTML = response.data.ResponseDescription
+                // } else {
+                //     console.log(response.data.ResponseDescription)
+                //     // alert('not done')
+                //     // document.getElementById('c2b_response').innerHTML = response.data.errorMessage
+                // }
+                // this.paymentLog = response.data
             })
             .catch((error) => {
                 console.log(error);
@@ -256,7 +284,7 @@ export default {
         simulate(){
            const requestBody = {
                amount: 1,
-               account: 'Bidders Portal'
+               account: 'Beat Crime Kijana Mzuri'
 
            }
         //    this.$inertia.post('simulate', requestBody)
@@ -297,3 +325,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+</style>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Post;
+use Safaricom\Mpesa\Mpesa;
+
 
 class LandingController extends Controller
 {
@@ -78,7 +80,7 @@ class LandingController extends Controller
 
         $url = '/c2b/v1/registerurl';
         $response = $this->makeHttp($url, $body);
-        return dd($response);
+        // return dd($response);
 
         return Inertia::render('Checkout', [
            'registeredURLSResponse' => $response
@@ -121,7 +123,7 @@ class LandingController extends Controller
             'PartyA' => $request->phone,
             'PartyB' => env('MPESA_STK_SHORTCODE'),
             'PhoneNumber' => $request->phone,
-            'CallBackURL' => env('MPESA_TEST_URL'). '/api/stkpush',
+            'CallBackURL' => env('MPESA_TEST_URL').'/api/stkpush',
             'AccountReference' => $request->account,
             'TransactionDesc' => $request->account
           );
@@ -129,6 +131,24 @@ class LandingController extends Controller
         $url = '/stkpush/v1/processrequest';
 
         $response = $this->makeHttp($url, $curl_post_data);
+
+        // return dd($response);
+
+        // $result_code =$response ?? null;
+        // if (isset($result_code) and $result_code=="0"){
+        //     // $trans_id =$stkPushSimulation->MerchantRequestID;
+
+        //     Payment::create([
+        //     //   "user_id"=>auth()->user()->id,
+        //     //   "trans_id"=>$trans_id,
+        //       "phone"=>$PhoneNumber,
+        //       "amount"=>$Amount,
+        //     //   "info"=>"ebook/".$request->ebook_id
+        //     ]);
+        //     return back()->with('success','Please complete transaction on your phone by entering your MPESA pin');
+        // }
+
+        // $error_msg = $stkPushSimulation->errorMessage ?? '';
 
         return $response;
     }
