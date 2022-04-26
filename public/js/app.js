@@ -3959,17 +3959,17 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     return {
       paymentLog: '',
       form: {
-        userName: '',
-        userPhone: '',
-        userEmail: '',
+        userName: 'Software Saiba',
+        userPhone: '254722750445',
+        userEmail: 'saibadeveloper@gmail.com',
         number: '254716202298',
-        account: '',
+        account: 'Bidders Portal',
         amount: this.post.price // amount: ''
         // account: this.form.userName,
 
       },
       modal: false,
-      paymentModal: true
+      paymentModal: false
     };
   },
   methods: {
@@ -52795,6 +52795,59 @@ var render = function() {
                                         })
                                       ])
                                     ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "col-span-3 sm:col-span-4 shadow-2xl"
+                                    },
+                                    [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "block text-sm font-medium text-gray-700",
+                                          attrs: { for: "card-number" }
+                                        },
+                                        [_vm._v("Mpesa Account Name")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "mt-1" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.account,
+                                              expression: "form.account"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                          attrs: {
+                                            disabled: "",
+                                            type: "text",
+                                            id: "email-address",
+                                            name: "email-address"
+                                          },
+                                          domProps: { value: _vm.form.account },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "account",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]
                                   )
                                 ]
                               )
@@ -52838,50 +52891,52 @@ var render = function() {
                       },
                       [
                         _c("div", { staticClass: "flex justify-end p-2" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white",
-                              attrs: {
-                                type: "button",
-                                "data-modal-toggle": "popup-modal"
-                              },
-                              on: {
-                                click: function($event) {
-                                  _vm.paymentModal = false
-                                }
-                              }
-                            },
-                            [
-                              _c(
-                                "svg",
+                          _vm.status == "Cancelled"
+                            ? _c(
+                                "button",
                                 {
-                                  staticClass: "w-5 h-5",
+                                  staticClass:
+                                    "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white",
                                   attrs: {
-                                    fill: "currentColor",
-                                    viewBox: "0 0 20 20",
-                                    xmlns: "http://www.w3.org/2000/svg"
+                                    type: "button",
+                                    "data-modal-toggle": "popup-modal"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.paymentModal = false
+                                    }
                                   }
                                 },
                                 [
-                                  _c("path", {
-                                    attrs: {
-                                      "fill-rule": "evenodd",
-                                      d:
-                                        "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
-                                      "clip-rule": "evenodd"
-                                    }
-                                  })
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "w-5 h-5",
+                                      attrs: {
+                                        fill: "currentColor",
+                                        viewBox: "0 0 20 20",
+                                        xmlns: "http://www.w3.org/2000/svg"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "fill-rule": "evenodd",
+                                          d:
+                                            "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+                                          "clip-rule": "evenodd"
+                                        }
+                                      })
+                                    ]
+                                  )
                                 ]
                               )
-                            ]
-                          )
+                            : _vm._e()
                         ]),
                         _vm._v(" "),
                         _vm._m(2),
                         _vm._v(" "),
-                        _vm.transactionStatus == "Cancelled"
+                        _vm.status == "Cancelled"
                           ? _c("div", { staticClass: "p-4 pt-0 text-center" }, [
                               _c(
                                 "h3",
@@ -52894,7 +52949,7 @@ var render = function() {
                             ])
                           : _vm._e(),
                         _vm._v(" "),
-                        _vm.transactionStatus == "Waiting"
+                        _vm.status == "Waiting"
                           ? _c("div", { staticClass: "p-4 pt-0 text-center" }, [
                               _c(
                                 "h3",

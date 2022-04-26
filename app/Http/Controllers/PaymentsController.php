@@ -69,21 +69,21 @@ class PaymentsController extends Controller
         }else if($transactionWaiting){
             return Inertia::render('Checkout', [
                 'post' => Post::where('_id', '=', $post_id)->first(),
-                // 'transId' => $transactionWaiting->trans_id,
+                'transId' => $transactionWaiting->trans_id,
                 'status' => 'Waiting'
             ]);
         }else if($transactionFail){
             return Inertia::render('Checkout', [
                 'post' => Post::where('_id', '=', $post_id)->first(),
-                // 'transId' => $transactionFail->trans_id,
+                'transId' => $transactionFail->trans_id,
                 'status' => 'Cancelled'
             ]);
         }
-        return Inertia::render('Checkout', [
-                'post' => Post::where('_id', '=', $post_id)->first(),
-                // 'transId' => $transactionFail->trans_id,
-                'status' => ''
-            ]);
+        // return Inertia::render('Checkout', [
+        //         'post' => Post::where('_id', '=', $post_id)->first(),
+        //         // 'transId' => $transactionFail->trans_id,
+        //         'status' => ''
+        //     ]);
 
 
 

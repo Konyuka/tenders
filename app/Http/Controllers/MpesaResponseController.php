@@ -10,6 +10,7 @@ use App\Models\Payments;
 use Safaricom\Mpesa\Mpesa;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\Post;
 
 
 
@@ -73,7 +74,14 @@ class MpesaResponseController extends Controller
                 // $id=$data[1];
                 // EbookSubscription::create(['user_id'=>$payment->user_id,'ebook_id'=>$id]);
             }
+        }else if($result_code==1032){
+                $payment = Payments::where(['trans_id'=>$trans_id])->first();
+                $payment->completed=false;
+                $payment->waiting=false;
+                $payment->save();
+                $post=$payment->info;
         }
+
 
         // return dd($request);
         // return redirect()->route('success');

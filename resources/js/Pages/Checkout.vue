@@ -101,12 +101,12 @@
                             </div>
                         </div>
 
-                        <!-- <div class="col-span-3 sm:col-span-4 shadow-2xl">
+                        <div class="col-span-3 sm:col-span-4 shadow-2xl">
                             <label for="card-number" class="block text-sm font-medium text-gray-700">Mpesa Account Name</label>
                             <div class="mt-1">
                                 <input v-model="form.account" disabled  type="text" id="email-address" name="email-address" class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             </div>
-                        </div> -->
+                        </div>
 
                         <!-- <div class="col-span-3 sm:col-span-4 shadow-2xl">
                             <label for="card-number" class="block text-sm font-medium text-gray-700">Mpesa Payment Amount</label>
@@ -146,7 +146,7 @@
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
                 <div class="flex justify-end p-2">
-                    <button @click="paymentModal=false" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="popup-modal">
+                    <button v-if="status=='Cancelled'" @click="paymentModal=false" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="popup-modal">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button>
                 </div>
@@ -155,10 +155,10 @@
                     <!-- <i class="fas fa-coins fa-2xl mb-10"></i> -->
                     <h3 class="mb-5 text-xs font-extrabold text-gray-500 dark:text-gray-400">Complete transaction on your phone by entering your MPESA pin</h3>
                 </div>
-                <div v-if="transactionStatus=='Cancelled'" class="p-4 pt-0 text-center">
+                <div v-if="status=='Cancelled'" class="p-4 pt-0 text-center">
                     <h3 class="mb-5 text-sm font-extrabold text-red-500 dark:text-gray-400 italic">Transaction Was Cancelled</h3>
                 </div>
-                <div v-if="transactionStatus=='Waiting'" class="p-4 pt-0 text-center">
+                <div v-if="status=='Waiting'" class="p-4 pt-0 text-center">
                     <!-- <i ="fas fa-coins fa-2xl mb-10"></i> -->
                     <h3 class="mb-5 text-sm font-extrabold text-green-500 dark:text-gray-400 italic">Transaction Pending</h3>
                 </div>
@@ -265,17 +265,17 @@ export default {
         return {
             paymentLog: '',
             form:{
-                userName:'',
-                userPhone:'',
-                userEmail:'',
+                userName:'Software Saiba',
+                userPhone:'254722750445',
+                userEmail:'saibadeveloper@gmail.com',
                 number:'254716202298',
-                account: '',
+                account: 'Bidders Portal',
                 amount: this.post.price
                 // amount: ''
                 // account: this.form.userName,
             },
             modal: false,
-            paymentModal: true,
+            paymentModal: false,
         }
     },
     methods:{
