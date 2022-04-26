@@ -13,8 +13,8 @@ class Payments extends Model
    protected $fillable = ['user_id','trans_id','phone','amount','info','completed'];
 
     protected $guarded=[];
-    protected $casts=[
-        'info'=>'array',
-        'completed'=>'boolean',
-    ];
+    // protected $casts=[
+    //     'info'=>'array',
+    //     'completed'=>'boolean',
+    // ];
 }

@@ -152,13 +152,20 @@
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 pt-0 text-center">
-                    <i class="fas fa-coins fa-2xl mb-10"></i>
-                    <h3 class="mb-5 text-sm font-extrabold text-gray-500 dark:text-gray-400">Kindly Check your phone to input the pin</h3>
+                    <!-- <i class="fas fa-coins fa-2xl mb-10"></i> -->
+                    <h3 class="mb-5 text-xs font-extrabold text-gray-500 dark:text-gray-400">Complete transaction on your phone by entering your MPESA pin</h3>
+                </div>
+                <div v-if="transactionStatus=='Cancelled'" class="p-4 pt-0 text-center">
+                    <h3 class="mb-5 text-sm font-extrabold text-red-500 dark:text-gray-400 italic">Transaction Was Cancelled</h3>
+                </div>
+                <div v-if="transactionStatus=='Waiting'" class="p-4 pt-0 text-center">
+                    <!-- <i ="fas fa-coins fa-2xl mb-10"></i> -->
+                    <h3 class="mb-5 text-sm font-extrabold text-green-500 dark:text-gray-400 italic">Transaction Pending</h3>
                 </div>
                 <div class="flex flex-col px-10">
                     <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Phone Number: <span class="ml-2 font-extrabold text-xl text-indigo-600"> {{ this.form.number }}</span> </h4>
-                    <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Account Number: <span class="ml-2 font-extrabold text-xl text-indigo-600"> Bidders Portal</span> </h4>
-                    <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Payment Amount: <span class="ml-2 font-extrabold text-xl text-indigo-600"> KES {{ this.amount }}</span> </h4>
+                    <!-- <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Transaction Number: <span class="ml-2 font-extrabold text-xl text-indigo-600"> {{ $page['props']['Status']  }}</span> </h4> -->
+                    <!-- <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Payment Amount: <span class="ml-2 font-extrabold text-xl text-indigo-600"> KES {{ this.amount }}</span> </h4> -->
                 </div>
                 <div class="p-4 pt-0 text-center mt-5">
                     <!-- <button @click="requestAccess" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
@@ -173,9 +180,11 @@
                     <button @click="stkPush" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                         STK
                     </button> -->
-                    <button data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                        Confirm the Payment
+                    <!-- <a :href="route('confirmation', this.post._id)"> -->
+                    <button @click="confirm" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        Confirm Payment
                     </button>
+                    <!-- </a> -->
                 </div>
 
             </div>
@@ -198,9 +207,11 @@ export default {
     name:'Checkout',
     props: {
         post: Object,
+        transId: String,
         accessTokenResponse: Object,
         registeredURLSResponse: Object,
-        payment: null
+        payment: null,
+        status: String
     },
     components: {
         TopBanner,
@@ -210,8 +221,27 @@ export default {
     watch: {
     },
     mounted () {
+        this.Status = ''
     },
     computed: {
+        waiting(){
+            if(this.Status=='Waiting'){
+                return false;
+            }else{
+                return true
+            }
+        },
+        transactionStatus(){
+            if(this.Status=='Success'){
+                return 'Success';
+            }else if(this.Status=='Waiting'){
+                return 'Waiting'
+            }else if(this.Status=='Cancelled'){
+                return 'Cancelled'
+            }else{
+                return ''
+            }
+        },
         amount(){
             if(this.daysDiff <= 7){
                 return 100;
@@ -238,33 +268,40 @@ export default {
                 userName:'',
                 userPhone:'',
                 userEmail:'',
-                number:'',
+                number:'254716202298',
                 account: '',
                 amount: this.post.price
                 // amount: ''
                 // account: this.form.userName,
             },
             modal: false,
-            paymentModal: false
+            paymentModal: true,
         }
     },
     methods:{
+        confirm(){
+            const paymentDetails = {
+                payment_number:this.form.number,
+                post_id:this.post._id
+            }
+            this.$inertia.post('/confirmation', paymentDetails)
+        },
         formatDate(value) {
             return moment(value).format('MMMM Do YYYY')
         },
         stkPush(){
-            // paymentModal=true
+            this.paymentModal=true
             const requestBody = {
                amount: '1',
                account: 'Bidders Portal',
-            //    phone: this.form.number,
-               phone: 254716202298,
+               phone: this.form.number,
+               post: this.post._id,
            }
             axios.post('/checkout/stkPush', requestBody)
             .then((response) => {
                 console.log(response)
 
-                // this.$inertia.get('confirm')
+                // this.$inertia.get(this.post._id)
                 // if(response.data.ResponseDescription){
                 //     console.log(response.data.ResponseDescription)
                 //     // alert('done')

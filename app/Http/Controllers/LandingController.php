@@ -25,7 +25,8 @@ class LandingController extends Controller
     {
         return Inertia::render('Selected', [
 
-           'post' => Post::where('_id', '=', $slug)->first()
+           'post' => Post::where('_id', '=', $slug)->first(),
+           'Status' => ''
        ]);
     }
 

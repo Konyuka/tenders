@@ -3882,6 +3882,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3894,9 +3903,11 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
   name: 'Checkout',
   props: {
     post: Object,
+    transId: String,
     accessTokenResponse: Object,
     registeredURLSResponse: Object,
-    payment: null
+    payment: null,
+    status: String
   },
   components: {
     TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -3904,8 +3915,28 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   watch: {},
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    this.Status = '';
+  },
   computed: {
+    waiting: function waiting() {
+      if (this.Status == 'Waiting') {
+        return false;
+      } else {
+        return true;
+      }
+    },
+    transactionStatus: function transactionStatus() {
+      if (this.Status == 'Success') {
+        return 'Success';
+      } else if (this.Status == 'Waiting') {
+        return 'Waiting';
+      } else if (this.Status == 'Cancelled') {
+        return 'Cancelled';
+      } else {
+        return '';
+      }
+    },
     amount: function amount() {
       if (this.daysDiff <= 7) {
         return 100;
@@ -3931,30 +3962,37 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
         userName: '',
         userPhone: '',
         userEmail: '',
-        number: '',
+        number: '254716202298',
         account: '',
         amount: this.post.price // amount: ''
         // account: this.form.userName,
 
       },
       modal: false,
-      paymentModal: false
+      paymentModal: true
     };
   },
   methods: {
+    confirm: function confirm() {
+      var paymentDetails = {
+        payment_number: this.form.number,
+        post_id: this.post._id
+      };
+      this.$inertia.post('/confirmation', paymentDetails);
+    },
     formatDate: function formatDate(value) {
       return moment(value).format('MMMM Do YYYY');
     },
     stkPush: function stkPush() {
-      // paymentModal=true
+      this.paymentModal = true;
       var requestBody = {
         amount: '1',
         account: 'Bidders Portal',
-        //    phone: this.form.number,
-        phone: 254716202298
+        phone: this.form.number,
+        post: this.post._id
       };
       axios.post('/checkout/stkPush', requestBody).then(function (response) {
-        console.log(response); // this.$inertia.get('confirm')
+        console.log(response); // this.$inertia.get(this.post._id)
         // if(response.data.ResponseDescription){
         //     console.log(response.data.ResponseDescription)
         //     // alert('done')
@@ -52843,6 +52881,32 @@ var render = function() {
                         _vm._v(" "),
                         _vm._m(2),
                         _vm._v(" "),
+                        _vm.transactionStatus == "Cancelled"
+                          ? _c("div", { staticClass: "p-4 pt-0 text-center" }, [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "mb-5 text-sm font-extrabold text-red-500 dark:text-gray-400 italic"
+                                },
+                                [_vm._v("Transaction Was Cancelled")]
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.transactionStatus == "Waiting"
+                          ? _c("div", { staticClass: "p-4 pt-0 text-center" }, [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "mb-5 text-sm font-extrabold text-green-500 dark:text-gray-400 italic"
+                                },
+                                [_vm._v("Transaction Pending")]
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
                         _c("div", { staticClass: "flex flex-col px-10" }, [
                           _c(
                             "h4",
@@ -52861,31 +52925,32 @@ var render = function() {
                                 [_vm._v(" " + _vm._s(this.form.number))]
                               )
                             ]
-                          ),
-                          _vm._v(" "),
-                          _vm._m(3),
-                          _vm._v(" "),
-                          _c(
-                            "h4",
-                            {
-                              staticClass:
-                                "mb-5 text-sm font-bold text-gray-500 dark:text-gray-400"
-                            },
-                            [
-                              _vm._v("Payment Amount: "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "ml-2 font-extrabold text-xl text-indigo-600"
-                                },
-                                [_vm._v(" KES " + _vm._s(this.amount))]
-                              )
-                            ]
                           )
                         ]),
                         _vm._v(" "),
-                        _vm._m(4)
+                        _c(
+                          "div",
+                          { staticClass: "p-4 pt-0 text-center mt-5" },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2",
+                                attrs: {
+                                  "data-modal-toggle": "popup-modal",
+                                  type: "button"
+                                },
+                                on: { click: _vm.confirm }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                      Confirm Payment\n                  "
+                                )
+                              ]
+                            )
+                          ]
+                        )
                       ]
                     )
                   ]
@@ -52944,52 +53009,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "p-4 pt-0 text-center" }, [
-      _c("i", { staticClass: "fas fa-coins fa-2xl mb-10" }),
-      _vm._v(" "),
       _c(
         "h3",
         {
           staticClass:
-            "mb-5 text-sm font-extrabold text-gray-500 dark:text-gray-400"
-        },
-        [_vm._v("Kindly Check your phone to input the pin")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "h4",
-      {
-        staticClass: "mb-5 text-sm font-bold text-gray-500 dark:text-gray-400"
-      },
-      [
-        _vm._v("Account Number: "),
-        _c(
-          "span",
-          { staticClass: "ml-2 font-extrabold text-xl text-indigo-600" },
-          [_vm._v(" Bidders Portal")]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-4 pt-0 text-center mt-5" }, [
-      _c(
-        "button",
-        {
-          staticClass:
-            "text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2",
-          attrs: { "data-modal-toggle": "popup-modal", type: "button" }
+            "mb-5 text-xs font-extrabold text-gray-500 dark:text-gray-400"
         },
         [
           _vm._v(
-            "\n                      Confirm the Payment\n                  "
+            "Complete transaction on your phone by entering your MPESA pin"
           )
         ]
       )

@@ -16,12 +16,12 @@ use App\Http\Controllers\MpesaResponseController;
 |
 */
 
-Route::post('validation', [MPESAResponseController::class, 'validation']);
-Route::post('confirmation', [MPESAResponseController::class, 'confirmation']);
-Route::post('stkpush', [MPESAResponseController::class, 'stkPush']);
-Route::post('b2ccallback', [MPESAResponseController::class, 'b2cCallback']);
-Route::post('transaction-status/result_url', [MPESAResponseController::class, 'transactionStatusResponse']);
-Route::post('reversal/result_url', [MPESAResponseController::class, 'transactionReversal']);
+Route::post('validation', [MpesaResponseController::class, 'validation']);
+Route::post('confirmation', [MpesaResponseController::class, 'confirmation']);
+Route::post('stkpush', [MpesaResponseController::class, 'stkPush']);
+Route::post('b2ccallback', [MpesaResponseController::class, 'b2cCallback']);
+Route::post('transaction-status/result_url', [MpesaResponseController::class, 'transactionStatusResponse']);
+Route::post('reversal/result_url', [MpesaResponseController::class, 'transactionReversal']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

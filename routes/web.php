@@ -49,6 +49,13 @@ Route::post('/confirm/ebook/payment', [PaymentsController::class, 'confirm'])
 
 
 
+Route::get('transaction-status', function(){
+    return view('status');
+});
+
+Route::post('/confirmation', [PaymentsController::class, 'setTransactionDetails'])
+    ->name('confirmation');
+
 
 
 
@@ -61,8 +68,7 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/import', [DashboardContr
 Route::middleware(['auth:sanctum', 'verified'])->post('/post', [DashboardController::class, 'addPost'])
     ->name('post');
 
-Route::get('/success', [DashboardController::class, 'success'])
-    ->name('success');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->delete('/delete/{post}', [DashboardController::class, 'delete'])
     ->name('delete');

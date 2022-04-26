@@ -23,6 +23,7 @@ class CreatePaymentsTable extends Migration
             $table->string("amount");
             $table->string("info")->nullable();
             $table->boolean("completed")->default(false);
+            $table->boolean("waiting")->default(true);
             $table->timestamps();
         });
     }
