@@ -22,6 +22,10 @@ Route::get('/listing', [LandingController::class, 'listing'])
 Route::get('/checkout/{slugs}', [LandingController::class, 'checkout'])
     ->name('checkout');
 
+Route::get('/unlock/{slugs}', [LandingController::class, 'unlock'])
+    ->name('unlock');
+
+
 // Route::get('/stkpush', [LandingController::class, 'stkpush'])
 //     ->name('stkpush');
 

@@ -3891,6 +3891,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -3962,7 +3964,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
         userName: 'Software Saiba',
         userPhone: '254722750445',
         userEmail: 'saibadeveloper@gmail.com',
-        number: '254716202298',
+        number: this.removeSpaces('254 716 202 298'),
         account: 'Bidders Portal',
         amount: this.post.price // amount: ''
         // account: this.form.userName,
@@ -3973,6 +3975,14 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     };
   },
   methods: {
+    cancelTrans: function cancelTrans() {
+      this.paymentModal = false;
+      this.$inertia.get('/checkout/', this.post._id); // this.$inertia.delete(`/delete/${value}`)
+    },
+    removeSpaces: function removeSpaces(value) {
+      var noSpace = value.replace(/\s/g, '');
+      return noSpace;
+    },
     confirm: function confirm() {
       var paymentDetails = {
         payment_number: this.form.number,
@@ -3984,28 +3994,29 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       return moment(value).format('MMMM Do YYYY');
     },
     stkPush: function stkPush() {
-      this.paymentModal = true;
-      var requestBody = {
-        amount: '1',
-        account: 'Bidders Portal',
-        phone: this.form.number,
-        post: this.post._id
-      };
-      axios.post('/checkout/stkPush', requestBody).then(function (response) {
-        console.log(response); // this.$inertia.get(this.post._id)
-        // if(response.data.ResponseDescription){
-        //     console.log(response.data.ResponseDescription)
-        //     // alert('done')
-        //     // document.getElementById('c2b_response').innerHTML = response.data.ResponseDescription
-        // } else {
-        //     console.log(response.data.ResponseDescription)
-        //     // alert('not done')
-        //     // document.getElementById('c2b_response').innerHTML = response.data.errorMessage
-        // }
-        // this.paymentLog = response.data
-      })["catch"](function (error) {
-        console.log(error);
-      });
+      // var str = '012123';
+      var strFirstThree = this.form.number.substring(0, 3);
+
+      if (strFirstThree == 254 && this.form.number.length == 12) {
+        this.paymentModal = true;
+        var requestBody = {
+          amount: '1',
+          account: this.form.account,
+          phone: this.removeSpaces(this.form.number),
+          post: this.post._id,
+          user_name: this.form.userName,
+          user_phone: this.form.userPhone,
+          user_email: this.form.userEmail
+        }; //    console.log(requestBody)
+
+        axios.post('/checkout/stkPush', requestBody).then(function (response) {
+          console.log(response);
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      } else {
+        alert('Your Number Format Should be 254 7XX XXX XXX');
+      }
     },
     simulate: function simulate() {
       var requestBody = {
@@ -7036,13 +7047,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Selected',
   props: {
-    post: Object
+    post: Object,
+    status: String,
+    transId: String
   },
   components: {
     TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -52610,6 +52647,7 @@ var render = function() {
                                     staticClass:
                                       "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
                                     attrs: {
+                                      required: "",
                                       placeholder: "Mark Massai",
                                       type: "text",
                                       id: "phone-number",
@@ -52656,6 +52694,7 @@ var render = function() {
                                     staticClass:
                                       "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
                                     attrs: {
+                                      required: "",
                                       placeholder: "254 7XX XXX XXX",
                                       type: "number",
                                       id: "phone-number",
@@ -52702,6 +52741,7 @@ var render = function() {
                                     staticClass:
                                       "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
                                     attrs: {
+                                      required: "",
                                       placeholder: "user@email.com",
                                       type: "email",
                                       id: "email-address",
@@ -52773,6 +52813,7 @@ var render = function() {
                                           staticClass:
                                             "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
                                           attrs: {
+                                            required: "",
                                             placeholder:
                                               "254 7XX XXX XXX (Number to make the payment) ",
                                             type: "number",
@@ -52893,40 +52934,45 @@ var render = function() {
                         _c("div", { staticClass: "flex justify-end p-2" }, [
                           _vm.status == "Cancelled"
                             ? _c(
-                                "button",
+                                "a",
                                 {
-                                  staticClass:
-                                    "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white",
                                   attrs: {
-                                    type: "button",
-                                    "data-modal-toggle": "popup-modal"
-                                  },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.paymentModal = false
-                                    }
+                                    href: _vm.route("checkout", _vm.post._id)
                                   }
                                 },
                                 [
                                   _c(
-                                    "svg",
+                                    "button",
                                     {
-                                      staticClass: "w-5 h-5",
+                                      staticClass:
+                                        "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white",
                                       attrs: {
-                                        fill: "currentColor",
-                                        viewBox: "0 0 20 20",
-                                        xmlns: "http://www.w3.org/2000/svg"
+                                        type: "button",
+                                        "data-modal-toggle": "popup-modal"
                                       }
                                     },
                                     [
-                                      _c("path", {
-                                        attrs: {
-                                          "fill-rule": "evenodd",
-                                          d:
-                                            "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
-                                          "clip-rule": "evenodd"
-                                        }
-                                      })
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass: "w-5 h-5",
+                                          attrs: {
+                                            fill: "currentColor",
+                                            viewBox: "0 0 20 20",
+                                            xmlns: "http://www.w3.org/2000/svg"
+                                          }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              "fill-rule": "evenodd",
+                                              d:
+                                                "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+                                              "clip-rule": "evenodd"
+                                            }
+                                          })
+                                        ]
+                                      )
                                     ]
                                   )
                                 ]
@@ -53000,7 +53046,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                      Confirm Payment\n                  "
+                                  "\n                      Tap at intervals to Confirm Payment\n                  "
                                 )
                               ]
                             )
@@ -60277,6 +60323,70 @@ var render = function() {
           1
         ),
         _vm._v(" "),
+        _vm.status == "Success"
+          ? _c(
+              "div",
+              {
+                staticClass:
+                  "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
+                attrs: { id: "popup-modal", tabindex: "-1" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "relative p-4 w-full max-w-md h-full md:h-auto"
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "relative bg-white rounded-lg shadow dark:bg-gray-700"
+                      },
+                      [
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "p-4 pt-0 text-center mt-5" },
+                          [
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href: _vm.route("unlock", this.transId)
+                                }
+                              },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-lg inline-flex items-center px-5 py-2.5 text-center mr-2",
+                                    attrs: {
+                                      "data-modal-toggle": "popup-modal",
+                                      type: "button"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                          Tap to Unlock Tender Details\n                      "
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e(),
+        _vm._v(" "),
         _c("MainFooter")
       ],
       1
@@ -60296,6 +60406,23 @@ var staticRenderFns = [
             "flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1"
         },
         [_vm._v("Description")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-4 pt-0 text-center" }, [
+      _c("i", { staticClass: "fas fa-check fa-2xl mb-10" }),
+      _vm._v(" "),
+      _c(
+        "h3",
+        {
+          staticClass:
+            "mb-5 text-2xl font-extrabold text-green-500 dark:text-gray-400 italic"
+        },
+        [_vm._v("Thank you! Purchase Confirmed")]
       )
     ])
   }

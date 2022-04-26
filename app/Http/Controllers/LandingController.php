@@ -30,6 +30,17 @@ class LandingController extends Controller
        ]);
     }
 
+    public function unlock($slug)
+    {
+        return dd($slug);
+        
+        return Inertia::render('Selected', [
+
+           'post' => Post::where('_id', '=', $slug)->first(),
+           'Status' => ''
+       ]);
+    }
+
     public function listing()
     {
         $posts = Post::all();

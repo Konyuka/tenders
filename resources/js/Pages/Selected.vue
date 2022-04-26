@@ -90,6 +90,30 @@
 
         </div>
 
+        <div  v-if="status=='Success'" id="popup-modal" tabindex="-1" class="overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full">
+        <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+
+                <!-- Modal body -->
+                <div class="p-4 pt-0 text-center">
+                    <i class="fas fa-check fa-2xl mb-10"></i>
+                    <h3 class="mb-5 text-2xl font-extrabold text-green-500 dark:text-gray-400 italic">Thank you! Purchase Confirmed</h3>
+                </div>
+
+                <div class="p-4 pt-0 text-center mt-5">
+                    <a :href="route('unlock', this.transId)">
+                        <button data-modal-toggle="popup-modal" type="button" class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-lg inline-flex items-center px-5 py-2.5 text-center mr-2">
+                            Tap to Unlock Tender Details
+                        </button>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+      </div>
+
 
       <MainFooter/>
     </div>
@@ -104,7 +128,9 @@ import MainFooter from './Components/MainFooter.vue'
 export default {
     name:'Selected',
     props: {
-        post: Object
+        post: Object,
+        status: String,
+        transId: String
     },
     components: {
         TopBanner,

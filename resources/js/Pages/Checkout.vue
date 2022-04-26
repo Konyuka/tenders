@@ -70,21 +70,21 @@
                         <div class=" shadow-2xl">
                         <label for="email-address" class="block text-sm font-medium text-gray-700">Contact Name</label>
                         <div class="mt-1">
-                            <input v-model="form.userName" placeholder="Mark Massai" type="text" id="phone-number" name="phone-number"  class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <input v-model="form.userName" required placeholder="Mark Massai" type="text" id="phone-number" name="phone-number"  class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
                         </div>
 
                         <div class="mt-6 shadow-2xl">
                         <label for="email-address" class="block text-sm font-medium text-gray-700">Contact Phone</label>
                         <div class="mt-1">
-                            <input v-model="form.userPhone" placeholder="254 7XX XXX XXX" type="number" id="phone-number" name="phone-number"  class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <input v-model="form.userPhone" required placeholder="254 7XX XXX XXX" type="number" id="phone-number" name="phone-number"  class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
                         </div>
 
                         <div class="mt-6 shadow-2xl">
                         <label for="email-address" class="block text-sm font-medium text-gray-700">Contact Email</label>
                         <div class="mt-1">
-                            <input v-model="form.userEmail" placeholder="user@email.com" type="email" id="email-address" name="email-address" class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <input v-model="form.userEmail" required placeholder="user@email.com" type="email" id="email-address" name="email-address" class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
                         </div>
 
@@ -97,7 +97,7 @@
                         <div class="col-span-3 sm:col-span-4 shadow-2xl">
                             <label for="card-number" class="block text-sm font-medium text-gray-700">Mpesa / Payment Number</label>
                             <div class="mt-1">
-                                <input v-model="form.number" placeholder="254 7XX XXX XXX (Number to make the payment) " type="number" id="email-address" name="email-address" class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <input v-model="form.number" required placeholder="254 7XX XXX XXX (Number to make the payment) " type="number" id="email-address" name="email-address" class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             </div>
                         </div>
 
@@ -146,9 +146,11 @@
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
                 <div class="flex justify-end p-2">
-                    <button v-if="status=='Cancelled'" @click="paymentModal=false" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="popup-modal">
+                    <a v-if="status=='Cancelled'" :href="route('checkout', post._id)">
+                    <button  type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="popup-modal">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button>
+                    </a>
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 pt-0 text-center">
@@ -182,7 +184,7 @@
                     </button> -->
                     <!-- <a :href="route('confirmation', this.post._id)"> -->
                     <button @click="confirm" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                        Confirm Payment
+                        Tap at intervals to Confirm Payment
                     </button>
                     <!-- </a> -->
                 </div>
@@ -268,7 +270,7 @@ export default {
                 userName:'Software Saiba',
                 userPhone:'254722750445',
                 userEmail:'saibadeveloper@gmail.com',
-                number:'254716202298',
+                number:this.removeSpaces('254 716 202 298'),
                 account: 'Bidders Portal',
                 amount: this.post.price
                 // amount: ''
@@ -279,6 +281,15 @@ export default {
         }
     },
     methods:{
+        cancelTrans(){
+            this.paymentModal=false
+            this.$inertia.get('/checkout/', this.post._id)
+            // this.$inertia.delete(`/delete/${value}`)
+        },
+        removeSpaces(value){
+            let noSpace = value.replace(/\s/g, '');
+            return noSpace;
+        },
         confirm(){
             const paymentDetails = {
                 payment_number:this.form.number,
@@ -290,32 +301,31 @@ export default {
             return moment(value).format('MMMM Do YYYY')
         },
         stkPush(){
-            this.paymentModal=true
-            const requestBody = {
-               amount: '1',
-               account: 'Bidders Portal',
-               phone: this.form.number,
-               post: this.post._id,
-           }
-            axios.post('/checkout/stkPush', requestBody)
-            .then((response) => {
-                console.log(response)
+            // var str = '012123';
+            var strFirstThree = this.form.number.substring(0,3);
+            if(strFirstThree==254 && this.form.number.length==12){
+                this.paymentModal=true
+                const requestBody = {
+                   amount: '1',
+                   account: this.form.account,
+                   phone: this.removeSpaces(this.form.number),
+                   post: this.post._id,
+                   user_name: this.form.userName,
+                   user_phone: this.form.userPhone,
+                   user_email: this.form.userEmail
+               }
+            //    console.log(requestBody)
+                axios.post('/checkout/stkPush', requestBody)
+                .then((response) => {
+                    console.log(response)
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
 
-                // this.$inertia.get(this.post._id)
-                // if(response.data.ResponseDescription){
-                //     console.log(response.data.ResponseDescription)
-                //     // alert('done')
-                //     // document.getElementById('c2b_response').innerHTML = response.data.ResponseDescription
-                // } else {
-                //     console.log(response.data.ResponseDescription)
-                //     // alert('not done')
-                //     // document.getElementById('c2b_response').innerHTML = response.data.errorMessage
-                // }
-                // this.paymentLog = response.data
-            })
-            .catch((error) => {
-                console.log(error);
-            })
+            }else{
+                alert ('Your Number Format Should be 254 7XX XXX XXX')
+            }
 
         },
         simulate(){

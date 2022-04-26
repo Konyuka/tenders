@@ -16,12 +16,14 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             // $table->id();
             $table->bigIncrements('id');
-            // $table->bigInteger("user_id")->unsigned();
+            $table->string("user_name")->nullable();
             $table->string("trans_id");
-            // $table->string("phone")->nullable()->change();
-            $table->string("phone")->nullable();
             $table->string("amount");
+            $table->string("phone")->nullable();
+            $table->string("account")->nullable();
             $table->string("info")->nullable();
+            $table->string("user_phone")->nullable();
+            $table->string("user_email")->nullable();
             $table->boolean("completed")->default(false);
             $table->boolean("waiting")->default(true);
             $table->timestamps();

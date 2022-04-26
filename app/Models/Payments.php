@@ -10,7 +10,7 @@ class Payments extends Model
     use HasFactory;
     // protected $table = "allpayments";
 
-   protected $fillable = ['user_id','trans_id','phone','amount','info','completed'];
+   protected $fillable = [ 'user_name','trans_id','phone','amount','info','completed', 'waiting','account','user_phone', 'user_email'];
 
     protected $guarded=[];
     // protected $casts=[

@@ -125,60 +125,54 @@ class PaymentsController extends Controller
     public function triggerStk(Request $request)
     {
         //stk push here
-        $request->validate(['phone'=>'required'], ['amount'=>'required'], ['post'=>'required']);
+        // return  dd($request);
+
+        $request->validate(['phone'=>'required'],['amount'=>'required'],['user_name'=>'required'],['account'=>'required'],['user_phone'=>'required'],['user_email'=>'required'],['post'=>'required']);
 
         $phone=$request->phone;
         $amount=$request->amount;
+        $userName=$request->user_name;
+        $account=$request->account;
+        $userPhone=$request->user_phone;
+        $userEmail=$request->user_email;
         $post=$request->post;
-        // $phone="254716202298";
-        // $phone="254". substr($phone,1);
+
         $mpesa = new Mpesa();
         $BusinessShortCode=env('MPESA_STK_SHORTCODE');
         $LipaNaMpesaPasskey=env('MPESA_PASSKEY');
         $TransactionType="CustomerPayBillOnline";
         $Amount=$amount;
-        // $PartyA="254716202298";
-        $PartyA=$phone;//"254724806056";
+        $PartyA=$phone;
         $PartyB=env('MPESA_STK_SHORTCODE');
         $PhoneNumber=$phone;
-        // $CallBackURL="http://dairyapp1-env.na3uctjjui.us-east-2.elasticbeanstalk.com/confirm/ebook/payment";
         $CallBackURL=env('MPESA_TEST_URL'). '/api/stkpush';
+        // $CallBackURL="http://dairyapp1-env.na3uctjjui.us-east-2.elasticbeanstalk.com/confirm/ebook/payment";
         // $CallBackURL=env('MPESA_TEST_URL'). '/confirm/ebook/payment';
         $AccountReference="Bidders Portal";
-        $TransactionDesc="Bidders Portal";
+        $TransactionDesc="Bidders Portal Account";
         $Remarks="Bidders Portal Kenya";
 
         $stkPushSimulation=$mpesa->STKPushSimulation($BusinessShortCode, $LipaNaMpesaPasskey, $TransactionType, $Amount, $PartyA, $PartyB, $PhoneNumber, $CallBackURL, $AccountReference, $TransactionDesc, $Remarks);
         $stkPushSimulation=json_decode($stkPushSimulation);
-        // Log::info('Validation endpoint hit');
-        // Log::info($request->all());
-        // Log::info($stkPushSimulation->all());
-        // return dd($stkPushSimulation);
         $result_code =$stkPushSimulation->ResponseCode ?? null;
 
         if (isset($result_code) and $result_code=="0"){
             $trans_id =$stkPushSimulation->MerchantRequestID;
 
             Payments::create([
-            //   "user_id"=>auth()->user()->id,
+              "user_name"=>$userName,
               "trans_id"=>$trans_id,
-              "phone"=>$PhoneNumber,
               "amount"=>$Amount,
+              "phone"=>$PhoneNumber,
+              "account"=>$account,
               "info"=>$post,
+              "user_phone"=>$userPhone,
+              "user_email"=>$userEmail,
               "completed"=>false,
               "waiting"=> true,
-            //   "info"=>"ebook/".$request->ebook_id
             ]);
-            // $this->setTransaction($trans_id, $post);
-            // redirect()->action([HomeController::class, 'index']);
-            // return Redirect::route('checkout');
-            // return Inertia::render('Success', [
-            //     'Payment' => $trans_id,
-            // ]);
-            // return back()->with('success','Please complete transaction on your phone by entering your MPESA pin');
         }
 
-        // dd($stkPushSimulation);
         $error_msg = $stkPushSimulation->errorMessage ?? '';
         return back()->withInput()->with('failed','We could not complete this transaction please try again. ' .$error_msg);
 
