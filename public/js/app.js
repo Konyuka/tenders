@@ -7378,13 +7378,105 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
  // const { default: axios } = require('axios');
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Selected',
+  name: "Selected",
   props: {
     post: Object,
     status: String,
@@ -7413,7 +7505,7 @@ __webpack_require__.r(__webpack_exports__);
     daysDiff: function daysDiff() {
       // var given = moment("2018-03-10", "YYYY-MM-DD");
       var given = moment(this.post.created_at, "YYYY-MM-DD");
-      var current = moment().startOf('day'); //Difference in number of days
+      var current = moment().startOf("day"); //Difference in number of days
 
       var diff = moment.duration(current.diff(given)).asDays();
       return diff;
@@ -7465,29 +7557,29 @@ __webpack_require__.r(__webpack_exports__);
       //     console.error(error);
       // });
       var options = {
-        method: 'GET',
-        url: 'https://apilayer-pdflayer-v1.p.rapidapi.com/convert',
+        method: "GET",
+        url: "http://api.pdflayer.com/api/convert",
         params: {
-          // access_key: '0c58134ab4mshf9a64341905dbb3p182debjsn3758bcdbaa52',
-          document_url: 'https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//42022/20/b44c2a06-050c-400f-bd08-9993ff9f6461/b44c2a06-050c-400f-bd08-9993ff9f6461.html',
-          document_name: 'pdflayer.pdf',
-          custom_unit: 'px',
-          accept_lang: 'en-US',
-          text_encoding: 'utf-8',
-          page_size: 'A4',
-          orientation: 'portrait',
-          viewport: '1440x900',
-          watermark_opacity: '20',
-          creator: 'pdflayer.com',
-          header_align: 'center',
-          footer_align: 'center',
-          ttl: '2592000',
-          dpi: '96'
-        },
-        headers: {
-          'X-RapidAPI-Host': 'apilayer-pdflayer-v1.p.rapidapi.com',
-          'X-RapidAPI-Key': '0c58134ab4mshf9a64341905dbb3p182debjsn3758bcdbaa52'
-        }
+          access_key: "0b4a11743f3ea2e4a3c778274118d949",
+          document_url: "https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//42022/20/b44c2a06-050c-400f-bd08-9993ff9f6461/b44c2a06-050c-400f-bd08-9993ff9f6461.html",
+          document_name: "pdflayer.pdf",
+          custom_unit: "px",
+          accept_lang: "en-US",
+          text_encoding: "utf-8",
+          page_size: "A4",
+          orientation: "portrait",
+          viewport: "1440x900",
+          watermark_opacity: "20",
+          creator: "pdflayer.com",
+          header_align: "center",
+          footer_align: "center",
+          ttl: "2592000",
+          dpi: "96"
+        } // headers: {
+        //     'X-RapidAPI-Host': 'apilayer-pdflayer-v1.p.rapidapi.com',
+        //     'X-RapidAPI-Key': '0b4a11743f3ea2e4a3c778274118d949'
+        // }
+
       };
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.request(options).then(function (response) {
         console.log(response.data);
@@ -7510,7 +7602,7 @@ __webpack_require__.r(__webpack_exports__);
       // });
     },
     formatDate: function formatDate(value) {
-      return moment(value).format('MMMM Do YYYY');
+      return moment(value).format("MMMM Do YYYY");
     },
     clearFilters: function clearFilters() {},
     loadFilters: function loadFilters() {}
@@ -60722,7 +60814,13 @@ var render = function() {
                               staticClass:
                                 "text-indigo-500 text-md title-font font-bold my-2"
                             },
-                            [_vm._v(_vm._s(_vm.post.purchasing_authority))]
+                            [
+                              _vm._v(
+                                "\n                                " +
+                                  _vm._s(_vm.post.purchasing_authority) +
+                                  "\n                            "
+                              )
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
@@ -60731,7 +60829,13 @@ var render = function() {
                               staticClass:
                                 "text-gray-900 text-xs title-font font-bold my-4"
                             },
-                            [_vm._v(_vm._s(_vm.post.tender_brief))]
+                            [
+                              _vm._v(
+                                "\n                                " +
+                                  _vm._s(_vm.post.tender_brief) +
+                                  "\n                            "
+                              )
+                            ]
                           ),
                           _vm._v(" "),
                           _vm._m(0),
@@ -60739,7 +60843,13 @@ var render = function() {
                           _c(
                             "p",
                             { staticClass: "leading-relaxed mb-4 text-sm" },
-                            [_vm._v(_vm._s(_vm.post.work_detail))]
+                            [
+                              _vm._v(
+                                "\n                                " +
+                                  _vm._s(_vm.post.work_detail) +
+                                  "\n                            "
+                              )
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
@@ -60761,9 +60871,9 @@ var render = function() {
                                     { staticClass: "ml-auto text-gray-900" },
                                     [
                                       _vm._v(
-                                        "\n                      " +
+                                        "\n                                        " +
                                           _vm._s(_vm.post.tender_number) +
-                                          "\n                      "
+                                          "\n                                        "
                                       )
                                     ]
                                   )
@@ -60791,9 +60901,9 @@ var render = function() {
                                     { staticClass: "ml-auto text-gray-900" },
                                     [
                                       _vm._v(
-                                        "\n                      " +
+                                        "\n                                        " +
                                           _vm._s(_vm.post.competition_type) +
-                                          "\n                      "
+                                          "\n                                        "
                                       )
                                     ]
                                   )
@@ -60817,9 +60927,9 @@ var render = function() {
                                 { staticClass: "ml-auto text-gray-900" },
                                 [
                                   _vm._v(
-                                    "\n                  " +
+                                    "\n                                    " +
                                       _vm._s(_vm.post.funded_by) +
-                                      "\n                  "
+                                      "\n                                    "
                                   )
                                 ]
                               )
@@ -60844,9 +60954,9 @@ var render = function() {
                                 { staticClass: "ml-auto text-gray-900" },
                                 [
                                   _vm._v(
-                                    "\n                  " +
+                                    "\n                                    " +
                                       _vm._s(_vm.post.phone) +
-                                      "\n              "
+                                      "\n                                "
                                   )
                                 ]
                               )
@@ -60869,9 +60979,9 @@ var render = function() {
                                 { staticClass: "ml-auto text-gray-900" },
                                 [
                                   _vm._v(
-                                    "\n                  " +
+                                    "\n                                    " +
                                       _vm._s(_vm.post.email) +
-                                      "\n              "
+                                      "\n                                "
                                   )
                                 ]
                               )
@@ -60894,9 +61004,9 @@ var render = function() {
                                 { staticClass: "ml-auto text-gray-900" },
                                 [
                                   _vm._v(
-                                    "\n                  " +
+                                    "\n                                    " +
                                       _vm._s(_vm.post.address) +
-                                      "\n              "
+                                      "\n                                "
                                   )
                                 ]
                               )
@@ -60911,7 +61021,9 @@ var render = function() {
                             },
                             [
                               _c("span", { staticClass: "text-gray-500" }, [
-                                _vm._v("Date Posted\n                  "),
+                                _vm._v(
+                                  "Date Posted\n                                    "
+                                ),
                                 _c(
                                   "span",
                                   {
@@ -60941,9 +61053,9 @@ var render = function() {
                                       ]
                                     ),
                                     _vm._v(
-                                      "\n                  " +
+                                      "\n                                        " +
                                         _vm._s(_vm.ago) +
-                                        "\n                  "
+                                        "\n                                    "
                                     )
                                   ]
                                 )
@@ -60969,7 +61081,9 @@ var render = function() {
                             },
                             [
                               _c("span", { staticClass: "text-gray-500" }, [
-                                _vm._v("Expiry Date\n                  "),
+                                _vm._v(
+                                  "Expiry Date\n                                    "
+                                ),
                                 _c(
                                   "span",
                                   {
@@ -60999,9 +61113,9 @@ var render = function() {
                                       ]
                                     ),
                                     _vm._v(
-                                      "\n                  " +
+                                      "\n                                        " +
                                         _vm._s(_vm.togo) +
-                                        " to go\n                  "
+                                        " to go\n                                    "
                                     )
                                   ]
                                 )
@@ -61049,7 +61163,11 @@ var render = function() {
                                     staticClass:
                                       "flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-700 rounded"
                                   },
-                                  [_vm._v("Download Tender Documents")]
+                                  [
+                                    _vm._v(
+                                      "\n                                        Download Tender Documents\n                                    "
+                                    )
+                                  ]
                                 )
                               ]
                             )
@@ -61113,7 +61231,7 @@ var render = function() {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                          Tap to Unlock Tender Details\n                      "
+                                      "\n                                Tap to Unlock Tender Details\n                            "
                                     )
                                   ]
                                 )
@@ -61165,7 +61283,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("span", { staticClass: "ml-auto text-gray-900" }, [
           _vm._v(
-            "\n                  Detail in Tender Document\n                  "
+            "\n                                    Detail in Tender Document\n                                    "
           )
         ])
       ]
@@ -61184,7 +61302,11 @@ var staticRenderFns = [
           staticClass:
             "mb-5 text-2xl font-extrabold text-green-500 dark:text-gray-400 italic"
         },
-        [_vm._v("Thank you! Purchase Confirmed")]
+        [
+          _vm._v(
+            "\n                            Thank you! Purchase Confirmed\n                        "
+          )
+        ]
       )
     ])
   }
