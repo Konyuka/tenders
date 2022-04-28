@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Post;
 use Safaricom\Mpesa\Mpesa;
+use App\Models\Payments;
 
 
 class LandingController extends Controller
@@ -32,13 +33,55 @@ class LandingController extends Controller
 
     public function unlock($slug)
     {
-        return dd($slug);
-        
-        return Inertia::render('Selected', [
+        // return dd($slug);
+        $payment = Payments::where('trans_id', '=', $slug)
+                    ->where('completed', '=', true)
+                    ->where('waiting', '=', false)
+                    ->first();
 
-           'post' => Post::where('_id', '=', $slug)->first(),
-           'Status' => ''
+        return Inertia::render('Unlocked', [
+           'post' => Post::where('_id', '=', $payment->info)->first(),
+           'status' => 'Unlocked',
+           'transId' => $slug
        ]);
+    }
+
+    public function downloadTender()
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, [
+            CURLOPT_URL => "https://docraptor-html-to-pdf.p.rapidapi.com/",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "{\r
+            \"document_url\": \"https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//42022/20/b44c2a06-050c-400f-bd08-9993ff9f6461/b44c2a06-050c-400f-bd08-9993ff9f6461.html\",\r
+            \"test\": true,\r
+            \"type\": \"pdf\"\r
+        }",
+            CURLOPT_HTTPHEADER => [
+                "Authorization: Basic c2FpYmE6cGFzc3dvcmQ=",
+                "X-RapidAPI-Host: docraptor-html-to-pdf.p.rapidapi.com",
+                "X-RapidAPI-Key: 2893fa780amsh6150f5b78478d20p1d190ajsncf93ff564fa8",
+                "content-type: application/json"
+            ],
+        ]);
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            echo $response;
+        }
     }
 
     public function listing()

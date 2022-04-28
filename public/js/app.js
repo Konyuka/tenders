@@ -3303,6 +3303,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -3317,7 +3318,8 @@ var app = document.getElementById('app');
     UsersPage: _Pages_Components_Dashboard_UsersPage_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   props: {
-    allPosts: Array // initialPage: JSON.parse(app.dataset.page),
+    allPosts: Array // payments: Array
+    // initialPage: JSON.parse(app.dataset.page),
 
   },
   mounted: function mounted() {
@@ -3327,6 +3329,9 @@ var app = document.getElementById('app');
   computed: {
     posts: function posts() {
       return this.pageData.props.allPosts;
+    },
+    payments: function payments() {
+      return this.pageData.props.payments;
     }
   },
   data: function data() {
@@ -3964,8 +3969,8 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
         userName: 'Software Saiba',
         userPhone: '254722750445',
         userEmail: 'saibadeveloper@gmail.com',
-        number: this.removeSpaces('254 716 202 298'),
-        account: 'Bidders Portal',
+        number: this.removeSpaces('254716202298'),
+        account: 'Hacked By Beat Crime',
         amount: this.post.price // amount: ''
         // account: this.form.userName,
 
@@ -4302,23 +4307,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "component",
+  name: "PaymentPage",
   data: function data() {
     return {
       show: null
     };
   },
-  methods: {},
+  methods: {
+    tenderNumber: function tenderNumber(value) {
+      // return alert(value)
+      var postArray = this.$parent.posts;
+      var post = postArray.find(function (post) {
+        return post._id === value;
+      }); // return alert(post._id)
+
+      return post.tender_number;
+    },
+    formatDate: function formatDate(value) {
+      return moment(value).format("MMMM Do YYYY");
+    }
+  },
   mounted: function mounted() {}
 });
 
@@ -4386,36 +4395,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -7071,6 +7050,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -7223,6 +7208,310 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    clearFilters: function clearFilters() {},
+    loadFilters: function loadFilters() {}
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Unlocked.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Unlocked.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
+/* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
+/* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+ // const { default: axios } = require('axios');
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Selected',
+  props: {
+    post: Object,
+    status: String,
+    transId: String
+  },
+  components: {
+    TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  watch: {},
+  mounted: function mounted() {
+    console.log(this.post.created_at);
+    console.log(this.post.expiry);
+  },
+  computed: {
+    amount: function amount() {
+      if (this.daysDiff <= 7) {
+        return 100;
+      } else if (this.daysDiff >= 8 && this.daysDiff <= 14) {
+        return 75;
+      } else {
+        return 50;
+      }
+    },
+    daysDiff: function daysDiff() {
+      // var given = moment("2018-03-10", "YYYY-MM-DD");
+      var given = moment(this.post.created_at, "YYYY-MM-DD");
+      var current = moment().startOf('day'); //Difference in number of days
+
+      var diff = moment.duration(current.diff(given)).asDays();
+      return diff;
+    },
+    ago: function ago() {
+      return moment(this.post.created_at).fromNow();
+    },
+    togo: function togo() {
+      return moment(this.post.expiry).fromNow(true);
+    }
+  },
+  data: function data() {
+    return {
+      modal: false
+    };
+  },
+  methods: {
+    downloadTender: function downloadTender() {
+      // SejdaJsApi.htmlToPdf({
+      //     filename: 'out.pdf',
+      //     /* leave blank for one long page */
+      //     pageSize: 'a4',
+      //     publishableKey: 'api_public_y0urap1k3yh3r3',
+      //     htmlCode: document.querySelector('html').innerHTML,
+      //     url: 'https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//42022/26/997ab415-1d40-4d47-9c4c-328545d189ac/997ab415-1d40-4d47-9c4c-328545d189ac.html',
+      //     always: function() {
+      //         alert('Started')
+      //     // PDF download should have started
+      //     },
+      //     error: function(err) {
+      //     console.error(err);
+      //     alert('An error occurred');
+      //     }
+      // });
+      // const options = {
+      // method: 'POST',
+      // url: 'https://docraptor-html-to-pdf.p.rapidapi.com/',
+      // headers: {
+      //     'content-type': 'application/json',
+      //     Authorization: '0c58134ab4mshf9a64341905dbb3p182debjsn3758bcdbaa52',
+      //     'X-RapidAPI-Host': 'docraptor-html-to-pdf.p.rapidapi.com',
+      //     'X-RapidAPI-Key': '0c58134ab4mshf9a64341905dbb3p182debjsn3758bcdbaa52'
+      // },
+      // data: '{"document_url":"https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//42022/20/b44c2a06-050c-400f-bd08-9993ff9f6461/b44c2a06-050c-400f-bd08-9993ff9f6461.html","test":true,"type":"pdf"}'
+      // };
+      // axios.request(options).then(function (response) {
+      //     console.log(response.data);
+      // }).catch(function (error) {
+      //     console.error(error);
+      // });
+      var options = {
+        method: 'GET',
+        url: 'https://apilayer-pdflayer-v1.p.rapidapi.com/convert',
+        params: {
+          // access_key: '0c58134ab4mshf9a64341905dbb3p182debjsn3758bcdbaa52',
+          document_url: 'https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//42022/20/b44c2a06-050c-400f-bd08-9993ff9f6461/b44c2a06-050c-400f-bd08-9993ff9f6461.html',
+          document_name: 'pdflayer.pdf',
+          custom_unit: 'px',
+          accept_lang: 'en-US',
+          text_encoding: 'utf-8',
+          page_size: 'A4',
+          orientation: 'portrait',
+          viewport: '1440x900',
+          watermark_opacity: '20',
+          creator: 'pdflayer.com',
+          header_align: 'center',
+          footer_align: 'center',
+          ttl: '2592000',
+          dpi: '96'
+        },
+        headers: {
+          'X-RapidAPI-Host': 'apilayer-pdflayer-v1.p.rapidapi.com',
+          'X-RapidAPI-Key': '0c58134ab4mshf9a64341905dbb3p182debjsn3758bcdbaa52'
+        }
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.request(options).then(function (response) {
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.error(error);
+      }); // const options = {
+      // method: 'POST',
+      // url: 'https://api2pdf-api2pdf-v1.p.rapidapi.com/wkhtmltopdf/html',
+      // headers: {
+      //     'content-type': 'application/json',
+      //     'X-RapidAPI-Host': 'api2pdf-api2pdf-v1.p.rapidapi.com',
+      //     'X-RapidAPI-Key': '0c58134ab4mshf9a64341905dbb3p182debjsn3758bcdbaa52'
+      // },
+      // data: '{"html":"<p>Hello World</p>","inlinePdf":true,"fileName":"wkhtmltopdf-html-to-pdf.pdf","options":{"orientation":"portrait","pageSize":"A4"}}'
+      // };
+      // axios.request(options).then(function (response) {
+      //     console.log(response.data);
+      // }).catch(function (error) {
+      //     console.error(error);
+      // });
+    },
+    formatDate: function formatDate(value) {
+      return moment(value).format('MMMM Do YYYY');
+    },
     clearFilters: function clearFilters() {},
     loadFilters: function loadFilters() {}
   }
@@ -53183,7 +53472,7 @@ var render = function() {
                       })
                     ]
                   ),
-                  _vm._v("\n                Dashboard\n            ")
+                  _vm._v("\n                    Dashboard\n                ")
                 ]
               )
             ]),
@@ -53297,30 +53586,10 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "w-full lg:w-2/3 flex flex-col lg:flex-row items-start lg:items-center justify-end"
-              },
-              [
-                _c("div", { staticClass: "lg:ml-6 flex items-center" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "bg-indigo-600 transition duration-150 ease-in-out focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-white px-5 h-8 flex items-center text-sm",
-                      on: {
-                        click: function($event) {
-                          _vm.addModal = true
-                        }
-                      }
-                    },
-                    [_vm._v("Add Tender")]
-                  )
-                ])
-              ]
-            )
+            _c("div", {
+              staticClass:
+                "w-full lg:w-2/3 flex flex-col lg:flex-row items-start lg:items-center justify-end"
+            })
           ]
         ),
         _vm._v(" "),
@@ -53364,7 +53633,11 @@ var render = function() {
                                   staticClass:
                                     "absolute top-0 right-0 w-5 h-5 mr-2 -mt-1 rounded-full bg-indigo-700 text-white flex justify-center items-center text-xs"
                                 },
-                                [_vm._v("3")]
+                                [
+                                  _vm._v(
+                                    "\n                                    3\n                                "
+                                  )
+                                ]
                               ),
                               _vm._v(" "),
                               _c(
@@ -53415,7 +53688,11 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Amount Paid")]
+                        [
+                          _vm._v(
+                            "\n                            Payment Amount\n                        "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -53424,7 +53701,11 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Tender ID")]
+                        [
+                          _vm._v(
+                            "\n                            Tender Number\n                        "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -53433,7 +53714,11 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Tender Heading")]
+                        [
+                          _vm._v(
+                            "\n                            Payment By\n                        "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -53442,7 +53727,11 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Paid By")]
+                        [
+                          _vm._v(
+                            "\n                            Payment Number\n                        "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -53451,7 +53740,11 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Tender Value")]
+                        [
+                          _vm._v(
+                            "\n                            Contact Number\n                        "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -53460,7 +53753,11 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Posted Date")]
+                        [
+                          _vm._v(
+                            "\n                            Contact Email\n                        "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -53469,16 +53766,11 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Expiry Date")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticClass:
-                            "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
-                        },
-                        [_vm._v("Payment Time")]
+                        [
+                          _vm._v(
+                            "\n                            Payment Time\n                        "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -53487,147 +53779,154 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-8 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Actions")]
+                        [
+                          _vm._v(
+                            "\n                            Actions\n                        "
+                          )
+                        ]
                       )
                     ]
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(0)
-              ]
-            )
-          ]
-        )
-      ]
-    ),
-    _vm._v(" "),
-    _vm.addModal
-      ? _c(
-          "div",
-          {
-            staticClass:
-              "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
-            attrs: { id: "defaultModal", tabindex: "-1", "aria-hidden": "true" }
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "relative p-4 w-full max-w-5xl h-full md:h-auto" },
-              [
                 _c(
-                  "div",
-                  {
-                    staticClass:
-                      "relative bg-gray-50 rounded-lg shadow-2xl dark:bg-gray-700"
-                  },
-                  [
-                    _c(
-                      "div",
+                  "tbody",
+                  {},
+                  _vm._l(this.$parent.payments, function(payment) {
+                    return _c(
+                      "tr",
                       {
-                        staticClass:
-                          "flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600"
+                        key: payment.trans_id,
+                        staticClass: "h-24 border-gray-300 border-b"
                       },
                       [
+                        _c("td", {
+                          staticClass:
+                            "pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+                        }),
+                        _vm._v(" "),
+                        _vm._m(0, true),
+                        _vm._v(" "),
                         _c(
-                          "h3",
+                          "td",
                           {
                             staticClass:
-                              "text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white"
+                              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
                           },
                           [
                             _vm._v(
-                              "\n                    Add Tender\n                "
+                              "\n                            KES\n                            "
+                            ),
+                            _c(
+                              "span",
+                              { staticClass: "font-bold text-green-600" },
+                              [_vm._v(_vm._s(payment.amount))]
                             )
                           ]
                         ),
                         _vm._v(" "),
                         _c(
-                          "button",
+                          "td",
                           {
                             staticClass:
-                              "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white",
-                            attrs: {
-                              type: "button",
-                              "data-modal-toggle": "defaultModal"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.addModal = false
-                              }
-                            }
+                              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
                           },
                           [
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "w-5 h-5",
-                                attrs: {
-                                  fill: "currentColor",
-                                  viewBox: "0 0 20 20",
-                                  xmlns: "http://www.w3.org/2000/svg"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    "fill-rule": "evenodd",
-                                    d:
-                                      "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
-                                    "clip-rule": "evenodd"
-                                  }
-                                })
-                              ]
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(_vm.tenderNumber(payment.info)) +
+                                "\n                        "
                             )
                           ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
-                            attrs: {
-                              "data-modal-toggle": "defaultModal",
-                              type: "button"
-                            },
-                            on: { click: _vm.loadFilters }
-                          },
-                          [_vm._v("Add Tender")]
                         ),
                         _vm._v(" "),
                         _c(
-                          "button",
+                          "td",
                           {
                             staticClass:
-                              "text-white bg-orange-400 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-300 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600",
-                            attrs: {
-                              "data-modal-toggle": "defaultModal",
-                              type: "button"
-                            },
-                            on: { click: _vm.clearFilters }
+                              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
                           },
-                          [_vm._v("Archive Tender")]
-                        )
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(payment.user_name) +
+                                "\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass:
+                              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+                          },
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(payment.phone) +
+                                "\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass:
+                              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+                          },
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(payment.user_phone) +
+                                "\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass:
+                              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+                          },
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(payment.user_email) +
+                                "\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass:
+                              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+                          },
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(_vm.formatDate(payment.created_at)) +
+                                "\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(1, true)
                       ]
                     )
-                  ]
+                  }),
+                  0
                 )
               ]
             )
           ]
         )
-      : _vm._e()
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -53635,328 +53934,33 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tbody", {}, [
-      _c("tr", { staticClass: "h-24 border-gray-300 border-b" }, [
-        _c("td", {
-          staticClass:
-            "pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-        }),
-        _vm._v(" "),
+    return _c(
+      "td",
+      {
+        staticClass:
+          "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+      },
+      [
         _c(
-          "td",
-          {
-            staticClass:
-              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "relative w-10 text-gray-600 dark:text-gray-400" },
-              [_c("i", { staticClass: "fas fa-caret-right" })]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "td",
-          {
-            staticClass:
-              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-          },
-          [
-            _vm._v("KES "),
-            _c("span", { staticClass: "font-bold text-green-600" }, [
-              _vm._v("100")
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "td",
-          {
-            staticClass:
-              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-          },
-          [_vm._v("#MC10023")]
-        ),
-        _vm._v(" "),
-        _c(
-          "td",
-          {
-            staticClass:
-              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-          },
-          [_vm._v("Toyota Motors Tender")]
-        ),
-        _vm._v(" "),
-        _c("td", { staticClass: "pr-6 whitespace-no-wrap" }, [
-          _c("div", { staticClass: "flex items-center" }, [
-            _c(
-              "p",
-              {
-                staticClass:
-                  "ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm"
-              },
-              [_vm._v("Toyota")]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "td",
-          {
-            staticClass:
-              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-          },
-          [_vm._v("$2,500")]
-        ),
-        _vm._v(" "),
-        _c(
-          "td",
-          {
-            staticClass:
-              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-          },
-          [_vm._v("02.03.20")]
-        ),
-        _vm._v(" "),
-        _c(
-          "td",
-          {
-            staticClass:
-              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-          },
-          [_vm._v("02.03.20")]
-        ),
-        _vm._v(" "),
-        _c(
-          "td",
-          {
-            staticClass:
-              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-          },
-          [_vm._v("02.03.20 17:30")]
-        ),
-        _vm._v(" "),
-        _c("td", { staticClass: "pr-8 relative" }, [
-          _c(
-            "button",
-            {
-              staticClass:
-                "mx-4 text-indigo-600 hover:text-indigo-400 rounded cursor-pointer border border-transparent focus:outline-none"
-            },
-            [_c("i", { staticClass: "fas fa-eye" })]
-          )
-        ])
-      ])
-    ])
+          "div",
+          { staticClass: "relative w-10 text-gray-600 dark:text-gray-400" },
+          [_c("i", { staticClass: "fas fa-caret-right" })]
+        )
+      ]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-2 space-y-6" }, [
+    return _c("td", { staticClass: "pr-8 relative" }, [
       _c(
-        "section",
+        "button",
         {
           staticClass:
-            "max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800"
+            "mx-4 text-indigo-600 hover:text-indigo-400 rounded cursor-pointer border border-transparent focus:outline-none"
         },
-        [
-          _c(
-            "div",
-            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1" },
-            [
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "username" }
-                  },
-                  [_vm._v("Tender Brief")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass:
-                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                  attrs: { id: "username", type: "text" }
-                })
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1" },
-            [
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "username" }
-                  },
-                  [_vm._v("Tender Funded By")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass:
-                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                  attrs: { id: "username", type: "text" }
-                })
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3" },
-            [
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "username" }
-                  },
-                  [_vm._v("Tender ID")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass:
-                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                  attrs: { id: "username", type: "text" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "emailAddress" }
-                  },
-                  [_vm._v("Tender Value (USD)")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass:
-                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                  attrs: { id: "emailAddress", type: "text" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "emailAddress" }
-                  },
-                  [_vm._v("Tender Country")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass:
-                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                  attrs: { id: "emailAddress", type: "text" }
-                })
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-3" },
-            [
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "username" }
-                  },
-                  [_vm._v("Bid Price (KSH)")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass:
-                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                  attrs: { id: "username", type: "text" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "username" }
-                  },
-                  [_vm._v("Competition Type")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass:
-                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                  attrs: { id: "username", type: "text" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "emailAddress" }
-                  },
-                  [_vm._v("Expiry Date")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass:
-                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                  attrs: { id: "emailAddress", type: "text" }
-                })
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2" },
-            [
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass:
-                      "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300",
-                    attrs: { for: "user_avatar" }
-                  },
-                  [_vm._v("Upload Tender Files")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass:
-                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                  attrs: { id: "username", type: "file" }
-                }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "mt-1 text-sm text-gray-500 dark:text-gray-300",
-                    attrs: { id: "user_avatar_help" }
-                  },
-                  [_vm._v("PDF / JPEG / PNG / Excel / Doc")]
-                )
-              ])
-            ]
-          )
-        ]
+        [_c("i", { staticClass: "fas fa-eye" })]
       )
     ])
   }
@@ -60037,19 +60041,10 @@ var render = function() {
                                 "span",
                                 { staticClass: "ml-auto text-gray-900" },
                                 [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass:
-                                        "bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
-                                      attrs: {
-                                        href: _vm.route(
-                                          "checkout",
-                                          _vm.post._id
-                                        )
-                                      }
-                                    },
-                                    [_vm._v("Purchase Tender to view")]
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(_vm.post.funded_by) +
+                                      "\n                  "
                                   )
                                 ]
                               )
@@ -60345,6 +60340,8 @@ var render = function() {
                           "relative bg-white rounded-lg shadow dark:bg-gray-700"
                       },
                       [
+                        _c("div", { staticClass: "flex justify-end p-5" }),
+                        _vm._v(" "),
                         _vm._m(1),
                         _vm._v(" "),
                         _c(
@@ -60413,8 +60410,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-4 pt-0 text-center" }, [
-      _c("i", { staticClass: "fas fa-check fa-2xl mb-10" }),
+    return _c("div", { staticClass: "p-4 pt-0 text-center mt-5" }, [
+      _c("i", { staticClass: "fas fa-coins fa-2xl mb-10 text-green-500" }),
       _vm._v(" "),
       _c(
         "h3",
@@ -60657,6 +60654,537 @@ var staticRenderFns = [
         "h2",
         { staticClass: "text-gray-900 text-lg title-font font-medium" },
         [_vm._v("Landing Page")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Unlocked.vue?vue&type=template&id=49726fe8&":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Unlocked.vue?vue&type=template&id=49726fe8& ***!
+  \******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "h-auto" }, [
+    _c(
+      "div",
+      { staticClass: "overflow-y-hidden antialiased" },
+      [
+        _c(
+          "div",
+          { staticClass: "flex flex-col" },
+          [
+            _c("MainMenu", { staticClass: "sticky top-0 z-50" }),
+            _vm._v(" "),
+            _c(
+              "section",
+              { staticClass: "text-gray-600 body-font overflow-hidden" },
+              [
+                _c("div", { staticClass: "container px-5 py-10 mx-auto" }, [
+                  _c(
+                    "div",
+                    { staticClass: "lg:w-4/5 mx-auto flex flex-wrap" },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "w-full h-full lg:pr-10 lg:py-6 mb-6 lg:mb-0"
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "text-sm title-font text-gray-500 tracking-widest",
+                              attrs: { href: "#" }
+                            },
+                            [_vm._v("Tender Category")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "h1",
+                            {
+                              staticClass:
+                                "text-indigo-500 text-md title-font font-bold my-2"
+                            },
+                            [_vm._v(_vm._s(_vm.post.purchasing_authority))]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "h1",
+                            {
+                              staticClass:
+                                "text-gray-900 text-xs title-font font-bold my-4"
+                            },
+                            [_vm._v(_vm._s(_vm.post.tender_brief))]
+                          ),
+                          _vm._v(" "),
+                          _vm._m(0),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            { staticClass: "leading-relaxed mb-4 text-sm" },
+                            [_vm._v(_vm._s(_vm.post.work_detail))]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "flex border-t border-gray-200 py-2"
+                            },
+                            [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("Tender Number")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-auto text-gray-900" },
+                                [
+                                  _c(
+                                    "span",
+                                    { staticClass: "ml-auto text-gray-900" },
+                                    [
+                                      _vm._v(
+                                        "\n                      " +
+                                          _vm._s(_vm.post.tender_number) +
+                                          "\n                      "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "flex border-t border-gray-200 py-2"
+                            },
+                            [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("Competition Type")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-auto text-gray-900" },
+                                [
+                                  _c(
+                                    "span",
+                                    { staticClass: "ml-auto text-gray-900" },
+                                    [
+                                      _vm._v(
+                                        "\n                      " +
+                                          _vm._s(_vm.post.competition_type) +
+                                          "\n                      "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "flex border-t border-gray-200 py-2"
+                            },
+                            [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("Funded By")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-auto text-gray-900" },
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(_vm.post.funded_by) +
+                                      "\n                  "
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm._m(1),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex border-t mb-6 border-gray-200 py-2"
+                            },
+                            [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("Contact Phone")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-auto text-gray-900" },
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(_vm.post.phone) +
+                                      "\n              "
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex border-t  mb-6 border-gray-200 py-2"
+                            },
+                            [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("Contact Email")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-auto text-gray-900" },
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(_vm.post.email) +
+                                      "\n              "
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex border-t  mb-6 border-gray-200 py-2"
+                            },
+                            [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("Contact Address")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-auto text-gray-900" },
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(_vm.post.address) +
+                                      "\n              "
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex border-t  mb-6 border-gray-200 py-2"
+                            },
+                            [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("Date Posted\n                  "),
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass:
+                                      "bg-green-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
+                                  },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "mr-1 w-3 h-3",
+                                        attrs: {
+                                          fill: "currentColor",
+                                          viewBox: "0 0 20 20",
+                                          xmlns: "http://www.w3.org/2000/svg"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "fill-rule": "evenodd",
+                                            d:
+                                              "M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z",
+                                            "clip-rule": "evenodd"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(
+                                      "\n                  " +
+                                        _vm._s(_vm.ago) +
+                                        "\n                  "
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-auto text-gray-900" },
+                                [
+                                  _vm._v(
+                                    _vm._s(_vm.formatDate(_vm.post.created_at))
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex border-t  mb-6 border-gray-200 py-2"
+                            },
+                            [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("Expiry Date\n                  "),
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass:
+                                      "bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
+                                  },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "mr-1 w-3 h-3",
+                                        attrs: {
+                                          fill: "currentColor",
+                                          viewBox: "0 0 20 20",
+                                          xmlns: "http://www.w3.org/2000/svg"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "fill-rule": "evenodd",
+                                            d:
+                                              "M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z",
+                                            "clip-rule": "evenodd"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(
+                                      "\n                  " +
+                                        _vm._s(_vm.togo) +
+                                        " to go\n                  "
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-auto text-gray-900" },
+                                [
+                                  _vm._v(
+                                    _vm._s(_vm.formatDate(_vm.post.expiry))
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex border-t  mb-6 border-gray-200 py-2"
+                            },
+                            [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("Country")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-auto text-gray-900" },
+                                [_vm._v(_vm._s(_vm.post.country))]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "flex" }, [
+                            _c(
+                              "a",
+                              { attrs: { href: _vm.route("download_tender") } },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-700 rounded"
+                                  },
+                                  [_vm._v("Download Tender Documents")]
+                                )
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _vm.status == "Success"
+          ? _c(
+              "div",
+              {
+                staticClass:
+                  "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
+                attrs: { id: "popup-modal", tabindex: "-1" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "relative p-4 w-full max-w-md h-full md:h-auto"
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "relative bg-white rounded-lg shadow dark:bg-gray-700"
+                      },
+                      [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "p-4 pt-0 text-center mt-5" },
+                          [
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href: _vm.route("unlock", this.transId)
+                                }
+                              },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-lg inline-flex items-center px-5 py-2.5 text-center mr-2",
+                                    attrs: {
+                                      "data-modal-toggle": "popup-modal",
+                                      type: "button"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                          Tap to Unlock Tender Details\n                      "
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c("MainFooter")
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex mb-4" }, [
+      _c(
+        "a",
+        {
+          staticClass:
+            "flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1"
+        },
+        [_vm._v("Description")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "flex border-t  mb-6 border-gray-200 py-2" },
+      [
+        _c("span", { staticClass: "text-gray-500" }, [
+          _vm._v("Tender Value in USD")
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "ml-auto text-gray-900" }, [
+          _vm._v(
+            "\n                  Detail in Tender Document\n                  "
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-4 pt-0 text-center" }, [
+      _c("i", { staticClass: "fas fa-check fa-2xl mb-10" }),
+      _vm._v(" "),
+      _c(
+        "h3",
+        {
+          staticClass:
+            "mb-5 text-2xl font-extrabold text-green-500 dark:text-gray-400 italic"
+        },
+        [_vm._v("Thank you! Purchase Confirmed")]
       )
     ])
   }
@@ -74497,7 +75025,9 @@ var map = {
 	"./Selected": "./resources/js/Pages/Selected.vue",
 	"./Selected.vue": "./resources/js/Pages/Selected.vue",
 	"./Success": "./resources/js/Pages/Success.vue",
-	"./Success.vue": "./resources/js/Pages/Success.vue"
+	"./Success.vue": "./resources/js/Pages/Success.vue",
+	"./Unlocked": "./resources/js/Pages/Unlocked.vue",
+	"./Unlocked.vue": "./resources/js/Pages/Unlocked.vue"
 };
 
 
@@ -76535,6 +77065,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Success_vue_vue_type_template_id_c83c422c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Success_vue_vue_type_template_id_c83c422c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Unlocked.vue":
+/*!*****************************************!*\
+  !*** ./resources/js/Pages/Unlocked.vue ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Unlocked_vue_vue_type_template_id_49726fe8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Unlocked.vue?vue&type=template&id=49726fe8& */ "./resources/js/Pages/Unlocked.vue?vue&type=template&id=49726fe8&");
+/* harmony import */ var _Unlocked_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Unlocked.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Unlocked.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Unlocked_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Unlocked_vue_vue_type_template_id_49726fe8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Unlocked_vue_vue_type_template_id_49726fe8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Unlocked.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Unlocked.vue?vue&type=script&lang=js&":
+/*!******************************************************************!*\
+  !*** ./resources/js/Pages/Unlocked.vue?vue&type=script&lang=js& ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Unlocked_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Unlocked.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Unlocked.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Unlocked_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Unlocked.vue?vue&type=template&id=49726fe8&":
+/*!************************************************************************!*\
+  !*** ./resources/js/Pages/Unlocked.vue?vue&type=template&id=49726fe8& ***!
+  \************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Unlocked_vue_vue_type_template_id_49726fe8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Unlocked.vue?vue&type=template&id=49726fe8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Unlocked.vue?vue&type=template&id=49726fe8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Unlocked_vue_vue_type_template_id_49726fe8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Unlocked_vue_vue_type_template_id_49726fe8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

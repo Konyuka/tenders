@@ -25,6 +25,9 @@ Route::get('/checkout/{slugs}', [LandingController::class, 'checkout'])
 Route::get('/unlock/{slugs}', [LandingController::class, 'unlock'])
     ->name('unlock');
 
+Route::get('/download_tender}', [LandingController::class, 'downloadTender'])
+    ->name('download_tender');
+
 
 // Route::get('/stkpush', [LandingController::class, 'stkpush'])
 //     ->name('stkpush');

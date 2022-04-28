@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use App\Models\Post;
+use App\Models\Payments;
 use App\Models\Upload;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ImportPost;
@@ -20,7 +21,11 @@ class DashboardController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return Inertia::render('Dashboard', ['allPosts' => $posts]);
+        $payments = Payments::all();
+        return Inertia::render('Dashboard', [
+            'allPosts' => $posts,
+            'payments' => $payments
+        ]);
     }
 
 
