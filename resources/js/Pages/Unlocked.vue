@@ -139,7 +139,24 @@
                                 >
                                     <span class="text-gray-500"
                                         >Expiry Date
-                                        <span
+                                        <span v-if="this.postExpired"
+                                            class="bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
+                                        >
+                                            <svg
+                                                class="mr-1 w-3 h-3"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                                    clip-rule="evenodd"
+                                                ></path>
+                                            </svg>
+                                            Tender Expired {{ togo }} ago
+                                        </span>
+                                        <span v-else
                                             class="bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
                                         >
                                             <svg
@@ -172,7 +189,7 @@
 
                                 <div class="flex">
                                     <!-- <span class="title-font font-medium text-2xl text-gray-900">KES {{this.amount}}</span> -->
-                                    <a :href="route('download_tender')">
+                                    <a :href="route('download_tender', this.post._id)">
                                         <button
                                             class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-700 rounded"
                                         >
@@ -261,8 +278,20 @@ export default {
     },
     watch: {},
     mounted() {
-        console.log(this.post.created_at);
-        console.log(this.post.expiry);
+        // console.log(this.post.created_at);
+        // console.log(this.post.expiry);
+
+        var current = moment().startOf("day");
+        var given = moment(this.post.expiry, "YYYY-MM-DD");
+        var diff = moment.duration(given.diff(current)).asDays();
+
+        if(diff < 0){
+            this.postExpired = true
+        }else{
+            false
+        }
+
+
     },
     computed: {
         amount() {
@@ -287,102 +316,22 @@ export default {
         },
         togo() {
             return moment(this.post.expiry).fromNow(true);
-        }
+        },
+
     },
     data() {
         return {
-            modal: false
+            modal: false,
+            postExpired: false,
         };
     },
     methods: {
         downloadTender() {
-            // SejdaJsApi.htmlToPdf({
-            //     filename: 'out.pdf',
-            //     /* leave blank for one long page */
-            //     pageSize: 'a4',
-            //     publishableKey: 'api_public_y0urap1k3yh3r3',
-            //     htmlCode: document.querySelector('html').innerHTML,
-            //     url: 'https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//42022/26/997ab415-1d40-4d47-9c4c-328545d189ac/997ab415-1d40-4d47-9c4c-328545d189ac.html',
-            //     always: function() {
-            //         alert('Started')
-            //     // PDF download should have started
-            //     },
-            //     error: function(err) {
-            //     console.error(err);
-            //     alert('An error occurred');
-            //     }
-            // });
-
-            // const options = {
-            // method: 'POST',
-            // url: 'https://docraptor-html-to-pdf.p.rapidapi.com/',
-            // headers: {
-            //     'content-type': 'application/json',
-            //     Authorization: '0c58134ab4mshf9a64341905dbb3p182debjsn3758bcdbaa52',
-            //     'X-RapidAPI-Host': 'docraptor-html-to-pdf.p.rapidapi.com',
-            //     'X-RapidAPI-Key': '0c58134ab4mshf9a64341905dbb3p182debjsn3758bcdbaa52'
-            // },
-            // data: '{"document_url":"https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//42022/20/b44c2a06-050c-400f-bd08-9993ff9f6461/b44c2a06-050c-400f-bd08-9993ff9f6461.html","test":true,"type":"pdf"}'
-            // };
-
-            // axios.request(options).then(function (response) {
-            //     console.log(response.data);
-            // }).catch(function (error) {
-            //     console.error(error);
-            // });
-
-            const options = {
-                method: "GET",
-                url: "http://api.pdflayer.com/api/convert",
-                params: {
-                    access_key: "0b4a11743f3ea2e4a3c778274118d949",
-                    document_url:
-                        "https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//42022/20/b44c2a06-050c-400f-bd08-9993ff9f6461/b44c2a06-050c-400f-bd08-9993ff9f6461.html",
-                    document_name: "pdflayer.pdf",
-                    custom_unit: "px",
-                    accept_lang: "en-US",
-                    text_encoding: "utf-8",
-                    page_size: "A4",
-                    orientation: "portrait",
-                    viewport: "1440x900",
-                    watermark_opacity: "20",
-                    creator: "pdflayer.com",
-                    header_align: "center",
-                    footer_align: "center",
-                    ttl: "2592000",
-                    dpi: "96"
-                }
-                // headers: {
-                //     'X-RapidAPI-Host': 'apilayer-pdflayer-v1.p.rapidapi.com',
-                //     'X-RapidAPI-Key': '0b4a11743f3ea2e4a3c778274118d949'
-                // }
-            };
-
-            axios
-                .request(options)
-                .then(function(response) {
-                    console.log(response.data);
-                })
-                .catch(function(error) {
-                    console.error(error);
-                });
-
-            // const options = {
-            // method: 'POST',
-            // url: 'https://api2pdf-api2pdf-v1.p.rapidapi.com/wkhtmltopdf/html',
-            // headers: {
-            //     'content-type': 'application/json',
-            //     'X-RapidAPI-Host': 'api2pdf-api2pdf-v1.p.rapidapi.com',
-            //     'X-RapidAPI-Key': '0c58134ab4mshf9a64341905dbb3p182debjsn3758bcdbaa52'
-            // },
-            // data: '{"html":"<p>Hello World</p>","inlinePdf":true,"fileName":"wkhtmltopdf-html-to-pdf.pdf","options":{"orientation":"portrait","pageSize":"A4"}}'
-            // };
-
-            // axios.request(options).then(function (response) {
-            //     console.log(response.data);
-            // }).catch(function (error) {
-            //     console.error(error);
-            // });
+            let data = {
+                trans_id: this.transId,
+                post_id: this.post._id
+            }
+            this.$inertia.post('/download_tender', data)
         },
         formatDate(value) {
             return moment(value).format("MMMM Do YYYY");

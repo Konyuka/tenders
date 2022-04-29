@@ -39,6 +39,45 @@ class LandingController extends Controller
                     ->where('completed', '=', true)
                     ->where('waiting', '=', false)
                     ->first();
+        $clientNumber = $payment->phone;
+
+        if($payment->sms_sent = 0){
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile=254716202298&msg=Thank+you+For+the+Purchase%21+Bidders+Portal%21&senderid=Notify_MSG&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache"
+            ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+            echo "cURL Error #:" . $err;
+            } else {
+                $sms_sent = true;
+                $payment = Payments::where(['trans_id'=>$slug])->first();
+                if ($payment){
+                    $payment->sms_sent=true;
+                    $payment->save();
+                }
+            // echo $response;
+            }
+        }
+
+        if($payment->sms_sent = 1){
+            // echo 'Sms Sent Already';
+        }
 
         return Inertia::render('Unlocked', [
            'post' => Post::where('_id', '=', $payment->info)->first(),
@@ -47,14 +86,24 @@ class LandingController extends Controller
        ]);
     }
 
-    public function downloadTender()
+    public function downloadTender($slug)
     {
-
+        // return dd($request->post_id);
+        // $post_id = $request->post_id;
+        $post = Post::where('_id', '=', $slug)
+                        ->first();
+        $link = $post->link;
 
         //Instantiate the class
         $html2pdf = new pdflayer();
+        // return dd($link);
 
-        $html2pdf->set_param('document_url','https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//42022/20/b44c2a06-050c-400f-bd08-9993ff9f6461/b44c2a06-050c-400f-bd08-9993ff9f6461.html');
+        $html2pdf->set_param(
+            'document_url', $link
+            // 'document_url','https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//42022/20/b44c2a06-050c-400f-bd08-9993ff9f6461/b44c2a06-050c-400f-bd08-9993ff9f6461.html',
+            // 'document_name', 'GlobalTenderDocuments'
+        );
+        // return ($link);
         //start the conversion
         $html2pdf->convert();
 

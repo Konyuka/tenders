@@ -58,7 +58,11 @@
                 </div>
                 <div class="flex border-t border-b mb-6 border-gray-200 py-2">
                 <span class="text-gray-500">Expiry Date
-                    <span class="bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
+                    <span v-if="this.postExpired" class="bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
+                    <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                    Tender Expired {{ togo }} ago
+                    </span>
+                    <span v-else class="bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
                     <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
                     {{ togo }} to go
                     </span>
@@ -146,8 +150,15 @@ export default {
     watch: {
     },
     mounted () {
-        console.log(this.post.created_at)
-        console.log(this.post.expiry)
+        var current = moment().startOf("day");
+        var given = moment(this.post.expiry, "YYYY-MM-DD");
+        var diff = moment.duration(given.diff(current)).asDays();
+
+        if(diff < 0){
+            this.postExpired = true
+        }else{
+            false
+        }
     },
     computed: {
         amount(){
@@ -178,6 +189,7 @@ export default {
     data () {
         return {
             modal: false,
+            postExpired: false,
         }
     },
     methods:{
