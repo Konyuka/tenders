@@ -5,18 +5,18 @@
             <!-- For large and Medium-sized Screen -->
             <div class="flex justify-between ">
                 <div class="hidden sm:flex flex-row items-center space-x-6">
-                    <img class="dark:bg-white  p-1 rounded  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg1.svg" alt="twitter" />
-                    <img class="dark:bg-white  p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg2.svg" alt="facebook" />
-                    <img class="dark:bg-white  p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg3.svg" alt="linkdin" />
-                    <img class="dark:bg-white  p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg4.svg" alt="instagram" />
+                    <img class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg1.svg" alt="twitter" />
+                    <img class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg2.svg" alt="facebook" />
+                    <img class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg3.svg" alt="linkdin" />
+                    <img class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg4.svg" alt="instagram" />
                 </div>
                 <a :href="route('landing')" class="flex space-x-3 items-center">
-                    <img class="p-1 dark:bg-white rounded-full" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg5.svg" alt="circle" />
-                    <h1 class=" font-normal text-2xl leading-6 text-gray-800 dark:text-white " >Bidders Portal</h1>
+                    <!-- <img class="p-1 dark:bg-white rounded-full" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg5.svg" alt="circle" /> -->
+                    <h1 class=" font-bold-font text-6xl leading-6 text-gray-800 dark:text-white " >Bidders Portal</h1>
                 </a>
                 <div class="hidden sm:flex flex-row space-x-4">
-                    <a :href="route('register')" class="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-indigo-700 bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center" >Sign Up</a>
-                    <a :href="route('login')" class="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center" >Sign In</a>
+                    <a :href="route('register')" class="transform transition hover:scale-125 duration-700 ease-in-out  font-primary-font rounded-md flex space-x-2 w-24 h-10 font-bold text-lg leading-3 text-indigo-700 hover:text-white bg-white hover:bg-indigo-600 border border-indigo-700 focus:outline-none focus:bg-gray-200 duration-150 justify-center items-center" >Sign Up</a>
+                    <a :href="route('login')"    class="transform transition hover:scale-125 duration-700 ease-in-out  font-primary-font rounded-md flex space-x-2 w-24 h-10 font-bold text-lg leading-3 text-indigo-700 hover:text-white bg-white hover:bg-indigo-600 border border-indigo-700 focus:outline-none focus:bg-gray-200 duration-150 justify-center items-center" >Sign In</a>
                 </div>
 
                 <!-- Burger Icon -->

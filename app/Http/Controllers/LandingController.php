@@ -20,6 +20,7 @@ class LandingController extends Controller
     public function index()
     {
         $posts = Post::all();
+        // return Inertia::render('Landings');
         return Inertia::render('Landing', ['allPosts' => $posts]);
     }
 

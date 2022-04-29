@@ -5327,6 +5327,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'MainMenu',
   components: {//   Categories,
@@ -56283,7 +56284,7 @@ var render = function() {
       "div",
       {
         staticClass:
-          "2xl:mx-auto dark:bg-gray-900 2xl:container md:px-20 px-4 md:py-12 py-9"
+          "2xl:mx-auto dark:bg-gray-900 2xl:container md:px-5 px-4 md:py-5 py-9"
       },
       [
         _c("div", { staticClass: "relative rounded-md shadow-2xl" }, [
@@ -56471,72 +56472,46 @@ var render = function() {
         },
         [
           _c("nav", { staticClass: "flex justify-between" }, [
-            _c("ul", { staticClass: "hidden md:flex flex-auto space-x-2" }, [
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded",
-                  attrs: { href: _vm.route("landing") }
-                },
-                [_vm._v("Home")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded",
-                  attrs: { href: _vm.route("listing") }
-                },
-                [_vm._v("Tenders Listing")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded",
-                  attrs: { href: _vm.route("") }
-                },
-                [_vm._v("Product & Services")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded",
-                  attrs: { href: _vm.route("") }
-                },
-                [_vm._v("Partners & Clients")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded",
-                  attrs: { href: _vm.route("") }
-                },
-                [_vm._v("Blogs & Articles")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-100 cursor-pointer px-3 py-2.5 font-bold text-xs leading-3 shadow-md rounded",
-                  attrs: { href: _vm.route("") }
-                },
-                [_vm._v("About & Contacts")]
-              )
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "ml-20" }, [
+              _c("ul", { staticClass: "hidden md:flex flex-auto space-x-2" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out hover:animate-pulse active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-5 py-5 font-bold text-2xl leading-3 shadow-md rounded-md ",
+                    attrs: { href: _vm.route("landing") }
+                  },
+                  [_vm._m(1), _vm._v(" Home")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out hover:animate-pulse active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-5 py-5 font-bold text-2xl leading-3 shadow-md rounded-md ",
+                    attrs: { href: _vm.route("listing") }
+                  },
+                  [_vm._m(2), _vm._v(" Tenders Listing")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out hover:animate-pulse active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-5 py-5 font-bold text-2xl leading-3 shadow-md rounded-md ",
+                    attrs: { href: _vm.route("") }
+                  },
+                  [_vm._m(3), _vm._v(" About & Contacts")]
+                )
+              ])
             ]),
             _vm._v(" "),
-            _vm._m(0)
+            _vm._m(4)
           ]),
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(5)
         ]
       )
     ])
@@ -56549,15 +56524,57 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
+      { staticClass: "flex space-x-5 justify-center  items-center pl-2" },
+      [
+        _c("a", {
+          staticClass:
+            "transform transition hover:scale-125 duration-700 ease-in-out fas fa-search fa-2xl text-indigo-600",
+          attrs: { href: "#" }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "text-indigo-600" }, [
+      _c("i", { staticClass: "fas fa-home" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "text-indigo-600" }, [
+      _c("i", { staticClass: "fas fa-home" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "text-indigo-600" }, [
+      _c("i", { staticClass: "fas fa-home" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
       { staticClass: " flex space-x-5 justify-center  items-center pl-2" },
       [
         _c("a", {
-          staticClass: "fas fa-phone fa-xl text-indigo-600",
+          staticClass:
+            "transform transition hover:scale-125 duration-700 ease-in-out ml-5 fas fa-phone fa-2xl text-indigo-600",
           attrs: { href: "#" }
         }),
         _vm._v(" "),
         _c("a", {
-          staticClass: "fas fa-envelope fa-xl text-indigo-600",
+          staticClass:
+            "transform transition hover:scale-125 duration-700 ease-in-out fas fa-envelope fa-2xl text-indigo-600",
           attrs: { href: "#" }
         })
       ]
@@ -57376,20 +57393,11 @@ var render = function() {
                 attrs: { href: _vm.route("landing") }
               },
               [
-                _c("img", {
-                  staticClass: "p-1 dark:bg-white rounded-full",
-                  attrs: {
-                    src:
-                      "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg5.svg",
-                    alt: "circle"
-                  }
-                }),
-                _vm._v(" "),
                 _c(
                   "h1",
                   {
                     staticClass:
-                      " font-normal text-2xl leading-6 text-gray-800 dark:text-white "
+                      " font-bold-font text-6xl leading-6 text-gray-800 dark:text-white "
                   },
                   [_vm._v("Bidders Portal")]
                 )
@@ -57401,7 +57409,7 @@ var render = function() {
                 "a",
                 {
                   staticClass:
-                    "rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-indigo-700 bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center",
+                    "transform transition hover:scale-125 duration-700 ease-in-out  font-primary-font rounded-md flex space-x-2 w-24 h-10 font-bold text-lg leading-3 text-indigo-700 hover:text-white bg-white hover:bg-indigo-600 border border-indigo-700 focus:outline-none focus:bg-gray-200 duration-150 justify-center items-center",
                   attrs: { href: _vm.route("register") }
                 },
                 [_vm._v("Sign Up")]
@@ -57411,7 +57419,7 @@ var render = function() {
                 "a",
                 {
                   staticClass:
-                    "rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center",
+                    "transform transition hover:scale-125 duration-700 ease-in-out  font-primary-font rounded-md flex space-x-2 w-24 h-10 font-bold text-lg leading-3 text-indigo-700 hover:text-white bg-white hover:bg-indigo-600 border border-indigo-700 focus:outline-none focus:bg-gray-200 duration-150 justify-center items-center",
                   attrs: { href: _vm.route("login") }
                 },
                 [_vm._v("Sign In")]
@@ -57475,7 +57483,7 @@ var staticRenderFns = [
       [
         _c("img", {
           staticClass:
-            "dark:bg-white  p-1 rounded  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer",
+            "bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer",
           attrs: {
             src:
               "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg1.svg",
@@ -57485,7 +57493,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("img", {
           staticClass:
-            "dark:bg-white  p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer",
+            "bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer",
           attrs: {
             src:
               "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg2.svg",
@@ -57495,7 +57503,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("img", {
           staticClass:
-            "dark:bg-white  p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer",
+            "bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer",
           attrs: {
             src:
               "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg3.svg",
@@ -57505,7 +57513,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("img", {
           staticClass:
-            "dark:bg-white  p-1 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer",
+            "bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer",
           attrs: {
             src:
               "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg4.svg",
