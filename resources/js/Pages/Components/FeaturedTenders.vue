@@ -19,7 +19,10 @@
                                 <div>
                                     Posted: <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"> {{ ago(post.created_at) }}</span>
                                 </div>
-                                <div>
+                                <div v-if="expired(post)">
+                                    Expires: <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-red-500 text-xs font-medium tracking-widest"> Expired </span>
+                                </div>
+                                <div v-else>
                                     Expires: <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-red-500 text-xs font-medium tracking-widest"> {{ togo(post.expiry) }}</span>
                                 </div>
                             </div>
@@ -66,9 +69,12 @@ export default {
     Button
     //   Categories,
   },
+  mounted () {
+
+  },
   data(){
     return{
-
+        postExpired: false,
     }
   },
   watch: {
@@ -86,6 +92,18 @@ export default {
     }
   },
   methods: {
+      expired(post){
+            var current = moment().startOf("day");
+            var given = moment(post.expiry, "YYYY-MM-DD");
+            var diff = moment.duration(given.diff(current)).asDays();
+
+            if(diff < 0){
+                return true
+            }else{
+                return false
+            }
+
+      },
       formatDate(value) {
             return moment(value).format('MMMM Do YYYY')
       },

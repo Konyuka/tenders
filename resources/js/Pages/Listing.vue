@@ -15,16 +15,37 @@
             <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">BIDDERS PORTAL</h2>
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">All Tenders Listing</h1>
             </div>
-            <div v-for="post in this.Posts" :key="post.identity" class="flex flex-wrap">
-                <a :href="route('selected', post._id)" class="hover:shadow-2xl xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-                    <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">{{ post.title }}</h2>
-                    <p class="leading-relaxed text-base mb-4">{{ post.description }}</p>
-                    <a :href="route('selected', post._id)" class="text-indigo-500 inline-flex items-center"> More Details
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                    </a>
-                </a>
+            <div class="flex flex-wrap">
+                <a v-for="post in this.Posts" :key="post._id" :href="route('selected', post._id)" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
+                            <!-- <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">{{ post.funded_by }}</span> -->
+                            <div class="flex-col">
+                                <div>
+                                    Posted: <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"> {{ ago(post.created_at) }}</span>
+                                </div>
+                                <div v-if="expired(post)">
+                                    Expires: <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-red-500 text-xs font-medium tracking-widest"> Expired </span>
+                                </div>
+                                <div v-else>
+                                    Expires: <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-red-500 text-xs font-medium tracking-widest"> {{ togo(post.expiry) }}</span>
+                                </div>
+                            </div>
+                            <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">{{ post.title }}</h4>
+                            <p class="leading-relaxed mb-2">{{ post.tender_brief }}</p>
+                            <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
+                            <a class="text-indigo-500 inline-flex items-center">Purchase Tender
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                            <span class="text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                                <i class="w-4 h-4 mr-1 fas fa-location-crosshairs"></i> {{ post.country }}
+                            </span>
+                            <span class="text-gray-400 inline-flex items-center leading-none text-sm">
+                                <i class="w-4 h-4 mr-1 fas fa-coins"></i>{{ post.funded_by }}
+                            </span>
+                            </div>
+                        </a>
             </div>
 
 
@@ -186,6 +207,9 @@ export default {
     mounted () {
     },
     computed: {
+    //     posts(){
+    //         return this.$parent.posts
+    //     }
     },
     data () {
         return {
@@ -193,6 +217,27 @@ export default {
         }
     },
     methods:{
+        expired(post){
+                var current = moment().startOf("day");
+                var given = moment(post.expiry, "YYYY-MM-DD");
+                var diff = moment.duration(given.diff(current)).asDays();
+
+                if(diff < 0){
+                    return true
+                }else{
+                    return false
+                }
+
+        },
+        formatDate(value) {
+            return moment(value).format('MMMM Do YYYY')
+        },
+        togo(value){
+            return moment(value).fromNow();
+        },
+        ago(value){
+            return moment(value).fromNow();
+        },
         clearFilters(){
 
         },

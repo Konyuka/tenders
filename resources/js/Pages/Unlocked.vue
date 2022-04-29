@@ -255,10 +255,7 @@
     </div>
 </template>
 
-<script src="//www.sejda.com/js/sejda-js-api.min.js"></script>
 <script>
-import axios from "axios";
-// const { default: axios } = require('axios');
 
 import TopBanner from "./Components/TopBanner.vue";
 import MainMenu from "./Components/MainMenu.vue";
