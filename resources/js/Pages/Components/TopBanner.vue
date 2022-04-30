@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class=" bg-white dark:bg-gray-800 ">
+    <div class="bg-gray-50 dark:bg-gray-800 ">
         <nav class="2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-5 px-4">
             <!-- For large and Medium-sized Screen -->
             <div class="flex justify-between ">
@@ -12,7 +12,7 @@
                 </div>
                 <a :href="route('landing')" class="flex space-x-3 items-center">
                     <!-- <img class="p-1 dark:bg-white rounded-full" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg5.svg" alt="circle" /> -->
-                    <h1 class=" font-bold-font text-6xl leading-6 text-gray-800 dark:text-white " >Bidders Portal</h1>
+                    <h1 class=" font-bold-font text-6xl leading-6 text-indigo-700 dark:text-white " >Bidders Portal</h1>
                 </a>
                 <div class="hidden sm:flex flex-row space-x-4">
                     <a :href="route('register')" class="transform transition hover:scale-125 duration-700 ease-in-out  font-primary-font rounded-md flex space-x-2 w-24 h-10 font-bold text-lg leading-3 text-indigo-700 hover:text-white bg-white hover:bg-indigo-600 border border-indigo-700 focus:outline-none focus:bg-gray-200 duration-150 justify-center items-center" >Sign Up</a>

@@ -7,7 +7,7 @@
 
       <div class="text-gray-600 body-font">
         <header class="sticky top-2 z-50">
-        <button @click="modal=true" class="flex mx-auto mt-10 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Tenders Search Filters</button>
+        <button @click="modal=true" class="flex mx-auto mt-10 text-white bg-indigo-600 font-heading-font font-extrabold border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Tenders Search Filters</button>
         </header>
 
         <main class="container px-5 py-10 mx-auto">
@@ -16,36 +16,48 @@
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">All Tenders Listing</h1>
             </div>
             <div class="flex flex-wrap">
-                <a v-for="post in this.Posts" :key="post._id" :href="route('selected', post._id)" class="hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
+                <a v-for="post in this.Posts" :key="post._id" :href="route('selected', post._id)" class="group bg-white border-t-2 border-r-2 mt-4 my-4 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-12 md:w-1/3 flex flex-col min-h-2xl  items-start">
                             <!-- <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">{{ post.funded_by }}</span> -->
-                            <div class="flex-col">
-                                <div>
-                                    Posted: <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest"> {{ ago(post.created_at) }}</span>
+                            <div class="flex justify-between w-full">
+                                <div class="font-heading-font font-extrabold">
+                                    Posted: <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"> {{ ago(post.created_at) }}</span>
                                 </div>
-                                <div v-if="expired(post)">
-                                    Expires: <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-red-500 text-xs font-medium tracking-widest"> Expired </span>
+                                <div class="font-heading-font font-extrabold" v-if="expired(post)">
+                                    Expires: <span class="inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest"> Expired </span>
                                 </div>
-                                <div v-else>
-                                    Expires: <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-red-500 text-xs font-medium tracking-widest"> {{ togo(post.expiry) }}</span>
+                                <div class="font-heading-font font-extrabold" v-else>
+                                    Expires: <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-red-500 text-xs font-bold tracking-widest"> {{ togo(post.expiry) }}</span>
                                 </div>
                             </div>
-                            <h4 class="sm:text-xl text-xl title-font font-medium text-gray-900 mt-4 mb-4">{{ post.title }}</h4>
-                            <p class="leading-relaxed mb-2">{{ post.tender_brief }}</p>
-                            <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
-                            <a class="text-indigo-500 inline-flex items-center">Purchase Tender
-                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
-                            <span class="text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                                <i class="w-4 h-4 mr-1 fas fa-location-crosshairs"></i> {{ post.country }}
+                            <p class="my-5 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold">{{ post.tender_brief }}</p>
+
+                            <div class="flex items-center flex-wrap mt-10 border-b-2 border-gray-100 w-full">
+                            <!-- <span>
+                                <h4 class="sm:text-xl text-md title-font  font-medium text-gray-400 mt-4 mb-4">Category: <span><a href="#">{{ post.category }}</a></span></h4>
+                            </span> -->
+                            <span class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                                <i class="w-4 h-4 mr-1 fas fa-filter text-indigo-600"></i> Construction
+                                <!-- {{ post.category }} -->
                             </span>
-                            <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                                <i class="w-4 h-4 mr-1 fas fa-coins"></i>{{ post.funded_by }}
+                            <span class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                                <i class="w-4 h-4 mr-1 fas fa-location-crosshairs text-indigo-600"></i> {{ post.country }}
                             </span>
+                            <!-- <span class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1">
+                                <i class="w-4 h-4 mr-1 fas fa-coins text-indigo-600"></i>{{ post.funded_by }}
+                            </span> -->
+                            </div>
+
+                            <div class="mt-10">
+                                <a class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold">Tender Details
+                                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14"></path>
+                                    <path d="M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
                             </div>
                         </a>
+
+
             </div>
 
 
