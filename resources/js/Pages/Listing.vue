@@ -13,7 +13,7 @@
         <main class="container px-5 py-10 mx-auto">
             <div class="flex flex-col text-center w-full mb-6">
             <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">BIDDERS PORTAL</h2>
-            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">All Tenders Listing</h1>
+            <!-- <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">All Tenders Listing</h1> -->
             </div>
             <div class="flex flex-wrap">
                 <a v-for="post in this.Posts" :key="post._id" :href="route('selected', post._id)" class="group bg-white border-t-2 border-r-2 mt-4 my-4 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-12 md:w-1/3 flex flex-col min-h-2xl  items-start">

@@ -56,13 +56,11 @@
 
                     </div>
 
-                    <a :href="route('listing')" class="md:mt-12 mt-7">
-
-                        <button class="text-base font-medium leading-4 text-white hover:text-gray-700 bg-indigo-700 sm:w-auto w-full rounded p-4 focus:outline-none hover:bg-gray-100 focus:ring-2 focus:ring-offset-2 focus:ring-white">View All Tenders</button>
-
-                    </a>
-
                 </section>
+                <a :href="route('listing')" class="mt-10 flex justify-center">
+                    <button class="transform transition hover:scale-125 duration-700 ease-in-out text-xl font-extrabold font-heading-font leading-4 text-white bg-indigo-600 sm:w-auto w-full rounded p-4 focus:outline-none hover:bg-gray-200 focus:ring-2 focus:ring-offset-2 focus:ring-white">View All Tenders</button>
+                </a>
+
             </div>
         </section>
   </div>

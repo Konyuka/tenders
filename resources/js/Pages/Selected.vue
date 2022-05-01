@@ -11,72 +11,72 @@
             <div class="lg:w-4/5 mx-auto flex flex-wrap">
             <div class="w-full h-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
                 <a href="#" class="text-sm title-font text-gray-500 tracking-widest">Tender Category</a>
-                <h1 class="text-gray-900 text-xs title-font font-bold my-4">{{ post.tender_brief }}</h1>
+                <h1 class="text-gray-500 text-sm title-font font-bold my-4 font-heading-font">{{ post.tender_brief }}</h1>
                 <div class="flex mb-4">
-                <a class="flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1">Description</a>
+                <a class="flex-grow text-indigo-500 border-b-2 border-indigo-600 py-2 text-lg px-1 font-heading-font font-extrabold">Description</a>
                 <!-- <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Reviews</a>
                 <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Details</a> -->
                 </div>
-                <p class="leading-relaxed mb-4 text-sm">{{ post.work_detail }}</p>
-                <div class="flex border-t border-gray-200 py-2">
-                <span class="text-gray-500">Competition Type</span>
+                <p class="leading-relaxed mb-4 text-sm font-primary-font">{{ post.work_detail }}</p>
+                <div class="flex border-t border-indigo-300 py-2">
+                <span class="text-gray-500 font-extrabold font-heading-font"><i class="mr-10 fas fa-angles-right text-indigo-600"></i> Competition Type</span>
                 <span class="ml-auto text-gray-900">
-                    <span class="ml-auto text-gray-900">
+                    <span class="ml-auto text-gray-900 font-primary-font">
                         {{ post.competition_type }}
                         <!-- <a :href="route('checkout', post._id)" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a> -->
                     </span>
                 </span>
                 </div>
-                <div class="flex border-t border-gray-200 py-2">
-                <span class="text-gray-500">Funded By</span>
-                <span class="ml-auto text-gray-900">
+                <div class="flex border-t border-indigo-300 py-2">
+                <span class="text-gray-500 font-extrabold font-heading-font"><i class="mr-10 fas fa-angles-right text-indigo-600"></i> Funded By</span>
+                <span class="ml-auto text-gray-900 font-primary-font">
                     {{ post.funded_by }}
                     <!-- <a :href="route('checkout', post._id)" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a> -->
                 </span>
                 </div>
-                <div class="flex border-t border-b mb-6 border-gray-200 py-2">
-                <span class="text-gray-500">Tender Value in USD</span>
+                <div class="flex border-t mb-6 border-indigo-300 py-2">
+                <span class="text-gray-500 font-extrabold font-heading-font"><i class="mr-10 fas fa-angles-right text-indigo-600"></i> Tender Value in USD</span>
                 <span class="ml-auto text-gray-900">
-                    <a :href="route('checkout', post._id)" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a>
+                    <a :href="route('checkout', post._id)" class="transform transition hover:scale-125 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 text-white hover:text-black text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a>
                 </span>
                 </div>
-                <div class="flex border-t border-b mb-6 border-gray-200 py-2">
-                <span class="text-gray-500">Contact & Documents</span>
+                <div class="flex border-t mb-6 border-indigo-300 py-2">
+                <span class="text-gray-500 font-extrabold font-heading-font"><i class="mr-10 fas fa-angles-right text-indigo-600"></i> Contact & Documents</span>
                 <span class="ml-auto text-gray-900">
-                    <a :href="route('checkout', post._id)" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a>
+                    <a :href="route('checkout', post._id)" class="transform transition hover:scale-125 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 text-white hover:text-black text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a>
                 </span>
                 </div>
-                <div class="flex border-t border-b mb-6 border-gray-200 py-2">
-                <span class="text-gray-500">Date Posted
+                <div class="flex border-t mb-6 border-indigo-300 py-2">
+                <span class="text-gray-500 font-extrabold font-heading-font"><i class="mr-10 fas fa-angles-right text-indigo-600"></i> Date Posted
                     <span class="bg-green-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
                     <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
                     {{ ago }}
                     </span>
                 </span>
-                <span class="ml-auto text-gray-900">{{ formatDate(post.created_at) }}</span>
+                <span class="ml-auto text-gray-900 font-primary-font">{{ formatDate(post.created_at) }}</span>
 
                 </div>
-                <div class="flex border-t border-b mb-6 border-gray-200 py-2">
-                <span class="text-gray-500">Expiry Date
-                    <span v-if="this.postExpired" class="bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
+                <div class="flex border-t mb-6 border-indigo-300 py-2">
+                <span class="text-gray-500 font-extrabold font-heading-font"><i class="mr-10 fas fa-angles-right text-indigo-600"></i> Expiry Date
+                    <span v-if="this.postExpired" class="font-heading-font bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
                     <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
                     Tender Expired {{ togo }} ago
                     </span>
-                    <span v-else class="bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
+                    <span v-else class="font-heading-font bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
                     <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
                     {{ togo }} to go
                     </span>
                 </span>
-                <span class="ml-auto text-gray-900">{{ formatDate(post.expiry) }}</span>
+                <span class="ml-auto text-gray-900 font-primary-font">{{ formatDate(post.expiry) }}</span>
                 </div>
-                <div class="flex border-t border-b mb-6 border-gray-200 py-2">
-                <span class="text-gray-500">Country</span>
-                <span class="ml-auto text-gray-900">{{ post.country }}</span>
+                <div class="flex border-t mb-6 border-indigo-300 py-2">
+                <span class="text-gray-500 font-extrabold font-heading-font"><i class="mr-10 fas fa-angles-right text-indigo-600"></i> Country</span>
+                <span class="ml-auto text-gray-900 font-primary-font">{{ post.country }}</span>
                 </div>
 
                 <div class="flex">
-                <span class="title-font font-medium text-2xl text-gray-900">KES {{this.amount}}</span>
-                <a :href="route('checkout', post._id)" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-700 rounded">Purchase Tender Details</a>
+                <span class="title-font font-medium text-2xl text-gray-900 font-heading-font">KES <span class="ml-3 font-heading-font font-extrabold text-indigo-600 text-2xl">{{this.amount}}</span> </span>
+                <a :href="route('checkout', post._id)" class="transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-6 focus:outline-none rounded">Purchase Tender Details</a>
 
                 <button class="hover:bg-red-500 hover:text-white rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                     <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">

@@ -53,7 +53,7 @@
                                     <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"> Get started </a>
                                 </div> -->
                                 <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                                    <button @click="openModal" class="transform transition hover:scale-125 duration-700 ease-in-out  w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-extrabold rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"> Load Search Filters </button>
+                                    <button @click="openModal" class="transform transition hover:scale-125 duration-700 ease-in-out  w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-extrabold rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"> <span><i class="fas fa-search fa-xl mr-4"></i></span> Load Search Filters </button>
                                 </div>
                                 </div>
                             </div>
