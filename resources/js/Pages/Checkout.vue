@@ -270,8 +270,8 @@ export default {
                 userName:'Software Saiba',
                 userPhone:'254722750445',
                 userEmail:'saibadeveloper@gmail.com',
-                number:this.removeSpaces('254716202298'),
-                account: 'Hacked By Beat Crime',
+                number:this.removeSpaces(''),
+                account: 'Bidders Portal',
                 amount: this.post.price
                 // amount: ''
                 // account: this.form.userName,

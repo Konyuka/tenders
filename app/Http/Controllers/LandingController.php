@@ -41,12 +41,13 @@ class LandingController extends Controller
                     ->where('waiting', '=', false)
                     ->first();
         $clientNumber = $payment->phone;
+        // return  dd($clientNumber);
 
         if($payment->sms_sent = 0){
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile=254716202298&msg=Thank+you+For+the+Purchase%21+Bidders+Portal%21&senderid=Notify_MSG&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
+            CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=Safaricom&password=password&mobile=${$clientNumber}&msg=Thank+you+For+the+Purchase%21+Bidders+Portal%21&senderid=Notify_MSG&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
