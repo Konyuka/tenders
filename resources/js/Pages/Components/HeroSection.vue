@@ -40,8 +40,8 @@
                             <main class="mt-16 mx-auto max-w-7xl px-4 sm:mt-14">
                             <div class="text-center">
                                 <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                                <span class="block xl:inline text-white">Connection to the rightful </span>
-                                <span class="block text-indigo-600 xl:inline">Tender!</span>
+                                <span class="block xl:inline text-white font-heading-font">Connection to the rightful </span>
+                                <span class="block text-indigo-600 xl:inline font-bold-font">Tender!</span>
                                 </h1>
                                 <p class="mt-3 max-w-md mx-auto text-base text-white font-primary-font sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
                                     Bidders Portal™ system is a web based tendering tool that takes advantage of the many benefits that digital data offers.
