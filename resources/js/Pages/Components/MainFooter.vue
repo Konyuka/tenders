@@ -2,7 +2,7 @@
 <template>
   <div class="mt-32">
 
-    <footer class="bg-gray-800">
+    <footer class="bg-white">
     <!-- <div class="grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
         <div>
         <h2 class="mb-6 text-sm font-semibold text-gray-400 uppercase">Company</h2>
@@ -25,14 +25,14 @@
 
     </div>
     </div> -->
-    
-    <div class="py-6 px-4 bg-gray-700 md:flex md:items-center md:justify-between">
-    <span class="text-sm text-gray-300 sm:text-center">© 2022 <a href="https://flowbite.com">Bidders Portal™</a>. All Rights Reserved.
-    </span>
-    <div class="flex mt-4 space-x-6 sm:justify-center md:mt-0">
-    <span class="text-sm text-gray-300 sm:text-center">Made with <i class="fas fa-heart text-red-600"></i> by<a href="mailto:michaelsaiba84@gmail.com" class="underline"> Michael Saiba.</a>
-    </span>
-    </div>
+
+    <div class="py-6 px-4 bg-white md:flex md:items-center md:justify-between font-extrabold">
+        <span class="text-sm text-gray-800 sm:text-center">© 2022 <a href="https://flowbite.com">Bidders Portal™</a>. All Rights Reserved.
+        </span>
+        <div class="flex mt-4 space-x-6 sm:justify-center md:mt-0">
+        <span class="text-sm text-gray-800 sm:text-center">Made with <i class="fas fa-heart text-red-600"></i> by<a href="mailto:michaelsaiba84@gmail.com" class="underline"> Michael Saiba.</a>
+        </span>
+        </div>
     </div>
 
     </footer>

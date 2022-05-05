@@ -5677,6 +5677,193 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
   components: {//   Categories,
@@ -56838,23 +57025,23 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "mt-32" }, [
-      _c("footer", { staticClass: "bg-gray-800" }, [
+      _c("footer", { staticClass: "bg-white" }, [
         _c(
           "div",
           {
             staticClass:
-              "py-6 px-4 bg-gray-700 md:flex md:items-center md:justify-between"
+              "py-6 px-4 bg-white md:flex md:items-center md:justify-between font-extrabold"
           },
           [
             _c(
               "span",
-              { staticClass: "text-sm text-gray-300 sm:text-center" },
+              { staticClass: "text-sm text-gray-800 sm:text-center" },
               [
                 _vm._v("© 2022 "),
                 _c("a", { attrs: { href: "https://flowbite.com" } }, [
                   _vm._v("Bidders Portal™")
                 ]),
-                _vm._v(". All Rights Reserved.\n  ")
+                _vm._v(". All Rights Reserved.\n      ")
               ]
             ),
             _vm._v(" "),
@@ -56864,7 +57051,7 @@ var staticRenderFns = [
               [
                 _c(
                   "span",
-                  { staticClass: "text-sm text-gray-300 sm:text-center" },
+                  { staticClass: "text-sm text-gray-800 sm:text-center" },
                   [
                     _vm._v("Made with "),
                     _c("i", { staticClass: "fas fa-heart text-red-600" }),
@@ -57307,12 +57494,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "mx-5 rounded-lg" }, [
     _vm._m(0),
     _vm._v(" "),
     _vm._m(1),
     _vm._v(" "),
-    _c("div", { staticClass: "bg-gray-50" }, [
+    _c("div", { staticClass: "bg-gray-50 mt-5 rounded-lg" }, [
       _c("div", { staticClass: "relative bg-white" }, [
         _c("div", {
           staticClass:
@@ -57520,6 +57707,448 @@ var render = function() {
           ]
         )
       ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "bg-indigo-700 mt-7 rounded-lg" }, [
+      _c(
+        "div",
+        {
+          staticClass: "max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8"
+        },
+        [
+          _c("div", { staticClass: "relative bg-white shadow-xl" }, [
+            _c("h2", { staticClass: "sr-only" }, [_vm._v("Contact us")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "grid grid-cols-1 lg:grid-cols-3" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "relative overflow-hidden py-10 px-6 bg-indigo-700 sm:px-10 xl:p-12"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "absolute inset-0 pointer-events-none sm:hidden",
+                      attrs: { "aria-hidden": "true" }
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "absolute inset-0 w-full h-full",
+                          attrs: {
+                            width: "343",
+                            height: "388",
+                            viewBox: "0 0 343 388",
+                            fill: "none",
+                            preserveAspectRatio: "xMidYMid slice",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M-99 461.107L608.107-246l707.103 707.107-707.103 707.103L-99 461.107z",
+                              fill: "url(#linear1)",
+                              "fill-opacity": ".1"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "defs",
+                            [
+                              _c(
+                                "linearGradient",
+                                {
+                                  attrs: {
+                                    id: "linear1",
+                                    x1: "254.553",
+                                    y1: "107.554",
+                                    x2: "961.66",
+                                    y2: "814.66",
+                                    gradientUnits: "userSpaceOnUse"
+                                  }
+                                },
+                                [
+                                  _c("stop", {
+                                    attrs: { "stop-color": "#fff" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("stop", {
+                                    attrs: {
+                                      offset: "1",
+                                      "stop-color": "#fff",
+                                      "stop-opacity": "0"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none sm:block lg:hidden",
+                      attrs: { "aria-hidden": "true" }
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "absolute inset-0 w-full h-full",
+                          attrs: {
+                            width: "359",
+                            height: "339",
+                            viewBox: "0 0 359 339",
+                            fill: "none",
+                            preserveAspectRatio: "xMidYMid slice",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M-161 382.107L546.107-325l707.103 707.107-707.103 707.103L-161 382.107z",
+                              fill: "url(#linear2)",
+                              "fill-opacity": ".1"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "defs",
+                            [
+                              _c(
+                                "linearGradient",
+                                {
+                                  attrs: {
+                                    id: "linear2",
+                                    x1: "192.553",
+                                    y1: "28.553",
+                                    x2: "899.66",
+                                    y2: "735.66",
+                                    gradientUnits: "userSpaceOnUse"
+                                  }
+                                },
+                                [
+                                  _c("stop", {
+                                    attrs: { "stop-color": "#fff" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("stop", {
+                                    attrs: {
+                                      offset: "1",
+                                      "stop-color": "#fff",
+                                      "stop-opacity": "0"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none lg:block",
+                      attrs: { "aria-hidden": "true" }
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "absolute inset-0 w-full h-full",
+                          attrs: {
+                            width: "160",
+                            height: "678",
+                            viewBox: "0 0 160 678",
+                            fill: "none",
+                            preserveAspectRatio: "xMidYMid slice",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M-161 679.107L546.107-28l707.103 707.107-707.103 707.103L-161 679.107z",
+                              fill: "url(#linear3)",
+                              "fill-opacity": ".1"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "defs",
+                            [
+                              _c(
+                                "linearGradient",
+                                {
+                                  attrs: {
+                                    id: "linear3",
+                                    x1: "192.553",
+                                    y1: "325.553",
+                                    x2: "899.66",
+                                    y2: "1032.66",
+                                    gradientUnits: "userSpaceOnUse"
+                                  }
+                                },
+                                [
+                                  _c("stop", {
+                                    attrs: { "stop-color": "#fff" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("stop", {
+                                    attrs: {
+                                      offset: "1",
+                                      "stop-color": "#fff",
+                                      "stop-opacity": "0"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("h3", { staticClass: "text-lg font-medium text-white" }, [
+                    _vm._v("Contact information")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    { staticClass: "mt-6 text-base text-indigo-50 max-w-3xl" },
+                    [
+                      _vm._v(
+                        "\n                  Feel Free to reach us on\n              "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("dl", { staticClass: "mt-8 space-y-6" }, [
+                    _vm._m(6),
+                    _vm._v(" "),
+                    _c("dd", { staticClass: "flex text-base text-indigo-50" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "flex-shrink-0 w-6 h-6 text-indigo-200",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            "stroke-width": "2",
+                            stroke: "currentColor",
+                            "aria-hidden": "true"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d:
+                                "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "ml-3" }, [
+                        _vm._v("+254 716 202 228")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(7),
+                    _vm._v(" "),
+                    _c("dd", { staticClass: "flex text-base text-indigo-50" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "flex-shrink-0 w-6 h-6 text-indigo-200",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            "stroke-width": "2",
+                            stroke: "currentColor",
+                            "aria-hidden": "true"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d:
+                                "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "ml-3" }, [
+                        _vm._v("support@biddersportal.com")
+                      ])
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(8)
+            ])
+          ])
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "bg-white py-1" }, [
+      _c("div", { staticClass: "relative sm:py-16" }, [
+        _c(
+          "div",
+          { staticClass: "hidden sm:block", attrs: { "aria-hidden": "true" } },
+          [
+            _c("div", {
+              staticClass:
+                "absolute inset-y-0 left-0 w-1/2 bg-gray-50 rounded-r-3xl"
+            }),
+            _vm._v(" "),
+            _c(
+              "svg",
+              {
+                staticClass: "absolute top-8 left-1/2 -ml-3",
+                attrs: {
+                  width: "404",
+                  height: "392",
+                  fill: "none",
+                  viewBox: "0 0 404 392"
+                }
+              },
+              [
+                _c("defs", [
+                  _c(
+                    "pattern",
+                    {
+                      attrs: {
+                        id: "8228f071-bcee-4ec8-905a-2a059a2cc4fb",
+                        x: "0",
+                        y: "0",
+                        width: "20",
+                        height: "20",
+                        patternUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("rect", {
+                        staticClass: "text-gray-200",
+                        attrs: {
+                          x: "0",
+                          y: "0",
+                          width: "4",
+                          height: "4",
+                          fill: "currentColor"
+                        }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("rect", {
+                  attrs: {
+                    width: "404",
+                    height: "392",
+                    fill: "url(#8228f071-bcee-4ec8-905a-2a059a2cc4fb)"
+                  }
+                })
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8"
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "relative rounded-2xl px-6 py-10 bg-indigo-600 overflow-hidden shadow-xl sm:px-12 sm:py-20"
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "absolute inset-0 -mt-72 sm:-mt-32 md:mt-0",
+                    attrs: { "aria-hidden": "true" }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "absolute inset-0 h-full w-full",
+                        attrs: {
+                          preserveAspectRatio: "xMidYMid slice",
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 1463 360"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          staticClass: "text-indigo-500 text-opacity-40",
+                          attrs: {
+                            fill: "currentColor",
+                            d:
+                              "M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticClass: "text-indigo-700 text-opacity-40",
+                          attrs: {
+                            fill: "currentColor",
+                            d:
+                              "M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(9)
+              ]
+            )
+          ]
+        )
+      ])
     ])
   ])
 }
@@ -57528,7 +58157,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-indigo-700" }, [
+    return _c("div", { staticClass: "bg-indigo-700 mt-5 rounded-lg" }, [
       _c(
         "div",
         {
@@ -57682,7 +58311,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-indigo-700" }, [
+    return _c("div", { staticClass: "bg-indigo-700 mt-5 rounded-lg" }, [
       _c(
         "div",
         {
@@ -57739,7 +58368,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "relative max-w-2xl mx-auto pt-16 px-4 text-center sm:pt-32 sm:px-6 lg:max-w-7xl lg:px-8"
+          "relative max-w-2xl mx-auto pt-1 px-4 text-center sm:pt-12 sm:px-6 lg:max-w-7xl lg:px-8"
       },
       [
         _c(
@@ -57864,6 +58493,287 @@ var staticRenderFns = [
                 staticClass: "text-white text-4xl font-extrabold tracking-tight"
               },
               [_vm._v("KES 25")]
+            )
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("dt", [
+      _c("span", { staticClass: "sr-only" }, [_vm._v("Phone number")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("dt", [_c("span", { staticClass: "sr-only" }, [_vm._v("Email")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12" },
+      [
+        _c("h3", { staticClass: "text-lg font-medium text-gray-900" }, [
+          _vm._v("Send us a message")
+        ]),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            staticClass:
+              "mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8",
+            attrs: { action: "#", method: "POST" }
+          },
+          [
+            _c("div", [
+              _c(
+                "label",
+                {
+                  staticClass: "block text-sm font-medium text-gray-900",
+                  attrs: { for: "first-name" }
+                },
+                [_vm._v("First name")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "mt-1" }, [
+                _c("input", {
+                  staticClass:
+                    "py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md",
+                  attrs: {
+                    type: "text",
+                    name: "first-name",
+                    id: "first-name",
+                    autocomplete: "given-name"
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "label",
+                {
+                  staticClass: "block text-sm font-medium text-gray-900",
+                  attrs: { for: "last-name" }
+                },
+                [_vm._v("Last name")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "mt-1" }, [
+                _c("input", {
+                  staticClass:
+                    "py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md",
+                  attrs: {
+                    type: "text",
+                    name: "last-name",
+                    id: "last-name",
+                    autocomplete: "family-name"
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "label",
+                {
+                  staticClass: "block text-sm font-medium text-gray-900",
+                  attrs: { for: "email" }
+                },
+                [_vm._v("Email")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "mt-1" }, [
+                _c("input", {
+                  staticClass:
+                    "py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md",
+                  attrs: {
+                    id: "email",
+                    name: "email",
+                    type: "email",
+                    autocomplete: "email"
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("div", { staticClass: "flex justify-between" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "block text-sm font-medium text-gray-900",
+                    attrs: { for: "phone" }
+                  },
+                  [_vm._v("Phone")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass: "text-sm text-gray-500",
+                    attrs: { id: "phone-optional" }
+                  },
+                  [_vm._v("Optional")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mt-1" }, [
+                _c("input", {
+                  staticClass:
+                    "py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md",
+                  attrs: {
+                    type: "text",
+                    name: "phone",
+                    id: "phone",
+                    autocomplete: "tel",
+                    "aria-describedby": "phone-optional"
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "sm:col-span-2" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "block text-sm font-medium text-gray-900",
+                  attrs: { for: "subject" }
+                },
+                [_vm._v("Subject")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "mt-1" }, [
+                _c("input", {
+                  staticClass:
+                    "py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md",
+                  attrs: { type: "text", name: "subject", id: "subject" }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "sm:col-span-2" }, [
+              _c("div", { staticClass: "flex justify-between" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "block text-sm font-medium text-gray-900",
+                    attrs: { for: "message" }
+                  },
+                  [_vm._v("Message")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass: "text-sm text-gray-500",
+                    attrs: { id: "message-max" }
+                  },
+                  [_vm._v("Max. 500 characters")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mt-1" }, [
+                _c("textarea", {
+                  staticClass:
+                    "py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md",
+                  attrs: {
+                    id: "message",
+                    name: "message",
+                    rows: "4",
+                    "aria-describedby": "message-max"
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "sm:col-span-2 sm:flex sm:justify-end" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto",
+                  attrs: { type: "submit" }
+                },
+                [_vm._v("Submit")]
+              )
+            ])
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "relative" }, [
+      _c("div", { staticClass: "sm:text-center" }, [
+        _c(
+          "h2",
+          {
+            staticClass:
+              "text-3xl font-extrabold text-white tracking-tight sm:text-4xl"
+          },
+          [_vm._v("Get notified and stay updated.")]
+        ),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass:
+              "mt-6 mx-auto max-w-2xl text-lg text-indigo-200 font-primary-font"
+          },
+          [
+            _vm._v(
+              "\n                      Get updates and notifications regarding new tender posted and other interesting news letters.\n\n                  "
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          staticClass: "mt-12 sm:mx-auto sm:max-w-lg sm:flex",
+          attrs: { action: "#" }
+        },
+        [
+          _c("div", { staticClass: "min-w-0 flex-1" }, [
+            _c(
+              "label",
+              { staticClass: "sr-only", attrs: { for: "cta-email" } },
+              [_vm._v("Email address")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              staticClass:
+                "block w-full border border-transparent rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600",
+              attrs: {
+                id: "cta-email",
+                type: "email",
+                placeholder: "Enter your email"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mt-4 sm:mt-0 sm:ml-3" }, [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "block w-full rounded-md border border-transparent px-5 py-3 bg-indigo-500 text-base font-medium text-white shadow hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 sm:px-10",
+                attrs: { type: "submit" }
+              },
+              [_vm._v("Notify me")]
             )
           ])
         ]
