@@ -1,14 +1,15 @@
 <template>
   <div class="mx-5 rounded-lg">
+
         <div class="bg-gray-50 mt-5 rounded-lg">
         <div class="relative bg-white">
             <!-- Overlapping background -->
             <div aria-hidden="true" class="hidden absolute bg-gray-50 w-full h-6 bottom-0 lg:block"></div>
 
             <div class="relative max-w-2xl mx-auto pt-1 px-4 text-center sm:pt-12 sm:px-6 lg:max-w-7xl lg:px-8">
-            <h1 class="text-4xl font-extrabold tracking-tight text-indigo-600 sm:text-6xl font-heading-font">
-                <span class="block lg:inline">Simple pricing,</span>
-                <span class="block lg:inline text-gray-600">no commitment.</span>
+            <h1 class="text-4xl font-extrabold tracking-tight text-gray-700 sm:text-6xl font-heading-font">
+                <span class="block lg:inline">Simple pricing</span>
+                <!-- <span class="block lg:inline text-gray-600">no commitment.</span> -->
             </h1>
             <p class="mt-4 text-xl text-gray-400">Everything you need, nothing you don't.</p>
             </div>
@@ -105,10 +106,10 @@
         </div>
         </div>
 
-        <section class="pt-20 pb-24 2xl:py-40 bg-black mx-10 rounded-3xl">
+        <section class="pt-20 pb-24 2xl:py-40 bg-white mx-10 rounded-3xl">
             <div class="container mx-auto px-4">
                 <div class="mb-16 md:mb-24 text-center">
-                <h2 class="mb-8 md:mb-14 text-5xl lg:text-6xl 2xl:text-7xl text-white font-bold font-heading font-heading-font">Membership Pricing</h2>
+                <h2 class="mb-8 md:mb-14 text-5xl lg:text-6xl 2xl:text-7xl text-gray-700 font-bold font-heading font-heading-font">Membership Pricing</h2>
                 </div>
                 <div class="max-w-6xl mx-auto">
                 <div class="flex flex-wrap items-center -mx-3">
@@ -184,7 +185,7 @@
                             </span>
                             <span>Exclusive Tender Details Access</span>
                         </li>
-                        <li class="flex items-center">
+                        <li class="flex items-center mb-8">
                             <span class="mr-6">
                             <svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z" fill="white"></path>
@@ -230,7 +231,7 @@
                             </span>
                             <span>Exclusive Tender Details Access</span>
                         </li>
-                        <li class="flex items-center">
+                        <li class="flex items-center mb-8">
                             <span class="mr-6">
                             <svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z" fill="white"></path>
@@ -269,7 +270,68 @@
         </div>
         </div>
 
-        <div class="bg-black mt-5 mx-10 rounded-3xl">
+
+        <section class="max-w-8xl mx-auto container bg-white dark:bg-gray-900 pt-16">
+            <div>
+                <div role="contentinfo" class="flex items-center flex-col px-4">
+                    <p tabindex="0" class="focus:outline-none uppercase text-sm text-center text-gray-600 dark:text-gray-200 leading-4">Catalogue</p>
+                    <hh1 tabindex="0" class="focus:outline-none text-4xl lg:text-4xl font-extrabold text-center leading-10 text-gray-800 dark:text-white lg:w-5/12 md:w-9/12 pt-4">Services Offered</hh1>
+                </div>
+                <div tabindex="0" aria-label="group of cards" class="focus:outline-none mt-20 flex flex-wrap justify-center gap-10 px-4">
+                    <div tabindex="0" aria-label="card 1" class="focus:outline-none flex sm:w-full md:w-5/12 pb-20">
+                        <div class="w-20 h-20 relative mr-5">
+                            <div class="absolute top-0 right-0 bg-indigo-100 rounded w-16 h-16 mt-2 mr-1"></div>
+                            <div class="absolute text-white bottom-0 left-0 bg-indigo-700 rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">
+                                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/icon_and_text-SVG1.svg" alt="drawer">
+                            </div>
+                        </div>
+                        <div class="w-10/12">
+                            <h2 tabindex="0" class="focus:outline-none text-lg font-bold leading-tight text-gray-800 dark:text-white">Ready to use components</h2>
+                            <p tabindex="0" class="focus:outline-none text-base text-gray-600 dark:text-gray-200 leading-normal pt-2">It provides a very simple start, no need to write a lot of code, you just import it and start the primitive components and create the ones you need.</p>
+                        </div>
+                    </div>
+                    <div tabindex="0" aria-label="card 2" class="focus:outline-none flex sm:w-full md:w-5/12 pb-20">
+                        <div class="w-20 h-20 relative mr-5">
+                            <div class="absolute top-0 right-0 bg-indigo-100 rounded w-16 h-16 mt-2 mr-1"></div>
+                            <div class="absolute text-white bottom-0 left-0 bg-indigo-700 rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">
+                                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/icon_and_text-SVG2.svg" alt="check">
+                            </div>
+                        </div>
+                        <div class="w-10/12">
+                            <h2 tabindex="0" class="focus:outline-none text-lg font-semibold leading-tight text-gray-800 dark:text-white">Hight Quality UI you can reply on</h2>
+                            <p tabindex="0" class="focus:outline-none text-base text-gray-600 dark:text-gray-200 leading-normal pt-2">Modify the visual appearance of your site – including colors, fonts, margins and other style-related properties – with a sophisticated style.</p>
+                        </div>
+                    </div>
+                    <div tabindex="0" aria-label="card 3" class="focus:outline-none flex sm:w-full md:w-5/12 pb-20">
+                        <div class="w-20 h-20 relative mr-5">
+                            <div class="absolute top-0 right-0 bg-indigo-100 rounded w-16 h-16 mt-2 mr-1"></div>
+                            <div class="absolute text-white bottom-0 left-0 bg-indigo-700 rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">
+                                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/icon_and_text-SVG3.svg" alt="html tag">
+                            </div>
+                        </div>
+                        <div class="w-10/12">
+                            <h2 tabindex="0" class="focus:outline-none text-lg font-semibold leading-tight text-gray-800 dark:text-white">Coded by Developers for Developers</h2>
+                            <p tabindex="0" class="focus:outline-none text-base text-gray-600 dark:text-gray-200 leading-normal pt-2">Instead of just giving you the tools to create your own site, they offer you a list of themes you can choose from. Thus a handy product.</p>
+                        </div>
+                    </div>
+                    <div tabindex="0" aria-label="card 4" class="focus:outline-none flex sm:w-full md:w-5/12 pb-20">
+                        <div class="w-20 h-20 relative mr-5">
+                            <div class="absolute top-0 right-0 bg-indigo-100 rounded w-16 h-16 mt-2 mr-1"></div>
+                            <div class="absolute text-white bottom-0 left-0 bg-indigo-700 rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">
+                                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/icon_and_text-SVG4.svg" alt="monitor">
+                            </div>
+                        </div>
+                        <div class="w-10/12">
+                            <h2 tabindex="0" class="focus:outline-none text-lg font-semibold leading-tight text-gray-800 dark:text-white">The Last UI kit you’ll ever need</h2>
+                            <p tabindex="0" class="focus:outline-none text-base text-gray-600 dark:text-gray-200 leading-normal pt-2">We have chosen the bright color palettes that arouse the only positive emotions. The kit that simply assures to be loved by everyone.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="bg-black mt-5 rounded-3xl">
         <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-extrabold text-white font-bold-font">Frequently asked questions <i class="ml-5 fas fa-circle-question text-white-600 fa-xl
             "></i></h2>
@@ -298,7 +360,7 @@
         </div>
         </div>
 
-        <div class="bg-white py-1">
+        <!-- <div class="bg-white py-1">
         <div class="relative sm:py-16">
             <div aria-hidden="true" class="hidden sm:block">
             <div class="absolute inset-y-0 left-0 w-1/2 bg-gray-50 rounded-r-3xl"></div>
@@ -340,7 +402,7 @@
             </div>
             </div>
         </div>
-        </div>
+        </div> -->
 
         <div class="bg-indigo-700 mt-7 rounded-lg">
         <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
@@ -488,6 +550,8 @@
             </div>
         </div>
         </div>
+
+
 
   </div>
 </template>

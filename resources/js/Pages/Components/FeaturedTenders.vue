@@ -11,7 +11,7 @@
                     <div class="container px-5 py-4 mx-auto">
                         <div class="flex flex-wrap -m-2">
 
-                        <a v-for="post in this.posts" :key="post._id" :href="route('selected', post._id)" class="group bg-white border-t-2 border-r-2 mt-4 my-4 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
+                        <a v-for="post in this.posts.slice(0, 6)" :key="post._id" :href="route('selected', post._id)" class="group bg-white border-t-2 border-r-2 mt-4 my-4 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start">
                             <!-- <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">{{ post.funded_by }}</span> -->
                             <div class="flex justify-between w-full">
                                 <div class="font-heading-font font-extrabold">
