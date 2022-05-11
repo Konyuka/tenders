@@ -1,93 +1,5 @@
 <template>
   <div class="mx-5 rounded-lg">
-
-        <!-- This example requires Tailwind CSS v2.0+ -->
-        <div class="bg-indigo-700 mt-5 rounded-lg">
-        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-extrabold text-white font-bold-font">Frequently asked questions <i class="ml-5 fas fa-circle-question text-white-600 fa-xl
-            "></i></h2>
-            <div class="mt-6 border-t border-indigo-300 border-opacity-25 pt-10">
-            <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-12">
-
-                <div>
-                <dt class="text-lg leading-6 font-extrabold text-white font-heading-font">Do I have to register an account to purchase a tender?</dt>
-                <dd class="mt-2 text-base text-indigo-200 font-primary-font">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
-                </div>
-                <div>
-                <dt class="text-lg leading-6 font-extrabold text-white font-heading-font">Do you have other payment gateways besides Mpesa?</dt>
-                <dd class="mt-2 text-base text-indigo-200 font-primary-font">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
-                </div>
-                <div>
-                <dt class="text-lg leading-6 font-extrabold text-white font-heading-font">How frequently are the tenders updated?</dt>
-                <dd class="mt-2 text-base text-indigo-200 font-primary-font">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
-                </div>
-                <div>
-                <dt class="text-lg leading-6 font-extrabold text-white font-heading-font">Can I subscribe to newsletters and notifications?</dt>
-                <dd class="mt-2 text-base text-indigo-200 font-primary-font">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
-                </div>
-
-            </dl>
-            </div>
-        </div>
-        </div>
-
-        <!-- This example requires Tailwind CSS v2.0+ -->
-        <div class="bg-indigo-700 mt-5 rounded-lg">
-        <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
-            <span class="block">Simplicity in productivity <i class="fas fa-thumbs-up"></i></span>
-            <span class="block">Explore Bidders Portal today.</span>
-            </h2>
-            <p class="mt-4 text-lg leading-6 text-indigo-200 font-heading-font">
-                We focus on bringing you closer and invested in your market niche.
-                There are millions of tenders awaiting and we ensure that you
-            </p>
-            <a href="#" class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-bold rounded-md text-gray-500 hover:text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto font-heading-font transform transition hover:scale-125 duration-700 hover:shadow-2xl"> Sign up for free </a>
-        </div>
-        </div>
-
-        <!-- <div class="relative py-16 bg-white">
-        <div class="hidden absolute top-0 inset-x-0 h-1/2 bg-gray-50 lg:block" aria-hidden="true"></div>
-        <div class="max-w-7xl mx-auto bg-indigo-600 lg:bg-transparent lg:px-8">
-            <div class="lg:grid lg:grid-cols-12">
-            <div class="relative z-10 lg:col-start-1 lg:row-start-1 lg:col-span-4 lg:py-16 lg:bg-transparent">
-                <div class="absolute inset-x-0 h-1/2 bg-gray-50 lg:hidden" aria-hidden="true"></div>
-                <div class="max-w-md mx-auto px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:p-0">
-                <div class="aspect-w-10 aspect-h-6 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1">
-                    <img class="object-cover object-center rounded-3xl shadow-2xl" src="https://images.unsplash.com/photo-1507207611509-ec012433ff52?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=80" alt="">
-                </div>
-                </div>
-            </div>
-
-            <div class="relative bg-indigo-600 lg:col-start-3 lg:row-start-1 lg:col-span-10 lg:rounded-3xl lg:grid lg:grid-cols-10 lg:items-center">
-                <div class="hidden absolute inset-0 overflow-hidden rounded-3xl lg:block" aria-hidden="true">
-                <svg class="absolute bottom-full left-full transform translate-y-1/3 -translate-x-2/3 xl:bottom-auto xl:top-0 xl:translate-y-0" width="404" height="384" fill="none" viewBox="0 0 404 384" aria-hidden="true">
-                    <defs>
-                    <pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                        <rect x="0" y="0" width="4" height="4" class="text-indigo-500" fill="currentColor" />
-                    </pattern>
-                    </defs>
-                    <rect width="404" height="384" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
-                </svg>
-                <svg class="absolute top-full transform -translate-y-1/3 -translate-x-1/3 xl:-translate-y-1/2" width="404" height="384" fill="none" viewBox="0 0 404 384" aria-hidden="true">
-                    <defs>
-                    <pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                        <rect x="0" y="0" width="4" height="4" class="text-indigo-500" fill="currentColor" />
-                    </pattern>
-                    </defs>
-                    <rect width="404" height="384" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
-                </svg>
-                </div>
-                <div class="relative max-w-md mx-auto py-12 px-4 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-4 lg:col-span-6">
-                <h2 class="text-3xl font-extrabold text-white" id="join-heading">Join our team</h2>
-                <p class="text-lg text-white">Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.</p>
-                <a class="block w-full py-3 px-5 text-center bg-white border border-transparent rounded-md shadow-md text-base font-medium text-indigo-700 hover:bg-gray-50 sm:inline-block sm:w-auto" href="#">Explore open positions</a>
-                </div>
-            </div>
-            </div>
-        </div>
-        </div> -->
-
         <div class="bg-gray-50 mt-5 rounded-lg">
         <div class="relative bg-white">
             <!-- Overlapping background -->
@@ -98,18 +10,10 @@
                 <span class="block lg:inline">Simple pricing,</span>
                 <span class="block lg:inline text-gray-600">no commitment.</span>
             </h1>
-            <p class="mt-4 text-xl text-gray-400">Everything you need, nothing you don't. Fair and Transparent.</p>
+            <p class="mt-4 text-xl text-gray-400">Everything you need, nothing you don't.</p>
             </div>
 
             <h2 class="sr-only">Plans</h2>
-
-            <!-- Toggle -->
-            <!-- <div class="relative mt-12 flex justify-center sm:mt-16">
-            <div class="bg-indigo-700 p-0.5 rounded-lg flex">
-                <button type="button" class="relative bg-white py-2 px-6 border-indigo-700 rounded-md shadow-sm text-sm font-medium text-indigo-700 whitespace-nowrap hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-700 focus:ring-white focus:z-10">Monthly billing</button>
-                <button type="button" class="ml-0.5 relative py-2 px-6 border border-transparent rounded-md text-sm font-medium text-indigo-200 whitespace-nowrap hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-700 focus:ring-white focus:z-10">Yearly billing</button>
-            </div>
-            </div> -->
 
             <!-- Cards -->
             <div class="relative mt-8 max-w-2xl mx-auto px-4 pb-8 sm:mt-12 sm:px-6 lg:max-w-7xl lg:px-8 lg:pb-0">
@@ -198,6 +102,243 @@
             </div>
             </div>
 
+        </div>
+        </div>
+
+        <section class="pt-20 pb-24 2xl:py-40 bg-black mx-10 rounded-3xl">
+            <div class="container mx-auto px-4">
+                <div class="mb-16 md:mb-24 text-center">
+                <h2 class="mb-8 md:mb-14 text-5xl lg:text-6xl 2xl:text-7xl text-white font-bold font-heading font-heading-font">Membership Pricing</h2>
+                </div>
+                <div class="max-w-6xl mx-auto">
+                <div class="flex flex-wrap items-center -mx-3">
+
+                    <div class="w-full lg:w-1/3 px-3 mb-8 lg:mb-0">
+                    <div class="px-12 py-16 bg-indigo-700 rounded-3xl">
+                        <div class="pb-8 mb-14 border-b border-gray-400">
+                        <div class="flex justify-between items-center px-3">
+                            <h3 class="text-4xl text-white font-bold font-heading">Bronze</h3>
+                            <p class="text-lg text-white font-bold">KES 2,000</p>
+                        </div>
+                        </div>
+                        <ul class="text-sm text-white mb-16 font-primary-font">
+                        <li class="flex items-center mb-8">
+                            <span class="mr-6">
+                            <svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z" fill="white"></path>
+                            </svg>
+                            </span>
+                            <span>Access all Tenders in a Category</span>
+                        </li>
+                        <li class="flex items-center mb-8">
+                            <span class="mr-6">
+                            <svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z" fill="white"></path>
+                            </svg>
+                            </span>
+                            <span>Exclusive Tender Details Access</span>
+                        </li>
+                        <li class="flex items-center mb-8">
+                            <span class="mr-6">
+                            <svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z" fill="white"></path>
+                            </svg>
+                            </span>
+                            <span>Email Notifications Updates</span>
+                        </li>
+                        <li class="flex items-center mb-8">
+                            <span class="mr-6">
+                            <svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z" fill="white"></path>
+                            </svg>
+                            </span>
+                            <span>Billed Monthly</span>
+                        </li>
+                        </ul>
+                        <div class="text-center"><a class="inline-block px-10 py-4 border border-gray-200 hover:border-gray-100 rounded-full font-bold text-white" href="#">Subscribe to Plan</a></div>
+                    </div>
+                    </div>
+
+                    <div class="w-full lg:w-1/3 px-3 mb-8 lg:mb-0">
+                    <div class="px-12 py-16 bg-yellow-400 rounded-3xl">
+                        <div class="pb-8 mb-14 border-b border-blueGray-300">
+                        <div class="flex justify-between items-center px-3">
+                            <h3 class="text-4xl text-white font-bold font-heading">Gold</h3>
+                            <p class="text-lg text-white font-bold">KES 50,000</p>
+                        </div>
+                        </div>
+                        <ul class="text-sm text-white mb-16 font-primary-font">
+                        <li class="flex items-center mb-8">
+                            <span class="mr-6">
+                            <svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z" fill="white"></path>
+                            </svg>
+                            </span>
+                            <span>Access all Tenders in All Category</span>
+                        </li>
+                        <li class="flex items-center mb-8">
+                            <span class="mr-6">
+                            <svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z" fill="white"></path>
+                            </svg>
+                            </span>
+                            <span>Exclusive Tender Details Access</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-6">
+                            <svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z" fill="white"></path>
+                            </svg>
+                            </span>
+                            <span>Email Notifications Updates</span>
+                        </li>
+                        <li class="flex items-center mb-8">
+                            <span class="mr-6">
+                            <svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z" fill="white"></path>
+                            </svg>
+                            </span>
+                            <span>Billed Annually</span>
+                        </li>
+                        </ul>
+                        <div class="text-center"><a class="inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-white" href="#">Subscribe to Plan</a></div>
+                    </div>
+                    </div>
+
+                    <div class="w-full lg:w-1/3 px-3">
+                    <div class="px-12 py-16 bg-indigo-700 rounded-3xl">
+                        <div class="pb-8 mb-14 border-b border-gray-400">
+                        <div class="flex justify-between items-center px-3">
+                            <h3 class="text-4xl text-white font-bold font-heading">Silver</h3>
+                            <p class="text-lg text-white font-bold">KES 10,000</p>
+                        </div>
+                        </div>
+                        <ul class="text-sm text-white mb-16 font-primary-font">
+                        <li class="flex items-center mb-8">
+                            <span class="mr-6">
+                            <svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z" fill="white"></path>
+                            </svg>
+                            </span>
+                            <span>Access all Tenders in a Category</span>
+                        </li>
+                        <li class="flex items-center mb-8">
+                            <span class="mr-6">
+                            <svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z" fill="white"></path>
+                            </svg>
+                            </span>
+                            <span>Exclusive Tender Details Access</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-6">
+                            <svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z" fill="white"></path>
+                            </svg>
+                            </span>
+                            <span>Email Notifications Updates</span>
+                        </li>
+                        <li class="flex items-center mb-8">
+                            <span class="mr-6">
+                            <svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z" fill="white"></path>
+                            </svg>
+                            </span>
+                            <span>Billed Annually</span>
+                        </li>
+                        </ul>
+                        <div class="text-center"><a class="inline-block px-10 py-4 border border-gray-200 hover:border-gray-100 rounded-full font-bold text-white" href="#">Subscribe to Plan</a></div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="bg-indigo-700 mt-10 mx-10 rounded-3xl">
+        <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+            <span class="block">Simplicity in productivity <i class="fas fa-thumbs-up"></i></span>
+            <span class="block">Explore Bidders Portal today.</span>
+            </h2>
+            <p class="mt-4 text-lg leading-6 text-indigo-200 font-heading-font">
+                We focus on bringing you closer and invested in your market niche.
+                There are millions of tenders awaiting and we ensure that you
+            </p>
+            <a href="#" class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-bold rounded-md text-gray-500 hover:text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto font-heading-font transform transition hover:scale-125 duration-700 hover:shadow-2xl"> Sign up for free </a>
+        </div>
+        </div>
+
+        <div class="bg-black mt-5 mx-10 rounded-3xl">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-white font-bold-font">Frequently asked questions <i class="ml-5 fas fa-circle-question text-white-600 fa-xl
+            "></i></h2>
+            <div class="mt-6 border-t border-indigo-300 border-opacity-25 pt-10">
+            <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-12">
+
+                <div>
+                <dt class="text-lg leading-6 font-extrabold text-white font-heading-font">Do I have to register an account to purchase a tender?</dt>
+                <dd class="mt-2 text-base text-indigo-200 font-primary-font">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+                </div>
+                <div>
+                <dt class="text-lg leading-6 font-extrabold text-white font-heading-font">Do you have other payment gateways besides Mpesa?</dt>
+                <dd class="mt-2 text-base text-indigo-200 font-primary-font">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+                </div>
+                <div>
+                <dt class="text-lg leading-6 font-extrabold text-white font-heading-font">How frequently are the tenders updated?</dt>
+                <dd class="mt-2 text-base text-indigo-200 font-primary-font">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+                </div>
+                <div>
+                <dt class="text-lg leading-6 font-extrabold text-white font-heading-font">Can I subscribe to newsletters and notifications?</dt>
+                <dd class="mt-2 text-base text-indigo-200 font-primary-font">I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</dd>
+                </div>
+
+            </dl>
+            </div>
+        </div>
+        </div>
+
+        <div class="bg-white py-1">
+        <div class="relative sm:py-16">
+            <div aria-hidden="true" class="hidden sm:block">
+            <div class="absolute inset-y-0 left-0 w-1/2 bg-gray-50 rounded-r-3xl"></div>
+            <svg class="absolute top-8 left-1/2 -ml-3" width="404" height="392" fill="none" viewBox="0 0 404 392">
+                <defs>
+                <pattern id="8228f071-bcee-4ec8-905a-2a059a2cc4fb" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                </pattern>
+                </defs>
+                <rect width="404" height="392" fill="url(#8228f071-bcee-4ec8-905a-2a059a2cc4fb)" />
+            </svg>
+            </div>
+            <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
+            <div class="relative rounded-2xl px-6 py-10 bg-indigo-600 overflow-hidden shadow-xl sm:px-12 sm:py-20">
+                <div aria-hidden="true" class="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0">
+                <svg class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1463 360">
+                    <path class="text-indigo-500 text-opacity-40" fill="currentColor" d="M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z" />
+                    <path class="text-indigo-700 text-opacity-40" fill="currentColor" d="M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z" />
+                </svg>
+                </div>
+                <div class="relative">
+                <div class="sm:text-center">
+                    <h2 class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">Get notified and stay updated.</h2>
+                    <p class="mt-6 mx-auto max-w-2xl text-lg text-indigo-200 font-primary-font">
+                        Get updates and notifications regarding new tender posted and other interesting news letters.
+
+                    </p>
+                </div>
+                <form action="#" class="mt-12 sm:mx-auto sm:max-w-lg sm:flex">
+                    <div class="min-w-0 flex-1">
+                    <label for="cta-email" class="sr-only">Email address</label>
+                    <input id="cta-email" type="email" class="block w-full border border-transparent rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600" placeholder="Enter your email">
+                    </div>
+                    <div class="mt-4 sm:mt-0 sm:ml-3">
+                    <button type="submit" class="block w-full rounded-md border border-transparent px-5 py-3 bg-indigo-500 text-base font-medium text-white shadow hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 sm:px-10">Notify me</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>
         </div>
         </div>
 
@@ -340,50 +481,6 @@
                     </div>
                     <div class="sm:col-span-2 sm:flex sm:justify-end">
                     <button type="submit" class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto">Submit</button>
-                    </div>
-                </form>
-                </div>
-            </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="bg-white py-1">
-        <div class="relative sm:py-16">
-            <div aria-hidden="true" class="hidden sm:block">
-            <div class="absolute inset-y-0 left-0 w-1/2 bg-gray-50 rounded-r-3xl"></div>
-            <svg class="absolute top-8 left-1/2 -ml-3" width="404" height="392" fill="none" viewBox="0 0 404 392">
-                <defs>
-                <pattern id="8228f071-bcee-4ec8-905a-2a059a2cc4fb" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
-                </pattern>
-                </defs>
-                <rect width="404" height="392" fill="url(#8228f071-bcee-4ec8-905a-2a059a2cc4fb)" />
-            </svg>
-            </div>
-            <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
-            <div class="relative rounded-2xl px-6 py-10 bg-indigo-600 overflow-hidden shadow-xl sm:px-12 sm:py-20">
-                <div aria-hidden="true" class="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0">
-                <svg class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1463 360">
-                    <path class="text-indigo-500 text-opacity-40" fill="currentColor" d="M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z" />
-                    <path class="text-indigo-700 text-opacity-40" fill="currentColor" d="M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z" />
-                </svg>
-                </div>
-                <div class="relative">
-                <div class="sm:text-center">
-                    <h2 class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">Get notified and stay updated.</h2>
-                    <p class="mt-6 mx-auto max-w-2xl text-lg text-indigo-200 font-primary-font">
-                        Get updates and notifications regarding new tender posted and other interesting news letters.
-
-                    </p>
-                </div>
-                <form action="#" class="mt-12 sm:mx-auto sm:max-w-lg sm:flex">
-                    <div class="min-w-0 flex-1">
-                    <label for="cta-email" class="sr-only">Email address</label>
-                    <input id="cta-email" type="email" class="block w-full border border-transparent rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600" placeholder="Enter your email">
-                    </div>
-                    <div class="mt-4 sm:mt-0 sm:ml-3">
-                    <button type="submit" class="block w-full rounded-md border border-transparent px-5 py-3 bg-indigo-500 text-base font-medium text-white shadow hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 sm:px-10">Notify me</button>
                     </div>
                 </form>
                 </div>

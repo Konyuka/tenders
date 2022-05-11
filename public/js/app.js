@@ -5864,6 +5864,103 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
   components: {//   Categories,
@@ -57495,10 +57592,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "mx-5 rounded-lg" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
     _c("div", { staticClass: "bg-gray-50 mt-5 rounded-lg" }, [
       _c("div", { staticClass: "relative bg-white" }, [
         _c("div", {
@@ -57507,7 +57600,7 @@ var render = function() {
           attrs: { "aria-hidden": "true" }
         }),
         _vm._v(" "),
-        _vm._m(2),
+        _vm._m(0),
         _vm._v(" "),
         _c("h2", { staticClass: "sr-only" }, [_vm._v("Plans")]),
         _vm._v(" "),
@@ -57538,7 +57631,7 @@ var render = function() {
                       "bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                   },
                   [
-                    _vm._m(3),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c("h4", { staticClass: "sr-only" }, [_vm._v("Features")]),
                     _vm._v(" "),
@@ -57595,7 +57688,7 @@ var render = function() {
                       "bg-white ring-2 ring-indigo-700 shadow-xl pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                   },
                   [
-                    _vm._m(4),
+                    _vm._m(2),
                     _vm._v(" "),
                     _c("h4", { staticClass: "sr-only" }, [_vm._v("Features")]),
                     _vm._v(" "),
@@ -57653,7 +57746,7 @@ var render = function() {
                       "bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                   },
                   [
-                    _vm._m(5),
+                    _vm._m(3),
                     _vm._v(" "),
                     _c("h4", { staticClass: "sr-only" }, [_vm._v("Features")]),
                     _vm._v(" "),
@@ -57702,6 +57795,561 @@ var render = function() {
                     )
                   ]
                 )
+              ]
+            )
+          ]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "section",
+      { staticClass: "pt-20 pb-24 2xl:py-40 bg-black mx-10 rounded-3xl" },
+      [
+        _c("div", { staticClass: "container mx-auto px-4" }, [
+          _vm._m(4),
+          _vm._v(" "),
+          _c("div", { staticClass: "max-w-6xl mx-auto" }, [
+            _c("div", { staticClass: "flex flex-wrap items-center -mx-3" }, [
+              _c("div", { staticClass: "w-full lg:w-1/3 px-3 mb-8 lg:mb-0" }, [
+                _c(
+                  "div",
+                  { staticClass: "px-12 py-16 bg-indigo-700 rounded-3xl" },
+                  [
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      {
+                        staticClass:
+                          "text-sm text-white mb-16 font-primary-font"
+                      },
+                      [
+                        _c("li", { staticClass: "flex items-center mb-8" }, [
+                          _c("span", { staticClass: "mr-6" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "16",
+                                  viewbox: "0 0 20 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                                    fill: "white"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [
+                            _vm._v("Access all Tenders in a Category")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "flex items-center mb-8" }, [
+                          _c("span", { staticClass: "mr-6" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "16",
+                                  viewbox: "0 0 20 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                                    fill: "white"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [
+                            _vm._v("Exclusive Tender Details Access")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "flex items-center mb-8" }, [
+                          _c("span", { staticClass: "mr-6" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "16",
+                                  viewbox: "0 0 20 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                                    fill: "white"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("Email Notifications Updates")])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "flex items-center mb-8" }, [
+                          _c("span", { staticClass: "mr-6" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "16",
+                                  viewbox: "0 0 20 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                                    fill: "white"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("Billed Monthly")])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(6)
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "w-full lg:w-1/3 px-3 mb-8 lg:mb-0" }, [
+                _c(
+                  "div",
+                  { staticClass: "px-12 py-16 bg-yellow-400 rounded-3xl" },
+                  [
+                    _vm._m(7),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      {
+                        staticClass:
+                          "text-sm text-white mb-16 font-primary-font"
+                      },
+                      [
+                        _c("li", { staticClass: "flex items-center mb-8" }, [
+                          _c("span", { staticClass: "mr-6" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "16",
+                                  viewbox: "0 0 20 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                                    fill: "white"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [
+                            _vm._v("Access all Tenders in All Category")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "flex items-center mb-8" }, [
+                          _c("span", { staticClass: "mr-6" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "16",
+                                  viewbox: "0 0 20 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                                    fill: "white"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [
+                            _vm._v("Exclusive Tender Details Access")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "flex items-center" }, [
+                          _c("span", { staticClass: "mr-6" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "16",
+                                  viewbox: "0 0 20 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                                    fill: "white"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("Email Notifications Updates")])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "flex items-center mb-8" }, [
+                          _c("span", { staticClass: "mr-6" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "16",
+                                  viewbox: "0 0 20 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                                    fill: "white"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("Billed Annually")])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(8)
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "w-full lg:w-1/3 px-3" }, [
+                _c(
+                  "div",
+                  { staticClass: "px-12 py-16 bg-indigo-700 rounded-3xl" },
+                  [
+                    _vm._m(9),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      {
+                        staticClass:
+                          "text-sm text-white mb-16 font-primary-font"
+                      },
+                      [
+                        _c("li", { staticClass: "flex items-center mb-8" }, [
+                          _c("span", { staticClass: "mr-6" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "16",
+                                  viewbox: "0 0 20 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                                    fill: "white"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [
+                            _vm._v("Access all Tenders in a Category")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "flex items-center mb-8" }, [
+                          _c("span", { staticClass: "mr-6" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "16",
+                                  viewbox: "0 0 20 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                                    fill: "white"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [
+                            _vm._v("Exclusive Tender Details Access")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "flex items-center" }, [
+                          _c("span", { staticClass: "mr-6" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "16",
+                                  viewbox: "0 0 20 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                                    fill: "white"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("Email Notifications Updates")])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "flex items-center mb-8" }, [
+                          _c("span", { staticClass: "mr-6" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "16",
+                                  viewbox: "0 0 20 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                                    fill: "white"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("Billed Annually")])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(10)
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _vm._m(11),
+    _vm._v(" "),
+    _vm._m(12),
+    _vm._v(" "),
+    _c("div", { staticClass: "bg-white py-1" }, [
+      _c("div", { staticClass: "relative sm:py-16" }, [
+        _c(
+          "div",
+          { staticClass: "hidden sm:block", attrs: { "aria-hidden": "true" } },
+          [
+            _c("div", {
+              staticClass:
+                "absolute inset-y-0 left-0 w-1/2 bg-gray-50 rounded-r-3xl"
+            }),
+            _vm._v(" "),
+            _c(
+              "svg",
+              {
+                staticClass: "absolute top-8 left-1/2 -ml-3",
+                attrs: {
+                  width: "404",
+                  height: "392",
+                  fill: "none",
+                  viewBox: "0 0 404 392"
+                }
+              },
+              [
+                _c("defs", [
+                  _c(
+                    "pattern",
+                    {
+                      attrs: {
+                        id: "8228f071-bcee-4ec8-905a-2a059a2cc4fb",
+                        x: "0",
+                        y: "0",
+                        width: "20",
+                        height: "20",
+                        patternUnits: "userSpaceOnUse"
+                      }
+                    },
+                    [
+                      _c("rect", {
+                        staticClass: "text-gray-200",
+                        attrs: {
+                          x: "0",
+                          y: "0",
+                          width: "4",
+                          height: "4",
+                          fill: "currentColor"
+                        }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("rect", {
+                  attrs: {
+                    width: "404",
+                    height: "392",
+                    fill: "url(#8228f071-bcee-4ec8-905a-2a059a2cc4fb)"
+                  }
+                })
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8"
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "relative rounded-2xl px-6 py-10 bg-indigo-600 overflow-hidden shadow-xl sm:px-12 sm:py-20"
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "absolute inset-0 -mt-72 sm:-mt-32 md:mt-0",
+                    attrs: { "aria-hidden": "true" }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "absolute inset-0 h-full w-full",
+                        attrs: {
+                          preserveAspectRatio: "xMidYMid slice",
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 1463 360"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          staticClass: "text-indigo-500 text-opacity-40",
+                          attrs: {
+                            fill: "currentColor",
+                            d:
+                              "M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticClass: "text-indigo-700 text-opacity-40",
+                          attrs: {
+                            fill: "currentColor",
+                            d:
+                              "M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(13)
               ]
             )
           ]
@@ -57949,7 +58597,7 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("dl", { staticClass: "mt-8 space-y-6" }, [
-                    _vm._m(6),
+                    _vm._m(14),
                     _vm._v(" "),
                     _c("dd", { staticClass: "flex text-base text-indigo-50" }, [
                       _c(
@@ -57982,7 +58630,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(7),
+                    _vm._m(15),
                     _vm._v(" "),
                     _c("dd", { staticClass: "flex text-base text-indigo-50" }, [
                       _c(
@@ -58018,137 +58666,11 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(8)
+              _vm._m(16)
             ])
           ])
         ]
       )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "bg-white py-1" }, [
-      _c("div", { staticClass: "relative sm:py-16" }, [
-        _c(
-          "div",
-          { staticClass: "hidden sm:block", attrs: { "aria-hidden": "true" } },
-          [
-            _c("div", {
-              staticClass:
-                "absolute inset-y-0 left-0 w-1/2 bg-gray-50 rounded-r-3xl"
-            }),
-            _vm._v(" "),
-            _c(
-              "svg",
-              {
-                staticClass: "absolute top-8 left-1/2 -ml-3",
-                attrs: {
-                  width: "404",
-                  height: "392",
-                  fill: "none",
-                  viewBox: "0 0 404 392"
-                }
-              },
-              [
-                _c("defs", [
-                  _c(
-                    "pattern",
-                    {
-                      attrs: {
-                        id: "8228f071-bcee-4ec8-905a-2a059a2cc4fb",
-                        x: "0",
-                        y: "0",
-                        width: "20",
-                        height: "20",
-                        patternUnits: "userSpaceOnUse"
-                      }
-                    },
-                    [
-                      _c("rect", {
-                        staticClass: "text-gray-200",
-                        attrs: {
-                          x: "0",
-                          y: "0",
-                          width: "4",
-                          height: "4",
-                          fill: "currentColor"
-                        }
-                      })
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("rect", {
-                  attrs: {
-                    width: "404",
-                    height: "392",
-                    fill: "url(#8228f071-bcee-4ec8-905a-2a059a2cc4fb)"
-                  }
-                })
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8"
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "relative rounded-2xl px-6 py-10 bg-indigo-600 overflow-hidden shadow-xl sm:px-12 sm:py-20"
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "absolute inset-0 -mt-72 sm:-mt-32 md:mt-0",
-                    attrs: { "aria-hidden": "true" }
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "absolute inset-0 h-full w-full",
-                        attrs: {
-                          preserveAspectRatio: "xMidYMid slice",
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 1463 360"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          staticClass: "text-indigo-500 text-opacity-40",
-                          attrs: {
-                            fill: "currentColor",
-                            d:
-                              "M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          staticClass: "text-indigo-700 text-opacity-40",
-                          attrs: {
-                            fill: "currentColor",
-                            d:
-                              "M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z"
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _vm._m(9)
-              ]
-            )
-          ]
-        )
-      ])
     ])
   ])
 }
@@ -58157,7 +58679,318 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-indigo-700 mt-5 rounded-lg" }, [
+    return _c(
+      "div",
+      {
+        staticClass:
+          "relative max-w-2xl mx-auto pt-1 px-4 text-center sm:pt-12 sm:px-6 lg:max-w-7xl lg:px-8"
+      },
+      [
+        _c(
+          "h1",
+          {
+            staticClass:
+              "text-4xl font-extrabold tracking-tight text-indigo-600 sm:text-6xl font-heading-font"
+          },
+          [
+            _c("span", { staticClass: "block lg:inline" }, [
+              _vm._v("Simple pricing,")
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "block lg:inline text-gray-600" }, [
+              _vm._v("no commitment.")
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "mt-4 text-xl text-gray-400" }, [
+          _vm._v("Everything you need, nothing you don't.")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "h3",
+        {
+          staticClass:
+            "text-white text-sm font-semibold uppercase tracking-wide"
+        },
+        [_vm._v("Premium Price")]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start"
+        },
+        [
+          _c("div", { staticClass: "mt-3 flex items-center" }, [
+            _c(
+              "p",
+              {
+                staticClass: "text-white text-4xl font-extrabold tracking-tight"
+              },
+              [_vm._v("KES 100")]
+            )
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "h3",
+        {
+          staticClass:
+            "text-indigo-600 text-sm font-semibold uppercase tracking-wide"
+        },
+        [_vm._v("Intermediate Price")]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start"
+        },
+        [
+          _c("div", { staticClass: "mt-3 flex items-center" }, [
+            _c(
+              "p",
+              {
+                staticClass:
+                  "text-indigo-600 text-4xl font-extrabold tracking-tight"
+              },
+              [_vm._v("KES 50")]
+            )
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "h3",
+        {
+          staticClass:
+            "text-white text-sm font-semibold uppercase tracking-wide"
+        },
+        [_vm._v("Regular Price")]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start"
+        },
+        [
+          _c("div", { staticClass: "mt-3 flex items-center" }, [
+            _c(
+              "p",
+              {
+                staticClass: "text-white text-4xl font-extrabold tracking-tight"
+              },
+              [_vm._v("KES 25")]
+            )
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mb-16 md:mb-24 text-center" }, [
+      _c(
+        "h2",
+        {
+          staticClass:
+            "mb-8 md:mb-14 text-5xl lg:text-6xl 2xl:text-7xl text-white font-bold font-heading font-heading-font"
+        },
+        [_vm._v("Membership Pricing")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pb-8 mb-14 border-b border-gray-400" }, [
+      _c("div", { staticClass: "flex justify-between items-center px-3" }, [
+        _c(
+          "h3",
+          { staticClass: "text-4xl text-white font-bold font-heading" },
+          [_vm._v("Bronze")]
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-lg text-white font-bold" }, [
+          _vm._v("KES 2,000")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c(
+        "a",
+        {
+          staticClass:
+            "inline-block px-10 py-4 border border-gray-200 hover:border-gray-100 rounded-full font-bold text-white",
+          attrs: { href: "#" }
+        },
+        [_vm._v("Subscribe to Plan")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "pb-8 mb-14 border-b border-blueGray-300" },
+      [
+        _c("div", { staticClass: "flex justify-between items-center px-3" }, [
+          _c(
+            "h3",
+            { staticClass: "text-4xl text-white font-bold font-heading" },
+            [_vm._v("Gold")]
+          ),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-lg text-white font-bold" }, [
+            _vm._v("KES 50,000")
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c(
+        "a",
+        {
+          staticClass:
+            "inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-white",
+          attrs: { href: "#" }
+        },
+        [_vm._v("Subscribe to Plan")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pb-8 mb-14 border-b border-gray-400" }, [
+      _c("div", { staticClass: "flex justify-between items-center px-3" }, [
+        _c(
+          "h3",
+          { staticClass: "text-4xl text-white font-bold font-heading" },
+          [_vm._v("Silver")]
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-lg text-white font-bold" }, [
+          _vm._v("KES 10,000")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c(
+        "a",
+        {
+          staticClass:
+            "inline-block px-10 py-4 border border-gray-200 hover:border-gray-100 rounded-full font-bold text-white",
+          attrs: { href: "#" }
+        },
+        [_vm._v("Subscribe to Plan")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "bg-indigo-700 mt-10 mx-10 rounded-3xl" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8"
+        },
+        [
+          _c(
+            "h2",
+            { staticClass: "text-3xl font-extrabold text-white sm:text-4xl" },
+            [
+              _c("span", { staticClass: "block" }, [
+                _vm._v("Simplicity in productivity "),
+                _c("i", { staticClass: "fas fa-thumbs-up" })
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "block" }, [
+                _vm._v("Explore Bidders Portal today.")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "p",
+            {
+              staticClass:
+                "mt-4 text-lg leading-6 text-indigo-200 font-heading-font"
+            },
+            [
+              _vm._v(
+                "\n              We focus on bringing you closer and invested in your market niche.\n              There are millions of tenders awaiting and we ensure that you\n          "
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass:
+                "mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-bold rounded-md text-gray-500 hover:text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto font-heading-font transform transition hover:scale-125 duration-700 hover:shadow-2xl",
+              attrs: { href: "#" }
+            },
+            [_vm._v(" Sign up for free ")]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "bg-black mt-5 mx-10 rounded-3xl" }, [
       _c(
         "div",
         {
@@ -58311,188 +59144,65 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-indigo-700 mt-5 rounded-lg" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8"
-        },
-        [
-          _c(
-            "h2",
-            { staticClass: "text-3xl font-extrabold text-white sm:text-4xl" },
-            [
-              _c("span", { staticClass: "block" }, [
-                _vm._v("Simplicity in productivity "),
-                _c("i", { staticClass: "fas fa-thumbs-up" })
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "block" }, [
-                _vm._v("Explore Bidders Portal today.")
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "p",
-            {
-              staticClass:
-                "mt-4 text-lg leading-6 text-indigo-200 font-heading-font"
-            },
-            [
-              _vm._v(
-                "\n              We focus on bringing you closer and invested in your market niche.\n              There are millions of tenders awaiting and we ensure that you\n          "
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass:
-                "mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-bold rounded-md text-gray-500 hover:text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto font-heading-font transform transition hover:scale-125 duration-700 hover:shadow-2xl",
-              attrs: { href: "#" }
-            },
-            [_vm._v(" Sign up for free ")]
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "relative max-w-2xl mx-auto pt-1 px-4 text-center sm:pt-12 sm:px-6 lg:max-w-7xl lg:px-8"
-      },
-      [
+    return _c("div", { staticClass: "relative" }, [
+      _c("div", { staticClass: "sm:text-center" }, [
         _c(
-          "h1",
+          "h2",
           {
             staticClass:
-              "text-4xl font-extrabold tracking-tight text-indigo-600 sm:text-6xl font-heading-font"
+              "text-3xl font-extrabold text-white tracking-tight sm:text-4xl"
           },
-          [
-            _c("span", { staticClass: "block lg:inline" }, [
-              _vm._v("Simple pricing,")
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "block lg:inline text-gray-600" }, [
-              _vm._v("no commitment.")
-            ])
-          ]
+          [_vm._v("Get notified and stay updated.")]
         ),
         _vm._v(" "),
-        _c("p", { staticClass: "mt-4 text-xl text-gray-400" }, [
-          _vm._v(
-            "Everything you need, nothing you don't. Fair and Transparent."
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "h3",
-        {
-          staticClass:
-            "text-white text-sm font-semibold uppercase tracking-wide"
-        },
-        [_vm._v("Premium Price")]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start"
-        },
-        [
-          _c("div", { staticClass: "mt-3 flex items-center" }, [
-            _c(
-              "p",
-              {
-                staticClass: "text-white text-4xl font-extrabold tracking-tight"
-              },
-              [_vm._v("KES 100")]
+        _c(
+          "p",
+          {
+            staticClass:
+              "mt-6 mx-auto max-w-2xl text-lg text-indigo-200 font-primary-font"
+          },
+          [
+            _vm._v(
+              "\n                      Get updates and notifications regarding new tender posted and other interesting news letters.\n\n                  "
             )
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "h3",
-        {
-          staticClass:
-            "text-indigo-600 text-sm font-semibold uppercase tracking-wide"
-        },
-        [_vm._v("Intermediate Price")]
-      ),
+          ]
+        )
+      ]),
       _vm._v(" "),
       _c(
-        "div",
+        "form",
         {
-          staticClass:
-            "flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start"
+          staticClass: "mt-12 sm:mx-auto sm:max-w-lg sm:flex",
+          attrs: { action: "#" }
         },
         [
-          _c("div", { staticClass: "mt-3 flex items-center" }, [
+          _c("div", { staticClass: "min-w-0 flex-1" }, [
             _c(
-              "p",
+              "label",
+              { staticClass: "sr-only", attrs: { for: "cta-email" } },
+              [_vm._v("Email address")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              staticClass:
+                "block w-full border border-transparent rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600",
+              attrs: {
+                id: "cta-email",
+                type: "email",
+                placeholder: "Enter your email"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mt-4 sm:mt-0 sm:ml-3" }, [
+            _c(
+              "button",
               {
                 staticClass:
-                  "text-indigo-600 text-4xl font-extrabold tracking-tight"
+                  "block w-full rounded-md border border-transparent px-5 py-3 bg-indigo-500 text-base font-medium text-white shadow hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 sm:px-10",
+                attrs: { type: "submit" }
               },
-              [_vm._v("KES 50")]
-            )
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "h3",
-        {
-          staticClass:
-            "text-white text-sm font-semibold uppercase tracking-wide"
-        },
-        [_vm._v("Regular Price")]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start"
-        },
-        [
-          _c("div", { staticClass: "mt-3 flex items-center" }, [
-            _c(
-              "p",
-              {
-                staticClass: "text-white text-4xl font-extrabold tracking-tight"
-              },
-              [_vm._v("KES 25")]
+              [_vm._v("Notify me")]
             )
           ])
         ]
@@ -58710,75 +59420,6 @@ var staticRenderFns = [
         )
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "relative" }, [
-      _c("div", { staticClass: "sm:text-center" }, [
-        _c(
-          "h2",
-          {
-            staticClass:
-              "text-3xl font-extrabold text-white tracking-tight sm:text-4xl"
-          },
-          [_vm._v("Get notified and stay updated.")]
-        ),
-        _vm._v(" "),
-        _c(
-          "p",
-          {
-            staticClass:
-              "mt-6 mx-auto max-w-2xl text-lg text-indigo-200 font-primary-font"
-          },
-          [
-            _vm._v(
-              "\n                      Get updates and notifications regarding new tender posted and other interesting news letters.\n\n                  "
-            )
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "form",
-        {
-          staticClass: "mt-12 sm:mx-auto sm:max-w-lg sm:flex",
-          attrs: { action: "#" }
-        },
-        [
-          _c("div", { staticClass: "min-w-0 flex-1" }, [
-            _c(
-              "label",
-              { staticClass: "sr-only", attrs: { for: "cta-email" } },
-              [_vm._v("Email address")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              staticClass:
-                "block w-full border border-transparent rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600",
-              attrs: {
-                id: "cta-email",
-                type: "email",
-                placeholder: "Enter your email"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mt-4 sm:mt-0 sm:ml-3" }, [
-            _c(
-              "button",
-              {
-                staticClass:
-                  "block w-full rounded-md border border-transparent px-5 py-3 bg-indigo-500 text-base font-medium text-white shadow hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 sm:px-10",
-                attrs: { type: "submit" }
-              },
-              [_vm._v("Notify me")]
-            )
-          ])
-        ]
-      )
-    ])
   }
 ]
 render._withStripped = true
