@@ -24,7 +24,8 @@
 ::-webkit-scrollbar-thumb {
   /* background: #cbd5e0; */
   background: rgb(56,178,172);
-  background: linear-gradient(90deg, rgb(61, 99, 97) 0%, rgb(26, 89, 97) 35%, rgb(22, 80, 92) 100%);
+  background: #3730a3;
+  /* background: linear-gradient(90deg, rgb(61, 99, 97) 0%, rgb(26, 89, 97) 35%, rgb(22, 80, 92) 100%); */
   border-radius: 100vh;
   border: 3px solid #ffffff;
 }
