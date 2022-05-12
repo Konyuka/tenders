@@ -6736,9 +6736,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   components: {//   Categories,
@@ -59724,13 +59721,7 @@ var staticRenderFns = [
                   "\n                    Services Offered\n                "
                 )
               ]
-            ),
-            _vm._v(" "),
-            _c("p", { staticClass: "mt-4 text-xl text-gray-400" }, [
-              _vm._v(
-                "\n                    Everything you need, nothing you don't.\n                "
-              )
-            ])
+            )
           ]),
           _vm._v(" "),
           _c(

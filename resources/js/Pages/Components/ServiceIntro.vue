@@ -575,9 +575,6 @@
                     >
                         Services Offered
                     </h1>
-                    <p class="mt-4 text-xl text-gray-400">
-                        Everything you need, nothing you don't.
-                    </p>
                 </div>
                 <!-- <div class="mb-16 md:mb-24 text-center">
                     <h2
