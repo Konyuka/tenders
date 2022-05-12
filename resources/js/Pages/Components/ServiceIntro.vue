@@ -314,8 +314,9 @@
                                 </ul>
                                 <div class="text-center">
                                     <a
-                                        class="inline-block px-10 py-4 border border-gray-200 hover:border-gray-100 rounded-full font-bold text-white"
+                                        class="transform transition hover:scale-125 duration-700 hover:bg-white hover:text-black inline-block px-10 py-4 border border-gray-200 hover:border-gray-100 rounded-full font-bold text-white"
                                         href="#"
+                                        @click="membership('bronze')"
                                         >Subscribe to Plan</a
                                     >
                                 </div>
@@ -420,8 +421,9 @@
                                 </ul>
                                 <div class="text-center">
                                     <a
-                                        class="inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-white"
+                                        class="transform transition hover:scale-125 duration-700 hover:bg-white hover:text-black inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-white"
                                         href="#"
+                                        @click="membership('gold')"
                                         >Subscribe to Plan</a
                                     >
                                 </div>
@@ -526,8 +528,9 @@
                                 </ul>
                                 <div class="text-center">
                                     <a
-                                        class="inline-block px-10 py-4 border border-gray-200 hover:border-gray-100 rounded-full font-bold text-white"
+                                        class="transform transition hover:scale-125 duration-700 hover:bg-white hover:text-black inline-block px-10 py-4 border border-gray-200 hover:border-gray-100 rounded-full font-bold text-white"
                                         href="#"
+                                        @click="membership('silver')"
                                         >Subscribe to Plan</a
                                     >
                                 </div>
@@ -883,50 +886,6 @@
             </div>
         </div>
 
-        <!-- <div class="bg-white py-1">
-        <div class="relative sm:py-16">
-            <div aria-hidden="true" class="hidden sm:block">
-            <div class="absolute inset-y-0 left-0 w-1/2 bg-gray-50 rounded-r-3xl"></div>
-            <svg class="absolute top-8 left-1/2 -ml-3" width="404" height="392" fill="none" viewBox="0 0 404 392">
-                <defs>
-                <pattern id="8228f071-bcee-4ec8-905a-2a059a2cc4fb" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
-                </pattern>
-                </defs>
-                <rect width="404" height="392" fill="url(#8228f071-bcee-4ec8-905a-2a059a2cc4fb)" />
-            </svg>
-            </div>
-            <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
-            <div class="relative rounded-2xl px-6 py-10 bg-indigo-600 overflow-hidden shadow-xl sm:px-12 sm:py-20">
-                <div aria-hidden="true" class="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0">
-                <svg class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1463 360">
-                    <path class="text-indigo-500 text-opacity-40" fill="currentColor" d="M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z" />
-                    <path class="text-indigo-700 text-opacity-40" fill="currentColor" d="M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z" />
-                </svg>
-                </div>
-                <div class="relative">
-                <div class="sm:text-center">
-                    <h2 class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">Get notified and stay updated.</h2>
-                    <p class="mt-6 mx-auto max-w-2xl text-lg text-indigo-200 font-primary-font">
-                        Get updates and notifications regarding new tender posted and other interesting news letters.
-
-                    </p>
-                </div>
-                <form action="#" class="mt-12 sm:mx-auto sm:max-w-lg sm:flex">
-                    <div class="min-w-0 flex-1">
-                    <label for="cta-email" class="sr-only">Email address</label>
-                    <input id="cta-email" type="email" class="block w-full border border-transparent rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600" placeholder="Enter your email">
-                    </div>
-                    <div class="mt-4 sm:mt-0 sm:ml-3">
-                    <button type="submit" class="block w-full rounded-md border border-transparent px-5 py-3 bg-indigo-500 text-base font-medium text-white shadow hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 sm:px-10">Notify me</button>
-                    </div>
-                </form>
-                </div>
-            </div>
-            </div>
-        </div>
-        </div> -->
-
         <div class="bg-indigo-700 mt-7 rounded-lg">
             <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
                 <div class="relative bg-white shadow-xl">
@@ -1264,6 +1223,89 @@
                 </div>
             </div>
         </div>
+
+        <div
+            v-if="chooseAuth"
+            id="popup-modal"
+            tabindex="-1"
+            class="overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full"
+        >
+            <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+                <!-- Modal content -->
+                <div
+                    class="relative bg-white rounded-lg shadow dark:bg-gray-700"
+                >
+                    <!-- Modal header -->
+                    <div class="flex justify-end p-5">
+                        <button
+                            @click="chooseAuth = false"
+                            type="button"
+                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                            data-modal-toggle="popup-modal"
+                        >
+                            <svg
+                                class="w-5 h-5"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"
+                                ></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="p-4 pt-0 text-center mt-5">
+                        <i
+                            class="fas fa-lock-open fa-2xl mb-10 text-gray-300"
+                        ></i>
+                        <h3
+                            class="mb-5 text-3xl font-extrabold text-gray-800 dark:text-gray-400"
+                        >
+                            Link Your Account
+                        </h3>
+                    </div>
+
+                    <div class="flex justify-around mb-5">
+                        <div>
+                            <a
+                                :href="route('login')"
+                                data-modal-toggle="popup-modal"
+                                type="button"
+                                class="font-primary-font text-white bg-gray-400 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-extrabold rounded-xl text-2xl inline-flex items-center px-10 py-4 text-center mr-2"
+                            >
+                                Sign In
+                            </a>
+                        </div>
+                        <div>
+                            <a
+                                :href="route('register')"
+                                data-modal-toggle="popup-modal"
+                                type="button"
+                                class="font-primary-font text-white bg-indigo-600 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-extrabold rounded-xl text-2xl inline-flex items-center px-10 py-4 text-center mr-2"
+                            >
+                                Sign Up
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="p-4 pt-0 text-center mt-5">
+                        <!-- <a :href="route('unlock', this.transId)">
+                        <button
+                            data-modal-toggle="popup-modal"
+                            type="button"
+                            class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-lg inline-flex items-center px-5 py-2.5 text-center mr-2"
+                        >
+                            Tap to Unlock Tender Details
+                        </button>
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -1274,11 +1316,21 @@ export default {
         //   Categories,
     },
     data() {
-        return {};
+        return {
+            chooseAuth: false
+        };
     },
     watch: {},
     computed: {},
-    methods: {}
+    methods: {
+        membership(value) {
+            console.log(value);
+            if (this.$parent.user == null) {
+                this.chooseAuth = true;
+            } else {
+            }
+        }
+    }
 };
 </script>
 
