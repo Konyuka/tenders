@@ -8,9 +8,11 @@
             <div class="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
             <div class="max-w-md">
                 <a href="/" class="mt-8 mb-12 text-6xl font-bold font-heading font-heading-font text-white"> <i class="fas fa-caret-left"></i> Bidders Portal</a>
+                <x-jet-validation-errors class="m-4" />
             </div>
             </div>
             <div class="w-full lg:w-1/2 px-4">
+
             <div class="px-6 lg:px-20 py-12 lg:py-12 bg-gradient-to-r from-indigo-500 to-indigo-800 rounded-lg">
                 <form method="POST" action="{{ route('login') }}" >
                     @csrf

@@ -2494,7 +2494,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['message']
+  props: ["message"]
 });
 
 /***/ }),
@@ -51291,7 +51291,7 @@ var render = function() {
       ]
     },
     [
-      _c("p", { staticClass: "text-sm text-red-600" }, [
+      _c("p", { staticClass: "text-sm text-white" }, [
         _vm._v("\n        " + _vm._s(_vm.message) + "\n    ")
       ])
     ]
