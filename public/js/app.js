@@ -5385,13 +5385,86 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'MainMenu',
+  name: "MainMenu",
   components: {//   Categories,
   },
   data: function data() {
     return {
-      activeMenu: ''
+      activeMenu: ""
     };
   },
   watch: {},
@@ -5404,7 +5477,7 @@ __webpack_require__.r(__webpack_exports__);
     selected: function selected(value) {
       console.log(value);
       this.activeMenu = value;
-      route('landing'); //   route(`${value}`)
+      route("landing"); //   route(`${value}`)
     }
   }
 });
@@ -5467,6 +5540,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -6861,8 +6936,87 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'TopBanner',
+  name: "TopBanner",
   components: {//   Categories,
   },
   //   props: {
@@ -6871,13 +7025,11 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {};
   },
-  mounted: function mounted() {//   let users = this.$page.props.auth.user
-    //   console.log(user)
-    //   console.log(this.$page.props.user)
-  },
+  mounted: function mounted() {},
   watch: {},
   computed: {
-    user: function user() {// return this.$page.props.user.name
+    user: function user() {
+      return this.$parent.user;
     }
   },
   methods: {// authUrl(routeValue) {
@@ -51291,7 +51443,7 @@ var render = function() {
       ]
     },
     [
-      _c("p", { staticClass: "text-sm text-white" }, [
+      _c("p", { staticClass: "text-sm text-red-600" }, [
         _vm._v("\n        " + _vm._s(_vm.message) + "\n    ")
       ])
     ]
@@ -58170,7 +58322,7 @@ var render = function() {
                       "bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-5 py-5 font-bold text-2xl leading-3 shadow-md rounded-md ",
                     attrs: { href: _vm.route("landing") }
                   },
-                  [_vm._m(1), _vm._v(" Home")]
+                  [_vm._m(1), _vm._v("\n                            Home")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -58180,7 +58332,10 @@ var render = function() {
                       "bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-5 py-5 font-bold text-2xl leading-3 shadow-md rounded-md ",
                     attrs: { href: _vm.route("listing") }
                   },
-                  [_vm._m(2), _vm._v(" Tenders Listing")]
+                  [
+                    _vm._m(2),
+                    _vm._v("\n                            Tenders Listing")
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -58190,7 +58345,10 @@ var render = function() {
                       "bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-5 py-5 font-bold text-2xl leading-3 shadow-md rounded-md ",
                     attrs: { href: _vm.route("") }
                   },
-                  [_vm._m(3), _vm._v(" About & Contacts")]
+                  [
+                    _vm._m(3),
+                    _vm._v("\n                            About & Contacts")
+                  ]
                 )
               ])
             ]),
@@ -58251,7 +58409,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "flex space-x-5 justify-center  items-center pl-2" },
+      { staticClass: "flex space-x-5 justify-center  items-center pr-6" },
       [
         _c("a", {
           staticClass:
@@ -58281,8 +58439,9 @@ var staticRenderFns = [
                 staticClass: "font-semibold text-sm leading-3 hidden",
                 attrs: { id: "s1" }
               },
-              [_vm._v("Selected: ")]
+              [_vm._v("Selected:\n                        ")]
             ),
+            _vm._v(" "),
             _c(
               "p",
               {
@@ -58290,7 +58449,11 @@ var staticRenderFns = [
                   "font-normal text-sm leading-3 focus:outline-none hover:bg-gray-800 duration-100 cursor-pointer ",
                 attrs: { id: "textClicked" }
               },
-              [_vm._v("Collections")]
+              [
+                _vm._v(
+                  "\n                            Collections\n                        "
+                )
+              ]
             )
           ]),
           _vm._v(" "),
@@ -58320,7 +58483,11 @@ var staticRenderFns = [
                   "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
                 attrs: { onclick: "selectedSmall()" }
               },
-              [_vm._v("Arts")]
+              [
+                _vm._v(
+                  "\n                            Arts\n                        "
+                )
+              ]
             ),
             _vm._v(" "),
             _c(
@@ -58330,7 +58497,11 @@ var staticRenderFns = [
                   "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
                 attrs: { onclick: "selectedSmall()" }
               },
-              [_vm._v("Space")]
+              [
+                _vm._v(
+                  "\n                            Space\n                        "
+                )
+              ]
             ),
             _vm._v(" "),
             _c(
@@ -58340,7 +58511,11 @@ var staticRenderFns = [
                   "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
                 attrs: { onclick: "selectedSmall()" }
               },
-              [_vm._v("Game")]
+              [
+                _vm._v(
+                  "\n                            Game\n                        "
+                )
+              ]
             ),
             _vm._v(" "),
             _c(
@@ -58350,7 +58525,11 @@ var staticRenderFns = [
                   "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
                 attrs: { onclick: "selectedSmall()" }
               },
-              [_vm._v("Utility")]
+              [
+                _vm._v(
+                  "\n                            Utility\n                        "
+                )
+              ]
             ),
             _vm._v(" "),
             _c(
@@ -58360,7 +58539,11 @@ var staticRenderFns = [
                   "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
                 attrs: { onclick: "selectedSmall()" }
               },
-              [_vm._v("Cards")]
+              [
+                _vm._v(
+                  "\n                            Cards\n                        "
+                )
+              ]
             )
           ]
         )
@@ -59065,7 +59248,7 @@ var render = function() {
                         "a",
                         {
                           staticClass:
-                            "transform transition hover:scale-125 duration-700 hover:bg-white hover:text-black inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-white",
+                            "transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black",
                           attrs: { href: "#" },
                           on: {
                             click: function($event) {
@@ -59857,7 +60040,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", { staticClass: "mt-4 text-xl text-gray-400" }, [
         _vm._v(
-          "\n                    Everything you need, nothing you don't.\n                "
+          "\n                    Join a community, have the same interest.\n                "
         )
       ])
     ])
@@ -60371,7 +60554,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-black mt-5 rounded-3xl" }, [
+    return _c("div", { staticClass: "bg-indigo-700 mt-5 rounded-3xl" }, [
       _c(
         "div",
         {
@@ -60381,7 +60564,8 @@ var staticRenderFns = [
           _c(
             "h2",
             {
-              staticClass: "text-3xl font-extrabold text-white font-bold-font"
+              staticClass:
+                "text-3xl text-center font-extrabold text-white font-bold-font"
             },
             [
               _vm._v(
@@ -60810,32 +60994,56 @@ var render = function() {
                     staticClass:
                       " font-bold-font text-6xl leading-6 text-indigo-700 dark:text-white "
                   },
-                  [_vm._v("Bidders Portal")]
+                  [
+                    _vm._v(
+                      "\n                        Bidders Portal\n                    "
+                    )
+                  ]
                 )
               ]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "hidden sm:flex flex-row space-x-4" }, [
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "transform transition hover:scale-125 duration-700 ease-in-out  font-primary-font rounded-md flex space-x-2 w-24 h-10 font-bold text-lg leading-3 text-indigo-700 hover:text-white bg-white hover:bg-indigo-600 border border-indigo-700 focus:outline-none focus:bg-gray-200 duration-150 justify-center items-center",
-                  attrs: { href: _vm.route("register") }
-                },
-                [_vm._v("Sign Up")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "transform transition hover:scale-125 duration-700 ease-in-out  font-primary-font rounded-md flex space-x-2 w-24 h-10 font-bold text-lg leading-3 text-indigo-700 hover:text-white bg-white hover:bg-indigo-600 border border-indigo-700 focus:outline-none focus:bg-gray-200 duration-150 justify-center items-center",
-                  attrs: { href: _vm.route("login") }
-                },
-                [_vm._v("Sign In")]
-              )
-            ]),
+            _vm.user == ""
+              ? _c(
+                  "div",
+                  { staticClass: "hidden sm:flex flex-row space-x-4" },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "transform transition hover:scale-125 duration-700 ease-in-out  font-primary-font rounded-md flex space-x-2 w-24 h-10 font-bold text-lg leading-3 text-indigo-700 hover:text-white bg-white hover:bg-indigo-600 border border-indigo-700 focus:outline-none focus:bg-gray-200 duration-150 justify-center items-center",
+                        attrs: { href: _vm.route("register") }
+                      },
+                      [_vm._v("Sign Up")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "transform transition hover:scale-125 duration-700 ease-in-out  font-primary-font rounded-md flex space-x-2 w-24 h-10 font-bold text-lg leading-3 text-indigo-700 hover:text-white bg-white hover:bg-indigo-600 border border-indigo-700 focus:outline-none focus:bg-gray-200 duration-150 justify-center items-center",
+                        attrs: { href: _vm.route("login") }
+                      },
+                      [_vm._v("Sign In")]
+                    )
+                  ]
+                )
+              : _c(
+                  "div",
+                  { staticClass: "hidden sm:flex flex-row space-x-4" },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "transform transition hover:scale-125 duration-700 ease-in-out  font-primary-font rounded-md flex space-x-2 w-24 h-10 font-bold text-lg leading-3 text-indigo-700 hover:text-white bg-white hover:bg-indigo-600 border border-indigo-700 focus:outline-none focus:bg-gray-200 duration-150 justify-center items-center",
+                        attrs: { href: _vm.route("dashboard") }
+                      },
+                      [_vm._v("Dashboard")]
+                    )
+                  ]
+                ),
             _vm._v(" "),
             _vm._m(1)
           ]),

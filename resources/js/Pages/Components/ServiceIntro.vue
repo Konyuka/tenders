@@ -211,7 +211,7 @@
                         Membership Pricing
                     </h1>
                     <p class="mt-4 text-xl text-gray-400">
-                        Everything you need, nothing you don't.
+                        Join a community, have the same interest.
                     </p>
                 </div>
                 <div class="max-w-6xl mx-auto">
@@ -421,7 +421,7 @@
                                 </ul>
                                 <div class="text-center">
                                     <a
-                                        class="transform transition hover:scale-125 duration-700 hover:bg-white hover:text-black inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-white"
+                                        class="transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black"
                                         href="#"
                                         @click="membership('gold')"
                                         >Subscribe to Plan</a
@@ -803,9 +803,11 @@
             </div>
         </section>
 
-        <div class="bg-black mt-5 rounded-3xl">
+        <div class="bg-indigo-700 mt-5 rounded-3xl">
             <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-extrabold text-white font-bold-font">
+                <h2
+                    class="text-3xl text-center font-extrabold text-white font-bold-font"
+                >
                     Frequently asked questions
                     <i
                         class="ml-5 fas fa-circle-question text-white-600 fa-xl
