@@ -579,13 +579,7 @@
                         Services Offered
                     </h1>
                 </div>
-                <!-- <div class="mb-16 md:mb-24 text-center">
-                    <h2
-                        class="mb-8 md:mb-14 text-5xl lg:text-6xl 2xl:text-7xl text-gray-700 font-bold font-heading font-heading-font"
-                    >
-                        Services Offered
-                    </h2>
-                </div> -->
+
                 <div
                     tabindex="0"
                     aria-label="group of cards"
