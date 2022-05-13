@@ -3101,6 +3101,342 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pages_Components_Dashboard_PaymentsPage_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Pages/Components/Dashboard/PaymentsPage.vue */ "./resources/js/Pages/Components/Dashboard/PaymentsPage.vue");
 /* harmony import */ var _Pages_Components_Dashboard_SupportPage_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Pages/Components/Dashboard/SupportPage.vue */ "./resources/js/Pages/Components/Dashboard/SupportPage.vue");
 /* harmony import */ var _Pages_Components_Dashboard_UsersPage_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Pages/Components/Dashboard/UsersPage.vue */ "./resources/js/Pages/Components/Dashboard/UsersPage.vue");
+/* harmony import */ var _Pages_Components_Dashboard_Members_MembersPage_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Pages/Components/Dashboard/Members/MembersPage.vue */ "./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3308,14 +3644,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var app = document.getElementById('app');
+
+var app = document.getElementById("app");
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "DashboardLayout",
   components: {
     TendersPage: _Pages_Components_Dashboard_TendersPage_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     PaymentsPage: _Pages_Components_Dashboard_PaymentsPage_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     SupportPage: _Pages_Components_Dashboard_SupportPage_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    UsersPage: _Pages_Components_Dashboard_UsersPage_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    UsersPage: _Pages_Components_Dashboard_UsersPage_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    MembersPage: _Pages_Components_Dashboard_Members_MembersPage_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   props: {
     allPosts: Array // payments: Array
@@ -3325,6 +3663,12 @@ var app = document.getElementById('app');
   mounted: function mounted() {
     // this.user = this.$page.props.user.name
     this.sidebarHandler();
+
+    if (this.user.admin == 0) {
+      this.currentMenu = "membership";
+    } else {
+      this.currentMenu = "tenders";
+    }
   },
   computed: {
     posts: function posts() {
@@ -3332,11 +3676,21 @@ var app = document.getElementById('app');
     },
     payments: function payments() {
       return this.pageData.props.payments;
+    },
+    user: function user() {
+      return this.pageData.props.user;
+    },
+    admin: function admin() {
+      if (this.user.admin == 0) {
+        return false;
+      } else {
+        return true;
+      }
     }
   },
   data: function data() {
     return {
-      currentMenu: 'tenders',
+      currentMenu: "",
       pageData: JSON.parse(app.dataset.page)
     };
   },
@@ -3345,8 +3699,8 @@ var app = document.getElementById('app');
       this.currentMenu = Value;
     },
     logout: function logout() {
-      axios.post(route('logout').url()).then(function (response) {
-        window.location = '/';
+      axios.post(route("logout").url()).then(function (response) {
+        window.location = "/";
       });
     },
     dropdownHandler: function dropdownHandler(event) {
@@ -4052,6 +4406,100 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     clearFilters: function clearFilters() {},
     loadFilters: function loadFilters() {}
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "MembersPage"
 });
 
 /***/ }),
@@ -6864,7 +7312,8 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.$parent.user == null) {
         this.chooseAuth = true;
-      } else {}
+      } else {// this.$inertia.get("login");
+      }
     }
   }
 });
@@ -7006,9 +7455,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "TopBanner",
   components: {//   Categories,
@@ -7023,7 +7469,11 @@ __webpack_require__.r(__webpack_exports__);
   watch: {},
   computed: {
     user: function user() {
-      return this.$parent.user;
+      if (this.$parent.user == null) {
+        return false;
+      } else {
+        return true;
+      }
     }
   },
   methods: {// authUrl(routeValue) {
@@ -53134,93 +53584,142 @@ var render = function() {
                         staticClass:
                           " font-normal text-2xl leading-6 text-gray-800 dark:text-white "
                       },
-                      [_vm._v("Bidders Portal")]
+                      [
+                        _vm._v(
+                          "\n                        Bidders Portal\n                    "
+                        )
+                      ]
                     )
                   ]
                 ),
                 _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "rounded py-8",
-                    attrs: { "aria-orientation": "vertical" }
-                  },
-                  [
-                    _c(
-                      "li",
+                _vm.admin
+                  ? _c(
+                      "ul",
                       {
-                        staticClass:
-                          "cursor-pointer text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none",
-                        class:
-                          this.currentMenu == "tenders"
-                            ? "text-indigo-700"
-                            : "",
-                        on: {
-                          click: function($event) {
-                            return _vm.selectedMenu("tenders")
-                          }
-                        }
-                      },
-                      [_c("span", { staticClass: "ml-2" }, [_vm._v("Tenders")])]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass:
-                          "cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-6 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none flex items-center",
-                        class:
-                          this.currentMenu == "payments"
-                            ? "text-indigo-700"
-                            : "",
-                        on: {
-                          click: function($event) {
-                            return _vm.selectedMenu("payments")
-                          }
-                        }
+                        staticClass: "rounded py-8",
+                        attrs: { "aria-orientation": "vertical" }
                       },
                       [
-                        _c("span", { staticClass: "ml-2" }, [
-                          _vm._v("Payments")
-                        ])
+                        _c(
+                          "li",
+                          {
+                            staticClass:
+                              "cursor-pointer text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none",
+                            class:
+                              this.currentMenu == "tenders"
+                                ? "text-indigo-700"
+                                : "",
+                            on: {
+                              click: function($event) {
+                                return _vm.selectedMenu("tenders")
+                              }
+                            }
+                          },
+                          [
+                            _c("span", { staticClass: "ml-2" }, [
+                              _vm._v("Tenders")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          {
+                            staticClass:
+                              "cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-6 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none flex items-center",
+                            class:
+                              this.currentMenu == "payments"
+                                ? "text-indigo-700"
+                                : "",
+                            on: {
+                              click: function($event) {
+                                return _vm.selectedMenu("payments")
+                              }
+                            }
+                          },
+                          [
+                            _c("span", { staticClass: "ml-2" }, [
+                              _vm._v("Payments")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          {
+                            staticClass:
+                              "cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-6 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none",
+                            class:
+                              this.currentMenu == "support"
+                                ? "text-indigo-700"
+                                : "",
+                            on: {
+                              click: function($event) {
+                                return _vm.selectedMenu("support")
+                              }
+                            }
+                          },
+                          [
+                            _c("span", { staticClass: "ml-2" }, [
+                              _vm._v("Support")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          {
+                            staticClass:
+                              "cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-6 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none",
+                            class:
+                              this.currentMenu == "users"
+                                ? "text-indigo-700"
+                                : "",
+                            on: {
+                              click: function($event) {
+                                return _vm.selectedMenu("users")
+                              }
+                            }
+                          },
+                          [
+                            _c("span", { staticClass: "ml-2" }, [
+                              _vm._v("Users")
+                            ])
+                          ]
+                        )
                       ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass:
-                          "cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-6 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none",
-                        class:
-                          this.currentMenu == "support"
-                            ? "text-indigo-700"
-                            : "",
-                        on: {
-                          click: function($event) {
-                            return _vm.selectedMenu("support")
-                          }
-                        }
-                      },
-                      [_c("span", { staticClass: "ml-2" }, [_vm._v("Support")])]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass:
-                          "cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-6 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none",
-                        class:
-                          this.currentMenu == "users" ? "text-indigo-700" : "",
-                        on: {
-                          click: function($event) {
-                            return _vm.selectedMenu("users")
-                          }
-                        }
-                      },
-                      [_c("span", { staticClass: "ml-2" }, [_vm._v("Users")])]
                     )
-                  ]
-                )
+                  : _c(
+                      "ul",
+                      {
+                        staticClass: "rounded py-8",
+                        attrs: { "aria-orientation": "vertical" }
+                      },
+                      [
+                        _c(
+                          "li",
+                          {
+                            staticClass:
+                              "cursor-pointer text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none",
+                            class:
+                              this.currentMenu == "tenders"
+                                ? "text-indigo-700"
+                                : "",
+                            on: {
+                              click: function($event) {
+                                return _vm.selectedMenu("tenders")
+                              }
+                            }
+                          },
+                          [
+                            _c("span", { staticClass: "ml-2" }, [
+                              _vm._v("Membership")
+                            ])
+                          ]
+                        )
+                      ]
+                    )
               ]
             )
           ])
@@ -53503,7 +54002,9 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("p", { staticClass: "text-gray-800 text-sm mx-3" }, [
-                          _vm._v("Account Setting")
+                          _vm._v(
+                            "\n                                Account Setting\n                            "
+                          )
                         ]),
                         _vm._v(" "),
                         _c(
@@ -53704,20 +54205,33 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6" },
-          [
-            _vm.currentMenu == "tenders" ? _c("TendersPage") : _vm._e(),
-            _vm._v(" "),
-            _vm.currentMenu == "payments" ? _c("PaymentsPage") : _vm._e(),
-            _vm._v(" "),
-            _vm.currentMenu == "support" ? _c("SupportPage") : _vm._e(),
-            _vm._v(" "),
-            _vm.currentMenu == "users" ? _c("UsersPage") : _vm._e()
-          ],
-          1
-        )
+        _vm.admin
+          ? _c(
+              "div",
+              {
+                staticClass:
+                  "container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6"
+              },
+              [
+                _vm.currentMenu == "tenders" ? _c("TendersPage") : _vm._e(),
+                _vm._v(" "),
+                _vm.currentMenu == "payments" ? _c("PaymentsPage") : _vm._e(),
+                _vm._v(" "),
+                _vm.currentMenu == "support" ? _c("SupportPage") : _vm._e(),
+                _vm._v(" "),
+                _vm.currentMenu == "users" ? _c("UsersPage") : _vm._e()
+              ],
+              1
+            )
+          : _c(
+              "div",
+              {
+                staticClass:
+                  "container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6"
+              },
+              [_vm.currentMenu == "membership" ? _c("MembersPage") : _vm._e()],
+              1
+            )
       ])
     ]
   )
@@ -55132,6 +55646,193 @@ var staticRenderFns = [
           )
         ]
       )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue?vue&type=template&id=0103f567&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue?vue&type=template&id=0103f567& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "bg-white" }, [
+        _c("div", { staticClass: "relative pb-32 bg-gray-50" }, [
+          _c("div", { staticClass: "absolute inset-0" }, [
+            _c("img", {
+              staticClass: "w-full h-full object-cover",
+              attrs: {
+                src:
+                  "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100",
+                alt: ""
+              }
+            }),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "absolute inset-0 bg-gray-50 mix-blend-multiply",
+              attrs: { "aria-hidden": "true" }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "relative max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8"
+            },
+            [
+              _c(
+                "h1",
+                {
+                  staticClass:
+                    "text-4xl font-extrabold tracking-tight text-black md:text-5xl lg:text-6xl"
+                },
+                [
+                  _vm._v(
+                    "\n                    Membership Plan:\n                    "
+                  ),
+                  _c("span", { staticClass: "text-indigo-600 text-5xl ml-5" }, [
+                    _vm._v(
+                      "\n                        Free\n                    "
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "p",
+                { staticClass: "mt-6 max-w-3xl text-3xl text-gray-700" },
+                [
+                  _vm._v(
+                    "\n                    Bookmarked Tenders\n                "
+                  )
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "section",
+          {
+            staticClass:
+              "-mt-32 max-w-7xl mx-auto relative z-10 pb-32 px-4 sm:px-6 lg:px-8",
+            attrs: { "aria-labelledby": "contact-heading" }
+          },
+          [
+            _c(
+              "h2",
+              { staticClass: "sr-only", attrs: { id: "contact-heading" } },
+              [_vm._v("Contact us")]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-y-0 lg:gap-x-8"
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "flex flex-col bg-white rounded-2xl shadow-xl"
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "flex-1 relative pt-16 px-6 pb-8 md:px-8"
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "absolute top-0 p-5 inline-block bg-indigo-200 rounded-xl shadow-lg transform -translate-y-1/2"
+                          },
+                          [
+                            _c("i", {
+                              staticClass:
+                                "fas fa-caret-down text-2xl text-indigo-700"
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "h3",
+                          { staticClass: "text-xl font-medium text-gray-900" },
+                          [
+                            _vm._v(
+                              "\n                            Tender Name\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          { staticClass: "mt-4 text-base text-gray-500" },
+                          [
+                            _vm._v(
+                              "\n                            No Tender has been saved yet\n                        "
+                            )
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "p-6 bg-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8"
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "text-base font-medium text-indigo-700 hover:text-indigo-600",
+                            attrs: { href: "#" }
+                          },
+                          [
+                            _vm._v("Preview tender on blank page"),
+                            _c("span", { attrs: { "aria-hidden": "true" } }, [
+                              _vm._v("\n                                →")
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      ])
     ])
   }
 ]
@@ -60997,7 +61698,7 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _vm.user == ""
+            !_vm.user
               ? _c(
                   "div",
                   { staticClass: "hidden sm:flex flex-row space-x-4" },
@@ -79046,6 +79747,8 @@ var map = {
 	"./API/Index.vue": "./resources/js/Pages/API/Index.vue",
 	"./Checkout": "./resources/js/Pages/Checkout.vue",
 	"./Checkout.vue": "./resources/js/Pages/Checkout.vue",
+	"./Components/Dashboard/Members/MembersPage": "./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue",
+	"./Components/Dashboard/Members/MembersPage.vue": "./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue",
 	"./Components/Dashboard/PaymentsPage": "./resources/js/Pages/Components/Dashboard/PaymentsPage.vue",
 	"./Components/Dashboard/PaymentsPage.vue": "./resources/js/Pages/Components/Dashboard/PaymentsPage.vue",
 	"./Components/Dashboard/SupportPage": "./resources/js/Pages/Components/Dashboard/SupportPage.vue",
@@ -79344,6 +80047,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_template_id_610700ef_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_template_id_610700ef_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MembersPage_vue_vue_type_template_id_0103f567___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MembersPage.vue?vue&type=template&id=0103f567& */ "./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue?vue&type=template&id=0103f567&");
+/* harmony import */ var _MembersPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MembersPage.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MembersPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MembersPage_vue_vue_type_template_id_0103f567___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MembersPage_vue_vue_type_template_id_0103f567___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Components/Dashboard/Members/MembersPage.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MembersPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./MembersPage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MembersPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue?vue&type=template&id=0103f567&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue?vue&type=template&id=0103f567& ***!
+  \********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MembersPage_vue_vue_type_template_id_0103f567___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./MembersPage.vue?vue&type=template&id=0103f567& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue?vue&type=template&id=0103f567&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MembersPage_vue_vue_type_template_id_0103f567___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MembersPage_vue_vue_type_template_id_0103f567___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

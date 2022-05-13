@@ -1324,6 +1324,7 @@ export default {
             if (this.$parent.user == null) {
                 this.chooseAuth = true;
             } else {
+                // this.$inertia.get("login");
             }
         }
     }

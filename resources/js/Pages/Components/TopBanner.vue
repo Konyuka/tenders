@@ -38,10 +38,7 @@
                         </h1>
                     </a>
 
-                    <div
-                        v-if="user == ''"
-                        class="hidden sm:flex flex-row space-x-4"
-                    >
+                    <div v-if="!user" class="hidden sm:flex flex-row space-x-4">
                         <a
                             :href="route('register')"
                             class="transform transition hover:scale-125 duration-700 ease-in-out  font-primary-font rounded-md flex space-x-2 w-24 h-10 font-bold text-lg leading-3 text-indigo-700 hover:text-white bg-white hover:bg-indigo-600 border border-indigo-700 focus:outline-none focus:bg-gray-200 duration-150 justify-center items-center"
@@ -143,7 +140,11 @@ export default {
     watch: {},
     computed: {
         user() {
-            return this.$parent.user;
+            if (this.$parent.user == null) {
+                return false;
+            } else {
+                return true;
+            }
         }
     },
     methods: {
