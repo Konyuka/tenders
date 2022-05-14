@@ -32,7 +32,7 @@
                                     Order summary
                                 </h2>
 
-                                <dl v-if="!membership.length">
+                                <dl v-if="membership == null">
                                     <dt class="text-sm font-medium">
                                         Cart Value
                                     </dt>
@@ -43,7 +43,7 @@
                                     </dd>
                                 </dl>
 
-                                <dl v-if="membership.length">
+                                <dl v-if="membership != null">
                                     <dt class="text-sm font-medium">
                                         Cart Value
                                     </dt>
@@ -55,7 +55,7 @@
                                     </dd>
                                 </dl>
 
-                                <dl v-if="membership.length">
+                                <dl v-if="membership != null">
                                     <dt class="text-sm font-medium">
                                         Purchase Description
                                     </dt>
@@ -78,7 +78,7 @@
                                     class="text-sm font-medium space-y-6 border-t border-white border-opacity-10 pt-6"
                                 >
                                     <div
-                                        v-if="!this.membership.length"
+                                        v-if="this.membership != null"
                                         class="flex items-center justify-between"
                                     >
                                         <dt>Subtotal</dt>
@@ -95,7 +95,7 @@
                                     </div>
 
                                     <div
-                                        v-if="!this.membership.length"
+                                        v-if="this.membership == null"
                                         class="flex items-center justify-between border-t border-white border-opacity-10 text-white pt-6"
                                     >
                                         <dt class="text-base">Total</dt>
@@ -105,6 +105,7 @@
                                     </div>
 
                                     <div
+                                        v-if="this.membership != null"
                                         class="flex items-center justify-between border-t border-white border-opacity-10 text-white pt-6"
                                     >
                                         <dt class="text-base">Total</dt>
@@ -440,7 +441,7 @@ export default {
     mounted() {
         this.Status = "";
 
-        if (this.membership.length) {
+        if (this.membership != null) {
             this.postPurchase = false;
             this.form.userName = this.user.name;
             this.form.userPhone = this.user.phone;
@@ -450,6 +451,13 @@ export default {
         }
     },
     computed: {
+        memberPurchase() {
+            if (this.membership != null) {
+                return true;
+            } else {
+                return false;
+            }
+        },
         amountMembership() {
             if (this.membership == "gold") {
                 return 50000;
@@ -488,7 +496,7 @@ export default {
         },
         daysDiff() {
             // var given = moment("2018-03-10", "YYYY-MM-DD");
-            if (this.membership.length) {
+            if (this.membership != null) {
                 console.log("no post");
             } else {
                 var given = moment(this.post.created_at, "YYYY-MM-DD");

@@ -13,7 +13,7 @@
                         class=" flex space-x-5 justify-center  items-center pl-2"
                     >
                         <a
-                            href="#"
+                            href="tel:254112047733"
                             class="transform transition hover:scale-125 duration-700 ease-in-out ml-5 fas fa-phone fa-2xl text-indigo-600 mr-4"
                         ></a>
                     </div>
@@ -51,7 +51,7 @@
                         class="flex space-x-5 justify-center  items-center pr-6"
                     >
                         <a
-                            href="#"
+                            href="mailto:support@biddersportal.com"
                             class="transform transition hover:scale-125 duration-700 ease-in-out fas fa-envelope fa-2xl text-indigo-600"
                         ></a>
                         <!-- <a @click="openModal" href="#" class="transform transition hover:scale-125 duration-700 ease-in-out fas fa-search fa-2xl text-indigo-600"></a> -->
