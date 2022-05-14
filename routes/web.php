@@ -19,7 +19,7 @@ Route::get('/selected/{slug}', [LandingController::class, 'selected'])
 Route::get('/listing', [LandingController::class, 'listing'])
     ->name('listing');
 
-Route::get('/checkout/{slugs}', [LandingController::class, 'checkout'])
+Route::post('/checkout/{slugs}', [LandingController::class, 'checkout'])
     ->name('checkout');
 
 Route::get('/unlock/{slugs}', [LandingController::class, 'unlock'])

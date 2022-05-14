@@ -1307,7 +1307,7 @@
 
 <script>
 export default {
-    name: "Header",
+    name: "ServiceIntro",
     components: {
         //   Categories,
     },
@@ -1324,7 +1324,12 @@ export default {
             if (this.$parent.user == null) {
                 this.chooseAuth = true;
             } else {
-                // this.$inertia.get("login");
+                let payload = {
+                    membership: value,
+                    user: this.$parent.user
+                };
+                this.$inertia.post(`/checkout/${value}`, payload);
+                // `/checkout/${value}`
             }
         }
     }

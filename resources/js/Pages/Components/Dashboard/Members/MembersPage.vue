@@ -22,8 +22,8 @@
                         class="text-4xl font-extrabold tracking-tight text-black md:text-5xl lg:text-6xl"
                     >
                         Membership Plan:
-                        <span class="text-indigo-600 text-5xl ml-5">
-                            Free
+                        <span class="text-indigo-600 text-5xl ml-5 capitalize">
+                            {{ membership }}
                         </span>
                     </h1>
                     <p class="mt-6 max-w-3xl text-3xl text-gray-700">
@@ -41,7 +41,9 @@
                 <div
                     class="grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-y-0 lg:gap-x-8"
                 >
-                    <div class="flex flex-col bg-white rounded-2xl shadow-xl">
+                    <a
+                        class="transform transition hover:scale-125 duration-700 flex flex-col bg-white rounded-2xl shadow-xl"
+                    >
                         <div class="flex-1 relative pt-16 px-6 pb-8 md:px-8">
                             <div
                                 class="absolute top-0 p-5 inline-block bg-indigo-200 rounded-xl shadow-lg transform -translate-y-1/2"
@@ -70,7 +72,7 @@
                                 ></a
                             >
                         </div>
-                    </div>
+                    </a>
                 </div>
             </section>
         </div>
@@ -79,6 +81,19 @@
 
 <script>
 export default {
-    name: "MembersPage"
+    name: "MembersPage",
+    computed: {
+        membership() {
+            if (this.$parent.user.membership == "gold") {
+                return "gold";
+            } else if (this.$parent.user.membership == "silver") {
+                return "silver";
+            } else if (this.$parent.user.membership == "bronze") {
+                return "bronze";
+            } else {
+                return "free";
+            }
+        }
+    }
 };
 </script>

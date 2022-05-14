@@ -26,7 +26,11 @@
                         <line x1="4" y1="12" x2="20" y2="12" />
                         <line x1="4" y1="18" x2="20" y2="18" />
                     </svg>
-                    <ul aria-orientation="vertical" class="rounded py-8 mt-4">
+                    <ul
+                        v-if="admin"
+                        aria-orientation="vertical"
+                        class="rounded py-8 mt-4"
+                    >
                         <li
                             class="cursor-pointer text-sm leading-3 tracking-normal py-1 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none"
                         >
@@ -160,26 +164,84 @@
                             </span>
                         </li>
                     </ul>
+                    <ul
+                        v-else
+                        aria-orientation="vertical"
+                        class="rounded py-8 mt-4"
+                    >
+                        <!-- <li
+                            class="cursor-pointer text-sm leading-3 tracking-normal py-1 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none"
+                        >
+                            <div class="flex items-center">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="icon icon-tabler icon-tabler-grid"
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    fill="none"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path
+                                        stroke="none"
+                                        d="M0 0h24v24H0z"
+                                    ></path>
+                                    <rect
+                                        x="4"
+                                        y="4"
+                                        width="6"
+                                        height="6"
+                                        rx="1"
+                                    ></rect>
+                                    <rect
+                                        x="14"
+                                        y="4"
+                                        width="6"
+                                        height="6"
+                                        rx="1"
+                                    ></rect>
+                                    <rect
+                                        x="4"
+                                        y="14"
+                                        width="6"
+                                        height="6"
+                                        rx="1"
+                                    ></rect>
+                                    <rect
+                                        x="14"
+                                        y="14"
+                                        width="6"
+                                        height="6"
+                                        rx="1"
+                                    ></rect>
+                                </svg>
+                            </div>
+                        </li> -->
+                    </ul>
                 </div>
 
                 <div
-                    class="w-3/4 flex justify-start flex-col pr-12 transition duration-150 ease-in-out"
+                    class="mt-8 w-3/4 flex justify-start flex-col pr-12 transition duration-150 ease-in-out"
                     id="mobile-nav"
                 >
-                    <a
-                        :href="route('landing')"
-                        class=" flex space-x-3 items-center"
-                    >
-                        <img
+                    <a :href="route('landing')" class="flex items-center">
+                        <!-- <img
                             class="p-1 dark:bg-white rounded-full"
                             src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg5.svg"
                             alt="circle"
-                        />
-                        <h1
-                            class=" font-normal text-2xl leading-6 text-gray-800 dark:text-white "
+                        /> -->
+                        <!-- <h1
+                            class=" font-normal text-md leading-6 text-gray-800 dark:text-white "
                         >
-                            Bidders Portal
-                        </h1>
+                        </h1> -->
+                        <!-- <i class="fas fa-home text-indigo-600"> </i> -->
+                        <span
+                            class="hover:text-black text-xl text-extrabold font-primary-font text-indigo-600 p-1"
+                            >Home</span
+                        >
                     </a>
 
                     <ul
@@ -234,7 +296,7 @@
                     </ul>
 
                     <ul v-else aria-orientation="vertical" class="rounded py-8">
-                        <li
+                        <!-- <li
                             @click="selectedMenu('tenders')"
                             :class="
                                 this.currentMenu == 'tenders'
@@ -244,7 +306,7 @@
                             class="cursor-pointer text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none"
                         >
                             <span class="ml-2">Membership</span>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>

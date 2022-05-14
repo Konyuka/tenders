@@ -120,10 +120,21 @@ class LandingController extends Controller
         return Inertia::render('Listing', ['Posts' => $posts]);
     }
 
-    public function checkout($slugs)
+    public function checkout(Request $request, $slugs)
     {
+        // return dd($request->membership);
+        // if ($a > $b) {
+        //     echo "a is bigger than b";
+        // } elseif ($a == $b) {
+        //     echo "a is equal to b";
+        // } else {
+        //     echo "a is smaller than b";
+        // }
+
         return Inertia::render('Checkout', [
-           'post' => Post::where('_id', '=', $slugs)->first()
+           'post' => Post::where('_id', '=', $slugs)->first(),
+           'membership' => $request->membership,
+           'user' => $request->user
        ]);
 
     }
