@@ -824,10 +824,12 @@
                             <dd
                                 class="mt-2 text-base text-indigo-200 font-primary-font"
                             >
-                                I don&#039;t know, but the flag is a big plus.
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Quas cupiditate laboriosam
-                                fugiat.
+                                You don't have to register an account to
+                                purchase tender details. It's that Quick, Simple
+                                and Efficient. You can however subscribe to a
+                                plan of choice and also register a free account
+                                to save tenders to your wishlist for future
+                                reference
                             </dd>
                         </div>
                         <div>
@@ -840,10 +842,10 @@
                             <dd
                                 class="mt-2 text-base text-indigo-200 font-primary-font"
                             >
-                                I don&#039;t know, but the flag is a big plus.
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Quas cupiditate laboriosam
-                                fugiat.
+                                Besides Mpesa, you can also make payment using a
+                                credit cards. In the future, you will be able to
+                                make payment using online gateways such as
+                                Paypal.
                             </dd>
                         </div>
                         <div>
@@ -855,10 +857,8 @@
                             <dd
                                 class="mt-2 text-base text-indigo-200 font-primary-font"
                             >
-                                I don&#039;t know, but the flag is a big plus.
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Quas cupiditate laboriosam
-                                fugiat.
+                                We normally update new tenders every 3 hours.
+                                You are guaranteed new tenders on a daily basis
                             </dd>
                         </div>
                         <div>
@@ -871,10 +871,9 @@
                             <dd
                                 class="mt-2 text-base text-indigo-200 font-primary-font"
                             >
-                                I don&#039;t know, but the flag is a big plus.
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Quas cupiditate laboriosam
-                                fugiat.
+                                Yes you can. You could also subscribe for
+                                membership to get more rich updates on
+                                categories of choice.
                             </dd>
                         </div>
                     </dl>

@@ -7621,7 +7621,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ServiceIntro",
   components: {//   Categories,
@@ -61962,7 +61961,7 @@ var staticRenderFns = [
                       },
                       [
                         _vm._v(
-                          "\n                            I don't know, but the flag is a big plus.\n                            Lorem ipsum dolor sit amet consectetur\n                            adipisicing elit. Quas cupiditate laboriosam\n                            fugiat.\n                        "
+                          "\n                            You don't have to register an account to\n                            purchase tender details. It's that Quick, Simple\n                            and Efficient. You can however subscribe to a\n                            plan of choice and also register a free account\n                            to save tenders to your wishlist for future\n                            reference\n                        "
                         )
                       ]
                     )
@@ -61990,7 +61989,7 @@ var staticRenderFns = [
                       },
                       [
                         _vm._v(
-                          "\n                            I don't know, but the flag is a big plus.\n                            Lorem ipsum dolor sit amet consectetur\n                            adipisicing elit. Quas cupiditate laboriosam\n                            fugiat.\n                        "
+                          "\n                            Besides Mpesa, you can also make payment using a\n                            credit cards. In the future, you will be able to\n                            make payment using online gateways such as\n                            Paypal.\n                        "
                         )
                       ]
                     )
@@ -62018,7 +62017,7 @@ var staticRenderFns = [
                       },
                       [
                         _vm._v(
-                          "\n                            I don't know, but the flag is a big plus.\n                            Lorem ipsum dolor sit amet consectetur\n                            adipisicing elit. Quas cupiditate laboriosam\n                            fugiat.\n                        "
+                          "\n                            We normally update new tenders every 3 hours.\n                            You are guaranteed new tenders on a daily basis\n                        "
                         )
                       ]
                     )
@@ -62046,7 +62045,7 @@ var staticRenderFns = [
                       },
                       [
                         _vm._v(
-                          "\n                            I don't know, but the flag is a big plus.\n                            Lorem ipsum dolor sit amet consectetur\n                            adipisicing elit. Quas cupiditate laboriosam\n                            fugiat.\n                        "
+                          "\n                            Yes you can. You could also subscribe for\n                            membership to get more rich updates on\n                            categories of choice.\n                        "
                         )
                       ]
                     )
