@@ -61048,7 +61048,7 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("span", { staticClass: "ml-3" }, [
-                        _vm._v("+254 112 047 733")
+                        _vm._v("+254 716 202 298")
                       ])
                     ]),
                     _vm._v(" "),

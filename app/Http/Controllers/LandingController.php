@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Models\Post;
 use Safaricom\Mpesa\Mpesa;
 use App\Models\Payments;
+use App\Meta;
 include('pdflayerController.php');
 
 
@@ -21,6 +22,8 @@ class LandingController extends Controller
     {
         $posts = Post::all();
         // return Inertia::render('Landings');
+        Meta::addMeta('title', 'Bidders Portal Tenders Kenya');
+        Meta::addMeta('description', 'Tenders in Kenya | Government Tenders | Free Tenders Kenya | Public Tenders Kenya | Open tenders | Bidding Kenya | Kenya Tenders Today');
         return Inertia::render('Landing', ['allPosts' => $posts]);
     }
 
