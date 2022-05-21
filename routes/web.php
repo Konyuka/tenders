@@ -28,6 +28,9 @@ Route::get('/unlock/{slugs}', [LandingController::class, 'unlock'])
 Route::get('/download_tender/{slugs}', [LandingController::class, 'downloadTender'])
     ->name('download_tender');
 
+Route::get('/invoice', [LandingController::class, 'invoice'])
+    ->name('invoice');
+
 
 // Route::get('/stkpush', [LandingController::class, 'stkpush'])
 //     ->name('stkpush');
