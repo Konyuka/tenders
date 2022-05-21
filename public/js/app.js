@@ -7898,6 +7898,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
 //
 //
 //
@@ -8221,33 +8222,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Invoice",
+  components: {
+    MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
 
 /***/ }),
 
@@ -63048,7 +63029,246 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "body",
+    {
+      staticClass:
+        "h-screen verflow-y-hidden bg-gradient-to-r from-indigo-400 to-indigo-800"
+    },
+    [
+      _c("MainMenu", { staticClass: "sticky top-0" }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto"
+        },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0"
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8"
+                },
+                [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "flex justify-center flex-col md:flex-row flex-col items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 xl:space-x-8"
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6"
+                        },
+                        [
+                          _c(
+                            "h3",
+                            {
+                              staticClass:
+                                "text-xl dark:text-white font-semibold leading-5 text-gray-800"
+                            },
+                            [
+                              _vm._v(
+                                "\n                            M-Pesa Payment\n                        "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex justify-between items-start w-full"
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "flex justify-center items-center space-x-4"
+                                },
+                                [
+                                  _c("div", { staticClass: "w-20 h-20" }, [
+                                    _c("img", {
+                                      staticClass: "w-full h-full",
+                                      attrs: {
+                                        alt: "logo",
+                                        src: "/img/mpesa.jpeg"
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(2)
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "p",
+                                {
+                                  staticClass:
+                                    "text-lg font-semibold leading-6 dark:text-white text-gray-800"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                KES 150\n                            "
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm._m(3)
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6"
+                        },
+                        [
+                          _c(
+                            "h3",
+                            {
+                              staticClass:
+                                "text-xl dark:text-white font-semibold leading-5 text-gray-800"
+                            },
+                            [
+                              _vm._v(
+                                "\n                            Card Payment\n                        "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex justify-between items-start w-full"
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "flex justify-center items-center space-x-4"
+                                },
+                                [
+                                  _c("div", { staticClass: "w-20 h-20" }, [
+                                    _c("img", {
+                                      staticClass: "w-full h-full",
+                                      attrs: {
+                                        alt: "logo",
+                                        src: "/img/credit.jpg"
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(4)
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "p",
+                                {
+                                  staticClass:
+                                    "text-lg font-semibold leading-6 dark:text-white text-gray-800"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                KES 150\n                            "
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm._m(5)
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6"
+                        },
+                        [
+                          _c(
+                            "h3",
+                            {
+                              staticClass:
+                                "text-xl dark:text-white font-semibold leading-5 text-gray-800"
+                            },
+                            [
+                              _vm._v(
+                                "\n                            Manual Payment\n                        "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex justify-between items-start w-full"
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "flex justify-center items-center space-x-4"
+                                },
+                                [
+                                  _c("div", { staticClass: "w-20 h-20" }, [
+                                    _c("img", {
+                                      staticClass: "w-full h-full",
+                                      attrs: {
+                                        alt: "logo",
+                                        src: "/img/credit.jpg"
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(6)
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm._m(7)
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(8)
+            ]
+          )
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -63056,43 +63276,432 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "body",
+      "div",
+      { staticClass: "right-0 flex justify-end items-end space-y-2 flex-col" },
+      [
+        _c(
+          "h1",
+          {
+            staticClass:
+              "text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-white"
+          },
+          [
+            _vm._v("\n                Invoice # "),
+            _c("span", { staticClass: "text-white" }, [_vm._v("13432")])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass:
+              "font-primary-font text-base dark:text-gray-300 font-medium leading-6 text-gray-300"
+          },
+          [
+            _vm._v(
+              "\n                Generated on 21st March 2022 10:34 PM\n            "
+            )
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
       {
         staticClass:
-          "overflow-y-hidden bg-gradient-to-r from-indigo-400 to-indigo-800"
+          "flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full"
       },
       [
+        _c(
+          "p",
+          {
+            staticClass:
+              "font-heading-font text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800"
+          },
+          [
+            _vm._v(
+              "\n                        Tender Description\n                    "
+            )
+          ]
+        ),
+        _vm._v(" "),
         _c(
           "div",
           {
             staticClass:
-              "py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto"
+              "mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full"
+          },
+          [
+            _c("div", { staticClass: "pb-4 md:pb-8 w-full md:w-40" }, [
+              _c("i", { staticClass: "fas fa-caret-right fa-3x" })
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0"
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "w-full flex flex-col justify-start items-start space-y-8"
+                  },
+                  [
+                    _c(
+                      "h3",
+                      {
+                        staticClass:
+                          "text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800"
+                      },
+                      [
+                        _vm._v(
+                          "\n                                    Premium Quaility Dress\n                                "
+                        )
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flex justify-between space-x-8 items-start w-full"
+                  },
+                  [
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800"
+                      },
+                      [
+                        _vm._v(
+                          "\n                                    KES 150\n                                "
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "flex flex-col justify-start items-center" },
+      [
+        _c(
+          "p",
+          {
+            staticClass:
+              "font-heading-font text-2xl leading-6 dark:text-white font-semibold text-green-700"
+          },
+          [
+            _vm._v("\n                                        M-Pesa"),
+            _c("br"),
+            _c(
+              "span",
+              {
+                staticClass: "font-normal text-sm font-primary-font text-black"
+              },
+              [
+                _vm._v(
+                  "You can use Mpesa Paybill\n                                            Express checkout"
+                )
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "w-full flex justify-center items-center" },
+      [
+        _c(
+          "button",
+          {
+            staticClass:
+              "hover:bg-green-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-green-600 text-base font-medium leading-4 text-white"
+          },
+          [
+            _vm._v(
+              "\n                                Pay Using M-Pesa Express\n                            "
+            )
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "flex flex-col justify-start items-center" },
+      [
+        _c(
+          "p",
+          {
+            staticClass:
+              "font-heading-font text-2xl leading-6 dark:text-white font-semibold text-green-700"
+          },
+          [
+            _vm._v("\n                                        Credit Card"),
+            _c("br"),
+            _c(
+              "span",
+              {
+                staticClass: "font-normal text-sm font-primary-font text-black"
+              },
+              [
+                _vm._v(
+                  "You can use Visa or Mastercard\n                                            for checkout"
+                )
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "w-full flex justify-center items-center" },
+      [
+        _c(
+          "button",
+          {
+            staticClass:
+              "hover:bg-green-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-green-600 text-base font-medium leading-4 text-white"
+          },
+          [
+            _vm._v(
+              "\n                                Pay Using M-Pesa\n                            "
+            )
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "flex flex-col justify-start items-center" },
+      [
+        _c(
+          "p",
+          {
+            staticClass:
+              "w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
+          },
+          [
+            _vm._v(
+              "\n                                        PAYBILL NUMBER :\n                                        "
+            ),
+            _c(
+              "span",
+              { staticClass: "text-green-600 font-primary-font text-xl" },
+              [
+                _vm._v(
+                  "\n                                            603021\n                                        "
+                )
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass:
+              "w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
+          },
+          [
+            _vm._v(
+              "\n                                        ACCOUNT NUMBER :\n                                        "
+            ),
+            _c(
+              "span",
+              { staticClass: "text-green-600 font-primary-font text-xl" },
+              [
+                _vm._v(
+                  "\n                                            13432\n                                        "
+                )
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass:
+              "w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
+          },
+          [
+            _vm._v(
+              "\n                                        PAYMENT AMOUNT :\n                                        "
+            ),
+            _c(
+              "span",
+              { staticClass: "text-green-600 font-primary-font text-xl" },
+              [
+                _vm._v(
+                  "\n                                            150\n                                        "
+                )
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "w-full flex justify-center items-center" },
+      [
+        _c(
+          "button",
+          {
+            staticClass:
+              "hover:bg-green-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-green-600 text-base font-medium leading-4 text-white"
+          },
+          [
+            _vm._v(
+              "\n                                Pay Using M-Pesa\n                            "
+            )
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "bg-gray-50 dark:bg-gray-800 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col"
+      },
+      [
+        _c(
+          "h3",
+          {
+            staticClass:
+              "text-xl dark:text-white font-semibold leading-5 text-gray-800"
+          },
+          [_vm._v("\n                    Customer Details\n                ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "flex flex-col md:flex-row xl:flex-col justify-start items-stretch h-full w-full md:space-x-6 lg:space-x-8 xl:space-x-0"
           },
           [
             _c(
               "div",
               {
-                staticClass: "flex justify-start item-start space-y-2 flex-col"
+                staticClass:
+                  "flex flex-col justify-start items-start flex-shrink-0"
               },
               [
                 _c(
-                  "h1",
+                  "div",
                   {
                     staticClass:
-                      "text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-white"
+                      "flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full"
                   },
-                  [_vm._v("\n                Order #13432\n            ")]
+                  [
+                    _c("i", { staticClass: "fas fa-user" }),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      { staticClass: "cursor-pointer text-sm leading-5 " },
+                      [
+                        _vm._v(
+                          "\n                                Michael Saiba\n                            "
+                        )
+                      ]
+                    )
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
-                  "p",
+                  "div",
                   {
                     staticClass:
-                      "text-base dark:text-gray-300 font-medium leading-6 text-gray-600"
+                      "flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full"
                   },
                   [
-                    _vm._v(
-                      "\n                21st Mart 2021 at 10:34 PM\n            "
+                    _c("i", { staticClass: "fas fa-envelope" }),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      { staticClass: "cursor-pointer text-sm leading-5 " },
+                      [
+                        _vm._v(
+                          "\n                                david89@gmail.com\n                            "
+                        )
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full"
+                  },
+                  [
+                    _c("i", { staticClass: "fas fa-phone" }),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      { staticClass: "cursor-pointer text-sm leading-5 " },
+                      [
+                        _vm._v(
+                          "\n                                254716202298\n                            "
+                        )
+                      ]
                     )
                   ]
                 )
@@ -63103,546 +63712,20 @@ var staticRenderFns = [
               "div",
               {
                 staticClass:
-                  "mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0"
+                  "flex justify-between xl:h-full items-stretch w-full flex-col mt-6 md:mt-0"
               },
               [
                 _c(
                   "div",
                   {
                     staticClass:
-                      "flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8"
+                      "flex justify-center md:justify-start xl:flex-col flex-col md:space-x-6 lg:space-x-8 xl:space-x-0 space-y-4 xl:space-y-12 md:space-y-0 md:flex-row items-center md:items-start"
                   },
                   [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full"
-                      },
-                      [
-                        _c(
-                          "p",
-                          {
-                            staticClass:
-                              "text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800"
-                          },
-                          [
-                            _vm._v(
-                              "\n                        Customer’s Cart\n                    "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full"
-                          },
-                          [
-                            _c(
-                              "div",
-                              { staticClass: "pb-4 md:pb-8 w-full md:w-40" },
-                              [
-                                _c("img", {
-                                  staticClass: "w-full hidden md:block",
-                                  attrs: {
-                                    src:
-                                      "https://i.ibb.co/84qQR4p/Rectangle-10.png",
-                                    alt: "dress"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("img", {
-                                  staticClass: "w-full md:hidden",
-                                  attrs: {
-                                    src:
-                                      "https://i.ibb.co/L039qbN/Rectangle-10.png",
-                                    alt: "dress"
-                                  }
-                                })
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0"
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "w-full flex flex-col justify-start items-start space-y-8"
-                                  },
-                                  [
-                                    _c(
-                                      "h3",
-                                      {
-                                        staticClass:
-                                          "text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    Premium Quaility Dress\n                                "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "flex justify-start items-start flex-col space-y-2"
-                                      },
-                                      [
-                                        _c(
-                                          "p",
-                                          {
-                                            staticClass:
-                                              "text-sm dark:text-white leading-none text-gray-800"
-                                          },
-                                          [
-                                            _c(
-                                              "span",
-                                              {
-                                                staticClass:
-                                                  "dark:text-gray-400 text-gray-300"
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "Style:\n                                        "
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(
-                                              "\n                                        Italic Minimal Design\n                                    "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          {
-                                            staticClass:
-                                              "text-sm dark:text-white leading-none text-gray-800"
-                                          },
-                                          [
-                                            _c(
-                                              "span",
-                                              {
-                                                staticClass:
-                                                  "dark:text-gray-400 text-gray-300"
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "Size:\n                                        "
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(
-                                              "\n                                        Small\n                                    "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          {
-                                            staticClass:
-                                              "text-sm dark:text-white leading-none text-gray-800"
-                                          },
-                                          [
-                                            _c(
-                                              "span",
-                                              {
-                                                staticClass:
-                                                  "dark:text-gray-400 text-gray-300"
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "Color:\n                                        "
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(
-                                              "\n                                        Light Blue\n                                    "
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "flex justify-between space-x-8 items-start w-full"
-                                  },
-                                  [
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "text-base dark:text-white xl:text-lg leading-6"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    $36.00\n                                    "
-                                        ),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass:
-                                              "text-red-300 line-through"
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                        $45.00"
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "text-base dark:text-white xl:text-lg leading-6 text-gray-800"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    01\n                                "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    $36.00\n                                "
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex justify-center flex-col md:flex-row flex-col items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 xl:space-x-8"
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "flex flex-col px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6"
-                          },
-                          [
-                            _c(
-                              "h3",
-                              {
-                                staticClass:
-                                  "text-xl dark:text-white font-semibold leading-5 text-gray-800"
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Summary\n                        "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "flex justify-center items-center w-full space-y-4 flex-col border-gray-200 border-b pb-4"
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "flex justify-between w-full"
-                                  },
-                                  [
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "text-base dark:text-white leading-4 text-gray-800"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    Subtotal\n                                "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "text-base dark:text-gray-300 leading-4 text-gray-600"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    $56.00\n                                "
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "flex justify-between items-center w-full"
-                                  },
-                                  [
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "text-base dark:text-white leading-4 text-gray-800"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    Discount\n                                    "
-                                        ),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass:
-                                              "bg-gray-200 p-1 text-xs font-medium dark:bg-white dark:text-gray-800 leading-3 text-gray-800"
-                                          },
-                                          [_vm._v("STUDENT")]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "text-base dark:text-gray-300 leading-4 text-gray-600"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    -$28.00 (50%)\n                                "
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "flex justify-between items-center w-full"
-                                  },
-                                  [
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "text-base dark:text-white leading-4 text-gray-800"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    Shipping\n                                "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "text-base dark:text-gray-300 leading-4 text-gray-600"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    $8.00\n                                "
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "flex justify-between items-center w-full"
-                              },
-                              [
-                                _c(
-                                  "p",
-                                  {
-                                    staticClass:
-                                      "text-base dark:text-white font-semibold leading-4 text-gray-800"
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                Total\n                            "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "p",
-                                  {
-                                    staticClass:
-                                      "text-base dark:text-gray-300 font-semibold leading-4 text-gray-600"
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                $36.00\n                            "
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6"
-                          },
-                          [
-                            _c(
-                              "h3",
-                              {
-                                staticClass:
-                                  "text-xl dark:text-white font-semibold leading-5 text-gray-800"
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Shipping\n                        "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "flex justify-between items-start w-full"
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "flex justify-center items-center space-x-4"
-                                  },
-                                  [
-                                    _c("div", { staticClass: "w-8 h-8" }, [
-                                      _c("img", {
-                                        staticClass: "w-full h-full",
-                                        attrs: {
-                                          alt: "logo",
-                                          src:
-                                            "https://i.ibb.co/L8KSdNQ/image-3.png"
-                                        }
-                                      })
-                                    ]),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "flex flex-col justify-start items-center"
-                                      },
-                                      [
-                                        _c(
-                                          "p",
-                                          {
-                                            staticClass:
-                                              "text-lg leading-6 dark:text-white font-semibold text-gray-800"
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                        DPD Delivery"
-                                            ),
-                                            _c("br"),
-                                            _c(
-                                              "span",
-                                              { staticClass: "font-normal" },
-                                              [_vm._v("Delivery with 24 Hours")]
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "p",
-                                  {
-                                    staticClass:
-                                      "text-lg font-semibold leading-6 dark:text-white text-gray-800"
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                $8.00\n                            "
-                                    )
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "w-full flex justify-center items-center"
-                              },
-                              [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "hover:bg-black dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-gray-800 text-base font-medium leading-4 text-white"
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                View Carrier Details\n                            "
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    )
+                    _c("div", {
+                      staticClass:
+                        "flex justify-center md:justify-start items-center md:items-start flex-col space-y-4 xl:mt-8"
+                    })
                   ]
                 ),
                 _vm._v(" "),
@@ -63650,238 +63733,18 @@ var staticRenderFns = [
                   "div",
                   {
                     staticClass:
-                      "bg-gray-50 dark:bg-gray-800 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col"
+                      "flex w-full justify-center items-center md:justify-start md:items-start"
                   },
                   [
                     _c(
-                      "h3",
+                      "button",
                       {
                         staticClass:
-                          "text-xl dark:text-white font-semibold leading-5 text-gray-800"
+                          "mt-6 hover:bg-red-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-red-600 text-base font-bold leading-4 text-white"
                       },
                       [
                         _vm._v(
-                          "\n                    Customer\n                "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex flex-col md:flex-row xl:flex-col justify-start items-stretch h-full w-full md:space-x-6 lg:space-x-8 xl:space-x-0"
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "flex flex-col justify-start items-start flex-shrink-0"
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "flex justify-center w-full md:justify-start items-center space-x-4 py-8 border-b border-gray-200"
-                              },
-                              [
-                                _c("img", {
-                                  attrs: {
-                                    src:
-                                      "https://i.ibb.co/5TSg7f6/Rectangle-18.png",
-                                    alt: "avatar"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "flex justify-start items-start flex-col space-y-2"
-                                  },
-                                  [
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "text-base dark:text-white font-semibold leading-4 text-left text-gray-800"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    David Kent\n                                "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "text-sm dark:text-gray-300 leading-5 text-gray-600"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    10 Previous Orders\n                                "
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full"
-                              },
-                              [
-                                _c("img", {
-                                  staticClass: "dark:hidden",
-                                  attrs: {
-                                    src:
-                                      "https://tuk-cdn.s3.amazonaws.com/can-uploader/order-summary-3-svg1.svg",
-                                    alt: "email"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("img", {
-                                  staticClass: "hidden dark:block",
-                                  attrs: {
-                                    src:
-                                      "https://tuk-cdn.s3.amazonaws.com/can-uploader/order-summary-3-svg1dark.svg",
-                                    alt: "email"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "p",
-                                  {
-                                    staticClass:
-                                      "cursor-pointer text-sm leading-5 "
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                david89@gmail.com\n                            "
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "flex justify-between xl:h-full items-stretch w-full flex-col mt-6 md:mt-0"
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "flex justify-center md:justify-start xl:flex-col flex-col md:space-x-6 lg:space-x-8 xl:space-x-0 space-y-4 xl:space-y-12 md:space-y-0 md:flex-row items-center md:items-start"
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "flex justify-center md:justify-start items-center md:items-start flex-col space-y-4 xl:mt-8"
-                                  },
-                                  [
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "text-base dark:text-white font-semibold leading-4 text-center md:text-left text-gray-800"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    Shipping Address\n                                "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    180 North King Street, Northhampton MA\n                                    1060\n                                "
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "flex justify-center md:justify-start items-center md:items-start flex-col space-y-4"
-                                  },
-                                  [
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "text-base dark:text-white font-semibold leading-4 text-center md:text-left text-gray-800"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    Billing Address\n                                "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass:
-                                          "w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                    180 North King Street, Northhampton MA\n                                    1060\n                                "
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "flex w-full justify-center items-center md:justify-start md:items-start"
-                              },
-                              [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "mt-6 md:mt-0 dark:border-white dark:hover:bg-gray-900 dark:bg-transparent dark:text-white py-5 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 border border-gray-800 font-medium w-96 2xl:w-full text-base font-medium leading-4 text-gray-800"
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                Edit Details\n                            "
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
+                          "\n                                Cancel Invoice Payment\n                            "
                         )
                       ]
                     )
