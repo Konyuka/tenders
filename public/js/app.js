@@ -11015,15 +11015,18 @@ var now = new Date(); // dateFormat(now, "W");
       console.log(myTruncatedString);
       var str = myTruncatedString;
       var daycut = str.substring(0, 2);
-      var monthcut = str.substring(3, 2);
-      console.log(daycut);
-      console.log(monthcut);
+      var monthcut = str.substring(5, 3); // console.log(daycut);
+      // console.log(monthcut);
 
       String.prototype.replaceAt = function (index, replacement) {
         return this.substring(0, index) + replacement + this.substring(index + replacement.length);
-      }; // var hello = "Hello World";
-      // alert(hello.replaceAt(2, "!!")); // He!!o World
+      };
 
+      var changeDay = myTruncatedString.replaceAt(0, monthcut);
+      var changemonth = changeDay.replaceAt(3, daycut); // console.log(changeDay);
+      // console.log(changemonth);
+      // var hello = "Hello World";
+      // alert(hello.replaceAt(2, "!!")); // He!!o World
 
       return Object(dateformat__WEBPACK_IMPORTED_MODULE_3__["default"])("05-31-2022", "mmmm dS, yyyy"); // return dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");
     },
@@ -68048,7 +68051,7 @@ var staticRenderFns = [
           staticClass:
             "flex-grow text-indigo-500 border-b-2 border-indigo-600 py-2 text-lg px-1 font-heading-font font-extrabold"
         },
-        [_vm._v("Description")]
+        [_vm._v("Tender Description")]
       )
     ])
   },
