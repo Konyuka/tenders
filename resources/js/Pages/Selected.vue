@@ -24,7 +24,7 @@
                                 <div class="flex mb-4">
                                     <a
                                         class="flex-grow text-indigo-500 border-b-2 border-indigo-600 py-2 text-lg px-1 font-heading-font font-extrabold"
-                                        >Description</a
+                                        >Tender Description</a
                                     >
                                     <!-- <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Reviews</a>
                 <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Details</a> -->
@@ -408,9 +408,9 @@ export default {
             console.log(myTruncatedString);
             var str = myTruncatedString;
             var daycut = str.substring(0, 2);
-            var monthcut = str.substring(3, 2);
-            console.log(daycut);
-            console.log(monthcut);
+            var monthcut = str.substring(5, 3);
+            // console.log(daycut);
+            // console.log(monthcut);
 
             String.prototype.replaceAt = function(index, replacement) {
                 return (
@@ -419,6 +419,10 @@ export default {
                     this.substring(index + replacement.length)
                 );
             };
+            const changeDay = myTruncatedString.replaceAt(0, monthcut);
+            const changemonth = changeDay.replaceAt(3, daycut);
+            // console.log(changeDay);
+            // console.log(changemonth);
             // var hello = "Hello World";
             // alert(hello.replaceAt(2, "!!")); // He!!o World
 
