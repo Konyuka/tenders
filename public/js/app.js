@@ -9294,6 +9294,210 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
 /* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue2-filters */ "./node_modules/vue2-filters/dist/vue2-filters.js");
+/* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue2_filters__WEBPACK_IMPORTED_MODULE_4__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -9498,10 +9702,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+vue__WEBPACK_IMPORTED_MODULE_3___default.a.use(vue2_filters__WEBPACK_IMPORTED_MODULE_4___default.a);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Landing',
+  name: "Landing",
+  mixins: [vue2_filters__WEBPACK_IMPORTED_MODULE_4___default.a.mixin],
   props: {
-    Posts: ''
+    Posts: ""
   },
   components: {
     TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -9510,9 +9718,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {},
   mounted: function mounted() {},
-  computed: {//     posts(){
-    //         return this.$parent.posts
-    //     }
+  computed: {
+    orderedPosts: function orderedPosts() {
+      // return _.orderBy(this.Posts, "created_at");
+      var today = new Date();
+      return this.Posts.sort(function (a, b) {
+        return new Date(a.updated_at) - new Date(b.updated_at);
+      });
+    }
   },
   data: function data() {
     return {
@@ -9532,7 +9745,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     formatDate: function formatDate(value) {
-      return moment(value).format('MMMM Do YYYY');
+      return moment(value).format("MMMM Do YYYY");
     },
     togo: function togo(value) {
       return moment(value).fromNow();
@@ -10396,6 +10609,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
 /* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+/* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10697,6 +10940,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
+
+
+var now = new Date(); // dateFormat(now, "W");
+// var dateFormat = require('dateformat');
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Selected",
@@ -10723,6 +10970,13 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
+    dateChangeFormat: function dateChangeFormat() {
+      if (this.togo == "Invalid date") {
+        return true;
+      } else {
+        return false;
+      }
+    },
     amount: function amount() {
       if (this.daysDiff <= 7) {
         return 100;
@@ -10754,14 +11008,39 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    dateFormat: function dateFormat(value) {
+      var length = 10;
+      var myString = value;
+      var myTruncatedString = myString.substring(0, length);
+      console.log(myTruncatedString);
+      var str = myTruncatedString;
+      var daycut = str.substring(0, 2);
+      var monthcut = str.substring(3, 2);
+      console.log(daycut);
+      console.log(monthcut);
+
+      String.prototype.replaceAt = function (index, replacement) {
+        return this.substring(0, index) + replacement + this.substring(index + replacement.length);
+      }; // var hello = "Hello World";
+      // alert(hello.replaceAt(2, "!!")); // He!!o World
+
+
+      return Object(dateformat__WEBPACK_IMPORTED_MODULE_3__["default"])("05-31-2022", "mmmm dS, yyyy"); // return dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+    },
     purchase: function purchase() {
       this.$inertia.post("/checkout/".concat(this.post._id));
     },
     formatDate: function formatDate(value) {
       return moment(value).format("MMMM Do YYYY");
     },
-    clearFilters: function clearFilters() {},
-    loadFilters: function loadFilters() {}
+    formatDateChange: function formatDateChange(value) {
+      var formats = [// "MM/DD/YYYY",
+      // "MMM Do YY",
+      // "MM-DD-YYYY",
+      // "YYYY-MM-DD",
+      "DD-MM-YYYY", "ddd, ll"];
+      return moment(value, formats);
+    }
   }
 });
 
@@ -11391,6 +11670,23 @@ function toComment(sourceMap) {
 	return '/*# ' + data + ' */';
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/dateformat/lib/dateformat.js":
+/*!***************************************************!*\
+  !*** ./node_modules/dateformat/lib/dateformat.js ***!
+  \***************************************************/
+/*! exports provided: default, masks, i18n, formatTimezone */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return dateFormat; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "masks", function() { return masks; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i18n", function() { return i18n; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatTimezone", function() { return formatTimezone; });
+var token=/d{1,4}|D{3,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|W{1,2}|[LlopSZN]|"[^"]*"|'[^']*'/g;var timezone=/\b(?:[A-Z]{1,3}[A-Z][TC])(?:[-+]\d{4})?|((?:Australian )?(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time)\b/g;var timezoneClip=/[^-+\dA-Z]/g;function dateFormat(date,mask,utc,gmt){if(arguments.length===1&&typeof date==="string"&&!/\d/.test(date)){mask=date;date=undefined}date=date||date===0?date:new Date;if(!(date instanceof Date)){date=new Date(date)}if(isNaN(date)){throw TypeError("Invalid date")}mask=String(masks[mask]||mask||masks["default"]);var maskSlice=mask.slice(0,4);if(maskSlice==="UTC:"||maskSlice==="GMT:"){mask=mask.slice(4);utc=true;if(maskSlice==="GMT:"){gmt=true}}var _=function _(){return utc?"getUTC":"get"};var _d=function d(){return date[_()+"Date"]()};var D=function D(){return date[_()+"Day"]()};var _m=function m(){return date[_()+"Month"]()};var y=function y(){return date[_()+"FullYear"]()};var _H=function H(){return date[_()+"Hours"]()};var _M=function M(){return date[_()+"Minutes"]()};var _s=function s(){return date[_()+"Seconds"]()};var _L=function L(){return date[_()+"Milliseconds"]()};var _o=function o(){return utc?0:date.getTimezoneOffset()};var _W=function W(){return getWeek(date)};var _N=function N(){return getDayOfWeek(date)};var flags={d:function d(){return _d()},dd:function dd(){return pad(_d())},ddd:function ddd(){return i18n.dayNames[D()]},DDD:function DDD(){return getDayName({y:y(),m:_m(),d:_d(),_:_(),dayName:i18n.dayNames[D()],short:true})},dddd:function dddd(){return i18n.dayNames[D()+7]},DDDD:function DDDD(){return getDayName({y:y(),m:_m(),d:_d(),_:_(),dayName:i18n.dayNames[D()+7]})},m:function m(){return _m()+1},mm:function mm(){return pad(_m()+1)},mmm:function mmm(){return i18n.monthNames[_m()]},mmmm:function mmmm(){return i18n.monthNames[_m()+12]},yy:function yy(){return String(y()).slice(2)},yyyy:function yyyy(){return pad(y(),4)},h:function h(){return _H()%12||12},hh:function hh(){return pad(_H()%12||12)},H:function H(){return _H()},HH:function HH(){return pad(_H())},M:function M(){return _M()},MM:function MM(){return pad(_M())},s:function s(){return _s()},ss:function ss(){return pad(_s())},l:function l(){return pad(_L(),3)},L:function L(){return pad(Math.floor(_L()/10))},t:function t(){return _H()<12?i18n.timeNames[0]:i18n.timeNames[1]},tt:function tt(){return _H()<12?i18n.timeNames[2]:i18n.timeNames[3]},T:function T(){return _H()<12?i18n.timeNames[4]:i18n.timeNames[5]},TT:function TT(){return _H()<12?i18n.timeNames[6]:i18n.timeNames[7]},Z:function Z(){return gmt?"GMT":utc?"UTC":formatTimezone(date)},o:function o(){return(_o()>0?"-":"+")+pad(Math.floor(Math.abs(_o())/60)*100+Math.abs(_o())%60,4)},p:function p(){return(_o()>0?"-":"+")+pad(Math.floor(Math.abs(_o())/60),2)+":"+pad(Math.floor(Math.abs(_o())%60),2)},S:function S(){return["th","st","nd","rd"][_d()%10>3?0:(_d()%100-_d()%10!=10)*_d()%10]},W:function W(){return _W()},WW:function WW(){return pad(_W())},N:function N(){return _N()}};return mask.replace(token,function(match){if(match in flags){return flags[match]()}return match.slice(1,match.length-1)})}var masks={default:"ddd mmm dd yyyy HH:MM:ss",shortDate:"m/d/yy",paddedShortDate:"mm/dd/yyyy",mediumDate:"mmm d, yyyy",longDate:"mmmm d, yyyy",fullDate:"dddd, mmmm d, yyyy",shortTime:"h:MM TT",mediumTime:"h:MM:ss TT",longTime:"h:MM:ss TT Z",isoDate:"yyyy-mm-dd",isoTime:"HH:MM:ss",isoDateTime:"yyyy-mm-dd'T'HH:MM:sso",isoUtcDateTime:"UTC:yyyy-mm-dd'T'HH:MM:ss'Z'",expiresHeaderFormat:"ddd, dd mmm yyyy HH:MM:ss Z"};var i18n={dayNames:["Sun","Mon","Tue","Wed","Thu","Fri","Sat","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],monthNames:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","January","February","March","April","May","June","July","August","September","October","November","December"],timeNames:["a","p","am","pm","A","P","AM","PM"]};var pad=function pad(val){var len=arguments.length>1&&arguments[1]!==undefined?arguments[1]:2;return String(val).padStart(len,"0")};var getDayName=function getDayName(_ref){var y=_ref.y,m=_ref.m,d=_ref.d,_=_ref._,dayName=_ref.dayName,_ref$short=_ref["short"],_short=_ref$short===void 0?false:_ref$short;var today=new Date;var yesterday=new Date;yesterday.setDate(yesterday[_+"Date"]()-1);var tomorrow=new Date;tomorrow.setDate(tomorrow[_+"Date"]()+1);var today_d=function today_d(){return today[_+"Date"]()};var today_m=function today_m(){return today[_+"Month"]()};var today_y=function today_y(){return today[_+"FullYear"]()};var yesterday_d=function yesterday_d(){return yesterday[_+"Date"]()};var yesterday_m=function yesterday_m(){return yesterday[_+"Month"]()};var yesterday_y=function yesterday_y(){return yesterday[_+"FullYear"]()};var tomorrow_d=function tomorrow_d(){return tomorrow[_+"Date"]()};var tomorrow_m=function tomorrow_m(){return tomorrow[_+"Month"]()};var tomorrow_y=function tomorrow_y(){return tomorrow[_+"FullYear"]()};if(today_y()===y&&today_m()===m&&today_d()===d){return _short?"Tdy":"Today"}else if(yesterday_y()===y&&yesterday_m()===m&&yesterday_d()===d){return _short?"Ysd":"Yesterday"}else if(tomorrow_y()===y&&tomorrow_m()===m&&tomorrow_d()===d){return _short?"Tmw":"Tomorrow"}return dayName};var getWeek=function getWeek(date){var targetThursday=new Date(date.getFullYear(),date.getMonth(),date.getDate());targetThursday.setDate(targetThursday.getDate()-(targetThursday.getDay()+6)%7+3);var firstThursday=new Date(targetThursday.getFullYear(),0,4);firstThursday.setDate(firstThursday.getDate()-(firstThursday.getDay()+6)%7+3);var ds=targetThursday.getTimezoneOffset()-firstThursday.getTimezoneOffset();targetThursday.setHours(targetThursday.getHours()-ds);var weekDiff=(targetThursday-firstThursday)/(864e5*7);return 1+Math.floor(weekDiff)};var getDayOfWeek=function getDayOfWeek(date){var dow=date.getDay();if(dow===0){dow=7}return dow};var formatTimezone=function formatTimezone(date){return(String(date).match(timezone)||[""]).pop().replace(timezoneClip,"").replace(/GMT\+0000/g,"UTC")};
 
 /***/ }),
 
@@ -65207,7 +65503,11 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("Tenders Search Filters")]
+              [
+                _vm._v(
+                  "\n                    Tenders Search Filters\n                "
+                )
+              ]
             )
           ]),
           _vm._v(" "),
@@ -65217,7 +65517,7 @@ var render = function() {
             _c(
               "div",
               { staticClass: "flex flex-wrap" },
-              _vm._l(this.Posts, function(post) {
+              _vm._l(_vm.orderBy(this.Posts, "expiry", -1), function(post) {
                 return _c(
                   "a",
                   {
@@ -65233,7 +65533,7 @@ var render = function() {
                         { staticClass: "font-heading-font font-extrabold" },
                         [
                           _vm._v(
-                            "\n                                  Posted: "
+                            "\n                                Posted:\n                                "
                           ),
                           _c(
                             "span",
@@ -65241,7 +65541,12 @@ var render = function() {
                               staticClass:
                                 "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"
                             },
-                            [_vm._v(" " + _vm._s(_vm.ago(post.created_at)))]
+                            [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(_vm.ago(post.created_at))
+                              )
+                            ]
                           )
                         ]
                       ),
@@ -65252,7 +65557,7 @@ var render = function() {
                             { staticClass: "font-heading-font font-extrabold" },
                             [
                               _vm._v(
-                                "\n                                  Expires: "
+                                "\n                                Expires:\n                                "
                               ),
                               _c(
                                 "span",
@@ -65260,7 +65565,11 @@ var render = function() {
                                   staticClass:
                                     "inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest"
                                 },
-                                [_vm._v(" Expired ")]
+                                [
+                                  _vm._v(
+                                    "\n                                    Expired\n                                "
+                                  )
+                                ]
                               )
                             ]
                           )
@@ -65269,7 +65578,7 @@ var render = function() {
                             { staticClass: "font-heading-font font-extrabold" },
                             [
                               _vm._v(
-                                "\n                                  Expires: "
+                                "\n                                Expires:\n                                "
                               ),
                               _c(
                                 "span",
@@ -65277,7 +65586,12 @@ var render = function() {
                                   staticClass:
                                     "inline-block py-1 px-2 rounded bg-indigo-50 text-red-500 text-xs font-bold tracking-widest"
                                 },
-                                [_vm._v(" " + _vm._s(_vm.togo(post.expiry)))]
+                                [
+                                  _vm._v(
+                                    "\n                                    " +
+                                      _vm._s(_vm.togo(post.expiry))
+                                  )
+                                ]
                               )
                             ]
                           )
@@ -65289,7 +65603,13 @@ var render = function() {
                         staticClass:
                           "my-5 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
                       },
-                      [_vm._v(_vm._s(post.tender_brief))]
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(post.tender_brief) +
+                            "\n                        "
+                        )
+                      ]
                     ),
                     _vm._v(" "),
                     _c(
@@ -65313,9 +65633,9 @@ var render = function() {
                                 "w-4 h-4 mr-1 fas fa-location-crosshairs text-indigo-600"
                             }),
                             _vm._v(
-                              " " +
+                              "\n                                " +
                                 _vm._s(post.country) +
-                                "\n                          "
+                                "\n                            "
                             )
                           ]
                         )
@@ -65331,7 +65651,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "Tender Details\n                                  "
+                            "Tender Details\n                                "
                           ),
                           _c(
                             "svg",
@@ -65409,7 +65729,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                      Tender Search Filters\n                  "
+                                  "\n                            Tender Search Filters\n                        "
                                 )
                               ]
                             ),
@@ -65476,7 +65796,11 @@ var render = function() {
                                 },
                                 on: { click: _vm.loadFilters }
                               },
-                              [_vm._v("Find Tenders")]
+                              [
+                                _vm._v(
+                                  "\n                            Find Tenders\n                        "
+                                )
+                              ]
                             ),
                             _vm._v(" "),
                             _c(
@@ -65490,7 +65814,11 @@ var render = function() {
                                 },
                                 on: { click: _vm.clearFilters }
                               },
-                              [_vm._v("Clear Filters")]
+                              [
+                                _vm._v(
+                                  "\n                            Clear Filters\n                        "
+                                )
+                              ]
                             )
                           ]
                         )
@@ -65518,7 +65846,11 @@ var staticRenderFns = [
           staticClass:
             "text-xs text-indigo-500 tracking-widest font-medium title-font mb-1"
         },
-        [_vm._v("BIDDERS PORTAL")]
+        [
+          _vm._v(
+            "\n                        BIDDERS PORTAL\n                    "
+          )
+        ]
       )
     ])
   },
@@ -65534,7 +65866,9 @@ var staticRenderFns = [
       },
       [
         _c("i", { staticClass: "w-4 h-4 mr-1 fas fa-filter text-indigo-600" }),
-        _vm._v(" Construction\n                              ")
+        _vm._v(
+          "\n                                Construction\n                                "
+        )
       ]
     )
   },
@@ -65550,7 +65884,7 @@ var staticRenderFns = [
             "inline-flex items-center py-4 px-6 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
           attrs: { href: "#" }
         },
-        [_vm._v("\n          Previous\n          ")]
+        [_vm._v("\n                    Previous\n                ")]
       ),
       _vm._v(" "),
       _c(
@@ -65560,7 +65894,7 @@ var staticRenderFns = [
             "inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
           attrs: { href: "#" }
         },
-        [_vm._v("\n          Next\n          ")]
+        [_vm._v("\n                    Next\n                ")]
       )
     ])
   },
@@ -67220,20 +67554,7 @@ var render = function() {
                           _vm._v(" "),
                           _vm._m(0),
                           _vm._v(" "),
-                          _c(
-                            "p",
-                            {
-                              staticClass:
-                                "leading-relaxed mb-4 text-sm font-primary-font"
-                            },
-                            [
-                              _vm._v(
-                                "\n                                " +
-                                  _vm._s(_vm.post.work_detail) +
-                                  "\n                            "
-                              )
-                            ]
-                          ),
+                          _vm._m(1),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -67242,7 +67563,7 @@ var render = function() {
                                 "flex border-t border-indigo-300 py-2"
                             },
                             [
-                              _vm._m(1),
+                              _vm._m(2),
                               _vm._v(" "),
                               _c(
                                 "span",
@@ -67274,7 +67595,7 @@ var render = function() {
                                 "flex border-t border-indigo-300 py-2"
                             },
                             [
-                              _vm._m(2),
+                              _vm._m(3),
                               _vm._v(" "),
                               _c(
                                 "span",
@@ -67300,7 +67621,7 @@ var render = function() {
                                 "flex border-t mb-6 border-indigo-300 py-2"
                             },
                             [
-                              _vm._m(3),
+                              _vm._m(4),
                               _vm._v(" "),
                               _c(
                                 "span",
@@ -67327,7 +67648,7 @@ var render = function() {
                                 "flex border-t mb-6 border-indigo-300 py-2"
                             },
                             [
-                              _vm._m(4),
+                              _vm._m(5),
                               _vm._v(" "),
                               _c(
                                 "span",
@@ -67518,18 +67839,34 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "ml-auto text-gray-900 font-primary-font"
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(_vm.formatDate(_vm.post.expiry))
+                              !_vm.dateChangeFormat
+                                ? _c(
+                                    "span",
+                                    {
+                                      staticClass:
+                                        "ml-auto text-gray-900 font-primary-font"
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(_vm.formatDate(_vm.post.expiry))
+                                      )
+                                    ]
                                   )
-                                ]
-                              )
+                                : _c(
+                                    "span",
+                                    {
+                                      staticClass:
+                                        "ml-auto text-gray-900 font-primary-font"
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.dateFormat(_vm.post.expiry)
+                                        ) +
+                                          "\n                                    check\n                                    "
+                                      )
+                                    ]
+                                  )
                             ]
                           ),
                           _vm._v(" "),
@@ -67540,7 +67877,7 @@ var render = function() {
                                 "flex border-t mb-6 border-indigo-300 py-2"
                             },
                             [
-                              _vm._m(5),
+                              _vm._m(6),
                               _vm._v(" "),
                               _c(
                                 "span",
@@ -67651,7 +67988,7 @@ var render = function() {
                       [
                         _c("div", { staticClass: "flex justify-end p-5" }),
                         _vm._v(" "),
-                        _vm._m(6),
+                        _vm._m(7),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -67714,6 +68051,39 @@ var staticRenderFns = [
         [_vm._v("Description")]
       )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "grid grid-cols-3 gap-4 h-52 place-content-center bg-gradient-to-b from-indigo-100 to-indigo-300"
+      },
+      [
+        _c("div"),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "object-none object-center w-full h-full min-w-full min-h-full"
+          },
+          [
+            _c("div", { staticClass: "flex justify-center" }, [
+              _c("i", {
+                staticClass:
+                  "fas fa-user-lock fa-8x text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-600"
+              })
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div")
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -80743,6 +81113,921 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./vue.common.dev.js */ "./node_modules/vue/dist/vue.common.dev.js")
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/vue2-filters/dist/vue2-filters.js":
+/*!********************************************************!*\
+  !*** ./node_modules/vue2-filters/dist/vue2-filters.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory();
+	else { var i, a; }
+})(typeof self !== 'undefined' ? self : this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var string_namespaceObject = {};
+__webpack_require__.r(string_namespaceObject);
+__webpack_require__.d(string_namespaceObject, "capitalize", function() { return string_capitalize; });
+__webpack_require__.d(string_namespaceObject, "uppercase", function() { return string_uppercase; });
+__webpack_require__.d(string_namespaceObject, "lowercase", function() { return string_lowercase; });
+__webpack_require__.d(string_namespaceObject, "placeholder", function() { return string_placeholder; });
+__webpack_require__.d(string_namespaceObject, "truncate", function() { return string_truncate; });
+__webpack_require__.d(string_namespaceObject, "repeat", function() { return string_repeat; });
+__webpack_require__.d(string_namespaceObject, "wrap", function() { return string_wrap; });
+__webpack_require__.d(string_namespaceObject, "reverse", function() { return string_reverse; });
+var array_namespaceObject = {};
+__webpack_require__.r(array_namespaceObject);
+__webpack_require__.d(array_namespaceObject, "limitBy", function() { return array_limitBy; });
+__webpack_require__.d(array_namespaceObject, "filterBy", function() { return array_filterBy; });
+__webpack_require__.d(array_namespaceObject, "orderBy", function() { return array_orderBy; });
+__webpack_require__.d(array_namespaceObject, "find", function() { return array_find; });
+var other_namespaceObject = {};
+__webpack_require__.r(other_namespaceObject);
+__webpack_require__.d(other_namespaceObject, "currency", function() { return other_currency; });
+__webpack_require__.d(other_namespaceObject, "bytes", function() { return other_bytes; });
+__webpack_require__.d(other_namespaceObject, "pluralize", function() { return other_pluralize; });
+__webpack_require__.d(other_namespaceObject, "ordinal", function() { return other_ordinal; });
+__webpack_require__.d(other_namespaceObject, "number", function() { return other_number; });
+__webpack_require__.d(other_namespaceObject, "percent", function() { return other_percent; });
+
+// CONCATENATED MODULE: ./src/util/index.js
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var ArrayProto = Array.prototype,
+    ObjProto = Object.prototype;
+var slice = ArrayProto.slice,
+    util_toString = ObjProto.toString;
+var util = {};
+
+util.isArray = function (obj) {
+  return Array.isArray(obj);
+};
+
+var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
+
+util.isArrayLike = function (obj) {
+  if (_typeof(obj) !== 'object' || !obj) {
+    return false;
+  }
+
+  var length = obj.length;
+  return typeof length === 'number' && length % 1 === 0 && length >= 0 && length <= MAX_ARRAY_INDEX;
+};
+
+util.isObject = function (obj) {
+  var type = _typeof(obj);
+
+  return type === 'function' || type === 'object' && !!obj;
+};
+
+util.each = function (obj, callback) {
+  var i, len;
+
+  if (util.isArray(obj)) {
+    for (i = 0, len = obj.length; i < len; i++) {
+      if (callback(obj[i], i, obj) === false) {
+        break;
+      }
+    }
+  } else {
+    for (i in obj) {
+      if (callback(obj[i], i, obj) === false) {
+        break;
+      }
+    }
+  }
+
+  return obj;
+};
+
+util.each(['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp', 'Error'], function (name) {
+  util['is' + name] = function (obj) {
+    return util_toString.call(obj) === '[object ' + name + ']';
+  };
+});
+
+util.toArray = function (list, start) {
+  start = start || 0;
+  var i = list.length - start;
+  var ret = new Array(i);
+
+  while (i--) {
+    ret[i] = list[i + start];
+  }
+
+  return ret;
+};
+
+util.toNumber = function (value) {
+  if (typeof value !== 'string') {
+    return value;
+  } else {
+    var parsed = Number(value);
+    return isNaN(parsed) ? value : parsed;
+  }
+};
+
+util.convertRangeToArray = function (range) {
+  return _toConsumableArray(Array(range + 1).keys()).slice(1);
+};
+
+util.convertArray = function (value) {
+  if (util.isArray(value)) {
+    return value;
+  } else if (util.isPlainObject(value)) {
+    // convert plain object to array.
+    var keys = Object.keys(value);
+    var i = keys.length;
+    var res = new Array(i);
+    var key;
+
+    while (i--) {
+      key = keys[i];
+      res[i] = {
+        $key: key,
+        $value: value[key]
+      };
+    }
+
+    return res;
+  } else {
+    return value || [];
+  }
+};
+
+function multiIndex(obj, is) {
+  // obj,['1','2','3'] -> ((obj['1'])['2'])['3']
+  return is.length ? multiIndex(obj[is[0]], is.slice(1)) : obj;
+}
+
+util.getPath = function (obj, is) {
+  // obj,'1.2.3' -> multiIndex(obj,['1','2','3'])
+  return multiIndex(obj, is.split('.'));
+};
+/**
+ * Strict object type check. Only returns true
+ * for plain JavaScript objects.
+ *
+ * @param {*} obj
+ * @return {Boolean}
+ */
+
+
+var util_toString = Object.prototype.toString;
+var OBJECT_STRING = '[object Object]';
+
+util.isPlainObject = function (obj) {
+  return util_toString.call(obj) === OBJECT_STRING;
+};
+
+util.exist = function (value) {
+  return value !== null && typeof value !== 'undefined';
+};
+
+/* harmony default export */ var src_util = (util);
+// CONCATENATED MODULE: ./src/string/capitalize.js
+/**
+ *  Converts a string into Capitalize
+ * 
+ * 'abc' => 'Abc'
+ * 
+ * @param {Object} options
+ */
+function capitalize(value, options) {
+  var globalOptions = this && this.capitalize ? this.capitalize : {};
+  options = options || globalOptions;
+  var onlyFirstLetter = options.onlyFirstLetter != null ? options.onlyFirstLetter : false;
+  if (!value && value !== 0) return '';
+
+  if (onlyFirstLetter === true) {
+    return value.toString().charAt(0).toUpperCase() + value.toString().slice(1);
+  } else {
+    value = value.toString().toLowerCase().split(' ');
+    return value.map(function (item) {
+      return item.charAt(0).toUpperCase() + item.slice(1);
+    }).join(' ');
+  }
+}
+
+/* harmony default export */ var string_capitalize = (capitalize);
+// CONCATENATED MODULE: ./src/string/uppercase.js
+/**
+ * Converts a string to UPPERCASE
+ * 
+ * 'abc' => 'ABC'
+ */
+function uppercase(value) {
+  return value || value === 0 ? value.toString().toUpperCase() : '';
+}
+
+/* harmony default export */ var string_uppercase = (uppercase);
+// CONCATENATED MODULE: ./src/string/lowercase.js
+/**
+ * Converts a string to lowercase
+ * 
+ * 'AbC' => 'abc'
+ */
+function lowercase(value) {
+  return value || value === 0 ? value.toString().toLowerCase() : '';
+}
+
+/* harmony default export */ var string_lowercase = (lowercase);
+// CONCATENATED MODULE: ./src/string/placeholder.js
+/**
+ *  If the value is missing outputs the placeholder text
+ * 
+ * '' => {placeholder}
+ * 'foo' => 'foo'
+ */
+function placeholder(input, property) {
+  return input === undefined || input === '' || input === null ? property : input;
+}
+
+/* harmony default export */ var string_placeholder = (placeholder);
+// CONCATENATED MODULE: ./src/string/truncate.js
+/**
+ *  Truncate at the given || default length
+ *
+ * 'lorem ipsum dolor' => 'lorem ipsum dol...'
+ */
+function truncate(value, length) {
+  length = length || 15;
+  if (!value || typeof value !== 'string') return '';
+  if (value.length <= length) return value;
+  return value.substring(0, length) + '...';
+}
+
+/* harmony default export */ var string_truncate = (truncate);
+// CONCATENATED MODULE: ./src/string/repeat.js
+/**
+ * Repeats a given value an x amount of times
+ *
+ * @author Bastiaan Jansen
+ * @param {string | number} value to repeat
+ * @param {number} amount
+ * @returns repeated string
+ */
+var repeat = function repeat(value) {
+  var amount = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+  return amount ? value.toString().repeat(amount) : '';
+};
+
+/* harmony default export */ var string_repeat = (repeat);
+// CONCATENATED MODULE: ./src/string/wrap.js
+/**
+ * Wraps a string or number with a string
+ *
+ * @author Bastiaan Jansen
+ * @param {string | number} value to wrap
+ * @param {string | number} wrap wrap string
+ * @returns wrapped string
+ */
+var wrap = function wrap(value, _wrap) {
+  return [_wrap, value, _wrap].join("");
+};
+
+/* harmony default export */ var string_wrap = (wrap);
+// CONCATENATED MODULE: ./src/string/reverse.js
+/**
+ * Reverses a string
+ *
+ * @author Bastiaan Jansen
+ * @param {string} value
+ * @returns reversed string
+ */
+var reverse = function reverse(value) {
+  return Array.from(value).reverse().join("");
+};
+
+/* harmony default export */ var string_reverse = (reverse);
+// CONCATENATED MODULE: ./src/string/index.js
+
+
+
+
+
+
+
+
+
+// CONCATENATED MODULE: ./src/array/limitBy.js
+
+/**
+ * Limit filter for arrays
+ *
+ * @param {Number|Array} arr (If Number, decimal expected)
+ * @param {Number} n
+ * @param {Number} offset (Decimal expected)
+ */
+
+function limitBy(arr, n, offset) {
+  arr = src_util.isArray(arr) ? arr : src_util.convertRangeToArray(arr);
+  offset = offset ? parseInt(offset, 10) : 0;
+  n = src_util.toNumber(n);
+  return typeof n === 'number' ? arr.slice(offset, offset + n) : arr;
+}
+
+/* harmony default export */ var array_limitBy = (limitBy);
+// CONCATENATED MODULE: ./src/array/filterBy.js
+
+/**
+ * Filter filter for arrays
+ *
+ * @param {Array} arr
+ * @param {String} prop
+ * @param {String|Number} search
+ */
+
+function filterBy(arr, search) {
+  var arr = src_util.convertArray(arr);
+
+  if (search == null) {
+    return arr;
+  }
+
+  if (typeof search === 'function') {
+    return arr.filter(search);
+  } // cast to lowercase string
+
+
+  search = ('' + search).toLowerCase();
+  var n = 2; // extract and flatten keys
+
+  var keys = Array.prototype.concat.apply([], src_util.toArray(arguments, n));
+  var res = [];
+  var item, key, val, j;
+
+  for (var i = 0, l = arr.length; i < l; i++) {
+    item = arr[i];
+    val = item && item.$value || item;
+    j = keys.length;
+
+    if (j) {
+      while (j--) {
+        key = keys[j];
+
+        if (key === '$key' && contains(item.$key, search) || contains(src_util.getPath(val, key), search)) {
+          res.push(item);
+          break;
+        }
+      }
+    } else if (contains(item, search)) {
+      res.push(item);
+    }
+  }
+
+  return res;
+}
+
+function contains(val, search) {
+  var i;
+
+  if (src_util.isPlainObject(val)) {
+    var keys = Object.keys(val);
+    i = keys.length;
+
+    while (i--) {
+      if (contains(val[keys[i]], search)) {
+        return true;
+      }
+    }
+  } else if (src_util.isArray(val)) {
+    i = val.length;
+
+    while (i--) {
+      if (contains(val[i], search)) {
+        return true;
+      }
+    }
+  } else if (val != null) {
+    return val.toString().toLowerCase().indexOf(search) > -1;
+  }
+}
+
+/* harmony default export */ var array_filterBy = (filterBy);
+// CONCATENATED MODULE: ./src/array/orderBy.js
+
+/**
+ * Filter filter for arrays
+ *
+ * @param {String|Array<String>|Function} ...sortKeys
+ * @param {Number} [order]
+ */
+
+function orderBy(arr) {
+  var _comparator = null;
+  var sortKeys;
+  arr = src_util.convertArray(arr); // determine order (last argument)
+
+  var args = src_util.toArray(arguments, 1);
+  var order = args[args.length - 1];
+
+  if (typeof order === 'number') {
+    order = order < 0 ? -1 : 1;
+    args = args.length > 1 ? args.slice(0, -1) : args;
+  } else {
+    order = 1;
+  } // determine sortKeys & comparator
+
+
+  var firstArg = args[0];
+
+  if (!firstArg) {
+    return arr;
+  } else if (typeof firstArg === 'function') {
+    // custom comparator
+    _comparator = function comparator(a, b) {
+      return firstArg(a, b) * order;
+    };
+  } else {
+    // string keys. flatten first
+    sortKeys = Array.prototype.concat.apply([], args);
+
+    _comparator = function comparator(a, b, i) {
+      i = i || 0;
+      return i >= sortKeys.length - 1 ? baseCompare(a, b, i) : baseCompare(a, b, i) || _comparator(a, b, i + 1);
+    };
+  }
+
+  function baseCompare(a, b, sortKeyIndex) {
+    var sortKey = sortKeys[sortKeyIndex];
+
+    if (sortKey) {
+      if (sortKey !== '$key') {
+        if (src_util.isObject(a) && '$value' in a) a = a.$value;
+        if (src_util.isObject(b) && '$value' in b) b = b.$value;
+      }
+
+      a = src_util.isObject(a) ? src_util.getPath(a, sortKey) : a;
+      b = src_util.isObject(b) ? src_util.getPath(b, sortKey) : b;
+      a = typeof a === 'string' ? a.toLowerCase() : a;
+      b = typeof b === 'string' ? b.toLowerCase() : b;
+    }
+
+    return a === b ? 0 : a > b ? order : -order;
+  } // sort on a copy to avoid mutating original array
+
+
+  return arr.slice().sort(_comparator);
+}
+
+/* harmony default export */ var array_orderBy = (orderBy);
+// CONCATENATED MODULE: ./src/array/find.js
+
+/**
+ * Get first matching element from a filtered array
+ *
+ * @param {Array} arr
+ * @param {String|Number} search
+ * @returns {mixed}
+ */
+
+function find(arr, search) {
+  var array = array_filterBy.apply(this, arguments);
+  array.splice(1);
+  return array;
+}
+
+/* harmony default export */ var array_find = (find);
+// CONCATENATED MODULE: ./src/array/index.js
+
+
+
+
+
+// CONCATENATED MODULE: ./src/other/currency.js
+
+/**
+ * 
+ * 12345 => $12,345.00
+ *
+ * @param {String} symbol
+ * @param {Number} decimals Decimal places
+ * @param {Object} options
+ */
+
+function currency(value, symbol, decimals, options) {
+  var globalOptions = this && this.currency ? this.currency : {};
+  symbol = src_util.exist(symbol) ? symbol : globalOptions.symbol;
+  decimals = src_util.exist(decimals) ? decimals : globalOptions.decimalDigits;
+  options = options || globalOptions;
+  var thousandsSeparator, symbolOnLeft, spaceBetweenAmountAndSymbol, showPlusSign;
+  var digitsRE = /(\d{3})(?=\d)/g;
+  value = parseFloat(value);
+  if (!isFinite(value) || !value && value !== 0) return '';
+  symbol = typeof symbol !== 'undefined' ? symbol : '$';
+  decimals = typeof decimals !== 'undefined' ? decimals : 2;
+  thousandsSeparator = options.thousandsSeparator != null ? options.thousandsSeparator : ',';
+  symbolOnLeft = options.symbolOnLeft != null ? options.symbolOnLeft : true;
+  spaceBetweenAmountAndSymbol = options.spaceBetweenAmountAndSymbol != null ? options.spaceBetweenAmountAndSymbol : false;
+  showPlusSign = options.showPlusSign != null ? options.showPlusSign : false;
+  var number = Math.abs(value);
+  var stringified = toFixed(number, decimals);
+  stringified = options.decimalSeparator ? stringified.replace('.', options.decimalSeparator) : stringified;
+
+  var _int = decimals ? stringified.slice(0, -1 - decimals) : stringified;
+
+  var i = _int.length % 3;
+  var head = i > 0 ? _int.slice(0, i) + (_int.length > 3 ? thousandsSeparator : '') : '';
+
+  var _float = decimals ? stringified.slice(-1 - decimals) : '';
+
+  symbol = spaceBetweenAmountAndSymbol ? symbolOnLeft ? symbol + ' ' : ' ' + symbol : symbol;
+  symbol = symbolOnLeft ? symbol + head + _int.slice(i).replace(digitsRE, '$1' + thousandsSeparator) + _float : head + _int.slice(i).replace(digitsRE, '$1' + thousandsSeparator) + _float + symbol;
+  var sign = value < 0 ? '-' : '';
+  var plusSign = value > 0 && showPlusSign ? '+' : '';
+  return plusSign + sign + symbol;
+}
+
+function toFixed(num, precision) {
+  return (+(Math.round(+(num + 'e' + precision)) + 'e' + -precision)).toFixed(precision);
+}
+
+/* harmony default export */ var other_currency = (currency);
+// CONCATENATED MODULE: ./src/other/bytes.js
+
+/**
+ * 1                => '8 byte'
+ * 8                => '8 bytes'
+ * 1024             => '1.00 kB'
+ * 2000000          => '1.90 MB'
+ * 2000000000       => '1.86 GB'
+ * 2000000000000    => '1.82 TB'
+ *
+ * @param {Number} value
+ * @param {Number} decimals Decimal places (default: 2)
+ */
+
+function bytes(value, decimals) {
+  var globalOptions = this && this.bytes ? this.bytes : {};
+  decimals = src_util.exist(decimals) ? decimals : globalOptions.decimalDigits;
+  decimals = typeof decimals !== 'undefined' ? decimals : 2;
+  value = value === null || isNaN(value) ? 0 : value;
+
+  if (value >= Math.pow(1024, 4)) {
+    // TB
+    return "".concat((value / Math.pow(1024, 4)).toFixed(decimals), " TB");
+  } else if (value >= Math.pow(1024, 3)) {
+    // GB
+    return "".concat((value / Math.pow(1024, 3)).toFixed(decimals), " GB");
+  } else if (value >= Math.pow(1024, 2)) {
+    // MB
+    return "".concat((value / Math.pow(1024, 2)).toFixed(decimals), " MB");
+  } else if (value >= 1024) {
+    // kb
+    return "".concat((value / 1024).toFixed(decimals), " kB");
+  } // byte
+
+
+  return value === 1 ? "".concat(value, " byte") : "".concat(value, " bytes");
+}
+
+/* harmony default export */ var other_bytes = (bytes);
+// CONCATENATED MODULE: ./src/other/pluralize.js
+
+/**
+ * 'item' => 'items'
+ *
+ * @param {String|Array} word
+ * @param {Object} options
+ *
+ */
+
+function pluralize(value, word, options) {
+  var globalOptions = this && this.pluralize ? this.pluralize : {};
+  options = options || globalOptions;
+  var output = '';
+  var includeNumber = options.includeNumber != null ? options.includeNumber : false;
+  if (includeNumber === true) output += value + ' ';
+  if (!value && value !== 0 || !word) return output;
+
+  if (Array.isArray(word)) {
+    output += word[value - 1] || word[word.length - 1];
+  } else {
+    output += word + (value === 1 ? '' : 's');
+  }
+
+  return output;
+}
+
+/* harmony default export */ var other_pluralize = (pluralize);
+// CONCATENATED MODULE: ./src/other/ordinal.js
+
+/**
+ * 42 => 'nd'
+ *
+ * @params {Object} options
+ * 
+ */
+
+function ordinal(value, options) {
+  var globalOptions = this && this.ordinal ? this.ordinal : {};
+  options = options || globalOptions;
+  var output = '';
+  var includeNumber = options.includeNumber != null ? options.includeNumber : false;
+  if (includeNumber === true) output += value;
+  var j = value % 10,
+      k = value % 100;
+  if (j == 1 && k != 11) output += 'st';else if (j == 2 && k != 12) output += 'nd';else if (j == 3 && k != 13) output += 'rd';else output += 'th';
+  return output;
+}
+
+/* harmony default export */ var other_ordinal = (ordinal);
+// CONCATENATED MODULE: ./src/other/number.js
+
+/**
+ * 123456 => '123,456'
+ *
+ * @params {Object} options
+ *
+ */
+
+function number_number(value, format, options) {
+  var globalOptions = this && this.number ? this.number : {};
+  format = src_util.exist(format) ? format : globalOptions.format;
+  options = options || globalOptions;
+  var config = parseFormat(format);
+  var number = parseNumber(value);
+  var thousandsSeparator = options.thousandsSeparator != null ? options.thousandsSeparator : ',';
+  var decimalSeparator = options.decimalSeparator != null ? options.decimalSeparator : '.';
+  config.sign = config.sign || number.sign;
+
+  if (config.unit) {
+    var numberWithUnit = addUnit(number.float, config);
+    return config.sign + numberWithUnit;
+  }
+
+  var rounded = number_toFixed(number.float, config.decimals);
+  var output = addSeparators(rounded, config.base, thousandsSeparator, decimalSeparator);
+  return config.sign + output;
+}
+
+Math.sign = function (x) {
+  x = +x;
+
+  if (x === 0 || isNaN(x)) {
+    return x;
+  }
+
+  return x > 0 ? 1 : -1;
+};
+
+function parseNumber(num) {
+  return {
+    float: Math.abs(parseFloat(num)),
+    int: Math.abs(parseInt(num)),
+    sign: Math.sign(num) < 0 ? '-' : ''
+  };
+}
+
+function parseFormat() {
+  var string = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '0';
+  var regex = /([\+\-])?([0-9\,]+)?([\.0-9]+)?([a\s]+)?/;
+  var matches = string ? string.match(regex) : ['', '', '', '', ''];
+  var float = matches[3];
+  var decimals = float ? float.match(/0/g).length : 0;
+  return {
+    sign: matches[1] || '',
+    base: matches[2] || '',
+    decimals: decimals,
+    unit: matches[4] || ''
+  };
+}
+
+function addUnit(num, config) {
+  var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+  var si = [{
+    value: 1,
+    symbol: ''
+  }, {
+    value: 1e3,
+    symbol: 'K'
+  }, {
+    value: 1e6,
+    symbol: 'M'
+  }, {
+    value: 1e9,
+    symbol: 'B'
+  }, {
+    value: 1e12,
+    symbol: 'T'
+  }];
+  var i;
+
+  for (i = si.length - 1; i > 0; i--) {
+    if (num >= si[i].value) {
+      break;
+    }
+  }
+
+  num = (num / si[i].value).toFixed(config.decimals).replace(rx, '$1');
+  return num + config.unit.replace('a', si[i].symbol);
+}
+
+function addSeparators(num, base, thousandsSeparator, decimalSeparator) {
+  var regex = /(\d+)(\d{3})/;
+  var string = num.toString();
+  var x = string.split('.');
+  var x1 = x[0];
+  var x2 = x.length > 1 ? decimalSeparator + x[1] : '';
+
+  switch (base) {
+    case '':
+      x1 = '';
+      break;
+
+    case '0,0':
+      while (regex.test(x1)) {
+        x1 = x1.replace(regex, '$1' + thousandsSeparator + '$2');
+      }
+
+      break;
+  }
+
+  return x1 + x2;
+}
+
+function getFraction(num, decimals, separator) {
+  var fraction = number_toFixed(num, decimals).toString().split('.')[1];
+  return fraction ? separator + fraction : '';
+}
+
+function number_toFixed(num, precision) {
+  return (+(Math.round(+(num + 'e' + precision)) + 'e' + -precision)).toFixed(precision);
+}
+
+/* harmony default export */ var other_number = (number_number);
+// CONCATENATED MODULE: ./src/other/percent.js
+
+/**
+ * 1.2              => '120%'
+ * -0.2             => '-20%'
+ * 100              => '10000%'
+ * 1                => '100%'
+ * 0.97             => '97%'
+ *
+ * @param {Number} value
+ * @param {Number} decimals Decimal places (default: 2)
+ * @param {Number} multiplier (default: 100)
+ * @params {Object} options
+ */
+
+function percent(value, decimals, multiplier, options) {
+  var globalOptions = this && this.percent ? this.percent : {};
+  options = options || globalOptions;
+  multiplier = src_util.exist(multiplier) ? multiplier : globalOptions.multiplier;
+  multiplier = typeof multiplier !== 'undefined' ? multiplier : 100;
+  decimals = src_util.exist(decimals) ? decimals : globalOptions.decimalDigits;
+  decimals = typeof decimals !== 'undefined' ? decimals : 0;
+  var decimalSeparator = options.decimalSeparator != null ? options.decimalSeparator : '.';
+  value = value === null || isNaN(value) ? 0 : value;
+  return "".concat((value * multiplier).toFixed(decimals).replace('.', decimalSeparator), "%");
+}
+
+/* harmony default export */ var other_percent = (percent);
+// CONCATENATED MODULE: ./src/other/index.js
+
+
+
+
+
+
+
+// CONCATENATED MODULE: ./src/index.js
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+var Vue2Filters = {
+  install: function install(Vue, options) {
+    src_util.each(string_namespaceObject, function (value, key) {
+      Vue.filter(key, value.bind(options));
+    });
+    src_util.each(other_namespaceObject, function (value, key) {
+      Vue.filter(key, value.bind(options));
+    });
+  },
+  mixin: {
+    methods: _objectSpread({}, array_namespaceObject)
+  }
+};
+/* harmony default export */ var src = __webpack_exports__["default"] = (Vue2Filters);
+
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(Vue2Filters);
+  window.Vue2Filters = Vue2Filters;
+}
+
+/***/ })
+/******/ ]);
+});
 
 /***/ }),
 

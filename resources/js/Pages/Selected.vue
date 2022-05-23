@@ -29,11 +29,32 @@
                                     <!-- <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Reviews</a>
                 <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Details</a> -->
                                 </div>
-                                <p
-                                    class="leading-relaxed mb-4 text-sm font-primary-font"
+                                <div
+                                    class="grid grid-cols-3 gap-4 h-52 place-content-center bg-gradient-to-b from-indigo-100 to-indigo-300"
+                                >
+                                    <div></div>
+                                    <div
+                                        class="object-none object-center w-full h-full min-w-full min-h-full"
+                                    >
+                                        <div class="flex justify-center">
+                                            <i
+                                                class="fas fa-user-lock fa-8x text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-600"
+                                            ></i>
+                                            <!-- <img
+                                                src="/img/lock.jpg"
+                                                alt="lock"
+                                            /> -->
+                                        </div>
+                                    </div>
+                                    <!-- <div class="invisible ...">02</div> -->
+                                    <div></div>
+                                </div>
+
+                                <!-- <p
+                                    class="invisible leading-relaxed mb-4 text-sm font-primary-font"
                                 >
                                     {{ post.work_detail }}
-                                </p>
+                                </p> -->
                                 <div
                                     class="flex border-t border-indigo-300 py-2"
                                 >
@@ -185,9 +206,17 @@
                                         </span>
                                     </span>
                                     <span
+                                        v-if="!dateChangeFormat"
                                         class="ml-auto text-gray-900 font-primary-font"
                                         >{{ formatDate(post.expiry) }}</span
                                     >
+                                    <span
+                                        v-else
+                                        class="ml-auto text-gray-900 font-primary-font"
+                                        >{{ dateFormat(post.expiry) }}
+                                        check
+                                        <!-- >{{ formatDateChange(post.expiry) }} -->
+                                    </span>
                                 </div>
                                 <div
                                     class="flex border-t mb-6 border-indigo-300 py-2"
@@ -302,6 +331,12 @@ import TopBanner from "./Components/TopBanner.vue";
 import MainMenu from "./Components/MainMenu.vue";
 import MainFooter from "./Components/MainFooter.vue";
 
+import dateFormat from "dateformat";
+const now = new Date();
+// dateFormat(now, "W");
+
+// var dateFormat = require('dateformat');
+
 export default {
     name: "Selected",
     props: {
@@ -327,6 +362,13 @@ export default {
         }
     },
     computed: {
+        dateChangeFormat() {
+            if (this.togo == "Invalid date") {
+                return true;
+            } else {
+                return false;
+            }
+        },
         amount() {
             if (this.daysDiff <= 7) {
                 return 100;
@@ -358,14 +400,48 @@ export default {
         };
     },
     methods: {
+        dateFormat(value) {
+            var length = 10;
+            var myString = value;
+            var myTruncatedString = myString.substring(0, length);
+
+            console.log(myTruncatedString);
+            var str = myTruncatedString;
+            var daycut = str.substring(0, 2);
+            var monthcut = str.substring(3, 2);
+            console.log(daycut);
+            console.log(monthcut);
+
+            String.prototype.replaceAt = function(index, replacement) {
+                return (
+                    this.substring(0, index) +
+                    replacement +
+                    this.substring(index + replacement.length)
+                );
+            };
+            // var hello = "Hello World";
+            // alert(hello.replaceAt(2, "!!")); // He!!o World
+
+            return dateFormat("05-31-2022", "mmmm dS, yyyy");
+            // return dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+        },
         purchase() {
             this.$inertia.post(`/checkout/${this.post._id}`);
         },
         formatDate(value) {
             return moment(value).format("MMMM Do YYYY");
         },
-        clearFilters() {},
-        loadFilters() {}
+        formatDateChange(value) {
+            var formats = [
+                // "MM/DD/YYYY",
+                // "MMM Do YY",
+                // "MM-DD-YYYY",
+                // "YYYY-MM-DD",
+                "DD-MM-YYYY",
+                "ddd, ll"
+            ];
+            return moment(value, formats);
+        }
     }
 };
 </script>
