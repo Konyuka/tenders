@@ -28,7 +28,7 @@ Route::get('/unlock/{slugs}', [LandingController::class, 'unlock'])
 Route::get('/download_tender/{slugs}', [LandingController::class, 'downloadTender'])
     ->name('download_tender');
 
-Route::get('/invoice', [LandingController::class, 'invoice'])
+Route::post('/invoice/', [LandingController::class, 'invoice'])
     ->name('invoice');
 
 
@@ -77,6 +77,9 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/import', [DashboardContr
 
 Route::middleware(['auth:sanctum', 'verified'])->post('/post', [DashboardController::class, 'addPost'])
     ->name('post');
+
+Route::middleware(['auth:sanctum', 'verified'])->post('/refresh', [DashboardController::class, 'refresh'])
+    ->name('refresh');
 
 
 

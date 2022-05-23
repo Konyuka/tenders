@@ -123,9 +123,17 @@ class LandingController extends Controller
         return Inertia::render('Listing', ['Posts' => $posts]);
     }
 
-    public function invoice()
+    public function invoice(Request $request)
     {
-        return Inertia::render('Invoice');
+        // return dd($request->post);
+        $post = $request->post;
+        $user = $request->user;
+        return Inertia::render('Invoice', [
+            // 'post' => $request->post,
+            'post' => $post,
+            'user' => $user
+            // 'user' => $request->user
+        ]);
     }
 
     public function checkout(Request $request, $slugs)

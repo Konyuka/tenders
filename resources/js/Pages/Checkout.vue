@@ -124,12 +124,25 @@
                             <div
                                 class="mt-10 flex justify-end pt-6 border-t border-gray-200"
                             >
-                                <button
+                                <!-- <button
                                     @click="stkPush"
                                     type="submit"
                                     class="bg-white border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-black hover:bg-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
                                 >
                                     Pay now
+                                </button> -->
+                                <button
+                                    @click="invoice(post)"
+                                    type="submit"
+                                    class="font-primary-font bg-white border border-transparent rounded-md shadow-sm py-2 px-4 text-lg font-bold text-gray-700 hover:bg-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                                >
+                                    Proceed to Payment
+                                    <i
+                                        class="fas fa-caret-right ml-2 fa-lg text-green-500"
+                                    ></i>
+                                    <i
+                                        class="fas fa-caret-right fa-lg text-green-500"
+                                    ></i>
                                 </button>
                                 <!-- <button @click="paymentModal=true" type="submit" class="bg-white border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-black hover:bg-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">Pay now</button> -->
                             </div>
@@ -216,7 +229,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="mt-10">
+                                    <!-- <div class="mt-10">
                                         <h3
                                             id="payment-heading"
                                             class="text-lg font-extrabold text-gray-900"
@@ -269,7 +282,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="mt-10">
                                         <div class="mt-6 flex items-center">
@@ -418,7 +431,6 @@ import MainMenu from "./Components/MainMenu.vue";
 import MainFooter from "./Components/MainFooter.vue";
 
 const { default: axios } = require("axios");
-// require('./bootstrap');
 
 export default {
     name: "Checkout",
@@ -487,9 +499,9 @@ export default {
         },
         amount() {
             if (this.daysDiff <= 7) {
-                return 100;
+                return 150;
             } else if (this.daysDiff >= 8 && this.daysDiff <= 14) {
-                return 75;
+                return 100;
             } else {
                 return 50;
             }
@@ -526,6 +538,13 @@ export default {
         };
     },
     methods: {
+        invoice(value) {
+            const payload = {
+                post: value,
+                user: this.form
+            };
+            this.$inertia.post("/invoice/", payload);
+        },
         formatMoney(n) {
             return "" + (Math.round(n * 100) / 100).toLocaleString();
         },

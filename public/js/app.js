@@ -4529,13 +4529,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
-    axios = _require["default"]; // require('./bootstrap');
-
+    axios = _require["default"];
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Checkout",
@@ -4604,9 +4616,9 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     },
     amount: function amount() {
       if (this.daysDiff <= 7) {
-        return 100;
+        return 150;
       } else if (this.daysDiff >= 8 && this.daysDiff <= 14) {
-        return 75;
+        return 100;
       } else {
         return 50;
       }
@@ -4643,6 +4655,13 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     };
   },
   methods: {
+    invoice: function invoice(value) {
+      var payload = {
+        post: value,
+        user: this.form
+      };
+      this.$inertia.post("/invoice/", payload);
+    },
     formatMoney: function formatMoney(n) {
       return "" + (Math.round(n * 100) / 100).toLocaleString();
     },
@@ -5500,12 +5519,457 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // import { Calendar, DatePicker } from 'v-calendar';
 
 
 
+
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    axios = _require["default"];
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODULE_1___default.a, {
-  componentPrefix: 'vc' // Use <vc-calendar /> instead of <v-calendar />
+  componentPrefix: "vc" // Use <vc-calendar /> instead of <v-calendar />
 
 });
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -5515,13 +5979,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
   },
   data: function data() {
     return {
-      filename: '',
-      file: '',
+      filename: "",
+      file: "",
       uploadModal: false,
       date: new Date(),
       temp: 0,
       addModal: false,
-      modalMode: 'add',
+      modalMode: "add",
       form: {
         purchasing_authority: null,
         tender_number: null,
@@ -5539,8 +6003,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
         userID: null
       },
       deletePost: false,
-      postDeleteId: '',
-      postEditId: ''
+      postDeleteId: "",
+      postEditId: ""
     };
   },
   mounted: function mounted() {// this.UserId = this.$parent.pageData.props.user.id
@@ -5551,6 +6015,21 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
     // }
   },
   methods: {
+    refresh: function refresh() {
+      var _this = this;
+
+      axios.get("https://www.biddetail.com/kenya/C62A8CB5DD405E768CAD792637AC0446/F4454993C1DE1AB1948A9D33364FA9CC").then(function (response) {
+        // console.log(response.data.TenderDetails[0].TenderLists);
+        // const data = response.data.TenderDetails[0].TenderLists;
+        var payload = {
+          tenders: response.data.TenderDetails[0].TenderLists
+        };
+
+        _this.$inertia.post("refresh", payload);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
     upload: function upload(e) {
       // e.preventDefault();
       // let currentObj = this;
@@ -5562,16 +6041,16 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
       // }
       if (this.filename.length !== 0) {
         var formData = new FormData();
-        formData.append('file', this.file); // this.$inertia.post('/import', formData, config)
+        formData.append("file", this.file); // this.$inertia.post('/import', formData, config)
 
-        this.$inertia.post('/import', formData).then(function (response) {
+        this.$inertia.post("/import", formData).then(function (response) {
           currentObj.success = response.data.success;
           currentObj.filename = "";
         })["catch"](function (error) {
           currentObj.output = error;
         });
       } else {
-        alert('No file was Selected');
+        alert("No file was Selected");
       }
     },
     onFileChange: function onFileChange(e) {
@@ -5580,7 +6059,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
       this.file = e.target.files[0];
     },
     formatDate: function formatDate(value) {
-      return moment__WEBPACK_IMPORTED_MODULE_2___default()(value).format('MMMM Do YYYY');
+      return moment__WEBPACK_IMPORTED_MODULE_2___default()(value).format("MMMM Do YYYY");
     },
     updatePost: function updatePost(value) {
       this.form.expiry = this.date;
@@ -5590,7 +6069,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
         // this.$inertia.post('/post', this.form)
         this.$inertia.put("/update/".concat(value), this.form);
       } else {
-        alert('Check Expiry Date');
+        alert("Check Expiry Date");
       }
     },
     editPost: function editPost(value) {
@@ -5600,7 +6079,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
         return d._id === value;
       });
       this.form = editedPost;
-      this.modalMode = 'edit';
+      this.modalMode = "edit";
       this.postEditId = value;
       this.addModal = true; // console.log(editedPost)
     },
@@ -5629,9 +6108,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
       var today = new Date();
 
       if (this.form.expiry > today) {
-        this.$inertia.post('/post', this.form);
+        this.$inertia.post("/post", this.form);
       } else {
-        alert('Check Expiry Date');
+        alert("Check Expiry Date");
       }
     },
     dropdownFunction: function dropdownFunction(event) {
@@ -8222,11 +8701,259 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    axios = _require["default"];
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Invoice",
+  props: {
+    post: Object,
+    user: Object,
+    transId: String,
+    accessTokenResponse: Object,
+    registeredURLSResponse: Object,
+    payment: null,
+    status: String,
+    membership: String
+  },
   components: {
     MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  mounted: function mounted() {
+    this.Status = "";
+
+    if (this.membership != null) {
+      this.postPurchase = false;
+      this.form.userName = this.user.name;
+      this.form.userPhone = this.user.phone;
+      this.form.userEmail = this.user.email;
+    } else {
+      return true;
+    }
+  },
+  computed: {
+    memberPurchase: function memberPurchase() {
+      if (this.membership != null) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    amountMembership: function amountMembership() {
+      if (this.membership == "gold") {
+        return 50000;
+      } else if (this.membership == "silver") {
+        return 10000;
+      } else if (this.membership == "bronze") {
+        return 2000;
+      }
+    },
+    waiting: function waiting() {
+      if (this.Status == "Waiting") {
+        return false;
+      } else {
+        return true;
+      }
+    },
+    transactionStatus: function transactionStatus() {
+      if (this.Status == "Success") {
+        return "Success";
+      } else if (this.Status == "Waiting") {
+        return "Waiting";
+      } else if (this.Status == "Cancelled") {
+        return "Cancelled";
+      } else {
+        return "";
+      }
+    },
+    amount: function amount() {
+      if (this.daysDiff <= 7) {
+        return 150;
+      } else if (this.daysDiff >= 8 && this.daysDiff <= 14) {
+        return 100;
+      } else {
+        return 50;
+      }
+    },
+    daysDiff: function daysDiff() {
+      // var given = moment("2018-03-10", "YYYY-MM-DD");
+      if (this.membership != null) {
+        console.log("no post");
+      } else {
+        var given = moment(this.post.created_at, "YYYY-MM-DD");
+        var current = moment().startOf("day"); //Difference in number of days
+
+        var diff = moment.duration(current.diff(given)).asDays();
+        return diff;
+      }
+    }
+  },
+  data: function data() {
+    return {
+      paymentLog: "",
+      form: {
+        userName: "Software Saiba",
+        userPhone: "254722750445",
+        userEmail: "saibadeveloper@gmail.com",
+        number: this.removeSpaces(""),
+        account: "Bidders Portal",
+        amount: this.amount // amount: this.post.price
+        // amount: ''
+        // account: this.form.userName,
+
+      },
+      modal: false,
+      paymentModal: false
+    };
+  },
+  method: {
+    formatMoney: function formatMoney(n) {
+      return "" + (Math.round(n * 100) / 100).toLocaleString();
+    },
+    cancelTrans: function cancelTrans() {
+      this.paymentModal = false;
+      this.$inertia.get("/checkout/", this.post._id); // this.$inertia.delete(`/delete/${value}`)
+    },
+    removeSpaces: function removeSpaces(value) {
+      var noSpace = value.replace(/\s/g, "");
+      return noSpace;
+    },
+    confirm: function confirm() {
+      var paymentDetails = {
+        payment_number: this.form.number,
+        post_id: this.post._id
+      };
+      this.$inertia.post("/confirmation", paymentDetails);
+    },
+    formatDate: function formatDate(value) {
+      return moment(value).format("MMMM Do YYYY");
+    },
+    stkPush: function stkPush() {
+      // var str = '012123';
+      var strFirstThree = this.form.number.substring(0, 3);
+
+      if (strFirstThree == 254 && this.form.number.length == 12) {
+        this.paymentModal = true;
+        var requestBody = {
+          amount: "1",
+          account: this.form.account,
+          phone: this.removeSpaces(this.form.number),
+          post: this.post._id,
+          user_name: this.form.userName,
+          user_phone: this.form.userPhone,
+          user_email: this.form.userEmail
+        }; //    console.log(requestBody)
+
+        axios.post("/checkout/stkPush", requestBody).then(function (response) {
+          console.log(response);
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      } else {
+        alert("Your Number Format Should be 254 7XX XXX XXX");
+      }
+    }
   }
 });
 
@@ -10555,6 +11282,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, ".css-selector[data-v-0d53bf61] {\n  -webkit-animation: AnimationName-data-v-0d53bf61 30s ease infinite;\n  animation: AnimationName-data-v-0d53bf61 30s ease infinite;\n}\n@-webkit-keyframes AnimationName-data-v-0d53bf61 {\n0%{\n    background-position:0% 50%\n}\n50%{\n    background-position:100% 50%\n}\n100%{\n    background-position:0% 50%\n}\n}\n@keyframes AnimationName-data-v-0d53bf61 {\n0%{\n    background-position:0% 50%\n}\n50%{\n    background-position:100% 50%\n}\n100%{\n    background-position:0% 50%\n}\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Invoice.vue?vue&type=style&index=0&id=97cd85d8&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Invoice.vue?vue&type=style&index=0&id=97cd85d8&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "input[type=\"number\"][data-v-97cd85d8]::-webkit-inner-spin-button,\ninput[type=\"number\"][data-v-97cd85d8]::-webkit-outer-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n", ""]);
 
 // exports
 
@@ -51252,6 +51998,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Invoice.vue?vue&type=style&index=0&id=97cd85d8&scoped=true&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Invoice.vue?vue&type=style&index=0&id=97cd85d8&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Invoice.vue?vue&type=style&index=0&id=97cd85d8&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Invoice.vue?vue&type=style&index=0&id=97cd85d8&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/lib/addStyles.js":
 /*!****************************************************!*\
   !*** ./node_modules/style-loader/lib/addStyles.js ***!
@@ -56053,14 +56829,27 @@ var render = function() {
                             "button",
                             {
                               staticClass:
-                                "bg-white border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-black hover:bg-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500",
+                                "font-primary-font bg-white border border-transparent rounded-md shadow-sm py-2 px-4 text-lg font-bold text-gray-700 hover:bg-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500",
                               attrs: { type: "submit" },
-                              on: { click: _vm.stkPush }
+                              on: {
+                                click: function($event) {
+                                  return _vm.invoice(_vm.post)
+                                }
+                              }
                             },
                             [
                               _vm._v(
-                                "\n                                Pay now\n                            "
-                              )
+                                "\n                                Proceed to Payment\n                                "
+                              ),
+                              _c("i", {
+                                staticClass:
+                                  "fas fa-caret-right ml-2 fa-lg text-green-500"
+                              }),
+                              _vm._v(" "),
+                              _c("i", {
+                                staticClass:
+                                  "fas fa-caret-right fa-lg text-green-500"
+                              })
                             ]
                           )
                         ]
@@ -56254,143 +57043,6 @@ var render = function() {
                                   })
                                 ])
                               ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "mt-10" }, [
-                              _c(
-                                "h3",
-                                {
-                                  staticClass:
-                                    "text-lg font-extrabold text-gray-900",
-                                  attrs: { id: "payment-heading" }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                        Payment information\n                                    "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "grid grid-cols-3 sm:grid-cols-4 gap-y-6 gap-x-4"
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "col-span-3 sm:col-span-4 shadow-2xl"
-                                    },
-                                    [
-                                      _c(
-                                        "label",
-                                        {
-                                          staticClass:
-                                            "block text-sm font-medium text-gray-700",
-                                          attrs: { for: "card-number" }
-                                        },
-                                        [
-                                          _vm._v(
-                                            "Mpesa / Payment\n                                                Number"
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "mt-1" }, [
-                                        _c("input", {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: _vm.form.number,
-                                              expression: "form.number"
-                                            }
-                                          ],
-                                          staticClass:
-                                            "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
-                                          attrs: {
-                                            required: "",
-                                            placeholder:
-                                              "254 7XX XXX XXX (Number to make the payment) ",
-                                            type: "number",
-                                            id: "email-address",
-                                            name: "email-address"
-                                          },
-                                          domProps: { value: _vm.form.number },
-                                          on: {
-                                            input: function($event) {
-                                              if ($event.target.composing) {
-                                                return
-                                              }
-                                              _vm.$set(
-                                                _vm.form,
-                                                "number",
-                                                $event.target.value
-                                              )
-                                            }
-                                          }
-                                        })
-                                      ])
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "col-span-3 sm:col-span-4 shadow-2xl"
-                                    },
-                                    [
-                                      _c(
-                                        "label",
-                                        {
-                                          staticClass:
-                                            "block text-sm font-medium text-gray-700",
-                                          attrs: { for: "card-number" }
-                                        },
-                                        [_vm._v("Mpesa Account Name")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "mt-1" }, [
-                                        _c("input", {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: _vm.form.account,
-                                              expression: "form.account"
-                                            }
-                                          ],
-                                          staticClass:
-                                            "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
-                                          attrs: {
-                                            disabled: "",
-                                            type: "text",
-                                            id: "email-address",
-                                            name: "email-address"
-                                          },
-                                          domProps: { value: _vm.form.account },
-                                          on: {
-                                            input: function($event) {
-                                              if ($event.target.composing) {
-                                                return
-                                              }
-                                              _vm.$set(
-                                                _vm.form,
-                                                "account",
-                                                $event.target.value
-                                              )
-                                            }
-                                          }
-                                        })
-                                      ])
-                                    ]
-                                  )
-                                ]
-                              )
                             ]),
                             _vm._v(" "),
                             _vm._m(1)
@@ -57559,7 +58211,7 @@ var render = function() {
                       })
                     ]
                   ),
-                  _vm._v("\n                Dashboard\n            ")
+                  _vm._v("\n                    Dashboard\n                ")
                 ]
               )
             ]),
@@ -57688,7 +58340,29 @@ var render = function() {
                         "bg-indigo-600 transition duration-150 ease-in-out focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-white px-5 h-8 flex items-center text-sm mr-4",
                       on: { click: _vm.addTender }
                     },
-                    [_vm._v("Add Tender")]
+                    [
+                      _vm._v(
+                        "\n                        Add Tender\n                    "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "bg-indigo-600 transition duration-150 ease-in-out focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-white px-5 h-8 flex items-center text-sm mr-4",
+                      on: {
+                        click: function($event) {
+                          _vm.uploadModal = true
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        Upload Tender\n                    "
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _c(
@@ -57696,13 +58370,13 @@ var render = function() {
                     {
                       staticClass:
                         "bg-indigo-600 transition duration-150 ease-in-out focus:outline-none border border-transparent focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-white px-5 h-8 flex items-center text-sm",
-                      on: {
-                        click: function($event) {
-                          _vm.uploadModal = true
-                        }
-                      }
+                      on: { click: _vm.refresh }
                     },
-                    [_vm._v("Upload Tender")]
+                    [
+                      _vm._v(
+                        "\n                        Refresh Tenders\n                    "
+                      )
+                    ]
                   )
                 ])
               ]
@@ -57750,7 +58424,11 @@ var render = function() {
                                   staticClass:
                                     "absolute top-0 right-0 w-5 h-5 mr-2 -mt-1 rounded-full bg-indigo-700 text-white flex justify-center items-center text-xs"
                                 },
-                                [_vm._v("3")]
+                                [
+                                  _vm._v(
+                                    "\n                                    3\n                                "
+                                  )
+                                ]
                               ),
                               _vm._v(" "),
                               _c(
@@ -57801,7 +58479,11 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Tender Number")]
+                        [
+                          _vm._v(
+                            "\n                            Tender Number\n                        "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -57810,7 +58492,11 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Purchasing Authority")]
+                        [
+                          _vm._v(
+                            "\n                            Purchasing Authority\n                        "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -57819,7 +58505,11 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Posted Date")]
+                        [
+                          _vm._v(
+                            "\n                            Posted Date\n                        "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -57828,7 +58518,11 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Expiry Date")]
+                        [
+                          _vm._v(
+                            "\n                            Expiry Date\n                        "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _vm._m(0),
@@ -57839,7 +58533,11 @@ var render = function() {
                           staticClass:
                             "text-gray-600 dark:text-gray-400 font-normal pr-8 text-left text-sm tracking-normal leading-4"
                         },
-                        [_vm._v("Actions")]
+                        [
+                          _vm._v(
+                            "\n                            Actions\n                        "
+                          )
+                        ]
                       )
                     ]
                   )
@@ -57869,18 +58567,11 @@ var render = function() {
                             staticClass:
                               "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
                           },
-                          [_vm._v(_vm._s(post.tender_number))]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          {
-                            staticClass:
-                              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
-                          },
                           [
                             _vm._v(
-                              " " + _vm._s(post.purchasing_authority) + " "
+                              "\n                            " +
+                                _vm._s(post.tender_number) +
+                                "\n                        "
                             )
                           ]
                         ),
@@ -57891,7 +58582,13 @@ var render = function() {
                             staticClass:
                               "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
                           },
-                          [_vm._v(_vm._s(_vm.formatDate(post.created_at)))]
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(post.purchasing_authority) +
+                                "\n                        "
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _c(
@@ -57900,7 +58597,28 @@ var render = function() {
                             staticClass:
                               "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
                           },
-                          [_vm._v(_vm._s(_vm.formatDate(post.expiry)))]
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(_vm.formatDate(post.created_at)) +
+                                "\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass:
+                              "text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4"
+                          },
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(_vm.formatDate(post.expiry)) +
+                                "\n                        "
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _vm._m(2, true),
@@ -57992,7 +58710,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                    Add Tender\n                "
+                                  "\n                            Add Tender\n                        "
                                 )
                               ]
                             ),
@@ -58417,7 +59135,7 @@ var render = function() {
                                           ],
                                           null,
                                           false,
-                                          2790499120
+                                          1550348570
                                         ),
                                         model: {
                                           value: _vm.date,
@@ -58628,7 +59346,11 @@ var render = function() {
                                       type: "submit"
                                     }
                                   },
-                                  [_vm._v("Add Tender")]
+                                  [
+                                    _vm._v(
+                                      "\n                            Add Tender\n                        "
+                                    )
+                                  ]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
@@ -58648,7 +59370,11 @@ var render = function() {
                                       }
                                     }
                                   },
-                                  [_vm._v("Update Tender")]
+                                  [
+                                    _vm._v(
+                                      "\n                            Update Tender\n                        "
+                                    )
+                                  ]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
@@ -58662,7 +59388,11 @@ var render = function() {
                                   type: "button"
                                 }
                               },
-                              [_vm._v("Archive Tender")]
+                              [
+                                _vm._v(
+                                  "\n                            Archive Tender\n                        "
+                                )
+                              ]
                             )
                           ]
                         )
@@ -58732,7 +59462,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "Are you sure you want to delete this product?"
+                            "\n                        Are you sure you want to delete this product?\n                    "
                           )
                         ]
                       ),
@@ -58774,7 +59504,11 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("No, cancel")]
+                        [
+                          _vm._v(
+                            "\n                        No, cancel\n                    "
+                          )
+                        ]
                       )
                     ])
                   ]
@@ -58835,7 +59569,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                    Upload Tender\n                "
+                                  "\n                            Upload Tender\n                        "
                                 )
                               ]
                             ),
@@ -58964,7 +59698,7 @@ var render = function() {
                                                       },
                                                       [
                                                         _vm._v(
-                                                          "XLSX or CSV up to 10MB"
+                                                          "\n                                                        XLSX or CSV up to\n                                                        10MB\n                                                    "
                                                         )
                                                       ]
                                                     ),
@@ -58977,7 +59711,7 @@ var render = function() {
                                                       },
                                                       [
                                                         _vm._v(
-                                                          "Selected File: "
+                                                          "\n                                                        Selected File:\n                                                        "
                                                         ),
                                                         _c(
                                                           "span",
@@ -58987,11 +59721,11 @@ var render = function() {
                                                           },
                                                           [
                                                             _vm._v(
-                                                              "  " +
+                                                              "\n                                                            " +
                                                                 _vm._s(
                                                                   _vm.filename
                                                                 ) +
-                                                                " "
+                                                                "\n                                                        "
                                                             )
                                                           ]
                                                         )
@@ -59033,7 +59767,11 @@ var render = function() {
                                       type: "button"
                                     }
                                   },
-                                  [_vm._v("Download Template")]
+                                  [
+                                    _vm._v(
+                                      "\n                                Download Template\n                            "
+                                    )
+                                  ]
                                 )
                               ]
                             ),
@@ -59048,7 +59786,11 @@ var render = function() {
                                   type: "submit"
                                 }
                               },
-                              [_vm._v("Upload Tender")]
+                              [
+                                _vm._v(
+                                  "\n                            Upload Tender\n                        "
+                                )
+                              ]
                             )
                           ]
                         )
@@ -59129,7 +59871,9 @@ var staticRenderFns = [
       },
       [
         _c("span", { staticClass: "font-bold text-lg text-center" }, [
-          _vm._v("Select File")
+          _vm._v(
+            "Select\n                                                                File"
+          )
         ])
       ]
     )
@@ -63014,10 +63758,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Invoice.vue?vue&type=template&id=97cd85d8&":
-/*!*****************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Invoice.vue?vue&type=template&id=97cd85d8& ***!
-  \*****************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Invoice.vue?vue&type=template&id=97cd85d8&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Invoice.vue?vue&type=template&id=97cd85d8&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -63050,7 +63794,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0"
+                "mt-3 flex flex-col xl:flex-row justify-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0"
             },
             [
               _c(
@@ -63060,7 +63804,71 @@ var render = function() {
                     "flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8"
                 },
                 [
-                  _vm._m(1),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full"
+                    },
+                    [
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-heading-font text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800"
+                        },
+                        [
+                          _vm._v(
+                            "\n                        Tender Brief\n                    "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full"
+                        },
+                        [
+                          _vm._m(1),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-4 space-y-4 md:space-y-0"
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "w-full flex flex-col justify-start items-start space-y-8"
+                                },
+                                [
+                                  _c(
+                                    "h3",
+                                    {
+                                      staticClass:
+                                        "text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                    " +
+                                          _vm._s(_vm.post.tender_brief) +
+                                          "\n                                "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  ),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -63125,7 +63933,9 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                KES 150\n                            "
+                                    "\n                                KES " +
+                                      _vm._s(_vm.amount) +
+                                      "\n                            "
                                   )
                                 ]
                               )
@@ -63192,7 +64002,9 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                KES 150\n                            "
+                                    "\n                                KES " +
+                                      _vm._s(_vm.amount) +
+                                      "\n                            "
                                   )
                                 ]
                               )
@@ -63247,13 +64059,51 @@ var render = function() {
                                     })
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(6)
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "font-primary-font flex flex-col justify-start items-center"
+                                    },
+                                    [
+                                      _vm._m(6),
+                                      _vm._v(" "),
+                                      _vm._m(7),
+                                      _vm._v(" "),
+                                      _c(
+                                        "p",
+                                        {
+                                          staticClass:
+                                            "font-extrabold w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                        PAYMENT AMOUNT :\n                                        "
+                                          ),
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "text-green-600 font-heading-font font-extrabold text-xl ml-2"
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                            KES " +
+                                                  _vm._s(_vm.amount) +
+                                                  "\n                                        "
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
                                 ]
                               )
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(7)
+                          _vm._m(8)
                         ]
                       )
                     ]
@@ -63261,11 +64111,173 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(8)
+              _vm._m(9)
             ]
           )
         ]
-      )
+      ),
+      _vm._v(" "),
+      _vm.paymentModal
+        ? _c(
+            "div",
+            {
+              staticClass:
+                "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
+              attrs: { id: "popup-modal", tabindex: "-1" }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "relative p-4 w-full max-w-md h-full md:h-auto"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "relative bg-white rounded-lg shadow dark:bg-gray-700"
+                    },
+                    [
+                      _c("div", { staticClass: "flex justify-end p-2" }, [
+                        _vm.status == "Cancelled"
+                          ? _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href: _vm.route("checkout", _vm.post._id)
+                                }
+                              },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white",
+                                    attrs: {
+                                      type: "button",
+                                      "data-modal-toggle": "popup-modal"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "w-5 h-5",
+                                        attrs: {
+                                          fill: "currentColor",
+                                          viewBox: "0 0 20 20",
+                                          xmlns: "http://www.w3.org/2000/svg"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "fill-rule": "evenodd",
+                                            d:
+                                              "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+                                            "clip-rule": "evenodd"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          : _vm._e()
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(10),
+                      _vm._v(" "),
+                      _vm.status == "Cancelled"
+                        ? _c("div", { staticClass: "p-4 pt-0 text-center" }, [
+                            _c(
+                              "h3",
+                              {
+                                staticClass:
+                                  "mb-5 text-sm font-extrabold text-red-500 dark:text-gray-400 italic"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        Transaction Was Cancelled\n                    "
+                                )
+                              ]
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.status == "Waiting"
+                        ? _c("div", { staticClass: "p-4 pt-0 text-center" }, [
+                            _c(
+                              "h3",
+                              {
+                                staticClass:
+                                  "mb-5 text-sm font-extrabold text-green-500 dark:text-gray-400 italic"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        Transaction Pending\n                    "
+                                )
+                              ]
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "flex flex-col px-10" }, [
+                        _c(
+                          "h4",
+                          {
+                            staticClass:
+                              "mb-5 text-sm font-bold text-gray-500 dark:text-gray-400"
+                          },
+                          [
+                            _vm._v(
+                              "\n                        Phone Number:\n                        "
+                            ),
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "ml-2 font-extrabold text-xl text-indigo-600"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(this.form.number)
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "p-4 pt-0 text-center mt-5" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2",
+                            attrs: {
+                              "data-modal-toggle": "popup-modal",
+                              type: "button"
+                            },
+                            on: { click: _vm.confirm }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        Tap at intervals to Confirm Payment\n                    "
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ]
+          )
+        : _vm._e()
     ],
     1
   )
@@ -63310,93 +64322,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full"
-      },
-      [
-        _c(
-          "p",
-          {
-            staticClass:
-              "font-heading-font text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800"
-          },
-          [
-            _vm._v(
-              "\n                        Tender Description\n                    "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full"
-          },
-          [
-            _c("div", { staticClass: "pb-4 md:pb-8 w-full md:w-40" }, [
-              _c("i", { staticClass: "fas fa-caret-right fa-3x" })
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0"
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "w-full flex flex-col justify-start items-start space-y-8"
-                  },
-                  [
-                    _c(
-                      "h3",
-                      {
-                        staticClass:
-                          "text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800"
-                      },
-                      [
-                        _vm._v(
-                          "\n                                    Premium Quaility Dress\n                                "
-                        )
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex justify-between space-x-8 items-start w-full"
-                  },
-                  [
-                    _c(
-                      "p",
-                      {
-                        staticClass:
-                          "text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800"
-                      },
-                      [
-                        _vm._v(
-                          "\n                                    KES 150\n                                "
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            )
-          ]
-        )
-      ]
-    )
+    return _c("div", { staticClass: "pb-4 md:pb-8 w-full md:w-40" }, [
+      _c("i", { staticClass: "fas fa-caret-right fa-3x" })
+    ])
   },
   function() {
     var _vm = this
@@ -63420,11 +64348,7 @@ var staticRenderFns = [
               {
                 staticClass: "font-normal text-sm font-primary-font text-black"
               },
-              [
-                _vm._v(
-                  "You can use Mpesa Paybill\n                                            Express checkout"
-                )
-              ]
+              [_vm._v("Mpesa Express")]
             )
           ]
         )
@@ -63478,7 +64402,7 @@ var staticRenderFns = [
               },
               [
                 _vm._v(
-                  "You can use Visa or Mastercard\n                                            for checkout"
+                  "Visa or Mastercard\n                                        "
                 )
               ]
             )
@@ -63515,71 +64439,53 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "div",
-      { staticClass: "flex flex-col justify-start items-center" },
+      "p",
+      {
+        staticClass:
+          "font-extrabold w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
+      },
       [
+        _vm._v(
+          "\n                                        PAYBILL NUMBER :\n                                        "
+        ),
         _c(
-          "p",
+          "span",
           {
             staticClass:
-              "w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
+              "text-green-600 font-heading-font font-extrabold tracking-widest text-xl ml-2"
           },
           [
             _vm._v(
-              "\n                                        PAYBILL NUMBER :\n                                        "
-            ),
-            _c(
-              "span",
-              { staticClass: "text-green-600 font-primary-font text-xl" },
-              [
-                _vm._v(
-                  "\n                                            603021\n                                        "
-                )
-              ]
+              "\n                                            603021\n                                        "
             )
           ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "p",
+      {
+        staticClass:
+          "font-extrabold w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
+      },
+      [
+        _vm._v(
+          "\n                                        ACCOUNT NUMBER :\n                                        "
         ),
-        _vm._v(" "),
         _c(
-          "p",
+          "span",
           {
             staticClass:
-              "w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
+              "text-green-600 font-heading-font font-extrabold tracking-widest text-xl ml-2"
           },
           [
             _vm._v(
-              "\n                                        ACCOUNT NUMBER :\n                                        "
-            ),
-            _c(
-              "span",
-              { staticClass: "text-green-600 font-primary-font text-xl" },
-              [
-                _vm._v(
-                  "\n                                            13432\n                                        "
-                )
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "p",
-          {
-            staticClass:
-              "w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
-          },
-          [
-            _vm._v(
-              "\n                                        PAYMENT AMOUNT :\n                                        "
-            ),
-            _c(
-              "span",
-              { staticClass: "text-green-600 font-primary-font text-xl" },
-              [
-                _vm._v(
-                  "\n                                            150\n                                        "
-                )
-              ]
+              "\n                                            13432\n                                        "
             )
           ]
         )
@@ -63598,11 +64504,11 @@ var staticRenderFns = [
           "button",
           {
             staticClass:
-              "hover:bg-green-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-green-600 text-base font-medium leading-4 text-white"
+              "hover:bg-green-600 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-indigo-600 text-base font-medium leading-4 text-white"
           },
           [
             _vm._v(
-              "\n                                Pay Using M-Pesa\n                            "
+              "\n                                Confirm Manual M-Pesa Payment\n                            "
             )
           ]
         )
@@ -63756,6 +64662,25 @@ var staticRenderFns = [
         )
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-4 pt-0 text-center" }, [
+      _c(
+        "h3",
+        {
+          staticClass:
+            "mb-5 text-xs font-extrabold text-gray-500 dark:text-gray-400"
+        },
+        [
+          _vm._v(
+            "\n                        Complete transaction on your phone by entering your\n                        MPESA pin\n                    "
+          )
+        ]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -82939,9 +83864,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Invoice_vue_vue_type_template_id_97cd85d8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Invoice.vue?vue&type=template&id=97cd85d8& */ "./resources/js/Pages/Invoice.vue?vue&type=template&id=97cd85d8&");
+/* harmony import */ var _Invoice_vue_vue_type_template_id_97cd85d8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Invoice.vue?vue&type=template&id=97cd85d8&scoped=true& */ "./resources/js/Pages/Invoice.vue?vue&type=template&id=97cd85d8&scoped=true&");
 /* harmony import */ var _Invoice_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Invoice.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Invoice.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _Invoice_vue_vue_type_style_index_0_id_97cd85d8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Invoice.vue?vue&type=style&index=0&id=97cd85d8&scoped=true&lang=css& */ "./resources/js/Pages/Invoice.vue?vue&type=style&index=0&id=97cd85d8&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -82949,13 +83876,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _Invoice_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Invoice_vue_vue_type_template_id_97cd85d8___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Invoice_vue_vue_type_template_id_97cd85d8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Invoice_vue_vue_type_template_id_97cd85d8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Invoice_vue_vue_type_template_id_97cd85d8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "97cd85d8",
   null
   
 )
@@ -82981,19 +83908,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Invoice.vue?vue&type=template&id=97cd85d8&":
-/*!***********************************************************************!*\
-  !*** ./resources/js/Pages/Invoice.vue?vue&type=template&id=97cd85d8& ***!
-  \***********************************************************************/
+/***/ "./resources/js/Pages/Invoice.vue?vue&type=style&index=0&id=97cd85d8&scoped=true&lang=css&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/Pages/Invoice.vue?vue&type=style&index=0&id=97cd85d8&scoped=true&lang=css& ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Invoice_vue_vue_type_style_index_0_id_97cd85d8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Invoice.vue?vue&type=style&index=0&id=97cd85d8&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Invoice.vue?vue&type=style&index=0&id=97cd85d8&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Invoice_vue_vue_type_style_index_0_id_97cd85d8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Invoice_vue_vue_type_style_index_0_id_97cd85d8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Invoice_vue_vue_type_style_index_0_id_97cd85d8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Invoice_vue_vue_type_style_index_0_id_97cd85d8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Invoice_vue_vue_type_style_index_0_id_97cd85d8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Invoice.vue?vue&type=template&id=97cd85d8&scoped=true&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/Pages/Invoice.vue?vue&type=template&id=97cd85d8&scoped=true& ***!
+  \***********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Invoice_vue_vue_type_template_id_97cd85d8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Invoice.vue?vue&type=template&id=97cd85d8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Invoice.vue?vue&type=template&id=97cd85d8&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Invoice_vue_vue_type_template_id_97cd85d8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Invoice_vue_vue_type_template_id_97cd85d8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Invoice.vue?vue&type=template&id=97cd85d8&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Invoice.vue?vue&type=template&id=97cd85d8&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Invoice_vue_vue_type_template_id_97cd85d8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Invoice_vue_vue_type_template_id_97cd85d8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Invoice_vue_vue_type_template_id_97cd85d8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

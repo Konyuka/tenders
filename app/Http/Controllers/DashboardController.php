@@ -28,6 +28,32 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function refresh(Request $request)
+    {
+        $posts = $request->tenders;
+        foreach ($posts as $post => $value ) {
+
+            $post = new Post();
+            $post->purchasing_authority = $value['Purchasing_Authority'];
+            $post->tender_number = $value['Tender_No'];
+            $post->tender_brief = $value['Tender_Brief']; // where N is infinite # of attr
+            $post->competition_type = $value['CompetitionType']; // where N is infinite # of attr
+            $post->funded_by = $value['Funding']; // where N is infinite # of attr
+            $post->country = $value['Geographical_Addresses']; // where N is infinite # of attr
+            $post->value = $value['Tender_Value']; // where N is infinite # of attr
+            $post->work_detail = $value['Work_Detail']; // where N is infinite # of attr
+            $post->email = $value['Email_Address']; // where N is infinite # of attr
+            $post->link = $value['FileUrl']; // where N is infinite # of attr
+            $post->expiry = $value['Tender_Expiry']; // where N is infinite # of attr
+            $post->save();
+
+        };
+
+        return Inertia::render('Dashboard', [
+            // 'allPosts' => $posts,
+        ]);
+    }
+
 
     public function addPost(Request $request)
     {
