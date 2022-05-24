@@ -6592,8 +6592,108 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Header',
+  name: "Header",
   components: {//   Categories,
   },
   data: function data() {
@@ -6603,7 +6703,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {},
   methods: {
     openModal: function openModal() {
-      this.$emit('modalState', true);
+      this.$emit("modalState", true);
     }
   }
 });
@@ -61075,18 +61175,7 @@ var render = function() {
                         _c("div", { staticClass: "text-center" }, [
                           _vm._m(0),
                           _vm._v(" "),
-                          _c(
-                            "p",
-                            {
-                              staticClass:
-                                "mt-3 max-w-md mx-auto text-base text-white font-primary-font sm:text-lg md:mt-5 md:text-xl md:max-w-3xl"
-                            },
-                            [
-                              _vm._v(
-                                "\n                                  Bidders Portal™ system is a web based tendering tool that takes advantage of the many benefits that digital data offers.\n                                  Bids are sealed and can only be viewed by authorised parties cutting down on project time, tender period and reducing risk and cost.\n                                  Good governance, transparency, system integrity and efficiency will be the results after the Tendersure™ system embeds in your organisation.\n                              "
-                              )
-                            ]
-                          ),
+                          _vm._m(1),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -61109,7 +61198,12 @@ var render = function() {
                                         "transform transition hover:scale-125 duration-700 ease-in-out  w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-extrabold rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10",
                                       on: { click: _vm.openModal }
                                     },
-                                    [_vm._m(1), _vm._v(" Load Search Filters ")]
+                                    [
+                                      _vm._m(2),
+                                      _vm._v(
+                                        "\n                                            Load Search Filters\n                                        "
+                                      )
+                                    ]
                                   )
                                 ]
                               )
@@ -61143,13 +61237,40 @@ var staticRenderFns = [
         _c(
           "span",
           { staticClass: "block xl:inline text-white font-heading-font" },
-          [_vm._v("Connection to the rightful ")]
+          [
+            _vm._v(
+              "Connection to the rightful\n                                    "
+            )
+          ]
         ),
         _vm._v(" "),
         _c(
           "span",
           { staticClass: "block text-indigo-600 xl:inline font-bold-font" },
           [_vm._v("Tender!")]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "p",
+      {
+        staticClass:
+          "text-left mt-3 max-w-md mx-auto text-base text-white font-primary-font sm:text-lg md:mt-5 md:text-xl md:max-w-3xl"
+      },
+      [
+        _vm._v(
+          "\n                                    Bidders Portal™ system is a web based\n                                    platform that provides live tenders\n                                    information to our customers at\n                                    affordable rates at the click of a\n                                    button at your own comfort therefore\n                                    saving you time and costs. "
+        ),
+        _c("br"),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(
+          "\n                                    Our Search Engine is optimized to use\n                                    any keyword to help you locate your\n                                    tenders easily from our database. You\n                                    can search tenders by Country, County,\n                                    Government Tenders, Parastatal Tenders,\n                                    Private Limited Company Tenders, NGO\n                                    Tenders, Development Partners Tenders,\n                                    Posting Dates, Closing Dates, Tendering\n                                    Organization, Funding, Sector/Type,\n                                    Tender Number or any other keywords\n                                "
         )
       ]
     )
@@ -61913,7 +62034,7 @@ var render = function() {
               _c("div", { staticClass: "w-full lg:w-1/3 px-3 mb-8 lg:mb-0" }, [
                 _c(
                   "div",
-                  { staticClass: "px-12 py-16 bg-indigo-700 rounded-3xl" },
+                  { staticClass: "px-12 py-16 bg-indigo-600 rounded-3xl" },
                   [
                     _vm._m(5),
                     _vm._v(" "),
@@ -61951,7 +62072,7 @@ var render = function() {
                           _vm._v(" "),
                           _c("span", [
                             _vm._v(
-                              "Access all Tenders in a\n                                        Category"
+                              "Access all Tenders in One\n                                        Category"
                             )
                           ])
                         ]),
@@ -62066,10 +62187,10 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "w-full lg:w-1/3 px-3 mb-8 lg:mb-0" }, [
+              _c("div", { staticClass: "w-full lg:w-1/3 px-3" }, [
                 _c(
                   "div",
-                  { staticClass: "px-12 py-16 bg-yellow-400 rounded-3xl" },
+                  { staticClass: "px-12 py-16 bg-purple-700 rounded-3xl" },
                   [
                     _vm._m(6),
                     _vm._v(" "),
@@ -62107,163 +62228,7 @@ var render = function() {
                           _vm._v(" "),
                           _c("span", [
                             _vm._v(
-                              "Access all Tenders in All\n                                        Category"
-                            )
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "flex items-center mb-8" }, [
-                          _c("span", { staticClass: "mr-6" }, [
-                            _c(
-                              "svg",
-                              {
-                                attrs: {
-                                  width: "20",
-                                  height: "16",
-                                  viewbox: "0 0 20 16",
-                                  fill: "none",
-                                  xmlns: "http://www.w3.org/2000/svg"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                    fill: "white"
-                                  }
-                                })
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("span", [
-                            _vm._v(
-                              "Exclusive Tender Details\n                                        Access"
-                            )
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "flex items-center mb-8" }, [
-                          _c("span", { staticClass: "mr-6" }, [
-                            _c(
-                              "svg",
-                              {
-                                attrs: {
-                                  width: "20",
-                                  height: "16",
-                                  viewbox: "0 0 20 16",
-                                  fill: "none",
-                                  xmlns: "http://www.w3.org/2000/svg"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                    fill: "white"
-                                  }
-                                })
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("span", [_vm._v("Email Notifications Updates")])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "flex items-center mb-8" }, [
-                          _c("span", { staticClass: "mr-6" }, [
-                            _c(
-                              "svg",
-                              {
-                                attrs: {
-                                  width: "20",
-                                  height: "16",
-                                  viewbox: "0 0 20 16",
-                                  fill: "none",
-                                  xmlns: "http://www.w3.org/2000/svg"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                    fill: "white"
-                                  }
-                                })
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("span", [_vm._v("Billed Annually")])
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "text-center" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass:
-                            "transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black",
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              return _vm.membership("gold")
-                            }
-                          }
-                        },
-                        [_vm._v("Subscribe to Plan")]
-                      )
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "w-full lg:w-1/3 px-3" }, [
-                _c(
-                  "div",
-                  { staticClass: "px-12 py-16 bg-indigo-700 rounded-3xl" },
-                  [
-                    _vm._m(7),
-                    _vm._v(" "),
-                    _c(
-                      "ul",
-                      {
-                        staticClass:
-                          "text-sm text-white mb-16 font-primary-font"
-                      },
-                      [
-                        _c("li", { staticClass: "flex items-center mb-8" }, [
-                          _c("span", { staticClass: "mr-6" }, [
-                            _c(
-                              "svg",
-                              {
-                                attrs: {
-                                  width: "20",
-                                  height: "16",
-                                  viewbox: "0 0 20 16",
-                                  fill: "none",
-                                  xmlns: "http://www.w3.org/2000/svg"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                    fill: "white"
-                                  }
-                                })
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("span", [
-                            _vm._v(
-                              "Access all Tenders in a\n                                        Category"
+                              "Access all Tenders in One\n                                        Category"
                             )
                           ])
                         ]),
@@ -62368,6 +62333,162 @@ var render = function() {
                           on: {
                             click: function($event) {
                               return _vm.membership("silver")
+                            }
+                          }
+                        },
+                        [_vm._v("Subscribe to Plan")]
+                      )
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "w-full lg:w-1/3 px-3 mb-8 lg:mb-0" }, [
+                _c(
+                  "div",
+                  { staticClass: "px-12 py-16 bg-yellow-400 rounded-3xl" },
+                  [
+                    _vm._m(7),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      {
+                        staticClass:
+                          "text-sm text-white mb-16 font-primary-font"
+                      },
+                      [
+                        _c("li", { staticClass: "flex items-center mb-8" }, [
+                          _c("span", { staticClass: "mr-6" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "16",
+                                  viewbox: "0 0 20 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                                    fill: "white"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [
+                            _vm._v(
+                              "Access all Tenders in All\n                                        Categories"
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "flex items-center mb-8" }, [
+                          _c("span", { staticClass: "mr-6" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "16",
+                                  viewbox: "0 0 20 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                                    fill: "white"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [
+                            _vm._v(
+                              "Exclusive Tender Details\n                                        Access"
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "flex items-center mb-8" }, [
+                          _c("span", { staticClass: "mr-6" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "16",
+                                  viewbox: "0 0 20 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                                    fill: "white"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("Email Notifications Updates")])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "flex items-center mb-8" }, [
+                          _c("span", { staticClass: "mr-6" }, [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  width: "20",
+                                  height: "16",
+                                  viewbox: "0 0 20 16",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                                    fill: "white"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("Billed Annually")])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-center" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass:
+                            "transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.membership("gold")
                             }
                           }
                         },
@@ -62889,7 +63010,7 @@ var staticRenderFns = [
               },
               [
                 _vm._v(
-                  "\n                                        KES 100\n                                    "
+                  "\n                                        KES 150\n                                    "
                 )
               ]
             )
@@ -62932,7 +63053,7 @@ var staticRenderFns = [
               },
               [
                 _vm._v(
-                  "\n                                        KES 50\n                                    "
+                  "\n                                        KES 100\n                                    "
                 )
               ]
             )
@@ -62974,7 +63095,7 @@ var staticRenderFns = [
               },
               [
                 _vm._v(
-                  "\n                                        KES 25\n                                    "
+                  "\n                                        KES 50\n                                    "
                 )
               ]
             )
@@ -63022,7 +63143,31 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", { staticClass: "text-lg text-white font-bold" }, [
           _vm._v(
-            "\n                                        KES 2,000\n                                    "
+            "\n                                        KES 1,500\n                                    "
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pb-8 mb-14 border-b border-gray-400" }, [
+      _c("div", { staticClass: "flex justify-between items-center px-3" }, [
+        _c(
+          "h3",
+          { staticClass: "text-4xl text-white font-bold font-heading" },
+          [
+            _vm._v(
+              "\n                                        Silver\n                                    "
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-lg text-white font-bold" }, [
+          _vm._v(
+            "\n                                        KES 10,000\n                                    "
           )
         ])
       ])
@@ -63055,30 +63200,6 @@ var staticRenderFns = [
         ])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pb-8 mb-14 border-b border-gray-400" }, [
-      _c("div", { staticClass: "flex justify-between items-center px-3" }, [
-        _c(
-          "h3",
-          { staticClass: "text-4xl text-white font-bold font-heading" },
-          [
-            _vm._v(
-              "\n                                        Silver\n                                    "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-lg text-white font-bold" }, [
-          _vm._v(
-            "\n                                        KES 10,000\n                                    "
-          )
-        ])
-      ])
-    ])
   },
   function() {
     var _vm = this
