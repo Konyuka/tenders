@@ -187,8 +187,27 @@
                                             Tender Expired {{ togo }} ago
                                         </span>
                                         <span
+                                            v-if="dateChangeFormat"
+                                            class="font-heading-font bg-green-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
+                                        >
+                                            <svg
+                                                class="mr-1 w-3 h-3"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                                    clip-rule="evenodd"
+                                                ></path>
+                                            </svg>
+                                            <!-- {{ dateFormat(post.expiry) }} check -->
+                                            {{ togoFormat }} to go
+                                        </span>
+                                        <span
                                             v-else
-                                            class="font-heading-font bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
+                                            class="font-heading-font bg-green-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
                                         >
                                             <svg
                                                 class="mr-1 w-3 h-3"
@@ -214,7 +233,6 @@
                                         v-else
                                         class="ml-auto text-gray-900 font-primary-font"
                                         >{{ dateFormat(post.expiry) }}
-                                        check
                                         <!-- >{{ formatDateChange(post.expiry) }} -->
                                     </span>
                                 </div>
@@ -226,7 +244,7 @@
                                         ><i
                                             class="mr-10 fas fa-angles-right text-indigo-600"
                                         ></i>
-                                        Country</span
+                                        Region</span
                                     >
                                     <span
                                         class="ml-auto text-gray-900 font-primary-font"
@@ -371,9 +389,9 @@ export default {
         },
         amount() {
             if (this.daysDiff <= 7) {
-                return 100;
+                return 150;
             } else if (this.daysDiff >= 8 && this.daysDiff <= 14) {
-                return 75;
+                return 100;
             } else {
                 return 50;
             }
@@ -391,12 +409,16 @@ export default {
         },
         togo() {
             return moment(this.post.expiry).fromNow(true);
+        },
+        togoFormat() {
+            return moment(this.formatedDate).fromNow(true);
         }
     },
     data() {
         return {
             modal: false,
-            postExpired: false
+            postExpired: false,
+            formatedDate: ""
         };
     },
     methods: {
@@ -405,12 +427,9 @@ export default {
             var myString = value;
             var myTruncatedString = myString.substring(0, length);
 
-            console.log(myTruncatedString);
             var str = myTruncatedString;
             var daycut = str.substring(0, 2);
             var monthcut = str.substring(5, 3);
-            // console.log(daycut);
-            // console.log(monthcut);
 
             String.prototype.replaceAt = function(index, replacement) {
                 return (
@@ -420,14 +439,10 @@ export default {
                 );
             };
             const changeDay = myTruncatedString.replaceAt(0, monthcut);
-            const changemonth = changeDay.replaceAt(3, daycut);
-            // console.log(changeDay);
-            // console.log(changemonth);
-            // var hello = "Hello World";
-            // alert(hello.replaceAt(2, "!!")); // He!!o World
+            const finalDate = changeDay.replaceAt(3, daycut);
+            this.formatedDate = finalDate;
 
-            return dateFormat("05-31-2022", "mmmm dS, yyyy");
-            // return dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+            return dateFormat(finalDate, "mmmm dS yyyy");
         },
         purchase() {
             this.$inertia.post(`/checkout/${this.post._id}`);

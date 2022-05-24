@@ -8378,6 +8378,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
+/* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
 //
 //
 //
@@ -8805,6 +8806,7 @@ __webpack_require__.r(__webpack_exports__);
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
     axios = _require["default"];
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Invoice",
   props: {
@@ -8833,6 +8835,10 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     }
   },
   computed: {
+    now: function now() {
+      var now = new Date();
+      return Object(dateformat__WEBPACK_IMPORTED_MODULE_1__["default"])(now);
+    },
     memberPurchase: function memberPurchase() {
       if (this.membership != null) {
         return true;
@@ -9699,6 +9705,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -9718,21 +9735,40 @@ vue__WEBPACK_IMPORTED_MODULE_3___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
   },
   watch: {},
   mounted: function mounted() {},
-  computed: {
-    orderedPosts: function orderedPosts() {
-      // return _.orderBy(this.Posts, "created_at");
-      var today = new Date();
-      return this.Posts.sort(function (a, b) {
-        return new Date(a.updated_at) - new Date(b.updated_at);
-      });
-    }
-  },
+  computed: {},
   data: function data() {
     return {
-      modal: false
+      modal: false,
+      formatedDate: ""
     };
   },
   methods: {
+    dateChangeFormat: function dateChangeFormat(value) {
+      var togo = moment(value).fromNow(true);
+
+      if (togo == "Invalid date") {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    togoFormat: function togoFormat(value) {
+      var length = 10;
+      var myString = value;
+      var myTruncatedString = myString.substring(0, length);
+      var str = myTruncatedString;
+      var daycut = str.substring(0, 2);
+      var monthcut = str.substring(5, 3);
+
+      String.prototype.replaceAt = function (index, replacement) {
+        return this.substring(0, index) + replacement + this.substring(index + replacement.length);
+      };
+
+      var changeDay = myTruncatedString.replaceAt(0, monthcut);
+      var finalDate = changeDay.replaceAt(3, daycut);
+      this.formatedDate = finalDate;
+      return moment(finalDate).fromNow(true);
+    },
     expired: function expired(post) {
       var current = moment().startOf("day");
       var given = moment(post.expiry, "YYYY-MM-DD");
@@ -9744,6 +9780,34 @@ vue__WEBPACK_IMPORTED_MODULE_3___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
         return false;
       }
     },
+    dateFormat: function (_dateFormat) {
+      function dateFormat(_x) {
+        return _dateFormat.apply(this, arguments);
+      }
+
+      dateFormat.toString = function () {
+        return _dateFormat.toString();
+      };
+
+      return dateFormat;
+    }(function (value) {
+      var length = 10;
+      var myString = value;
+      var myTruncatedString = myString.substring(0, length);
+      console.log(myTruncatedString);
+      var str = myTruncatedString;
+      var daycut = str.substring(0, 2);
+      var monthcut = str.substring(5, 3);
+
+      String.prototype.replaceAt = function (index, replacement) {
+        return this.substring(0, index) + replacement + this.substring(index + replacement.length);
+      };
+
+      var changeDay = myTruncatedString.replaceAt(0, monthcut);
+      var finalDate = changeDay.replaceAt(3, daycut);
+      this.formatedDate = finalDate;
+      return dateFormat(finalDate, "mmmm dS yyyy");
+    }),
     formatDate: function formatDate(value) {
       return moment(value).format("MMMM Do YYYY");
     },
@@ -10938,6 +11002,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -10979,9 +11061,9 @@ var now = new Date(); // dateFormat(now, "W");
     },
     amount: function amount() {
       if (this.daysDiff <= 7) {
-        return 100;
+        return 150;
       } else if (this.daysDiff >= 8 && this.daysDiff <= 14) {
-        return 75;
+        return 100;
       } else {
         return 50;
       }
@@ -10999,12 +11081,16 @@ var now = new Date(); // dateFormat(now, "W");
     },
     togo: function togo() {
       return moment(this.post.expiry).fromNow(true);
+    },
+    togoFormat: function togoFormat() {
+      return moment(this.formatedDate).fromNow(true);
     }
   },
   data: function data() {
     return {
       modal: false,
-      postExpired: false
+      postExpired: false,
+      formatedDate: ""
     };
   },
   methods: {
@@ -11012,23 +11098,18 @@ var now = new Date(); // dateFormat(now, "W");
       var length = 10;
       var myString = value;
       var myTruncatedString = myString.substring(0, length);
-      console.log(myTruncatedString);
       var str = myTruncatedString;
       var daycut = str.substring(0, 2);
-      var monthcut = str.substring(5, 3); // console.log(daycut);
-      // console.log(monthcut);
+      var monthcut = str.substring(5, 3);
 
       String.prototype.replaceAt = function (index, replacement) {
         return this.substring(0, index) + replacement + this.substring(index + replacement.length);
       };
 
       var changeDay = myTruncatedString.replaceAt(0, monthcut);
-      var changemonth = changeDay.replaceAt(3, daycut); // console.log(changeDay);
-      // console.log(changemonth);
-      // var hello = "Hello World";
-      // alert(hello.replaceAt(2, "!!")); // He!!o World
-
-      return Object(dateformat__WEBPACK_IMPORTED_MODULE_3__["default"])("05-31-2022", "mmmm dS, yyyy"); // return dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+      var finalDate = changeDay.replaceAt(3, daycut);
+      this.formatedDate = finalDate;
+      return Object(dateformat__WEBPACK_IMPORTED_MODULE_3__["default"])(finalDate, "mmmm dS yyyy");
     },
     purchase: function purchase() {
       this.$inertia.post("/checkout/".concat(this.post._id));
@@ -64087,7 +64168,31 @@ var render = function() {
           staticClass: "py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto"
         },
         [
-          _vm._m(0),
+          _c(
+            "div",
+            {
+              staticClass:
+                "right-0 flex justify-end items-end space-y-2 flex-col"
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "p",
+                {
+                  staticClass:
+                    "font-primary-font text-base dark:text-gray-300 font-medium leading-6 text-gray-300"
+                },
+                [
+                  _vm._v(
+                    "\n                Generated on " +
+                      _vm._s(this.now) +
+                      "\n            "
+                  )
+                ]
+              )
+            ]
+          ),
           _vm._v(" "),
           _c(
             "div",
@@ -64150,7 +64255,7 @@ var render = function() {
                                     "h3",
                                     {
                                       staticClass:
-                                        "text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800"
+                                        "text-xl dark:text-white xl:text-xl font-semibold leading-6 text-gray-800"
                                     },
                                     [
                                       _vm._v(
@@ -64353,7 +64458,7 @@ var render = function() {
                                       staticClass: "w-full h-full",
                                       attrs: {
                                         alt: "logo",
-                                        src: "/img/credit.jpg"
+                                        src: "/img/mpesamobile.png"
                                       }
                                     })
                                   ]),
@@ -64587,33 +64692,14 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "div",
-      { staticClass: "right-0 flex justify-end items-end space-y-2 flex-col" },
+      "h1",
+      {
+        staticClass:
+          "text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-white"
+      },
       [
-        _c(
-          "h1",
-          {
-            staticClass:
-              "text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-white"
-          },
-          [
-            _vm._v("\n                Invoice # "),
-            _c("span", { staticClass: "text-white" }, [_vm._v("13432")])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "p",
-          {
-            staticClass:
-              "font-primary-font text-base dark:text-gray-300 font-medium leading-6 text-gray-300"
-          },
-          [
-            _vm._v(
-              "\n                Generated on 21st March 2022 10:34 PM\n            "
-            )
-          ]
-        )
+        _vm._v("\n                Invoice # "),
+        _c("span", { staticClass: "text-white" }, [_vm._v("13432")])
       ]
     )
   },
@@ -65581,18 +65667,18 @@ var render = function() {
                             { staticClass: "font-heading-font font-extrabold" },
                             [
                               _vm._v(
-                                "\n                                Expires:\n                                "
+                                "\n                                Expires in:\n                                "
                               ),
                               _c(
                                 "span",
                                 {
                                   staticClass:
-                                    "inline-block py-1 px-2 rounded bg-indigo-50 text-red-500 text-xs font-bold tracking-widest"
+                                    "inline-block py-1 px-2 rounded bg-green-100 text-green-500 text-xs font-bold tracking-widest"
                                 },
                                 [
                                   _vm._v(
                                     "\n                                    " +
-                                      _vm._s(_vm.togo(post.expiry))
+                                      _vm._s(_vm.togoFormat(post.expiry))
                                   )
                                 ]
                               )
@@ -67803,11 +67889,51 @@ var render = function() {
                                           )
                                         ]
                                       )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _vm.dateChangeFormat
+                                    ? _c(
+                                        "span",
+                                        {
+                                          staticClass:
+                                            "font-heading-font bg-green-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass: "mr-1 w-3 h-3",
+                                              attrs: {
+                                                fill: "currentColor",
+                                                viewBox: "0 0 20 20",
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  "fill-rule": "evenodd",
+                                                  d:
+                                                    "M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z",
+                                                  "clip-rule": "evenodd"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _vm._v(
+                                            "\n                                        " +
+                                              _vm._s(_vm.togoFormat) +
+                                              " to go\n                                    "
+                                          )
+                                        ]
+                                      )
                                     : _c(
                                         "span",
                                         {
                                           staticClass:
-                                            "font-heading-font bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
+                                            "font-heading-font bg-green-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
                                         },
                                         [
                                           _c(
@@ -67866,7 +67992,7 @@ var render = function() {
                                         _vm._s(
                                           _vm.dateFormat(_vm.post.expiry)
                                         ) +
-                                          "\n                                    check\n                                    "
+                                          "\n                                    "
                                       )
                                     ]
                                   )
@@ -68149,7 +68275,7 @@ var staticRenderFns = [
       { staticClass: "text-gray-500 font-extrabold font-heading-font" },
       [
         _c("i", { staticClass: "mr-10 fas fa-angles-right text-indigo-600" }),
-        _vm._v("\n                                    Country")
+        _vm._v("\n                                    Region")
       ]
     )
   },

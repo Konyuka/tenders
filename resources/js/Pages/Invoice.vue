@@ -14,7 +14,7 @@
                 <p
                     class="font-primary-font text-base dark:text-gray-300 font-medium leading-6 text-gray-300"
                 >
-                    Generated on 21st March 2022 10:34 PM
+                    Generated on {{ this.now }}
                 </p>
             </div>
             <div
@@ -44,7 +44,7 @@
                                     class="w-full flex flex-col justify-start items-start space-y-8"
                                 >
                                     <h3
-                                        class="text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800"
+                                        class="text-xl dark:text-white xl:text-xl font-semibold leading-6 text-gray-800"
                                     >
                                         {{ post.tender_brief }}
                                     </h3>
@@ -176,7 +176,7 @@
                                         <img
                                             class="w-full h-full"
                                             alt="logo"
-                                            :src="'/img/credit.jpg'"
+                                            :src="'/img/mpesamobile.png'"
                                         />
                                     </div>
                                     <div
@@ -424,6 +424,7 @@
 import MainMenu from "./Components/MainMenu.vue";
 
 const { default: axios } = require("axios");
+import dateFormat from "dateformat";
 
 export default {
     name: "Invoice",
@@ -453,6 +454,10 @@ export default {
         }
     },
     computed: {
+        now() {
+            const now = new Date();
+            return dateFormat(now);
+        },
         memberPurchase() {
             if (this.membership != null) {
                 return true;
