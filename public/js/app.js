@@ -9019,6 +9019,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
@@ -9036,7 +9085,8 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     payment: null,
     status: String,
     membership: String,
-    invoiceDetails: Object
+    invoiceDetails: Object,
+    invoiceStatus: Boolean
   },
   components: {
     MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -9051,6 +9101,12 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       this.form.userEmail = this.user.email;
     } else {
       return true;
+    }
+
+    if (this.invoiceStatus == true) {
+      this.unpaidAlert = false;
+    } else {
+      this.unpaidAlert = true;
     }
   },
   computed: {
@@ -9130,6 +9186,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
   },
   data: function data() {
     return {
+      unpaidAlert: false,
       expressModal: false,
       paymentLog: "",
       form: {
@@ -57594,53 +57651,6 @@ var render = function() {
                                       "block text-sm font-medium text-gray-700",
                                     attrs: { for: "email-address" }
                                   },
-                                  [_vm._v("Contact Phone")]
-                                ),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "mt-1" }, [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.form.userPhone,
-                                        expression: "form.userPhone"
-                                      }
-                                    ],
-                                    staticClass:
-                                      "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
-                                    attrs: {
-                                      required: "",
-                                      placeholder: "254 7XX XXX XXX",
-                                      type: "number",
-                                      id: "phone-number",
-                                      name: "phone-number"
-                                    },
-                                    domProps: { value: _vm.form.userPhone },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.form,
-                                          "userPhone",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  })
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "mt-6 shadow-2xl" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass:
-                                      "block text-sm font-medium text-gray-700",
-                                    attrs: { for: "email-address" }
-                                  },
                                   [_vm._v("Contact Email")]
                                 ),
                                 _vm._v(" "),
@@ -57672,6 +57682,53 @@ var render = function() {
                                         _vm.$set(
                                           _vm.form,
                                           "userEmail",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "mt-6 shadow-2xl" }, [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass:
+                                      "block text-sm font-medium text-gray-700",
+                                    attrs: { for: "email-address" }
+                                  },
+                                  [_vm._v("Contact Phone")]
+                                ),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "mt-1" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.userPhone,
+                                        expression: "form.userPhone"
+                                      }
+                                    ],
+                                    staticClass:
+                                      "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                    attrs: {
+                                      required: "",
+                                      placeholder: "254 7XX XXX XXX",
+                                      type: "number",
+                                      id: "phone-number",
+                                      name: "phone-number"
+                                    },
+                                    domProps: { value: _vm.form.userPhone },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "userPhone",
                                           $event.target.value
                                         )
                                       }
@@ -64465,6 +64522,8 @@ var render = function() {
     [
       _c("MainMenu", { staticClass: "sticky top-0" }),
       _vm._v(" "),
+      _c("div", {}),
+      _vm._v(" "),
       _c(
         "div",
         {
@@ -64475,37 +64534,101 @@ var render = function() {
             "div",
             {
               staticClass:
-                "right-0 flex justify-end items-end space-y-2 flex-col"
+                "right-0 flex justify-center items-center space-y-2 flex-col"
             },
             [
-              _c(
-                "h1",
-                {
-                  staticClass:
-                    "text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-white"
-                },
-                [
-                  _vm._v("\n                Invoice Number\n                "),
-                  _c("span", { staticClass: "text-white" }, [
-                    _vm._v(_vm._s(_vm.invoiceNumber))
+              _c("div", { staticClass: "rounded-md bg-red-50 p-4 mb-10" }, [
+                _c("div", { staticClass: "flex" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "ml-3" }, [
+                    _c(
+                      "h3",
+                      {
+                        staticClass:
+                          "text-2xl font-extrabold font-heading-font text-red-800"
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Payment Pending...\n                        "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "mt-4" }, [
+                      _c("div", { staticClass: "-mx-2 -my-1.5 flex" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "bg-red-50 px-2 py-1.5 rounded-md text-sm font-extrabold font-primary-font text-red-800 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-50 focus:ring-red-600",
+                            attrs: { type: "button" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    View status\n                                "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "ml-3 bg-red-50 px-2 py-1.5 rounded-md text-sm font-extrabold font-primary-font text-red-800 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-50 focus:ring-red-600",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                this.unpaidAlert == false
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    Dismiss\n                                "
+                            )
+                          ]
+                        )
+                      ])
+                    ])
                   ])
-                ]
-              ),
+                ])
+              ]),
               _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass:
-                    "font-primary-font text-base dark:text-gray-300 font-medium leading-6 text-gray-300"
-                },
-                [
-                  _vm._v(
-                    "\n                Generated on " +
-                      _vm._s(this.now) +
-                      "\n            "
-                  )
-                ]
-              )
+              _c("div", [
+                _c(
+                  "h1",
+                  {
+                    staticClass:
+                      "text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-white"
+                  },
+                  [
+                    _vm._v(
+                      "\n                    Invoice Number\n                    "
+                    ),
+                    _c("span", { staticClass: "text-white" }, [
+                      _vm._v(_vm._s(_vm.invoiceNumber))
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass:
+                      "font-primary-font text-base dark:text-gray-300 font-medium leading-6 text-gray-300"
+                  },
+                  [
+                    _vm._v(
+                      "\n                    Generated on " +
+                        _vm._s(this.now) +
+                        "\n                "
+                    )
+                  ]
+                )
+              ])
             ]
           ),
           _vm._v(" "),
@@ -64550,7 +64673,7 @@ var render = function() {
                             "mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full"
                         },
                         [
-                          _vm._m(0),
+                          _vm._m(2),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -64640,7 +64763,7 @@ var render = function() {
                                     })
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(1)
+                                  _vm._m(3)
                                 ]
                               ),
                               _vm._v(" "),
@@ -64661,7 +64784,7 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(2),
+                          _vm._m(4),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -64732,7 +64855,7 @@ var render = function() {
                                     })
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(3)
+                                  _vm._m(5)
                                 ]
                               ),
                               _vm._v(" "),
@@ -64753,7 +64876,7 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(4)
+                          _vm._m(6)
                         ]
                       ),
                       _vm._v(" "),
@@ -64808,7 +64931,7 @@ var render = function() {
                                         "font-primary-font flex flex-col justify-start items-center"
                                     },
                                     [
-                                      _vm._m(5),
+                                      _vm._m(7),
                                       _vm._v(" "),
                                       _c(
                                         "p",
@@ -64870,7 +64993,7 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(6)
+                          _vm._m(8)
                         ]
                       )
                     ]
@@ -64878,7 +65001,7 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(7)
+              _vm._m(9)
             ]
           )
         ]
@@ -64955,7 +65078,7 @@ var render = function() {
                           : _vm._e()
                       ]),
                       _vm._v(" "),
-                      _vm._m(8),
+                      _vm._m(10),
                       _vm._v(" "),
                       _vm.status == "Cancelled"
                         ? _c("div", { staticClass: "p-4 pt-0 text-center" }, [
@@ -65050,6 +65173,30 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex-shrink-0" }, [
+      _c("i", { staticClass: "fas fa-circle-exclamation fa-3x text-red-400" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "mt-2 text-lg text-red-700 font-primary-font" },
+      [
+        _c("p", [
+          _vm._v(
+            "\n                                Kindly Proceed to make payment to access\n                                tender details.\n                            "
+          )
+        ])
+      ]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

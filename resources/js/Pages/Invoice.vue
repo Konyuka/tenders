@@ -4,19 +4,68 @@
     >
         <MainMenu class="sticky top-0" />
 
+        <div class=""></div>
+
         <div class="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
-            <div class="right-0 flex justify-end items-end space-y-2 flex-col">
-                <h1
-                    class="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-white"
-                >
-                    Invoice Number
-                    <span class="text-white">{{ invoiceNumber }}</span>
-                </h1>
-                <p
-                    class="font-primary-font text-base dark:text-gray-300 font-medium leading-6 text-gray-300"
-                >
-                    Generated on {{ this.now }}
-                </p>
+            <div
+                class="right-0 flex justify-center items-center space-y-2 flex-col"
+            >
+                <div class="rounded-md bg-red-50 p-4 mb-10">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <!-- Heroicon name: solid/check-circle -->
+                            <i
+                                class="fas fa-circle-exclamation fa-3x text-red-400"
+                            ></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3
+                                class="text-2xl font-extrabold font-heading-font text-red-800"
+                            >
+                                Payment Pending...
+                            </h3>
+                            <div
+                                class="mt-2 text-lg text-red-700 font-primary-font"
+                            >
+                                <p>
+                                    Kindly Proceed to make payment to access
+                                    tender details.
+                                </p>
+                            </div>
+                            <div class="mt-4">
+                                <div class="-mx-2 -my-1.5 flex">
+                                    <button
+                                        type="button"
+                                        class="bg-red-50 px-2 py-1.5 rounded-md text-sm font-extrabold font-primary-font text-red-800 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-50 focus:ring-red-600"
+                                    >
+                                        View status
+                                    </button>
+                                    <button
+                                        @click="this.unpaidAlert == false"
+                                        type="button"
+                                        class="ml-3 bg-red-50 px-2 py-1.5 rounded-md text-sm font-extrabold font-primary-font text-red-800 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-50 focus:ring-red-600"
+                                    >
+                                        Dismiss
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h1
+                        class="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-white"
+                    >
+                        Invoice Number
+                        <span class="text-white">{{ invoiceNumber }}</span>
+                    </h1>
+                    <p
+                        class="font-primary-font text-base dark:text-gray-300 font-medium leading-6 text-gray-300"
+                    >
+                        Generated on {{ this.now }}
+                    </p>
+                </div>
             </div>
             <div
                 class="mt-3 flex flex-col xl:flex-row justify-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0"
@@ -454,7 +503,8 @@ export default {
         payment: null,
         status: String,
         membership: String,
-        invoiceDetails: Object
+        invoiceDetails: Object,
+        invoiceStatus: Boolean
     },
     components: {
         MainMenu
@@ -469,6 +519,12 @@ export default {
             this.form.userEmail = this.user.email;
         } else {
             return true;
+        }
+
+        if (this.invoiceStatus == true) {
+            this.unpaidAlert = false;
+        } else {
+            this.unpaidAlert = true;
         }
     },
     computed: {
@@ -547,6 +603,7 @@ export default {
     },
     data() {
         return {
+            unpaidAlert: false,
             expressModal: false,
             paymentLog: "",
             form: {

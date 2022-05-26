@@ -141,11 +141,23 @@ class LandingController extends Controller
         $lastInvoiceID = $invoice->orderBy('invoice_number', 'DESC')->pluck('invoice_number')->first();
         $newInvoiceID = $lastInvoiceID + 1;
         $current_date_time = Carbon::now()->timestamp;
-        $invoiceRecord = Invoice::where('unique_timestamp', '=', $current_date_time)->where('invoice_number', '=', $newInvoiceID)->first();
-
+        $invoiceRecord = Invoice::
+                    //   where('unique_timestamp', '=', $current_date_time)
+                    //   where('invoice_number', '=', $newInvoiceID)
+                      where('post_id', '=', $post_id)
+                    ->where('user_phone', '=', $user_phone)
+                    ->where('user_email', '=', $user_email)
+                    ->first();
         if($invoiceRecord != null){
-            return dd('found');
-        }else{
+           $paymentStatus = $invoiceRecord->payment_status;
+           $createdInvoice = $invoiceRecord;
+        }
+        if($invoiceRecord != null && $paymentStatus == 0){
+            $invoicePaid= false;
+        }else if($invoiceRecord != null && $paymentStatus == 1){
+            $invoicePaid = true;
+        }
+        else{
             $createdInvoice =  Invoice::create([
               "invoice_number"=>$newInvoiceID,
               "unique_timestamp"=>$current_date_time,
@@ -156,14 +168,16 @@ class LandingController extends Controller
               "user_name"=>$user_name,
               "payment_status"=>false,
             ]);
+            $invoicePaid= false;
         };
-
 
         return Inertia::render('Invoice', [
             // 'post' => $request->post,
             'post' => $post,
             'user' => $user,
-            'invoiceDetails' => json_decode($createdInvoice)
+            'invoiceStatus' => $invoicePaid,
+            'invoiceDetails' => json_decode($createdInvoice),
+
         ]);
     }
 

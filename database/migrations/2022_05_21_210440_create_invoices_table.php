@@ -22,7 +22,7 @@ class CreateInvoicesTable extends Migration
             $table->string("amount")->nullable();
             $table->string("post_id")->nullable();
             $table->string("payment_type")->nullable();
-            $table->string("payment_status")->nullable();
+            $table->string("payment_status")->default(false);
             $table->string("trans_id")->nullable();
             $table->string('client_id')->nullable();
             $table->string("user_phone")->nullable();

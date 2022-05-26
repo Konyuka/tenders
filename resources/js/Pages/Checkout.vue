@@ -194,25 +194,6 @@
                                             <label
                                                 for="email-address"
                                                 class="block text-sm font-medium text-gray-700"
-                                                >Contact Phone</label
-                                            >
-                                            <div class="mt-1">
-                                                <input
-                                                    v-model="form.userPhone"
-                                                    required
-                                                    placeholder="254 7XX XXX XXX"
-                                                    type="number"
-                                                    id="phone-number"
-                                                    name="phone-number"
-                                                    class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                                />
-                                            </div>
-                                        </div>
-
-                                        <div class="mt-6 shadow-2xl">
-                                            <label
-                                                for="email-address"
-                                                class="block text-sm font-medium text-gray-700"
                                                 >Contact Email</label
                                             >
                                             <div class="mt-1">
@@ -223,6 +204,25 @@
                                                     type="email"
                                                     id="email-address"
                                                     name="email-address"
+                                                    class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-6 shadow-2xl">
+                                            <label
+                                                for="email-address"
+                                                class="block text-sm font-medium text-gray-700"
+                                                >Contact Phone</label
+                                            >
+                                            <div class="mt-1">
+                                                <input
+                                                    v-model="form.userPhone"
+                                                    required
+                                                    placeholder="254 7XX XXX XXX"
+                                                    type="number"
+                                                    id="phone-number"
+                                                    name="phone-number"
                                                     class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                                 />
                                             </div>
