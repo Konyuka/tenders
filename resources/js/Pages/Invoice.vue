@@ -9,7 +9,8 @@
                 <h1
                     class="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-white"
                 >
-                    Invoice # <span class="text-white">13432</span>
+                    Invoice Number
+                    <span class="text-white">{{ invoiceNumber }}</span>
                 </h1>
                 <p
                     class="font-primary-font text-base dark:text-gray-300 font-medium leading-6 text-gray-300"
@@ -97,9 +98,23 @@
                                 </p>
                             </div>
                             <div
+                                class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5"
+                            >
+                                <div class="mt-1 sm:mt-0 sm:col-span-2">
+                                    <input
+                                        type="text"
+                                        name="first-name"
+                                        id="first-name"
+                                        autocomplete="given-name"
+                                        class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                                    />
+                                </div>
+                            </div>
+                            <div
                                 class="w-full flex justify-center items-center"
                             >
                                 <button
+                                    @click="mpesaExpress"
                                     class="hover:bg-green-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-green-600 text-base font-medium leading-4 text-white"
                                 >
                                     Pay Using M-Pesa Express
@@ -204,7 +219,7 @@
                                             <span
                                                 class="text-green-600 font-heading-font font-extrabold tracking-widest text-xl ml-2"
                                             >
-                                                13432
+                                                {{ invoiceNumber }}
                                             </span>
                                         </p>
                                         <p
@@ -417,6 +432,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- expressModal     -->
     </body>
 </template>
 
@@ -436,7 +453,8 @@ export default {
         registeredURLSResponse: Object,
         payment: null,
         status: String,
-        membership: String
+        membership: String,
+        invoiceDetails: Object
     },
     components: {
         MainMenu
@@ -454,6 +472,19 @@ export default {
         }
     },
     computed: {
+        invoiceNumber() {
+            const n = parseInt(this.invoiceDetails.invoice_number);
+            if (n < 10) {
+                var leadingZeros = "000" + n.toString();
+                return "BID-" + leadingZeros;
+            } else if (n < 100) {
+                var leadingZeros = "00" + n.toString();
+            } else if (n < 1000) {
+                var leadingZeros = "0" + n.toString();
+            } else {
+                var leadingZeros = n;
+            }
+        },
         now() {
             const now = new Date();
             return dateFormat(now);
@@ -516,6 +547,7 @@ export default {
     },
     data() {
         return {
+            expressModal: false,
             paymentLog: "",
             form: {
                 userName: "Software Saiba",
@@ -554,6 +586,9 @@ export default {
         },
         formatDate(value) {
             return moment(value).format("MMMM Do YYYY");
+        },
+        mpesaExpress() {
+            this.expressModal = true;
         },
         stkPush() {
             // var str = '012123';

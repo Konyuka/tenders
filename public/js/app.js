@@ -4658,7 +4658,8 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     invoice: function invoice(value) {
       var payload = {
         post: value,
-        user: this.form
+        user: this.form,
+        amount: this.amount
       };
       this.$inertia.post("/invoice/", payload);
     },
@@ -9001,6 +9002,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
@@ -9017,7 +9035,8 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     registeredURLSResponse: Object,
     payment: null,
     status: String,
-    membership: String
+    membership: String,
+    invoiceDetails: Object
   },
   components: {
     MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -9035,6 +9054,20 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     }
   },
   computed: {
+    invoiceNumber: function invoiceNumber() {
+      var n = parseInt(this.invoiceDetails.invoice_number);
+
+      if (n < 10) {
+        var leadingZeros = "000" + n.toString();
+        return "BID-" + leadingZeros;
+      } else if (n < 100) {
+        var leadingZeros = "00" + n.toString();
+      } else if (n < 1000) {
+        var leadingZeros = "0" + n.toString();
+      } else {
+        var leadingZeros = n;
+      }
+    },
     now: function now() {
       var now = new Date();
       return Object(dateformat__WEBPACK_IMPORTED_MODULE_1__["default"])(now);
@@ -9097,6 +9130,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
   },
   data: function data() {
     return {
+      expressModal: false,
       paymentLog: "",
       form: {
         userName: "Software Saiba",
@@ -9134,6 +9168,9 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     },
     formatDate: function formatDate(value) {
       return moment(value).format("MMMM Do YYYY");
+    },
+    mpesaExpress: function mpesaExpress() {
+      this.expressModal = true;
     },
     stkPush: function stkPush() {
       // var str = '012123';
@@ -64441,7 +64478,19 @@ var render = function() {
                 "right-0 flex justify-end items-end space-y-2 flex-col"
             },
             [
-              _vm._m(0),
+              _c(
+                "h1",
+                {
+                  staticClass:
+                    "text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-white"
+                },
+                [
+                  _vm._v("\n                Invoice Number\n                "),
+                  _c("span", { staticClass: "text-white" }, [
+                    _vm._v(_vm._s(_vm.invoiceNumber))
+                  ])
+                ]
+              ),
               _vm._v(" "),
               _c(
                 "p",
@@ -64501,7 +64550,7 @@ var render = function() {
                             "mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full"
                         },
                         [
-                          _vm._m(1),
+                          _vm._m(0),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -64591,7 +64640,7 @@ var render = function() {
                                     })
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(2)
+                                  _vm._m(1)
                                 ]
                               ),
                               _vm._v(" "),
@@ -64612,7 +64661,30 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(3)
+                          _vm._m(2),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "w-full flex justify-center items-center"
+                            },
+                            [
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "hover:bg-green-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-green-600 text-base font-medium leading-4 text-white",
+                                  on: { click: _vm.mpesaExpress }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                Pay Using M-Pesa Express\n                            "
+                                  )
+                                ]
+                              )
+                            ]
+                          )
                         ]
                       ),
                       _vm._v(" "),
@@ -64660,7 +64732,7 @@ var render = function() {
                                     })
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(4)
+                                  _vm._m(3)
                                 ]
                               ),
                               _vm._v(" "),
@@ -64681,7 +64753,7 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(5)
+                          _vm._m(4)
                         ]
                       ),
                       _vm._v(" "),
@@ -64736,9 +64808,34 @@ var render = function() {
                                         "font-primary-font flex flex-col justify-start items-center"
                                     },
                                     [
-                                      _vm._m(6),
+                                      _vm._m(5),
                                       _vm._v(" "),
-                                      _vm._m(7),
+                                      _c(
+                                        "p",
+                                        {
+                                          staticClass:
+                                            "font-extrabold w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                        ACCOUNT NUMBER :\n                                        "
+                                          ),
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "text-green-600 font-heading-font font-extrabold tracking-widest text-xl ml-2"
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                            " +
+                                                  _vm._s(_vm.invoiceNumber) +
+                                                  "\n                                        "
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
                                       _vm._v(" "),
                                       _c(
                                         "p",
@@ -64773,7 +64870,7 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(8)
+                          _vm._m(6)
                         ]
                       )
                     ]
@@ -64781,7 +64878,7 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(9)
+              _vm._m(7)
             ]
           )
         ]
@@ -64858,7 +64955,7 @@ var render = function() {
                           : _vm._e()
                       ]),
                       _vm._v(" "),
-                      _vm._m(10),
+                      _vm._m(8),
                       _vm._v(" "),
                       _vm.status == "Cancelled"
                         ? _c("div", { staticClass: "p-4 pt-0 text-center" }, [
@@ -64957,22 +65054,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "h1",
-      {
-        staticClass:
-          "text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-white"
-      },
-      [
-        _vm._v("\n                Invoice # "),
-        _c("span", { staticClass: "text-white" }, [_vm._v("13432")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "pb-4 md:pb-8 w-full md:w-40" }, [
       _c("i", { staticClass: "fas fa-caret-right fa-3x" })
     ])
@@ -65012,20 +65093,23 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "w-full flex justify-center items-center" },
+      {
+        staticClass:
+          "sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5"
+      },
       [
-        _c(
-          "button",
-          {
+        _c("div", { staticClass: "mt-1 sm:mt-0 sm:col-span-2" }, [
+          _c("input", {
             staticClass:
-              "hover:bg-green-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-green-600 text-base font-medium leading-4 text-white"
-          },
-          [
-            _vm._v(
-              "\n                                Pay Using M-Pesa Express\n                            "
-            )
-          ]
-        )
+              "max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md",
+            attrs: {
+              type: "text",
+              name: "first-name",
+              id: "first-name",
+              autocomplete: "given-name"
+            }
+          })
+        ])
       ]
     )
   },
@@ -65108,35 +65192,6 @@ var staticRenderFns = [
           [
             _vm._v(
               "\n                                            603021\n                                        "
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "p",
-      {
-        staticClass:
-          "font-extrabold w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
-      },
-      [
-        _vm._v(
-          "\n                                        ACCOUNT NUMBER :\n                                        "
-        ),
-        _c(
-          "span",
-          {
-            staticClass:
-              "text-green-600 font-heading-font font-extrabold tracking-widest text-xl ml-2"
-          },
-          [
-            _vm._v(
-              "\n                                            13432\n                                        "
             )
           ]
         )

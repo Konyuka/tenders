@@ -541,7 +541,8 @@ export default {
         invoice(value) {
             const payload = {
                 post: value,
-                user: this.form
+                user: this.form,
+                amount: this.amount
             };
             this.$inertia.post("/invoice/", payload);
         },

@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Post;
+use App\Models\Invoice;
 use Safaricom\Mpesa\Mpesa;
 use App\Models\Payments;
 use App\Meta;
+use Carbon\Carbon;
 include('pdflayerController.php');
 
 
@@ -125,14 +127,43 @@ class LandingController extends Controller
 
     public function invoice(Request $request)
     {
-        // return dd($request->post);
         $post = $request->post;
+        $post_id = $post['_id'];
+
         $user = $request->user;
+        $user_phone = $user['userPhone'];
+        $user_email = $user['userEmail'];
+        $user_name = $user['userName'];
+
+        $amount = $request->amount;
+
+        $invoice = new Invoice();
+        $lastInvoiceID = $invoice->orderBy('invoice_number', 'DESC')->pluck('invoice_number')->first();
+        $newInvoiceID = $lastInvoiceID + 1;
+        $current_date_time = Carbon::now()->timestamp;
+        $invoiceRecord = Invoice::where('unique_timestamp', '=', $current_date_time)->where('invoice_number', '=', $newInvoiceID)->first();
+
+        if($invoiceRecord != null){
+            return dd('found');
+        }else{
+            $createdInvoice =  Invoice::create([
+              "invoice_number"=>$newInvoiceID,
+              "unique_timestamp"=>$current_date_time,
+              "amount"=>$amount,
+              "post_id"=>$post_id,
+              "user_phone"=>$user_phone,
+              "user_email"=>$user_email,
+              "user_name"=>$user_name,
+              "payment_status"=>false,
+            ]);
+        };
+
+
         return Inertia::render('Invoice', [
             // 'post' => $request->post,
             'post' => $post,
-            'user' => $user
-            // 'user' => $request->user
+            'user' => $user,
+            'invoiceDetails' => json_decode($createdInvoice)
         ]);
     }
 
