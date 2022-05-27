@@ -544,7 +544,7 @@ export default {
                 user: this.form,
                 amount: this.amount
             };
-            this.$inertia.post("/invoice/", payload);
+            this.$inertia.post(`/invoice/${this.post._id}`, payload);
         },
         formatMoney(n) {
             return "" + (Math.round(n * 100) / 100).toLocaleString();

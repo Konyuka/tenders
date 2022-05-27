@@ -31,7 +31,7 @@ class DashboardController extends Controller
     public function refresh(Request $request)
     {
 
-        set_time_limit(3000);
+        set_time_limit(18000);
         $posts = $request->tenders;
         foreach ($posts as $post => $value ) {
 

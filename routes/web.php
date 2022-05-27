@@ -28,7 +28,7 @@ Route::get('/unlock/{slugs}', [LandingController::class, 'unlock'])
 Route::get('/download_tender/{slugs}', [LandingController::class, 'downloadTender'])
     ->name('download_tender');
 
-Route::post('/invoice/', [LandingController::class, 'invoice'])
+Route::post('/invoice/{slugs}', [LandingController::class, 'invoice'])
     ->name('invoice');
 
 
@@ -38,19 +38,19 @@ Route::post('/invoice/', [LandingController::class, 'invoice'])
 // Route::get('/stkpush', [PaymentsController::class, 'triggerStk'])
 //     ->name('stkpush');
 
-Route::post('/checkout/get-token', [LandingController::class, 'getAccessToken'])
+Route::post('/invoice/get-token', [LandingController::class, 'getAccessToken'])
     ->name('get-token');
 
-Route::post('/checkout/register-urls', [LandingController::class, 'registerURLS'])
+Route::post('/invoice/register-urls', [LandingController::class, 'registerURLS'])
     ->name('register-urls');
 
-Route::post('/checkout/simulate', [LandingController::class, 'simulateTransaction'])
+Route::post('/invoice/simulate', [LandingController::class, 'simulateTransaction'])
     ->name('simulate');
 
 // Route::post('/checkout/stkPush', [LandingController::class, 'stkPush'])
 //     ->name('stk');
 
-Route::post('/checkout/stkPush', [PaymentsController::class, 'triggerStk'])
+Route::post('/invoice/{slugs}/stkPush', [PaymentsController::class, 'triggerStk'])
     ->name('stk');
 
 Route::post('/confirm/ebook/payment', [PaymentsController::class, 'confirm'])

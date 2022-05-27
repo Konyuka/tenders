@@ -1,6 +1,6 @@
 <template>
-    <body
-        class="h-screen verflow-y-hidden bg-gradient-to-r from-indigo-400 to-indigo-800"
+    <div
+        class="relative h-screen verflow-y-hidden bg-gradient-to-r from-indigo-400 to-indigo-800"
     >
         <MainMenu class="sticky top-0" />
 
@@ -146,19 +146,7 @@
                                     KES {{ amount }}
                                 </p>
                             </div>
-                            <div
-                                class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5"
-                            >
-                                <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                    <input
-                                        type="text"
-                                        name="first-name"
-                                        id="first-name"
-                                        autocomplete="given-name"
-                                        class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
-                                    />
-                                </div>
-                            </div>
+
                             <div
                                 class="w-full flex justify-center items-center"
                             >
@@ -320,7 +308,7 @@
                             >
                                 <i class="fas fa-user"></i>
                                 <p class="cursor-pointer text-sm leading-5 ">
-                                    Michael Saiba
+                                    {{ this.user.userName }}
                                 </p>
                             </div>
 
@@ -329,7 +317,7 @@
                             >
                                 <i class="fas fa-envelope"></i>
                                 <p class="cursor-pointer text-sm leading-5 ">
-                                    david89@gmail.com
+                                    {{ this.user.userEmail }}
                                 </p>
                             </div>
 
@@ -338,7 +326,7 @@
                             >
                                 <i class="fas fa-phone"></i>
                                 <p class="cursor-pointer text-sm leading-5 ">
-                                    254716202298
+                                    {{ this.user.userPhone }}
                                 </p>
                             </div>
                         </div>
@@ -365,6 +353,78 @@
                                 >
                                     Cancel Invoice Payment
                                 </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            v-if="expressModal"
+            class="relative z-10"
+            aria-labelledby="modal-title"
+            role="dialog"
+            aria-modal="true"
+        >
+            <div
+                class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+            ></div>
+
+            <div class="fixed z-10 inset-0 overflow-y-auto">
+                <div
+                    class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0"
+                >
+                    <div
+                        class="relative bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-sm sm:w-full sm:p-6"
+                    >
+                        <div>
+                            <div
+                                class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-800"
+                            >
+                                <!-- Heroicon name: outline/check -->
+                                <i class="fas fa-coins text-white"></i>
+                            </div>
+                            <div class="mt-3 text-center sm:mt-5">
+                                <div class="mt-2">
+                                    <label
+                                        for="email2"
+                                        class="text-gray-800 text-sm font-bold leading-tight tracking-normal text-center"
+                                        >M-Pesa Payment Number</label
+                                    >
+                                    <div class="relative mb-5 mt-2">
+                                        <div
+                                            class="absolute text-gray-600 flex items-center px-4 border-r h-full"
+                                        >
+                                            <i
+                                                class="fas fa-phone fa-xl text-indigo-600"
+                                            ></i>
+                                        </div>
+                                        <input
+                                            v-model="form.number"
+                                            id="mobile"
+                                            type="number"
+                                            class="text-gray-600 focus:outline-none focus:border focus:border-gray-700 font-normal w-full h-10 flex items-center pl-16 text-sm border-gray-300 rounded border"
+                                            placeholder="254 7XX XXX XXX"
+                                        />
+                                    </div>
+
+                                    <div
+                                        class="flex items-center justify-around w-full"
+                                    >
+                                        <button
+                                            @click="stkPush"
+                                            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-green-700 bg-indigo-700 rounded text-white px-4 py-2 text-xs"
+                                        >
+                                            Make Payment
+                                        </button>
+                                        <button
+                                            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-red-600 bg-red-400 rounded text-white px-4 py-2 text-xs"
+                                        >
+                                            Cancel Transaction
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -483,7 +543,7 @@
         </div>
 
         <!-- expressModal     -->
-    </body>
+    </div>
 </template>
 
 <script>
@@ -504,7 +564,7 @@ export default {
         status: String,
         membership: String,
         invoiceDetails: Object,
-        invoiceStatus: Boolean
+        invoiceStatus: [Boolean, String]
     },
     components: {
         MainMenu
@@ -608,9 +668,9 @@ export default {
             paymentLog: "",
             form: {
                 userName: "Software Saiba",
-                userPhone: "254722750445",
+                userPhone: "254716202298",
                 userEmail: "saibadeveloper@gmail.com",
-                number: this.removeSpaces(""),
+                number: this.removeSpaces("254716202298"),
                 account: "Bidders Portal",
                 amount: this.amount
                 // amount: this.post.price
@@ -621,7 +681,7 @@ export default {
             paymentModal: false
         };
     },
-    method: {
+    methods: {
         formatMoney(n) {
             return "" + (Math.round(n * 100) / 100).toLocaleString();
         },
@@ -637,7 +697,10 @@ export default {
         confirm() {
             const paymentDetails = {
                 payment_number: this.form.number,
-                post_id: this.post._id
+                post_id: this.post._id,
+                invoicePaid: this.invoiceDetails.payment_status,
+                invoiceDetails: this.invoiceDetails,
+                user: this.user
             };
             this.$inertia.post("/confirmation", paymentDetails);
         },
@@ -649,21 +712,24 @@ export default {
         },
         stkPush() {
             // var str = '012123';
+            this.expressModal = false;
             var strFirstThree = this.form.number.substring(0, 3);
             if (strFirstThree == 254 && this.form.number.length == 12) {
                 this.paymentModal = true;
                 const requestBody = {
                     amount: "1",
-                    account: this.form.account,
-                    phone: this.removeSpaces(this.form.number),
-                    post: this.post._id,
+                    account: this.invoiceNumber,
+                    phone: parseInt(this.removeSpaces(this.form.number)),
+                    // post: this.post._id,
+                    post: this.post,
+                    user: this.user,
                     user_name: this.form.userName,
                     user_phone: this.form.userPhone,
                     user_email: this.form.userEmail
                 };
                 //    console.log(requestBody)
                 axios
-                    .post("/checkout/stkPush", requestBody)
+                    .post(`/invoice/${this.post._id}/stkPush/`, requestBody)
                     .then(response => {
                         console.log(response);
                     })

@@ -42,6 +42,15 @@ class PaymentsController extends Controller
     public function setTransactionDetails(Request $request)
     {
         $payment_number = $request->payment_number;
+        $invoicePaid = $request->invoicePaid;
+        $invoiceDetails = $request->invoiceDetails;
+        $user = $request->user;
+        if($invoicePaid==1){
+            $paidStatus = true;
+        }else {
+            $paidStatus = false;
+        }
+
         $post_id = $request->post_id;
         $transaction = Payments::where('info', '=', $post_id )
                         ->where('phone', '=', $payment_number)
@@ -67,16 +76,22 @@ class PaymentsController extends Controller
             ]);
             // return dd('Paid');
         }else if($transactionWaiting){
-            return Inertia::render('Checkout', [
+            return Inertia::render('Invoice', [
                 'post' => Post::where('_id', '=', $post_id)->first(),
+                'user' => $user,
                 'transId' => $transactionWaiting->trans_id,
-                'status' => 'Waiting'
+                'status' => 'Waiting',
+                'invoiceStatus' => $paidStatus,
+                'invoiceDetails' => $invoiceDetails,
             ]);
         }else if($transactionFail){
-            return Inertia::render('Checkout', [
+            return Inertia::render('Invoice', [
                 'post' => Post::where('_id', '=', $post_id)->first(),
+                'user' => $user,
                 'transId' => $transactionFail->trans_id,
-                'status' => 'Cancelled'
+                'status' => 'Cancelled',
+                'invoiceStatus' => $invoicePaid,
+                'invoiceDetails' => $invoiceDetails,
             ]);
         }
         // return Inertia::render('Checkout', [
@@ -126,8 +141,9 @@ class PaymentsController extends Controller
     {
         //stk push here
         // return  dd($request);
+        // return dd( json_decode($request) );
 
-        $request->validate(['phone'=>'required'],['amount'=>'required'],['user_name'=>'required'],['account'=>'required'],['user_phone'=>'required'],['user_email'=>'required'],['post'=>'required']);
+        $request->validate(['phone'=>'required'],['amount'=>'required'],['user_name'=>'required'],['account'=>'required'],['user_phone'=>'required'],['user_email'=>'required'],['post'=>'required'],['user'=>'required']);
 
         $phone=$request->phone;
         $amount=$request->amount;
@@ -136,6 +152,8 @@ class PaymentsController extends Controller
         $userPhone=$request->user_phone;
         $userEmail=$request->user_email;
         $post=$request->post;
+        $post_id=$request->post['_id'];
+        $user=$request->user;
 
         $mpesa = new Mpesa();
         $BusinessShortCode=env('MPESA_STK_SHORTCODE');
@@ -155,7 +173,6 @@ class PaymentsController extends Controller
         $stkPushSimulation=$mpesa->STKPushSimulation($BusinessShortCode, $LipaNaMpesaPasskey, $TransactionType, $Amount, $PartyA, $PartyB, $PhoneNumber, $CallBackURL, $AccountReference, $TransactionDesc, $Remarks);
         $stkPushSimulation=json_decode($stkPushSimulation);
         $result_code =$stkPushSimulation->ResponseCode ?? null;
-
         if (isset($result_code) and $result_code=="0"){
             $trans_id =$stkPushSimulation->MerchantRequestID;
 
@@ -165,7 +182,7 @@ class PaymentsController extends Controller
               "amount"=>$Amount,
               "phone"=>$PhoneNumber,
               "account"=>$account,
-              "info"=>$post,
+              "info"=>$post_id,
               "user_phone"=>$userPhone,
               "user_email"=>$userEmail,
               "completed"=>false,
@@ -174,7 +191,18 @@ class PaymentsController extends Controller
         }
 
         $error_msg = $stkPushSimulation->errorMessage ?? '';
+        // return dd('done');
+        return Inertia::render('Invoice', [
+            // 'post' => $request->post,
+            'post' => $post,
+            'user' => $user,
+            // 'invoiceStatus' => $invoicePaid,
+            // 'invoiceDetails' => json_decode($createdInvoice),
+
+        ]);
         return back()->withInput()->with('failed','We could not complete this transaction please try again. ' .$error_msg);
+
+        // return Redirect::route('clients.show, $id')->with( ['data' => $data] );
 
     }
 

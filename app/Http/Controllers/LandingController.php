@@ -127,6 +127,7 @@ class LandingController extends Controller
 
     public function invoice(Request $request)
     {
+        // return dd( json_decode($request) );
         $post = $request->post;
         $post_id = $post['_id'];
 

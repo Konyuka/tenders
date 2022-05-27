@@ -4661,7 +4661,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
         user: this.form,
         amount: this.amount
       };
-      this.$inertia.post("/invoice/", payload);
+      this.$inertia.post("/invoice/".concat(this.post._id), payload);
     },
     formatMoney: function formatMoney(n) {
       return "" + (Math.round(n * 100) / 100).toLocaleString();
@@ -9068,6 +9068,66 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
@@ -9086,7 +9146,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     status: String,
     membership: String,
     invoiceDetails: Object,
-    invoiceStatus: Boolean
+    invoiceStatus: [Boolean, String]
   },
   components: {
     MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -9191,9 +9251,9 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       paymentLog: "",
       form: {
         userName: "Software Saiba",
-        userPhone: "254722750445",
+        userPhone: "254716202298",
         userEmail: "saibadeveloper@gmail.com",
-        number: this.removeSpaces(""),
+        number: this.removeSpaces("254716202298"),
         account: "Bidders Portal",
         amount: this.amount // amount: this.post.price
         // amount: ''
@@ -9204,7 +9264,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       paymentModal: false
     };
   },
-  method: {
+  methods: {
     formatMoney: function formatMoney(n) {
       return "" + (Math.round(n * 100) / 100).toLocaleString();
     },
@@ -9219,7 +9279,10 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     confirm: function confirm() {
       var paymentDetails = {
         payment_number: this.form.number,
-        post_id: this.post._id
+        post_id: this.post._id,
+        invoicePaid: this.invoiceDetails.payment_status,
+        invoiceDetails: this.invoiceDetails,
+        user: this.user
       };
       this.$inertia.post("/confirmation", paymentDetails);
     },
@@ -9231,21 +9294,24 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     },
     stkPush: function stkPush() {
       // var str = '012123';
+      this.expressModal = false;
       var strFirstThree = this.form.number.substring(0, 3);
 
       if (strFirstThree == 254 && this.form.number.length == 12) {
         this.paymentModal = true;
         var requestBody = {
           amount: "1",
-          account: this.form.account,
-          phone: this.removeSpaces(this.form.number),
-          post: this.post._id,
+          account: this.invoiceNumber,
+          phone: parseInt(this.removeSpaces(this.form.number)),
+          // post: this.post._id,
+          post: this.post,
+          user: this.user,
           user_name: this.form.userName,
           user_phone: this.form.userPhone,
           user_email: this.form.userEmail
         }; //    console.log(requestBody)
 
-        axios.post("/checkout/stkPush", requestBody).then(function (response) {
+        axios.post("/invoice/".concat(this.post._id, "/stkPush/"), requestBody).then(function (response) {
           console.log(response);
         })["catch"](function (error) {
           console.log(error);
@@ -64514,10 +64580,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "body",
+    "div",
     {
       staticClass:
-        "h-screen verflow-y-hidden bg-gradient-to-r from-indigo-400 to-indigo-800"
+        "relative h-screen verflow-y-hidden bg-gradient-to-r from-indigo-400 to-indigo-800"
     },
     [
       _c("MainMenu", { staticClass: "sticky top-0" }),
@@ -64784,8 +64850,6 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(4),
-                          _vm._v(" "),
                           _c(
                             "div",
                             {
@@ -64855,7 +64919,7 @@ var render = function() {
                                     })
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(5)
+                                  _vm._m(4)
                                 ]
                               ),
                               _vm._v(" "),
@@ -64876,7 +64940,7 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(6)
+                          _vm._m(5)
                         ]
                       ),
                       _vm._v(" "),
@@ -64931,7 +64995,7 @@ var render = function() {
                                         "font-primary-font flex flex-col justify-start items-center"
                                     },
                                     [
-                                      _vm._m(7),
+                                      _vm._m(6),
                                       _vm._v(" "),
                                       _c(
                                         "p",
@@ -64993,7 +65057,7 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(8)
+                          _vm._m(7)
                         ]
                       )
                     ]
@@ -65001,11 +65065,266 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(9)
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "bg-gray-50 dark:bg-gray-800 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col"
+                },
+                [
+                  _c(
+                    "h3",
+                    {
+                      staticClass:
+                        "text-xl dark:text-white font-semibold leading-5 text-gray-800"
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Customer Details\n                "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "flex flex-col md:flex-row xl:flex-col justify-start items-stretch h-full w-full md:space-x-6 lg:space-x-8 xl:space-x-0"
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "flex flex-col justify-start items-start flex-shrink-0"
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full"
+                            },
+                            [
+                              _c("i", { staticClass: "fas fa-user" }),
+                              _vm._v(" "),
+                              _c(
+                                "p",
+                                {
+                                  staticClass:
+                                    "cursor-pointer text-sm leading-5 "
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                " +
+                                      _vm._s(this.user.userName) +
+                                      "\n                            "
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full"
+                            },
+                            [
+                              _c("i", { staticClass: "fas fa-envelope" }),
+                              _vm._v(" "),
+                              _c(
+                                "p",
+                                {
+                                  staticClass:
+                                    "cursor-pointer text-sm leading-5 "
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                " +
+                                      _vm._s(this.user.userEmail) +
+                                      "\n                            "
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full"
+                            },
+                            [
+                              _c("i", { staticClass: "fas fa-phone" }),
+                              _vm._v(" "),
+                              _c(
+                                "p",
+                                {
+                                  staticClass:
+                                    "cursor-pointer text-sm leading-5 "
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                " +
+                                      _vm._s(this.user.userPhone) +
+                                      "\n                            "
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(8)
+                    ]
+                  )
+                ]
+              )
             ]
           )
         ]
       ),
+      _vm._v(" "),
+      _vm.expressModal
+        ? _c(
+            "div",
+            {
+              staticClass: "relative z-10",
+              attrs: {
+                "aria-labelledby": "modal-title",
+                role: "dialog",
+                "aria-modal": "true"
+              }
+            },
+            [
+              _c("div", {
+                staticClass:
+                  "fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "fixed z-10 inset-0 overflow-y-auto" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0"
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "relative bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-sm sm:w-full sm:p-6"
+                      },
+                      [
+                        _c("div", [
+                          _vm._m(9),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "mt-3 text-center sm:mt-5" },
+                            [
+                              _c("div", { staticClass: "mt-2" }, [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass:
+                                      "text-gray-800 text-sm font-bold leading-tight tracking-normal text-center",
+                                    attrs: { for: "email2" }
+                                  },
+                                  [_vm._v("M-Pesa Payment Number")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "relative mb-5 mt-2" },
+                                  [
+                                    _vm._m(10),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.form.number,
+                                          expression: "form.number"
+                                        }
+                                      ],
+                                      staticClass:
+                                        "text-gray-600 focus:outline-none focus:border focus:border-gray-700 font-normal w-full h-10 flex items-center pl-16 text-sm border-gray-300 rounded border",
+                                      attrs: {
+                                        id: "mobile",
+                                        type: "number",
+                                        placeholder: "254 7XX XXX XXX"
+                                      },
+                                      domProps: { value: _vm.form.number },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.form,
+                                            "number",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "flex items-center justify-around w-full"
+                                  },
+                                  [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-green-700 bg-indigo-700 rounded text-white px-4 py-2 text-xs",
+                                        on: { click: _vm.stkPush }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                        Make Payment\n                                    "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-red-600 bg-red-400 rounded text-white px-4 py-2 text-xs"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                        Cancel Transaction\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ])
+            ]
+          )
+        : _vm._e(),
       _vm._v(" "),
       _vm.paymentModal
         ? _c(
@@ -65078,7 +65397,7 @@ var render = function() {
                           : _vm._e()
                       ]),
                       _vm._v(" "),
-                      _vm._m(10),
+                      _vm._m(11),
                       _vm._v(" "),
                       _vm.status == "Cancelled"
                         ? _c("div", { staticClass: "p-4 pt-0 text-center" }, [
@@ -65240,32 +65559,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      {
-        staticClass:
-          "sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5"
-      },
-      [
-        _c("div", { staticClass: "mt-1 sm:mt-0 sm:col-span-2" }, [
-          _c("input", {
-            staticClass:
-              "max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md",
-            attrs: {
-              type: "text",
-              name: "first-name",
-              id: "first-name",
-              autocomplete: "given-name"
-            }
-          })
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
       { staticClass: "flex flex-col justify-start items-center" },
       [
         _c(
@@ -65376,144 +65669,71 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "bg-gray-50 dark:bg-gray-800 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col"
+          "flex justify-between xl:h-full items-stretch w-full flex-col mt-6 md:mt-0"
       },
       [
         _c(
-          "h3",
+          "div",
           {
             staticClass:
-              "text-xl dark:text-white font-semibold leading-5 text-gray-800"
+              "flex justify-center md:justify-start xl:flex-col flex-col md:space-x-6 lg:space-x-8 xl:space-x-0 space-y-4 xl:space-y-12 md:space-y-0 md:flex-row items-center md:items-start"
           },
-          [_vm._v("\n                    Customer Details\n                ")]
+          [
+            _c("div", {
+              staticClass:
+                "flex justify-center md:justify-start items-center md:items-start flex-col space-y-4 xl:mt-8"
+            })
+          ]
         ),
         _vm._v(" "),
         _c(
           "div",
           {
             staticClass:
-              "flex flex-col md:flex-row xl:flex-col justify-start items-stretch h-full w-full md:space-x-6 lg:space-x-8 xl:space-x-0"
+              "flex w-full justify-center items-center md:justify-start md:items-start"
           },
           [
             _c(
-              "div",
+              "button",
               {
                 staticClass:
-                  "flex flex-col justify-start items-start flex-shrink-0"
+                  "mt-6 hover:bg-red-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-red-600 text-base font-bold leading-4 text-white"
               },
               [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full"
-                  },
-                  [
-                    _c("i", { staticClass: "fas fa-user" }),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      { staticClass: "cursor-pointer text-sm leading-5 " },
-                      [
-                        _vm._v(
-                          "\n                                Michael Saiba\n                            "
-                        )
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full"
-                  },
-                  [
-                    _c("i", { staticClass: "fas fa-envelope" }),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      { staticClass: "cursor-pointer text-sm leading-5 " },
-                      [
-                        _vm._v(
-                          "\n                                david89@gmail.com\n                            "
-                        )
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full"
-                  },
-                  [
-                    _c("i", { staticClass: "fas fa-phone" }),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      { staticClass: "cursor-pointer text-sm leading-5 " },
-                      [
-                        _vm._v(
-                          "\n                                254716202298\n                            "
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "flex justify-between xl:h-full items-stretch w-full flex-col mt-6 md:mt-0"
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex justify-center md:justify-start xl:flex-col flex-col md:space-x-6 lg:space-x-8 xl:space-x-0 space-y-4 xl:space-y-12 md:space-y-0 md:flex-row items-center md:items-start"
-                  },
-                  [
-                    _c("div", {
-                      staticClass:
-                        "flex justify-center md:justify-start items-center md:items-start flex-col space-y-4 xl:mt-8"
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex w-full justify-center items-center md:justify-start md:items-start"
-                  },
-                  [
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "mt-6 hover:bg-red-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-red-600 text-base font-bold leading-4 text-white"
-                      },
-                      [
-                        _vm._v(
-                          "\n                                Cancel Invoice Payment\n                            "
-                        )
-                      ]
-                    )
-                  ]
+                _vm._v(
+                  "\n                                Cancel Invoice Payment\n                            "
                 )
               ]
             )
           ]
         )
       ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-800"
+      },
+      [_c("i", { staticClass: "fas fa-coins text-white" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "absolute text-gray-600 flex items-center px-4 border-r h-full"
+      },
+      [_c("i", { staticClass: "fas fa-phone fa-xl text-indigo-600" })]
     )
   },
   function() {
