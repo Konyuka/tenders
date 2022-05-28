@@ -202,8 +202,8 @@
             </div>
         </div>
 
-        <section class="pt-20 pb-24 2xl:py-40 bg-white mx-10 rounded-3xl">
-            <div class="container mx-auto px-4">
+        <section class="pt-20 pb-24 2xl:py-40 bg-white rounded-3xl">
+            <div class="mx-auto px-1">
                 <div class="mb-16 md:mb-24 text-center">
                     <h1
                         class="mb-2 text-5xl lg:text-6xl 2xl:text-7xl text-gray-700 font-bold font-heading font-heading-font"
@@ -214,10 +214,10 @@
                         Join a community, have the same interest.
                     </p>
                 </div>
-                <div class="max-w-6xl mx-auto">
+                <div class="max-w-full mx-auto">
                     <div class="flex flex-wrap items-center -mx-3">
-                        <div class="w-full lg:w-1/3 px-3 mb-8 lg:mb-0">
-                            <div class="px-12 py-16 bg-indigo-600 rounded-3xl">
+                        <div class="w-full lg:w-1/5 px-3 mb-8 lg:mb-0">
+                            <div class="px-2 py-16 bg-indigo-400 rounded-3xl">
                                 <div
                                     class="pb-8 mb-14 border-b border-gray-400"
                                 >
@@ -225,7 +225,7 @@
                                         class="flex justify-between items-center px-3"
                                     >
                                         <h3
-                                            class="text-4xl text-white font-bold font-heading"
+                                            class="text-3xl text-white font-bold font-heading"
                                         >
                                             Bronze
                                         </h3>
@@ -252,10 +252,215 @@
                                                 ></path>
                                             </svg>
                                         </span>
+                                        <span>Access all Tenders</span>
+                                    </li>
+                                    <li class="flex items-center mb-8">
+                                        <span class="mr-6">
+                                            <svg
+                                                width="20"
+                                                height="16"
+                                                viewbox="0 0 20 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z"
+                                                    fill="white"
+                                                ></path>
+                                            </svg>
+                                        </span>
                                         <span
-                                            >Access all Tenders in One
-                                            Category</span
+                                            >Exclusive Tender Details
+                                            Access</span
                                         >
+                                    </li>
+                                    <li class="flex items-center mb-8">
+                                        <span class="mr-6">
+                                            <svg
+                                                width="20"
+                                                height="16"
+                                                viewbox="0 0 20 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z"
+                                                    fill="white"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                        <span>Email Notifications Updates</span>
+                                    </li>
+                                    <li class="flex items-center mb-8">
+                                        <span class="mr-6">
+                                            <svg
+                                                width="20"
+                                                height="16"
+                                                viewbox="0 0 20 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z"
+                                                    fill="white"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                        <span>Billed Daily</span>
+                                    </li>
+                                </ul>
+                                <div class="text-center">
+                                    <a
+                                        class="transform transition hover:scale-125 duration-700 hover:bg-white hover:text-black inline-block px-10 py-4 border border-gray-200 hover:border-gray-100 rounded-full font-bold text-white"
+                                        href="#"
+                                        @click="membership('bronze')"
+                                        >Subscribe to Plan</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full lg:w-1/5 px-3 mb-8 lg:mb-0">
+                            <div class="px-2 py-16 bg-indigo-500 rounded-3xl">
+                                <div
+                                    class="pb-8 mb-14 border-b border-gray-400"
+                                >
+                                    <div
+                                        class="flex justify-between items-center px-3"
+                                    >
+                                        <h3
+                                            class="text-3xl text-white font-bold font-heading"
+                                        >
+                                            Silver
+                                        </h3>
+                                        <p class="text-lg text-white font-bold">
+                                            KES 9,000
+                                        </p>
+                                    </div>
+                                </div>
+                                <ul
+                                    class="text-sm text-white mb-16 font-primary-font"
+                                >
+                                    <li class="flex items-center mb-8">
+                                        <span class="mr-6">
+                                            <svg
+                                                width="20"
+                                                height="16"
+                                                viewbox="0 0 20 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z"
+                                                    fill="white"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                        <span>Access all Tenders</span>
+                                    </li>
+                                    <li class="flex items-center mb-8">
+                                        <span class="mr-6">
+                                            <svg
+                                                width="20"
+                                                height="16"
+                                                viewbox="0 0 20 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z"
+                                                    fill="white"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                        <span
+                                            >Exclusive Tender Details
+                                            Access</span
+                                        >
+                                    </li>
+                                    <li class="flex items-center mb-8">
+                                        <span class="mr-6">
+                                            <svg
+                                                width="20"
+                                                height="16"
+                                                viewbox="0 0 20 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z"
+                                                    fill="white"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                        <span>Email Notifications Updates</span>
+                                    </li>
+                                    <li class="flex items-center mb-8">
+                                        <span class="mr-6">
+                                            <svg
+                                                width="20"
+                                                height="16"
+                                                viewbox="0 0 20 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z"
+                                                    fill="white"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                        <span>Billed Weekly</span>
+                                    </li>
+                                </ul>
+                                <div class="text-center">
+                                    <a
+                                        class="transform transition hover:scale-125 duration-700 hover:bg-white hover:text-black inline-block px-10 py-4 border border-gray-200 hover:border-gray-100 rounded-full font-bold text-white"
+                                        href="#"
+                                        @click="membership('bronze')"
+                                        >Subscribe to Plan</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full lg:w-1/5 px-3 mb-8 lg:mb-0">
+                            <div class="px-2 py-16 bg-indigo-600 rounded-3xl">
+                                <div
+                                    class="pb-8 mb-14 border-b border-gray-400"
+                                >
+                                    <div
+                                        class="flex justify-between items-center px-3"
+                                    >
+                                        <h3
+                                            class="text-3xl text-white font-bold font-heading"
+                                        >
+                                            Gold
+                                        </h3>
+                                        <p class="text-lg text-white font-bold">
+                                            KES 6,000
+                                        </p>
+                                    </div>
+                                </div>
+                                <ul
+                                    class="text-sm text-white mb-16 font-primary-font"
+                                >
+                                    <li class="flex items-center mb-8">
+                                        <span class="mr-6">
+                                            <svg
+                                                width="20"
+                                                height="16"
+                                                viewbox="0 0 20 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z"
+                                                    fill="white"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                        <span>Access all Tenders</span>
                                     </li>
                                     <li class="flex items-center mb-8">
                                         <span class="mr-6">
@@ -323,8 +528,8 @@
                             </div>
                         </div>
 
-                        <div class="w-full lg:w-1/3 px-3">
-                            <div class="px-12 py-16 bg-purple-700 rounded-3xl">
+                        <div class="w-full lg:w-1/5 px-3">
+                            <div class="px-2 py-16 bg-indigo-700 rounded-3xl">
                                 <div
                                     class="pb-8 mb-14 border-b border-gray-400"
                                 >
@@ -332,12 +537,12 @@
                                         class="flex justify-between items-center px-3"
                                     >
                                         <h3
-                                            class="text-4xl text-white font-bold font-heading"
+                                            class="text-3xl text-white font-bold font-heading"
                                         >
-                                            Silver
+                                            Platinum
                                         </h3>
                                         <p class="text-lg text-white font-bold">
-                                            KES 10,000
+                                            KES 30,000
                                         </p>
                                     </div>
                                 </div>
@@ -359,10 +564,7 @@
                                                 ></path>
                                             </svg>
                                         </span>
-                                        <span
-                                            >Access all Tenders in One
-                                            Category</span
-                                        >
+                                        <span>Access all Tenders</span>
                                     </li>
                                     <li class="flex items-center mb-8">
                                         <span class="mr-6">
@@ -416,7 +618,7 @@
                                                 ></path>
                                             </svg>
                                         </span>
-                                        <span>Billed Annually</span>
+                                        <span>Billed Every 6 Months</span>
                                     </li>
                                 </ul>
                                 <div class="text-center">
@@ -430,8 +632,8 @@
                             </div>
                         </div>
 
-                        <div class="w-full lg:w-1/3 px-3 mb-8 lg:mb-0">
-                            <div class="px-12 py-16 bg-yellow-400 rounded-3xl">
+                        <div class="w-full lg:w-1/5 px-3 mb-8 lg:mb-0">
+                            <div class="px-2 py-16 bg-indigo-800 rounded-3xl">
                                 <div
                                     class="pb-8 mb-14 border-b border-blueGray-300"
                                 >
@@ -439,9 +641,9 @@
                                         class="flex justify-between items-center px-3"
                                     >
                                         <h3
-                                            class="text-4xl text-white font-bold font-heading"
+                                            class="text-3xl text-white font-bold font-heading"
                                         >
-                                            Gold
+                                            Diamond
                                         </h3>
                                         <p class="text-lg text-white font-bold">
                                             KES 50,000
@@ -466,10 +668,7 @@
                                                 ></path>
                                             </svg>
                                         </span>
-                                        <span
-                                            >Access all Tenders in All
-                                            Categories</span
-                                        >
+                                        <span>Access all Tenders</span>
                                     </li>
                                     <li class="flex items-center mb-8">
                                         <span class="mr-6">

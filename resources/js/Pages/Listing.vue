@@ -5,128 +5,497 @@
             <MainMenu />
 
             <div class="text-gray-600 body-font">
-                <header class="sticky top-2 z-50">
+                <!-- <header class="sticky top-2 z-50">
                     <button
                         @click="modal = true"
                         class="flex mx-auto mt-10 text-white bg-indigo-600 font-heading-font font-extrabold border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
                     >
                         Tenders Search Filters
                     </button>
-                </header>
+                </header> -->
 
-                <main class="container px-5 py-10 mx-auto">
+                <main class="px-5 py-20 mx-auto">
                     <div class="flex flex-col text-center w-full mb-6">
                         <h2
-                            class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1"
+                            class="text-xl text-indigo-500 tracking-widest font-medium title-font m-5"
                         >
                             BIDDERS PORTAL
                         </h2>
                         <!-- <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">All Tenders Listing</h1> -->
                     </div>
-                    <div class="flex flex-wrap">
-                        <a
-                            v-for="post in orderBy(this.Posts, 'expiry', -1)"
-                            :key="post._id"
-                            :href="route('selected', post._id)"
-                            class="group bg-white border-t-2 border-r-2 mt-4 my-4 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-12 md:w-1/3 flex flex-col min-h-2xl  items-start"
-                        >
-                            <!-- <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">{{ post.funded_by }}</span> -->
-                            <div class="flex justify-between w-full">
-                                <div class="font-heading-font font-extrabold">
-                                    Posted:
-                                    <span
-                                        class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"
-                                    >
-                                        {{ ago(post.created_at) }}</span
-                                    >
-                                </div>
-                                <div
-                                    class="font-heading-font font-extrabold"
-                                    v-if="expired(post)"
-                                >
-                                    Expires:
-                                    <span
-                                        class="inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest"
-                                    >
-                                        Expired
-                                    </span>
-                                </div>
-                                <div
-                                    v-else
-                                    class="font-heading-font font-extrabold"
-                                >
-                                    Expires in:
-                                    <span
-                                        class="inline-block py-1 px-2 rounded bg-green-100 text-green-500 text-xs font-bold tracking-widest"
-                                    >
-                                        {{ togoFormat(post.expiry) }}</span
-                                    >
-                                </div>
-                                <!-- <div
-                                    v-if="dateChangeFormat(post.expiry)"
-                                    class="font-heading-font font-extrabold"
-                                >
-                                    Expires:
-                                    <span
-                                        class="inline-block py-1 px-2 rounded bg-indigo-50 text-red-500 text-xs font-bold tracking-widest"
-                                    >
-                                        {{ togo(post.expiry) }}</span
-                                    >
-                                </div> -->
-                            </div>
-                            <p
-                                class="my-5 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
-                            >
-                                {{ post.tender_brief }}
-                            </p>
 
-                            <div
-                                class="flex items-center flex-wrap mt-10 border-b-2 border-gray-100 w-full"
-                            >
-                                <!-- <span>
-                                <h4 class="sm:text-xl text-md title-font  font-medium text-gray-400 mt-4 mb-4">Category: <span><a href="#">{{ post.category }}</a></span></h4>
-                            </span> -->
-                                <span
-                                    class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-                                >
-                                    <i
-                                        class="w-4 h-4 mr-1 fas fa-filter text-indigo-600"
-                                    ></i>
-                                    Construction
-                                    <!-- {{ post.category }} -->
-                                </span>
-                                <span
-                                    class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-                                >
-                                    <i
-                                        class="w-4 h-4 mr-1 fas fa-location-crosshairs text-indigo-600"
-                                    ></i>
-                                    {{ post.country }}
-                                </span>
-                                <!-- <span class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1">
-                                <i class="w-4 h-4 mr-1 fas fa-coins text-indigo-600"></i>{{ post.funded_by }}
-                            </span> -->
-                            </div>
-
-                            <div class="mt-10">
+                    <div class="flex flex-row my-5 mx-20">
+                        <div class="basis-4/5 mr-5">
+                            <div class="columns-1">
                                 <a
-                                    class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
-                                    >Tender Details
-                                    <svg
-                                        class="w-4 h-4 ml-2"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        fill="none"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
+                                    v-for="post in orderBy(
+                                        this.Posts.slice(0, 10),
+                                        'expiry',
+                                        -1
+                                    )"
+                                    :key="post._id"
+                                    :href="route('selected', post._id)"
+                                    class="group bg-white border-t-2 border-r-2 mt-4 my-4 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-12 md:w-full flex flex-col min-h-2xl  items-start"
+                                >
+                                    <!-- <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">{{ post.funded_by }}</span> -->
+                                    <div class="flex justify-between w-full">
+                                        <div
+                                            class="font-heading-font font-extrabold"
+                                        >
+                                            Posted:
+                                            <span
+                                                class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"
+                                            >
+                                                {{ ago(post.created_at) }}</span
+                                            >
+                                        </div>
+                                        <div
+                                            class="font-heading-font font-extrabold"
+                                            v-if="expired(post)"
+                                        >
+                                            Expires:
+                                            <span
+                                                class="inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest"
+                                            >
+                                                Expired
+                                            </span>
+                                        </div>
+                                        <div
+                                            v-else
+                                            class="font-heading-font font-extrabold"
+                                        >
+                                            Expires in:
+                                            <span
+                                                class="inline-block py-1 px-2 rounded bg-green-100 text-green-500 text-xs font-bold tracking-widest"
+                                            >
+                                                {{
+                                                    togoFormat(post.expiry)
+                                                }}</span
+                                            >
+                                        </div>
+                                    </div>
+                                    <p
+                                        class="my-5 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
                                     >
-                                        <path d="M5 12h14"></path>
-                                        <path d="M12 5l7 7-7 7"></path>
-                                    </svg>
+                                        {{ post.tender_brief }}
+                                    </p>
+
+                                    <div
+                                        class="flex items-center flex-wrap mt-10 border-b-2 border-gray-100 w-full"
+                                    >
+                                        <span
+                                            class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                                        >
+                                            <i
+                                                class="w-4 h-4 mr-1 fas fa-filter text-indigo-600"
+                                            ></i>
+                                            Construction
+                                            <!-- {{ post.category }} -->
+                                        </span>
+                                        <span
+                                            class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                                        >
+                                            <i
+                                                class="w-4 h-4 mr-1 fas fa-location-crosshairs text-indigo-600"
+                                            ></i>
+                                            {{ post.country }}
+                                        </span>
+                                    </div>
+
+                                    <div class="mt-10">
+                                        <a
+                                            class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
+                                            >Tender Details
+                                            <svg
+                                                class="w-4 h-4 ml-2"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                fill="none"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            >
+                                                <path d="M5 12h14"></path>
+                                                <path d="M12 5l7 7-7 7"></path>
+                                            </svg>
+                                        </a>
+                                    </div>
                                 </a>
                             </div>
-                        </a>
+                        </div>
+
+                        <header class="sticky top-2 z-50">
+                            <div class="basis-1/5">
+                                <form id="login">
+                                    <div class="bg-white dark:bg-gray-800">
+                                        <div
+                                            class="container mx-auto bg-white dark:bg-gray-800 mt-10 rounded px-4"
+                                        >
+                                            <div
+                                                class="xl:w-full border-b border-gray-300 dark:border-gray-700 py-5"
+                                            >
+                                                <div
+                                                    class="flex w-11/12 mx-auto xl:w-full xl:mx-0 items-center"
+                                                >
+                                                    <p
+                                                        class="text-lg text-gray-800 dark:text-gray-100 font-bold"
+                                                    >
+                                                        Tender Search Filters
+                                                    </p>
+                                                    <div
+                                                        class="ml-2 cursor-pointer text-gray-600 dark:text-gray-400"
+                                                    >
+                                                        <i
+                                                            class="fas fa-search fa-4xl"
+                                                        ></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mx-auto pt-4">
+                                                <div class="container mx-auto">
+                                                    <form
+                                                        class="my-6 w-11/12 mx-auto xl:w-full xl:mx-0"
+                                                    >
+                                                        <div
+                                                            class="w-full flex flex-col mb-6"
+                                                        >
+                                                            <label
+                                                                for="FirstName"
+                                                                class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100"
+                                                                >First
+                                                                Name</label
+                                                            >
+                                                            <input
+                                                                tabindex="0"
+                                                                type="text"
+                                                                id="FirstName"
+                                                                name="firstName"
+                                                                required
+                                                                class="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400"
+                                                                placeholder=""
+                                                            />
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="container mx-auto mt-10 rounded bg-gray-100 dark:bg-gray-700 w-11/12 xl:w-full"
+                                        >
+                                            <div class="xl:w-full py-5 px-8">
+                                                <div
+                                                    class="flex items-center mx-auto"
+                                                >
+                                                    <div
+                                                        class="container mx-auto"
+                                                    >
+                                                        <div
+                                                            class="mx-auto xl:w-full"
+                                                        >
+                                                            <p
+                                                                class="text-lg text-gray-800 dark:text-gray-100 font-bold"
+                                                            >
+                                                                Alerts
+                                                            </p>
+                                                            <p
+                                                                class="text-sm text-gray-600 dark:text-gray-400 pt-1"
+                                                            >
+                                                                Get updates of
+                                                                any new activity
+                                                                or features.
+                                                                Turn on/off your
+                                                                preferences
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="container mx-auto pb-6">
+                                                <div
+                                                    class="flex items-center pb-4 border-b border-gray-300 dark:border-gray-700 px-8 text-gray-800 dark:text-gray-100"
+                                                >
+                                                    <img
+                                                        class="dark:hidden"
+                                                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg7.svg"
+                                                        alt="mail"
+                                                    />
+                                                    <img
+                                                        class="dark:block hidden"
+                                                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg7dark.svg"
+                                                        alt="mail"
+                                                    />
+                                                    <p
+                                                        class="text-sm font-bold ml-2 text-gray-800 dark:text-gray-100"
+                                                    >
+                                                        Via Email
+                                                    </p>
+                                                </div>
+                                                <div class="px-8">
+                                                    <div
+                                                        class="flex justify-between items-center mb-8 mt-4"
+                                                    >
+                                                        <div class="w-9/12">
+                                                            <p
+                                                                class="text-sm text-gray-800 dark:text-gray-100 pb-1"
+                                                            >
+                                                                Comments
+                                                            </p>
+                                                            <p
+                                                                id="cb1"
+                                                                class="text-sm text-gray-600 dark:text-gray-400"
+                                                            >
+                                                                Get notified
+                                                                when a post or
+                                                                comment is made
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="cursor-pointer rounded-full bg-gray-200 relative shadow-sm"
+                                                        >
+                                                            <input
+                                                                tabindex="0"
+                                                                aria-labelledby="cb1"
+                                                                type="checkbox"
+                                                                name="email_comments"
+                                                                id="toggle1"
+                                                                class="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto"
+                                                            />
+                                                            <label
+                                                                class="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"
+                                                            ></label>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="flex justify-between items-center mb-8"
+                                                    >
+                                                        <div class="w-9/12">
+                                                            <p
+                                                                class="text-sm text-gray-800 dark:text-gray-100 pb-1"
+                                                            >
+                                                                Job Applications
+                                                            </p>
+                                                            <p
+                                                                id="cb2"
+                                                                class="text-sm text-gray-600 dark:text-gray-400"
+                                                            >
+                                                                Get notified
+                                                                when a candidate
+                                                                applies to a job
+                                                                posting
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="cursor-pointer rounded-full bg-gray-200 relative shadow-sm"
+                                                        >
+                                                            <input
+                                                                aria-labelledby="cb2"
+                                                                tabindex="0"
+                                                                type="checkbox"
+                                                                name="email_job_application"
+                                                                id="toggle2"
+                                                                class="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto"
+                                                            />
+                                                            <label
+                                                                class="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"
+                                                            ></label>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="flex justify-between items-center mb-8"
+                                                    >
+                                                        <div class="w-9/12">
+                                                            <p
+                                                                class="text-sm text-gray-800 dark:text-gray-100 pb-1"
+                                                            >
+                                                                Product Updates
+                                                            </p>
+                                                            <p
+                                                                id="cb3"
+                                                                class="text-sm text-gray-600 dark:text-gray-400"
+                                                            >
+                                                                Get notifitied
+                                                                when there is a
+                                                                new product
+                                                                feature or
+                                                                upgrades
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="cursor-pointer rounded-full bg-gray-200 relative shadow-sm"
+                                                        >
+                                                            <input
+                                                                aria-labelledby="cb3"
+                                                                tabindex="0"
+                                                                type="checkbox"
+                                                                name="email_product_update"
+                                                                id="toggle3"
+                                                                class="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto"
+                                                            />
+                                                            <label
+                                                                class="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"
+                                                            ></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="pb-4 border-b border-gray-300 dark:border-gray-700 px-8"
+                                                >
+                                                    <div
+                                                        class="flex items-center text-gray-800 dark:text-gray-100"
+                                                    >
+                                                        <img
+                                                            class="dark:hidden"
+                                                            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg8.svg"
+                                                            alt="notification"
+                                                        />
+                                                        <img
+                                                            class="dark:hidden"
+                                                            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg8dark.svg"
+                                                            alt="notification"
+                                                        />
+                                                        <p
+                                                            class="text-sm font-bold ml-2 text-gray-800 dark:text-gray-100"
+                                                        >
+                                                            Push Notifications
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="px-8">
+                                                    <div
+                                                        class="flex justify-between items-center mb-8 mt-4"
+                                                    >
+                                                        <div class="w-9/12">
+                                                            <p
+                                                                class="text-sm text-gray-800 dark:text-gray-100 pb-1"
+                                                            >
+                                                                Comments
+                                                            </p>
+                                                            <p
+                                                                id="cb4"
+                                                                class="text-sm text-gray-600 dark:text-gray-400"
+                                                            >
+                                                                Get notified
+                                                                when a post or
+                                                                comment is made
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="cursor-pointer rounded-full bg-gray-200 relative shadow-sm"
+                                                        >
+                                                            <input
+                                                                aria-labelledby="cb4"
+                                                                tabindex="0"
+                                                                type="checkbox"
+                                                                name="notification_comment"
+                                                                id="toggle4"
+                                                                class="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto"
+                                                            />
+                                                            <label
+                                                                class="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"
+                                                            ></label>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="flex justify-between items-center mb-8"
+                                                    >
+                                                        <div class="w-9/12">
+                                                            <p
+                                                                class="text-sm text-gray-800 dark:text-gray-100 pb-1"
+                                                            >
+                                                                Job Applications
+                                                            </p>
+                                                            <p
+                                                                id="cb5"
+                                                                class="text-sm text-gray-600 dark:text-gray-400"
+                                                            >
+                                                                Get notified
+                                                                when a candidate
+                                                                applies to a job
+                                                                posting
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="cursor-pointer rounded-full bg-gray-200 relative shadow-sm"
+                                                        >
+                                                            <input
+                                                                aria-labelledby="cb5"
+                                                                tabindex="0"
+                                                                type="checkbox"
+                                                                name="notification_application"
+                                                                id="toggle5"
+                                                                class="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto"
+                                                            />
+                                                            <label
+                                                                class="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"
+                                                            ></label>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="flex justify-between items-center mb-8"
+                                                    >
+                                                        <div class="w-9/12">
+                                                            <p
+                                                                class="text-sm text-gray-800 dark:text-gray-100 pb-1"
+                                                            >
+                                                                Product Updates
+                                                            </p>
+                                                            <p
+                                                                id="cb6"
+                                                                class="text-sm text-gray-600 dark:text-gray-400"
+                                                            >
+                                                                Get notifitied
+                                                                when there is a
+                                                                new product
+                                                                feature or
+                                                                upgrades
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="cursor-pointer rounded-full bg-gray-200 relative shadow-sm"
+                                                        >
+                                                            <input
+                                                                aria-labelledby="cb6"
+                                                                tabindex="0"
+                                                                type="checkbox"
+                                                                name="notification_updates"
+                                                                id="toggle6"
+                                                                class="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto"
+                                                            />
+                                                            <label
+                                                                class="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"
+                                                            ></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="container mx-auto w-11/12 xl:w-full"
+                                        >
+                                            <div
+                                                class="w-full py-4 sm:px-0 bg-white dark:bg-gray-800 flex justify-end"
+                                            >
+                                                <button
+                                                    role="button"
+                                                    aria-label="cancel form"
+                                                    class="bg-gray-200 focus:outline-none transition duration-150 ease-in-out hover:bg-gray-300 dark:bg-gray-700 rounded text-indigo-600 dark:text-indigo-600 px-6 py-2 text-xs mr-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700"
+                                                >
+                                                    Cancel
+                                                </button>
+                                                <button
+                                                    role="button"
+                                                    aria-label="Save form"
+                                                    class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-indigo-700 focus:outline-none transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-2 text-sm"
+                                                    type="submit"
+                                                >
+                                                    Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </header>
                     </div>
                 </main>
 

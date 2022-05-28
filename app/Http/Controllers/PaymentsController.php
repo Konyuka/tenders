@@ -45,18 +45,40 @@ class PaymentsController extends Controller
         $invoicePaid = $request->invoicePaid;
         $invoiceDetails = $request->invoiceDetails;
         $user = $request->user;
+        $restart = $request->restart;
+        $invoiceNumber = $request->invoiceNumber;
+
         if($invoicePaid==1){
             $paidStatus = true;
         }else {
             $paidStatus = false;
         }
 
+
         $post_id = $request->post_id;
+
+        $transactionDetails = Payments::where('info', '=', $post_id )
+        ->where('phone', '=', $payment_number)
+        ->where('completed', '=', false)
+        ->where('account', '=', $invoiceNumber)
+        ->first();
+
+        // return dd($transactionDetails);
+
+        if($restart==true){
+                $transactionDetails->restart=true;
+                $transactionDetails->save();
+        }else{
+                // $transaction->restart=false;
+                // $transaction->save();
+        }
+
         $transaction = Payments::where('info', '=', $post_id )
                         ->where('phone', '=', $payment_number)
                         ->where('completed', '=', true)
                         ->where('waiting', '=', false)
                         ->first();
+
         $transactionWaiting = Payments::where('info', '=', $post_id )
                         ->where('phone', '=', $payment_number)
                         ->where('completed', '=', false)
@@ -66,16 +88,24 @@ class PaymentsController extends Controller
                         ->where('phone', '=', $payment_number)
                         ->where('completed', '=', false)
                         ->where('waiting', '=', false)
+                        ->where('restart', '=', false)
+                        ->first();
+
+        $transactionRestart = Payments::where('info', '=', $post_id )
+                        ->where('phone', '=', $payment_number)
+                        ->where('completed', '=', false)
+                        ->where('waiting', '=', false)
+                        ->where('restart', '=', true)
                         ->first();
                     //    return dd($transaction);
-        if ($transaction){
+        if ($transaction!=null){
             return Inertia::render('Selected', [
                 'post' => Post::where('_id', '=', $post_id)->first(),
                 'transId' => $transaction->trans_id,
                 'status' => 'Success'
             ]);
             // return dd('Paid');
-        }else if($transactionWaiting){
+        }else if($transactionWaiting!=null){
             return Inertia::render('Invoice', [
                 'post' => Post::where('_id', '=', $post_id)->first(),
                 'user' => $user,
@@ -84,12 +114,21 @@ class PaymentsController extends Controller
                 'invoiceStatus' => $paidStatus,
                 'invoiceDetails' => $invoiceDetails,
             ]);
-        }else if($transactionFail){
+        }else if($transactionFail!=null){
             return Inertia::render('Invoice', [
                 'post' => Post::where('_id', '=', $post_id)->first(),
                 'user' => $user,
                 'transId' => $transactionFail->trans_id,
                 'status' => 'Cancelled',
+                'invoiceStatus' => $invoicePaid,
+                'invoiceDetails' => $invoiceDetails,
+            ]);
+        }else if($transactionRestart!=null){
+                return Inertia::render('Invoice', [
+                'post' => Post::where('_id', '=', $post_id)->first(),
+                'user' => $user,
+                'transId' => $transactionDetails->trans_id,
+                'status' => '',
                 'invoiceStatus' => $invoicePaid,
                 'invoiceDetails' => $invoiceDetails,
             ]);
@@ -192,15 +231,24 @@ class PaymentsController extends Controller
 
         $error_msg = $stkPushSimulation->errorMessage ?? '';
         // return dd('done');
+        $restart = $request->restartTrans;
+
+        if($restart == true){
+            $statusClear = '';
+        }else{
+            $statusClear = '';
+        }
+
         return Inertia::render('Invoice', [
             // 'post' => $request->post,
             'post' => $post,
             'user' => $user,
+            'status' => $statusClear
             // 'invoiceStatus' => $invoicePaid,
             // 'invoiceDetails' => json_decode($createdInvoice),
 
         ]);
-        return back()->withInput()->with('failed','We could not complete this transaction please try again. ' .$error_msg);
+        // return back()->withInput()->with('failed','We could not complete this transaction please try again. ' .$error_msg);
 
         // return Redirect::route('clients.show, $id')->with( ['data' => $data] );
 

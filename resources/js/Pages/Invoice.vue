@@ -20,14 +20,31 @@
                         </div>
                         <div class="ml-3">
                             <h3
+                                v-if="this.transactionStatus == 'Cancelled'"
+                                class="text-2xl font-extrabold font-heading-font text-red-800"
+                            >
+                                Transaction Cancelled...
+                            </h3>
+                            <h3
+                                v-else
                                 class="text-2xl font-extrabold font-heading-font text-red-800"
                             >
                                 Payment Pending...
                             </h3>
+
                             <div
                                 class="mt-2 text-lg text-red-700 font-primary-font"
                             >
-                                <p>
+                                <p v-if="this.transactionStatus == 'Cancelled'">
+                                    Kindly Choose a payment gateway to
+                                    re-initiate payment procedure.
+
+                                    <br />
+
+                                    You can also use the Manual M-Pesa method at
+                                    the bottom right
+                                </p>
+                                <p v-else>
                                     Kindly Proceed to make payment to access
                                     tender details.
                                 </p>
@@ -439,6 +456,9 @@
             class="overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full"
         >
             <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+                <div
+                    class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+                ></div>
                 <!-- Modal content -->
                 <div
                     class="relative bg-white rounded-lg shadow dark:bg-gray-700"
@@ -447,8 +467,14 @@
                     <div class="flex justify-end p-2">
                         <a
                             v-if="status == 'Cancelled'"
-                            :href="route('checkout', post._id)"
+                            @click="closeSTK"
+                            class="hover:cursor-pointer"
                         >
+                            <!-- <a
+                            v-if="status == 'Cancelled'"
+                            :href="route('checkout', post._id)"
+                            @click="closeSTK"
+                        > -->
                             <button
                                 type="button"
                                 class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
@@ -473,7 +499,8 @@
                     <div class="p-4 pt-0 text-center">
                         <!-- <i class="fas fa-coins fa-2xl mb-10"></i> -->
                         <h3
-                            class="mb-5 text-xs font-extrabold text-gray-500 dark:text-gray-400"
+                            v-if="status != 'Cancelled'"
+                            class="mb-5 text-xs font-extrabold text-gray-800 dark:text-gray-400"
                         >
                             Complete transaction on your phone by entering your
                             MPESA pin
@@ -484,24 +511,32 @@
                         class="p-4 pt-0 text-center"
                     >
                         <h3
-                            class="mb-5 text-sm font-extrabold text-red-500 dark:text-gray-400 italic"
+                            class="mb-5 font-heading-font text-lg font-extrabold text-red-600 dark:text-gray-400 italic"
                         >
                             Transaction Was Cancelled
                         </h3>
                     </div>
+                    <!-- <div v-if="transactionRestart" class="p-4 pt-0 text-center">
+                        <h3
+                            class="mb-5 font-heading-font text-lg font-extrabold text-orange-400 dark:text-gray-400 italic"
+                        >
+                            Restarting The Transaction
+                        </h3>
+                    </div> -->
                     <div
                         v-if="status == 'Waiting'"
                         class="p-4 pt-0 text-center"
                     >
                         <!-- <i ="fas fa-coins fa-2xl mb-10"></i> -->
                         <h3
-                            class="mb-5 text-sm font-extrabold text-green-500 dark:text-gray-400 italic"
+                            class="mb-5 font-heading-font text-lg font-extrabold text-green-600 dark:text-gray-400 italic"
                         >
                             Transaction Pending
                         </h3>
                     </div>
                     <div class="flex flex-col px-10">
                         <h4
+                            v-if="status != 'Cancelled'"
                             class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400"
                         >
                             Phone Number:
@@ -528,11 +563,23 @@
                         STK
                     </button> -->
                         <!-- <a :href="route('confirmation', this.post._id)"> -->
+
+                        <!-- <button
+                            v-if="status == 'Cancelled'"
+                            @click="stkPush"
+                            data-modal-toggle="popup-modal"
+                            type="button"
+                            class="text-white bg-orange-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                        >
+                            Restart Mpesa Express Payment
+                        </button> -->
+
                         <button
+                            v-if="status != 'Cancelled'"
                             @click="confirm"
                             data-modal-toggle="popup-modal"
                             type="button"
-                            class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                            class="text-white bg-indigo-600 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                         >
                             Tap at intervals to Confirm Payment
                         </button>
@@ -586,6 +633,17 @@ export default {
         } else {
             this.unpaidAlert = true;
         }
+
+        if (this.status == "Cancelled") {
+            this.paymentModal = false;
+        }
+    },
+    watch: {
+        // transactionStatus(value) {
+        //     if (value == "Cancelled") {
+        //         this.paymentModal = false;
+        //     }
+        // }
     },
     computed: {
         invoiceNumber() {
@@ -678,7 +736,8 @@ export default {
                 // account: this.form.userName,
             },
             modal: false,
-            paymentModal: false
+            paymentModal: false,
+            transactionRestart: false
         };
     },
     methods: {
@@ -694,13 +753,29 @@ export default {
             let noSpace = value.replace(/\s/g, "");
             return noSpace;
         },
+        closeSTK() {
+            this.paymentModal = false;
+            this.status = "";
+            const paymentDetails = {
+                payment_number: this.form.number,
+                post_id: this.post._id,
+                invoicePaid: this.invoiceDetails.payment_status,
+                invoiceDetails: this.invoiceDetails,
+                user: this.user,
+                restart: true,
+                invoiceNumber: this.invoiceNumber
+            };
+            this.$inertia.post("/confirmation", paymentDetails);
+        },
         confirm() {
             const paymentDetails = {
                 payment_number: this.form.number,
                 post_id: this.post._id,
                 invoicePaid: this.invoiceDetails.payment_status,
                 invoiceDetails: this.invoiceDetails,
-                user: this.user
+                user: this.user,
+                restart: false,
+                invoiceNumber: this.invoiceNumber
             };
             this.$inertia.post("/confirmation", paymentDetails);
         },
@@ -711,7 +786,12 @@ export default {
             this.expressModal = true;
         },
         stkPush() {
-            // var str = '012123';
+            // if (this.status == "Cancelled") {
+            //     this.transactionRestart = true;
+            // } else {
+            //     this.transactionRestart = false;
+            // }
+
             this.expressModal = false;
             var strFirstThree = this.form.number.substring(0, 3);
             if (strFirstThree == 254 && this.form.number.length == 12) {
@@ -725,7 +805,8 @@ export default {
                     user: this.user,
                     user_name: this.form.userName,
                     user_phone: this.form.userPhone,
-                    user_email: this.form.userEmail
+                    user_email: this.form.userEmail,
+                    restartTrans: this.transactionRestart
                 };
                 //    console.log(requestBody)
                 axios

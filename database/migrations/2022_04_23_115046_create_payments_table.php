@@ -26,6 +26,7 @@ class CreatePaymentsTable extends Migration
             $table->string("user_email")->nullable();
             $table->boolean("completed")->default(false);
             $table->boolean("waiting")->default(true);
+            $table->boolean("restart")->default(false);
             $table->boolean("sms_sent")->default(false);
             $table->timestamps();
         });
