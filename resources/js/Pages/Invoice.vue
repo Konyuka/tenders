@@ -259,7 +259,7 @@
                                         <p
                                             class="font-extrabold w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
                                         >
-                                            PAYBILL NUMBER :
+                                            PAYBILL # :
                                             <span
                                                 class="text-green-600 font-heading-font font-extrabold tracking-widest text-xl ml-2"
                                             >
@@ -269,7 +269,7 @@
                                         <p
                                             class="font-extrabold w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
                                         >
-                                            ACCOUNT NUMBER :
+                                            ACCOUNT # :
                                             <span
                                                 class="text-green-600 font-heading-font font-extrabold tracking-widest text-xl ml-2"
                                             >

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header class="sticky top-2 z-50">
+        <div class="sticky z-50 w-96">
             <div class="basis-1/5">
                 <form id="login">
                     <div class="bg-white dark:bg-gray-800">
@@ -14,16 +14,17 @@
                                     class="flex w-11/12 mx-auto xl:w-full xl:mx-0 items-center"
                                 >
                                     <p
-                                        class="text-lg text-gray-800 dark:text-gray-100 font-bold"
+                                        class="font-heading-font text-xl text-gray-800 dark:text-gray-100 font-extrabold"
                                     >
                                         Tender Search Filters
                                     </p>
-                                    <div
-                                        class="ml-2 cursor-pointer text-gray-600 dark:text-gray-400"
-                                    >
-                                        <i class="fas fa-search fa-4xl"></i>
-                                    </div>
                                 </div>
+                                <p
+                                    class="font-primary-font text-sm text-gray-800 dark:text-gray-100 font-medium"
+                                >
+                                    Fill in where required. Leave unnecessary
+                                    fields as blank
+                                </p>
                             </div>
                             <div class="mx-auto pt-4">
                                 <div class="container mx-auto">
@@ -34,7 +35,7 @@
                                             <label
                                                 for="FirstName"
                                                 class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100"
-                                                >First Name</label
+                                                >Search by Keyword</label
                                             >
                                             <input
                                                 tabindex="0"
@@ -45,6 +46,65 @@
                                                 class="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400"
                                                 placeholder=""
                                             />
+                                        </div>
+
+                                        <div class="w-full flex flex-col mb-6">
+                                            <label
+                                                for="FirstName"
+                                                class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100"
+                                                >Search by Tender Number</label
+                                            >
+                                            <input
+                                                tabindex="0"
+                                                type="text"
+                                                id="FirstName"
+                                                name="firstName"
+                                                required
+                                                class="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400"
+                                                placeholder=""
+                                            />
+                                        </div>
+
+                                        <div class="w-full flex flex-col mb-6">
+                                            <label
+                                                for="FirstName"
+                                                class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100"
+                                                >Search by Closing Date</label
+                                            >
+                                            <input
+                                                tabindex="0"
+                                                type="text"
+                                                id="FirstName"
+                                                name="firstName"
+                                                required
+                                                class="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400"
+                                                placeholder=""
+                                            />
+                                        </div>
+
+                                        <div class="w-full flex flex-col mb-6">
+                                            <label
+                                                for="FirstName"
+                                                class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100"
+                                                >Search by Tender Price</label
+                                            >
+                                            <select
+                                                class="form-select appearance-none block w-full px-3  py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-700 focus:outline-none"
+                                                aria-label="Default select example"
+                                            >
+                                                <option selected>
+                                                    Choose From Options
+                                                </option>
+                                                <option value="1"
+                                                    >KES 150</option
+                                                >
+                                                <option value="2"
+                                                    >KES 100</option
+                                                >
+                                                <option value="3"
+                                                    >KES 50</option
+                                                >
+                                            </select>
                                         </div>
                                     </form>
                                 </div>
@@ -61,36 +121,28 @@
                                                 class="text-lg text-gray-800 dark:text-gray-100 font-bold"
                                             >
                                                 Refine Results
+
+                                                <i
+                                                    class="ml-5 fas fa-sliders fa-lg text-indigo-600"
+                                                ></i>
                                             </p>
+                                            <!-- <div
+                                                class="flex items-center pb-4 border-b border-gray-300 dark:border-gray-700 px-8 text-gray-800 dark:text-gray-100"
+                                            >
+
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="container mx-auto pb-6">
-                                <div
-                                    class="flex items-center pb-4 border-b border-gray-300 dark:border-gray-700 px-8 text-gray-800 dark:text-gray-100"
-                                >
-                                    <!-- <img
-                                        class="dark:hidden"
-                                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg7.svg"
-                                        alt="mail"
-                                    /> -->
-                                    <i
-                                        class="fas fa-sliders fa-xl text-indigo-600"
-                                    ></i>
-                                    <!-- <img
-                                        class="dark:block hidden"
-                                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg7dark.svg"
-                                        alt="mail"
-                                    /> -->
-                                </div>
                                 <div class="px-8">
                                     <div
                                         class="flex justify-between items-center mb-8 mt-4"
                                     >
                                         <div class="w-9/12">
                                             <p
-                                                class="text-sm text-gray-800 dark:text-gray-100 pb-1"
+                                                class="font-primary-font text-sm text-gray-800 dark:text-gray-100 pb-1"
                                             >
                                                 Include closed tenders
                                             </p>
@@ -116,7 +168,7 @@
                                     >
                                         <div class="w-9/12">
                                             <p
-                                                class="text-sm text-gray-800 dark:text-gray-100 pb-1"
+                                                class="font-primary-font text-sm text-gray-800 dark:text-gray-100 pb-1"
                                             >
                                                 Only Funded Tenders
                                             </p>
@@ -137,30 +189,6 @@
                                             ></label>
                                         </div>
                                     </div>
-                                    <div
-                                        class="flex justify-between items-center mb-8"
-                                    >
-                                        <div class="w-9/12">
-                                            <p
-                                                class="text-sm text-gray-800 dark:text-gray-100 pb-1"
-                                            ></p>
-                                        </div>
-                                        <div
-                                            class="cursor-pointer rounded-full bg-gray-200 relative shadow-sm"
-                                        >
-                                            <input
-                                                aria-labelledby="cb3"
-                                                tabindex="0"
-                                                type="checkbox"
-                                                name="email_product_update"
-                                                id="toggle3"
-                                                class="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto"
-                                            />
-                                            <label
-                                                class="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"
-                                            ></label>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -171,24 +199,24 @@
                                 <button
                                     role="button"
                                     aria-label="cancel form"
-                                    class="bg-gray-200 focus:outline-none transition duration-150 ease-in-out hover:bg-gray-300 dark:bg-gray-700 rounded text-indigo-600 dark:text-indigo-600 px-6 py-2 text-xs mr-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700"
+                                    class="font-primary-font bg-gray-200 focus:outline-none transition duration-150 ease-in-out hover:bg-gray-300 dark:bg-gray-700 rounded text-red-600 dark:text-indigo-600 px-6 py-2 text-xs mr-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700"
                                 >
-                                    Cancel
+                                    Clear Filters
                                 </button>
                                 <button
                                     role="button"
                                     aria-label="Save form"
-                                    class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-indigo-700 focus:outline-none transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-2 text-sm"
+                                    class="font-primary-font focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-indigo-700 focus:outline-none transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-2 text-sm"
                                     type="submit"
                                 >
-                                    Save
+                                    Search Tenders
                                 </button>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
-        </header>
+        </div>
     </div>
 </template>
 
