@@ -390,17 +390,18 @@ export default {
             var given = moment(this.post.expiry, "YYYY-MM-DD");
         }
 
-        var diff = moment.duration(given.diff(current)).asDays();
+        var diff = moment.duration(current.diff(given)).asDays();
+        console.log(diff);
 
         if (diff < 0) {
             this.postExpired = true;
         } else {
-            false;
+            this.postExpired = false;
         }
     },
     computed: {
         dateChangeFormat() {
-            if (this.togo == "Invalid date") {
+            if (this.togoFormat == "Invalid date") {
                 return true;
             } else {
                 return false;
