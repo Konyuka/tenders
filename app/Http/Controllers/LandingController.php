@@ -22,7 +22,9 @@ class LandingController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        // $posts = Post::all();
+        $posts = Post::take(6)->get();
+
         // return Inertia::render('Landings');
         Meta::addMeta('title', 'Bidders Portal Tenders Kenya');
         Meta::addMeta('description', 'Tenders in Kenya | Government Tenders | Free Tenders Kenya | Public Tenders Kenya | Open tenders | Bidding Kenya | Kenya Tenders Today');

@@ -6212,6 +6212,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-filters */ "./node_modules/vue2-filters/dist/vue2-filters.js");
 /* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue2_filters__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
+//
 //
 //
 //
@@ -6351,6 +6353,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue2_filters__WEBPACK_IMPORTED_MODULE_2___default.a);
+ // const now = new Date();
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FeaturedTenders",
   mixins: [vue2_filters__WEBPACK_IMPORTED_MODULE_2___default.a.mixin],
@@ -6377,6 +6381,15 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
     }
   },
   methods: {
+    dateChangeFormat: function dateChangeFormat(value) {
+      var togo = moment(value).fromNow(true);
+
+      if (togo == "Invalid date") {
+        return true;
+      } else {
+        return false;
+      }
+    },
     expired: function expired(post) {
       var current = moment().startOf("day");
       var given = moment(post.expiry, "YYYY-MM-DD");
@@ -6395,6 +6408,25 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       } else {
         return false;
       }
+    },
+    dateFormat: function dateFormat(value) {
+      var length = 10;
+      var myString = value;
+      var myTruncatedString = myString.substring(0, length); // console.log(myTruncatedString);
+
+      var str = myTruncatedString;
+      var daycut = str.substring(0, 2);
+      var monthcut = str.substring(5, 3);
+
+      String.prototype.replaceAt = function (index, replacement) {
+        return this.substring(0, index) + replacement + this.substring(index + replacement.length);
+      };
+
+      var changeDay = myTruncatedString.replaceAt(0, monthcut);
+      var finalDate = changeDay.replaceAt(3, daycut);
+      this.formatedDate = finalDate; // return moment(finalDate, "YYYY-MM-DD");
+
+      return Object(dateformat__WEBPACK_IMPORTED_MODULE_3__["default"])(finalDate, "mmmm dS yyyy");
     },
     formatDate: function formatDate(value) {
       return moment(value).format("MMMM Do YYYY");
@@ -10800,8 +10832,8 @@ vue__WEBPACK_IMPORTED_MODULE_3___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
     }(function (value) {
       var length = 10;
       var myString = value;
-      var myTruncatedString = myString.substring(0, length);
-      console.log(myTruncatedString);
+      var myTruncatedString = myString.substring(0, length); // console.log(myTruncatedString);
+
       var str = myTruncatedString;
       var daycut = str.substring(0, 2);
       var monthcut = str.substring(5, 3);
@@ -10812,7 +10844,8 @@ vue__WEBPACK_IMPORTED_MODULE_3___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
 
       var changeDay = myTruncatedString.replaceAt(0, monthcut);
       var finalDate = changeDay.replaceAt(3, daycut);
-      this.formatedDate = finalDate;
+      this.formatedDate = finalDate; // return moment(finalDate, "YYYY-MM-DD");
+
       return dateFormat(finalDate, "mmmm dS yyyy");
     }),
     formatDate: function formatDate(value) {
@@ -61400,7 +61433,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                    Expires in:\n                                    "
+                                        "\n                                    Last Day of Bid:\n                                    "
                                       ),
                                       _c(
                                         "span",
@@ -61412,8 +61445,9 @@ var render = function() {
                                           _vm._v(
                                             "\n                                        " +
                                               _vm._s(
-                                                _vm.togoFormat(post.expiry)
-                                              )
+                                                _vm.dateFormat(post.expiry)
+                                              ) +
+                                              "\n                                        "
                                           )
                                         ]
                                       )

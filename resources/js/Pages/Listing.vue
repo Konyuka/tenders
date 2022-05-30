@@ -855,7 +855,7 @@ export default {
             var myString = value;
             var myTruncatedString = myString.substring(0, length);
 
-            console.log(myTruncatedString);
+            // console.log(myTruncatedString);
             var str = myTruncatedString;
             var daycut = str.substring(0, 2);
             var monthcut = str.substring(5, 3);
@@ -871,6 +871,7 @@ export default {
             const finalDate = changeDay.replaceAt(3, daycut);
             this.formatedDate = finalDate;
 
+            // return moment(finalDate, "YYYY-MM-DD");
             return dateFormat(finalDate, "mmmm dS yyyy");
         },
         formatDate(value) {

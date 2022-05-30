@@ -52,12 +52,13 @@
                                         class="font-heading-font font-extrabold"
                                         v-else
                                     >
-                                        Expires in:
+                                        Last Day of Bid:
                                         <span
                                             class="inline-block py-1 px-2 rounded bg-green-100 text-green-500 text-xs font-bold tracking-widest"
                                         >
-                                            {{ togoFormat(post.expiry) }}</span
-                                        >
+                                            {{ dateFormat(post.expiry) }}
+                                            <!-- {{ post.expiry }} -->
+                                        </span>
                                     </div>
                                 </div>
                                 <p
@@ -139,6 +140,9 @@ import Vue from "vue";
 import Vue2Filters from "vue2-filters";
 Vue.use(Vue2Filters);
 
+import dateFormat from "dateformat";
+// const now = new Date();
+
 export default {
     name: "FeaturedTenders",
     mixins: [Vue2Filters.mixin],
@@ -165,6 +169,14 @@ export default {
         }
     },
     methods: {
+        dateChangeFormat(value) {
+            const togo = moment(value).fromNow(true);
+            if (togo == "Invalid date") {
+                return true;
+            } else {
+                return false;
+            }
+        },
         expired(post) {
             var current = moment().startOf("day");
             var given = moment(post.expiry, "YYYY-MM-DD");
@@ -183,6 +195,30 @@ export default {
             } else {
                 return false;
             }
+        },
+        dateFormat(value) {
+            var length = 10;
+            var myString = value;
+            var myTruncatedString = myString.substring(0, length);
+
+            // console.log(myTruncatedString);
+            var str = myTruncatedString;
+            var daycut = str.substring(0, 2);
+            var monthcut = str.substring(5, 3);
+
+            String.prototype.replaceAt = function(index, replacement) {
+                return (
+                    this.substring(0, index) +
+                    replacement +
+                    this.substring(index + replacement.length)
+                );
+            };
+            const changeDay = myTruncatedString.replaceAt(0, monthcut);
+            const finalDate = changeDay.replaceAt(3, daycut);
+            this.formatedDate = finalDate;
+
+            // return moment(finalDate, "YYYY-MM-DD");
+            return dateFormat(finalDate, "mmmm dS yyyy");
         },
         formatDate(value) {
             return moment(value).format("MMMM Do YYYY");
