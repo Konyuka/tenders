@@ -13,115 +13,111 @@
                 </div>
 
                 <section class="text-gray-600 body-font overflow-hidden">
-                    <div class="container px-5 py-4 mx-auto">
-                        <div class="flex flex-wrap -m-2">
-                            <a
-                                v-for="post in orderBy(
-                                    this.posts.slice(0, 6),
-                                    'expiry',
-                                    -1
-                                )"
-                                :key="post._id"
-                                :href="route('selected', post._id)"
-                                class="group bg-white border-t-2 border-r-2 mt-4 my-4 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-12 md:w-1/2 flex flex-col min-h-2xl  items-start"
-                            >
-                                <!-- <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">{{ post.funded_by }}</span> -->
-                                <div class="flex justify-between w-full">
-                                    <div
-                                        class="font-heading-font font-extrabold"
-                                    >
-                                        Posted:
-                                        <span
-                                            class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"
+                    <div class="flex flex-row my-5 mx-2">
+                        <div class="basis-4/5 mr-5">
+                            <div class="columns-1">
+                                <a
+                                    v-for="post in orderBy(
+                                        this.posts.slice(0, 5),
+                                        'expiry',
+                                        -1
+                                    )"
+                                    :key="post._id"
+                                    :href="route('selected', post._id)"
+                                    class="group bg-white border-t-2 border-r-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start"
+                                >
+                                    <!-- <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">{{ post.funded_by }}</span> -->
+                                    <div class="flex justify-between w-full">
+                                        <div
+                                            class="font-heading-font font-extrabold"
                                         >
-                                            {{ ago(post.created_at) }}</span
+                                            Posted:
+                                            <span
+                                                class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"
+                                            >
+                                                {{ ago(post.created_at) }}</span
+                                            >
+                                        </div>
+                                        <div
+                                            class="font-heading-font font-extrabold"
+                                            v-if="expired(post)"
                                         >
+                                            Last date of Bid:
+                                            <span
+                                                class="inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest"
+                                            >
+                                                Tender Closed
+                                            </span>
+                                        </div>
+                                        <div
+                                            v-else
+                                            class="font-heading-font font-extrabold"
+                                        >
+                                            Last Day of Bid:
+                                            <span
+                                                class="inline-block py-1 px-2 rounded bg-green-100 text-green-500 text-xs font-bold tracking-widest"
+                                            >
+                                                {{
+                                                    // togoFormat(post.expiry)
+                                                    dateFormat(post.expiry)
+                                                }}</span
+                                            >
+                                        </div>
                                     </div>
-                                    <div
-                                        class="font-heading-font font-extrabold"
-                                        v-if="expired(post)"
+                                    <p
+                                        class="m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
                                     >
-                                        Expires:
+                                        {{ post.tender_brief }}
+                                    </p>
+
+                                    <div
+                                        class="flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full"
+                                    >
                                         <span
-                                            class="inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest"
+                                            class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
                                         >
-                                            Tender Closed
+                                            <i
+                                                class="w-4 h-4 mr-1 fas fa-coins text-indigo-600"
+                                            ></i>
+                                            {{ post.funded_by }}
+                                        </span>
+                                        <span
+                                            class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                                        >
+                                            <i
+                                                class="w-4 h-4 mr-1 fas fa-location-crosshairs text-indigo-600"
+                                            ></i>
+                                            <!-- {{ post.country }} -->
+                                            Kenya
                                         </span>
                                     </div>
-                                    <div
-                                        class="font-heading-font font-extrabold"
-                                        v-else
-                                    >
-                                        Last Day of Bid:
-                                        <span
-                                            class="inline-block py-1 px-2 rounded bg-green-100 text-green-500 text-xs font-bold tracking-widest"
-                                        >
-                                            {{ dateFormat(post.expiry) }}
-                                            <!-- {{ post.expiry }} -->
-                                        </span>
+
+                                    <div class="mt-4">
+                                        <a
+                                            class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
+                                            >Tender Details
+                                            <svg
+                                                class="w-4 h-4 ml-2"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                fill="none"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            >
+                                                <path d="M5 12h14"></path>
+                                                <path d="M12 5l7 7-7 7"></path>
+                                            </svg>
+                                        </a>
                                     </div>
-                                </div>
-                                <p
-                                    class="my-5 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
-                                >
-                                    {{ post.tender_brief }}
-                                </p>
-
-                                <div
-                                    class="flex items-center flex-wrap mt-10 border-b-2 border-gray-100 w-full"
-                                >
-                                    <!-- <span>
-                                <h4 class="sm:text-xl text-md title-font  font-medium text-gray-400 mt-4 mb-4">Category: <span><a href="#">{{ post.category }}</a></span></h4>
-                            </span> -->
-                                    <span
-                                        class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-                                    >
-                                        <i
-                                            class="w-4 h-4 mr-1 fas fa-filter text-indigo-600"
-                                        ></i>
-                                        Construction
-                                        <!-- {{ post.category }} -->
-                                    </span>
-                                    <span
-                                        class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-                                    >
-                                        <i
-                                            class="w-4 h-4 mr-1 fas fa-location-crosshairs text-indigo-600"
-                                        ></i>
-                                        {{ post.country }}
-                                    </span>
-                                    <span
-                                        class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1"
-                                    >
-                                        <i
-                                            class="w-4 h-4 mr-1 fas fa-coins text-indigo-600"
-                                        ></i
-                                        >{{ post.funded_by }}
-                                    </span>
-                                </div>
-
-                                <div class="mt-10">
-                                    <a
-                                        class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
-                                        >Tender Details
-                                        <svg
-                                            class="w-4 h-4 ml-2"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            fill="none"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                        >
-                                            <path d="M5 12h14"></path>
-                                            <path d="M12 5l7 7-7 7"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
                         </div>
+
+                        <SearchFilter />
                     </div>
                 </section>
+
                 <a :href="route('listing')" class="mt-10 flex justify-center">
                     <button
                         class="transform transition hover:scale-125 duration-700 ease-in-out text-xl font-extrabold font-heading-font leading-4 text-white bg-indigo-600 sm:w-auto w-full rounded p-4 focus:outline-none hover:bg-gray-200 focus:ring-2 focus:ring-offset-2 focus:ring-white"
@@ -138,6 +134,7 @@
 import Button from "../../Jetstream/Button.vue";
 import Vue from "vue";
 import Vue2Filters from "vue2-filters";
+import SearchFilter from "./SearchFilter.vue";
 Vue.use(Vue2Filters);
 
 import dateFormat from "dateformat";
@@ -147,8 +144,8 @@ export default {
     name: "FeaturedTenders",
     mixins: [Vue2Filters.mixin],
     components: {
-        Button
-        //   Categories,
+        Button,
+        SearchFilter
     },
     mounted() {},
     data() {
