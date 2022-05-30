@@ -175,7 +175,7 @@
                                         ><i
                                             class="mr-10 fas fa-angles-right text-indigo-600"
                                         ></i>
-                                        Expiry Date
+                                        Last Date of Bid
 
                                         <span
                                             v-if="this.postExpired"
@@ -193,68 +193,19 @@
                                                     clip-rule="evenodd"
                                                 ></path>
                                             </svg>
-                                            <div v-if="this.dateChangeFormat">
-                                                Tender Expired
-                                                {{ togoFormat }} ago
-                                            </div>
-                                            <div v-if="!this.dateChangeFormat">
-                                                Tender Expired {{ togo }} ago
+                                            <div>
+                                                Tender Closed
                                             </div>
                                         </span>
-
-                                        <span
-                                            v-else
-                                            class="font-heading-font bg-green-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
-                                        >
-                                            <svg
-                                                class="mr-1 w-3 h-3"
-                                                fill="currentColor"
-                                                viewBox="0 0 20 20"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <path
-                                                    fill-rule="evenodd"
-                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                                    clip-rule="evenodd"
-                                                ></path>
-                                            </svg>
-                                            <!-- {{ dateFormat(post.expiry) }} check -->
-                                            <div v-if="this.dateChangeFormat">
-                                                {{ togoFormat }} to go
-                                            </div>
-                                            <div v-if="!this.dateChangeFormat">
-                                                {{ togo }} to go
-                                            </div>
-                                        </span>
-
-                                        <!-- <span
-                                            v-if="!dateChangeFormat"
-                                            class="font-heading-font bg-green-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
-                                        >
-                                            <svg
-                                                class="mr-1 w-3 h-3"
-                                                fill="currentColor"
-                                                viewBox="0 0 20 20"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <path
-                                                    fill-rule="evenodd"
-                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                                    clip-rule="evenodd"
-                                                ></path>
-                                            </svg>
-                                            {{ togo }} to go
-                                        </span> -->
                                     </span>
-                                    <span
+                                    <!-- <span
                                         v-if="!dateChangeFormat"
                                         class="ml-auto text-gray-900 font-primary-font"
                                         >{{ formatDate(post.expiry) }}</span
-                                    >
+                                    > -->
                                     <span
-                                        v-else
                                         class="ml-auto text-gray-900 font-primary-font"
-                                        >{{ dateFormat(post.expiry) }}
+                                        >{{ finalDateFormat(this.post.expiry) }}
                                     </span>
                                 </div>
                                 <div
@@ -452,6 +403,31 @@ export default {
         };
     },
     methods: {
+        finalDateFormat(value) {
+            var length = 10;
+            var myString = value;
+            var myTruncatedString = myString.substring(0, length);
+
+            var str = myTruncatedString;
+            var daycut = str.substring(0, 2);
+            var monthcut = str.substring(5, 3);
+
+            String.prototype.replaceAt = function(index, replacement) {
+                return (
+                    this.substring(0, index) +
+                    replacement +
+                    this.substring(index + replacement.length)
+                );
+            };
+            const changeDay = myTruncatedString.replaceAt(0, monthcut);
+            const finalDate = changeDay.replaceAt(3, daycut);
+
+            // this.formatedDate = finalDate;
+            this.formatedDate = myTruncatedString;
+
+            // return myTruncatedString;
+            return dateFormat(finalDate, "mmmm dS yyyy");
+        },
         dateFormat(value) {
             var length = 10;
             var myString = value;
@@ -470,9 +446,11 @@ export default {
             };
             const changeDay = myTruncatedString.replaceAt(0, monthcut);
             const finalDate = changeDay.replaceAt(3, daycut);
-            this.formatedDate = finalDate;
 
-            return dateFormat(finalDate, "mmmm dS yyyy");
+            // this.formatedDate = finalDate;
+            this.formatedDate = myTruncatedString;
+
+            return dateFormat(myTruncatedString, "mmmm dS yyyy");
         },
         purchase() {
             this.$inertia.post(`/checkout/${this.post._id}`);

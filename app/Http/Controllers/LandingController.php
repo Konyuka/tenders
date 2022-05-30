@@ -123,7 +123,8 @@ class LandingController extends Controller
 
     public function listing()
     {
-        $posts = Post::all();
+        $posts = Post::take(100)->get();
+        // $posts = Post::all();
         return Inertia::render('Listing', ['Posts' => $posts]);
     }
 

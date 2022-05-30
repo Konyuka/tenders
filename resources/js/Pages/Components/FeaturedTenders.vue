@@ -45,7 +45,7 @@
                                         <span
                                             class="inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest"
                                         >
-                                            Expired
+                                            Tender Closed
                                         </span>
                                     </div>
                                     <div
