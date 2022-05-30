@@ -29,6 +29,13 @@
                                     <!-- <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Reviews</a>
                 <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Details</a> -->
                                 </div>
+                                <div class="flex justify-center m-5">
+                                    <a
+                                        @click="purchase"
+                                        class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 text-white hover:text-black text-sm font-extrabold mr-2 px-3 py-2 rounded dark:bg-blue-200 dark:text-blue-800"
+                                        >Purchase Tender to view Work Details</a
+                                    >
+                                </div>
                                 <div
                                     class="grid grid-cols-3 gap-4 h-52 place-content-center bg-gradient-to-b from-indigo-100 to-indigo-300"
                                 >
@@ -37,6 +44,7 @@
                                         class="object-none object-center w-full h-full min-w-full min-h-full"
                                     >
                                         <div class="flex justify-center">
+                                            <!-- <h2>Unlock</h2> -->
                                             <i
                                                 class="fas fa-user-lock fa-8x text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-600"
                                             ></i>
@@ -257,12 +265,14 @@
                                         ><i
                                             class="mr-10 fas fa-angles-right text-indigo-600"
                                         ></i>
-                                        Region</span
+                                        Country</span
                                     >
                                     <span
                                         class="ml-auto text-gray-900 font-primary-font"
-                                        >{{ post.country }}</span
                                     >
+                                        Kenya
+                                        <!-- {{ post.country }} -->
+                                    </span>
                                 </div>
 
                                 <div class="flex">

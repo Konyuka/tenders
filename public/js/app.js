@@ -12073,6 +12073,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -70040,6 +70050,22 @@ var render = function() {
                           _vm._v(" "),
                           _vm._m(0),
                           _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "flex justify-center m-5" },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 text-white hover:text-black text-sm font-extrabold mr-2 px-3 py-2 rounded dark:bg-blue-200 dark:text-blue-800",
+                                  on: { click: _vm.purchase }
+                                },
+                                [_vm._v("Purchase Tender to view Work Details")]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
                           _vm._m(1),
                           _vm._v(" "),
                           _c(
@@ -70385,25 +70411,7 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "flex border-t mb-6 border-indigo-300 py-2"
-                            },
-                            [
-                              _vm._m(6),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "ml-auto text-gray-900 font-primary-font"
-                                },
-                                [_vm._v(_vm._s(_vm.post.country))]
-                              )
-                            ]
-                          ),
+                          _vm._m(6),
                           _vm._v(" "),
                           _c("div", { staticClass: "flex" }, [
                             _c(
@@ -70657,11 +70665,25 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "span",
-      { staticClass: "text-gray-500 font-extrabold font-heading-font" },
+      "div",
+      { staticClass: "flex border-t mb-6 border-indigo-300 py-2" },
       [
-        _c("i", { staticClass: "mr-10 fas fa-angles-right text-indigo-600" }),
-        _vm._v("\n                                    Region")
+        _c(
+          "span",
+          { staticClass: "text-gray-500 font-extrabold font-heading-font" },
+          [
+            _c("i", {
+              staticClass: "mr-10 fas fa-angles-right text-indigo-600"
+            }),
+            _vm._v("\n                                    Country")
+          ]
+        ),
+        _vm._v(" "),
+        _c("span", { staticClass: "ml-auto text-gray-900 font-primary-font" }, [
+          _vm._v(
+            "\n                                    Kenya\n                                    "
+          )
+        ])
       ]
     )
   },
