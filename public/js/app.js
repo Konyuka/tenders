@@ -7221,15 +7221,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SearchFilter",
   components: {//   Categories,
@@ -62753,32 +62744,10 @@ var staticRenderFns = [
                         },
                         [
                           _c("div", { staticClass: "w-9/12" }, [
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "text-sm text-gray-800 dark:text-gray-100 pb-1"
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                            Product Updates\n                                        "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "text-sm text-gray-600 dark:text-gray-400",
-                                attrs: { id: "cb3" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                            Get notifitied when there is a\n                                            new product feature or upgrades\n                                        "
-                                )
-                              ]
-                            )
+                            _c("p", {
+                              staticClass:
+                                "text-sm text-gray-800 dark:text-gray-100 pb-1"
+                            })
                           ]),
                           _vm._v(" "),
                           _c(
