@@ -12289,6 +12289,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
 /* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+/* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
 //
 //
 //
@@ -12546,6 +12547,105 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -12554,7 +12654,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     post: Object,
     status: String,
-    transId: String
+    transId: String,
+    payment: Object
   },
   components: {
     TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -12563,17 +12664,23 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {},
   mounted: function mounted() {
-    // console.log(this.post.created_at);
-    // console.log(this.post.expiry);
-    var current = moment().startOf("day");
-    var given = moment(this.post.expiry, "YYYY-MM-DD");
-    var diff = moment.duration(given.diff(current)).asDays();
+    var date1 = new Date();
+    var date2 = new Date(this.checkDateExpryFormat(this.post.expiry));
+    var diff = this.getDifferenceInDays(date1, date2);
 
     if (diff < 0) {
       this.postExpired = true;
     } else {
-      false;
-    }
+      this.postExpired = false;
+    } // var current = moment().startOf("day");
+    // var given = moment(this.post.expiry, "YYYY-MM-DD");
+    // var diff = moment.duration(given.diff(current)).asDays();
+    // if (diff < 0) {
+    //     this.postExpired = true;
+    // } else {
+    //     false;
+    // }
+
   },
   computed: {
     amount: function amount() {
@@ -12607,12 +12714,50 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    sendToMail: function sendToMail() {},
+    finalDateFormat: function finalDateFormat(value) {
+      var length = 10;
+      var myString = value;
+      var myTruncatedString = myString.substring(0, length);
+      var str = myTruncatedString;
+      var daycut = str.substring(0, 2);
+      var monthcut = str.substring(5, 3);
+
+      String.prototype.replaceAt = function (index, replacement) {
+        return this.substring(0, index) + replacement + this.substring(index + replacement.length);
+      };
+
+      var changeDay = myTruncatedString.replaceAt(0, monthcut);
+      var finalDate = changeDay.replaceAt(3, daycut); // this.formatedDate = finalDate;
+
+      this.formatedDate = myTruncatedString; // return myTruncatedString;
+
+      return Object(dateformat__WEBPACK_IMPORTED_MODULE_3__["default"])(finalDate, "mmmm dS yyyy");
+    },
+    checkDateExpryFormat: function checkDateExpryFormat(value) {
+      var str = value;
+      var daycut = str.substring(0, 2);
+      var monthcut = str.substring(5, 3);
+
+      String.prototype.replaceAt = function (index, replacement) {
+        return this.substring(0, index) + replacement + this.substring(index + replacement.length);
+      };
+
+      var changeDay = value.replaceAt(0, monthcut);
+      var finalDate = changeDay.replaceAt(3, daycut);
+      return finalDate;
+    },
+    getDifferenceInDays: function getDifferenceInDays(date1, date2) {
+      // const diffInMs = Math.abs(date2 - date1);
+      var diffInMs = date2 - date1;
+      return diffInMs / (1000 * 60 * 60 * 24);
+    },
     downloadTender: function downloadTender() {
       var data = {
         trans_id: this.transId,
         post_id: this.post._id
       };
-      this.$inertia.post('/download_tender', data);
+      this.$inertia.post("/download_tender", data);
     },
     formatDate: function formatDate(value) {
       return moment(value).format("MMMM Do YYYY");
@@ -69977,7 +70122,7 @@ var render = function() {
                                 "text-sm title-font text-gray-500 tracking-widest",
                               attrs: { href: "#" }
                             },
-                            [_vm._v("Tender Category")]
+                            [_vm._v("Tender Brief")]
                           ),
                           _vm._v(" "),
                           _c(
@@ -70868,29 +71013,14 @@ var render = function() {
                                 "text-sm title-font text-gray-500 tracking-widest",
                               attrs: { href: "#" }
                             },
-                            [_vm._v("Tender Category")]
+                            [_vm._v("Tender Brief")]
                           ),
                           _vm._v(" "),
                           _c(
                             "h1",
                             {
                               staticClass:
-                                "text-indigo-500 text-md title-font font-bold my-2"
-                            },
-                            [
-                              _vm._v(
-                                "\n                                " +
-                                  _vm._s(_vm.post.purchasing_authority) +
-                                  "\n                            "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "h1",
-                            {
-                              staticClass:
-                                "text-gray-900 text-xs title-font font-bold my-4"
+                                "text-gray-500 text-sm title-font font-bold my-4 font-heading-font"
                             },
                             [
                               _vm._v(
@@ -70904,13 +71034,22 @@ var render = function() {
                           _vm._m(0),
                           _vm._v(" "),
                           _c(
-                            "p",
-                            { staticClass: "leading-relaxed mb-4 text-sm" },
+                            "div",
+                            { staticClass: "flex justify-center m-5" },
                             [
-                              _vm._v(
-                                "\n                                " +
-                                  _vm._s(_vm.post.work_detail) +
-                                  "\n                            "
+                              _c(
+                                "h1",
+                                {
+                                  staticClass:
+                                    "font-primary-font text-gray-900 text-xs title-font font-bold my-4"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                    " +
+                                      _vm._s(_vm.post.work_detail) +
+                                      "\n                                "
+                                  )
+                                ]
                               )
                             ]
                           ),
@@ -70918,12 +71057,11 @@ var render = function() {
                           _c(
                             "div",
                             {
-                              staticClass: "flex border-t border-gray-200 py-2"
+                              staticClass:
+                                "flex border-t border-indigo-300 py-2"
                             },
                             [
-                              _c("span", { staticClass: "text-gray-500" }, [
-                                _vm._v("Tender Number")
-                              ]),
+                              _vm._m(1),
                               _vm._v(" "),
                               _c(
                                 "span",
@@ -70931,7 +71069,10 @@ var render = function() {
                                 [
                                   _c(
                                     "span",
-                                    { staticClass: "ml-auto text-gray-900" },
+                                    {
+                                      staticClass:
+                                        "ml-auto text-gray-900 font-primary-font"
+                                    },
                                     [
                                       _vm._v(
                                         "\n                                        " +
@@ -70948,12 +71089,11 @@ var render = function() {
                           _c(
                             "div",
                             {
-                              staticClass: "flex border-t border-gray-200 py-2"
+                              staticClass:
+                                "flex border-t border-indigo-300 py-2"
                             },
                             [
-                              _c("span", { staticClass: "text-gray-500" }, [
-                                _vm._v("Competition Type")
-                              ]),
+                              _vm._m(2),
                               _vm._v(" "),
                               _c(
                                 "span",
@@ -70961,7 +71101,10 @@ var render = function() {
                                 [
                                   _c(
                                     "span",
-                                    { staticClass: "ml-auto text-gray-900" },
+                                    {
+                                      staticClass:
+                                        "ml-auto text-gray-900 font-primary-font"
+                                    },
                                     [
                                       _vm._v(
                                         "\n                                        " +
@@ -70978,16 +71121,18 @@ var render = function() {
                           _c(
                             "div",
                             {
-                              staticClass: "flex border-t border-gray-200 py-2"
+                              staticClass:
+                                "flex border-t border-indigo-300 py-2"
                             },
                             [
-                              _c("span", { staticClass: "text-gray-500" }, [
-                                _vm._v("Funded By")
-                              ]),
+                              _vm._m(3),
                               _vm._v(" "),
                               _c(
                                 "span",
-                                { staticClass: "ml-auto text-gray-900" },
+                                {
+                                  staticClass:
+                                    "ml-auto text-gray-900 font-primary-font"
+                                },
                                 [
                                   _vm._v(
                                     "\n                                    " +
@@ -70999,27 +71144,28 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(1),
+                          _vm._m(4),
                           _vm._v(" "),
                           _c(
                             "div",
                             {
                               staticClass:
-                                "flex border-t mb-6 border-gray-200 py-2"
+                                "flex border-t border-indigo-300 py-2"
                             },
                             [
-                              _c("span", { staticClass: "text-gray-500" }, [
-                                _vm._v("Contact Phone")
-                              ]),
+                              _vm._m(5),
                               _vm._v(" "),
                               _c(
                                 "span",
-                                { staticClass: "ml-auto text-gray-900" },
+                                {
+                                  staticClass:
+                                    "ml-auto text-gray-900 font-primary-font"
+                                },
                                 [
                                   _vm._v(
                                     "\n                                    " +
                                       _vm._s(_vm.post.phone) +
-                                      "\n                                "
+                                      "\n                                    "
                                   )
                                 ]
                               )
@@ -71030,21 +71176,22 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t  mb-6 border-gray-200 py-2"
+                                "flex border-t border-indigo-300 py-2"
                             },
                             [
-                              _c("span", { staticClass: "text-gray-500" }, [
-                                _vm._v("Contact Email")
-                              ]),
+                              _vm._m(6),
                               _vm._v(" "),
                               _c(
                                 "span",
-                                { staticClass: "ml-auto text-gray-900" },
+                                {
+                                  staticClass:
+                                    "ml-auto text-gray-900 font-primary-font"
+                                },
                                 [
                                   _vm._v(
                                     "\n                                    " +
                                       _vm._s(_vm.post.email) +
-                                      "\n                                "
+                                      "\n                                    "
                                   )
                                 ]
                               )
@@ -71055,21 +71202,22 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t  mb-6 border-gray-200 py-2"
+                                "flex border-t border-indigo-300 py-2"
                             },
                             [
-                              _c("span", { staticClass: "text-gray-500" }, [
-                                _vm._v("Contact Address")
-                              ]),
+                              _vm._m(7),
                               _vm._v(" "),
                               _c(
                                 "span",
-                                { staticClass: "ml-auto text-gray-900" },
+                                {
+                                  staticClass:
+                                    "ml-auto text-gray-900 font-primary-font"
+                                },
                                 [
                                   _vm._v(
                                     "\n                                    " +
                                       _vm._s(_vm.post.address) +
-                                      "\n                                "
+                                      "\n                                    "
                                   )
                                 ]
                               )
@@ -71080,53 +71228,67 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t  mb-6 border-gray-200 py-2"
+                                "flex border-t mb-6 border-indigo-300 py-2"
                             },
                             [
-                              _c("span", { staticClass: "text-gray-500" }, [
-                                _vm._v(
-                                  "Date Posted\n                                    "
-                                ),
-                                _c(
-                                  "span",
-                                  {
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "text-gray-500 font-extrabold font-heading-font"
+                                },
+                                [
+                                  _c("i", {
                                     staticClass:
-                                      "bg-green-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
-                                  },
-                                  [
-                                    _c(
-                                      "svg",
-                                      {
-                                        staticClass: "mr-1 w-3 h-3",
-                                        attrs: {
-                                          fill: "currentColor",
-                                          viewBox: "0 0 20 20",
-                                          xmlns: "http://www.w3.org/2000/svg"
-                                        }
-                                      },
-                                      [
-                                        _c("path", {
+                                      "mr-10 fas fa-angles-right text-indigo-600"
+                                  }),
+                                  _vm._v(
+                                    "\n                                    Date Posted\n                                    "
+                                  ),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass:
+                                        "bg-green-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
+                                    },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass: "mr-1 w-3 h-3",
                                           attrs: {
-                                            "fill-rule": "evenodd",
-                                            d:
-                                              "M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z",
-                                            "clip-rule": "evenodd"
+                                            fill: "currentColor",
+                                            viewBox: "0 0 20 20",
+                                            xmlns: "http://www.w3.org/2000/svg"
                                           }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(
-                                      "\n                                        " +
-                                        _vm._s(_vm.ago) +
-                                        "\n                                    "
-                                    )
-                                  ]
-                                )
-                              ]),
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              "fill-rule": "evenodd",
+                                              d:
+                                                "M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z",
+                                              "clip-rule": "evenodd"
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(
+                                        "\n                                        " +
+                                          _vm._s(_vm.ago) +
+                                          "\n                                    "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
                               _vm._v(" "),
                               _c(
                                 "span",
-                                { staticClass: "ml-auto text-gray-900" },
+                                {
+                                  staticClass:
+                                    "ml-auto text-gray-900 font-primary-font"
+                                },
                                 [
                                   _vm._v(
                                     _vm._s(_vm.formatDate(_vm.post.created_at))
@@ -71140,118 +71302,85 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t  mb-6 border-gray-200 py-2"
+                                "flex border-t mb-6 border-indigo-300 py-2"
                             },
                             [
-                              _c("span", { staticClass: "text-gray-500" }, [
-                                _vm._v(
-                                  "Expiry Date\n                                    "
-                                ),
-                                this.postExpired
-                                  ? _c(
-                                      "span",
-                                      {
-                                        staticClass:
-                                          "bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
-                                      },
-                                      [
-                                        _c(
-                                          "svg",
-                                          {
-                                            staticClass: "mr-1 w-3 h-3",
-                                            attrs: {
-                                              fill: "currentColor",
-                                              viewBox: "0 0 20 20",
-                                              xmlns:
-                                                "http://www.w3.org/2000/svg"
-                                            }
-                                          },
-                                          [
-                                            _c("path", {
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "text-gray-500 font-extrabold font-heading-font"
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass:
+                                      "mr-10 fas fa-angles-right text-indigo-600"
+                                  }),
+                                  _vm._v(
+                                    "\n                                    Last Date of Bid\n\n                                    "
+                                  ),
+                                  this.postExpired
+                                    ? _c(
+                                        "span",
+                                        {
+                                          staticClass:
+                                            "font-heading-font bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass: "mr-1 w-3 h-3",
                                               attrs: {
-                                                "fill-rule": "evenodd",
-                                                d:
-                                                  "M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z",
-                                                "clip-rule": "evenodd"
+                                                fill: "currentColor",
+                                                viewBox: "0 0 20 20",
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg"
                                               }
-                                            })
-                                          ]
-                                        ),
-                                        _vm._v(
-                                          "\n                                        Tender Expired " +
-                                            _vm._s(_vm.togo) +
-                                            " ago\n                                    "
-                                        )
-                                      ]
-                                    )
-                                  : _c(
-                                      "span",
-                                      {
-                                        staticClass:
-                                          "bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300"
-                                      },
-                                      [
-                                        _c(
-                                          "svg",
-                                          {
-                                            staticClass: "mr-1 w-3 h-3",
-                                            attrs: {
-                                              fill: "currentColor",
-                                              viewBox: "0 0 20 20",
-                                              xmlns:
-                                                "http://www.w3.org/2000/svg"
-                                            }
-                                          },
-                                          [
-                                            _c("path", {
-                                              attrs: {
-                                                "fill-rule": "evenodd",
-                                                d:
-                                                  "M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z",
-                                                "clip-rule": "evenodd"
-                                              }
-                                            })
-                                          ]
-                                        ),
-                                        _vm._v(
-                                          "\n                                        " +
-                                            _vm._s(_vm.togo) +
-                                            " to go\n                                    "
-                                        )
-                                      ]
-                                    )
-                              ]),
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  "fill-rule": "evenodd",
+                                                  d:
+                                                    "M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z",
+                                                  "clip-rule": "evenodd"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("div", [
+                                            _vm._v(
+                                              "\n                                            Tender Closed\n                                        "
+                                            )
+                                          ])
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ]
+                              ),
                               _vm._v(" "),
                               _c(
                                 "span",
-                                { staticClass: "ml-auto text-gray-900" },
+                                {
+                                  staticClass:
+                                    "ml-auto text-gray-900 font-primary-font"
+                                },
                                 [
                                   _vm._v(
-                                    _vm._s(_vm.formatDate(_vm.post.expiry))
+                                    _vm._s(
+                                      _vm.finalDateFormat(this.post.expiry)
+                                    ) + "\n                                "
                                   )
                                 ]
                               )
                             ]
                           ),
                           _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "flex border-t  mb-6 border-gray-200 py-2"
-                            },
-                            [
-                              _c("span", { staticClass: "text-gray-500" }, [
-                                _vm._v("Country")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                { staticClass: "ml-auto text-gray-900" },
-                                [_vm._v(_vm._s(_vm.post.country))]
-                              )
-                            ]
-                          ),
+                          _vm._m(8),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "flex" }),
                           _vm._v(" "),
                           _c("div", { staticClass: "flex" }, [
                             _c(
@@ -71264,17 +71393,53 @@ var render = function() {
                                   )
                                 }
                               },
+                              [_vm._m(9)]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-6 focus:outline-none rounded",
+                                on: { click: _vm.sendToMail }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    Send Details To Email\n                                    "
+                                ),
+                                _c("i", {
+                                  staticClass:
+                                    "fas fa-paper-plane text-white ml-2 mt-1"
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "hover:bg-red-500 hover:text-white rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4"
+                              },
                               [
                                 _c(
-                                  "button",
+                                  "svg",
                                   {
-                                    staticClass:
-                                      "flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-700 rounded"
+                                    staticClass: "w-5 h-5",
+                                    attrs: {
+                                      fill: "currentColor",
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round",
+                                      "stroke-width": "2",
+                                      viewBox: "0 0 24 24"
+                                    }
                                   },
                                   [
-                                    _vm._v(
-                                      "\n                                        Download Tender Documents\n                                    "
-                                    )
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+                                      }
+                                    })
                                   ]
                                 )
                               ]
@@ -71313,7 +71478,7 @@ var render = function() {
                           "relative bg-white rounded-lg shadow dark:bg-gray-700"
                       },
                       [
-                        _vm._m(2),
+                        _vm._m(10),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -71371,9 +71536,9 @@ var staticRenderFns = [
         "a",
         {
           staticClass:
-            "flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1"
+            "flex-grow text-indigo-500 border-b-2 border-indigo-600 py-2 text-lg px-1 font-heading-font font-extrabold"
         },
-        [_vm._v("Description")]
+        [_vm._v("Tender Description")]
       )
     ])
   },
@@ -71382,18 +71547,148 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "div",
-      { staticClass: "flex border-t  mb-6 border-gray-200 py-2" },
+      "span",
+      { staticClass: "text-gray-500 font-extrabold font-heading-font" },
       [
-        _c("span", { staticClass: "text-gray-500" }, [
-          _vm._v("Tender Value in USD")
-        ]),
+        _c("i", { staticClass: "mr-10 fas fa-angles-right text-indigo-600" }),
+        _vm._v("\n                                    Tender Number")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticClass: "text-gray-500 font-extrabold font-heading-font" },
+      [
+        _c("i", { staticClass: "mr-10 fas fa-angles-right text-indigo-600" }),
+        _vm._v("\n                                    Competition Type")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticClass: "text-gray-500 font-extrabold font-heading-font" },
+      [
+        _c("i", { staticClass: "mr-10 fas fa-angles-right text-indigo-600" }),
+        _vm._v("\n                                    Funded By")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "flex border-t mb-6 border-indigo-300 py-2" },
+      [
+        _c(
+          "span",
+          { staticClass: "text-gray-500 font-extrabold font-heading-font" },
+          [
+            _c("i", {
+              staticClass: "mr-10 fas fa-angles-right text-indigo-600"
+            }),
+            _vm._v("\n                                    Tender Value in USD")
+          ]
+        ),
         _vm._v(" "),
-        _c("span", { staticClass: "ml-auto text-gray-900" }, [
+        _c("span", { staticClass: "ml-auto text-gray-900 font-primary-font" }, [
           _vm._v(
-            "\n                                    Detail in Tender Document\n                                    "
+            "\n                                    Detail in Tender Document\n                                "
           )
         ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticClass: "text-gray-500 font-extrabold font-heading-font" },
+      [
+        _c("i", { staticClass: "mr-10 fas fa-angles-right text-indigo-600" }),
+        _vm._v("\n                                    Contact Phone")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticClass: "text-gray-500 font-extrabold font-heading-font" },
+      [
+        _c("i", { staticClass: "mr-10 fas fa-angles-right text-indigo-600" }),
+        _vm._v("\n                                    Contact Email")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticClass: "text-gray-500 font-extrabold font-heading-font" },
+      [
+        _c("i", { staticClass: "mr-10 fas fa-angles-right text-indigo-600" }),
+        _vm._v("\n                                    Physical Address")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "flex border-t mb-6 border-indigo-300 py-2" },
+      [
+        _c(
+          "span",
+          { staticClass: "text-gray-500 font-extrabold font-heading-font" },
+          [
+            _c("i", {
+              staticClass: "mr-10 fas fa-angles-right text-indigo-600"
+            }),
+            _vm._v("\n                                    Country")
+          ]
+        ),
+        _vm._v(" "),
+        _c("span", { staticClass: "ml-auto text-gray-900 font-primary-font" }, [
+          _vm._v(
+            "\n                                    Kenya\n                                    "
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass:
+          "cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-6 focus:outline-none rounded"
+      },
+      [
+        _vm._v(
+          "\n                                        Download Tender Documents\n                                        "
+        ),
+        _c("i", { staticClass: "fas fa-download text-white ml-2 mt-1" })
       ]
     )
   },

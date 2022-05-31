@@ -49,13 +49,20 @@ class LandingController extends Controller
                     ->where('waiting', '=', false)
                     ->first();
         $clientNumber = $payment->phone;
-        // return  dd($clientNumber);
+        $clientInvoice = $payment->account;
+        $clientEmail = $payment->user_email;
+        $clientName = urlencode($payment->user_name);
 
-        if($payment->sms_sent = 0){
+        // return  dd($clientName);
+
+        if($payment->sms_sent == 0){
+            // return dd('sending');
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=Safaricom&password=password&mobile=${$clientNumber}&msg=Thank+you+For+the+Purchase%21+Bidders+Portal%21&senderid=Notify_MSG&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
+            CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile={$clientNumber}&msg=Thank+you+{$clientName}+for+the+purchase%21+Your+invoice+number+is+{$clientInvoice}+Tender+and+Invoice+details+have+been+mailed+to+the+submitted+email+{$clientEmail}+Thank+you+for+choosing+Bidders+Portal&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
+            // CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile={$clientNumber}&msg=Thank+you+{$clientName}+for+the+purchase!%21Your+Invoice+Number+is+{$clientInvoice}%21Tender+details+have+been+mailed+to+the+submitted+email+{$clientEmail}%21Bidders+Portal%21&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
+            // CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile=254716202298&msg=Thank+you+For+the+Purchase%21+Bidders+Portal%21&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -75,24 +82,22 @@ class LandingController extends Controller
             if ($err) {
             echo "cURL Error #:" . $err;
             } else {
-                $sms_sent = true;
-                $payment = Payments::where(['trans_id'=>$slug])->first();
-                if ($payment){
-                    $payment->sms_sent=true;
-                    $payment->save();
-                }
+                // $sms_sent = true;
+                // $payment = Payments::where(['trans_id'=>$slug])->first();
+                // if ($payment){
+                //     $payment->sms_sent=true;
+                //     $payment->save();
+                // }
             // echo $response;
             }
-        }
-
-        if($payment->sms_sent = 1){
-            // echo 'Sms Sent Already';
         }
 
         return Inertia::render('Unlocked', [
            'post' => Post::where('_id', '=', $payment->info)->first(),
            'status' => 'Unlocked',
-           'transId' => $slug
+           'transId' => $slug,
+           'payment' => $payment,
+
        ]);
     }
 

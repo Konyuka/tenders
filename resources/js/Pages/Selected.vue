@@ -14,7 +14,7 @@
                                 <a
                                     href="#"
                                     class="text-sm title-font text-gray-500 tracking-widest"
-                                    >Tender Category</a
+                                    >Tender Brief</a
                                 >
                                 <h1
                                     class="text-gray-500 text-sm title-font font-bold my-4 font-heading-font"
