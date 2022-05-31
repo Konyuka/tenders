@@ -13,11 +13,7 @@
                 <div class="basis-4/5 mr-5">
                     <div class="columns-1">
                         <a
-                            v-for="post in orderBy(
-                                this.posts.slice(0, 1),
-                                'expiry',
-                                -1
-                            )"
+                            v-for="post in this.posts.slice(0, 1)"
                             :key="post._id"
                             :href="route('selected', post._id)"
                             class="group bg-white border-t-2 border-r-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start"
@@ -121,11 +117,7 @@
                         <div class="basis-4/5 mr-5">
                             <div class="columns-1">
                                 <a
-                                    v-for="post in orderBy(
-                                        this.posts.slice(0, 5),
-                                        'expiry',
-                                        -1
-                                    )"
+                                    v-for="post in this.posts.slice(0, 4)"
                                     :key="post._id"
                                     :href="route('selected', post._id)"
                                     class="group bg-white border-t-2 border-r-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start"
