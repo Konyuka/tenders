@@ -343,16 +343,13 @@ export default {
     },
     watch: {},
     mounted() {
-        var current = moment().startOf("day");
+        const date1 = new Date();
+        const date2 = new Date(this.checkDateExpryFormat(this.post.expiry));
 
-        if (this.dateChangeFormat) {
-            var given = moment(this.formatedDate, "YYYY-MM-DD");
-        } else {
-            var given = moment(this.post.expiry, "YYYY-MM-DD");
-        }
+        // const date2 = new Date("02/20/2013");
+        // console.log(this.getDifferenceInDays(date1, date2));
 
-        var diff = moment.duration(current.diff(given)).asDays();
-        console.log(diff);
+        var diff = this.getDifferenceInDays(date1, date2);
 
         if (diff < 0) {
             this.postExpired = true;
@@ -392,6 +389,7 @@ export default {
             return moment(this.post.expiry).fromNow(true);
         },
         togoFormat() {
+            return dateFormat(this.formatedDate, "mmmm dS yyyy");
             return moment(this.formatedDate).fromNow(true);
         }
     },
@@ -403,6 +401,27 @@ export default {
         };
     },
     methods: {
+        checkDateExpryFormat(value) {
+            var str = value;
+            var daycut = str.substring(0, 2);
+            var monthcut = str.substring(5, 3);
+
+            String.prototype.replaceAt = function(index, replacement) {
+                return (
+                    this.substring(0, index) +
+                    replacement +
+                    this.substring(index + replacement.length)
+                );
+            };
+            const changeDay = value.replaceAt(0, monthcut);
+            const finalDate = changeDay.replaceAt(3, daycut);
+            return finalDate;
+        },
+        getDifferenceInDays(date1, date2) {
+            // const diffInMs = Math.abs(date2 - date1);
+            const diffInMs = date2 - date1;
+            return diffInMs / (1000 * 60 * 60 * 24);
+        },
         finalDateFormat(value) {
             var length = 10;
             var myString = value;

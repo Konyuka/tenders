@@ -28,11 +28,7 @@
                         <div class="basis-4/5 mr-5">
                             <div class="columns-1">
                                 <a
-                                    v-for="post in orderBy(
-                                        this.Posts.slice(0, 20),
-                                        'expiry',
-                                        -1
-                                    )"
+                                    v-for="post in this.Posts.slice(0, 100)"
                                     :key="post._id"
                                     :href="route('selected', post._id)"
                                     class="group bg-white border-t-2 border-r-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start"
@@ -488,13 +484,34 @@ export default {
 
             return moment(finalDate).fromNow(true);
         },
+        getDifferenceInDays(date1, date2) {
+            // const diffInMs = Math.abs(date2 - date1);
+            const diffInMs = date2 - date1;
+            return diffInMs / (1000 * 60 * 60 * 24);
+        },
+        checkDateExpryFormat(value) {
+            var str = value;
+            var daycut = str.substring(0, 2);
+            var monthcut = str.substring(5, 3);
+
+            String.prototype.replaceAt = function(index, replacement) {
+                return (
+                    this.substring(0, index) +
+                    replacement +
+                    this.substring(index + replacement.length)
+                );
+            };
+            const changeDay = value.replaceAt(0, monthcut);
+            const finalDate = changeDay.replaceAt(3, daycut);
+            return finalDate;
+        },
         expired(post) {
-            var current = moment().startOf("day");
-            var given = moment(post.expiry, "YYYY-MM-DD");
-            var diff = moment.duration(current.diff(given)).asDays();
+            const date1 = new Date();
+            const date2 = new Date(this.checkDateExpryFormat(post.expiry));
+
+            var diff = this.getDifferenceInDays(date1, date2);
 
             if (diff < 0) {
-                console.log(diff);
                 return true;
             } else {
                 return false;

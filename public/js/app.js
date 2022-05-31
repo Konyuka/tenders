@@ -6346,6 +6346,110 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -10626,10 +10730,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -10702,13 +10802,30 @@ vue__WEBPACK_IMPORTED_MODULE_5___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       this.formatedDate = finalDate;
       return moment(finalDate).fromNow(true);
     },
+    getDifferenceInDays: function getDifferenceInDays(date1, date2) {
+      // const diffInMs = Math.abs(date2 - date1);
+      var diffInMs = date2 - date1;
+      return diffInMs / (1000 * 60 * 60 * 24);
+    },
+    checkDateExpryFormat: function checkDateExpryFormat(value) {
+      var str = value;
+      var daycut = str.substring(0, 2);
+      var monthcut = str.substring(5, 3);
+
+      String.prototype.replaceAt = function (index, replacement) {
+        return this.substring(0, index) + replacement + this.substring(index + replacement.length);
+      };
+
+      var changeDay = value.replaceAt(0, monthcut);
+      var finalDate = changeDay.replaceAt(3, daycut);
+      return finalDate;
+    },
     expired: function expired(post) {
-      var current = moment().startOf("day");
-      var given = moment(post.expiry, "YYYY-MM-DD");
-      var diff = moment.duration(current.diff(given)).asDays();
+      var date1 = new Date();
+      var date2 = new Date(this.checkDateExpryFormat(post.expiry));
+      var diff = this.getDifferenceInDays(date1, date2);
 
       if (diff < 0) {
-        console.log(diff);
         return true;
       } else {
         return false;
@@ -11940,16 +12057,11 @@ var now = new Date(); // dateFormat(now, "W");
   },
   watch: {},
   mounted: function mounted() {
-    var current = moment().startOf("day");
+    var date1 = new Date();
+    var date2 = new Date(this.checkDateExpryFormat(this.post.expiry)); // const date2 = new Date("02/20/2013");
+    // console.log(this.getDifferenceInDays(date1, date2));
 
-    if (this.dateChangeFormat) {
-      var given = moment(this.formatedDate, "YYYY-MM-DD");
-    } else {
-      var given = moment(this.post.expiry, "YYYY-MM-DD");
-    }
-
-    var diff = moment.duration(current.diff(given)).asDays();
-    console.log(diff);
+    var diff = this.getDifferenceInDays(date1, date2);
 
     if (diff < 0) {
       this.postExpired = true;
@@ -11989,6 +12101,7 @@ var now = new Date(); // dateFormat(now, "W");
       return moment(this.post.expiry).fromNow(true);
     },
     togoFormat: function togoFormat() {
+      return Object(dateformat__WEBPACK_IMPORTED_MODULE_3__["default"])(this.formatedDate, "mmmm dS yyyy");
       return moment(this.formatedDate).fromNow(true);
     }
   },
@@ -12000,6 +12113,24 @@ var now = new Date(); // dateFormat(now, "W");
     };
   },
   methods: {
+    checkDateExpryFormat: function checkDateExpryFormat(value) {
+      var str = value;
+      var daycut = str.substring(0, 2);
+      var monthcut = str.substring(5, 3);
+
+      String.prototype.replaceAt = function (index, replacement) {
+        return this.substring(0, index) + replacement + this.substring(index + replacement.length);
+      };
+
+      var changeDay = value.replaceAt(0, monthcut);
+      var finalDate = changeDay.replaceAt(3, daycut);
+      return finalDate;
+    },
+    getDifferenceInDays: function getDifferenceInDays(date1, date2) {
+      // const diffInMs = Math.abs(date2 - date1);
+      var diffInMs = date2 - date1;
+      return diffInMs / (1000 * 60 * 60 * 24);
+    },
     finalDateFormat: function finalDateFormat(value) {
       var length = 10;
       var myString = value;
@@ -61207,250 +61338,457 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "section",
-      {
-        staticClass:
-          "bg-gradient-to-r from-gray-50 to-indigo-50 mx-5 rounded-lg"
-      },
-      [
-        _c("div", { staticClass: "container px-1 py-6 mx-auto" }, [
-          _vm._m(0),
-          _vm._v(" "),
+    _c("section", { staticClass: "bg-white mx-5 rounded-lg" }, [
+      _c("div", { staticClass: "container px-1 py-6 mx-auto" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "basis-4/5 mr-5" }, [
           _c(
-            "section",
-            { staticClass: "text-gray-600 body-font overflow-hidden" },
-            [
-              _c(
-                "div",
-                { staticClass: "flex flex-row my-5 mx-2" },
+            "div",
+            { staticClass: "columns-1" },
+            _vm._l(_vm.orderBy(this.posts.slice(0, 1), "expiry", -1), function(
+              post
+            ) {
+              return _c(
+                "a",
+                {
+                  key: post._id,
+                  staticClass:
+                    "group bg-white border-t-2 border-r-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start",
+                  attrs: { href: _vm.route("selected", post._id) }
+                },
                 [
-                  _c("div", { staticClass: "basis-4/5 mr-5" }, [
+                  _c("div", { staticClass: "flex justify-between w-full" }, [
                     _c(
                       "div",
-                      { staticClass: "columns-1" },
-                      _vm._l(
-                        _vm.orderBy(this.posts.slice(0, 5), "expiry", -1),
-                        function(post) {
-                          return _c(
-                            "a",
-                            {
-                              key: post._id,
-                              staticClass:
-                                "group bg-white border-t-2 border-r-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start",
-                              attrs: { href: _vm.route("selected", post._id) }
-                            },
-                            [
-                              _c(
-                                "div",
-                                { staticClass: "flex justify-between w-full" },
-                                [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "font-heading-font font-extrabold"
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                                        Posted:\n                                        "
-                                      ),
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass:
-                                            "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                                            " +
-                                              _vm._s(_vm.ago(post.created_at))
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _vm.expired(post)
-                                    ? _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "font-heading-font font-extrabold"
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                                        Last date of Bid:\n                                        "
-                                          ),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                                            Tender Closed\n                                        "
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    : _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "font-heading-font font-extrabold"
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                                        Last Day of Bid:\n                                        "
-                                          ),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "inline-block py-1 px-2 rounded bg-green-100 text-green-500 text-xs font-bold tracking-widest"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                                            " +
-                                                  _vm._s(
-                                                    // togoFormat(post.expiry)
-                                                    _vm.dateFormat(post.expiry)
-                                                  )
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                {
-                                  staticClass:
-                                    "m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                    " +
-                                      _vm._s(post.tender_brief) +
-                                      "\n                                "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full"
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass:
-                                        "text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-                                    },
-                                    [
-                                      _c("i", {
-                                        staticClass:
-                                          "w-4 h-4 mr-1 fas fa-coins text-indigo-600"
-                                      }),
-                                      _vm._v(
-                                        "\n                                        " +
-                                          _vm._s(post.funded_by) +
-                                          "\n                                    "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _vm._m(1, true)
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "mt-4" }, [
+                      { staticClass: "font-heading-font font-extrabold" },
+                      [
+                        _vm._v(
+                          "\n                                Posted:\n                                "
+                        ),
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(_vm.ago(post.created_at))
+                            )
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm.expired(post)
+                      ? _c(
+                          "div",
+                          { staticClass: "font-heading-font font-extrabold" },
+                          [
+                            _vm._v(
+                              "\n                                Last date of Bid:\n                                "
+                            ),
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    Tender Closed\n                                "
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      : _c(
+                          "div",
+                          { staticClass: "font-heading-font font-extrabold" },
+                          [
+                            _vm._v(
+                              "\n                                Last Day of Bid:\n                                "
+                            ),
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "inline-block py-1 px-2 rounded bg-green-100 text-green-500 text-xs font-bold tracking-widest"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(
+                                      // togoFormat(post.expiry)
+                                      _vm.dateFormat(post.expiry)
+                                    )
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass:
+                        "m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
+                    },
+                    [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(post.tender_brief) +
+                          "\n                        "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full"
+                    },
+                    [
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                        },
+                        [
+                          _c("i", {
+                            staticClass:
+                              "w-4 h-4 mr-1 fas fa-coins text-indigo-600"
+                          }),
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(post.funded_by) +
+                              "\n                            "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(1, true)
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "mt-4" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
+                      },
+                      [
+                        _vm._v(
+                          "Tender Details\n                                "
+                        ),
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "w-4 h-4 ml-2",
+                            attrs: {
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              fill: "none",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", { attrs: { d: "M5 12h14" } }),
+                            _vm._v(" "),
+                            _c("path", { attrs: { d: "M12 5l7 7-7 7" } })
+                          ]
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              )
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _c(
+          "section",
+          { staticClass: "text-gray-600 body-font overflow-hidden" },
+          [
+            _c(
+              "div",
+              { staticClass: "flex flex-row my-5 mx-2" },
+              [
+                _c("div", { staticClass: "basis-4/5 mr-5" }, [
+                  _c(
+                    "div",
+                    { staticClass: "columns-1" },
+                    _vm._l(
+                      _vm.orderBy(this.posts.slice(0, 5), "expiry", -1),
+                      function(post) {
+                        return _c(
+                          "a",
+                          {
+                            key: post._id,
+                            staticClass:
+                              "group bg-white border-t-2 border-r-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start",
+                            attrs: { href: _vm.route("selected", post._id) }
+                          },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "flex justify-between w-full" },
+                              [
                                 _c(
-                                  "a",
+                                  "div",
                                   {
                                     staticClass:
-                                      "text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
+                                      "font-heading-font font-extrabold"
                                   },
                                   [
                                     _vm._v(
-                                      "Tender Details\n                                        "
+                                      "\n                                        Posted:\n                                        "
                                     ),
                                     _c(
-                                      "svg",
+                                      "span",
                                       {
-                                        staticClass: "w-4 h-4 ml-2",
-                                        attrs: {
-                                          viewBox: "0 0 24 24",
-                                          stroke: "currentColor",
-                                          "stroke-width": "2",
-                                          fill: "none",
-                                          "stroke-linecap": "round",
-                                          "stroke-linejoin": "round"
-                                        }
+                                        staticClass:
+                                          "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"
                                       },
                                       [
-                                        _c("path", {
-                                          attrs: { d: "M5 12h14" }
-                                        }),
-                                        _vm._v(" "),
-                                        _c("path", {
-                                          attrs: { d: "M12 5l7 7-7 7" }
-                                        })
+                                        _vm._v(
+                                          "\n                                            " +
+                                            _vm._s(_vm.ago(post.created_at))
+                                        )
                                       ]
                                     )
                                   ]
+                                ),
+                                _vm._v(" "),
+                                _vm.expired(post)
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "font-heading-font font-extrabold"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                        Last date of Bid:\n                                        "
+                                        ),
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass:
+                                              "inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest"
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                            Tender Closed\n                                        "
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  : _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "font-heading-font font-extrabold"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                        Last Day of Bid:\n                                        "
+                                        ),
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass:
+                                              "inline-block py-1 px-2 rounded bg-green-100 text-green-500 text-xs font-bold tracking-widest"
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                            " +
+                                                _vm._s(
+                                                  // togoFormat(post.expiry)
+                                                  _vm.dateFormat(post.expiry)
+                                                )
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "p",
+                              {
+                                staticClass:
+                                  "m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(post.tender_brief) +
+                                    "\n                                "
                                 )
-                              ])
-                            ]
-                          )
-                        }
-                      ),
-                      0
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("SearchFilter")
-                ],
-                1
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "mt-10 flex justify-center",
-              attrs: { href: _vm.route("listing") }
-            },
-            [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "transform transition hover:scale-125 duration-700 ease-in-out text-xl font-extrabold font-heading-font leading-4 text-white bg-indigo-600 sm:w-auto w-full rounded p-4 focus:outline-none hover:bg-gray-200 focus:ring-2 focus:ring-offset-2 focus:ring-white"
-                },
-                [
-                  _vm._v(
-                    "\n                    View All Tenders\n                "
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full"
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass:
+                                      "text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass:
+                                        "w-4 h-4 mr-1 fas fa-coins text-indigo-600"
+                                    }),
+                                    _vm._v(
+                                      "\n                                        " +
+                                        _vm._s(post.funded_by) +
+                                        "\n                                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _vm._m(3, true)
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "mt-4" }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
+                                },
+                                [
+                                  _vm._v(
+                                    "Tender Details\n                                        "
+                                  ),
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "w-4 h-4 ml-2",
+                                      attrs: {
+                                        viewBox: "0 0 24 24",
+                                        stroke: "currentColor",
+                                        "stroke-width": "2",
+                                        fill: "none",
+                                        "stroke-linecap": "round",
+                                        "stroke-linejoin": "round"
+                                      }
+                                    },
+                                    [
+                                      _c("path", { attrs: { d: "M5 12h14" } }),
+                                      _vm._v(" "),
+                                      _c("path", {
+                                        attrs: { d: "M12 5l7 7-7 7" }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      }
+                    ),
+                    0
                   )
-                ]
-              )
-            ]
-          )
-        ])
-      ]
-    )
+                ]),
+                _vm._v(" "),
+                _c("SearchFilter")
+              ],
+              1
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "mt-10 flex justify-center",
+            attrs: { href: _vm.route("listing") }
+          },
+          [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "transform transition hover:scale-125 duration-700 ease-in-out text-xl font-extrabold font-heading-font leading-4 text-white bg-indigo-600 sm:w-auto w-full rounded p-4 focus:outline-none hover:bg-gray-200 focus:ring-2 focus:ring-offset-2 focus:ring-white"
+              },
+              [
+                _vm._v(
+                  "\n                    View All Tenders\n                "
+                )
+              ]
+            )
+          ]
+        )
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "h1",
+        {
+          staticClass:
+            "font-primary-font flex justify-around text-3xl font-bold text-indigo-600 capitalize lg:text-5xl dark:text-white"
+        },
+        [
+          _vm._v(
+            "\n                    Free Tender of the Day\n                "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass:
+          "text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+      },
+      [
+        _c("i", {
+          staticClass: "w-4 h-4 mr-1 fas fa-location-crosshairs text-indigo-600"
+        }),
+        _vm._v(" "),
+        _vm._v(
+          "\n                                Kenya\n                            "
+        )
+      ]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -67608,188 +67946,185 @@ var render = function() {
                   _c(
                     "div",
                     { staticClass: "columns-1" },
-                    _vm._l(
-                      _vm.orderBy(this.Posts.slice(0, 20), "expiry", -1),
-                      function(post) {
-                        return _c(
-                          "a",
-                          {
-                            key: post._id,
-                            staticClass:
-                              "group bg-white border-t-2 border-r-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start",
-                            attrs: { href: _vm.route("selected", post._id) }
-                          },
-                          [
-                            _c(
-                              "div",
-                              { staticClass: "flex justify-between w-full" },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "font-heading-font font-extrabold"
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                        Posted:\n                                        "
-                                    ),
-                                    _c(
-                                      "span",
-                                      {
-                                        staticClass:
-                                          "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                            " +
-                                            _vm._s(_vm.ago(post.created_at))
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _vm.expired(post)
-                                  ? _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "font-heading-font font-extrabold"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                        Last date of Bid:\n                                        "
-                                        ),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass:
-                                              "inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest"
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                            Tender Closed\n                                        "
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  : _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "font-heading-font font-extrabold"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                        Last Day of Bid:\n                                        "
-                                        ),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass:
-                                              "inline-block py-1 px-2 rounded bg-green-100 text-green-500 text-xs font-bold tracking-widest"
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                            " +
-                                                _vm._s(
-                                                  // togoFormat(post.expiry)
-                                                  _vm.dateFormat(post.expiry)
-                                                )
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(post.tender_brief) +
-                                    "\n                                "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full"
-                              },
-                              [
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass:
-                                      "text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass:
-                                        "w-4 h-4 mr-1 fas fa-coins text-indigo-600"
-                                    }),
-                                    _vm._v(
-                                      "\n                                        " +
-                                        _vm._s(post.funded_by) +
-                                        "\n                                    "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _vm._m(1, true)
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "mt-4" }, [
+                    _vm._l(this.Posts.slice(0, 100), function(post) {
+                      return _c(
+                        "a",
+                        {
+                          key: post._id,
+                          staticClass:
+                            "group bg-white border-t-2 border-r-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start",
+                          attrs: { href: _vm.route("selected", post._id) }
+                        },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "flex justify-between w-full" },
+                            [
                               _c(
-                                "a",
+                                "div",
                                 {
                                   staticClass:
-                                    "text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
+                                    "font-heading-font font-extrabold"
                                 },
                                 [
                                   _vm._v(
-                                    "Tender Details\n                                        "
+                                    "\n                                        Posted:\n                                        "
                                   ),
                                   _c(
-                                    "svg",
+                                    "span",
                                     {
-                                      staticClass: "w-4 h-4 ml-2",
-                                      attrs: {
-                                        viewBox: "0 0 24 24",
-                                        stroke: "currentColor",
-                                        "stroke-width": "2",
-                                        fill: "none",
-                                        "stroke-linecap": "round",
-                                        "stroke-linejoin": "round"
-                                      }
+                                      staticClass:
+                                        "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"
                                     },
                                     [
-                                      _c("path", { attrs: { d: "M5 12h14" } }),
-                                      _vm._v(" "),
-                                      _c("path", {
-                                        attrs: { d: "M12 5l7 7-7 7" }
-                                      })
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(_vm.ago(post.created_at))
+                                      )
                                     ]
                                   )
                                 ]
+                              ),
+                              _vm._v(" "),
+                              _vm.expired(post)
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "font-heading-font font-extrabold"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                        Last date of Bid:\n                                        "
+                                      ),
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass:
+                                            "inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                            Tender Closed\n                                        "
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "font-heading-font font-extrabold"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                        Last Day of Bid:\n                                        "
+                                      ),
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass:
+                                            "inline-block py-1 px-2 rounded bg-green-100 text-green-500 text-xs font-bold tracking-widest"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                            " +
+                                              _vm._s(
+                                                // togoFormat(post.expiry)
+                                                _vm.dateFormat(post.expiry)
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            {
+                              staticClass:
+                                "m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(post.tender_brief) +
+                                  "\n                                "
                               )
-                            ])
-                          ]
-                        )
-                      }
-                    ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full"
+                            },
+                            [
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass:
+                                      "w-4 h-4 mr-1 fas fa-coins text-indigo-600"
+                                  }),
+                                  _vm._v(
+                                    "\n                                        " +
+                                      _vm._s(post.funded_by) +
+                                      "\n                                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(1, true)
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "mt-4" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
+                              },
+                              [
+                                _vm._v(
+                                  "Tender Details\n                                        "
+                                ),
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "w-4 h-4 ml-2",
+                                    attrs: {
+                                      viewBox: "0 0 24 24",
+                                      stroke: "currentColor",
+                                      "stroke-width": "2",
+                                      fill: "none",
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round"
+                                    }
+                                  },
+                                  [
+                                    _c("path", { attrs: { d: "M5 12h14" } }),
+                                    _vm._v(" "),
+                                    _c("path", {
+                                      attrs: { d: "M12 5l7 7-7 7" }
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    }),
                     0
                   )
                 ]),
