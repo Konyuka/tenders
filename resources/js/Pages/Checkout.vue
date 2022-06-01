@@ -471,12 +471,16 @@ export default {
             }
         },
         amountMembership() {
-            if (this.membership == "gold") {
+            if (this.membership == "diamond") {
                 return 50000;
+            } else if (this.membership == "platinum") {
+                return 30000;
+            } else if (this.membership == "gold") {
+                return 9000;
             } else if (this.membership == "silver") {
-                return 10000;
+                return 6000;
             } else if (this.membership == "bronze") {
-                return 2000;
+                return 1500;
             }
         },
         waiting() {
@@ -523,9 +527,9 @@ export default {
         return {
             paymentLog: "",
             form: {
-                userName: "Software Saiba",
-                userPhone: "254722750445",
-                userEmail: "saibadeveloper@gmail.com",
+                userName: "",
+                userPhone: this.removeSpaces(""),
+                userEmail: "",
                 number: this.removeSpaces(""),
                 account: "Bidders Portal",
                 amount: this.amount
@@ -539,12 +543,19 @@ export default {
     },
     methods: {
         invoice(value) {
-            const payload = {
-                post: value,
-                user: this.form,
-                amount: this.amount
-            };
-            this.$inertia.post(`/invoice/${this.post._id}`, payload);
+            var strFirstThree = this.form.userPhone.substring(0, 3);
+            if (strFirstThree != 254) {
+                alert("Number Format Should Start with 254");
+            } else if (this.form.userPhone.length != 12) {
+                alert("Invalid Phone Number");
+            } else {
+                const payload = {
+                    post: value,
+                    user: this.form,
+                    amount: this.amount
+                };
+                this.$inertia.post(`/invoice/${this.post._id}`, payload);
+            }
         },
         formatMoney(n) {
             return "" + (Math.round(n * 100) / 100).toLocaleString();

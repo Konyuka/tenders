@@ -38,7 +38,7 @@
                         class="relative space-y-6 lg:space-y-0 lg:grid lg:grid-cols-3"
                     >
                         <div
-                            class="bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
+                            class="hover:bg-gray-500 transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
                             <div>
                                 <h3
@@ -91,7 +91,7 @@
                         </div>
 
                         <div
-                            class="bg-white ring-2 ring-indigo-700 shadow-xl pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
+                            class="transition transform hover:scale-75 duration-700 bg-white ring-2 ring-indigo-700 shadow-xl pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
                             <div>
                                 <h3
@@ -145,7 +145,7 @@
                         </div>
 
                         <div
-                            class="bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
+                            class="hover:bg-gray-500 hover:text-black transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
                             <div>
                                 <h3
@@ -216,7 +216,10 @@
                 </div>
                 <div class="max-w-full mx-auto">
                     <div class="flex flex-wrap items-center -mx-3">
-                        <div class="w-full lg:w-1/5 px-3 mb-8 lg:mb-0">
+                        <button
+                            @click="membership('bronze')"
+                            class="transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3 mb-8 lg:mb-0"
+                        >
                             <div class="px-2 py-16 bg-indigo-400 rounded-3xl">
                                 <div
                                     class="pb-8 mb-14 border-b border-gray-400"
@@ -311,16 +314,19 @@
                                 </ul>
                                 <div class="text-center">
                                     <a
-                                        class="transform transition hover:scale-125 duration-700 hover:bg-white hover:text-black inline-block px-10 py-4 border border-gray-200 hover:border-gray-100 rounded-full font-bold text-white"
+                                        class="transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black"
                                         href="#"
                                         @click="membership('bronze')"
                                         >Subscribe to Plan</a
                                     >
                                 </div>
                             </div>
-                        </div>
+                        </button>
 
-                        <div class="w-full lg:w-1/5 px-3 mb-8 lg:mb-0">
+                        <button
+                            @click="membership('silver')"
+                            class="transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3 mb-8 lg:mb-0"
+                        >
                             <div class="px-2 py-16 bg-indigo-500 rounded-3xl">
                                 <div
                                     class="pb-8 mb-14 border-b border-gray-400"
@@ -334,7 +340,7 @@
                                             Silver
                                         </h3>
                                         <p class="text-lg text-white font-bold">
-                                            KES 9,000
+                                            KES 6,000
                                         </p>
                                     </div>
                                 </div>
@@ -415,16 +421,19 @@
                                 </ul>
                                 <div class="text-center">
                                     <a
-                                        class="transform transition hover:scale-125 duration-700 hover:bg-white hover:text-black inline-block px-10 py-4 border border-gray-200 hover:border-gray-100 rounded-full font-bold text-white"
+                                        class="transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black"
                                         href="#"
-                                        @click="membership('bronze')"
+                                        @click="membership('silver')"
                                         >Subscribe to Plan</a
                                     >
                                 </div>
                             </div>
-                        </div>
+                        </button>
 
-                        <div class="w-full lg:w-1/5 px-3 mb-8 lg:mb-0">
+                        <button
+                            @click="membership('gold')"
+                            class="transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3 mb-8 lg:mb-0"
+                        >
                             <div class="px-2 py-16 bg-indigo-600 rounded-3xl">
                                 <div
                                     class="pb-8 mb-14 border-b border-gray-400"
@@ -438,7 +447,7 @@
                                             Gold
                                         </h3>
                                         <p class="text-lg text-white font-bold">
-                                            KES 6,000
+                                            KES 9,000
                                         </p>
                                     </div>
                                 </div>
@@ -519,16 +528,19 @@
                                 </ul>
                                 <div class="text-center">
                                     <a
-                                        class="transform transition hover:scale-125 duration-700 hover:bg-white hover:text-black inline-block px-10 py-4 border border-gray-200 hover:border-gray-100 rounded-full font-bold text-white"
+                                        class="transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black"
                                         href="#"
-                                        @click="membership('bronze')"
+                                        @click="membership('gold')"
                                         >Subscribe to Plan</a
                                     >
                                 </div>
                             </div>
-                        </div>
+                        </button>
 
-                        <div class="w-full lg:w-1/5 px-3">
+                        <button
+                            @click="membership('platinum')"
+                            class="transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3"
+                        >
                             <div class="px-2 py-16 bg-indigo-700 rounded-3xl">
                                 <div
                                     class="pb-8 mb-14 border-b border-gray-400"
@@ -623,16 +635,19 @@
                                 </ul>
                                 <div class="text-center">
                                     <a
-                                        class="transform transition hover:scale-125 duration-700 hover:bg-white hover:text-black inline-block px-10 py-4 border border-gray-200 hover:border-gray-100 rounded-full font-bold text-white"
+                                        class="transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black"
                                         href="#"
-                                        @click="membership('silver')"
+                                        @click="membership('platinum')"
                                         >Subscribe to Plan</a
                                     >
                                 </div>
                             </div>
-                        </div>
+                        </button>
 
-                        <div class="w-full lg:w-1/5 px-3 mb-8 lg:mb-0">
+                        <button
+                            @click="membership('diamond')"
+                            class="transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3 mb-8 lg:mb-0"
+                        >
                             <div class="px-2 py-16 bg-indigo-800 rounded-3xl">
                                 <div
                                     class="pb-8 mb-14 border-b border-blueGray-300"
@@ -729,12 +744,12 @@
                                     <a
                                         class="transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black"
                                         href="#"
-                                        @click="membership('gold')"
+                                        @click="membership('diamond')"
                                         >Subscribe to Plan</a
                                     >
                                 </div>
                             </div>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>

@@ -41,6 +41,16 @@ class LandingController extends Controller
        ]);
     }
 
+    public function free($slug)
+    {
+        return Inertia::render('Unlock', [
+            'post' => Post::where('_id', '=', $slug)->first(),
+            'status' => 'Unlocked',
+            'transId' => null,
+            'payment' => null,
+       ]);
+    }
+
     public function unlock($slug)
     {
         // return dd($slug);

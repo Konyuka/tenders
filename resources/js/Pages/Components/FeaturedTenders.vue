@@ -6,7 +6,7 @@
                     <h1
                         class="font-primary-font flex justify-around text-3xl font-bold text-indigo-600 capitalize lg:text-5xl dark:text-white"
                     >
-                        Free Tender of the Day
+                        Daily Free Tender
                     </h1>
                 </div>
 
@@ -15,7 +15,7 @@
                         <a
                             v-for="post in this.posts.slice(0, 1)"
                             :key="post._id"
-                            :href="route('selected', post._id)"
+                            :href="route('free', post._id)"
                             class="group bg-white border-t-2 border-r-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start"
                         >
                             <!-- <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">{{ post.funded_by }}</span> -->

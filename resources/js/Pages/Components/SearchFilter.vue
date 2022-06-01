@@ -52,7 +52,7 @@
                                             <label
                                                 for="FirstName"
                                                 class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100"
-                                                >Search by Tender Number</label
+                                                >Search by Region/County</label
                                             >
                                             <input
                                                 tabindex="0"
@@ -69,7 +69,25 @@
                                             <label
                                                 for="FirstName"
                                                 class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100"
-                                                >Search by Closing Date</label
+                                                >Search by Procuring
+                                                Entity</label
+                                            >
+                                            <input
+                                                tabindex="0"
+                                                type="text"
+                                                id="FirstName"
+                                                name="firstName"
+                                                required
+                                                class="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400"
+                                                placeholder=""
+                                            />
+                                        </div>
+
+                                        <div class="w-full flex flex-col mb-6">
+                                            <label
+                                                for="FirstName"
+                                                class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100"
+                                                >Search by Tender Number</label
                                             >
                                             <input
                                                 tabindex="0"
@@ -105,6 +123,23 @@
                                                     >KES 50</option
                                                 >
                                             </select>
+                                        </div>
+
+                                        <div class="w-full flex flex-col mb-6">
+                                            <label
+                                                for="FirstName"
+                                                class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100"
+                                                >Search by Closing Date</label
+                                            >
+                                            <input
+                                                tabindex="0"
+                                                type="text"
+                                                id="FirstName"
+                                                name="firstName"
+                                                required
+                                                class="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400"
+                                                placeholder=""
+                                            />
                                         </div>
                                     </form>
                                 </div>
