@@ -54,15 +54,17 @@ class LandingController extends Controller
         $clientName = urlencode($payment->user_name);
 
         // return  dd($clientName);
+        if($payment->email_sent == 0){
+
+        }
 
         if($payment->sms_sent == 0){
             // return dd('sending');
+
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile={$clientNumber}&msg=Thank+you+{$clientName}+for+the+purchase%21+Your+invoice+number+is+{$clientInvoice}+Tender+and+Invoice+details+have+been+mailed+to+the+submitted+email+{$clientEmail}+Thank+you+for+choosing+Bidders+Portal&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
-            // CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile={$clientNumber}&msg=Thank+you+{$clientName}+for+the+purchase!%21Your+Invoice+Number+is+{$clientInvoice}%21Tender+details+have+been+mailed+to+the+submitted+email+{$clientEmail}%21Bidders+Portal%21&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
-            // CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile=254716202298&msg=Thank+you+For+the+Purchase%21+Bidders+Portal%21&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
+            CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile={$clientNumber}&msg=Thank+you+{$clientName}+for+the+purchase%21+Your+invoice+number+is+{$clientInvoice}.+Tender+and+Invoice+details+have+been+mailed+to+the+submitted+email+{$clientEmail}.+Thank+you+for+choosing+Bidders+Portal&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -82,12 +84,12 @@ class LandingController extends Controller
             if ($err) {
             echo "cURL Error #:" . $err;
             } else {
-                // $sms_sent = true;
-                // $payment = Payments::where(['trans_id'=>$slug])->first();
-                // if ($payment){
-                //     $payment->sms_sent=true;
-                //     $payment->save();
-                // }
+                $sms_sent = true;
+                $payment = Payments::where(['trans_id'=>$slug])->first();
+                if ($payment){
+                    $payment->sms_sent=true;
+                    $payment->save();
+                }
             // echo $response;
             }
         }

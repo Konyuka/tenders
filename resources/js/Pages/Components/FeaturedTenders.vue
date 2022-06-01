@@ -273,7 +273,7 @@ export default {
         expired(post) {
             var current = moment().startOf("day");
             var given = moment(post.expiry, "YYYY-MM-DD");
-            return console.log(given);
+            return;
 
             if (dateChangeFormat) {
                 var given = moment(this.formatedDate, "YYYY-MM-DD");

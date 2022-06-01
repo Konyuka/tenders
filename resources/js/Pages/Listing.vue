@@ -28,7 +28,7 @@
                         <div class="basis-4/5 mr-5">
                             <div class="columns-1">
                                 <a
-                                    v-for="post in this.Posts.slice(0, 100)"
+                                    v-for="post in displayedPosts"
                                     :key="post._id"
                                     :href="route('selected', post._id)"
                                     class="group bg-white border-t-2 border-r-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start"
@@ -126,281 +126,85 @@
                 </main>
 
                 <footer class="flex justify-around mt-10">
-                    <a
-                        href="#"
+                    <button
+                        v-if="page != 1"
+                        @click="page--"
                         class="inline-flex items-center py-4 px-6 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                     >
                         Previous
-                    </a>
+                    </button>
 
-                    <a
-                        href="#"
+                    <button v-if="page == 1"></button>
+
+                    <div
+                        class="flex items-center justify-center pb-6 md:py-0 md:w-1/2"
+                    >
+                        <form>
+                            <div
+                                class="flex flex-col p-1 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300"
+                            >
+                                <input
+                                    v-model="jumpPage"
+                                    class="px-2 py-2 w-24 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent"
+                                    type="text"
+                                    name="email"
+                                    placeholder="Enter #"
+                                    aria-label="Page #"
+                                />
+
+                                <button
+                                    @click="setPageNumber"
+                                    class="font-heading-font inline-flex items-center py-2 px-2 text-md font-extrabold text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                >
+                                    Jump
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <button
+                        @click="page++"
+                        v-if="page < pages.length"
                         class="inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                     >
                         Next
-                    </a>
+                    </button>
                 </footer>
-            </div>
 
-            <MainFooter />
-
-            <div
-                v-if="modal"
-                id="defaultModal"
-                tabindex="-1"
-                aria-hidden="true"
-                class="overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full"
-            >
-                <div class="relative p-4 w-full max-w-5xl h-full md:h-auto">
-                    <!-- Modal content -->
+                <div class="mt-4 w-full bg-white dark:bg-gray-800">
                     <div
-                        class="relative bg-gray-50 rounded-lg shadow-2xl dark:bg-gray-700"
+                        class="container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 "
                     >
-                        <!-- Modal header -->
-                        <div
-                            class="flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600"
-                        >
-                            <h3
-                                class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white"
+                        <div class="-mx-2">
+                            <a
+                                href="#"
+                                class="inline-flex items-center justify-center px-4 py-1 mx-2 text-gray-700 transition-colors duration-200 transform bg-gray-100 rounded-lg dark:text-white dark:bg-gray-700"
                             >
-                                Tender Search Filters
-                            </h3>
-                            <button
-                                @click="modal = false"
-                                type="button"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                data-modal-toggle="defaultModal"
-                            >
-                                <svg
-                                    class="w-5 h-5"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                Page Number:
+                                <span
+                                    class="text-indigo-600 font-primary-font ml-3 text-xl"
+                                    >{{ page }}</span
                                 >
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                        clip-rule="evenodd"
-                                    ></path>
-                                </svg>
-                            </button>
+                            </a>
                         </div>
-                        <!-- Modal body -->
-                        <div class="p-2 space-y-6">
-                            <section
-                                class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800"
+
+                        <div class="text-gray-500 dark:text-gray-400">
+                            <span
+                                class="font-medium text-gray-700 dark:text-gray-100"
+                                >1 - 10</span
                             >
-                                <form>
-                                    <div
-                                        class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2"
-                                    >
-                                        <div>
-                                            <label
-                                                class="text-gray-700 dark:text-gray-200"
-                                                for="username"
-                                                >Search Keyword</label
-                                            >
-                                            <input
-                                                id="username"
-                                                type="text"
-                                                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                                            />
-                                        </div>
-
-                                        <div>
-                                            <label
-                                                class="text-gray-700 dark:text-gray-200"
-                                                for="emailAddress"
-                                                >Within Search Keyword</label
-                                            >
-                                            <input
-                                                id="emailAddress"
-                                                type="text"
-                                                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                                            />
-                                        </div>
-                                    </div>
-                                </form>
-
-                                <div
-                                    class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2"
-                                >
-                                    <div>
-                                        <label
-                                            class="text-gray-700 dark:text-gray-200"
-                                            for="username"
-                                            >Tender Notice No.</label
-                                        >
-                                        <input
-                                            id="username"
-                                            type="text"
-                                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                                        />
-                                    </div>
-
-                                    <div>
-                                        <label
-                                            class="text-gray-700 dark:text-gray-200"
-                                            for="emailAddress"
-                                            >Bid Detail Ref No.</label
-                                        >
-                                        <input
-                                            id="emailAddress"
-                                            type="text"
-                                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                                        />
-                                    </div>
-
-                                    <div>
-                                        <label
-                                            class="text-gray-700 dark:text-gray-200"
-                                            for="password"
-                                            >Funding</label
-                                        >
-                                        <input
-                                            id="password"
-                                            type="text"
-                                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                                        />
-                                    </div>
-
-                                    <div>
-                                        <label
-                                            class="text-gray-700 dark:text-gray-200"
-                                            for="passwordConfirmation"
-                                            >Tender Value</label
-                                        >
-                                        <select
-                                            id="country"
-                                            name="country"
-                                            autocomplete="country-name"
-                                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                                        >
-                                            <option>United States</option>
-                                            <option>Canada</option>
-                                            <option>Mexico</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div
-                                    class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1"
-                                >
-                                    <div>
-                                        <label
-                                            class="text-gray-700 dark:text-gray-200"
-                                            for="username"
-                                            >Region / Country</label
-                                        >
-                                        <input
-                                            id="username"
-                                            type="text"
-                                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div
-                                    class="grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2"
-                                >
-                                    <div>
-                                        <label
-                                            class="text-gray-700 dark:text-gray-200"
-                                            for="username"
-                                            >Closing Date</label
-                                        >
-                                        <select
-                                            id="country"
-                                            name="country"
-                                            autocomplete="country-name"
-                                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                                        >
-                                            <option>United States</option>
-                                            <option>Canada</option>
-                                            <option>Mexico</option>
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <label
-                                            class="text-gray-700 dark:text-gray-200"
-                                            for="emailAddress"
-                                            >Sector Classification</label
-                                        >
-                                        <select
-                                            id="country"
-                                            name="country"
-                                            autocomplete="country-name"
-                                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                                        >
-                                            <option>United States</option>
-                                            <option>Canada</option>
-                                            <option>Mexico</option>
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <label
-                                            class="text-gray-700 dark:text-gray-200"
-                                            for="password"
-                                            >Funded</label
-                                        >
-                                        <select
-                                            id="country"
-                                            name="country"
-                                            autocomplete="country-name"
-                                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                                        >
-                                            <option>United States</option>
-                                            <option>Canada</option>
-                                            <option>Mexico</option>
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <label
-                                            class="text-gray-700 dark:text-gray-200"
-                                            for="passwordConfirmation"
-                                            >Tender Type</label
-                                        >
-                                        <select
-                                            id="country"
-                                            name="country"
-                                            autocomplete="country-name"
-                                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                                        >
-                                            <option>United States</option>
-                                            <option>Canada</option>
-                                            <option>Mexico</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                        <!-- Modal footer -->
-                        <div
-                            class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
-                        >
-                            <button
-                                @click="loadFilters"
-                                data-modal-toggle="defaultModal"
-                                type="button"
-                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            of
+                            <span
+                                class="text-indigo-600 font-primary-font ml-1 text-xl"
+                                >{{ this.Posts.length }}</span
                             >
-                                Find Tenders
-                            </button>
-                            <button
-                                @click="clearFilters"
-                                data-modal-toggle="defaultModal"
-                                type="button"
-                                class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
-                            >
-                                Clear Filters
-                            </button>
+                            tenders
                         </div>
                     </div>
                 </div>
             </div>
+
+            <MainFooter />
         </body>
     </div>
 </template>
@@ -414,6 +218,7 @@ import dateFormat from "dateformat";
 
 import Vue from "vue";
 import Vue2Filters from "vue2-filters";
+import Button from "../Jetstream/Button.vue";
 Vue.use(Vue2Filters);
 
 export default {
@@ -426,34 +231,64 @@ export default {
         TopBanner,
         MainMenu,
         MainFooter,
-        SearchFilter
+        SearchFilter,
+        Button
     },
-    watch: {},
+    watch: {
+        Posts() {
+            this.setPages();
+        }
+    },
     mounted() {
         if (this.dateChangeFormat) {
             var given = moment(this.formatedDate, "YYYY-MM-DD");
         } else {
             var given = moment(this.post.expiry, "YYYY-MM-DD");
         }
-
+        var current = moment().startOf("day");
         var diff = moment.duration(current.diff(given)).asDays();
-        console.log(diff);
 
         if (diff < 0) {
             this.postExpired = true;
         } else {
             this.postExpired = false;
         }
+
+        this.setPages();
     },
-    computed: {},
+    computed: {
+        displayedPosts() {
+            return this.paginate(this.Posts);
+        }
+    },
     data() {
         return {
-            modal: false,
             formatedDate: "",
-            postExpired: false
+            postExpired: false,
+            page: 1,
+            perPage: 10,
+            pages: [],
+            jumpPage: ""
         };
     },
     methods: {
+        setPageNumber() {
+            this.page = this.jumpPage;
+            this.jumpPage = "";
+        },
+        setPages() {
+            let numberOfPages = Math.ceil(this.Posts.length / this.perPage);
+            for (let index = 1; index <= numberOfPages; index++) {
+                this.pages.push(index);
+            }
+        },
+        paginate(Posts) {
+            let page = this.page;
+            let perPage = this.perPage;
+            let from = page * perPage - perPage;
+            let to = page * perPage;
+            return Posts.slice(from, to);
+        },
         dateChangeFormat(value) {
             const togo = moment(value).fromNow(true);
             if (togo == "Invalid date") {

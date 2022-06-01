@@ -6487,7 +6487,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
     expired: function expired(post) {
       var current = moment().startOf("day");
       var given = moment(post.expiry, "YYYY-MM-DD");
-      return console.log(given);
+      return;
 
       if (dateChangeFormat) {
         var given = moment(this.formatedDate, "YYYY-MM-DD");
@@ -10315,6 +10315,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue2-filters */ "./node_modules/vue2-filters/dist/vue2-filters.js");
 /* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue2_filters__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Jetstream/Button.vue */ "./resources/js/Jetstream/Button.vue");
 //
 //
 //
@@ -10526,202 +10527,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -10740,9 +10546,14 @@ vue__WEBPACK_IMPORTED_MODULE_5___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
     TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    SearchFilter: _Components_SearchFilter_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    SearchFilter: _Components_SearchFilter_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Button: _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
-  watch: {},
+  watch: {
+    Posts: function Posts() {
+      this.setPages();
+    }
+  },
   mounted: function mounted() {
     if (this.dateChangeFormat) {
       var given = moment(this.formatedDate, "YYYY-MM-DD");
@@ -10750,24 +10561,51 @@ vue__WEBPACK_IMPORTED_MODULE_5___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       var given = moment(this.post.expiry, "YYYY-MM-DD");
     }
 
+    var current = moment().startOf("day");
     var diff = moment.duration(current.diff(given)).asDays();
-    console.log(diff);
 
     if (diff < 0) {
       this.postExpired = true;
     } else {
       this.postExpired = false;
     }
+
+    this.setPages();
   },
-  computed: {},
+  computed: {
+    displayedPosts: function displayedPosts() {
+      return this.paginate(this.Posts);
+    }
+  },
   data: function data() {
     return {
-      modal: false,
       formatedDate: "",
-      postExpired: false
+      postExpired: false,
+      page: 1,
+      perPage: 10,
+      pages: [],
+      jumpPage: ""
     };
   },
   methods: {
+    setPageNumber: function setPageNumber() {
+      this.page = this.jumpPage;
+      this.jumpPage = "";
+    },
+    setPages: function setPages() {
+      var numberOfPages = Math.ceil(this.Posts.length / this.perPage);
+
+      for (var index = 1; index <= numberOfPages; index++) {
+        this.pages.push(index);
+      }
+    },
+    paginate: function paginate(Posts) {
+      var page = this.page;
+      var perPage = this.perPage;
+      var from = page * perPage - perPage;
+      var to = page * perPage;
+      return Posts.slice(from, to);
+    },
     dateChangeFormat: function dateChangeFormat(value) {
       var togo = moment(value).fromNow(true);
 
@@ -68078,7 +67916,7 @@ var render = function() {
                   _c(
                     "div",
                     { staticClass: "columns-1" },
-                    _vm._l(this.Posts.slice(0, 100), function(post) {
+                    _vm._l(_vm.displayedPosts, function(post) {
                       return _c(
                         "a",
                         {
@@ -68267,153 +68105,166 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _vm._m(2)
-        ]),
-        _vm._v(" "),
-        _c("MainFooter"),
-        _vm._v(" "),
-        _vm.modal
-          ? _c(
+          _c("footer", { staticClass: "flex justify-around mt-10" }, [
+            _vm.page != 1
+              ? _c(
+                  "button",
+                  {
+                    staticClass:
+                      "inline-flex items-center py-4 px-6 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
+                    on: {
+                      click: function($event) {
+                        _vm.page--
+                      }
+                    }
+                  },
+                  [_vm._v("\n                    Previous\n                ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.page == 1 ? _c("button") : _vm._e(),
+            _vm._v(" "),
+            _c(
               "div",
               {
                 staticClass:
-                  "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
-                attrs: {
-                  id: "defaultModal",
-                  tabindex: "-1",
-                  "aria-hidden": "true"
-                }
+                  "flex items-center justify-center pb-6 md:py-0 md:w-1/2"
               },
               [
-                _c(
-                  "div",
+                _c("form", [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "flex flex-col p-1 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300"
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.jumpPage,
+                            expression: "jumpPage"
+                          }
+                        ],
+                        staticClass:
+                          "px-2 py-2 w-24 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent",
+                        attrs: {
+                          type: "text",
+                          name: "email",
+                          placeholder: "Enter #",
+                          "aria-label": "Page #"
+                        },
+                        domProps: { value: _vm.jumpPage },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.jumpPage = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "font-heading-font inline-flex items-center py-2 px-2 text-md font-extrabold text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
+                          on: { click: _vm.setPageNumber }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                Jump\n                            "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm.page < _vm.pages.length
+              ? _c(
+                  "button",
                   {
                     staticClass:
-                      "relative p-4 w-full max-w-5xl h-full md:h-auto"
+                      "inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
+                    on: {
+                      click: function($event) {
+                        _vm.page++
+                      }
+                    }
                   },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "relative bg-gray-50 rounded-lg shadow-2xl dark:bg-gray-700"
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600"
-                          },
-                          [
-                            _c(
-                              "h3",
-                              {
-                                staticClass:
-                                  "text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white"
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Tender Search Filters\n                        "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white",
-                                attrs: {
-                                  type: "button",
-                                  "data-modal-toggle": "defaultModal"
-                                },
-                                on: {
-                                  click: function($event) {
-                                    _vm.modal = false
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass: "w-5 h-5",
-                                    attrs: {
-                                      fill: "currentColor",
-                                      viewBox: "0 0 20 20",
-                                      xmlns: "http://www.w3.org/2000/svg"
-                                    }
-                                  },
-                                  [
-                                    _c("path", {
-                                      attrs: {
-                                        "fill-rule": "evenodd",
-                                        d:
-                                          "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
-                                        "clip-rule": "evenodd"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm._m(3),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
-                          },
-                          [
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
-                                attrs: {
-                                  "data-modal-toggle": "defaultModal",
-                                  type: "button"
-                                },
-                                on: { click: _vm.loadFilters }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Find Tenders\n                        "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600",
-                                attrs: {
-                                  "data-modal-toggle": "defaultModal",
-                                  type: "button"
-                                },
-                                on: { click: _vm.clearFilters }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Clear Filters\n                        "
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ]
+                  [_vm._v("\n                    Next\n                ")]
                 )
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mt-4 w-full bg-white dark:bg-gray-800" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 "
+              },
+              [
+                _c("div", { staticClass: "-mx-2" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass:
+                        "inline-flex items-center justify-center px-4 py-1 mx-2 text-gray-700 transition-colors duration-200 transform bg-gray-100 rounded-lg dark:text-white dark:bg-gray-700",
+                      attrs: { href: "#" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                            Page Number:\n                            "
+                      ),
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "text-indigo-600 font-primary-font ml-3 text-xl"
+                        },
+                        [_vm._v(_vm._s(_vm.page))]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-gray-500 dark:text-gray-400" }, [
+                  _c(
+                    "span",
+                    {
+                      staticClass:
+                        "font-medium text-gray-700 dark:text-gray-100"
+                    },
+                    [_vm._v("1 - 10")]
+                  ),
+                  _vm._v(
+                    "\n                        of\n                        "
+                  ),
+                  _c(
+                    "span",
+                    {
+                      staticClass:
+                        "text-indigo-600 font-primary-font ml-1 text-xl"
+                    },
+                    [_vm._v(_vm._s(this.Posts.length))]
+                  ),
+                  _vm._v(
+                    "\n                        tenders\n                    "
+                  )
+                ])
               ]
             )
-          : _vm._e()
+          ])
+        ]),
+        _vm._v(" "),
+        _c("MainFooter")
       ],
       1
     )
@@ -68459,330 +68310,6 @@ var staticRenderFns = [
         )
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "flex justify-around mt-10" }, [
-      _c(
-        "a",
-        {
-          staticClass:
-            "inline-flex items-center py-4 px-6 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
-          attrs: { href: "#" }
-        },
-        [_vm._v("\n                    Previous\n                ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass:
-            "inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
-          attrs: { href: "#" }
-        },
-        [_vm._v("\n                    Next\n                ")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-2 space-y-6" }, [
-      _c(
-        "section",
-        {
-          staticClass:
-            "max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800"
-        },
-        [
-          _c("form", [
-            _c(
-              "div",
-              { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2" },
-              [
-                _c("div", [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "text-gray-700 dark:text-gray-200",
-                      attrs: { for: "username" }
-                    },
-                    [_vm._v("Search Keyword")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass:
-                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                    attrs: { id: "username", type: "text" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "text-gray-700 dark:text-gray-200",
-                      attrs: { for: "emailAddress" }
-                    },
-                    [_vm._v("Within Search Keyword")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass:
-                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                    attrs: { id: "emailAddress", type: "text" }
-                  })
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2" },
-            [
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "username" }
-                  },
-                  [_vm._v("Tender Notice No.")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass:
-                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                  attrs: { id: "username", type: "text" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "emailAddress" }
-                  },
-                  [_vm._v("Bid Detail Ref No.")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass:
-                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                  attrs: { id: "emailAddress", type: "text" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "password" }
-                  },
-                  [_vm._v("Funding")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass:
-                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                  attrs: { id: "password", type: "text" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "passwordConfirmation" }
-                  },
-                  [_vm._v("Tender Value")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    staticClass:
-                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                    attrs: {
-                      id: "country",
-                      name: "country",
-                      autocomplete: "country-name"
-                    }
-                  },
-                  [
-                    _c("option", [_vm._v("United States")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Canada")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Mexico")])
-                  ]
-                )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-1" },
-            [
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "username" }
-                  },
-                  [_vm._v("Region / Country")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass:
-                    "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                  attrs: { id: "username", type: "text" }
-                })
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "grid grid-cols-1 gap-1 mt-4 sm:grid-cols-2" },
-            [
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "username" }
-                  },
-                  [_vm._v("Closing Date")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    staticClass:
-                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                    attrs: {
-                      id: "country",
-                      name: "country",
-                      autocomplete: "country-name"
-                    }
-                  },
-                  [
-                    _c("option", [_vm._v("United States")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Canada")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Mexico")])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "emailAddress" }
-                  },
-                  [_vm._v("Sector Classification")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    staticClass:
-                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                    attrs: {
-                      id: "country",
-                      name: "country",
-                      autocomplete: "country-name"
-                    }
-                  },
-                  [
-                    _c("option", [_vm._v("United States")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Canada")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Mexico")])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "password" }
-                  },
-                  [_vm._v("Funded")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    staticClass:
-                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                    attrs: {
-                      id: "country",
-                      name: "country",
-                      autocomplete: "country-name"
-                    }
-                  },
-                  [
-                    _c("option", [_vm._v("United States")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Canada")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Mexico")])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-gray-700 dark:text-gray-200",
-                    attrs: { for: "passwordConfirmation" }
-                  },
-                  [_vm._v("Tender Type")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    staticClass:
-                      "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
-                    attrs: {
-                      id: "country",
-                      name: "country",
-                      autocomplete: "country-name"
-                    }
-                  },
-                  [
-                    _c("option", [_vm._v("United States")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Canada")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("Mexico")])
-                  ]
-                )
-              ])
-            ]
-          )
-        ]
-      )
-    ])
   }
 ]
 render._withStripped = true
