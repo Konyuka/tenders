@@ -14,7 +14,7 @@
                     </button>
                 </header> -->
 
-                <main class="px-5 py-4 mx-auto">
+                <main id="top" class="px-5 py-4 mx-auto">
                     <div class="flex flex-col text-center w-full mb-6">
                         <h2
                             class="text-xl text-indigo-500 tracking-widest font-medium title-font m-5"
@@ -128,7 +128,10 @@
                 <footer class="flex justify-around mt-10">
                     <button
                         v-if="page != 1"
-                        @click="page--"
+                        @click="
+                            page--;
+                            scroll();
+                        "
                         class="inline-flex items-center py-4 px-6 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                     >
                         Previous
@@ -163,21 +166,30 @@
                     </div>
 
                     <button
-                        @click="page++"
+                        @click="
+                            page++;
+                            scroll();
+                        "
                         v-if="page < pages.length"
                         class="inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                     >
                         Next
                     </button>
+
+                    <!-- <button
+                        @click="scroll"
+                        class="inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                    >
+                        scroll
+                    </button> -->
                 </footer>
 
-                <div class="mt-4 w-full bg-white dark:bg-gray-800">
+                <div class="mt-6 w-full bg-white dark:bg-gray-800">
                     <div
                         class="container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 "
                     >
                         <div class="-mx-2">
                             <a
-                                href="#"
                                 class="inline-flex items-center justify-center px-4 py-1 mx-2 text-gray-700 transition-colors duration-200 transform bg-gray-100 rounded-lg dark:text-white dark:bg-gray-700"
                             >
                                 Page Number:
@@ -220,6 +232,9 @@ import Vue from "vue";
 import Vue2Filters from "vue2-filters";
 import Button from "../Jetstream/Button.vue";
 Vue.use(Vue2Filters);
+
+// window.$ = window.jQuery = require('jquery')
+import $ from "jquery";
 
 export default {
     name: "Listing",
@@ -272,6 +287,14 @@ export default {
         };
     },
     methods: {
+        scroll() {
+            $("html, body").animate(
+                {
+                    scrollTop: $("#top").offset().top
+                },
+                2000
+            );
+        },
         setPageNumber() {
             this.page = this.jumpPage;
             this.jumpPage = "";
@@ -281,6 +304,7 @@ export default {
             for (let index = 1; index <= numberOfPages; index++) {
                 this.pages.push(index);
             }
+            this.scroll();
         },
         paginate(Posts) {
             let page = this.page;
