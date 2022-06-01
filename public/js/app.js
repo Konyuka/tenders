@@ -78829,9 +78829,9 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "flex flex-row my-5 mx-20" },
+                { staticClass: "flex flex-row my-5 mx-5" },
                 [
-                  _c("div", { staticClass: "basis-4/5 mr-5" }, [
+                  _c("div", { staticClass: "w-4/5 mr-5" }, [
                     _c(
                       "div",
                       { staticClass: "columns-1" },
@@ -79074,7 +79074,7 @@ var render = function() {
                         attrs: {
                           type: "text",
                           name: "email",
-                          placeholder: "Enter #",
+                          placeholder: "Page No.",
                           "aria-label": "Page #"
                         },
                         domProps: { value: _vm.jumpPage },

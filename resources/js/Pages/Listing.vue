@@ -24,8 +24,8 @@
                         <!-- <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">All Tenders Listing</h1> -->
                     </div>
 
-                    <div class="flex flex-row my-5 mx-20">
-                        <div class="basis-4/5 mr-5">
+                    <div class="flex flex-row my-5 mx-5">
+                        <div class="w-4/5 mr-5">
                             <div class="columns-1">
                                 <a
                                     v-for="post in displayedPosts"
@@ -151,7 +151,7 @@
                                     class="px-2 py-2 w-24 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent"
                                     type="text"
                                     name="email"
-                                    placeholder="Enter #"
+                                    placeholder="Page No."
                                     aria-label="Page #"
                                 />
 
