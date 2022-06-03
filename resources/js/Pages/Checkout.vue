@@ -527,9 +527,9 @@ export default {
         return {
             paymentLog: "",
             form: {
-                userName: "",
-                userPhone: this.removeSpaces(""),
-                userEmail: "",
+                userName: "Michael Saiba",
+                userPhone: this.removeSpaces("254716202298"),
+                userEmail: "michaelsaiba84@gmail.com",
                 number: this.removeSpaces(""),
                 account: "Bidders Portal",
                 amount: this.amount

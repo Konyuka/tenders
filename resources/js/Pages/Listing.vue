@@ -24,6 +24,27 @@
                         <!-- <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">All Tenders Listing</h1> -->
                     </div>
 
+                    <div class="w-full bg-white dark:bg-gray-800">
+                        <div
+                            class="container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 "
+                        >
+                            <div class="-mx-2"></div>
+
+                            <div class="text-gray-500 dark:text-gray-400">
+                                <span
+                                    class="font-medium text-gray-700 dark:text-gray-100"
+                                    >{{ page }} - {{ pages.length }}</span
+                                >
+                                of
+                                <span
+                                    class="text-indigo-600 font-primary-font ml-1 text-xl"
+                                    >{{ this.Posts.length }}</span
+                                >
+                                tenders
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="flex flex-row my-5 mx-5">
                         <div class="w-4/5 mr-5">
                             <div class="columns-1">
@@ -121,17 +142,16 @@
                             </div>
                         </div>
 
-                        <SearchFilter />
+                        <div class="">
+                            <SearchFilter />
+                        </div>
                     </div>
                 </main>
 
                 <footer class="flex justify-around mt-10">
                     <button
                         v-if="page != 1"
-                        @click="
-                            page--;
-                            scroll();
-                        "
+                        @click="page--"
                         class="inline-flex items-center py-4 px-6 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                     >
                         Previous
@@ -142,34 +162,31 @@
                     <div
                         class="flex items-center justify-center pb-6 md:py-0 md:w-1/2"
                     >
-                        <form>
-                            <div
-                                class="flex flex-col p-1 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300"
-                            >
-                                <input
-                                    v-model="jumpPage"
-                                    class="px-2 py-2 w-24 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent"
-                                    type="text"
-                                    name="email"
-                                    placeholder="Page No."
-                                    aria-label="Page #"
-                                />
+                        <div
+                            class="flex flex-col p-1 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300"
+                        >
+                            <input
+                                v-model="jumpPage"
+                                class="px-2 py-2 w-24 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent"
+                                type="text"
+                                name="email"
+                                placeholder="Page No."
+                                aria-label="Page #"
+                            />
 
-                                <button
-                                    @click="setPageNumber"
-                                    class="font-heading-font inline-flex items-center py-2 px-2 text-md font-extrabold text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                                >
-                                    Jump
-                                </button>
-                            </div>
-                        </form>
+                            <button
+                                @click="setPageNumber"
+                                class="font-heading-font inline-flex items-center py-2 px-2 text-md font-extrabold text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                            >
+                                Jump
+                            </button>
+                        </div>
                     </div>
 
+                    <button v-if="page == this.pages.length"></button>
+
                     <button
-                        @click="
-                            page++;
-                            scroll();
-                        "
+                        @click="page++"
                         v-if="page < pages.length"
                         class="inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                     >
@@ -189,7 +206,7 @@
                         class="container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 "
                     >
                         <div class="-mx-2">
-                            <a
+                            <!-- <a
                                 class="inline-flex items-center justify-center px-4 py-1 mx-2 text-gray-700 transition-colors duration-200 transform bg-gray-100 rounded-lg dark:text-white dark:bg-gray-700"
                             >
                                 Page Number:
@@ -197,13 +214,13 @@
                                     class="text-indigo-600 font-primary-font ml-3 text-xl"
                                     >{{ page }}</span
                                 >
-                            </a>
+                            </a> -->
                         </div>
 
                         <div class="text-gray-500 dark:text-gray-400">
                             <span
                                 class="font-medium text-gray-700 dark:text-gray-100"
-                                >1 - 10</span
+                                >{{ page }} - {{ pages.length }}</span
                             >
                             of
                             <span
@@ -298,6 +315,7 @@ export default {
         setPageNumber() {
             this.page = this.jumpPage;
             this.jumpPage = "";
+            this.scroll();
         },
         setPages() {
             let numberOfPages = Math.ceil(this.Posts.length / this.perPage);

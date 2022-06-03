@@ -4644,9 +4644,9 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     return {
       paymentLog: "",
       form: {
-        userName: "",
-        userPhone: this.removeSpaces(""),
-        userEmail: "",
+        userName: "Michael Saiba",
+        userPhone: this.removeSpaces("254716202298"),
+        userEmail: "michaelsaiba84@gmail.com",
         number: this.removeSpaces(""),
         account: "Bidders Portal",
         amount: this.amount // amount: this.post.price
@@ -10612,6 +10612,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -10683,6 +10700,7 @@ vue__WEBPACK_IMPORTED_MODULE_5___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
     setPageNumber: function setPageNumber() {
       this.page = this.jumpPage;
       this.jumpPage = "";
+      this.scroll();
     },
     setPages: function setPages() {
       var numberOfPages = Math.ceil(this.Posts.length / this.perPage);
@@ -79022,201 +79040,244 @@ var render = function() {
             [
               _vm._m(0),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "flex flex-row my-5 mx-5" },
-                [
-                  _c("div", { staticClass: "w-4/5 mr-5" }, [
+              _c("div", { staticClass: "w-full bg-white dark:bg-gray-800" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 "
+                  },
+                  [
+                    _c("div", { staticClass: "-mx-2" }),
+                    _vm._v(" "),
                     _c(
                       "div",
-                      { staticClass: "columns-1" },
-                      _vm._l(_vm.displayedPosts, function(post) {
-                        return _c(
-                          "a",
+                      { staticClass: "text-gray-500 dark:text-gray-400" },
+                      [
+                        _c(
+                          "span",
                           {
-                            key: post._id,
                             staticClass:
-                              "group bg-white border-t-2 border-r-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start",
-                            attrs: { href: _vm.route("selected", post._id) }
+                              "font-medium text-gray-700 dark:text-gray-100"
                           },
                           [
-                            _c(
-                              "div",
-                              { staticClass: "flex justify-between w-full" },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "font-heading-font font-extrabold"
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                        Posted:\n                                        "
-                                    ),
-                                    _c(
-                                      "span",
-                                      {
-                                        staticClass:
-                                          "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                            " +
-                                            _vm._s(_vm.ago(post.created_at))
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _vm.expired(post)
-                                  ? _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "font-heading-font font-extrabold"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                        Last date of Bid:\n                                        "
-                                        ),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass:
-                                              "inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest"
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                            Tender Closed\n                                        "
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  : _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "font-heading-font font-extrabold"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                        Last Day of Bid:\n                                        "
-                                        ),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass:
-                                              "inline-block py-1 px-2 rounded bg-green-100 text-green-500 text-xs font-bold tracking-widest"
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                            " +
-                                                _vm._s(
-                                                  // togoFormat(post.expiry)
-                                                  _vm.dateFormat(post.expiry)
-                                                )
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(post.tender_brief) +
-                                    "\n                                "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full"
-                              },
-                              [
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass:
-                                      "text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass:
-                                        "w-4 h-4 mr-1 fas fa-coins text-indigo-600"
-                                    }),
-                                    _vm._v(
-                                      "\n                                        " +
-                                        _vm._s(post.funded_by) +
-                                        "\n                                    "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _vm._m(1, true)
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "mt-4" }, [
+                            _vm._v(
+                              _vm._s(_vm.page) +
+                                " - " +
+                                _vm._s(_vm.pages.length)
+                            )
+                          ]
+                        ),
+                        _vm._v(
+                          "\n                            of\n                            "
+                        ),
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "text-indigo-600 font-primary-font ml-1 text-xl"
+                          },
+                          [_vm._v(_vm._s(this.Posts.length))]
+                        ),
+                        _vm._v(
+                          "\n                            tenders\n                        "
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex flex-row my-5 mx-5" }, [
+                _c("div", { staticClass: "w-4/5 mr-5" }, [
+                  _c(
+                    "div",
+                    { staticClass: "columns-1" },
+                    _vm._l(_vm.displayedPosts, function(post) {
+                      return _c(
+                        "a",
+                        {
+                          key: post._id,
+                          staticClass:
+                            "group bg-white border-t-2 border-r-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start",
+                          attrs: { href: _vm.route("selected", post._id) }
+                        },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "flex justify-between w-full" },
+                            [
                               _c(
-                                "a",
+                                "div",
                                 {
                                   staticClass:
-                                    "text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
+                                    "font-heading-font font-extrabold"
                                 },
                                 [
                                   _vm._v(
-                                    "Tender Details\n                                        "
+                                    "\n                                        Posted:\n                                        "
                                   ),
                                   _c(
-                                    "svg",
+                                    "span",
                                     {
-                                      staticClass: "w-4 h-4 ml-2",
-                                      attrs: {
-                                        viewBox: "0 0 24 24",
-                                        stroke: "currentColor",
-                                        "stroke-width": "2",
-                                        fill: "none",
-                                        "stroke-linecap": "round",
-                                        "stroke-linejoin": "round"
-                                      }
+                                      staticClass:
+                                        "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"
                                     },
                                     [
-                                      _c("path", { attrs: { d: "M5 12h14" } }),
-                                      _vm._v(" "),
-                                      _c("path", {
-                                        attrs: { d: "M12 5l7 7-7 7" }
-                                      })
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(_vm.ago(post.created_at))
+                                      )
                                     ]
                                   )
                                 ]
+                              ),
+                              _vm._v(" "),
+                              _vm.expired(post)
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "font-heading-font font-extrabold"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                        Last date of Bid:\n                                        "
+                                      ),
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass:
+                                            "inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                            Tender Closed\n                                        "
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "font-heading-font font-extrabold"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                        Last Day of Bid:\n                                        "
+                                      ),
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass:
+                                            "inline-block py-1 px-2 rounded bg-green-100 text-green-500 text-xs font-bold tracking-widest"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                            " +
+                                              _vm._s(
+                                                // togoFormat(post.expiry)
+                                                _vm.dateFormat(post.expiry)
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            {
+                              staticClass:
+                                "m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(post.tender_brief) +
+                                  "\n                                "
                               )
-                            ])
-                          ]
-                        )
-                      }),
-                      0
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("SearchFilter")
-                ],
-                1
-              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full"
+                            },
+                            [
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass:
+                                      "w-4 h-4 mr-1 fas fa-coins text-indigo-600"
+                                  }),
+                                  _vm._v(
+                                    "\n                                        " +
+                                      _vm._s(post.funded_by) +
+                                      "\n                                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(1, true)
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "mt-4" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
+                              },
+                              [
+                                _vm._v(
+                                  "Tender Details\n                                        "
+                                ),
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "w-4 h-4 ml-2",
+                                    attrs: {
+                                      viewBox: "0 0 24 24",
+                                      stroke: "currentColor",
+                                      "stroke-width": "2",
+                                      fill: "none",
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round"
+                                    }
+                                  },
+                                  [
+                                    _c("path", { attrs: { d: "M5 12h14" } }),
+                                    _vm._v(" "),
+                                    _c("path", {
+                                      attrs: { d: "M12 5l7 7-7 7" }
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    }),
+                    0
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", {}, [_c("SearchFilter")], 1)
+              ])
             ]
           ),
           _vm._v(" "),
@@ -79230,7 +79291,6 @@ var render = function() {
                     on: {
                       click: function($event) {
                         _vm.page--
-                        _vm.scroll()
                       }
                     }
                   },
@@ -79247,60 +79307,60 @@ var render = function() {
                   "flex items-center justify-center pb-6 md:py-0 md:w-1/2"
               },
               [
-                _c("form", [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "flex flex-col p-1 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300"
-                    },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.jumpPage,
-                            expression: "jumpPage"
-                          }
-                        ],
-                        staticClass:
-                          "px-2 py-2 w-24 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent",
-                        attrs: {
-                          type: "text",
-                          name: "email",
-                          placeholder: "Page No.",
-                          "aria-label": "Page #"
-                        },
-                        domProps: { value: _vm.jumpPage },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.jumpPage = $event.target.value
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "button",
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flex flex-col p-1 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300"
+                  },
+                  [
+                    _c("input", {
+                      directives: [
                         {
-                          staticClass:
-                            "font-heading-font inline-flex items-center py-2 px-2 text-md font-extrabold text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
-                          on: { click: _vm.setPageNumber }
-                        },
-                        [
-                          _vm._v(
-                            "\n                                Jump\n                            "
-                          )
-                        ]
-                      )
-                    ]
-                  )
-                ])
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.jumpPage,
+                          expression: "jumpPage"
+                        }
+                      ],
+                      staticClass:
+                        "px-2 py-2 w-24 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent",
+                      attrs: {
+                        type: "text",
+                        name: "email",
+                        placeholder: "Page No.",
+                        "aria-label": "Page #"
+                      },
+                      domProps: { value: _vm.jumpPage },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.jumpPage = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "font-heading-font inline-flex items-center py-2 px-2 text-md font-extrabold text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
+                        on: { click: _vm.setPageNumber }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Jump\n                        "
+                        )
+                      ]
+                    )
+                  ]
+                )
               ]
             ),
+            _vm._v(" "),
+            _vm.page == this.pages.length ? _c("button") : _vm._e(),
             _vm._v(" "),
             _vm.page < _vm.pages.length
               ? _c(
@@ -79311,7 +79371,6 @@ var render = function() {
                     on: {
                       click: function($event) {
                         _vm.page++
-                        _vm.scroll()
                       }
                     }
                   },
@@ -79328,28 +79387,7 @@ var render = function() {
                   "container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 "
               },
               [
-                _c("div", { staticClass: "-mx-2" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass:
-                        "inline-flex items-center justify-center px-4 py-1 mx-2 text-gray-700 transition-colors duration-200 transform bg-gray-100 rounded-lg dark:text-white dark:bg-gray-700"
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Page Number:\n                            "
-                      ),
-                      _c(
-                        "span",
-                        {
-                          staticClass:
-                            "text-indigo-600 font-primary-font ml-3 text-xl"
-                        },
-                        [_vm._v(_vm._s(_vm.page))]
-                      )
-                    ]
-                  )
-                ]),
+                _c("div", { staticClass: "-mx-2" }),
                 _vm._v(" "),
                 _c("div", { staticClass: "text-gray-500 dark:text-gray-400" }, [
                   _c(
@@ -79358,7 +79396,11 @@ var render = function() {
                       staticClass:
                         "font-medium text-gray-700 dark:text-gray-100"
                     },
-                    [_vm._v("1 - 10")]
+                    [
+                      _vm._v(
+                        _vm._s(_vm.page) + " - " + _vm._s(_vm.pages.length)
+                      )
+                    ]
                   ),
                   _vm._v(
                     "\n                        of\n                        "
