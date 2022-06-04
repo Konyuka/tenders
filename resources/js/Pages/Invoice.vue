@@ -19,6 +19,18 @@
                             ></i>
                         </div>
                         <div class="ml-3">
+                            <button
+                                @click="getAccessToken()"
+                                class="bg-gray-300 p-3 rounded-md"
+                            >
+                                Get Access Token
+                            </button>
+                            <button
+                                @click="registerURL()"
+                                class="bg-gray-300 p-3 rounded-md"
+                            >
+                                Ragister Urls
+                            </button>
                             <h3
                                 v-if="this.transactionStatus == 'Cancelled'"
                                 class="text-2xl font-extrabold font-heading-font text-red-800"
@@ -263,7 +275,7 @@
                                             <span
                                                 class="text-green-600 font-heading-font font-extrabold tracking-widest text-xl ml-2"
                                             >
-                                                603021
+                                                4092001
                                             </span>
                                         </p>
                                         <p
@@ -298,6 +310,7 @@
                                 class="w-full flex justify-center items-center"
                             >
                                 <button
+                                    @click="c2b"
                                     class="hover:bg-green-600 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-indigo-600 text-base font-medium leading-4 text-white"
                                 >
                                     Confirm Manual M-Pesa Payment
@@ -741,6 +754,26 @@ export default {
         };
     },
     methods: {
+        getAccessToken() {
+            axios
+                .post("/get-token")
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        },
+        registerURL() {
+            axios
+                .post("/register-urls")
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        },
         formatMoney(n) {
             return "" + (Math.round(n * 100) / 100).toLocaleString();
         },
@@ -784,6 +817,41 @@ export default {
         },
         mpesaExpress() {
             this.expressModal = true;
+        },
+        c2b() {
+            // if (this.status == "Cancelled") {
+            //     this.transactionRestart = true;
+            // } else {
+            //     this.transactionRestart = false;
+            // }
+
+            var strFirstThree = this.form.number.substring(0, 3);
+            if (strFirstThree == 254 && this.form.number.length == 12) {
+                // this.paymentModal = true;
+                const requestBody = {
+                    amount: "1",
+                    account: this.invoiceNumber,
+                    phone: parseInt(this.removeSpaces(this.form.number)),
+                    // post: this.post._id,
+                    post: this.post,
+                    user: this.user,
+                    user_name: this.form.userName,
+                    user_phone: this.form.userPhone,
+                    user_email: this.form.userEmail,
+                    restartTrans: this.transactionRestart
+                };
+                //    console.log(requestBody)
+                axios
+                    .post(`/invoice/${this.post._id}/c2b/`, requestBody)
+                    .then(response => {
+                        console.log(response.data);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            } else {
+                alert("Your Number Format Should be 254 7XX XXX XXX");
+            }
         },
         stkPush() {
             // if (this.status == "Cancelled") {

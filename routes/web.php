@@ -41,13 +41,13 @@ Route::post('/invoice/{slugs}', [LandingController::class, 'invoice'])
 // Route::get('/stkpush', [PaymentsController::class, 'triggerStk'])
 //     ->name('stkpush');
 
-Route::post('/invoice/get-token', [LandingController::class, 'getAccessToken'])
+Route::post('get-token', [PaymentsController::class, 'newAccessToken'])
     ->name('get-token');
 
-Route::post('/invoice/register-urls', [LandingController::class, 'registerURLS'])
+Route::post('register-urls', [PaymentsController::class, 'registerURLS'])
     ->name('register-urls');
 
-Route::post('/invoice/simulate', [LandingController::class, 'simulateTransaction'])
+Route::post('simulate', [PaymentsController::class, 'simulateTransaction'])
     ->name('simulate');
 
 // Route::post('/checkout/stkPush', [LandingController::class, 'stkPush'])
@@ -55,6 +55,9 @@ Route::post('/invoice/simulate', [LandingController::class, 'simulateTransaction
 
 Route::post('/invoice/{slugs}/stkPush', [PaymentsController::class, 'triggerStk'])
     ->name('stk');
+
+Route::post('/invoice/{slugs}/c2b', [PaymentsController::class, 'triggerC2B'])
+    ->name('c2b');
 
 Route::post('/confirm/ebook/payment', [PaymentsController::class, 'confirm'])
     ->name('confirm');

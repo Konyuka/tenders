@@ -235,8 +235,9 @@ class LandingController extends Controller
 
     public function getAccessToken()
     {
-        $url = env('MPESA_ENV') == 0
-        ? 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
+        $url = env('MPESA_ENV') == 'sandbox'
+        // ? 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
+        ? 'https://api.safaricom.co.ke/oauth/v1/generate'
         : 'https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
         // return dd($url);
         $curl = curl_init($url);
@@ -268,7 +269,7 @@ class LandingController extends Controller
             'ValidationURL' => env('MPESA_TEST_URL') . '/api/validation'
         );
 
-        $url = '/c2b/v1/registerurl';
+        $url = '/c2b/v2/registerurl';
         $response = $this->makeHttp($url, $body);
         // return dd($response);
 
@@ -282,7 +283,8 @@ class LandingController extends Controller
     public function makeHttp($url, $body)
     {
         // $url = 'https://mpesa-reflector.herokuapp.com' . $url;
-        $url = 'https://sandbox.safaricom.co.ke/mpesa/' . $url;
+        // $url = 'https://sandbox.safaricom.co.ke/mpesa/' . $url;
+        $url = 'https://api.safaricom.co.ke/mpesa/' . $url;
         $curl = curl_init();
         curl_setopt_array(
             $curl,
@@ -347,7 +349,7 @@ class LandingController extends Controller
     {
         $body = array(
             'ShortCode' => env('MPESA_SHORTCODE'),
-            'Msisdn' => 254716202298,
+            'Msisdn' => '254716202298',
             'Amount' => $request->amount,
             'BillRefNumber' => $request->account,
             'CommandID' => 'CustomerPayBillOnline'

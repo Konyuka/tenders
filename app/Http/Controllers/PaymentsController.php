@@ -254,6 +254,191 @@ class PaymentsController extends Controller
 
     }
 
+    public function registerURLS()
+    {
+        $body = array(
+            'ShortCode' => env('MPESA_SHORTCODE'),
+            'ResponseType' => 'Completed',
+            'ConfirmationURL' => env('MPESA_TEST_URL') . '/api/confirmation',
+            'ValidationURL' => env('MPESA_TEST_URL') . '/api/validation'
+        );
+
+        $url = '/c2b/v2/registerurl';
+        $response = $this->makeHttp($url, $body);
+        return $response;
+    }
+
+    public function newAccessToken()
+    {
+        $consumer_key=env('MPESA_CONSUMER_KEY');
+        $consumer_secret=env('MPESA_CONSUMER_SECRET');
+        $credentials = base64_encode($consumer_key.":".$consumer_secret);
+        $url = "https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
+
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array("Authorization: Basic ".$credentials,"Content-Type:application/json"));
+        curl_setopt($curl, CURLOPT_HEADER,false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $curl_response = curl_exec($curl);
+        $access_token=json_decode($curl_response);
+        curl_close($curl);
+
+        return $access_token->access_token;
+
+    }
+
+    public function getAccessToken()
+    {
+        $url = env('MPESA_ENV') == 'sandbox'
+        ? 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
+        : 'https://api.safaricom.co.ke/oauth/v1/generate';
+        // : 'https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
+        $curl = curl_init($url);
+        curl_setopt_array(
+            $curl,
+            array(
+                CURLOPT_HTTPHEADER => ['Content-Type: application/json; charset=utf8'],
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_HEADER => false,
+                CURLOPT_USERPWD => env('MPESA_CONSUMER_KEY') . ':' . env('MPESA_CONSUMER_SECRET')
+            )
+        );
+        $response = json_decode(curl_exec($curl));
+        // return dd($response);
+        curl_close($curl);
+
+        return $response->access_token;
+    //     return Inertia::render('Checkout', [
+    //        'accessTokenResponse' => $response
+    //    ]);
+    }
+
+    public function lipaNaMpesaPassword()
+    {
+        //timestamp
+        $timestamp = Carbon::rawParse('now')->format('YmdHms');
+        //passkey
+        $passKey ="bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
+        $businessShortCOde =env('MPESA_SHORTCODE');
+        //generate password
+        $mpesaPassword = base64_encode($businessShortCOde.$passKey.$timestamp);
+
+        return $mpesaPassword;
+
+    }
+
+    public function triggerC2B(Request $request)
+    {
+
+
+        $request->validate(['phone'=>'required'],['amount'=>'required'],['user_name'=>'required'],['account'=>'required'],['user_phone'=>'required'],['user_email'=>'required'],['post'=>'required'],['user'=>'required']);
+
+        $phone=$request->phone;
+        $amount=$request->amount;
+        $userName=$request->user_name;
+        $account=$request->account;
+        $userPhone=$request->user_phone;
+        $userEmail=$request->user_email;
+        $post=$request->post;
+        $post_id=$request->post['_id'];
+        $user=$request->user;
+
+        $body = array(
+            'ShortCode' => env('MPESA_SHORTCODE'),
+            'Msisdn' => $phone,
+            'Amount' => $request->amount,
+            'BillRefNumber' => $request->account,
+            'CommandID' => 'CustomerPayBillOnline'
+        );
+        $url =  '/c2b/v2/simulate';
+        $response = $this->makeHttp($url, $body);
+        return $response;
+
+        $mpesa= new \Safaricom\Mpesa\Mpesa();
+        $ShortCode=env('MPESA_SHORTCODE');
+        $CommandID="CustomerPayBillOnline";
+        $Amount=$amount;
+        $Msisdn=$phone;
+        $BillRefNumber=$account;
+        $c2bTransaction=$mpesa->c2b($ShortCode, $CommandID, $Amount, $Msisdn, $BillRefNumber );
+        $c2bTransaction=json_decode($c2bTransaction);
+        $result_code =$c2bTransaction->ResponseCode ?? null;
+        // $callbackData=$mpesa->getDataFromCallback();
+
+        return dd($c2bTransaction);
+
+        if (isset($result_code) and $result_code=="0"){
+            $trans_id =$b2bTransaction->MerchantRequestID;
+
+            Payments::create([
+              "user_name"=>$userName,
+              "trans_id"=>$trans_id,
+              "amount"=>$Amount,
+              "phone"=>$PhoneNumber,
+              "account"=>$account,
+              "info"=>$post_id,
+              "user_phone"=>$userPhone,
+              "user_email"=>$userEmail,
+              "completed"=>false,
+              "waiting"=> true,
+            ]);
+        }
+
+        $error_msg = $b2bTransaction->errorMessage ?? '';
+        // return dd('done');
+        $restart = $request->restartTrans;
+
+        if($restart == true){
+            $statusClear = '';
+        }else{
+            $statusClear = '';
+        }
+
+        return Inertia::render('Invoice', [
+            // 'post' => $request->post,
+            'post' => $post,
+            'user' => $user,
+            'status' => $statusClear
+            // 'invoiceStatus' => $invoicePaid,
+            // 'invoiceDetails' => json_decode($createdInvoice),
+
+        ]);
+
+    }
+
+    public function makeHttp($url, $body)
+    {
+        // $url = 'https://mpesa-reflector.herokuapp.com' . $url;
+        $url = 'https://api.safaricom.co.ke/mpesa/' . $url;
+        $curl = curl_init();
+        curl_setopt_array(
+            $curl,
+            array(
+                    CURLOPT_URL => $url,
+                    CURLOPT_HTTPHEADER => array('Content-Type:application/json','Authorization:Bearer '. $this->newAccessToken()),
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_POST => true,
+                    CURLOPT_POSTFIELDS => json_encode($body)
+                )
+        );
+        $curl_response = curl_exec($curl);
+        curl_close($curl);
+        return $curl_response;
+    }
+
+    public function MpesaRes(Request $request)
+     {
+        $response = json_decode($request->getContent());
+
+        $trn = new MpesaTransaction;
+        $trn->response = json_encode($response);
+        $trn->save();
+        // return dd();
+     }
+
     public function confirm(Request $request)
     {
         $mpesa=new Mpesa();

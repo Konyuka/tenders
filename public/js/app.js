@@ -9816,6 +9816,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
@@ -9964,6 +9977,20 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     };
   },
   methods: {
+    getAccessToken: function getAccessToken() {
+      axios.post("/get-token").then(function (response) {
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    registerURL: function registerURL() {
+      axios.post("/register-urls").then(function (response) {
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
     formatMoney: function formatMoney(n) {
       return "" + (Math.round(n * 100) / 100).toLocaleString();
     },
@@ -10006,6 +10033,38 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     },
     mpesaExpress: function mpesaExpress() {
       this.expressModal = true;
+    },
+    c2b: function c2b() {
+      // if (this.status == "Cancelled") {
+      //     this.transactionRestart = true;
+      // } else {
+      //     this.transactionRestart = false;
+      // }
+      var strFirstThree = this.form.number.substring(0, 3);
+
+      if (strFirstThree == 254 && this.form.number.length == 12) {
+        // this.paymentModal = true;
+        var requestBody = {
+          amount: "1",
+          account: this.invoiceNumber,
+          phone: parseInt(this.removeSpaces(this.form.number)),
+          // post: this.post._id,
+          post: this.post,
+          user: this.user,
+          user_name: this.form.userName,
+          user_phone: this.form.userPhone,
+          user_email: this.form.userEmail,
+          restartTrans: this.transactionRestart
+        }; //    console.log(requestBody)
+
+        axios.post("/invoice/".concat(this.post._id, "/c2b/"), requestBody).then(function (response) {
+          console.log(response.data);
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      } else {
+        alert("Your Number Format Should be 254 7XX XXX XXX");
+      }
     },
     stkPush: function stkPush() {
       // if (this.status == "Cancelled") {
@@ -77350,6 +77409,40 @@ var render = function() {
                   _vm._m(0),
                   _vm._v(" "),
                   _c("div", { staticClass: "ml-3" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "bg-gray-300 p-3 rounded-md",
+                        on: {
+                          click: function($event) {
+                            return _vm.getAccessToken()
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Get Access Token\n                        "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "bg-gray-300 p-3 rounded-md",
+                        on: {
+                          click: function($event) {
+                            return _vm.registerURL()
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Ragister Urls\n                        "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
                     this.transactionStatus == "Cancelled"
                       ? _c(
                           "h3",
@@ -77835,7 +77928,28 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(6)
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "w-full flex justify-center items-center"
+                            },
+                            [
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "hover:bg-green-600 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-indigo-600 text-base font-medium leading-4 text-white",
+                                  on: { click: _vm.c2b }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                Confirm Manual M-Pesa Payment\n                            "
+                                  )
+                                ]
+                              )
+                            ]
+                          )
                         ]
                       )
                     ]
@@ -77957,7 +78071,7 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(7)
+                      _vm._m(6)
                     ]
                   )
                 ]
@@ -78000,7 +78114,7 @@ var render = function() {
                       },
                       [
                         _c("div", [
-                          _vm._m(8),
+                          _vm._m(7),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -78021,7 +78135,7 @@ var render = function() {
                                   "div",
                                   { staticClass: "relative mb-5 mt-2" },
                                   [
-                                    _vm._m(9),
+                                    _vm._m(8),
                                     _vm._v(" "),
                                     _c("input", {
                                       directives: [
@@ -78416,30 +78530,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                            603021\n                                        "
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "w-full flex justify-center items-center" },
-      [
-        _c(
-          "button",
-          {
-            staticClass:
-              "hover:bg-green-600 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-indigo-600 text-base font-medium leading-4 text-white"
-          },
-          [
-            _vm._v(
-              "\n                                Confirm Manual M-Pesa Payment\n                            "
+              "\n                                            4092001\n                                        "
             )
           ]
         )
