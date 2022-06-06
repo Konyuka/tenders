@@ -320,29 +320,6 @@ class PaymentsController extends Controller
 
     }
 
-    public function newAccessTokenS()
-    {
-        $consumer_key=env('MPESA_CONSUMER_KEY');
-        $consumer_secret=env('MPESA_CONSUMER_SECRET');
-        $credentials = base64_encode($consumer_key.":".$consumer_secret);
-        // $url = "https://api.safaricom.co.ke/oauth/v1/generate";
-        $url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
-
-
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array("Authorization: Basic ".$credentials,"Content-Type:application/json"));
-        curl_setopt($curl, CURLOPT_HEADER,false);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        $curl_response = curl_exec($curl);
-        $access_token=json_decode($curl_response);
-        curl_close($curl);
-
-        return $access_token->access_token;
-
-    }
-
     public function getAccessToken()
     {
         $url = env('MPESA_ENV') == 'sandbox'
@@ -399,6 +376,9 @@ class PaymentsController extends Controller
         $post_id=$request->post['_id'];
         $user=$request->user;
 
+        $mpesa= new \Safaricom\Mpesa\Mpesa();
+        $b2bTransaction=$mpesa->c2b($ShortCode, $CommandID, $Amount, $Msisdn, $BillRefNumber );
+
         $body = array(
             'ShortCode' => env('MPESA_SHORTCODE'),
             'Msisdn' => $phone,
@@ -407,7 +387,7 @@ class PaymentsController extends Controller
             'CommandID' => 'CustomerPayBillOnline'
         );
         $url =  '/c2b/v2/simulate';
-        $response = $this->makeHttpS($url, $body);
+        $response = $this->makeHttp($url, $body);
         return $response;
 
         $result_code = json_decode($response, true)['ResponseCode'] ?? null;
@@ -453,26 +433,6 @@ class PaymentsController extends Controller
 
         ]);
 
-    }
-
-    public function makeHttpS($url, $body)
-    {
-        // $url = 'https://mpesa-reflector.herokuapp.com' . $url;
-        $url = 'https://sandbox.safaricom.co.ke/mpesa/' . $url;
-        $curl = curl_init();
-        curl_setopt_array(
-            $curl,
-            array(
-                    CURLOPT_URL => $url,
-                    CURLOPT_HTTPHEADER => array('Content-Type:application/json','Authorization: Bearer '. $this->newAccessTokenS()),
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_POST => true,
-                    CURLOPT_POSTFIELDS => json_encode($body)
-                )
-        );
-        $curl_response = curl_exec($curl);
-        curl_close($curl);
-        return $curl_response;
     }
 
     public function makeHttp($url, $body)

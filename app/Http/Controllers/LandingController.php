@@ -141,20 +141,13 @@ class LandingController extends Controller
 
     public function listing()
     {
-        // $posts = Post::all();
-        // $posts = Post::take(100)->get();
-        // $posts = Post::orderBy('created_at', 'ASC')->get();
-        // $posts = Post::latest()->limit(5)->get();
-        // $count = count($posts);
-
         $posts = Post::latest()->get();
-        // return dd(json_encode($posts));
-
-
-
-
-
         return Inertia::render('Listing', ['Posts' => json_decode($posts, true)]);
+    }
+
+    public function blogs()
+    {
+        return Inertia::render('Blog',);
     }
 
     public function invoice(Request $request)

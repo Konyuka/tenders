@@ -22,6 +22,9 @@ Route::get('/free/{slug}', [LandingController::class, 'free'])
 Route::get('/listing', [LandingController::class, 'listing'])
     ->name('listing');
 
+Route::get('/blogs', [LandingController::class, 'blogs'])
+    ->name('blogs');
+
 Route::post('/checkout/{slugs}', [LandingController::class, 'checkout'])
     ->name('checkout');
 
