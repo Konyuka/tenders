@@ -4279,6 +4279,383 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Landing",
+  props: {},
+  components: {
+    TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  watch: {},
+  mounted: function mounted() {},
+  computed: {},
+  data: function data() {
+    return {
+      modal: false
+    };
+  },
+  methods: {
+    clearFilters: function clearFilters() {},
+    loadFilters: function loadFilters() {}
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Blogs/ApplyTender.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Blogs/ApplyTender.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
+/* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
+/* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Landing",
+  props: {},
+  components: {
+    TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  watch: {},
+  mounted: function mounted() {},
+  computed: {},
+  data: function data() {
+    return {
+      modal: false
+    };
+  },
+  methods: {
+    clearFilters: function clearFilters() {},
+    loadFilters: function loadFilters() {}
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Blogs/WinTender.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Blogs/WinTender.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! .././Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
+/* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! .././Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
+/* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! .././Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -69283,8 +69660,12 @@ var render = function() {
             _c("div", { staticClass: "container px-5 py-24 mx-auto" }, [
               _c("div", { staticClass: "-my-8 divide-y-2 divide-gray-100" }, [
                 _c(
-                  "div",
-                  { staticClass: "py-8 flex flex-wrap md:flex-nowrap" },
+                  "a",
+                  {
+                    staticClass:
+                      "mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700  py-8 flex flex-wrap md:flex-nowrap",
+                    attrs: { href: "how-to-win-a-tender" }
+                  },
                   [
                     _vm._m(0),
                     _vm._v(" "),
@@ -69344,8 +69725,11 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c(
-                  "div",
-                  { staticClass: "py-8 flex flex-wrap md:flex-nowrap" },
+                  "a",
+                  {
+                    staticClass:
+                      "mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700 py-8 flex flex-wrap md:flex-nowrap"
+                  },
                   [
                     _vm._m(1),
                     _vm._v(" "),
@@ -69405,8 +69789,11 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c(
-                  "div",
-                  { staticClass: "py-8 flex flex-wrap md:flex-nowrap" },
+                  "a",
+                  {
+                    staticClass:
+                      "mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700 py-8 flex flex-wrap md:flex-nowrap"
+                  },
                   [
                     _vm._m(2),
                     _vm._v(" "),
@@ -69487,7 +69874,7 @@ var staticRenderFns = [
         _c(
           "span",
           { staticClass: "captalize font-semibold title-font text-gray-700" },
-          [_vm._v("Educative")]
+          [_vm._v("Tender News")]
         ),
         _vm._v(" "),
         _c("span", { staticClass: "mt-1 text-gray-500 text-sm" }, [
@@ -69507,11 +69894,11 @@ var staticRenderFns = [
         _c(
           "span",
           { staticClass: "captalize font-semibold title-font text-gray-700" },
-          [_vm._v("Educative")]
+          [_vm._v("Tender News")]
         ),
         _vm._v(" "),
         _c("span", { staticClass: "mt-1 text-gray-500 text-sm" }, [
-          _vm._v("6 Jun 2022")
+          _vm._v("5 Jun 2022")
         ])
       ]
     )
@@ -69527,14 +69914,482 @@ var staticRenderFns = [
         _c(
           "span",
           { staticClass: "captalize font-semibold title-font text-gray-700" },
-          [_vm._v("Educative")]
+          [_vm._v("Tender News")]
         ),
         _vm._v(" "),
         _c("span", { staticClass: "text-sm text-gray-500" }, [
-          _vm._v("6 Jun 2022")
+          _vm._v("1 Jun 2022")
         ])
       ]
     )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Blogs/ApplyTender.vue?vue&type=template&id=91f3212a&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Blogs/ApplyTender.vue?vue&type=template&id=91f3212a& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "h-screen" }, [
+    _c(
+      "body",
+      { staticClass: "overflow-x-hidden antialiased" },
+      [
+        _c("TopBanner"),
+        _vm._v(" "),
+        _c("MainMenu"),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c("MainFooter")
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "py-16 bg-gray-50 overflow-hidden" }, [
+        _c(
+          "div",
+          { staticClass: "max-w-7xl mx-auto px-4 space-y-8 sm:px-6 lg:px-8" },
+          [
+            _c(
+              "div",
+              { staticClass: "lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "text-base max-w-prose mx-auto lg:max-w-none"
+                  },
+                  [
+                    _c(
+                      "h2",
+                      {
+                        staticClass:
+                          "text-base text-indigo-600 font-semibold tracking-wide uppercase"
+                      },
+                      [
+                        _vm._v(
+                          "\n                                Bidders Portal\n                            "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "font-heading-font mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+                      },
+                      [
+                        _vm._v(
+                          "\n                                How to apply for a Tender in Kenya\n                            "
+                        )
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      " relative z-10 text-base max-w-prose mx-auto lg:max-w-5xl lg:mx-0"
+                  },
+                  [
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "font-primary-font text-lg text-gray-500 mb-2"
+                      },
+                      [
+                        _vm._v(
+                          "\n                                There are a number of qualifications and\n                                requirements one must meet to qualify for\n                                applying for a tender in Kenya. While owning\n                                a business is a sure way to accumulate and\n                                maintain wealth, it can get stagnant if the\n                                business is not run in the right way.\n                            "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "font-primary-font text-lg text-gray-500 mb-2"
+                      },
+                      [
+                        _vm._v(
+                          "\n                                Having the skills and means necessary to\n                                attract business to your side by winning a\n                                tender is a huge way to boost your revenue.\n                                For this reason, it is important to know\n                                what it takes to qualify for a tender.\n                            "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "font-primary-font text-lg text-gray-500 mb-2"
+                      },
+                      [
+                        _vm._v(
+                          "\n                                Outlined below, is the best way to go about\n                                applying for a tender in Kenya.\n                            "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "relative z-10" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "prose prose-indigo text-gray-500 mx-auto lg:max-w-none"
+                        },
+                        [
+                          _c("ul", { attrs: { role: "list" } }, [
+                            _c("li", [
+                              _vm._v(
+                                "\n                                            Quis elit egestas venenatis\n                                            mattis dignissim.\n                                        "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v(
+                                "\n                                            Cras cras lobortis vitae vivamus\n                                            ultricies facilisis tempus.\n                                        "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v(
+                                "\n                                            Orci in sit morbi dignissim\n                                            metus diam arcu pretium.\n                                        "
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Blogs/WinTender.vue?vue&type=template&id=3bfa4e99&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Blogs/WinTender.vue?vue&type=template&id=3bfa4e99& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "h-screen" }, [
+    _c(
+      "body",
+      { staticClass: "overflow-x-hidden antialiased" },
+      [
+        _c("TopBanner"),
+        _vm._v(" "),
+        _c("MainMenu"),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c("MainFooter")
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "py-16 bg-gray-50 overflow-hidden" }, [
+        _c(
+          "div",
+          { staticClass: "max-w-7xl mx-auto px-4 space-y-8 sm:px-6 lg:px-8" },
+          [
+            _c(
+              "div",
+              { staticClass: "lg:grid lg:grid-cols-1 lg:gap-8 lg:items-start" },
+              [
+                _c("div", [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "text-base max-w-prose mx-auto lg:max-w-none"
+                    },
+                    [
+                      _c(
+                        "h2",
+                        {
+                          staticClass:
+                            "mb-2 text-base text-indigo-600 font-semibold tracking-wide uppercase"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Bidders Portal\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "mb-5 font-heading-font mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    How To Win A Tender\n                                "
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        " relative z-10 text-base max-w-prose mx-auto lg:max-w-5xl lg:mx-0"
+                    },
+                    [
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Any organization or business growing is\n                                    likely to bid for a tender at some\n                                    stage. This can be in aim of getting a\n                                    new contract or continuing to work with\n                                    the same supplier.\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    This inevitably comes with stiff\n                                    competition, for every tender at stake.\n                                    It is therefore important, as a business\n                                    person or supplier to learn how to stand\n                                    out and stand a chance to win a tender\n                                    with many bids.\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    The truth is, both in the public and\n                                    private sectors, tendering is a sure way\n                                    to expand and grow as a business. The\n                                    tendering process is, therefore, a\n                                    competition, and without the right\n                                    knowledge on how to win a tender, one\n                                    may easily lose.\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Discussed below are tips on how one can\n                                    improve their tendering process and\n                                    improve their chances of winning the\n                                    tender:\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    For starters, identify the right\n                                    tendering opportunity. When applying for\n                                    a tender, ensure that your business can\n                                    confidently deliver on the tender before\n                                    applying for it. Consider factors like\n                                    competitors and anticipate the terms\n                                    they are likely to come up with in order\n                                    to have the upper hand. It is also\n                                    important to have a good background\n                                    evaluation of the company or\n                                    organization; this includes their\n                                    experiences and differentiators. It will\n                                    help you decide if the tender is a good\n                                    addition to your organization.\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Another important tip is to have great\n                                    tender writing skills. In a process with\n                                    so many applications, persuasion is key.\n                                    It is important to be eloquent, direct,\n                                    and account for every remark made.\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    The most important of all is to ensure\n                                    that you meet all the requirements of\n                                    the things the buyer is actually looking\n                                    for. Being aware of the evaluation\n                                    criteria is key. For both public and\n                                    private sectors, one must have the\n                                    following to increase their chances;\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "relative z-10" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "prose prose-indigo text-gray-500 mx-auto lg:max-w-none"
+                          },
+                          [
+                            _c("ul", { attrs: { role: "list" } }, [
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                A history of trading that is\n                                                no less than three years.\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                Illustrate the relevant\n                                                experience, by presenting\n                                                case studies that are\n                                                relevant to the tender\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                All the certificates one\n                                                needs as well as\n                                                registration and membership\n                                                of organizations in the\n                                                industry sector.\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                Also, having a unique USP,\n                                                this will help your\n                                                application stand out from\n                                                the rest.\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                Have a solid organizational\n                                                structure which includes\n                                                having all the necessary\n                                                staff to carry out the\n                                                requirements of the\n                                                contract.\n                                            "
+                                )
+                              ])
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Another way to improve chances of\n                                    getting a tender is continuously\n                                    improving the tendering process\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "relative z-10" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "prose prose-indigo text-gray-500 mx-auto lg:max-w-none"
+                          },
+                          [
+                            _c("ul", { attrs: { role: "list" } }, [
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                A history of trading that is\n                                                no less than three years.\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                Illustrate the relevant\n                                                experience, by presenting\n                                                case studies that are\n                                                relevant to the tender\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                All the certificates one\n                                                needs as well as\n                                                registration and membership\n                                                of organizations in the\n                                                industry sector.\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                Also, having a unique USP,\n                                                this will help your\n                                                application stand out from\n                                                the rest.\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                Have a solid organizational\n                                                structure which includes\n                                                having all the necessary\n                                                staff to carry out the\n                                                requirements of the\n                                                contract.\n                                            "
+                                )
+                              ])
+                            ])
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                ])
+              ]
+            )
+          ]
+        )
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -97742,6 +98597,10 @@ var map = {
 	"./API/Index.vue": "./resources/js/Pages/API/Index.vue",
 	"./Blog": "./resources/js/Pages/Blog.vue",
 	"./Blog.vue": "./resources/js/Pages/Blog.vue",
+	"./Blogs/ApplyTender": "./resources/js/Pages/Blogs/ApplyTender.vue",
+	"./Blogs/ApplyTender.vue": "./resources/js/Pages/Blogs/ApplyTender.vue",
+	"./Blogs/WinTender": "./resources/js/Pages/Blogs/WinTender.vue",
+	"./Blogs/WinTender.vue": "./resources/js/Pages/Blogs/WinTender.vue",
 	"./Checkout": "./resources/js/Pages/Checkout.vue",
 	"./Checkout.vue": "./resources/js/Pages/Checkout.vue",
 	"./Components/Dashboard/Members/MembersPage": "./resources/js/Pages/Components/Dashboard/Members/MembersPage.vue",
@@ -98030,6 +98889,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Blog_vue_vue_type_template_id_5ff005cb___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Blog_vue_vue_type_template_id_5ff005cb___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Blogs/ApplyTender.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/Pages/Blogs/ApplyTender.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ApplyTender_vue_vue_type_template_id_91f3212a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ApplyTender.vue?vue&type=template&id=91f3212a& */ "./resources/js/Pages/Blogs/ApplyTender.vue?vue&type=template&id=91f3212a&");
+/* harmony import */ var _ApplyTender_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ApplyTender.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Blogs/ApplyTender.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ApplyTender_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ApplyTender_vue_vue_type_template_id_91f3212a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ApplyTender_vue_vue_type_template_id_91f3212a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Blogs/ApplyTender.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Blogs/ApplyTender.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/Pages/Blogs/ApplyTender.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ApplyTender_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ApplyTender.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Blogs/ApplyTender.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ApplyTender_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Blogs/ApplyTender.vue?vue&type=template&id=91f3212a&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/Pages/Blogs/ApplyTender.vue?vue&type=template&id=91f3212a& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApplyTender_vue_vue_type_template_id_91f3212a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ApplyTender.vue?vue&type=template&id=91f3212a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Blogs/ApplyTender.vue?vue&type=template&id=91f3212a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApplyTender_vue_vue_type_template_id_91f3212a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApplyTender_vue_vue_type_template_id_91f3212a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Blogs/WinTender.vue":
+/*!************************************************!*\
+  !*** ./resources/js/Pages/Blogs/WinTender.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _WinTender_vue_vue_type_template_id_3bfa4e99___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WinTender.vue?vue&type=template&id=3bfa4e99& */ "./resources/js/Pages/Blogs/WinTender.vue?vue&type=template&id=3bfa4e99&");
+/* harmony import */ var _WinTender_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WinTender.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Blogs/WinTender.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _WinTender_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _WinTender_vue_vue_type_template_id_3bfa4e99___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _WinTender_vue_vue_type_template_id_3bfa4e99___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Blogs/WinTender.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Blogs/WinTender.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/Pages/Blogs/WinTender.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_WinTender_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./WinTender.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Blogs/WinTender.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_WinTender_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Blogs/WinTender.vue?vue&type=template&id=3bfa4e99&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/Pages/Blogs/WinTender.vue?vue&type=template&id=3bfa4e99& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WinTender_vue_vue_type_template_id_3bfa4e99___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./WinTender.vue?vue&type=template&id=3bfa4e99& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Blogs/WinTender.vue?vue&type=template&id=3bfa4e99&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WinTender_vue_vue_type_template_id_3bfa4e99___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WinTender_vue_vue_type_template_id_3bfa4e99___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

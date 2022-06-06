@@ -7,13 +7,16 @@
             <section class="text-gray-600 body-font overflow-hidden">
                 <div class="container px-5 py-24 mx-auto">
                     <div class="-my-8 divide-y-2 divide-gray-100">
-                        <div class="py-8 flex flex-wrap md:flex-nowrap">
+                        <a
+                            href="how-to-win-a-tender"
+                            class="mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700  py-8 flex flex-wrap md:flex-nowrap"
+                        >
                             <div
                                 class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col"
                             >
                                 <span
                                     class="captalize font-semibold title-font text-gray-700"
-                                    >Educative</span
+                                    >Tender News</span
                                 >
                                 <span class="mt-1 text-gray-500 text-sm"
                                     >6 Jun 2022</span
@@ -54,17 +57,19 @@
                                     </svg>
                                 </a>
                             </div>
-                        </div>
-                        <div class="py-8 flex flex-wrap md:flex-nowrap">
+                        </a>
+                        <a
+                            class="mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700 py-8 flex flex-wrap md:flex-nowrap"
+                        >
                             <div
                                 class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col"
                             >
                                 <span
                                     class="captalize font-semibold title-font text-gray-700"
-                                    >Educative</span
+                                    >Tender News</span
                                 >
                                 <span class="mt-1 text-gray-500 text-sm"
-                                    >6 Jun 2022</span
+                                    >5 Jun 2022</span
                                 >
                             </div>
                             <div class="md:flex-grow">
@@ -103,17 +108,19 @@
                                     </svg>
                                 </a>
                             </div>
-                        </div>
-                        <div class="py-8 flex flex-wrap md:flex-nowrap">
+                        </a>
+                        <a
+                            class="mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700 py-8 flex flex-wrap md:flex-nowrap"
+                        >
                             <div
                                 class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col"
                             >
                                 <span
                                     class="captalize font-semibold title-font text-gray-700"
-                                    >Educative</span
+                                    >Tender News</span
                                 >
                                 <span class="text-sm text-gray-500"
-                                    >6 Jun 2022</span
+                                    >1 Jun 2022</span
                                 >
                             </div>
                             <div class="md:flex-grow">
@@ -152,7 +159,7 @@
                                     </svg>
                                 </a>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </section>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PaymentsController;
+use App\Http\Controllers\BlogsController;
 
 
 // Route::get('/', function () {
@@ -24,6 +25,14 @@ Route::get('/listing', [LandingController::class, 'listing'])
 
 Route::get('/blogs', [LandingController::class, 'blogs'])
     ->name('blogs');
+
+
+
+Route::get('how-to-win-a-tender', [BlogsController::class, 'winTender']);
+
+
+
+
 
 Route::post('/checkout/{slugs}', [LandingController::class, 'checkout'])
     ->name('checkout');
