@@ -26,3 +26,5 @@ Route::post('reversal/result_url', [MpesaResponseController::class, 'transaction
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+URL::forceScheme('https');
