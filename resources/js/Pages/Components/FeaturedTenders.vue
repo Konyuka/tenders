@@ -18,16 +18,28 @@
                                     v-for="post in this.posts.slice(0, 1)"
                                     :key="post._id"
                                     :href="route('free', post._id)"
-                                    class="border-double mb-16 group bg-white border-4  mt-1 my-2 border-indigo-600 rounded-lg shadow-2xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start"
+                                    class="hover:bg-green-100 animate-wiggle border-double mb-16 group bg-white border-4  mt-1 my-2 border-indigo-500 rounded-lg shadow-2xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start"
                                 >
                                     <!-- <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">{{ post.funded_by }}</span> -->
                                     <div class="flex justify-between w-full">
+                                        <div class="text-center">
+                                            <h1
+                                                class="text-3xl text-gray-600 font-heading-font font-bold mt-0 mb-6"
+                                            >
+                                                Daily
+                                                <span
+                                                    class="text-green-600 font-bold-font"
+                                                    >Free</span
+                                                >
+                                                Tender
+                                            </h1>
+                                        </div>
                                         <div
                                             class="font-heading-font font-extrabold"
                                         >
                                             Posted:
                                             <span
-                                                class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"
+                                                class="inline-block py-1 px-2 rounded bg-indigo-50 text-green-500 text-xs font-bold tracking-widest"
                                             >
                                                 {{ ago(post.created_at) }}</span
                                             >
@@ -71,7 +83,7 @@
                                             class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
                                         >
                                             <i
-                                                class="w-4 h-4 mr-1 fas fa-coins text-indigo-600"
+                                                class="w-4 h-4 mr-1 fas fa-coins text-green-500"
                                             ></i>
                                             {{ post.funded_by }}
                                         </span>
@@ -79,7 +91,7 @@
                                             class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
                                         >
                                             <i
-                                                class="w-4 h-4 mr-1 fas fa-location-crosshairs text-indigo-600"
+                                                class="w-4 h-4 mr-1 fas fa-location-crosshairs text-green-500"
                                             ></i>
                                             <!-- {{ post.country }} -->
                                             Kenya
@@ -88,7 +100,7 @@
 
                                     <div class="mt-4">
                                         <a
-                                            class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
+                                            class="text-green-500 inline-flex items-center font-heading-font font-extrabold italics text-lg"
                                             >Get Tender Details for free
                                             <svg
                                                 class="w-4 h-4 ml-2"
@@ -107,7 +119,7 @@
                                 </a>
 
                                 <a
-                                    v-for="post in this.posts.slice(0, 4)"
+                                    v-for="post in this.getArray.slice(0, 4)"
                                     :key="post._id"
                                     :href="route('selected', post._id)"
                                     class="group bg-white border-2 mt-1 my-2 border-indigo-600 rounded-lg shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start"
@@ -245,12 +257,12 @@ export default {
     },
     watch: {},
     computed: {
-        // ago(){
-        //         return moment(this.$parent.posts.created_at).fromNow();
-        // },
-        // togo(){
-        //     return moment(this.$parent.posts.expiry).fromNow(true);
-        // },
+        getArray() {
+            const arr = this.posts.filter((item, index) => {
+                return index >= 1; //will return the array from the second value
+            });
+            return arr;
+        },
         posts() {
             return this.$parent.posts;
         }

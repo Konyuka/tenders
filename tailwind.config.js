@@ -21,9 +21,20 @@ module.exports = {
             //     teal: colors.teal,
             //     cyan: colors.cyan,
             // },
+            keyframes: {
+                wiggle: {
+                    '0%, 100%': {
+                        transform: 'rotate(-0.3deg)'
+                    },
+                    '50%': {
+                        transform: 'rotate(0.3deg)'
+                    },
+                }
+            },
             animation: {
-                'bounce-slow': 'spin 1s linear infinite;',
-                fade: 'fadeOut 5s ease-in-out'
+                bounceslow: 'spin 1s linear infinite',
+                fade: 'fadeOut 5s ease-in-out',
+                wiggle: 'wiggle 1s ease-in-out infinite',
             }
         },
     },

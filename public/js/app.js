@@ -6651,6 +6651,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -6673,12 +6685,12 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
   },
   watch: {},
   computed: {
-    // ago(){
-    //         return moment(this.$parent.posts.created_at).fromNow();
-    // },
-    // togo(){
-    //     return moment(this.$parent.posts.expiry).fromNow(true);
-    // },
+    getArray: function getArray() {
+      var arr = this.posts.filter(function (item, index) {
+        return index >= 1; //will return the array from the second value
+      });
+      return arr;
+    },
     posts: function posts() {
       return this.$parent.posts;
     }
@@ -72896,7 +72908,7 @@ var render = function() {
                         {
                           key: post._id,
                           staticClass:
-                            "border-double mb-16 group bg-white border-4  mt-1 my-2 border-indigo-600 rounded-lg shadow-2xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start",
+                            "hover:bg-green-100 animate-wiggle border-double mb-16 group bg-white border-4  mt-1 my-2 border-indigo-500 rounded-lg shadow-2xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start",
                           attrs: { href: _vm.route("free", post._id) }
                         },
                         [
@@ -72904,6 +72916,8 @@ var render = function() {
                             "div",
                             { staticClass: "flex justify-between w-full" },
                             [
+                              _vm._m(1, true),
+                              _vm._v(" "),
                               _c(
                                 "div",
                                 {
@@ -72918,7 +72932,7 @@ var render = function() {
                                     "span",
                                     {
                                       staticClass:
-                                        "inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"
+                                        "inline-block py-1 px-2 rounded bg-indigo-50 text-green-500 text-xs font-bold tracking-widest"
                                     },
                                     [
                                       _vm._v(
@@ -73017,7 +73031,7 @@ var render = function() {
                                 [
                                   _c("i", {
                                     staticClass:
-                                      "w-4 h-4 mr-1 fas fa-coins text-indigo-600"
+                                      "w-4 h-4 mr-1 fas fa-coins text-green-500"
                                   }),
                                   _vm._v(
                                     "\n                                        " +
@@ -73027,7 +73041,7 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(1, true)
+                              _vm._m(2, true)
                             ]
                           ),
                           _vm._v(" "),
@@ -73036,7 +73050,7 @@ var render = function() {
                               "a",
                               {
                                 staticClass:
-                                  "text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
+                                  "text-green-500 inline-flex items-center font-heading-font font-extrabold italics text-lg"
                               },
                               [
                                 _vm._v(
@@ -73070,7 +73084,7 @@ var render = function() {
                       )
                     }),
                     _vm._v(" "),
-                    _vm._l(this.posts.slice(0, 4), function(post) {
+                    _vm._l(this.getArray.slice(0, 4), function(post) {
                       return _c(
                         "a",
                         {
@@ -73207,7 +73221,7 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(2, true)
+                              _vm._m(3, true)
                             ]
                           ),
                           _vm._v(" "),
@@ -73312,6 +73326,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c(
+        "h1",
+        {
+          staticClass:
+            "text-3xl text-gray-600 font-heading-font font-bold mt-0 mb-6"
+        },
+        [
+          _vm._v(
+            "\n                                            Daily\n                                            "
+          ),
+          _c("span", { staticClass: "text-green-600 font-bold-font" }, [
+            _vm._v("Free")
+          ]),
+          _vm._v(
+            "\n                                            Tender\n                                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
       "span",
       {
@@ -73320,7 +73359,7 @@ var staticRenderFns = [
       },
       [
         _c("i", {
-          staticClass: "w-4 h-4 mr-1 fas fa-location-crosshairs text-indigo-600"
+          staticClass: "w-4 h-4 mr-1 fas fa-location-crosshairs text-green-500"
         }),
         _vm._v(" "),
         _vm._v(
