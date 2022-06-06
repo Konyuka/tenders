@@ -181,6 +181,7 @@ class LandingController extends Controller
                     ->where('user_phone', '=', $user_phone)
                     ->where('user_email', '=', $user_email)
                     ->first();
+        // return dd(\json_decode($invoiceRecord, true));
         if($invoiceRecord != null){
            $paymentStatus = $invoiceRecord->payment_status;
            $createdInvoice = $invoiceRecord;

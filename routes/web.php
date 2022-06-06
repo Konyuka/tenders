@@ -53,6 +53,9 @@ Route::post('simulate', [PaymentsController::class, 'simulateTransaction'])
 // Route::post('/checkout/stkPush', [LandingController::class, 'stkPush'])
 //     ->name('stk');
 
+// Route::post('/invoice/{slugs}/stkPush', [PaymentsController::class, 'stkPush'])
+//     ->name('stk');
+
 Route::post('/invoice/{slugs}/stkPush', [PaymentsController::class, 'triggerStk'])
     ->name('stk');
 

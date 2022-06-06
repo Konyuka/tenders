@@ -9882,17 +9882,20 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
   },
   computed: {
     invoiceNumber: function invoiceNumber() {
-      var n = parseInt(this.invoiceDetails.invoice_number);
+      var n = parseInt(this.invoiceDetails.invoice_number); // return n;
 
       if (n < 10) {
         var leadingZeros = "000" + n.toString();
         return "BID-" + leadingZeros;
       } else if (n < 100) {
         var leadingZeros = "00" + n.toString();
+        return "BID-" + leadingZeros;
       } else if (n < 1000) {
         var leadingZeros = "0" + n.toString();
+        return "BID-" + leadingZeros;
       } else {
         var leadingZeros = n;
+        return "BID-" + leadingZeros;
       }
     },
     now: function now() {
@@ -10003,8 +10006,8 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       return noSpace;
     },
     closeSTK: function closeSTK() {
-      this.paymentModal = false;
-      this.status = "";
+      this.paymentModal = false; // this.status = "";
+
       var paymentDetails = {
         payment_number: this.form.number,
         post_id: this.post._id,

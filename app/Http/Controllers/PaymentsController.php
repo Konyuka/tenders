@@ -11,8 +11,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Log;
 use App\Models\Post;
-
-
+use Carbon\Carbon;
 
 
 class PaymentsController extends Controller
@@ -133,25 +132,7 @@ class PaymentsController extends Controller
                 'invoiceDetails' => $invoiceDetails,
             ]);
         }
-        // return Inertia::render('Checkout', [
-        //         'post' => Post::where('_id', '=', $post_id)->first(),
-        //         // 'transId' => $transactionFail->trans_id,
-        //         'status' => ''
-        //     ]);
 
-
-
-        // dd($transaction);
-        // return dd($transaction->trans_id);
-        // if(){
-        // }
-    //     $paymentlogId = $transaction->trans_id;
-
-    //     return Inertia::render('Selected', [
-    //        'post' => Post::where('_id', '=', $post_id)->first(),
-    //        'transId' => $paymentlogId
-
-    //    ]);
     }
 
     public function setTransaction($trans_id)
@@ -176,6 +157,50 @@ class PaymentsController extends Controller
         // ]);
     }
 
+    public function stkPush(Request $request)
+    {
+        $request->validate(['phone'=>'required'],['amount'=>'required'],['user_name'=>'required'],['account'=>'required'],['user_phone'=>'required'],['user_email'=>'required'],['post'=>'required'],['user'=>'required']);
+
+        $phone=$request->phone;
+        $amount=$request->amount;
+        $userName=$request->user_name;
+        $account=$request->account;
+        $userPhone=$request->user_phone;
+        $userEmail=$request->user_email;
+        $post=$request->post;
+        $post_id=$request->post['_id'];
+        $user=$request->user;
+
+        $url = 'https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
+        $curl_post_data = [
+            'BusinessShortCode' =>env('MPESA_STK_SHORTCODE'),
+            'Password' => $this->lipaNaMpesaPassword(),
+            'Timestamp' => Carbon::rawParse('now')->format('YmdHms'),
+            'TransactionType' => 'CustomerPayBillOnline',
+            'Amount' => $amount,
+            'PartyA' => $phone,
+            'PartyB' => env('MPESA_STK_SHORTCODE'),
+            'PhoneNumber' => $phone,
+            'CallBackURL' => env('MPESA_TEST_URL'). '/api/stkpush',
+            'AccountReference' => "Bidders Portal",
+            'TransactionDesc' => "lipa Na M-PESA"
+        ];
+        $data_string = json_encode($curl_post_data);
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer '.$this->newAccessToken()));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+        $curl_response = curl_exec($curl);
+        $stkPushSimulation=json_decode($curl_response);
+        return $stkPushSimulation;
+        return redirect('/confirm');
+
+
+
+     }
+
     public function triggerStk(Request $request)
     {
         //stk push here
@@ -196,6 +221,7 @@ class PaymentsController extends Controller
 
         $mpesa = new Mpesa();
         $BusinessShortCode=env('MPESA_STK_SHORTCODE');
+        // $LipaNaMpesaPasskey=$this->lipaNaMpesaPassword();
         $LipaNaMpesaPasskey=env('MPESA_PASSKEY');
         $TransactionType="CustomerPayBillOnline";
         $Amount=$amount;
@@ -203,6 +229,7 @@ class PaymentsController extends Controller
         $PartyB=env('MPESA_STK_SHORTCODE');
         $PhoneNumber=$phone;
         $CallBackURL=env('MPESA_TEST_URL'). '/api/stkpush';
+        https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest
         // $CallBackURL="http://dairyapp1-env.na3uctjjui.us-east-2.elasticbeanstalk.com/confirm/ebook/payment";
         // $CallBackURL=env('MPESA_TEST_URL'). '/confirm/ebook/payment';
         $AccountReference="Bidders Portal";
@@ -211,6 +238,8 @@ class PaymentsController extends Controller
 
         $stkPushSimulation=$mpesa->STKPushSimulation($BusinessShortCode, $LipaNaMpesaPasskey, $TransactionType, $Amount, $PartyA, $PartyB, $PhoneNumber, $CallBackURL, $AccountReference, $TransactionDesc, $Remarks);
         $stkPushSimulation=json_decode($stkPushSimulation);
+        // return $stkPushSimulation;
+
         $result_code =$stkPushSimulation->ResponseCode ?? null;
         if (isset($result_code) and $result_code=="0"){
             $trans_id =$stkPushSimulation->MerchantRequestID;
@@ -273,7 +302,31 @@ class PaymentsController extends Controller
         $consumer_key=env('MPESA_CONSUMER_KEY');
         $consumer_secret=env('MPESA_CONSUMER_SECRET');
         $credentials = base64_encode($consumer_key.":".$consumer_secret);
+        // $url = "https://api.safaricom.co.ke/oauth/v1/generate";
         $url = "https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
+
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array("Authorization: Basic ".$credentials,"Content-Type:application/json"));
+        curl_setopt($curl, CURLOPT_HEADER,false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $curl_response = curl_exec($curl);
+        $access_token=json_decode($curl_response);
+        curl_close($curl);
+
+        return $access_token->access_token;
+
+    }
+
+    public function newAccessTokenS()
+    {
+        $consumer_key=env('MPESA_CONSUMER_KEY');
+        $consumer_secret=env('MPESA_CONSUMER_SECRET');
+        $credentials = base64_encode($consumer_key.":".$consumer_secret);
+        // $url = "https://api.safaricom.co.ke/oauth/v1/generate";
+        $url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
 
 
         $curl = curl_init();
@@ -294,8 +347,8 @@ class PaymentsController extends Controller
     {
         $url = env('MPESA_ENV') == 'sandbox'
         ? 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
-        : 'https://api.safaricom.co.ke/oauth/v1/generate';
-        // : 'https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
+        // : 'https://api.safaricom.co.ke/oauth/v1/generate';
+        : 'https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
         $curl = curl_init($url);
         curl_setopt_array(
             $curl,
@@ -321,7 +374,7 @@ class PaymentsController extends Controller
         //timestamp
         $timestamp = Carbon::rawParse('now')->format('YmdHms');
         //passkey
-        $passKey ="bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
+        $passKey =env('MPESA_PASSKEY');
         $businessShortCOde =env('MPESA_SHORTCODE');
         //generate password
         $mpesaPassword = base64_encode($businessShortCOde.$passKey.$timestamp);
@@ -354,30 +407,20 @@ class PaymentsController extends Controller
             'CommandID' => 'CustomerPayBillOnline'
         );
         $url =  '/c2b/v2/simulate';
-        $response = $this->makeHttp($url, $body);
+        $response = $this->makeHttpS($url, $body);
         return $response;
 
-        $mpesa= new \Safaricom\Mpesa\Mpesa();
-        $ShortCode=env('MPESA_SHORTCODE');
-        $CommandID="CustomerPayBillOnline";
-        $Amount=$amount;
-        $Msisdn=$phone;
-        $BillRefNumber=$account;
-        $c2bTransaction=$mpesa->c2b($ShortCode, $CommandID, $Amount, $Msisdn, $BillRefNumber );
-        $c2bTransaction=json_decode($c2bTransaction);
-        $result_code =$c2bTransaction->ResponseCode ?? null;
-        // $callbackData=$mpesa->getDataFromCallback();
-
-        return dd($c2bTransaction);
+        $result_code = json_decode($response, true)['ResponseCode'] ?? null;
+        $OriginatorConversationID = json_decode($response, true)['OriginatorCoversationID'] ?? null;
 
         if (isset($result_code) and $result_code=="0"){
-            $trans_id =$b2bTransaction->MerchantRequestID;
+            $trans_id =$OriginatorConversationID;
 
             Payments::create([
               "user_name"=>$userName,
               "trans_id"=>$trans_id,
-              "amount"=>$Amount,
-              "phone"=>$PhoneNumber,
+              "amount"=>$amount,
+              "phone"=>$phone,
               "account"=>$account,
               "info"=>$post_id,
               "user_phone"=>$userPhone,
@@ -387,26 +430,49 @@ class PaymentsController extends Controller
             ]);
         }
 
-        $error_msg = $b2bTransaction->errorMessage ?? '';
-        // return dd('done');
-        $restart = $request->restartTrans;
+        // return $response;
 
-        if($restart == true){
-            $statusClear = '';
-        }else{
-            $statusClear = '';
-        }
+        // $error_msg = $response->errorMessage ?? '';
+        // $restart = $request->restartTrans;
+
+        // if($restart == true){
+        //     $statusClear = '';
+        // }else{
+        //     $statusClear = 'WaitingC2B';
+        // }
+
 
         return Inertia::render('Invoice', [
             // 'post' => $request->post,
             'post' => $post,
             'user' => $user,
-            'status' => $statusClear
+            'status' => ''
+            // 'status' => $statusClear
             // 'invoiceStatus' => $invoicePaid,
             // 'invoiceDetails' => json_decode($createdInvoice),
 
         ]);
 
+    }
+
+    public function makeHttpS($url, $body)
+    {
+        // $url = 'https://mpesa-reflector.herokuapp.com' . $url;
+        $url = 'https://sandbox.safaricom.co.ke/mpesa/' . $url;
+        $curl = curl_init();
+        curl_setopt_array(
+            $curl,
+            array(
+                    CURLOPT_URL => $url,
+                    CURLOPT_HTTPHEADER => array('Content-Type:application/json','Authorization: Bearer '. $this->newAccessTokenS()),
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_POST => true,
+                    CURLOPT_POSTFIELDS => json_encode($body)
+                )
+        );
+        $curl_response = curl_exec($curl);
+        curl_close($curl);
+        return $curl_response;
     }
 
     public function makeHttp($url, $body)
@@ -418,7 +484,7 @@ class PaymentsController extends Controller
             $curl,
             array(
                     CURLOPT_URL => $url,
-                    CURLOPT_HTTPHEADER => array('Content-Type:application/json','Authorization:Bearer '. $this->newAccessToken()),
+                    CURLOPT_HTTPHEADER => array('Content-Type:application/json','Authorization: Bearer '. $this->newAccessToken()),
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_POST => true,
                     CURLOPT_POSTFIELDS => json_encode($body)

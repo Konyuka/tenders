@@ -661,15 +661,19 @@ export default {
     computed: {
         invoiceNumber() {
             const n = parseInt(this.invoiceDetails.invoice_number);
+            // return n;
             if (n < 10) {
                 var leadingZeros = "000" + n.toString();
                 return "BID-" + leadingZeros;
             } else if (n < 100) {
                 var leadingZeros = "00" + n.toString();
+                return "BID-" + leadingZeros;
             } else if (n < 1000) {
                 var leadingZeros = "0" + n.toString();
+                return "BID-" + leadingZeros;
             } else {
                 var leadingZeros = n;
+                return "BID-" + leadingZeros;
             }
         },
         now() {
@@ -788,7 +792,7 @@ export default {
         },
         closeSTK() {
             this.paymentModal = false;
-            this.status = "";
+            // this.status = "";
             const paymentDetails = {
                 payment_number: this.form.number,
                 post_id: this.post._id,

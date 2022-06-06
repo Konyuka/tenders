@@ -36,6 +36,41 @@ class MpesaResponseController extends Controller
             'ResultDesc' => 'Accept Service',
             'ThirdPartyTransID' => rand(3000, 10000)
         ];
+
+        // $mpesa=new Mpesa();
+        // $callBackData = $mpesa->getDataFromCallback();
+        // $object = json_decode($callBackData);
+        // return $object;
+
+        // $trans_id= $object->Body->stkCallback->MerchantRequestID;
+        // $payment = Payments::where(['trans_id'=>$trans_id])->first();
+
+        // if ($payment){
+        //         $payment->completed=true;
+        //         $payment->waiting=false;
+        //         $payment->save();
+        //         $post=$payment->info;
+        //     }
+
+        // $content=json_decode($request->getContent(), true);
+        // Payments::create([
+        //       "user_name"=>$userName,
+        //       "trans_id"=>$trans_id,
+        //       "amount"=>$Amount,
+        //       "phone"=>$PhoneNumber,
+        //       "account"=>$account,
+        //       "info"=>$post_id,
+        //       "user_phone"=>$userPhone,
+        //       "user_email"=>$userEmail,
+        //       "completed"=>false,
+        //       "waiting"=> true,
+        //     ]);
+
+        // return [
+        //     'ResultCode' => 0,
+        //     'ResultDesc' => 'Accept Service',
+        //     'ThirdPartyTransID' => rand(3000, 10000)
+        // ];
     }
 
     public function transactionStatusResponse(Request $request){
