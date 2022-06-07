@@ -33,76 +33,31 @@ class DashboardController extends Controller
     public function refresh(Request $request)
     {
         $response = Http::get('https://www.biddetail.com/kenya/C62A8CB5DD405E768CAD792637AC0446/F4454993C1DE1AB1948A9D33364FA9CC');
-        $data = \json_decode($response);
-
-
+        $data = json_decode($response, true);
         // $posts = $request->tenders;
-        // set_time_limit(50000);
 
-        $posts = $data->TenderDetails[0]->TenderLists;
-        // return dd($posts);
+        $posts = $data['TenderDetails'][0]['TenderLists'];
 
+        set_time_limit(50000);
         foreach ($posts as $post => $value ) {
 
-        Post::firstOrNew(
+            if(!Post::where('tender_number',$value['Tender_No'])->exists()){
 
-            // [
-            //     'purchasing_authority' => $value['Purchasing_Authority'],
-            //     'tender_number' => $value['Tender_No'],
-            //     'tender_brief' => $value['Tender_Brief'],
-            //     'competition_type' => $value['CompetitionType'],
-            //     'funded_by' => $value['Funding'],
-            //     'country' => $value['Geographical_Addresses'],
-            //     'value' => $value['Tender_Value'],
-            //     'work_detail' => $value['Work_Detail'],
-            //     'email' => $value['Email_Address'],
-            //     'link' => $value['FileUrl'],
-            //     'expiry' => $value['Tender_Expiry']
-            // ]
+                Post::Create([
+                    'purchasing_authority' => $value['Purchasing_Authority'],
+                    'tender_number' => $value['Tender_No'],
+                    'tender_brief' => $value['Tender_Brief'],
+                    'competition_type' => $value['CompetitionType'],
+                    'funded_by' => $value['Funding'],
+                    'country' => $value['Geographical_Addresses'],
+                    'value' => $value['Tender_Value'],
+                    'work_detail' => $value['Work_Detail'],
+                    'email' => $value['Email_Address'],
+                    'link' => $value['FileUrl'],
+                    'expiry' => $value['Tender_Expiry']
+                ]);
+            }
 
-
-                // ['Purchasing_Authority'=> $value->purchasing_authority],
-                // ['Tender_No'=> $value->tender_number],
-                // ['Tender_Brief'=> $value->tender_brief],
-                // ['CompetitionType'=> $value->competition_type],
-                // ['Funding'=> $value->funded_by],
-                // ['Geographical_Addresses'=> $value->country],
-                // ['Tender_Value'=> $value->value],
-                // ['Work_Detail'=> $value->work_detail],
-                // ['Email_Address'=> $value->email],
-                // ['FileUrl'=> $value->link],
-                // ['Tender_Expiry'=> $value->expiry],
-
-
-                $post = new Post(),
-                $post->purchasing_authority = $value['Purchasing_Authority'],
-                $post->tender_number = $value['Tender_No'],
-                $post->tender_brief = $value['Tender_Brief'],
-                $post->competition_type = $value['CompetitionType'],
-                $post->funded_by = $value['Funding'],
-                $post->country = $value['Geographical_Addresses'],
-                $post->value = $value['Tender_Value'],
-                $post->work_detail = $value['Work_Detail'],
-                $post->email = $value['Email_Address'],
-                $post->link = $value['FileUrl'],
-                $post->expiry = $value['Tender_Expiry'],
-                $post->save()
-
-        );
-
-            // $post = new Post();
-            // $post->purchasing_authority = $value['Purchasing_Authority'];
-            // $post->tender_number = $value['Tender_No'];
-            // $post->tender_brief = $value['Tender_Brief']; // where N is infinite # of attr
-            // $post->competition_type = $value['CompetitionType']; // where N is infinite # of attr
-            // $post->funded_by = $value['Funding']; // where N is infinite # of attr
-            // $post->country = $value['Geographical_Addresses']; // where N is infinite # of attr
-            // $post->value = $value['Tender_Value']; // where N is infinite # of attr
-            // $post->work_detail = $value['Work_Detail']; // where N is infinite # of attr
-            // $post->email = $value['Email_Address']; // where N is infinite # of attr
-            // $post->link = $value['FileUrl']; // where N is infinite # of attr
-            // $post->expiry = $value['Tender_Expiry']; // where N is infinite # of attr
-            // $post->save();
 
         };
 
