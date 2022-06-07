@@ -38,6 +38,7 @@
                                                 >Search by Keyword</label
                                             >
                                             <input
+                                                v-model="payload.keyword"
                                                 tabindex="0"
                                                 type="text"
                                                 id="FirstName"
@@ -55,6 +56,7 @@
                                                 >Search by Region/County</label
                                             >
                                             <input
+                                                v-model="payload.region"
                                                 tabindex="0"
                                                 type="text"
                                                 id="FirstName"
@@ -73,6 +75,7 @@
                                                 Entity</label
                                             >
                                             <input
+                                                v-model="payload.entity"
                                                 tabindex="0"
                                                 type="text"
                                                 id="FirstName"
@@ -90,6 +93,7 @@
                                                 >Search by Tender Number</label
                                             >
                                             <input
+                                                v-model="payload.number"
                                                 tabindex="0"
                                                 type="text"
                                                 id="FirstName"
@@ -107,6 +111,7 @@
                                                 >Search by Tender Price</label
                                             >
                                             <select
+                                                v-model="payload.price"
                                                 class="form-select appearance-none block w-full px-3  py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-700 focus:outline-none"
                                                 aria-label="Default select example"
                                             >
@@ -132,6 +137,7 @@
                                                 >Search by Closing Date</label
                                             >
                                             <input
+                                                v-model="payload.closing"
                                                 tabindex="0"
                                                 type="text"
                                                 id="FirstName"
@@ -239,6 +245,7 @@
                                     Clear Filters
                                 </button>
                                 <button
+                                    @click.prevent="searchTenders"
                                     role="button"
                                     aria-label="Save form"
                                     class="font-primary-font focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-indigo-700 focus:outline-none transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-2 text-sm"
@@ -262,11 +269,24 @@ export default {
         //   Categories,
     },
     data() {
-        return {};
+        return {
+            payload: {
+                keyword: "",
+                region: "",
+                entity: "",
+                number: "",
+                price: "",
+                closing: ""
+            }
+        };
     },
     watch: {},
     computed: {},
-    methods: {}
+    methods: {
+        searchTenders() {
+            this.$inertia.post("/search", this.payload);
+        }
+    }
 };
 </script>
 

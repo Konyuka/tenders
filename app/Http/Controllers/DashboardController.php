@@ -14,43 +14,52 @@ use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Illuminate\Support\Facades\DB;
 use File;
+use Illuminate\Support\Facades\Http;
+
 
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        // $posts = Post::all();
         $payments = Payments::all();
         return Inertia::render('Dashboard', [
-            'allPosts' => $posts,
+            // 'allPosts' => $posts,
             'payments' => $payments
         ]);
     }
 
     public function refresh(Request $request)
     {
+        $response = Http::get('https://www.biddetail.com/kenya/C62A8CB5DD405E768CAD792637AC0446/F4454993C1DE1AB1948A9D33364FA9CC');
+        $data = \json_decode($response);
 
-        set_time_limit(500);
-        $posts = $request->tenders;
+
+        // $posts = $request->tenders;
+        // set_time_limit(50000);
+
+        $posts = $data->TenderDetails[0]->TenderLists;
+        // return dd($posts);
+
         foreach ($posts as $post => $value ) {
 
+        Post::firstOrNew(
 
-            Post::firstOrCreate(
+            // [
+            //     'purchasing_authority' => $value['Purchasing_Authority'],
+            //     'tender_number' => $value['Tender_No'],
+            //     'tender_brief' => $value['Tender_Brief'],
+            //     'competition_type' => $value['CompetitionType'],
+            //     'funded_by' => $value['Funding'],
+            //     'country' => $value['Geographical_Addresses'],
+            //     'value' => $value['Tender_Value'],
+            //     'work_detail' => $value['Work_Detail'],
+            //     'email' => $value['Email_Address'],
+            //     'link' => $value['FileUrl'],
+            //     'expiry' => $value['Tender_Expiry']
+            // ]
 
-                [
-                    'purchasing_authority' => $value['Purchasing_Authority'],
-                    'tender_number' => $value['Tender_No'],
-                    'tender_brief' => $value['Tender_Brief'],
-                    'competition_type' => $value['CompetitionType'],
-                    'funded_by' => $value['Funding'],
-                    'country' => $value['Geographical_Addresses'],
-                    'value' => $value['Tender_Value'],
-                    'work_detail' => $value['Work_Detail'],
-                    'email' => $value['Email_Address'],
-                    'link' => $value['FileUrl'],
-                    'expiry' => $value['Tender_Expiry']
-                ]
 
                 // ['Purchasing_Authority'=> $value->purchasing_authority],
                 // ['Tender_No'=> $value->tender_number],
@@ -63,7 +72,23 @@ class DashboardController extends Controller
                 // ['Email_Address'=> $value->email],
                 // ['FileUrl'=> $value->link],
                 // ['Tender_Expiry'=> $value->expiry],
-            );
+
+
+                $post = new Post(),
+                $post->purchasing_authority = $value['Purchasing_Authority'],
+                $post->tender_number = $value['Tender_No'],
+                $post->tender_brief = $value['Tender_Brief'],
+                $post->competition_type = $value['CompetitionType'],
+                $post->funded_by = $value['Funding'],
+                $post->country = $value['Geographical_Addresses'],
+                $post->value = $value['Tender_Value'],
+                $post->work_detail = $value['Work_Detail'],
+                $post->email = $value['Email_Address'],
+                $post->link = $value['FileUrl'],
+                $post->expiry = $value['Tender_Expiry'],
+                $post->save()
+
+        );
 
             // $post = new Post();
             // $post->purchasing_authority = $value['Purchasing_Authority'];

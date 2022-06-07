@@ -828,21 +828,21 @@ export default {
     },
     methods: {
         refresh() {
-            axios
-                .get(
-                    "https://www.biddetail.com/kenya/C62A8CB5DD405E768CAD792637AC0446/F4454993C1DE1AB1948A9D33364FA9CC"
-                )
-                .then(response => {
-                    // console.log(response.data.TenderDetails[0].TenderLists);
-                    // const data = response.data.TenderDetails[0].TenderLists;
-                    const payload = {
-                        tenders: response.data.TenderDetails[0].TenderLists
-                    };
-                    this.$inertia.post("refresh", payload);
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+            // axios
+            //     .get(
+            //         "https://www.biddetail.com/kenya/C62A8CB5DD405E768CAD792637AC0446/F4454993C1DE1AB1948A9D33364FA9CC"
+            //     )
+            //     .then(response => {
+            //         const payload = {
+            //             tenders: response.data.TenderDetails[0].TenderLists
+            //         };
+            //         this.$inertia.post("refresh", payload);
+            //     })
+            //     .catch(error => {
+            //         console.log(error);
+            //     });
+
+            this.$inertia.get("refresh");
         },
         upload(e) {
             // e.preventDefault();

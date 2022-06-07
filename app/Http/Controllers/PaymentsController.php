@@ -226,7 +226,9 @@ class PaymentsController extends Controller
         $TransactionType="CustomerPayBillOnline";
         $Amount=$amount;
         $PartyA=$phone;
+        // $PartyA='254722326662';
         $PartyB=env('MPESA_STK_SHORTCODE');
+        // $PhoneNumber='254722326662';
         $PhoneNumber=$phone;
         $CallBackURL=env('MPESA_TEST_URL'). '/api/stkpush';
         https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest

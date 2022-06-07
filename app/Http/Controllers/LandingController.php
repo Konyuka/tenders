@@ -145,9 +145,51 @@ class LandingController extends Controller
         return Inertia::render('Listing', ['Posts' => json_decode($posts, true)]);
     }
 
+    public function pricing($slug)
+    {
+         $lastTenDaysRecord = Post::whereDateBetween('created_at',(new Carbon)->subDays(3)->startOfDay()->toDateString(),(new Carbon)->now()->endOfDay()->toDateString() )->get();
+        //  $lastTenDaysRecord = Post::whereDateBetween('created_at',(new Carbon)->subDays(10)->startOfDay()->toDateString(),(new Carbon)->now()->endOfDay()->toDateString() )->get();
+        $articles = Post::where("created_at",">", Carbon::now()->subDays(10))->get();
+
+        return dd(json_decode($articles, true));
+        // return dd(json_decode($slug, true));
+        $posts = Post::latest()->get();
+        return Inertia::render('Listing', [
+            'Posts' => json_decode($posts, true),
+            'Amount' => $slug
+        ]);
+    }
+
     public function blogs()
     {
         return Inertia::render('Blog',);
+    }
+
+    public function search()
+    {
+
+        // $key = \Request::get('payload');
+        $key = \Request::get('keyword');
+        $region = \Request::get('region');
+        $entity = \Request::get('entity');
+        $number = \Request::get('number');
+        $price = \Request::get('price');
+        $closing = \Request::get('closing');
+
+        $search = Post::where('title', 'like', '%' . $key . '%')
+                ->orWhere('tender_brief', 'like', '%' . $key . '%')
+                ->orWhere('funded_by', 'like', '%' . $key . '%')
+                ->orWhere('country', 'like', '%' . $key . '%')
+                ->orWhere('work_detail', 'like', '%' . $key . '%')
+                ->orWhere('address', 'like', '%' . $region . '%')
+                ->orWhere('tender_number', 'like', '%' . $number . '%')
+                ->orWhere('purchasing_authority', 'like', '%' . $entity . '%')
+                ->orWhere('tender_brief', 'like', '%' . $entity . '%')
+                ->orWhere('funded_by', 'like', '%' . $entity . '%')
+                ->orWhere('address', 'like', '%' . $entity . '%')
+                ->get();
+
+        return Inertia::render('Listing', ['Posts' => json_decode($search, true)]);
     }
 
     public function invoice(Request $request)

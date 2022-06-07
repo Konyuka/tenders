@@ -257,7 +257,8 @@ export default {
     name: "Listing",
     mixins: [Vue2Filters.mixin],
     props: {
-        Posts: ""
+        Posts: "",
+        Amount: String
     },
     components: {
         TopBanner,

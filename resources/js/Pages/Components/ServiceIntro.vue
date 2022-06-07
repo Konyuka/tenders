@@ -37,7 +37,8 @@
                     <div
                         class="relative space-y-6 lg:space-y-0 lg:grid lg:grid-cols-3"
                     >
-                        <div
+                        <a
+                            :href="route('pricing', '150')"
                             class="hover:bg-gray-500 transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
                             <div>
@@ -88,9 +89,9 @@
                                     >
                                 </li>
                             </ul>
-                        </div>
+                        </a>
 
-                        <div
+                        <a
                             class="transition transform hover:scale-75 duration-700 bg-white ring-2 ring-indigo-700 shadow-xl pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
                             <div>
@@ -142,9 +143,9 @@
                                     >
                                 </li>
                             </ul>
-                        </div>
+                        </a>
 
-                        <div
+                        <a
                             class="hover:bg-gray-500 hover:text-black transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
                             <div>
@@ -196,7 +197,7 @@
                                     >
                                 </li>
                             </ul>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -293,6 +294,26 @@
                                             </svg>
                                         </span>
                                         <span>Email Notifications Updates</span>
+                                    </li>
+                                    <li class="flex items-center mb-8">
+                                        <span class="mr-6">
+                                            <svg
+                                                width="20"
+                                                height="16"
+                                                viewbox="0 0 20 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z"
+                                                    fill="white"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                        <span
+                                            >Access To Tender News and
+                                            blogs</span
+                                        >
                                     </li>
                                     <li class="flex items-center mb-8">
                                         <span class="mr-6">
@@ -416,6 +437,26 @@
                                                 ></path>
                                             </svg>
                                         </span>
+                                        <span
+                                            >Access To Tender News and
+                                            blogs</span
+                                        >
+                                    </li>
+                                    <li class="flex items-center mb-8">
+                                        <span class="mr-6">
+                                            <svg
+                                                width="20"
+                                                height="16"
+                                                viewbox="0 0 20 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z"
+                                                    fill="white"
+                                                ></path>
+                                            </svg>
+                                        </span>
                                         <span>Billed Weekly</span>
                                     </li>
                                 </ul>
@@ -507,6 +548,26 @@
                                             </svg>
                                         </span>
                                         <span>Email Notifications Updates</span>
+                                    </li>
+                                    <li class="flex items-center mb-8">
+                                        <span class="mr-6">
+                                            <svg
+                                                width="20"
+                                                height="16"
+                                                viewbox="0 0 20 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z"
+                                                    fill="white"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                        <span
+                                            >Access To Tender News and
+                                            blogs</span
+                                        >
                                     </li>
                                     <li class="flex items-center mb-8">
                                         <span class="mr-6">
@@ -630,6 +691,26 @@
                                                 ></path>
                                             </svg>
                                         </span>
+                                        <span
+                                            >Access To Tender News and
+                                            blogs</span
+                                        >
+                                    </li>
+                                    <li class="flex items-center mb-8">
+                                        <span class="mr-6">
+                                            <svg
+                                                width="20"
+                                                height="16"
+                                                viewbox="0 0 20 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z"
+                                                    fill="white"
+                                                ></path>
+                                            </svg>
+                                        </span>
                                         <span>Billed Every 6 Months</span>
                                     </li>
                                 </ul>
@@ -721,6 +802,26 @@
                                             </svg>
                                         </span>
                                         <span>Email Notifications Updates</span>
+                                    </li>
+                                    <li class="flex items-center mb-8">
+                                        <span class="mr-6">
+                                            <svg
+                                                width="20"
+                                                height="16"
+                                                viewbox="0 0 20 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z"
+                                                    fill="white"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                        <span
+                                            >Access To Tender News and
+                                            blogs</span
+                                        >
                                     </li>
                                     <li class="flex items-center mb-8">
                                         <span class="mr-6">

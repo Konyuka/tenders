@@ -23,6 +23,12 @@ Route::get('/free/{slug}', [LandingController::class, 'free'])
 Route::get('/listing', [LandingController::class, 'listing'])
     ->name('listing');
 
+Route::post('/search', [LandingController::class, 'search'])
+    ->name('search');
+
+Route::get('/pricing/{slugs}', [LandingController::class, 'pricing'])
+    ->name('pricing');
+
 Route::get('/blogs', [LandingController::class, 'blogs'])
     ->name('blogs');
 
@@ -99,8 +105,10 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/import', [DashboardContr
 Route::middleware(['auth:sanctum', 'verified'])->post('/post', [DashboardController::class, 'addPost'])
     ->name('post');
 
-Route::middleware(['auth:sanctum', 'verified'])->post('/refresh', [DashboardController::class, 'refresh'])
+Route::middleware(['auth:sanctum', 'verified'])->get('/refresh', [DashboardController::class, 'refresh'])
     ->name('refresh');
+// Route::middleware(['auth:sanctum', 'verified'])->post('/refresh', [DashboardController::class, 'refresh'])
+//     ->name('refresh');
 
 
 
@@ -118,4 +126,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/download', [DashboardCont
 //     return Inertia\Inertia::render('Dashboard');
 // })->name('dashboard');
 
-URL::forceScheme('https');
+// URL::forceScheme('https');
