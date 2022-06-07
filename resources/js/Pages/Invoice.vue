@@ -743,9 +743,9 @@ export default {
             paymentLog: "",
             form: {
                 userName: "Software Saiba",
-                userPhone: "254722326662",
+                userPhone: "254716202298",
                 userEmail: "saibadeveloper@gmail.com",
-                number: this.removeSpaces("254722326662"),
+                number: this.removeSpaces("254716202298"),
                 account: "Bidders Portal",
                 amount: this.amount
                 // amount: this.post.price
