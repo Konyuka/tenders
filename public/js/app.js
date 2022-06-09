@@ -8038,12 +8038,34 @@ __webpack_require__.r(__webpack_exports__);
   components: {//   Categories,
   },
   mounted: function mounted() {
-    this.payload.keyword = localStorage.getItem("keyword");
-    this.payload.region = localStorage.getItem("region");
-    this.payload.entity = localStorage.getItem("entity");
-    this.payload.number = localStorage.getItem("number");
-    this.payload.price = localStorage.getItem("price");
-    this.payload.closing = localStorage.getItem("closing");
+    if (localStorage.getItem("keyword") != null) {
+      this.payload.keyword = localStorage.getItem("keyword");
+    }
+
+    if (localStorage.getItem("region") != null) {
+      this.payload.keyword = localStorage.getItem("region");
+    }
+
+    if (localStorage.getItem("entity") != null) {
+      this.payload.keyword = localStorage.getItem("entity");
+    }
+
+    if (localStorage.getItem("number") != null) {
+      this.payload.keyword = localStorage.getItem("number");
+    }
+
+    if (localStorage.getItem("price") != null) {
+      this.payload.keyword = localStorage.getItem("price");
+    }
+
+    if (localStorage.getItem("closing") != null) {
+      this.payload.keyword = localStorage.getItem("closing");
+    } // this.payload.region = localStorage.getItem("region");
+    // this.payload.entity = localStorage.getItem("entity");
+    // this.payload.number = localStorage.getItem("number");
+    // this.payload.price = localStorage.getItem("price");
+    // this.payload.closing = localStorage.getItem("closing");
+
   },
   data: function data() {
     return {
@@ -8083,6 +8105,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -76178,7 +76201,7 @@ var render = function() {
                   "a",
                   {
                     staticClass:
-                      "hover:bg-gray-500 transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12",
+                      "hover:bg-indigo-300 transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12",
                     attrs: { href: _vm.route("pricing", "150") }
                   },
                   [
@@ -76224,7 +76247,11 @@ var render = function() {
                             {
                               staticClass: "text-white ml-3 text-sm font-medium"
                             },
-                            [_vm._v("4 to 3 Weeks to Expiry")]
+                            [
+                              _vm._v(
+                                "For all Fresh Tenders Posted this\n                                    week"
+                              )
+                            ]
                           )
                         ])
                       ]

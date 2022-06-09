@@ -39,7 +39,7 @@
                     >
                         <a
                             :href="route('pricing', '150')"
-                            class="hover:bg-gray-500 transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
+                            class="hover:bg-indigo-300 transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
                             <div>
                                 <h3
@@ -85,7 +85,8 @@
                                     </svg>
                                     <span
                                         class="text-white ml-3 text-sm font-medium"
-                                        >4 to 3 Weeks to Expiry</span
+                                        >For all Fresh Tenders Posted this
+                                        week</span
                                     >
                                 </li>
                             </ul>

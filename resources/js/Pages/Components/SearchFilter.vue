@@ -274,12 +274,29 @@ export default {
         //   Categories,
     },
     mounted() {
-        this.payload.keyword = localStorage.getItem("keyword");
-        this.payload.region = localStorage.getItem("region");
-        this.payload.entity = localStorage.getItem("entity");
-        this.payload.number = localStorage.getItem("number");
-        this.payload.price = localStorage.getItem("price");
-        this.payload.closing = localStorage.getItem("closing");
+        if (localStorage.getItem("keyword") != null) {
+            this.payload.keyword = localStorage.getItem("keyword");
+        }
+        if (localStorage.getItem("region") != null) {
+            this.payload.keyword = localStorage.getItem("region");
+        }
+        if (localStorage.getItem("entity") != null) {
+            this.payload.keyword = localStorage.getItem("entity");
+        }
+        if (localStorage.getItem("number") != null) {
+            this.payload.keyword = localStorage.getItem("number");
+        }
+        if (localStorage.getItem("price") != null) {
+            this.payload.keyword = localStorage.getItem("price");
+        }
+        if (localStorage.getItem("closing") != null) {
+            this.payload.keyword = localStorage.getItem("closing");
+        }
+        // this.payload.region = localStorage.getItem("region");
+        // this.payload.entity = localStorage.getItem("entity");
+        // this.payload.number = localStorage.getItem("number");
+        // this.payload.price = localStorage.getItem("price");
+        // this.payload.closing = localStorage.getItem("closing");
     },
     data() {
         return {
