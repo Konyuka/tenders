@@ -38,6 +38,7 @@
                                                 >Search by Keyword</label
                                             >
                                             <input
+                                                @keyup.enter="searchTenders()"
                                                 v-model="payload.keyword"
                                                 tabindex="0"
                                                 type="text"
@@ -56,6 +57,7 @@
                                                 >Search by Region/County</label
                                             >
                                             <input
+                                                @keyup.enter="searchTenders()"
                                                 v-model="payload.region"
                                                 tabindex="0"
                                                 type="text"
@@ -75,6 +77,7 @@
                                                 Entity</label
                                             >
                                             <input
+                                                @keyup.enter="searchTenders()"
                                                 v-model="payload.entity"
                                                 tabindex="0"
                                                 type="text"
@@ -93,6 +96,7 @@
                                                 >Search by Tender Number</label
                                             >
                                             <input
+                                                @keyup.enter="searchTenders()"
                                                 v-model="payload.number"
                                                 tabindex="0"
                                                 type="text"
@@ -137,6 +141,7 @@
                                                 >Search by Closing Date</label
                                             >
                                             <input
+                                                @keyup.enter="searchTenders()"
                                                 v-model="payload.closing"
                                                 tabindex="0"
                                                 type="text"

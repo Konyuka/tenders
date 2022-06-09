@@ -8028,6 +8028,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SearchFilter",
   components: {//   Categories,
@@ -75501,6 +75506,21 @@ var render = function() {
                               },
                               domProps: { value: _vm.payload.keyword },
                               on: {
+                                keyup: function($event) {
+                                  if (
+                                    !$event.type.indexOf("key") &&
+                                    _vm._k(
+                                      $event.keyCode,
+                                      "enter",
+                                      13,
+                                      $event.key,
+                                      "Enter"
+                                    )
+                                  ) {
+                                    return null
+                                  }
+                                  return _vm.searchTenders()
+                                },
                                 input: function($event) {
                                   if ($event.target.composing) {
                                     return
@@ -75551,6 +75571,21 @@ var render = function() {
                               },
                               domProps: { value: _vm.payload.region },
                               on: {
+                                keyup: function($event) {
+                                  if (
+                                    !$event.type.indexOf("key") &&
+                                    _vm._k(
+                                      $event.keyCode,
+                                      "enter",
+                                      13,
+                                      $event.key,
+                                      "Enter"
+                                    )
+                                  ) {
+                                    return null
+                                  }
+                                  return _vm.searchTenders()
+                                },
                                 input: function($event) {
                                   if ($event.target.composing) {
                                     return
@@ -75605,6 +75640,21 @@ var render = function() {
                               },
                               domProps: { value: _vm.payload.entity },
                               on: {
+                                keyup: function($event) {
+                                  if (
+                                    !$event.type.indexOf("key") &&
+                                    _vm._k(
+                                      $event.keyCode,
+                                      "enter",
+                                      13,
+                                      $event.key,
+                                      "Enter"
+                                    )
+                                  ) {
+                                    return null
+                                  }
+                                  return _vm.searchTenders()
+                                },
                                 input: function($event) {
                                   if ($event.target.composing) {
                                     return
@@ -75655,6 +75705,21 @@ var render = function() {
                               },
                               domProps: { value: _vm.payload.number },
                               on: {
+                                keyup: function($event) {
+                                  if (
+                                    !$event.type.indexOf("key") &&
+                                    _vm._k(
+                                      $event.keyCode,
+                                      "enter",
+                                      13,
+                                      $event.key,
+                                      "Enter"
+                                    )
+                                  ) {
+                                    return null
+                                  }
+                                  return _vm.searchTenders()
+                                },
                                 input: function($event) {
                                   if ($event.target.composing) {
                                     return
@@ -75779,6 +75844,21 @@ var render = function() {
                               },
                               domProps: { value: _vm.payload.closing },
                               on: {
+                                keyup: function($event) {
+                                  if (
+                                    !$event.type.indexOf("key") &&
+                                    _vm._k(
+                                      $event.keyCode,
+                                      "enter",
+                                      13,
+                                      $event.key,
+                                      "Enter"
+                                    )
+                                  ) {
+                                    return null
+                                  }
+                                  return _vm.searchTenders()
+                                },
                                 input: function($event) {
                                   if ($event.target.composing) {
                                     return
