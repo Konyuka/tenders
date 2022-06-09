@@ -11439,6 +11439,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -11503,12 +11506,30 @@ vue__WEBPACK_IMPORTED_MODULE_5___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       perPage: 10,
       pages: [],
       jumpPage: "",
-      cnt: ""
+      cnt: "",
+      count: ""
     };
   },
   methods: {
-    updateCnt: function updateCnt(post, i) {
-      this.cnt = i * post.length;
+    postNumber: function postNumber(i) {
+      // console.log i;
+      // alert('this')
+      if (this.page == 1) {
+        this.count = parseInt(i + 1);
+        return i + 1;
+      } else {
+        var tens = (this.page - 1) * 10;
+        this.count = tens;
+        return tens + i + 1;
+      } // else if (this.page == 2) {
+      //     // this.cnt = parseInt(i + 10);
+      //     return i + 10;
+      // }
+
+    },
+    updateCnt: function updateCnt(i) {
+      // this.cnt = i * this.Posts.length;
+      console.log(i);
     },
     scroll: function scroll() {
       jquery__WEBPACK_IMPORTED_MODULE_8___default()("html, body").animate({
@@ -81114,11 +81135,9 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "# " +
-                                      _vm._s(i + 1) +
-                                      "\n                                        " +
-                                      _vm._s(_vm.updateCnt(post, i)) +
-                                      "\n                                    "
+                                    "\n                                        # " +
+                                      _vm._s(_vm.postNumber(i)) +
+                                      "\n                                        "
                                   )
                                 ]
                               ),
@@ -81304,21 +81323,7 @@ var render = function() {
                             )
                           ]
                         )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
-                        on: { click: _vm.scroll }
-                      },
-                      [
-                        _vm._v(
-                          "\n                                scroll\n                            "
-                        )
-                      ]
-                    )
+                      : _vm._e()
                   ]),
                   _vm._v(" "),
                   _c(

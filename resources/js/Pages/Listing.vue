@@ -103,8 +103,11 @@
                                         </span> -->
                                         <span
                                             class="rounded bg-indigo-50 text-indigo-500 text-md font-extrabold font-heading-font tracking-widest mr-2"
-                                            ># {{ i + 1 }}
-                                            {{ updateCnt(post, i) }}
+                                        >
+                                            <!-- # {{ i + 1 }} # -->
+                                            # {{ postNumber(i) }}
+                                            <!-- # {{  cnt }} -->
+                                            <!-- {{ updateCnt(i) }} -->
                                         </span>
                                         {{ post.tender_brief }}
                                     </p>
@@ -310,12 +313,30 @@ export default {
             perPage: 10,
             pages: [],
             jumpPage: "",
-            cnt: ""
+            cnt: "",
+            count: ""
         };
     },
     methods: {
-        updateCnt(post, i) {
-            this.cnt = i * post.length;
+        postNumber(i) {
+            // console.log i;
+            // alert('this')
+            if (this.page == 1) {
+                this.count = parseInt(i + 1);
+                return i + 1;
+            } else {
+                var tens = (this.page - 1) * 10;
+                this.count = tens;
+                return tens + i + 1;
+            }
+            // else if (this.page == 2) {
+            //     // this.cnt = parseInt(i + 10);
+            //     return i + 10;
+            // }
+        },
+        updateCnt(i) {
+            // this.cnt = i * this.Posts.length;
+            console.log(i);
         },
         scroll() {
             $("html, body").animate(
