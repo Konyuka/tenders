@@ -7047,7 +7047,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -11504,7 +11503,7 @@ vue__WEBPACK_IMPORTED_MODULE_5___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       perPage: 10,
       pages: [],
       jumpPage: "",
-      cnt: 0
+      cnt: ""
     };
   },
   methods: {
@@ -74113,23 +74112,6 @@ var render = function() {
                         },
                         [
                           _c(
-                            "span",
-                            {
-                              staticClass:
-                                "mb-2 inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-lg font-extrabold font-heading-font tracking-widest"
-                            },
-                            [
-                              _vm._v(
-                                "\n                                    # " +
-                                  _vm._s(i + 1) +
-                                  "\n                                    " +
-                                  _vm._s(_vm.updateCnt(post, i)) +
-                                  "\n                                "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
                             "div",
                             { staticClass: "flex justify-between w-full" },
                             [
@@ -74219,7 +74201,7 @@ var render = function() {
                             "p",
                             {
                               staticClass:
-                                "m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
+                                "mt-2 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
                             },
                             [
                               _vm._v(
@@ -75430,7 +75412,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "sticky z-50 w-96" }, [
+    _c("div", { staticClass: "sticky z-50 w-96 h-px" }, [
       _c("div", { staticClass: "basis-1/5" }, [
         _c("form", { attrs: { id: "login" } }, [
           _c("div", { staticClass: "bg-white dark:bg-gray-800" }, [
@@ -80964,56 +80946,60 @@ var render = function() {
             [
               _vm._m(0),
               _vm._v(" "),
-              _c("div", { staticClass: "w-full bg-white dark:bg-gray-800" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 "
-                  },
-                  [
-                    _c("div", { staticClass: "-mx-2" }),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "text-gray-500 dark:text-gray-400" },
-                      [
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "font-medium text-gray-700 dark:text-gray-100"
-                          },
-                          [
-                            _vm._v(
-                              _vm._s(_vm.page) +
-                                " - " +
-                                _vm._s(_vm.pages.length)
-                            )
-                          ]
-                        ),
-                        _vm._v(
-                          "\n                            of\n                            "
-                        ),
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "text-indigo-600 font-primary-font ml-1 text-xl"
-                          },
-                          [_vm._v(_vm._s(this.Posts.length))]
-                        ),
-                        _vm._v(
-                          "\n                            tenders\n                        "
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
               _c("div", { staticClass: "flex flex-row my-5 mx-5" }, [
                 _c("div", { staticClass: "w-4/5 mr-5" }, [
+                  _c(
+                    "div",
+                    { staticClass: "w-full bg-white dark:bg-gray-800" },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 "
+                        },
+                        [
+                          _c("div", { staticClass: "-mx-2" }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "text-gray-500 dark:text-gray-400" },
+                            [
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "font-medium text-gray-700 dark:text-gray-100"
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(_vm.page) +
+                                      " -\n                                        " +
+                                      _vm._s(_vm.pages.length)
+                                  )
+                                ]
+                              ),
+                              _vm._v(
+                                "\n                                    of\n                                    "
+                              ),
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "text-indigo-600 font-primary-font ml-1 text-xl"
+                                },
+                                [_vm._v(_vm._s(this.Posts.length))]
+                              ),
+                              _vm._v(
+                                "\n                                    Tenders\n                                "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
                   _c(
                     "div",
                     { staticClass: "columns-1" },
@@ -81023,27 +81009,10 @@ var render = function() {
                         {
                           key: post._id,
                           staticClass:
-                            "group bg-white border-t-2 border-r-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start",
+                            "group bg-white border-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start",
                           attrs: { href: _vm.route("selected", post._id) }
                         },
                         [
-                          _c(
-                            "span",
-                            {
-                              staticClass:
-                                "mb-2 inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-lg font-extrabold font-heading-font tracking-widest"
-                            },
-                            [
-                              _vm._v(
-                                "\n                                    # " +
-                                  _vm._s(i + 1) +
-                                  "\n                                    " +
-                                  _vm._s(_vm.updateCnt(post, i)) +
-                                  "\n                                "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
                           _c(
                             "div",
                             { staticClass: "flex justify-between w-full" },
@@ -81134,9 +81103,25 @@ var render = function() {
                             "p",
                             {
                               staticClass:
-                                "m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
+                                "mt-2 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
                             },
                             [
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "rounded bg-indigo-50 text-indigo-500 text-md font-extrabold font-heading-font tracking-widest mr-2"
+                                },
+                                [
+                                  _vm._v(
+                                    "# " +
+                                      _vm._s(i + 1) +
+                                      "\n                                        " +
+                                      _vm._s(_vm.updateCnt(post, i)) +
+                                      "\n                                    "
+                                  )
+                                ]
+                              ),
                               _vm._v(
                                 "\n                                    " +
                                   _vm._s(post.tender_brief) +
@@ -81214,153 +81199,176 @@ var render = function() {
                       )
                     }),
                     0
+                  ),
+                  _vm._v(" "),
+                  _c("footer", { staticClass: "flex justify-around mt-10" }, [
+                    _vm.page != 1
+                      ? _c(
+                          "button",
+                          {
+                            staticClass:
+                              "inline-flex items-center py-4 px-6 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
+                            on: {
+                              click: function($event) {
+                                _vm.page--
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                Previous\n                            "
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.page == 1 ? _c("button") : _vm._e(),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "flex items-center justify-center pb-6 md:py-0 md:w-1/2"
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "flex flex-col p-1 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300"
+                          },
+                          [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.jumpPage,
+                                  expression: "jumpPage"
+                                }
+                              ],
+                              staticClass:
+                                "px-2 py-2 w-24 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent",
+                              attrs: {
+                                type: "text",
+                                name: "email",
+                                placeholder: "Page No.",
+                                "aria-label": "Page #"
+                              },
+                              domProps: { value: _vm.jumpPage },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.jumpPage = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "font-heading-font inline-flex items-center py-2 px-2 text-md font-extrabold text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
+                                on: { click: _vm.setPageNumber }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                        Jump\n                                    "
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm.page == this.pages.length ? _c("button") : _vm._e(),
+                    _vm._v(" "),
+                    _vm.page < _vm.pages.length
+                      ? _c(
+                          "button",
+                          {
+                            staticClass:
+                              "inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
+                            on: {
+                              click: function($event) {
+                                _vm.page++
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                Next\n                            "
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "mt-6 w-full bg-white dark:bg-gray-800" },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 "
+                        },
+                        [
+                          _c("div", { staticClass: "-mx-2" }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "text-gray-500 dark:text-gray-400" },
+                            [
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "font-medium text-gray-700 dark:text-gray-100"
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(_vm.page) +
+                                      " -\n                                        " +
+                                      _vm._s(_vm.pages.length)
+                                  )
+                                ]
+                              ),
+                              _vm._v(
+                                "\n                                    of\n                                    "
+                              ),
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "text-indigo-600 font-primary-font ml-1 text-xl"
+                                },
+                                [_vm._v(_vm._s(this.Posts.length))]
+                              ),
+                              _vm._v(
+                                "\n                                    tenders\n                                "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ]
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", {}, [_c("SearchFilter")], 1)
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c("footer", { staticClass: "flex justify-around mt-10" }, [
-            _vm.page != 1
-              ? _c(
-                  "button",
-                  {
-                    staticClass:
-                      "inline-flex items-center py-4 px-6 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
-                    on: {
-                      click: function($event) {
-                        _vm.page--
-                      }
-                    }
-                  },
-                  [_vm._v("\n                    Previous\n                ")]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.page == 1 ? _c("button") : _vm._e(),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "flex items-center justify-center pb-6 md:py-0 md:w-1/2"
-              },
-              [
                 _c(
                   "div",
-                  {
-                    staticClass:
-                      "flex flex-col p-1 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300"
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.jumpPage,
-                          expression: "jumpPage"
-                        }
-                      ],
-                      staticClass:
-                        "px-2 py-2 w-24 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent",
-                      attrs: {
-                        type: "text",
-                        name: "email",
-                        placeholder: "Page No.",
-                        "aria-label": "Page #"
-                      },
-                      domProps: { value: _vm.jumpPage },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.jumpPage = $event.target.value
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "font-heading-font inline-flex items-center py-2 px-2 text-md font-extrabold text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
-                        on: { click: _vm.setPageNumber }
-                      },
-                      [
-                        _vm._v(
-                          "\n                            Jump\n                        "
-                        )
-                      ]
-                    )
-                  ]
+                  { staticClass: "p-5 rounded-lg" },
+                  [_c("SearchFilter")],
+                  1
                 )
-              ]
-            ),
-            _vm._v(" "),
-            _vm.page == this.pages.length ? _c("button") : _vm._e(),
-            _vm._v(" "),
-            _vm.page < _vm.pages.length
-              ? _c(
-                  "button",
-                  {
-                    staticClass:
-                      "inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
-                    on: {
-                      click: function($event) {
-                        _vm.page++
-                      }
-                    }
-                  },
-                  [_vm._v("\n                    Next\n                ")]
-                )
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mt-6 w-full bg-white dark:bg-gray-800" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 "
-              },
-              [
-                _c("div", { staticClass: "-mx-2" }),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-gray-500 dark:text-gray-400" }, [
-                  _c(
-                    "span",
-                    {
-                      staticClass:
-                        "font-medium text-gray-700 dark:text-gray-100"
-                    },
-                    [
-                      _vm._v(
-                        _vm._s(_vm.page) + " - " + _vm._s(_vm.pages.length)
-                      )
-                    ]
-                  ),
-                  _vm._v(
-                    "\n                        of\n                        "
-                  ),
-                  _c(
-                    "span",
-                    {
-                      staticClass:
-                        "text-indigo-600 font-primary-font ml-1 text-xl"
-                    },
-                    [_vm._v(_vm._s(this.Posts.length))]
-                  ),
-                  _vm._v(
-                    "\n                        tenders\n                    "
-                  )
-                ])
-              ]
-            )
-          ])
+              ])
+            ]
+          )
         ]),
         _vm._v(" "),
         _c("MainFooter")

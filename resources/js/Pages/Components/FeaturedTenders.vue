@@ -126,12 +126,6 @@
                                     :href="route('selected', post._id)"
                                     class="group bg-white border-2 mt-1 my-2 border-indigo-600 rounded-lg shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start"
                                 >
-                                    <span
-                                        class="mb-2 inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-lg font-extrabold font-heading-font tracking-widest"
-                                    >
-                                        # {{ i + 1 }}
-                                        {{ updateCnt(post, i) }}
-                                    </span>
                                     <div class="flex justify-between w-full">
                                         <div
                                             class="font-heading-font font-extrabold"
@@ -170,8 +164,13 @@
                                         </div>
                                     </div>
                                     <p
-                                        class="m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
+                                        class="mt-2 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
                                     >
+                                        <!-- <span
+                                            class="rounded bg-indigo-50 text-indigo-500 text-md font-extrabold font-heading-font tracking-widest mr-2"
+                                            ># {{ i + 1 }}
+                                            {{ updateCnt(post, i) }}
+                                        </span> -->
                                         {{ post.tender_brief }}
                                     </p>
 

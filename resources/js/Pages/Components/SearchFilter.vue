@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="sticky z-50 w-96">
+        <div class="sticky z-50 w-96 h-px">
             <div class="basis-1/5">
                 <form id="login">
                     <div class="bg-white dark:bg-gray-800">
