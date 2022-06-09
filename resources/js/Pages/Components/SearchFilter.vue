@@ -284,12 +284,12 @@ export default {
     data() {
         return {
             payload: {
-                keyword: "",
-                region: "",
-                entity: "",
-                number: "",
-                price: "",
-                closing: ""
+                keyword: null,
+                region: null,
+                entity: null,
+                number: null,
+                price: null,
+                closing: null
             }
         };
     },
