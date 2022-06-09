@@ -241,6 +241,8 @@
                 </main>
             </div>
 
+            <Spinner v-if="spinner" />
+
             <MainFooter />
         </body>
     </div>
@@ -251,6 +253,7 @@ import TopBanner from "./Components/TopBanner.vue";
 import MainMenu from "./Components/MainMenu.vue";
 import MainFooter from "./Components/MainFooter.vue";
 import SearchFilter from "./Components/SearchFilter.vue";
+import Spinner from "./Components/Spinner.vue";
 import dateFormat from "dateformat";
 
 import Vue from "vue";
@@ -269,6 +272,7 @@ export default {
         Amount: String
     },
     components: {
+        Spinner,
         TopBanner,
         MainMenu,
         MainFooter,
@@ -284,6 +288,7 @@ export default {
         }
     },
     mounted() {
+        // console.log(this.$route.name);
         if (this.dateChangeFormat) {
             var given = moment(this.formatedDate, "YYYY-MM-DD");
         } else {
@@ -307,6 +312,7 @@ export default {
     },
     data() {
         return {
+            spinner: false,
             formatedDate: "",
             postExpired: false,
             page: 1,

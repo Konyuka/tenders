@@ -273,30 +273,40 @@ export default {
     components: {
         //   Categories,
     },
+    created() {},
     mounted() {
-        if (localStorage.getItem("keyword") != null) {
+        console.log(window.location.href);
+
+        if (localStorage.getItem("keyword") != "null") {
             this.payload.keyword = localStorage.getItem("keyword");
+        } else {
+            this.payload.keyword = "";
         }
-        if (localStorage.getItem("region") != null) {
-            this.payload.keyword = localStorage.getItem("region");
+        if (localStorage.getItem("region") != "null") {
+            this.payload.region = localStorage.getItem("region");
+        } else {
+            this.payload.region = "";
         }
-        if (localStorage.getItem("entity") != null) {
-            this.payload.keyword = localStorage.getItem("entity");
+        if (localStorage.getItem("entity") != "null") {
+            this.payload.entity = localStorage.getItem("entity");
+        } else {
+            this.payload.entity = "";
         }
-        if (localStorage.getItem("number") != null) {
-            this.payload.keyword = localStorage.getItem("number");
+        if (localStorage.getItem("number") != "null") {
+            this.payload.number = localStorage.getItem("number");
+        } else {
+            this.payload.number = "";
         }
-        if (localStorage.getItem("price") != null) {
-            this.payload.keyword = localStorage.getItem("price");
+        if (localStorage.getItem("price") != "null") {
+            this.payload.price = localStorage.getItem("price");
+        } else {
+            this.payload.price = "";
         }
-        if (localStorage.getItem("closing") != null) {
-            this.payload.keyword = localStorage.getItem("closing");
+        if (localStorage.getItem("closing") != "null") {
+            this.payload.closing = localStorage.getItem("closing");
+        } else {
+            this.payload.closing = "";
         }
-        // this.payload.region = localStorage.getItem("region");
-        // this.payload.entity = localStorage.getItem("entity");
-        // this.payload.number = localStorage.getItem("number");
-        // this.payload.price = localStorage.getItem("price");
-        // this.payload.closing = localStorage.getItem("closing");
     },
     data() {
         return {
@@ -307,20 +317,54 @@ export default {
                 number: null,
                 price: null,
                 closing: null
-            }
+            },
+            siteURL: process.env.VUE_APP_APIURL
         };
     },
     watch: {},
-    computed: {},
+    computed: {
+        currentRoute() {
+            return route().current();
+        }
+    },
     methods: {
         searchTenders() {
+            if (this.currentRoute == "landing") {
+                this.$parent.$parent.spinner = true;
+            } else {
+                this.$parent.spinner = true;
+            }
+            // setTimeout(() => ($parent.$parent.spinner = false), 10000);
             localStorage.setItem("keyword", this.payload.keyword);
             localStorage.setItem("region", this.payload.region);
             localStorage.setItem("entity", this.payload.entity);
             localStorage.setItem("number", this.payload.number);
             localStorage.setItem("price", this.payload.price);
             localStorage.setItem("closing", this.payload.closing);
-            this.$inertia.post("/search", this.payload);
+            this.$inertia
+                .post("/search", this.payload)
+                .then(response => {
+                    if (response != null) {
+                        if (this.currentRoute == "landing") {
+                            // alert("check landing");
+                            setTimeout(
+                                () => (this.$parent.$parent.spinner = false),
+                                1000
+                            );
+                        } else {
+                            // alert("check search");
+                            setTimeout(
+                                () => (this.$parent.spinner = false),
+                                1000
+                            );
+                        }
+                    }
+                })
+                .catch(error => {
+                    if (error) {
+                        console.log("error");
+                    }
+                });
         }
     }
 };

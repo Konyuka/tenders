@@ -234,7 +234,7 @@ class PaymentsController extends Controller
         https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest
         // $CallBackURL="http://dairyapp1-env.na3uctjjui.us-east-2.elasticbeanstalk.com/confirm/ebook/payment";
         // $CallBackURL=env('MPESA_TEST_URL'). '/confirm/ebook/payment';
-        $AccountReference="Bidders Portal";
+        $AccountReference=$account;
         $TransactionDesc="Bidders Portal Account";
         $Remarks="Bidders Portal Kenya";
 

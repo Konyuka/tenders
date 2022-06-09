@@ -742,11 +742,11 @@ export default {
             expressModal: false,
             paymentLog: "",
             form: {
-                userName: "Software Saiba",
+                userName: "saiba",
                 userPhone: "254716202298",
-                userEmail: "saibadeveloper@gmail.com",
+                userEmail: "saiba@mail.com",
                 number: this.removeSpaces("254716202298"),
-                account: "Bidders Portal",
+                account: "Laborex Kenya LTD",
                 amount: this.amount
                 // amount: this.post.price
                 // amount: ''
@@ -870,6 +870,7 @@ export default {
                 this.paymentModal = true;
                 const requestBody = {
                     amount: "1",
+                    // account: this.form.account,
                     account: this.invoiceNumber,
                     phone: parseInt(this.removeSpaces(this.form.number)),
                     // post: this.post._id,

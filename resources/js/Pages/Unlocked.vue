@@ -17,7 +17,7 @@
                                     >Tender Brief</a
                                 >
                                 <h1
-                                    class="text-gray-500 text-sm title-font font-bold my-4 font-heading-font"
+                                    class="text-gray-500 text-md title-font font-bold my-4 font-heading-font"
                                 >
                                     {{ post.tender_brief }}
                                 </h1>
@@ -36,7 +36,7 @@
                                         >Purchase Tender to view Work Details</a
                                     > -->
                                     <h1
-                                        class="font-primary-font text-gray-900 text-xs title-font font-bold my-4"
+                                        class="font-primary-font text-gray-900 text-md title-font font-bold my-4"
                                     >
                                         {{ post.work_detail }}
                                     </h1>

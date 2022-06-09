@@ -261,7 +261,7 @@
                     </div>
                 </div>
 
-                <Spinner />
+                <Spinner v-if="spinner" />
             </div>
         </body>
     </div>
@@ -300,6 +300,7 @@ export default {
     },
     data() {
         return {
+            spinner: false,
             searchModal: false,
             pageData: JSON.parse(app.dataset.page)
         };
