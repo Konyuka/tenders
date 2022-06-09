@@ -136,28 +136,41 @@
                                         Organization, Funding, Sector/Type,
                                         Tender Number or any other keywords
                                     </p>
-                                    <div
+                                    <!-- <div
                                         class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8"
                                     >
-                                        <!-- <div class="rounded-md shadow">
-                                    <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"> Get started </a>
-                                </div> -->
+
                                         <div
                                             class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3"
                                         >
+                                            <div
+                                                class="w-full flex flex-col mb-6"
+                                            >
+                                                <input
+                                                    v-model="payload.keyword"
+                                                    tabindex="0"
+                                                    type="text"
+                                                    id="FirstName"
+                                                    name="firstName"
+                                                    required
+                                                    class="font-extrabold font-primary-font text-center border-4 border-indigo-300 dark:border-gray-700 pl-3 py-3 px-8 shadow-sm bg-white rounded-lg text-lg focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400"
+                                                    placeholder="search keyword on any field"
+                                                />
+                                            </div>
+
                                             <button
                                                 @click="openModal"
-                                                class="transform transition hover:scale-125 duration-700 ease-in-out  w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-extrabold rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
+                                                class="transform transition hover:scale-125 duration-700 ease-in-out  w-full flex items-center justify-center px-2 py-2 border border-transparent text-base font-extrabold rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
                                             >
                                                 <span
                                                     ><i
                                                         class="fas fa-search fa-xl mr-4"
                                                     ></i
                                                 ></span>
-                                                Load Search Filters
+                                                Search
                                             </button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </main>
                         </div>
@@ -177,11 +190,18 @@ export default {
         //   Categories,
     },
     data() {
-        return {};
+        return {
+            payload: {
+                keyword: ""
+            }
+        };
     },
     watch: {},
     computed: {},
     methods: {
+        searchTenders() {
+            this.$inertia.post("/search", this.payload);
+        },
         openModal() {
             this.$emit("modalState", true);
         }

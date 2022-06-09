@@ -7429,16 +7429,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   components: {//   Categories,
   },
   data: function data() {
-    return {};
+    return {
+      payload: {
+        keyword: ""
+      }
+    };
   },
   watch: {},
   computed: {},
   methods: {
+    searchTenders: function searchTenders() {
+      this.$inertia.post("/search", this.payload);
+    },
     openModal: function openModal() {
       this.$emit("modalState", true);
     }
@@ -74788,52 +74808,7 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _c("div", { staticClass: "relative pt-2 pb-2 sm:pb-2" }, [
-                    _c(
-                      "main",
-                      { staticClass: "mt-16 mx-auto max-w-7xl px-4 sm:mt-14" },
-                      [
-                        _c("div", { staticClass: "text-center" }, [
-                          _vm._m(0),
-                          _vm._v(" "),
-                          _vm._m(1),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8"
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "mt-3 rounded-md shadow sm:mt-0 sm:ml-3"
-                                },
-                                [
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        "transform transition hover:scale-125 duration-700 ease-in-out  w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-extrabold rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10",
-                                      on: { click: _vm.openModal }
-                                    },
-                                    [
-                                      _vm._m(2),
-                                      _vm._v(
-                                        "\n                                            Load Search Filters\n                                        "
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        ])
-                      ]
-                    )
-                  ])
+                  _vm._m(0)
                 ]
               )
             ]
@@ -74848,59 +74823,57 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "h1",
-      {
-        staticClass:
-          "text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
-      },
-      [
-        _c(
-          "span",
-          { staticClass: "block xl:inline text-white font-heading-font" },
-          [
-            _vm._v(
-              "Connection to the rightful\n                                    "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          { staticClass: "block text-indigo-600 xl:inline font-bold-font" },
-          [_vm._v("Tender!")]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "p",
-      {
-        staticClass:
-          "text-left mt-3 max-w-md mx-auto text-base text-white font-primary-font sm:text-lg md:mt-5 md:text-xl md:max-w-3xl"
-      },
-      [
-        _vm._v(
-          "\n                                    Bidders Portal™ system is a web based\n                                    platform that provides live tenders\n                                    information to our customers at\n                                    affordable rates at the click of a\n                                    button at your own comfort therefore\n                                    saving you time and costs. "
-        ),
-        _c("br"),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(
-          "\n                                    Our Search Engine is optimized to use\n                                    any keyword to help you locate your\n                                    tenders easily from our database. You\n                                    can search tenders by Country, County,\n                                    Government Tenders, Parastatal Tenders,\n                                    Private Limited Company Tenders, NGO\n                                    Tenders, Development Partners Tenders,\n                                    Posting Dates, Closing Dates, Tendering\n                                    Organization, Funding, Sector/Type,\n                                    Tender Number or any other keywords\n                                "
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", [_c("i", { staticClass: "fas fa-search fa-xl mr-4" })])
+    return _c("div", { staticClass: "relative pt-2 pb-2 sm:pb-2" }, [
+      _c("main", { staticClass: "mt-16 mx-auto max-w-7xl px-4 sm:mt-14" }, [
+        _c("div", { staticClass: "text-center" }, [
+          _c(
+            "h1",
+            {
+              staticClass:
+                "text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
+            },
+            [
+              _c(
+                "span",
+                { staticClass: "block xl:inline text-white font-heading-font" },
+                [
+                  _vm._v(
+                    "Connection to the rightful\n                                    "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass: "block text-indigo-600 xl:inline font-bold-font"
+                },
+                [_vm._v("Tender!")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "p",
+            {
+              staticClass:
+                "text-left mt-3 max-w-md mx-auto text-base text-white font-primary-font sm:text-lg md:mt-5 md:text-xl md:max-w-3xl"
+            },
+            [
+              _vm._v(
+                "\n                                    Bidders Portal™ system is a web based\n                                    platform that provides live tenders\n                                    information to our customers at\n                                    affordable rates at the click of a\n                                    button at your own comfort therefore\n                                    saving you time and costs. "
+              ),
+              _c("br"),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(
+                "\n                                    Our Search Engine is optimized to use\n                                    any keyword to help you locate your\n                                    tenders easily from our database. You\n                                    can search tenders by Country, County,\n                                    Government Tenders, Parastatal Tenders,\n                                    Private Limited Company Tenders, NGO\n                                    Tenders, Development Partners Tenders,\n                                    Posting Dates, Closing Dates, Tendering\n                                    Organization, Funding, Sector/Type,\n                                    Tender Number or any other keywords\n                                "
+              )
+            ]
+          )
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true
