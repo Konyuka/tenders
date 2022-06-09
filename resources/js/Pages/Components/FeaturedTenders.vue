@@ -118,10 +118,7 @@
                                 </a>
 
                                 <a
-                                    v-for="(post, i) in this.getArray.slice(
-                                        0,
-                                        4
-                                    )"
+                                    v-for="post in this.getArray.slice(0, 4)"
                                     :key="post._id"
                                     :href="route('selected', post._id)"
                                     class="group bg-white border-2 mt-1 my-2 border-indigo-600 rounded-lg shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start"
