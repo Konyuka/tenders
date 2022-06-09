@@ -7046,6 +7046,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -73909,23 +73911,6 @@ var render = function() {
                         },
                         [
                           _c(
-                            "span",
-                            {
-                              staticClass:
-                                "mb-2 inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-lg font-extrabold font-heading-font tracking-widest"
-                            },
-                            [
-                              _vm._v(
-                                "\n                                    # " +
-                                  _vm._s(_vm.i + 1) +
-                                  "\n                                    " +
-                                  _vm._s(_vm.updateCnt(post, _vm.i)) +
-                                  "\n                                "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
                             "div",
                             { staticClass: "flex justify-between w-full" },
                             [
@@ -74097,7 +74082,7 @@ var render = function() {
                       )
                     }),
                     _vm._v(" "),
-                    _vm._l(this.getArray.slice(0, 4), function(post) {
+                    _vm._l(this.getArray.slice(0, 4), function(post, i) {
                       return _c(
                         "a",
                         {
@@ -74107,6 +74092,23 @@ var render = function() {
                           attrs: { href: _vm.route("selected", post._id) }
                         },
                         [
+                          _c(
+                            "span",
+                            {
+                              staticClass:
+                                "mb-2 inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-lg font-extrabold font-heading-font tracking-widest"
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    # " +
+                                  _vm._s(i + 1) +
+                                  "\n                                    " +
+                                  _vm._s(_vm.updateCnt(post, i)) +
+                                  "\n                                "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
                           _c(
                             "div",
                             { staticClass: "flex justify-between w-full" },
