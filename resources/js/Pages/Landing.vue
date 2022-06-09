@@ -288,6 +288,9 @@ export default {
         ServiceIntro,
         MainFooter
     },
+    beforeCreate() {
+        this.spinner = true;
+    },
     watch: {},
     mounted() {},
     computed: {

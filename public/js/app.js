@@ -7682,6 +7682,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MainMenu",
   components: {//   Categories,
@@ -7698,6 +7699,20 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    goToListing: function goToListing() {
+      var _this = this;
+
+      this.$parent.spinner = true;
+      this.$inertia.get("listing").then(function (result) {
+        if (result) {
+          setTimeout(function () {
+            return _this.$parent.spinner = false;
+          }, 1000);
+        }
+      })["catch"](function (err) {
+        if (err) {}
+      });
+    },
     selected: function selected(value) {
       console.log(value);
       this.activeMenu = value;
@@ -8116,12 +8131,12 @@ __webpack_require__.r(__webpack_exports__);
       this.$inertia.post("/search", this.payload).then(function (response) {
         if (response != null) {
           if (_this.currentRoute == "landing") {
-            alert("check landing");
+            // alert("check landing");
             setTimeout(function () {
               return _this.$parent.$parent.spinner = false;
             }, 1000);
           } else {
-            alert("check search");
+            // alert("check search");
             setTimeout(function () {
               return _this.$parent.spinner = false;
             }, 1000);
@@ -11294,6 +11309,9 @@ var app = document.getElementById("app");
     FeaturedTenders: _Components_FeaturedTenders_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     ServiceIntro: _Components_ServiceIntro_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+  },
+  beforeCreate: function beforeCreate() {
+    this.spinner = true;
   },
   watch: {},
   mounted: function mounted() {},
@@ -80506,7 +80524,13 @@ var render = function() {
                   {
                     staticClass:
                       "bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-5 py-5 font-bold text-2xl leading-3 shadow-md rounded-md ",
-                    attrs: { href: _vm.route("listing") }
+                    attrs: { href: "" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.goToListing($event)
+                      }
+                    }
                   },
                   [
                     _vm._m(2),
