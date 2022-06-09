@@ -200,11 +200,11 @@
                                 </button>
 
                                 <!-- <button
-                        @click="scroll"
-                        class="inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                    >
-                        scroll
-                    </button> -->
+                                    @click="scroll"
+                                    class="inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                >
+                                    scroll
+                                </button> -->
                             </footer>
                             <div class="mt-6 w-full bg-white dark:bg-gray-800">
                                 <div
@@ -275,6 +275,9 @@ export default {
     watch: {
         Posts() {
             this.setPages();
+        },
+        page() {
+            this.scroll();
         }
     },
     mounted() {

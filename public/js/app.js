@@ -11467,6 +11467,9 @@ vue__WEBPACK_IMPORTED_MODULE_5___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
   watch: {
     Posts: function Posts() {
       this.setPages();
+    },
+    page: function page() {
+      this.scroll();
     }
   },
   mounted: function mounted() {
@@ -81301,7 +81304,21 @@ var render = function() {
                             )
                           ]
                         )
-                      : _vm._e()
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
+                        on: { click: _vm.scroll }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                scroll\n                            "
+                        )
+                      ]
+                    )
                   ]),
                   _vm._v(" "),
                   _c(
