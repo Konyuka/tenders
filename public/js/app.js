@@ -8032,6 +8032,14 @@ __webpack_require__.r(__webpack_exports__);
   name: "SearchFilter",
   components: {//   Categories,
   },
+  mounted: function mounted() {
+    this.payload.keyword = localStorage.getItem("keyword");
+    this.payload.region = localStorage.getItem("region");
+    this.payload.entity = localStorage.getItem("entity");
+    this.payload.number = localStorage.getItem("number");
+    this.payload.price = localStorage.getItem("price");
+    this.payload.closing = localStorage.getItem("closing");
+  },
   data: function data() {
     return {
       payload: {
@@ -8048,6 +8056,12 @@ __webpack_require__.r(__webpack_exports__);
   computed: {},
   methods: {
     searchTenders: function searchTenders() {
+      localStorage.setItem("keyword", this.payload.keyword);
+      localStorage.setItem("region", this.payload.region);
+      localStorage.setItem("entity", this.payload.entity);
+      localStorage.setItem("number", this.payload.number);
+      localStorage.setItem("price", this.payload.price);
+      localStorage.setItem("closing", this.payload.closing);
       this.$inertia.post("/search", this.payload);
     }
   }
@@ -75476,7 +75490,7 @@ var render = function() {
                                 }
                               ],
                               staticClass:
-                                "border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400",
+                                "font-primary-font font-extrabold text-lg border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400",
                               attrs: {
                                 tabindex: "0",
                                 type: "text",
@@ -75526,7 +75540,7 @@ var render = function() {
                                 }
                               ],
                               staticClass:
-                                "border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400",
+                                "font-primary-font font-extrabold text-lg border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400",
                               attrs: {
                                 tabindex: "0",
                                 type: "text",
@@ -75580,7 +75594,7 @@ var render = function() {
                                 }
                               ],
                               staticClass:
-                                "border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400",
+                                "font-primary-font font-extrabold text-lg border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400",
                               attrs: {
                                 tabindex: "0",
                                 type: "text",
@@ -75630,7 +75644,7 @@ var render = function() {
                                 }
                               ],
                               staticClass:
-                                "border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400",
+                                "font-primary-font font-extrabold text-lg border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400",
                               attrs: {
                                 tabindex: "0",
                                 type: "text",
@@ -75682,7 +75696,7 @@ var render = function() {
                                   }
                                 ],
                                 staticClass:
-                                  "form-select appearance-none block w-full px-3  py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-700 focus:outline-none",
+                                  "font-primary-font font-extrabold text-lg form-select appearance-none block w-full px-3  py-1.5 text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-700 focus:outline-none",
                                 attrs: {
                                   "aria-label": "Default select example"
                                 },
