@@ -20,7 +20,12 @@
                                     :href="route('free', post._id)"
                                     class="hover:bg-green-100 animate-wiggle border-double mb-16 group bg-white border-4  mt-1 my-2 border-indigo-500 rounded-lg shadow-2xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start"
                                 >
-                                    <!-- <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">{{ post.funded_by }}</span> -->
+                                    <span
+                                        class="mb-2 inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-lg font-extrabold font-heading-font tracking-widest"
+                                    >
+                                        # {{ i + 1 }}
+                                        {{ updateCnt(post, i) }}
+                                    </span>
                                     <div class="flex justify-between w-full">
                                         <div class="text-center">
                                             <h1
@@ -252,7 +257,8 @@ export default {
     mounted() {},
     data() {
         return {
-            postExpired: false
+            postExpired: false,
+            cnt: 0
         };
     },
     watch: {},
@@ -268,6 +274,9 @@ export default {
         }
     },
     methods: {
+        updateCnt(post, i) {
+            this.cnt = i * post.length;
+        },
         dateChangeFormat(value) {
             const togo = moment(value).fromNow(true);
             if (togo == "Invalid date") {

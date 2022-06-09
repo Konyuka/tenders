@@ -7041,6 +7041,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -7058,7 +7063,8 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
   mounted: function mounted() {},
   data: function data() {
     return {
-      postExpired: false
+      postExpired: false,
+      cnt: 0
     };
   },
   watch: {},
@@ -7074,6 +7080,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
     }
   },
   methods: {
+    updateCnt: function updateCnt(post, i) {
+      this.cnt = i * post.length;
+    },
     dateChangeFormat: function dateChangeFormat(value) {
       var togo = moment(value).fromNow(true);
 
@@ -10681,9 +10690,9 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       paymentLog: "",
       form: {
         userName: "Software Saiba",
-        userPhone: "254722326662",
+        userPhone: "254716202298",
         userEmail: "saibadeveloper@gmail.com",
-        number: this.removeSpaces("254722326662"),
+        number: this.removeSpaces("254716202298"),
         account: "Bidders Portal",
         amount: this.amount // amount: this.post.price
         // amount: ''
@@ -11407,6 +11416,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -11467,10 +11481,14 @@ vue__WEBPACK_IMPORTED_MODULE_5___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       page: 1,
       perPage: 10,
       pages: [],
-      jumpPage: ""
+      jumpPage: "",
+      cnt: 0
     };
   },
   methods: {
+    updateCnt: function updateCnt(post, i) {
+      this.cnt = i * post.length;
+    },
     scroll: function scroll() {
       jquery__WEBPACK_IMPORTED_MODULE_8___default()("html, body").animate({
         scrollTop: jquery__WEBPACK_IMPORTED_MODULE_8___default()("#top").offset().top
@@ -73891,6 +73909,23 @@ var render = function() {
                         },
                         [
                           _c(
+                            "span",
+                            {
+                              staticClass:
+                                "mb-2 inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-lg font-extrabold font-heading-font tracking-widest"
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    # " +
+                                  _vm._s(_vm.i + 1) +
+                                  "\n                                    " +
+                                  _vm._s(_vm.updateCnt(post, _vm.i)) +
+                                  "\n                                "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
                             "div",
                             { staticClass: "flex justify-between w-full" },
                             [
@@ -81007,7 +81042,7 @@ var render = function() {
                   _c(
                     "div",
                     { staticClass: "columns-1" },
-                    _vm._l(_vm.displayedPosts, function(post) {
+                    _vm._l(_vm.displayedPosts, function(post, i) {
                       return _c(
                         "a",
                         {
@@ -81017,6 +81052,23 @@ var render = function() {
                           attrs: { href: _vm.route("selected", post._id) }
                         },
                         [
+                          _c(
+                            "span",
+                            {
+                              staticClass:
+                                "mb-2 inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-lg font-extrabold font-heading-font tracking-widest"
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    # " +
+                                  _vm._s(i + 1) +
+                                  "\n                                    " +
+                                  _vm._s(_vm.updateCnt(post, i)) +
+                                  "\n                                "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
                           _c(
                             "div",
                             { staticClass: "flex justify-between w-full" },

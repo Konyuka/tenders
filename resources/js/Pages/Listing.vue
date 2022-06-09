@@ -49,12 +49,17 @@
                         <div class="w-4/5 mr-5">
                             <div class="columns-1">
                                 <a
-                                    v-for="post in displayedPosts"
+                                    v-for="(post, i) in displayedPosts"
                                     :key="post._id"
                                     :href="route('selected', post._id)"
                                     class="group bg-white border-t-2 border-r-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start"
                                 >
-                                    <!-- <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">{{ post.funded_by }}</span> -->
+                                    <span
+                                        class="mb-2 inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-lg font-extrabold font-heading-font tracking-widest"
+                                    >
+                                        # {{ i + 1 }}
+                                        {{ updateCnt(post, i) }}
+                                    </span>
                                     <div class="flex justify-between w-full">
                                         <div
                                             class="font-heading-font font-extrabold"
@@ -301,10 +306,14 @@ export default {
             page: 1,
             perPage: 10,
             pages: [],
-            jumpPage: ""
+            jumpPage: "",
+            cnt: 0
         };
     },
     methods: {
+        updateCnt(post, i) {
+            this.cnt = i * post.length;
+        },
         scroll() {
             $("html, body").animate(
                 {
