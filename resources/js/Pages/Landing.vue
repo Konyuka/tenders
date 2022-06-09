@@ -260,6 +260,8 @@
                         </div>
                     </div>
                 </div>
+
+                <Spinner />
             </div>
         </body>
     </div>
@@ -272,10 +274,13 @@ import HeroSection from "./Components/HeroSection.vue";
 import FeaturedTenders from "./Components/FeaturedTenders.vue";
 import ServiceIntro from "./Components/ServiceIntro.vue";
 import MainFooter from "./Components/MainFooter.vue";
+import Spinner from "./Components/Spinner.vue";
+
 const app = document.getElementById("app");
 export default {
     name: "Landing",
     components: {
+        Spinner,
         TopBanner,
         MainMenu,
         HeroSection,
