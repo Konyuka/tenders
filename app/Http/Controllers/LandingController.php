@@ -28,7 +28,7 @@ class LandingController extends Controller
     {
         // $posts = Post::all();
         // $posts = Post::take(6)->get();
-        $posts = Post::latest()->limit(5)->get();
+        $posts = Post::latest()->limit(6)->get();
 
         // return Inertia::render('Landings');
         Meta::addMeta('title', 'Bidders Portal Tenders Kenya');

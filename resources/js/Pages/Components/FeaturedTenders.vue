@@ -15,7 +15,7 @@
                         <div class="w-4/5 mr-5">
                             <div class="columns-1">
                                 <a
-                                    v-for="post in this.posts.slice(0, 1)"
+                                    v-for="post in this.getArray.slice(0, 1)"
                                     :key="post._id"
                                     :href="route('free', post._id)"
                                     class="hover:bg-green-100 animate-wiggle border-double mb-16 group bg-white border-4  mt-1 my-2 border-indigo-500 rounded-lg shadow-2xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start"
@@ -118,7 +118,7 @@
                                 </a>
 
                                 <a
-                                    v-for="post in this.getArray.slice(0, 4)"
+                                    v-for="post in this.getArray.slice(1)"
                                     :key="post._id"
                                     :href="route('selected', post._id)"
                                     class="group bg-white border-2 mt-1 my-2 border-indigo-600 rounded-lg shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl  items-start"

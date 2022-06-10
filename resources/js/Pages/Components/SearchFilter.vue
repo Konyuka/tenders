@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div class="sticky z-50 w-96 h-px">
+        <div class="w-96 h-auto">
             <div class="basis-1/5">
                 <form id="login">
                     <div class="bg-white dark:bg-gray-800">
                         <div
-                            class="container mx-auto bg-white dark:bg-gray-800 mt-10 rounded px-4"
+                            class="container mx-auto bg-white dark:bg-gray-800 mt-1 rounded px-4"
                         >
                             <div
                                 class="xl:w-full border-b border-gray-300 dark:border-gray-700 py-5"

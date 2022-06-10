@@ -79496,7 +79496,7 @@ var render = function() {
                   "div",
                   { staticClass: "columns-1" },
                   [
-                    _vm._l(this.posts.slice(0, 1), function(post) {
+                    _vm._l(this.getArray.slice(0, 1), function(post) {
                       return _c(
                         "a",
                         {
@@ -79678,7 +79678,7 @@ var render = function() {
                       )
                     }),
                     _vm._v(" "),
-                    _vm._l(this.getArray.slice(0, 4), function(post) {
+                    _vm._l(this.getArray.slice(1), function(post) {
                       return _c(
                         "a",
                         {
@@ -80995,7 +80995,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "sticky z-50 w-96 h-px" }, [
+    _c("div", { staticClass: "w-96 h-auto" }, [
       _c("div", { staticClass: "basis-1/5" }, [
         _c("form", { attrs: { id: "login" } }, [
           _c("div", { staticClass: "bg-white dark:bg-gray-800" }, [
@@ -81003,7 +81003,7 @@ var render = function() {
               "div",
               {
                 staticClass:
-                  "container mx-auto bg-white dark:bg-gray-800 mt-10 rounded px-4"
+                  "container mx-auto bg-white dark:bg-gray-800 mt-1 rounded px-4"
               },
               [
                 _vm._m(0),
