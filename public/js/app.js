@@ -11625,6 +11625,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -86696,6 +86726,9 @@ var render = function() {
                             "div",
                             { staticClass: "text-gray-500 dark:text-gray-400" },
                             [
+                              _vm._v(
+                                "\n                                    Page\n                                    "
+                              ),
                               _c(
                                 "span",
                                 {
@@ -86930,7 +86963,7 @@ var render = function() {
                     0
                   ),
                   _vm._v(" "),
-                  _c("footer", { staticClass: "flex justify-around mt-10" }, [
+                  _c("footer", { staticClass: "flex justify-around mt-4" }, [
                     _vm.page != 1
                       ? _c(
                           "button",
@@ -86955,16 +86988,14 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "div",
-                      {
-                        staticClass:
-                          "flex items-center justify-center pb-6 md:py-0 md:w-1/2"
-                      },
+                      { staticClass: "bg-white h-2 py-1 rounded text-center" },
                       [
                         _c(
                           "div",
                           {
                             staticClass:
-                              "flex flex-col p-1 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300"
+                              "flex flex-row justify-center text-center px-2 mt-1",
+                            attrs: { id: "otp" }
                           },
                           [
                             _c("input", {
@@ -86977,12 +87008,11 @@ var render = function() {
                                 }
                               ],
                               staticClass:
-                                "px-2 py-2 w-24 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent",
+                                "m-2 border h-10 w-10 text-center form-control rounded",
                               attrs: {
                                 type: "text",
-                                name: "email",
-                                placeholder: "Page No.",
-                                "aria-label": "Page #"
+                                id: "fourth",
+                                maxlength: "1"
                               },
                               domProps: { value: _vm.jumpPage },
                               on: {
@@ -86993,20 +87023,73 @@ var render = function() {
                                   _vm.jumpPage = $event.target.value
                                 }
                               }
-                            }),
-                            _vm._v(" "),
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "flex justify-center text-center mt-1"
+                          },
+                          [
                             _c(
-                              "button",
+                              "a",
                               {
                                 staticClass:
-                                  "font-heading-font inline-flex items-center py-2 px-2 text-md font-extrabold text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
-                                on: { click: _vm.setPageNumber }
+                                  "rounded bg-gray-200 py-1 px-1 flex items-center text-gray-500 hover:text-indigo-500 cursor-pointer hover:underline",
+                                attrs: { href: "" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.setPageNumber($event)
+                                  }
+                                }
+                              },
+                              [
+                                _vm._m(2),
+                                _c("i", {
+                                  staticClass: "bx bx-caret-right ml-1"
+                                })
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "text-gray-500 dark:text-gray-400" },
+                          [
+                            _vm._v(
+                              "\n                                    Page\n                                    "
+                            ),
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "font-medium text-gray-700 dark:text-gray-100"
                               },
                               [
                                 _vm._v(
-                                  "\n                                        Jump\n                                    "
+                                  _vm._s(_vm.page) +
+                                    " -\n                                        " +
+                                    _vm._s(_vm.pages.length)
                                 )
                               ]
+                            ),
+                            _vm._v(
+                              "\n                                    of\n                                    "
+                            ),
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "text-indigo-600 font-primary-font ml-1 text-xl"
+                              },
+                              [_vm._v(_vm._s(this.Posts.length))]
+                            ),
+                            _vm._v(
+                              "\n                                    tenders\n                                "
                             )
                           ]
                         )
@@ -87036,57 +87119,7 @@ var render = function() {
                       : _vm._e()
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "mt-6 w-full bg-white dark:bg-gray-800" },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 "
-                        },
-                        [
-                          _c("div", { staticClass: "-mx-2" }),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "text-gray-500 dark:text-gray-400" },
-                            [
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "font-medium text-gray-700 dark:text-gray-100"
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(_vm.page) +
-                                      " -\n                                        " +
-                                      _vm._s(_vm.pages.length)
-                                  )
-                                ]
-                              ),
-                              _vm._v(
-                                "\n                                    of\n                                    "
-                              ),
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "text-indigo-600 font-primary-font ml-1 text-xl"
-                                },
-                                [_vm._v(_vm._s(this.Posts.length))]
-                              ),
-                              _vm._v(
-                                "\n                                    tenders\n                                "
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ]
-                  )
+                  _vm._m(3)
                 ]),
                 _vm._v(" "),
                 _c(
@@ -87148,6 +87181,30 @@ var staticRenderFns = [
         )
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "font-bold" }, [
+      _vm._v("Jump To Page\n                                            "),
+      _c("i", { staticClass: "fas fa-caret-right" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-6 w-full bg-white dark:bg-gray-800" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 "
+        },
+        [_c("div", { staticClass: "-mx-2" })]
+      )
+    ])
   }
 ]
 render._withStripped = true

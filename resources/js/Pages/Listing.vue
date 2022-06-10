@@ -35,6 +35,7 @@
                                     <div
                                         class="text-gray-500 dark:text-gray-400"
                                     >
+                                        Page
                                         <span
                                             class="font-medium text-gray-700 dark:text-gray-100"
                                             >{{ page }} -
@@ -155,7 +156,7 @@
                                 </a>
                             </div>
 
-                            <footer class="flex justify-around mt-10">
+                            <footer class="flex justify-around mt-4">
                                 <button
                                     v-if="page != 1"
                                     @click="page--"
@@ -167,26 +168,54 @@
                                 <button v-if="page == 1"></button>
 
                                 <div
-                                    class="flex items-center justify-center pb-6 md:py-0 md:w-1/2"
+                                    class="bg-white h-2 py-1 rounded text-center"
                                 >
                                     <div
-                                        class="flex flex-col p-1 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300"
+                                        id="otp"
+                                        class="flex flex-row justify-center text-center px-2 mt-1"
                                     >
                                         <input
                                             v-model="jumpPage"
-                                            class="px-2 py-2 w-24 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent"
+                                            class="m-2 border h-10 w-10 text-center form-control rounded"
                                             type="text"
-                                            name="email"
-                                            placeholder="Page No."
-                                            aria-label="Page #"
+                                            id="fourth"
+                                            maxlength="1"
                                         />
+                                    </div>
 
-                                        <button
-                                            @click="setPageNumber"
-                                            class="font-heading-font inline-flex items-center py-2 px-2 text-md font-extrabold text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                    <div
+                                        class="flex justify-center text-center mt-1"
+                                    >
+                                        <a
+                                            @click.prevent="setPageNumber"
+                                            href=""
+                                            class="rounded bg-gray-200 py-1 px-1 flex items-center text-gray-500 hover:text-indigo-500 cursor-pointer hover:underline"
+                                            ><span class="font-bold"
+                                                >Jump To Page
+                                                <i
+                                                    class="fas fa-caret-right"
+                                                ></i></span
+                                            ><i
+                                                class="bx bx-caret-right ml-1"
+                                            ></i
+                                        ></a>
+                                    </div>
+
+                                    <div
+                                        class="text-gray-500 dark:text-gray-400"
+                                    >
+                                        Page
+                                        <span
+                                            class="font-medium text-gray-700 dark:text-gray-100"
+                                            >{{ page }} -
+                                            {{ pages.length }}</span
                                         >
-                                            Jump
-                                        </button>
+                                        of
+                                        <span
+                                            class="text-indigo-600 font-primary-font ml-1 text-xl"
+                                            >{{ this.Posts.length }}</span
+                                        >
+                                        tenders
                                     </div>
                                 </div>
 
@@ -215,9 +244,10 @@
                                 >
                                     <div class="-mx-2"></div>
 
-                                    <div
+                                    <!-- <div
                                         class="text-gray-500 dark:text-gray-400"
                                     >
+                                        Page
                                         <span
                                             class="font-medium text-gray-700 dark:text-gray-100"
                                             >{{ page }} -
@@ -229,7 +259,7 @@
                                             >{{ this.Posts.length }}</span
                                         >
                                         tenders
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
