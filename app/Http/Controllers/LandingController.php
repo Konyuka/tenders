@@ -151,86 +151,30 @@ class LandingController extends Controller
 
     public function pricing($slug)
     {
-
-        // $posts = Post::latest()->get();
-
-            $posts = Post::where( 'created_at', '>', Carbon::now()->subDays(3))
-            ->get();
-
-
-           $currentDate = \Carbon\Carbon::now();
-           $agoDate = $currentDate->copy()->subDays($currentDate->dayOfWeek)->subWeek()->setTime(23, 59, 59);
-           $postsNL = Post::whereBetween('created', array($agoDate->timestamp, $currentDate->timestamp))
-           ->get();
-
-           // $from = date('2018-01-01');
-           // $from = Carbon::parse('01.06.2022')->format('d.m.Y h:m:sa');
-           $from = Carbon::now()->subDays(1)->toIso8601String();
-           $to = Carbon::now()->subDays(10)->toIso8601String();
-           $convertedFrom =  date(DATE_ISO8601, strtotime($from));
-           $convertedTo =  date(DATE_ISO8601, strtotime($to));
-        //    $convertedTo =  new \MongoDB\BSON\UTCDateTime(new DateTime($to));
-        //    return dd($from, $to);
-
-           $posts = Post::
-        // whereBetween('created_at', [$convertedFrom, $convertedTo])->get();
-           whereBetween('created_at', array($from, $to))->get();
-
-        //    $posts = DB::table('Posts')->whereBetween('created_at', [$from, $to])->get();
-           $posts = DB::connection('mongodb')->table('Posts')->where('created_at', '=', '2022-05-29T15:59:49.410+00:00')->get();
-        //    $posts = Post::whereBetween('created_at', [$to, $from])->get();
-           return dd(json_decode($posts, true));
-
-        foreach ($posts as $post) {
-            $now = Carbon::now();
-            // $startDate = Carbon::parse($post['created_at'])->format('d.m.Y h:m:sa');
-            $startDate = Carbon::parse('01.06.2022')->format('d.m.Y h:m:sa');
-            // $endDate = Carbon::parse($post['expiry'])->addMinutes(720)->format('d.m.Y h:m:sa');
-            $endDate = Carbon::parse('15.06.2022')->addMinutes(720)->format('d.m.Y h:m:sa');
-
-            // return dd($startDate, $endDate);
-            $diff = abs(strtotime($endDate) - strtotime($startDate));
-            return dd($diff);
-
-            if($diff<1252800){
-
-            }else if($diff<1166400){
-
-            }else if($diff<1166400){
-
-            }
-
-
-            echo $diff;
-            // echo (strtotime(date($endDate)) - strtotime(date($startDate))) /60/60/24;
-            // echo $diff;
-            // echo $endDate;
-
-            // if ($now->between($startDate, $endDate)) {
-            //     return 'Date is Active';
-            // } else {
-            //     return 'Date is Expired';
-            // }
+        if($slug==150){
+            $from = new DateTime();
+            $to = new DateTime('-10 day');
+            $posts = Post::select("*")
+            ->whereBetween('created_at', [$to, $from])
+            ->latest()->get();
+        }else if($slug==100){
+            $from = new DateTime('-10 day');
+            $to = new DateTime('-20 day');
+            $posts = Post::select("*")
+            ->whereBetween('created_at', [$to, $from])
+            ->latest()->get();
+        }else if($slug==50){
+            $from = new DateTime('-20 day');
+            $to = new DateTime('-30 day');
+            $posts = Post::select("*")
+            ->whereBetween('created_at', [$to, $from])
+            ->latest()->get();
         }
 
-
-        // if($slug==150){
-        //     $desiredPosts = Post::where("created_at",">", Carbon::now()->subDays(14))->get();
-        // }else if($slug==100){
-        //     $desiredPosts = Post::where("created_at",">", Carbon::now()->subDays(1))->get();
-        // }else if($slug==50){
-        //     $desiredPosts = Post::where("created_at",">", Carbon::now()->subDays(1))->get();
-        // }
-
-
-
-        // return dd(json_decode($articles, true));
-        // // return dd(json_decode($slug, true));
-        // $posts = Post::latest()->get();
-        // return Inertia::render('Listing', [
-        //     'Posts' => json_decode($posts, true),
-        //     'Amount' => $slug
-        // ]);
+        return Inertia::render('Listing', [
+            'Posts' => json_decode($posts, true),
+            'Amount' => $slug
+        ]);
     }
 
     public function blogs()
@@ -260,7 +204,7 @@ class LandingController extends Controller
                 ->orWhere('tender_brief', 'like', '%' . $entity . '%')
                 ->orWhere('funded_by', 'like', '%' . $entity . '%')
                 ->orWhere('address', 'like', '%' . $entity . '%')
-                ->get();
+                ->latest()->get();
 
         return Inertia::render('Listing', ['Posts' => json_decode($search, true)]);
     }

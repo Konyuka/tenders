@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-32">
+    <div class="mt-3">
         <footer class="bg-white">
             <!-- <div class="grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
         <div>

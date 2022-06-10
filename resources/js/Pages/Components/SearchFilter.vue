@@ -346,17 +346,9 @@ export default {
                 .then(response => {
                     if (response != null) {
                         if (this.currentRoute == "landing") {
-                            // alert("check landing");
-                            setTimeout(
-                                () => (this.$parent.$parent.spinner = false),
-                                1000
-                            );
+                            this.$parent.$parent.spinner = false;
                         } else {
-                            // alert("check search");
-                            setTimeout(
-                                () => (this.$parent.spinner = false),
-                                1000
-                            );
+                            this.$parent.spinner = false;
                         }
                     }
                 })

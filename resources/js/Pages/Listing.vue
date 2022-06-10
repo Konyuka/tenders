@@ -4,7 +4,7 @@
             <TopBanner />
             <MainMenu />
 
-            <div class="text-gray-600 body-font">
+            <div class="text-gray-600 body-font ">
                 <!-- <header class="sticky top-2 z-50">
                     <button
                         @click="modal = true"
@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="flex flex-row my-5 mx-5">
-                        <div class="w-4/5 mr-5">
+                        <div class="w-4/5 mr-5 min-h-screen">
                             <div class="w-full bg-white dark:bg-gray-800">
                                 <div
                                     class="container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 "
@@ -242,8 +242,9 @@
             </div>
 
             <Spinner v-if="spinner" />
-
-            <MainFooter />
+            <div v-if="Posts != null">
+                <MainFooter />
+            </div>
         </body>
     </div>
 </template>

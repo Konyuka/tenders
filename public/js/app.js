@@ -8131,15 +8131,9 @@ __webpack_require__.r(__webpack_exports__);
       this.$inertia.post("/search", this.payload).then(function (response) {
         if (response != null) {
           if (_this.currentRoute == "landing") {
-            // alert("check landing");
-            setTimeout(function () {
-              return _this.$parent.$parent.spinner = false;
-            }, 1000);
+            _this.$parent.$parent.spinner = false;
           } else {
-            // alert("check search");
-            setTimeout(function () {
-              return _this.$parent.spinner = false;
-            }, 1000);
+            _this.$parent.spinner = false;
           }
         }
       })["catch"](function (error) {
@@ -9785,6 +9779,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ServiceIntro",
   components: {//   Categories,
@@ -9797,6 +9798,19 @@ __webpack_require__.r(__webpack_exports__);
   watch: {},
   computed: {},
   methods: {
+    pricing: function pricing(value) {
+      var _this = this;
+
+      // this.$inertia.get("pricing", value);
+      this.$parent.spinner = true;
+      this.$inertia.get("pricing/".concat(value)).then(function (result) {
+        if (result) {
+          _this.$parent.spinner = false;
+        }
+      })["catch"](function (err) {
+        if (err) {}
+      });
+    },
     membership: function membership(value) {
       console.log(value);
 
@@ -11360,6 +11374,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Jetstream/Button.vue */ "./resources/js/Jetstream/Button.vue");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_9__);
+//
 //
 //
 //
@@ -79446,7 +79461,7 @@ var render = function() {
           { staticClass: "text-gray-600 body-font overflow-hidden" },
           [
             _c("div", { staticClass: "flex flex-row my-5 mx-2" }, [
-              _c("div", { staticClass: "basis-4/5 mr-5" }, [
+              _c("div", { staticClass: "w-4/5 mr-5" }, [
                 _c(
                   "div",
                   { staticClass: "columns-1" },
@@ -80418,7 +80433,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-32" }, [
+    return _c("div", { staticClass: "mt-3" }, [
       _c("footer", { staticClass: "bg-white" }, [
         _c(
           "div",
@@ -81676,8 +81691,14 @@ var render = function() {
                   "a",
                   {
                     staticClass:
-                      "hover:bg-indigo-300 transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12",
-                    attrs: { href: _vm.route("pricing", "150") }
+                      "hover:bg-indigo-500 transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12",
+                    attrs: { href: "" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.pricing("150")
+                      }
+                    }
                   },
                   [
                     _vm._m(1),
@@ -81724,7 +81745,7 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "For all Fresh Tenders Posted this\n                                    week"
+                                "Fresh Tenders Posted within 10 days\n                                    ago"
                               )
                             ]
                           )
@@ -81738,7 +81759,14 @@ var render = function() {
                   "a",
                   {
                     staticClass:
-                      "transition transform hover:scale-75 duration-700 bg-white ring-2 ring-indigo-700 shadow-xl pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
+                      "transition transform hover:scale-75 duration-700 bg-white ring-2 ring-indigo-700 shadow-xl pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12",
+                    attrs: { href: "" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.pricing("100")
+                      }
+                    }
                   },
                   [
                     _vm._m(2),
@@ -81784,7 +81812,11 @@ var render = function() {
                               staticClass:
                                 "text-gray-600 ml-3 text-sm font-medium"
                             },
-                            [_vm._v("2 Weeks to Expiry")]
+                            [
+                              _vm._v(
+                                "Fresh Tenders Posted between 10-20 days\n                                    ago"
+                              )
+                            ]
                           )
                         ])
                       ]
@@ -81796,7 +81828,14 @@ var render = function() {
                   "a",
                   {
                     staticClass:
-                      "hover:bg-gray-500 hover:text-black transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
+                      "hover:bg-indigo-500 hover:text-black transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12",
+                    attrs: { href: "" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.pricing("50")
+                      }
+                    }
                   },
                   [
                     _vm._m(3),
@@ -81841,7 +81880,11 @@ var render = function() {
                             {
                               staticClass: "text-white ml-3 text-sm font-medium"
                             },
-                            [_vm._v("1 Week to Expiry")]
+                            [
+                              _vm._v(
+                                "Fresh Tenders Posted between 20-30 days\n                                    ago"
+                              )
+                            ]
                           )
                         ])
                       ]
@@ -86627,7 +86670,7 @@ var render = function() {
         _vm._v(" "),
         _c("MainMenu"),
         _vm._v(" "),
-        _c("div", { staticClass: "text-gray-600 body-font" }, [
+        _c("div", { staticClass: "text-gray-600 body-font " }, [
           _c(
             "main",
             { staticClass: "px-5 py-4 mx-auto", attrs: { id: "top" } },
@@ -86635,7 +86678,7 @@ var render = function() {
               _vm._m(0),
               _vm._v(" "),
               _c("div", { staticClass: "flex flex-row my-5 mx-5" }, [
-                _c("div", { staticClass: "w-4/5 mr-5" }, [
+                _c("div", { staticClass: "w-4/5 mr-5 min-h-screen" }, [
                   _c(
                     "div",
                     { staticClass: "w-full bg-white dark:bg-gray-800" },
@@ -87059,7 +87102,7 @@ var render = function() {
         _vm._v(" "),
         _vm.spinner ? _c("Spinner") : _vm._e(),
         _vm._v(" "),
-        _c("MainFooter")
+        _vm.Posts != null ? _c("div", [_c("MainFooter")], 1) : _vm._e()
       ],
       1
     )

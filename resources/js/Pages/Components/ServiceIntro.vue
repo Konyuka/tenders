@@ -38,8 +38,9 @@
                         class="relative space-y-6 lg:space-y-0 lg:grid lg:grid-cols-3"
                     >
                         <a
-                            :href="route('pricing', '150')"
-                            class="hover:bg-indigo-300 transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
+                            @click.prevent="pricing('150')"
+                            href=""
+                            class="hover:bg-indigo-500 transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
                             <div>
                                 <h3
@@ -85,14 +86,16 @@
                                     </svg>
                                     <span
                                         class="text-white ml-3 text-sm font-medium"
-                                        >For all Fresh Tenders Posted this
-                                        week</span
+                                        >Fresh Tenders Posted within 10 days
+                                        ago</span
                                     >
                                 </li>
                             </ul>
                         </a>
 
                         <a
+                            @click.prevent="pricing('100')"
+                            href=""
                             class="transition transform hover:scale-75 duration-700 bg-white ring-2 ring-indigo-700 shadow-xl pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
                             <div>
@@ -140,14 +143,17 @@
                                     </svg>
                                     <span
                                         class="text-gray-600 ml-3 text-sm font-medium"
-                                        >2 Weeks to Expiry</span
+                                        >Fresh Tenders Posted between 10-20 days
+                                        ago</span
                                     >
                                 </li>
                             </ul>
                         </a>
 
                         <a
-                            class="hover:bg-gray-500 hover:text-black transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
+                            @click.prevent="pricing('50')"
+                            href=""
+                            class="hover:bg-indigo-500 hover:text-black transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
                             <div>
                                 <h3
@@ -194,7 +200,8 @@
                                     </svg>
                                     <span
                                         class="text-white ml-3 text-sm font-medium"
-                                        >1 Week to Expiry</span
+                                        >Fresh Tenders Posted between 20-30 days
+                                        ago</span
                                     >
                                 </li>
                             </ul>
@@ -1634,6 +1641,21 @@ export default {
     watch: {},
     computed: {},
     methods: {
+        pricing(value) {
+            // this.$inertia.get("pricing", value);
+            this.$parent.spinner = true
+            this.$inertia
+                .get(`pricing/${value}`)
+                .then(result => {
+                    if (result) {
+                        this.$parent.spinner = false
+                    }
+                })
+                .catch(err => {
+                    if (err) {
+                    }
+                });
+        },
         membership(value) {
             console.log(value);
             if (this.$parent.user == null) {

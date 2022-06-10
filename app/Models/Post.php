@@ -14,6 +14,7 @@ class Post extends Eloquent
 
     protected $connection = 'mongodb';
     protected $collection = 'Posts';
+    protected $dates = array('created_at');
 
     protected $fillable = [
         'purchasing_authority',
@@ -29,6 +30,8 @@ class Post extends Eloquent
         'email',
         'link',
         'expiry',
+        'created_at',
+        'updated_at'
     ];
 
     // public function orders(){
