@@ -18,7 +18,7 @@ use App\Http\Controllers\MpesaResponseController;
 
 Route::post('validation', [MpesaResponseController::class, 'validation']);
 Route::post('confirmation', [MpesaResponseController::class, 'confirmation']);
-Route::get('stkpush', [MpesaResponseController::class, 'stkPush']);
+Route::post('stkpush', [MpesaResponseController::class, 'stkPush']);
 Route::post('b2ccallback', [MpesaResponseController::class, 'b2cCallback']);
 Route::post('transaction-status/result_url', [MpesaResponseController::class, 'transactionStatusResponse']);
 Route::post('reversal/result_url', [MpesaResponseController::class, 'transactionReversal']);

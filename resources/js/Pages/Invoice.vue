@@ -745,7 +745,7 @@ export default {
                 userName: "saiba",
                 userPhone: "254716202298",
                 userEmail: "saiba@mail.com",
-                number: this.removeSpaces("254705632731"),
+                number: this.removeSpaces("254716202298"),
                 account: "Laborex Kenya LTD",
                 amount: this.amount
                 // amount: this.post.price
@@ -883,7 +883,8 @@ export default {
                 };
                 //    console.log(requestBody)
                 axios
-                    .post(`/invoice/${this.post._id}/stkPush/`, requestBody)
+                    // .post(`/invoice/${this.post._id}/stkPush/`, requestBody)
+                    .post(`/invoice/payment/stkPush/`, requestBody)
                     .then(response => {
                         console.log(response);
                     })

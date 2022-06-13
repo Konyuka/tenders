@@ -10879,7 +10879,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
         userName: "saiba",
         userPhone: "254716202298",
         userEmail: "saiba@mail.com",
-        number: this.removeSpaces("254705632731"),
+        number: this.removeSpaces("254716202298"),
         account: "Laborex Kenya LTD",
         amount: this.amount // amount: this.post.price
         // amount: ''
@@ -11006,7 +11006,8 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
           restartTrans: this.transactionRestart
         }; //    console.log(requestBody)
 
-        axios.post("/invoice/".concat(this.post._id, "/stkPush/"), requestBody).then(function (response) {
+        axios // .post(`/invoice/${this.post._id}/stkPush/`, requestBody)
+        .post("/invoice/payment/stkPush/", requestBody).then(function (response) {
           console.log(response);
         })["catch"](function (error) {
           console.log(error);
