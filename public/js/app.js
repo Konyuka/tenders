@@ -10879,7 +10879,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
         userName: "saiba",
         userPhone: "254716202298",
         userEmail: "saiba@mail.com",
-        number: this.removeSpaces("254716202298"),
+        number: this.removeSpaces("254705632731"),
         account: "Laborex Kenya LTD",
         amount: this.amount // amount: this.post.price
         // amount: ''
