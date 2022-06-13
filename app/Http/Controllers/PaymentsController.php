@@ -230,7 +230,8 @@ class PaymentsController extends Controller
         $PartyB=env('MPESA_STK_SHORTCODE');
         // $PhoneNumber='254722326662';
         $PhoneNumber=$phone;
-        $CallBackURL=env('MPESA_TEST_URL'). '/api/stkpush';
+        // $CallBackURL=env('MPESA_TEST_URL'). '/api/stkpush';
+        $CallBackURL="https://tenderske.herokuapp.com/api/stkpush";
         // https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest
         // $CallBackURL="http://dairyapp1-env.na3uctjjui.us-east-2.elasticbeanstalk.com/confirm/ebook/payment";
         // $CallBackURL=env('MPESA_TEST_URL'). '/confirm/ebook/payment';
