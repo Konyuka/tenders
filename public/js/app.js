@@ -10714,33 +10714,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
@@ -84984,40 +84957,6 @@ var render = function() {
                   _vm._m(0),
                   _vm._v(" "),
                   _c("div", { staticClass: "ml-3" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "bg-gray-300 p-3 rounded-md",
-                        on: {
-                          click: function($event) {
-                            return _vm.getAccessToken()
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                            Get Access Token\n                        "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "bg-gray-300 p-3 rounded-md",
-                        on: {
-                          click: function($event) {
-                            return _vm.registerURL()
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                            Ragister Urls\n                        "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
                     this.transactionStatus == "Cancelled"
                       ? _c(
                           "h3",
@@ -85312,214 +85251,9 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                Pay Using M-Pesa Express\n                            "
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6"
-                        },
-                        [
-                          _c(
-                            "h3",
-                            {
-                              staticClass:
-                                "text-xl dark:text-white font-semibold leading-5 text-gray-800"
-                            },
-                            [
-                              _vm._v(
-                                "\n                            Card Payment\n                        "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "flex justify-between items-start w-full"
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "flex justify-center items-center space-x-4"
-                                },
-                                [
-                                  _c("div", { staticClass: "w-20 h-20" }, [
-                                    _c("img", {
-                                      staticClass: "w-full h-full",
-                                      attrs: {
-                                        alt: "logo",
-                                        src: "/img/credit.jpg"
-                                      }
-                                    })
-                                  ]),
-                                  _vm._v(" "),
-                                  _vm._m(3)
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                {
-                                  staticClass:
-                                    "text-lg font-semibold leading-6 dark:text-white text-gray-800"
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                KES " +
-                                      _vm._s(_vm.amount) +
+                                    "\n                                Send Mpesa Prompt to " +
+                                      _vm._s(_vm.form.number) +
                                       "\n                            "
-                                  )
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _vm._m(4)
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6"
-                        },
-                        [
-                          _c(
-                            "h3",
-                            {
-                              staticClass:
-                                "text-xl dark:text-white font-semibold leading-5 text-gray-800"
-                            },
-                            [
-                              _vm._v(
-                                "\n                            Manual Payment\n                        "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "flex justify-between items-start w-full"
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "flex justify-center items-center space-x-4"
-                                },
-                                [
-                                  _c("div", { staticClass: "w-20 h-20" }, [
-                                    _c("img", {
-                                      staticClass: "w-full h-full",
-                                      attrs: {
-                                        alt: "logo",
-                                        src: "/img/mpesamobile.png"
-                                      }
-                                    })
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "font-primary-font flex flex-col justify-start items-center"
-                                    },
-                                    [
-                                      _vm._m(5),
-                                      _vm._v(" "),
-                                      _c(
-                                        "p",
-                                        {
-                                          staticClass:
-                                            "font-extrabold w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                                        ACCOUNT # :\n                                        "
-                                          ),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "text-green-600 font-heading-font font-extrabold tracking-widest text-xl ml-2"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                                            " +
-                                                  _vm._s(_vm.invoiceNumber) +
-                                                  "\n                                        "
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "p",
-                                        {
-                                          staticClass:
-                                            "font-extrabold w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                                        PAYMENT AMOUNT :\n                                        "
-                                          ),
-                                          _c(
-                                            "span",
-                                            {
-                                              staticClass:
-                                                "text-green-600 font-heading-font font-extrabold text-xl ml-2"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                                            KES " +
-                                                  _vm._s(_vm.amount) +
-                                                  "\n                                        "
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "w-full flex justify-center items-center"
-                            },
-                            [
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "hover:bg-green-600 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-indigo-600 text-base font-medium leading-4 text-white",
-                                  on: { click: _vm.c2b }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                Confirm Manual M-Pesa Payment\n                            "
                                   )
                                 ]
                               )
@@ -85646,7 +85380,7 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(6)
+                      _vm._m(3)
                     ]
                   )
                 ]
@@ -85689,7 +85423,7 @@ var render = function() {
                       },
                       [
                         _c("div", [
-                          _vm._m(7),
+                          _vm._m(4),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -85710,7 +85444,7 @@ var render = function() {
                                   "div",
                                   { staticClass: "relative mb-5 mt-2" },
                                   [
-                                    _vm._m(8),
+                                    _vm._m(5),
                                     _vm._v(" "),
                                     _c("input", {
                                       directives: [
@@ -86033,91 +85767,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "flex flex-col justify-start items-center" },
-      [
-        _c(
-          "p",
-          {
-            staticClass:
-              "font-heading-font text-2xl leading-6 dark:text-white font-semibold text-green-700"
-          },
-          [
-            _vm._v("\n                                        Credit Card"),
-            _c("br"),
-            _c(
-              "span",
-              {
-                staticClass: "font-normal text-sm font-primary-font text-black"
-              },
-              [
-                _vm._v(
-                  "Visa or Mastercard\n                                        "
-                )
-              ]
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "w-full flex justify-center items-center" },
-      [
-        _c(
-          "button",
-          {
-            staticClass:
-              "hover:bg-green-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-green-600 text-base font-medium leading-4 text-white"
-          },
-          [
-            _vm._v(
-              "\n                                Pay Using M-Pesa\n                            "
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "p",
-      {
-        staticClass:
-          "font-extrabold w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
-      },
-      [
-        _vm._v(
-          "\n                                        PAYBILL # :\n                                        "
-        ),
-        _c(
-          "span",
-          {
-            staticClass:
-              "text-green-600 font-heading-font font-extrabold tracking-widest text-xl ml-2"
-          },
-          [
-            _vm._v(
-              "\n                                            4092001\n                                        "
-            )
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
       {
         staticClass:
           "flex justify-between xl:h-full items-stretch w-full flex-col mt-6 md:mt-0"
@@ -86137,27 +85786,10 @@ var staticRenderFns = [
           ]
         ),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "flex w-full justify-center items-center md:justify-start md:items-start"
-          },
-          [
-            _c(
-              "button",
-              {
-                staticClass:
-                  "mt-6 hover:bg-red-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-red-600 text-base font-bold leading-4 text-white"
-              },
-              [
-                _vm._v(
-                  "\n                                Cancel Invoice Payment\n                            "
-                )
-              ]
-            )
-          ]
-        )
+        _c("div", {
+          staticClass:
+            "flex w-full justify-center items-center md:justify-start md:items-start"
+        })
       ]
     )
   },

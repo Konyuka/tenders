@@ -19,18 +19,6 @@
                             ></i>
                         </div>
                         <div class="ml-3">
-                            <button
-                                @click="getAccessToken()"
-                                class="bg-gray-300 p-3 rounded-md"
-                            >
-                                Get Access Token
-                            </button>
-                            <button
-                                @click="registerURL()"
-                                class="bg-gray-300 p-3 rounded-md"
-                            >
-                                Ragister Urls
-                            </button>
                             <h3
                                 v-if="this.transactionStatus == 'Cancelled'"
                                 class="text-2xl font-extrabold font-heading-font text-red-800"
@@ -183,12 +171,12 @@
                                     @click="mpesaExpress"
                                     class="hover:bg-green-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-green-600 text-base font-medium leading-4 text-white"
                                 >
-                                    Pay Using M-Pesa Express
+                                    Send Mpesa Prompt to {{ form.number }}
                                 </button>
                             </div>
                         </div>
 
-                        <div
+                        <!-- <div
                             class="flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6"
                         >
                             <h3
@@ -234,12 +222,12 @@
                                 <button
                                     class="hover:bg-green-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-green-600 text-base font-medium leading-4 text-white"
                                 >
-                                    Pay Using M-Pesa
+                                    Pay with Card
                                 </button>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div
+                        <!-- <div
                             class="flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6"
                         >
                             <h3
@@ -263,11 +251,6 @@
                                     <div
                                         class="font-primary-font flex flex-col justify-start items-center"
                                     >
-                                        <!-- <p
-                                            class="font-heading-font text-2xl leading-6 dark:text-white font-semibold text-green-700"
-                                        >
-                                            Manual Payment<br />
-                                        </p> -->
                                         <p
                                             class="font-extrabold w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-xs leading-5 text-gray-800"
                                         >
@@ -300,11 +283,6 @@
                                         </p>
                                     </div>
                                 </div>
-                                <!-- <p
-                                    class="text-lg font-semibold leading-6 dark:text-white text-gray-800"
-                                >
-                                    KES 150
-                                </p> -->
                             </div>
                             <div
                                 class="w-full flex justify-center items-center"
@@ -316,7 +294,7 @@
                                     Confirm Manual M-Pesa Payment
                                 </button>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div
@@ -374,15 +352,10 @@
                                 class="flex w-full justify-center items-center md:justify-start md:items-start"
                             >
                                 <!-- <button
-                                    class="bg-green-600 mt-6 md:mt-0 dark:border-white dark:hover:bg-gray-900 dark:bg-transparent dark:text-white py-5 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 border border-gray-800 font-bold w-96 2xl:w-full text-base leading-4 text-white font-heading-font"
-                                >
-                                    Confirm Manual Payment
-                                </button> -->
-                                <button
                                     class="mt-6 hover:bg-red-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-red-600 text-base font-bold leading-4 text-white"
                                 >
                                     Cancel Invoice Payment
-                                </button>
+                                </button> -->
                             </div>
                         </div>
                     </div>
