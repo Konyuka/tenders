@@ -7779,7 +7779,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(process) {//
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! v-calendar */ "./node_modules/v-calendar/lib/v-calendar.umd.min.js");
+/* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -8002,52 +8005,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  componentPrefix: "vc" // Use <vc-calendar /> instead of <v-calendar />
+
+});
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SearchFilter",
   components: {//   Categories,
@@ -8091,6 +8054,12 @@ __webpack_require__.r(__webpack_exports__);
     } else {
       this.payload.closing = "";
     }
+
+    if (localStorage.getItem("publishing") != "null") {
+      this.payload.publishing = localStorage.getItem("publishing");
+    } else {
+      this.payload.publishing = "";
+    }
   },
   data: function data() {
     return {
@@ -8100,7 +8069,8 @@ __webpack_require__.r(__webpack_exports__);
         entity: null,
         number: null,
         price: null,
-        closing: null
+        closing: null,
+        publishing: null
       },
       siteURL: process.env.VUE_APP_APIURL
     };
@@ -8128,6 +8098,7 @@ __webpack_require__.r(__webpack_exports__);
       localStorage.setItem("number", this.payload.number);
       localStorage.setItem("price", this.payload.price);
       localStorage.setItem("closing", this.payload.closing);
+      localStorage.setItem("publishing", this.payload.publishing);
       this.$inertia.post("/search", this.payload).then(function (response) {
         if (response != null) {
           if (_this.currentRoute == "landing") {
@@ -10133,7 +10104,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
 /* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
-//
 //
 //
 //
@@ -13270,7 +13240,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
 /* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
 /* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
-//
 //
 //
 //
@@ -81328,7 +81297,64 @@ var render = function() {
                         _vm._v(" "),
                         _c(
                           "div",
-                          { staticClass: "w-full flex flex-col mb-6" },
+                          { staticClass: "mb-6" },
+                          [
+                            _c(
+                              "label",
+                              {
+                                staticClass:
+                                  "pb-2 text-sm font-bold text-gray-800 dark:text-gray-100",
+                                attrs: { for: "FirstName" }
+                              },
+                              [
+                                _vm._v(
+                                  "Search by Publishing\n                                            Date"
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("vc-date-picker", {
+                              scopedSlots: _vm._u([
+                                {
+                                  key: "default",
+                                  fn: function(ref) {
+                                    var inputValue = ref.inputValue
+                                    var inputEvents = ref.inputEvents
+                                    return [
+                                      _c(
+                                        "input",
+                                        _vm._g(
+                                          {
+                                            staticClass:
+                                              "font-primary-font block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                            attrs: {
+                                              id: "emailAddress",
+                                              type: "text"
+                                            },
+                                            domProps: { value: inputValue }
+                                          },
+                                          inputEvents
+                                        )
+                                      )
+                                    ]
+                                  }
+                                }
+                              ]),
+                              model: {
+                                value: _vm.payload.publishing,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.payload, "publishing", $$v)
+                                },
+                                expression: "payload.publishing"
+                              }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "mb-6" },
                           [
                             _c(
                               "label",
@@ -81340,55 +81366,43 @@ var render = function() {
                               [_vm._v("Search by Closing Date")]
                             ),
                             _vm._v(" "),
-                            _c("input", {
-                              directives: [
+                            _c("vc-date-picker", {
+                              scopedSlots: _vm._u([
                                 {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.payload.closing,
-                                  expression: "payload.closing"
-                                }
-                              ],
-                              staticClass:
-                                "border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400",
-                              attrs: {
-                                tabindex: "0",
-                                type: "text",
-                                id: "FirstName",
-                                name: "firstName",
-                                required: "",
-                                placeholder: ""
-                              },
-                              domProps: { value: _vm.payload.closing },
-                              on: {
-                                keyup: function($event) {
-                                  if (
-                                    !$event.type.indexOf("key") &&
-                                    _vm._k(
-                                      $event.keyCode,
-                                      "enter",
-                                      13,
-                                      $event.key,
-                                      "Enter"
-                                    )
-                                  ) {
-                                    return null
+                                  key: "default",
+                                  fn: function(ref) {
+                                    var inputValue = ref.inputValue
+                                    var inputEvents = ref.inputEvents
+                                    return [
+                                      _c(
+                                        "input",
+                                        _vm._g(
+                                          {
+                                            staticClass:
+                                              "font-primary-font block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring",
+                                            attrs: {
+                                              id: "emailAddress",
+                                              type: "text"
+                                            },
+                                            domProps: { value: inputValue }
+                                          },
+                                          inputEvents
+                                        )
+                                      )
+                                    ]
                                   }
-                                  return _vm.searchTenders()
+                                }
+                              ]),
+                              model: {
+                                value: _vm.payload.closing,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.payload, "closing", $$v)
                                 },
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.payload,
-                                    "closing",
-                                    $event.target.value
-                                  )
-                                }
+                                expression: "payload.closing"
                               }
                             })
-                          ]
+                          ],
+                          1
                         )
                       ]
                     )
@@ -81396,8 +81410,6 @@ var render = function() {
                 ])
               ]
             ),
-            _vm._v(" "),
-            _vm._m(1),
             _vm._v(" "),
             _c("div", { staticClass: "container mx-auto w-11/12 xl:w-full" }, [
               _c(
@@ -81411,7 +81423,7 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "font-primary-font bg-gray-200 focus:outline-none transition duration-150 ease-in-out hover:bg-gray-300 dark:bg-gray-700 rounded text-red-600 dark:text-indigo-600 px-6 py-2 text-xs mr-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700",
+                        "font-primary-font bg-gray-200 focus:outline-none transition duration-150 ease-in-out hover:bg-gray-300 dark:bg-gray-700 rounded text-red-600 dark:text-indigo-600 px-6 py-2 text-sm mr-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700",
                       attrs: { role: "button", "aria-label": "cancel form" }
                     },
                     [
@@ -81498,141 +81510,6 @@ var staticRenderFns = [
             )
           ]
         )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "container mx-auto mt-10 rounded bg-gray-100 dark:bg-gray-700 w-11/12 xl:w-full"
-      },
-      [
-        _c("div", { staticClass: "xl:w-full py-5 px-8" }, [
-          _c("div", { staticClass: "flex items-center mx-auto" }, [
-            _c("div", { staticClass: "container mx-auto" }, [
-              _c("div", { staticClass: "mx-auto xl:w-full" }, [
-                _c(
-                  "p",
-                  {
-                    staticClass:
-                      "text-lg text-gray-800 dark:text-gray-100 font-bold"
-                  },
-                  [
-                    _vm._v(
-                      "\n                                            Refine Results\n\n                                            "
-                    ),
-                    _c("i", {
-                      staticClass: "ml-5 fas fa-sliders fa-lg text-indigo-600"
-                    })
-                  ]
-                )
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "container mx-auto pb-6" }, [
-          _c("div", { staticClass: "px-8" }, [
-            _c(
-              "div",
-              { staticClass: "flex justify-between items-center mb-8 mt-4" },
-              [
-                _c("div", { staticClass: "w-9/12" }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass:
-                        "font-primary-font text-sm text-gray-800 dark:text-gray-100 pb-1"
-                    },
-                    [
-                      _vm._v(
-                        "\n                                            Include closed tenders\n                                        "
-                      )
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "cursor-pointer rounded-full bg-gray-200 relative shadow-sm"
-                  },
-                  [
-                    _c("input", {
-                      staticClass:
-                        "focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto",
-                      attrs: {
-                        tabindex: "0",
-                        "aria-labelledby": "cb1",
-                        type: "checkbox",
-                        name: "email_comments",
-                        id: "toggle1"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", {
-                      staticClass:
-                        "toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"
-                    })
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "flex justify-between items-center mb-8" },
-              [
-                _c("div", { staticClass: "w-9/12" }, [
-                  _c(
-                    "p",
-                    {
-                      staticClass:
-                        "font-primary-font text-sm text-gray-800 dark:text-gray-100 pb-1"
-                    },
-                    [
-                      _vm._v(
-                        "\n                                            Only Funded Tenders\n                                        "
-                      )
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "cursor-pointer rounded-full bg-gray-200 relative shadow-sm"
-                  },
-                  [
-                    _c("input", {
-                      staticClass:
-                        "focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto",
-                      attrs: {
-                        "aria-labelledby": "cb2",
-                        tabindex: "0",
-                        type: "checkbox",
-                        name: "email_job_application",
-                        id: "toggle2"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", {
-                      staticClass:
-                        "toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"
-                    })
-                  ]
-                )
-              ]
-            )
-          ])
-        ])
       ]
     )
   }
@@ -84952,102 +84829,6 @@ var render = function() {
                 "right-0 flex justify-center items-center space-y-2 flex-col"
             },
             [
-              _c("div", { staticClass: "rounded-md bg-red-50 p-4 mb-10" }, [
-                _c("div", { staticClass: "flex" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "ml-3" }, [
-                    this.transactionStatus == "Cancelled"
-                      ? _c(
-                          "h3",
-                          {
-                            staticClass:
-                              "text-2xl font-extrabold font-heading-font text-red-800"
-                          },
-                          [
-                            _vm._v(
-                              "\n                            Transaction Cancelled...\n                        "
-                            )
-                          ]
-                        )
-                      : _c(
-                          "h3",
-                          {
-                            staticClass:
-                              "text-2xl font-extrabold font-heading-font text-red-800"
-                          },
-                          [
-                            _vm._v(
-                              "\n                            Payment Pending...\n                        "
-                            )
-                          ]
-                        ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "mt-2 text-lg text-red-700 font-primary-font"
-                      },
-                      [
-                        this.transactionStatus == "Cancelled"
-                          ? _c("p", [
-                              _vm._v(
-                                "\n                                Kindly Choose a payment gateway to\n                                re-initiate payment procedure.\n\n                                "
-                              ),
-                              _c("br"),
-                              _vm._v(
-                                "\n\n                                You can also use the Manual M-Pesa method at\n                                the bottom right\n                            "
-                              )
-                            ])
-                          : _c("p", [
-                              _vm._v(
-                                "\n                                Kindly Proceed to make payment to access\n                                tender details.\n                            "
-                              )
-                            ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "mt-4" }, [
-                      _c("div", { staticClass: "-mx-2 -my-1.5 flex" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "bg-red-50 px-2 py-1.5 rounded-md text-sm font-extrabold font-primary-font text-red-800 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-50 focus:ring-red-600",
-                            attrs: { type: "button" }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                    View status\n                                "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "ml-3 bg-red-50 px-2 py-1.5 rounded-md text-sm font-extrabold font-primary-font text-red-800 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-50 focus:ring-red-600",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                this.unpaidAlert == false
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                    Dismiss\n                                "
-                            )
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
               _c("div", [
                 _c(
                   "h1",
@@ -85124,7 +84905,7 @@ var render = function() {
                             "mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full"
                         },
                         [
-                          _vm._m(1),
+                          _vm._m(0),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -85214,7 +84995,7 @@ var render = function() {
                                     })
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(2)
+                                  _vm._m(1)
                                 ]
                               ),
                               _vm._v(" "),
@@ -85380,7 +85161,7 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(3)
+                      _vm._m(2)
                     ]
                   )
                 ]
@@ -85423,7 +85204,7 @@ var render = function() {
                       },
                       [
                         _c("div", [
-                          _vm._m(4),
+                          _vm._m(3),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -85444,7 +85225,7 @@ var render = function() {
                                   "div",
                                   { staticClass: "relative mb-5 mt-2" },
                                   [
-                                    _vm._m(5),
+                                    _vm._m(4),
                                     _vm._v(" "),
                                     _c("input", {
                                       directives: [
@@ -85716,14 +85497,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex-shrink-0" }, [
-      _c("i", { staticClass: "fas fa-circle-exclamation fa-3x text-red-400" })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -86511,7 +86284,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                        # " +
+                                    "\n                                        " +
                                       _vm._s(_vm.postNumber(i)) +
                                       "\n                                        "
                                   )
@@ -89219,32 +88992,6 @@ var render = function() {
                                 [
                                   _vm._v(
                                     "\n                                    " +
-                                      _vm._s(_vm.post.phone) +
-                                      "\n                                    "
-                                  )
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "flex border-t border-indigo-300 py-2"
-                            },
-                            [
-                              _vm._m(6),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "ml-auto text-gray-900 font-primary-font"
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                    " +
                                       _vm._s(_vm.post.email) +
                                       "\n                                    "
                                   )
@@ -89260,7 +89007,7 @@ var render = function() {
                                 "flex border-t border-indigo-300 py-2"
                             },
                             [
-                              _vm._m(7),
+                              _vm._m(6),
                               _vm._v(" "),
                               _c(
                                 "span",
@@ -89433,7 +89180,7 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(8),
+                          _vm._m(7),
                           _vm._v(" "),
                           _c("div", { staticClass: "flex" }),
                           _vm._v(" "),
@@ -89448,7 +89195,7 @@ var render = function() {
                                   )
                                 }
                               },
-                              [_vm._m(9)]
+                              [_vm._m(8)]
                             ),
                             _vm._v(" "),
                             _c(
@@ -89533,7 +89280,7 @@ var render = function() {
                           "relative bg-white rounded-lg shadow dark:bg-gray-700"
                       },
                       [
-                        _vm._m(10),
+                        _vm._m(9),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -89660,19 +89407,6 @@ var staticRenderFns = [
             "\n                                    Detail in Tender Document\n                                "
           )
         ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      { staticClass: "text-gray-500 font-extrabold font-heading-font" },
-      [
-        _c("i", { staticClass: "mr-10 fas fa-angles-right text-indigo-600" }),
-        _vm._v("\n                                    Contact Phone")
       ]
     )
   },

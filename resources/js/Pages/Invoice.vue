@@ -10,10 +10,9 @@
             <div
                 class="right-0 flex justify-center items-center space-y-2 flex-col"
             >
-                <div class="rounded-md bg-red-50 p-4 mb-10">
+                <!-- <div class="rounded-md bg-red-50 p-4 mb-10">
                     <div class="flex">
                         <div class="flex-shrink-0">
-                            <!-- Heroicon name: solid/check-circle -->
                             <i
                                 class="fas fa-circle-exclamation fa-3x text-red-400"
                             ></i>
@@ -68,7 +67,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div>
                     <h1

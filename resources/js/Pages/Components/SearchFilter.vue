@@ -134,110 +134,63 @@
                                             </select>
                                         </div>
 
-                                        <div class="w-full flex flex-col mb-6">
+                                        <div class="mb-6">
+                                            <label
+                                                for="FirstName"
+                                                class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100"
+                                                >Search by Publishing
+                                                Date</label
+                                            >
+                                            <vc-date-picker
+                                                v-model="payload.publishing"
+                                            >
+                                                <template
+                                                    v-slot="{
+                                                        inputValue,
+                                                        inputEvents
+                                                    }"
+                                                >
+                                                    <input
+                                                        :value="inputValue"
+                                                        v-on="inputEvents"
+                                                        id="emailAddress"
+                                                        type="text"
+                                                        class="font-primary-font block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                                                    />
+                                                </template>
+                                            </vc-date-picker>
+                                        </div>
+
+                                        <div class="mb-6">
                                             <label
                                                 for="FirstName"
                                                 class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100"
                                                 >Search by Closing Date</label
                                             >
-                                            <input
-                                                @keyup.enter="searchTenders()"
+                                            <vc-date-picker
                                                 v-model="payload.closing"
-                                                tabindex="0"
-                                                type="text"
-                                                id="FirstName"
-                                                name="firstName"
-                                                required
-                                                class="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400"
-                                                placeholder=""
-                                            />
+                                            >
+                                                <template
+                                                    v-slot="{
+                                                        inputValue,
+                                                        inputEvents
+                                                    }"
+                                                >
+                                                    <input
+                                                        :value="inputValue"
+                                                        v-on="inputEvents"
+                                                        id="emailAddress"
+                                                        type="text"
+                                                        class="font-primary-font block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                                                    />
+                                                </template>
+                                            </vc-date-picker>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        <div
-                            class="container mx-auto mt-10 rounded bg-gray-100 dark:bg-gray-700 w-11/12 xl:w-full"
-                        >
-                            <div class="xl:w-full py-5 px-8">
-                                <div class="flex items-center mx-auto">
-                                    <div class="container mx-auto">
-                                        <div class="mx-auto xl:w-full">
-                                            <p
-                                                class="text-lg text-gray-800 dark:text-gray-100 font-bold"
-                                            >
-                                                Refine Results
 
-                                                <i
-                                                    class="ml-5 fas fa-sliders fa-lg text-indigo-600"
-                                                ></i>
-                                            </p>
-                                            <!-- <div
-                                                class="flex items-center pb-4 border-b border-gray-300 dark:border-gray-700 px-8 text-gray-800 dark:text-gray-100"
-                                            >
-
-                                            </div> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="container mx-auto pb-6">
-                                <div class="px-8">
-                                    <div
-                                        class="flex justify-between items-center mb-8 mt-4"
-                                    >
-                                        <div class="w-9/12">
-                                            <p
-                                                class="font-primary-font text-sm text-gray-800 dark:text-gray-100 pb-1"
-                                            >
-                                                Include closed tenders
-                                            </p>
-                                        </div>
-                                        <div
-                                            class="cursor-pointer rounded-full bg-gray-200 relative shadow-sm"
-                                        >
-                                            <input
-                                                tabindex="0"
-                                                aria-labelledby="cb1"
-                                                type="checkbox"
-                                                name="email_comments"
-                                                id="toggle1"
-                                                class="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto"
-                                            />
-                                            <label
-                                                class="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"
-                                            ></label>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="flex justify-between items-center mb-8"
-                                    >
-                                        <div class="w-9/12">
-                                            <p
-                                                class="font-primary-font text-sm text-gray-800 dark:text-gray-100 pb-1"
-                                            >
-                                                Only Funded Tenders
-                                            </p>
-                                        </div>
-                                        <div
-                                            class="cursor-pointer rounded-full bg-gray-200 relative shadow-sm"
-                                        >
-                                            <input
-                                                aria-labelledby="cb2"
-                                                tabindex="0"
-                                                type="checkbox"
-                                                name="email_job_application"
-                                                id="toggle2"
-                                                class="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto"
-                                            />
-                                            <label
-                                                class="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"
-                                            ></label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="container mx-auto w-11/12 xl:w-full">
                             <div
                                 class="w-full py-4 sm:px-0 bg-white dark:bg-gray-800 flex justify-end"
@@ -245,7 +198,7 @@
                                 <button
                                     role="button"
                                     aria-label="cancel form"
-                                    class="font-primary-font bg-gray-200 focus:outline-none transition duration-150 ease-in-out hover:bg-gray-300 dark:bg-gray-700 rounded text-red-600 dark:text-indigo-600 px-6 py-2 text-xs mr-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700"
+                                    class="font-primary-font bg-gray-200 focus:outline-none transition duration-150 ease-in-out hover:bg-gray-300 dark:bg-gray-700 rounded text-red-600 dark:text-indigo-600 px-6 py-2 text-sm mr-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700"
                                 >
                                     Clear Filters
                                 </button>
@@ -268,6 +221,13 @@
 </template>
 
 <script>
+import Vue from "vue";
+import VCalendar from "v-calendar";
+
+Vue.use(VCalendar, {
+    componentPrefix: "vc" // Use <vc-calendar /> instead of <v-calendar />
+});
+
 export default {
     name: "SearchFilter",
     components: {
@@ -307,6 +267,11 @@ export default {
         } else {
             this.payload.closing = "";
         }
+        if (localStorage.getItem("publishing") != "null") {
+            this.payload.publishing = localStorage.getItem("publishing");
+        } else {
+            this.payload.publishing = "";
+        }
     },
     data() {
         return {
@@ -316,7 +281,8 @@ export default {
                 entity: null,
                 number: null,
                 price: null,
-                closing: null
+                closing: null,
+                publishing: null
             },
             siteURL: process.env.VUE_APP_APIURL
         };
@@ -341,6 +307,7 @@ export default {
             localStorage.setItem("number", this.payload.number);
             localStorage.setItem("price", this.payload.price);
             localStorage.setItem("closing", this.payload.closing);
+            localStorage.setItem("publishing", this.payload.publishing);
             this.$inertia
                 .post("/search", this.payload)
                 .then(response => {

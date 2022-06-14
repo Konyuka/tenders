@@ -106,7 +106,7 @@
                                             class="rounded bg-indigo-50 text-indigo-500 text-md font-extrabold font-heading-font tracking-widest mr-2"
                                         >
                                             <!-- # {{ i + 1 }} # -->
-                                            # {{ postNumber(i) }}
+                                            {{ postNumber(i) }}
                                             <!-- # {{  cnt }} -->
                                             <!-- {{ updateCnt(i) }} -->
                                         </span>

@@ -192,6 +192,19 @@ class LandingController extends Controller
         $number = \Request::get('number');
         $price = \Request::get('price');
         $closing = \Request::get('closing');
+        $publishing = \Request::get('publishing');
+
+
+        // $publishFormat = Carbon::parse($publishing)->format('Y-m-d');
+        $publishFormat = date('Y-m-d', strtotime($publishing));
+        $closingFormat = Carbon::parse($closing)->format('Y-m-d');
+        // return dd($publishFormat);
+        // $search = Post::where('created_at', 'like', '%' . strtotime('2022-05-29') . '%')->get();
+        // $search = Post::where('created_at', 'like', '%' . $publishFormat . '%')->latest()->get();
+        // $search = Post::where('created_at', 'like', '%' . $closingFormat . '%')->latest()->get();;
+        // date('Y-m-d', strtotime($date))
+        // return dd(json_decode($search));
+
 
         $search = Post::where('title', 'like', '%' . $key . '%')
                 ->orWhere('tender_brief', 'like', '%' . $key . '%')
@@ -204,6 +217,8 @@ class LandingController extends Controller
                 ->orWhere('tender_brief', 'like', '%' . $entity . '%')
                 ->orWhere('funded_by', 'like', '%' . $entity . '%')
                 ->orWhere('address', 'like', '%' . $entity . '%')
+                ->orWhere('expiry', 'like', '%' . $closingFormat . '%')
+                ->orWhere('created_at', 'like', '%' . $publishFormat . '%')
                 ->latest()->get();
 
         return Inertia::render('Listing', ['Posts' => json_decode($search, true)]);

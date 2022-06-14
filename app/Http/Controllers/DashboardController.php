@@ -40,7 +40,6 @@ class DashboardController extends Controller
 
         set_time_limit(50000);
         foreach ($posts as $post => $value ) {
-
             if(!Post::where('tender_number',$value['Tender_No'])->exists()){
 
                 Post::Create([
