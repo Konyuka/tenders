@@ -7681,16 +7681,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MainMenu",
   components: {//   Categories,
   },
   data: function data() {
     return {
-      activeMenu: ""
+      activeMenu: "landing",
+      openMenu: "",
+      currentMenu: "Home"
     };
+  },
+  mounted: function mounted() {
+    console.log(route().current());
+    this.activeMenu = this.$route.name;
   },
   watch: {},
   computed: {
@@ -7713,10 +7717,19 @@ __webpack_require__.r(__webpack_exports__);
         if (err) {}
       });
     },
-    selected: function selected(value) {
-      console.log(value);
-      this.activeMenu = value;
-      route("landing"); //   route(`${value}`)
+    selectedMenu: function selectedMenu(value) {
+      this.activeMenu = value; // route("landing");
+
+      this.$inertia.get(value);
+
+      if (value == "listing") {
+        this.currentMenu = "Tender Listings";
+      } else if (value == "blogs") {
+        this.currentMenu = "Blogs";
+      } else if (value == "about") {
+        this.currentMenu = "About & Contacts";
+      } // route(`${value}`);
+
     }
   }
 });
@@ -80468,7 +80481,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "bg-gray-50 dark:bg-gray-800  rounded shadow-lg py-5 px-7"
+            "bg-gray-50 dark:bg-gray-800  rounded shadow-lg py-2 sm:py-5 px-2 sm:px-7"
         },
         [
           _c("nav", { staticClass: "flex justify-between" }, [
@@ -80533,7 +80546,138 @@ var render = function() {
             _vm._m(5)
           ]),
           _vm._v(" "),
-          _vm._m(6)
+          _c("div", { staticClass: "block md:hidden w-full sm:mt-5 mt-2" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "cursor-pointer px-4 py-3 text-white bg-indigo-600 rounded flex justify-between items-center w-full",
+                on: {
+                  click: function($event) {
+                    _vm.openMenu = !_vm.openMenu
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "flex space-x-2" }, [
+                  _c(
+                    "span",
+                    {
+                      staticClass: "font-semibold text-sm leading-3 hidden",
+                      attrs: { id: "s1" }
+                    },
+                    [_vm._v("Selected:\n                        ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass:
+                        "capitalize font-heading-font text-xl font-extrabold leading-3 focus:outline-none hover:bg-gray-800 duration-100 cursor-pointer ",
+                      attrs: { id: "textClicked" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.currentMenu) +
+                          "\n                        "
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("img", {
+                  attrs: {
+                    src:
+                      "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-1-svg4.svg",
+                    alt: "down arrow"
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _vm.openMenu
+              ? _c("div", { staticClass: " relative" }, [
+                  _c(
+                    "ul",
+                    {
+                      staticClass:
+                        "font-heading-font text-xl font-extrabold leading-4 absolute top-2  w-full rounded shadow-md",
+                      attrs: { id: "list" }
+                    },
+                    [
+                      this.activeMenu != "landing"
+                        ? _c(
+                            "li",
+                            {
+                              staticClass:
+                                "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold",
+                              attrs: { onclick: "selectedMenu('landing')" }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            Home\n                        "
+                              )
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      this.activeMenu != "listing"
+                        ? _c(
+                            "li",
+                            {
+                              staticClass:
+                                "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold",
+                              on: {
+                                click: function($event) {
+                                  return _vm.selectedMenu("listing")
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            Tender Listing\n                        "
+                              )
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      this.activeMenu != "blogs"
+                        ? _c(
+                            "li",
+                            {
+                              staticClass:
+                                "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold",
+                              attrs: { onclick: "selectedMenu('blogs')" }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            Blogs\n                        "
+                              )
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      this.activeMenu != "about"
+                        ? _c(
+                            "li",
+                            {
+                              staticClass:
+                                "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold",
+                              attrs: { onclick: "selectedMenu('about')" }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            About & Contacts\n                        "
+                              )
+                            ]
+                          )
+                        : _vm._e()
+                    ]
+                  )
+                ])
+              : _vm._e()
+          ])
         ]
       )
     ])
@@ -80546,7 +80690,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: " flex space-x-5 justify-center  items-center pl-2" },
+      {
+        staticClass:
+          "hidden sm:flex space-x-5 justify-center  items-center pl-2"
+      },
       [
         _c("a", {
           staticClass:
@@ -80594,7 +80741,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "flex space-x-5 justify-center  items-center pr-6" },
+      {
+        staticClass:
+          "hidden sm:flex space-x-5 justify-center  items-center pr-6"
+      },
       [
         _c("a", {
           staticClass:
@@ -80603,137 +80753,6 @@ var staticRenderFns = [
         })
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "block md:hidden w-full mt-5 " }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "cursor-pointer px-4 py-3 text-white bg-indigo-600 rounded flex justify-between items-center w-full",
-          attrs: { onclick: "selectNew()" }
-        },
-        [
-          _c("div", { staticClass: "flex space-x-2" }, [
-            _c(
-              "span",
-              {
-                staticClass: "font-semibold text-sm leading-3 hidden",
-                attrs: { id: "s1" }
-              },
-              [_vm._v("Selected:\n                        ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "p",
-              {
-                staticClass:
-                  "font-normal text-sm leading-3 focus:outline-none hover:bg-gray-800 duration-100 cursor-pointer ",
-                attrs: { id: "textClicked" }
-              },
-              [
-                _vm._v(
-                  "\n                            Collections\n                        "
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("img", {
-            attrs: {
-              src:
-                "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-1-svg4.svg",
-              alt: "down arrow"
-            }
-          })
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: " relative" }, [
-        _c(
-          "ul",
-          {
-            staticClass:
-              " hidden font-normal text-base leading-4 absolute top-2  w-full rounded shadow-md",
-            attrs: { id: "list" }
-          },
-          [
-            _c(
-              "li",
-              {
-                staticClass:
-                  "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
-                attrs: { onclick: "selectedSmall()" }
-              },
-              [
-                _vm._v(
-                  "\n                            Arts\n                        "
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                staticClass:
-                  "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
-                attrs: { onclick: "selectedSmall()" }
-              },
-              [
-                _vm._v(
-                  "\n                            Space\n                        "
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                staticClass:
-                  "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
-                attrs: { onclick: "selectedSmall()" }
-              },
-              [
-                _vm._v(
-                  "\n                            Game\n                        "
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                staticClass:
-                  "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
-                attrs: { onclick: "selectedSmall()" }
-              },
-              [
-                _vm._v(
-                  "\n                            Utility\n                        "
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                staticClass:
-                  "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal",
-                attrs: { onclick: "selectedSmall()" }
-              },
-              [
-                _vm._v(
-                  "\n                            Cards\n                        "
-                )
-              ]
-            )
-          ]
-        )
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -84421,7 +84440,7 @@ var render = function() {
     _c("div", { staticClass: "bg-gray-50 dark:bg-gray-800 " }, [
       _c(
         "nav",
-        { staticClass: "2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-5 px-4" },
+        { staticClass: "2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-3 px-4" },
         [
           _c("div", { staticClass: "flex justify-between " }, [
             _vm._m(0),

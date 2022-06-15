@@ -2,7 +2,7 @@
     <div>
         <div class="2xl:container 2xl:mx-auto">
             <div
-                class="bg-gray-50 dark:bg-gray-800  rounded shadow-lg py-5 px-7"
+                class="bg-gray-50 dark:bg-gray-800  rounded shadow-lg py-2 sm:py-5 px-2 sm:px-7"
             >
                 <nav class="flex justify-between">
                     <!-- <div class="flex items-center space-x-3 lg:pr-16 pr-6">
@@ -10,7 +10,7 @@
                         <h2 class="font-normal text-2xl leading-6 text-gray-800 dark:text-white ">OvonRueden</h2>
                     </div> -->
                     <div
-                        class=" flex space-x-5 justify-center  items-center pl-2"
+                        class="hidden sm:flex space-x-5 justify-center  items-center pl-2"
                     >
                         <a
                             href="tel:254112047733"
@@ -57,7 +57,7 @@
                         </ul>
                     </div>
                     <div
-                        class="flex space-x-5 justify-center  items-center pr-6"
+                        class="hidden sm:flex space-x-5 justify-center  items-center pr-6"
                     >
                         <a
                             href="mailto:support@biddersportal.com"
@@ -68,9 +68,9 @@
                 </nav>
                 <!-- for smaller devcies -->
 
-                <div class="block md:hidden w-full mt-5 ">
+                <div class="block md:hidden w-full sm:mt-5 mt-2">
                     <div
-                        onclick="selectNew()"
+                        @click="openMenu = !openMenu"
                         class="cursor-pointer px-4 py-3 text-white bg-indigo-600 rounded flex justify-between items-center w-full"
                     >
                         <div class="flex space-x-2">
@@ -81,9 +81,9 @@
                             </span>
                             <p
                                 id="textClicked"
-                                class="font-normal text-sm leading-3 focus:outline-none hover:bg-gray-800 duration-100 cursor-pointer "
+                                class="capitalize font-heading-font text-xl font-extrabold leading-3 focus:outline-none hover:bg-gray-800 duration-100 cursor-pointer "
                             >
-                                Collections
+                                {{ currentMenu }}
                             </p>
                         </div>
                         <img
@@ -91,40 +91,38 @@
                             alt="down arrow"
                         />
                     </div>
-                    <div class=" relative">
+                    <div v-if="openMenu" class=" relative">
                         <ul
                             id="list"
-                            class=" hidden font-normal text-base leading-4 absolute top-2  w-full rounded shadow-md"
+                            class="font-heading-font text-xl font-extrabold leading-4 absolute top-2  w-full rounded shadow-md"
                         >
                             <li
-                                onclick="selectedSmall()"
-                                class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal"
+                                v-if="this.activeMenu != 'landing'"
+                                onclick="selectedMenu('landing')"
+                                class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold"
                             >
-                                Arts
+                                Home
                             </li>
                             <li
-                                onclick="selectedSmall()"
-                                class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal"
+                                v-if="this.activeMenu != 'listing'"
+                                @click="selectedMenu('listing')"
+                                class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold"
                             >
-                                Space
+                                Tender Listing
                             </li>
                             <li
-                                onclick="selectedSmall()"
-                                class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal"
+                                v-if="this.activeMenu != 'blogs'"
+                                onclick="selectedMenu('blogs')"
+                                class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold"
                             >
-                                Game
+                                Blogs
                             </li>
                             <li
-                                onclick="selectedSmall()"
-                                class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal"
+                                v-if="this.activeMenu != 'about'"
+                                onclick="selectedMenu('about')"
+                                class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold"
                             >
-                                Utility
-                            </li>
-                            <li
-                                onclick="selectedSmall()"
-                                class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal"
-                            >
-                                Cards
+                                About & Contacts
                             </li>
                         </ul>
                     </div>
@@ -142,8 +140,15 @@ export default {
     },
     data() {
         return {
-            activeMenu: ""
+            activeMenu: "landing",
+            openMenu: "",
+            currentMenu: "Home"
         };
+    },
+    mounted() {
+        console.log(route().current());
+
+        this.activeMenu = this.$route.name;
     },
     watch: {},
     computed: {
@@ -166,11 +171,18 @@ export default {
                     }
                 });
         },
-        selected(value) {
-            console.log(value);
+        selectedMenu(value) {
             this.activeMenu = value;
-            route("landing");
-            //   route(`${value}`)
+            // route("landing");
+            this.$inertia.get(value);
+            if (value == "listing") {
+                this.currentMenu = "Tender Listings";
+            } else if (value == "blogs") {
+                this.currentMenu = "Blogs";
+            } else if (value == "about") {
+                this.currentMenu = "About & Contacts";
+            }
+            // route(`${value}`);
         }
     }
 };

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="bg-gray-50 dark:bg-gray-800 ">
-            <nav class="2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-5 px-4">
+            <nav class="2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-3 px-4">
                 <!-- For large and Medium-sized Screen -->
                 <div class="flex justify-between ">
                     <div class="hidden sm:flex flex-row items-center space-x-6">
