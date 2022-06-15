@@ -122,7 +122,7 @@
                             </div>
 
                             <div
-                                class="mt-10 flex justify-end pt-6 border-t border-gray-200"
+                                class="hidden sm:flex mt-10  justify-end pt-6 border-t border-gray-200"
                             >
                                 <!-- <button
                                     @click="stkPush"
@@ -229,61 +229,6 @@
                                         </div>
                                     </div>
 
-                                    <!-- <div class="mt-10">
-                                        <h3
-                                            id="payment-heading"
-                                            class="text-lg font-extrabold text-gray-900"
-                                        >
-                                            Payment information
-                                        </h3>
-
-                                        <div
-                                            class="grid grid-cols-3 sm:grid-cols-4 gap-y-6 gap-x-4"
-                                        >
-                                            <div
-                                                class="col-span-3 sm:col-span-4 shadow-2xl"
-                                            >
-                                                <label
-                                                    for="card-number"
-                                                    class="block text-sm font-medium text-gray-700"
-                                                    >Mpesa / Payment
-                                                    Number</label
-                                                >
-                                                <div class="mt-1">
-                                                    <input
-                                                        v-model="form.number"
-                                                        required
-                                                        placeholder="254 7XX XXX XXX (Number to make the payment) "
-                                                        type="number"
-                                                        id="email-address"
-                                                        name="email-address"
-                                                        class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                                    />
-                                                </div>
-                                            </div>
-
-                                            <div
-                                                class="col-span-3 sm:col-span-4 shadow-2xl"
-                                            >
-                                                <label
-                                                    for="card-number"
-                                                    class="block text-sm font-medium text-gray-700"
-                                                    >Mpesa Account Name</label
-                                                >
-                                                <div class="mt-1">
-                                                    <input
-                                                        v-model="form.account"
-                                                        disabled
-                                                        type="text"
-                                                        id="email-address"
-                                                        name="email-address"
-                                                        class="h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
-
                                     <div class="mt-10">
                                         <div class="mt-6 flex items-center">
                                             <input
@@ -305,12 +250,27 @@
                                     </div>
                                 </div>
                             </form>
+                            <div class="flex justify-center pt-10 sm:hidden">
+                                <button
+                                    @click="invoice(post)"
+                                    type="submit"
+                                    class="font-primary-font bg-indigo-800 border border-transparent rounded-md shadow-sm py-2 px-4 text-lg font-bold text-white hover:bg-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                                >
+                                    Proceed to Payment
+                                    <i
+                                        class="fas fa-caret-right ml-2 fa-lg text-white-500"
+                                    ></i>
+                                    <i
+                                        class="fas fa-caret-right fa-lg text-white-500"
+                                    ></i>
+                                </button>
+                            </div>
                         </section>
                     </main>
                 </div>
             </div>
 
-            <MainFooter />
+            <!-- <MainFooter /> -->
 
             <div
                 v-if="paymentModal"
