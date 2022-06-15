@@ -32,7 +32,7 @@
                     >
                         <!-- <img class="p-1 dark:bg-white rounded-full" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg5.svg" alt="circle" /> -->
                         <h1
-                            class=" font-bold-font text-6xl leading-6 text-indigo-700 dark:text-white "
+                            class="font-bold-font text-4xl sm:text-6xl leading-6 text-indigo-700 dark:text-white "
                         >
                             Bidders Portal
                         </h1>
@@ -60,6 +60,7 @@
 
                     <!-- Burger Icon -->
                     <div
+                        @click="openMenu = !openMenu"
                         id="bgIcon"
                         onclick="toggleMenu()"
                         class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800  flex justify-center items-center sm:hidden cursor-pointer"
@@ -78,34 +79,10 @@
                 </div>
 
                 <!-- Mobile and small-screen devices (toggle Menu) -->
-                <div
-                    id="MobileNavigation"
-                    class="hidden sm:hidden mt-4 mx-auto"
-                >
-                    <div
-                        class="flex flex-row items-center justify-center space-x-6"
-                    >
-                        <img
-                            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg1.svg"
-                            alt="twitter"
-                        />
-                        <img
-                            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg2.svg"
-                            alt="facebook"
-                        />
-                        <img
-                            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg3.svg"
-                            alt="linkdin"
-                        />
-                        <img
-                            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg4.svg"
-                            alt="instagram"
-                        />
-                    </div>
-
+                <div v-if="openMenu" id="MobileNavigation" class="mt-4 mx-auto">
                     <div class="flex flex-col gap-4 mt-4 w-80 mx-auto ">
                         <!-- <a v-if="this.$page.props.auth.user" :href="route('dashboard')" class="rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center" >Dashboard</a> -->
-                        <div>
+                        <div class="grid grid-cols-2 gap-4">
                             <a
                                 :href="route('register')"
                                 class="rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-indigo-700 bg-indigo-600 bg-opacity-0 hover:opacity-100 duration-100 border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center"
@@ -134,7 +111,9 @@ export default {
     //     user: Object,
     //   },
     data() {
-        return {};
+        return {
+            openMenu: false
+        };
     },
     mounted() {},
     watch: {},

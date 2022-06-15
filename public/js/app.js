@@ -9967,29 +9967,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "TopBanner",
   components: {//   Categories,
@@ -9998,7 +9975,9 @@ __webpack_require__.r(__webpack_exports__);
   //     user: Object,
   //   },
   data: function data() {
-    return {};
+    return {
+      openMenu: false
+    };
   },
   mounted: function mounted() {},
   watch: {},
@@ -84458,7 +84437,7 @@ var render = function() {
                   "h1",
                   {
                     staticClass:
-                      " font-bold-font text-6xl leading-6 text-indigo-700 dark:text-white "
+                      "font-bold-font text-4xl sm:text-6xl leading-6 text-indigo-700 dark:text-white "
                   },
                   [
                     _vm._v(
@@ -84511,47 +84490,78 @@ var render = function() {
                   ]
                 ),
             _vm._v(" "),
-            _vm._m(1)
+            _c(
+              "div",
+              {
+                staticClass:
+                  "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800  flex justify-center items-center sm:hidden cursor-pointer",
+                attrs: { id: "bgIcon", onclick: "toggleMenu()" },
+                on: {
+                  click: function($event) {
+                    _vm.openMenu = !_vm.openMenu
+                  }
+                }
+              },
+              [
+                _c("img", {
+                  staticClass: "dark:bg-white",
+                  attrs: {
+                    src:
+                      "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg6.svg",
+                    alt: "burger"
+                  }
+                }),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "dark:bg-white hidden",
+                  attrs: {
+                    src:
+                      "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg7.svg",
+                    alt: "cross"
+                  }
+                })
+              ]
+            )
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "hidden sm:hidden mt-4 mx-auto",
-              attrs: { id: "MobileNavigation" }
-            },
-            [
-              _vm._m(2),
-              _vm._v(" "),
-              _c(
+          _vm.openMenu
+            ? _c(
                 "div",
-                { staticClass: "flex flex-col gap-4 mt-4 w-80 mx-auto " },
+                {
+                  staticClass: "mt-4 mx-auto",
+                  attrs: { id: "MobileNavigation" }
+                },
                 [
-                  _c("div", [
-                    _c(
-                      "a",
-                      {
-                        staticClass:
-                          "rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-indigo-700 bg-indigo-600 bg-opacity-0 hover:opacity-100 duration-100 border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center",
-                        attrs: { href: _vm.route("register") }
-                      },
-                      [_vm._v("Sign Up")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass:
-                          "rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center",
-                        attrs: { href: _vm.route("login") }
-                      },
-                      [_vm._v("Sign In")]
-                    )
-                  ])
+                  _c(
+                    "div",
+                    { staticClass: "flex flex-col gap-4 mt-4 w-80 mx-auto " },
+                    [
+                      _c("div", { staticClass: "grid grid-cols-2 gap-4" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-indigo-700 bg-indigo-600 bg-opacity-0 hover:opacity-100 duration-100 border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center",
+                            attrs: { href: _vm.route("register") }
+                          },
+                          [_vm._v("Sign Up")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center",
+                            attrs: { href: _vm.route("login") }
+                          },
+                          [_vm._v("Sign In")]
+                        )
+                      ])
+                    ]
+                  )
                 ]
               )
-            ]
-          )
+            : _vm._e()
         ]
       )
     ])
@@ -84599,80 +84609,6 @@ var staticRenderFns = [
         _c("img", {
           staticClass:
             "bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer",
-          attrs: {
-            src:
-              "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg4.svg",
-            alt: "instagram"
-          }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800  flex justify-center items-center sm:hidden cursor-pointer",
-        attrs: { id: "bgIcon", onclick: "toggleMenu()" }
-      },
-      [
-        _c("img", {
-          staticClass: "dark:bg-white",
-          attrs: {
-            src:
-              "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg6.svg",
-            alt: "burger"
-          }
-        }),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "dark:bg-white hidden",
-          attrs: {
-            src:
-              "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg7.svg",
-            alt: "cross"
-          }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "flex flex-row items-center justify-center space-x-6" },
-      [
-        _c("img", {
-          attrs: {
-            src:
-              "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg1.svg",
-            alt: "twitter"
-          }
-        }),
-        _vm._v(" "),
-        _c("img", {
-          attrs: {
-            src:
-              "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg2.svg",
-            alt: "facebook"
-          }
-        }),
-        _vm._v(" "),
-        _c("img", {
-          attrs: {
-            src:
-              "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg3.svg",
-            alt: "linkdin"
-          }
-        }),
-        _vm._v(" "),
-        _c("img", {
           attrs: {
             src:
               "https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg4.svg",

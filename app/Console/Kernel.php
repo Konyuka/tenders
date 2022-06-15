@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\TaskCron::class,
+        'App\Console\Commands\TaskCron'
     ];
 
     /**
@@ -26,7 +27,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('task:cron')
-                 ->dailyAt('1:35');
+                 ->dailyAt('1:50');
     }
 
     /**
