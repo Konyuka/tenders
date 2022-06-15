@@ -7524,6 +7524,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MainFooter",
   components: {//   Categories,
@@ -7704,6 +7717,8 @@ __webpack_require__.r(__webpack_exports__);
         this.currentMenu = "Blogs";
       } else if (value == "about") {
         this.currentMenu = "About & Contacts";
+      } else if (value == "landing") {
+        this.currentMenu = "Home";
       }
     }
   },
@@ -7730,7 +7745,11 @@ __webpack_require__.r(__webpack_exports__);
     selectedMenu: function selectedMenu(value) {
       this.activeMenu = value; // route("landing");
 
-      this.$inertia.get(value);
+      if (value == "landing") {
+        window.location = "/";
+      } else {
+        this.$inertia.get(value);
+      }
 
       if (value == "listing") {
         this.currentMenu = "Tender Listings";
@@ -7738,6 +7757,8 @@ __webpack_require__.r(__webpack_exports__);
         this.currentMenu = "Blogs";
       } else if (value == "about") {
         this.currentMenu = "About & Contacts";
+      } else if (value == "landing") {
+        this.currentMenu = "Home";
       } // route(`${value}`);
 
     }
@@ -9887,7 +9908,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -80425,8 +80445,31 @@ var staticRenderFns = [
                 _c("a", { attrs: { href: "https://flowbite.com" } }, [
                   _vm._v("Bidders Portal™")
                 ]),
+                _vm._v(".\n                "),
+                _c("br", { staticClass: "flex sm:hidden" }),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "flex sm:hidden text-sm text-gray-800 sm:text-center"
+                  },
+                  [
+                    _vm._v("Designed with\n                    "),
+                    _c("i", { staticClass: "fas fa-heart text-red-600" }),
+                    _vm._v(" by"),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "underline",
+                        attrs: { href: "mailto:michaelsaiba84@gmail.com" }
+                      },
+                      [_vm._v("\n                        Michael Saiba.")]
+                    )
+                  ]
+                ),
                 _vm._v(
-                  ".\n                All Rights Reserved\n                "
+                  "\n                All Rights Reserved\n                "
                 ),
                 _c("span", { staticClass: "text-gray-500 font-extrabold" }, [
                   _vm._v("OCHANGABERG LTD ")
@@ -80437,7 +80480,10 @@ var staticRenderFns = [
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "flex mt-4 space-x-6 sm:justify-center md:mt-0" },
+              {
+                staticClass:
+                  "hidden sm:flex mt-4 space-x-6 sm:justify-center md:mt-0"
+              },
               [
                 _c(
                   "span",
@@ -80622,7 +80668,11 @@ var render = function() {
                             {
                               staticClass:
                                 "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold",
-                              attrs: { onclick: "selectedMenu('landing')" }
+                              on: {
+                                click: function($event) {
+                                  return _vm.selectedMenu("landing")
+                                }
+                              }
                             },
                             [
                               _vm._v(
@@ -80658,7 +80708,11 @@ var render = function() {
                             {
                               staticClass:
                                 "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold",
-                              attrs: { onclick: "selectedMenu('blogs')" }
+                              on: {
+                                click: function($event) {
+                                  return _vm.selectedMenu("blogs")
+                                }
+                              }
                             },
                             [
                               _vm._v(
@@ -80674,7 +80728,11 @@ var render = function() {
                             {
                               staticClass:
                                 "px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold",
-                              attrs: { onclick: "selectedMenu('about')" }
+                              on: {
+                                click: function($event) {
+                                  return _vm.selectedMenu("about")
+                                }
+                              }
                             },
                             [
                               _vm._v(
@@ -84524,7 +84582,7 @@ var render = function() {
               {
                 staticClass:
                   "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800  flex justify-center items-center sm:hidden cursor-pointer",
-                attrs: { id: "bgIcon", onclick: "toggleMenu()" },
+                attrs: { id: "bgIcon" },
                 on: {
                   click: function($event) {
                     _vm.openMenu = !_vm.openMenu

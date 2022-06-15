@@ -29,12 +29,25 @@
             >
                 <span class="text-sm text-gray-800 sm:text-center"
                     >© 2022 <a href="https://flowbite.com">Bidders Portal™</a>.
+                    <br class="flex sm:hidden" />
+                    <span
+                        class="flex sm:hidden text-sm text-gray-800 sm:text-center"
+                        >Designed with
+                        <i class="fas fa-heart text-red-600"></i> by<a
+                            href="mailto:michaelsaiba84@gmail.com"
+                            class="underline"
+                        >
+                            Michael Saiba.</a
+                        >
+                    </span>
                     All Rights Reserved
                     <span class="text-gray-500 font-extrabold"
                         >OCHANGABERG LTD </span
                     >.
                 </span>
-                <div class="flex mt-4 space-x-6 sm:justify-center md:mt-0">
+                <div
+                    class="hidden sm:flex mt-4 space-x-6 sm:justify-center md:mt-0"
+                >
                     <span class="text-sm text-gray-800 sm:text-center"
                         >Designed with
                         <i class="fas fa-heart text-red-600"></i> by<a

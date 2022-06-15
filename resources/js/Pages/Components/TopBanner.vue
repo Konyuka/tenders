@@ -62,7 +62,6 @@
                     <div
                         @click="openMenu = !openMenu"
                         id="bgIcon"
-                        onclick="toggleMenu()"
                         class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800  flex justify-center items-center sm:hidden cursor-pointer"
                     >
                         <img

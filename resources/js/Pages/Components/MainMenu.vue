@@ -98,7 +98,7 @@
                         >
                             <li
                                 v-if="this.activeMenu != 'landing'"
-                                onclick="selectedMenu('landing')"
+                                @click="selectedMenu('landing')"
                                 class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold"
                             >
                                 Home
@@ -112,14 +112,14 @@
                             </li>
                             <li
                                 v-if="this.activeMenu != 'blogs'"
-                                onclick="selectedMenu('blogs')"
+                                @click="selectedMenu('blogs')"
                                 class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold"
                             >
                                 Blogs
                             </li>
                             <li
                                 v-if="this.activeMenu != 'about'"
-                                onclick="selectedMenu('about')"
+                                @click="selectedMenu('about')"
                                 class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold"
                             >
                                 About & Contacts
@@ -158,6 +158,8 @@ export default {
                 this.currentMenu = "Blogs";
             } else if (value == "about") {
                 this.currentMenu = "About & Contacts";
+            } else if (value == "landing") {
+                this.currentMenu = "Home";
             }
         }
     },
@@ -184,13 +186,19 @@ export default {
         selectedMenu(value) {
             this.activeMenu = value;
             // route("landing");
-            this.$inertia.get(value);
+            if (value == "landing") {
+                window.location = "/";
+            } else {
+                this.$inertia.get(value);
+            }
             if (value == "listing") {
                 this.currentMenu = "Tender Listings";
             } else if (value == "blogs") {
                 this.currentMenu = "Blogs";
             } else if (value == "about") {
                 this.currentMenu = "About & Contacts";
+            } else if (value == "landing") {
+                this.currentMenu = "Home";
             }
             // route(`${value}`);
         }
