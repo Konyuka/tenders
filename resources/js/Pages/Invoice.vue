@@ -71,7 +71,7 @@
 
                 <div>
                     <h1
-                        class="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-white"
+                        class="text-xl sm:text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-white"
                     >
                         Invoice Number
                         <span class="text-white">{{ invoiceNumber }}</span>
@@ -110,7 +110,7 @@
                                     class="w-full flex flex-col justify-start items-start space-y-8"
                                 >
                                     <h3
-                                        class="text-xl dark:text-white xl:text-xl font-semibold leading-6 text-gray-800"
+                                        class="text-lg sm:text-xl dark:text-white xl:text-xl font-semibold leading-6 text-gray-800"
                                     >
                                         {{ post.tender_brief }}
                                     </h3>
@@ -297,7 +297,7 @@
                     </div>
                 </div>
                 <div
-                    class="bg-gray-50 dark:bg-gray-800 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col"
+                    class="hidden sm:flex bg-gray-50 dark:bg-gray-800 w-full xl:w-96  justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col"
                 >
                     <h3
                         class="text-xl dark:text-white font-semibold leading-5 text-gray-800"
@@ -416,12 +416,13 @@
                                     >
                                         <button
                                             @click="stkPush"
-                                            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-green-700 bg-indigo-700 rounded text-white px-4 py-2 text-xs"
+                                            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-green-700 bg-indigo-700 rounded text-white px-2 sm:px-4 py-2 text-xs"
                                         >
                                             Make Payment
                                         </button>
                                         <button
-                                            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-red-600 bg-red-400 rounded text-white px-4 py-2 text-xs"
+                                            @click="paymentModal == false"
+                                            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-red-600 bg-red-400 rounded text-white px-2 sm:px-4 py-2 text-xs"
                                         >
                                             Cancel Transaction
                                         </button>
