@@ -81603,7 +81603,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "mx-5 rounded-lg" }, [
-    _c("div", { staticClass: "bg-gray-50 mt-5 rounded-lg" }, [
+    _c("div", { staticClass: "bg-gray-50 mt-10 sm:mt-5 rounded-lg" }, [
       _c("div", { staticClass: "relative bg-white" }, [
         _c("div", {
           staticClass:
@@ -81639,7 +81639,7 @@ var render = function() {
                   "a",
                   {
                     staticClass:
-                      "hover:bg-indigo-500 transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12",
+                      " hover:bg-indigo-500 transition transform hover:scale-75 duration-700 bg-white sm:bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12",
                     attrs: { href: "" },
                     on: {
                       click: function($event) {
@@ -81657,7 +81657,7 @@ var render = function() {
                       "ul",
                       {
                         staticClass:
-                          "border-indigo-500 divide-indigo-500 divide-opacity-75 mt-7 border-t divide-y lg:border-t-0 mb-10",
+                          "border-indigo-500 divide-indigo-500 divide-opacity-75 mt-7 border-b sm:border-t divide-y lg:border-t-0 mb-10",
                         attrs: { role: "list" }
                       },
                       [
@@ -81689,7 +81689,8 @@ var render = function() {
                           _c(
                             "span",
                             {
-                              staticClass: "text-white ml-3 text-sm font-medium"
+                              staticClass:
+                                "text-gray-700 sm:text-white ml-3 text-sm font-medium"
                             },
                             [
                               _vm._v(
@@ -81725,7 +81726,7 @@ var render = function() {
                       "ul",
                       {
                         staticClass:
-                          "border-gray-200 divide-gray-200 mt-7 border-t divide-y lg:border-t-0 mb-10",
+                          "border-indigo-500 divide-gray-200 mt-7 border-b sm:border-t divide-y lg:border-t-0 mb-10",
                         attrs: { role: "list" }
                       },
                       [
@@ -81776,7 +81777,7 @@ var render = function() {
                   "a",
                   {
                     staticClass:
-                      "hover:bg-indigo-500 hover:text-black transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12",
+                      "hover:bg-indigo-500 hover:text-black transition transform hover:scale-75 duration-700 bg-white sm:bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12",
                     attrs: { href: "" },
                     on: {
                       click: function($event) {
@@ -81794,7 +81795,7 @@ var render = function() {
                       "ul",
                       {
                         staticClass:
-                          "border-indigo-500 divide-indigo-500 divide-opacity-75 mt-7 border-t divide-y lg:border-t-0 mb-10",
+                          "border-indigo-500 divide-indigo-500 divide-opacity-75 mt-7 border-b sm:border-t divide-y lg:border-t-0 mb-10",
                         attrs: { role: "list" }
                       },
                       [
@@ -81826,7 +81827,8 @@ var render = function() {
                           _c(
                             "span",
                             {
-                              staticClass: "text-white ml-3 text-sm font-medium"
+                              staticClass:
+                                "text-gray-700 sm:text-white ml-3 text-sm font-medium"
                             },
                             [
                               _vm._v(
@@ -81848,7 +81850,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "section",
-      { staticClass: "pt-20 pb-24 2xl:py-40 bg-white rounded-3xl" },
+      { staticClass: "pt-10 sm:pt-20 pb-24 2xl:py-40 bg-white rounded-3xl" },
       [
         _c("div", { staticClass: "mx-auto px-1" }, [
           _vm._m(4),
@@ -82447,7 +82449,7 @@ var render = function() {
                 "button",
                 {
                   staticClass:
-                    "transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3",
+                    "transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3 mb-8",
                   on: {
                     click: function($event) {
                       return _vm.membership("platinum")
@@ -83305,7 +83307,7 @@ var staticRenderFns = [
           ]
         ),
         _vm._v(" "),
-        _c("p", { staticClass: "mt-4 text-xl text-gray-400" }, [
+        _c("p", { staticClass: "mt-4 text-md sm:text-xl text-gray-400" }, [
           _vm._v(
             "\n                    Everything you need, nothing you don't.\n                "
           )
@@ -83322,7 +83324,7 @@ var staticRenderFns = [
         "h3",
         {
           staticClass:
-            "text-white text-sm font-semibold uppercase tracking-wide"
+            "text-gray-700 sm:text-white  text-sm font-semibold uppercase tracking-wide"
         },
         [
           _vm._v(
@@ -83342,7 +83344,8 @@ var staticRenderFns = [
             _c(
               "p",
               {
-                staticClass: "text-white text-4xl font-extrabold tracking-tight"
+                staticClass:
+                  "text-gray-700 sm:text-white text-4xl font-extrabold tracking-tight"
               },
               [
                 _vm._v(
@@ -83407,7 +83410,7 @@ var staticRenderFns = [
         "h3",
         {
           staticClass:
-            "text-white text-sm font-semibold uppercase tracking-wide"
+            "text-gray-700 sm:text-white text-sm font-semibold uppercase tracking-wide"
         },
         [
           _vm._v(
@@ -83427,7 +83430,8 @@ var staticRenderFns = [
             _c(
               "p",
               {
-                staticClass: "text-white text-4xl font-extrabold tracking-tight"
+                staticClass:
+                  "text-gray-700 sm:text-white text-4xl font-extrabold tracking-tight"
               },
               [
                 _vm._v(
@@ -83589,54 +83593,58 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-indigo-700 mt-10 mx-10 rounded-3xl" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8"
-        },
-        [
-          _c(
-            "h2",
-            { staticClass: "text-3xl font-extrabold text-white sm:text-4xl" },
-            [
-              _c("span", { staticClass: "block" }, [
-                _vm._v("Simplicity in productivity\n                    "),
-                _c("i", { staticClass: "fas fa-thumbs-up" })
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "block" }, [
-                _vm._v("Explore Bidders Portal today.")
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "p",
-            {
-              staticClass:
-                "mt-4 text-lg leading-6 text-indigo-200 font-heading-font"
-            },
-            [
-              _vm._v(
-                "\n                We focus on bringing you closer and invested in your market\n                niche. There are millions of tenders awaiting and we ensure\n                that you\n            "
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass:
-                "mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-bold rounded-md text-gray-500 hover:text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto font-heading-font transform transition hover:scale-125 duration-700 hover:shadow-2xl",
-              attrs: { href: "#" }
-            },
-            [_vm._v("\n                Sign up for free\n            ")]
-          )
-        ]
-      )
-    ])
+    return _c(
+      "div",
+      { staticClass: "bg-indigo-700 mt-10 mx-2 sm:mx-10 rounded-3xl" },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8"
+          },
+          [
+            _c(
+              "h2",
+              { staticClass: "text-3xl font-extrabold text-white sm:text-4xl" },
+              [
+                _c("span", { staticClass: "block" }, [
+                  _vm._v("Simplicity in productivity\n                    "),
+                  _c("i", { staticClass: "fas fa-thumbs-up" })
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "block" }, [
+                  _vm._v("Explore Bidders Portal today.")
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "p",
+              {
+                staticClass:
+                  "mt-4 text-lg leading-6 text-indigo-200 font-heading-font"
+              },
+              [
+                _vm._v(
+                  "\n                We focus on bringing you closer and invested in your market\n                niche. There are millions of tenders awaiting and we ensure\n                that you\n            "
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass:
+                  "mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-bold rounded-md text-gray-500 hover:text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto font-heading-font transform transition hover:scale-125 duration-700 hover:shadow-2xl",
+                attrs: { href: "#" }
+              },
+              [_vm._v("\n                Sign up for free\n            ")]
+            )
+          ]
+        )
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -83655,7 +83663,7 @@ var staticRenderFns = [
               "h1",
               {
                 staticClass:
-                  "mb-2 text-5xl lg:text-6xl 2xl:text-7xl text-gray-700 font-bold font-heading font-heading-font"
+                  "mb-2 text-3xl sm:text-5xl lg:text-6xl 2xl:text-7xl text-gray-700 font-bold font-heading font-heading-font"
               },
               [
                 _vm._v(
@@ -83702,7 +83710,7 @@ var staticRenderFns = [
                       "h2",
                       {
                         staticClass:
-                          "focus:outline-none text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font",
+                          "focus:outline-none text-xl sm:text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font",
                         attrs: { tabindex: "0" }
                       },
                       [
@@ -83719,7 +83727,7 @@ var staticRenderFns = [
                 "div",
                 {
                   staticClass:
-                    "focus:outline-none flex ml-20 sm:w-full md:w-5/12 pb-20",
+                    "focus:outline-none flex sm:ml-20 sm:w-full md:w-5/12 pb-20",
                   attrs: { tabindex: "0", "aria-label": "card 1" }
                 },
                 [
@@ -83744,7 +83752,7 @@ var staticRenderFns = [
                       "h2",
                       {
                         staticClass:
-                          "focus:outline-none text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font",
+                          "focus:outline-none text-xl sm:text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font",
                         attrs: { tabindex: "0" }
                       },
                       [
@@ -83786,7 +83794,7 @@ var staticRenderFns = [
                       "h2",
                       {
                         staticClass:
-                          "focus:outline-none text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font",
+                          "focus:outline-none text-xl sm:text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font",
                         attrs: { tabindex: "0" }
                       },
                       [
@@ -83803,7 +83811,7 @@ var staticRenderFns = [
                 "div",
                 {
                   staticClass:
-                    "focus:outline-none flex ml-20 sm:w-full md:w-5/12 pb-20",
+                    "focus:outline-none flex sm:ml-20 sm:w-full md:w-5/12 pb-20",
                   attrs: { tabindex: "0", "aria-label": "card 1" }
                 },
                 [
@@ -83828,7 +83836,7 @@ var staticRenderFns = [
                       "h2",
                       {
                         staticClass:
-                          "focus:outline-none text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font",
+                          "focus:outline-none text-xl sm:text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font",
                         attrs: { tabindex: "0" }
                       },
                       [
@@ -83870,7 +83878,7 @@ var staticRenderFns = [
                       "h2",
                       {
                         staticClass:
-                          "focus:outline-none text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font",
+                          "focus:outline-none text-xl sm:text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font",
                         attrs: { tabindex: "0" }
                       },
                       [
@@ -83887,7 +83895,7 @@ var staticRenderFns = [
                 "div",
                 {
                   staticClass:
-                    "focus:outline-none flex ml-20 sm:w-full md:w-5/12 pb-20",
+                    "focus:outline-none flex sm:ml-20 sm:w-full md:w-5/12 pb-20",
                   attrs: { tabindex: "0", "aria-label": "card 1" }
                 },
                 [
@@ -83912,7 +83920,7 @@ var staticRenderFns = [
                       "h2",
                       {
                         staticClass:
-                          "focus:outline-none text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font",
+                          "focus:outline-none text-xl sm:text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font",
                         attrs: { tabindex: "0" }
                       },
                       [
@@ -83954,7 +83962,7 @@ var staticRenderFns = [
                       "h2",
                       {
                         staticClass:
-                          "focus:outline-none text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font",
+                          "focus:outline-none text-xl sm:text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font",
                         attrs: { tabindex: "0" }
                       },
                       [
@@ -83971,7 +83979,7 @@ var staticRenderFns = [
                 "div",
                 {
                   staticClass:
-                    "focus:outline-none flex ml-20 sm:w-full md:w-5/12 pb-20",
+                    "focus:outline-none flex sm:ml-20 sm:w-full md:w-5/12 pb-20",
                   attrs: { tabindex: "0", "aria-label": "card 1" }
                 },
                 [
@@ -83996,7 +84004,7 @@ var staticRenderFns = [
                       "h2",
                       {
                         staticClass:
-                          "focus:outline-none text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font",
+                          "focus:outline-none text-xl sm:text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font",
                         attrs: { tabindex: "0" }
                       },
                       [

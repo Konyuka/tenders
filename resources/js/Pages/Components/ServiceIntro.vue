@@ -1,6 +1,6 @@
 <template>
     <div class="mx-5 rounded-lg">
-        <div class="bg-gray-50 mt-5 rounded-lg">
+        <div class="bg-gray-50 mt-10 sm:mt-5 rounded-lg">
             <div class="relative bg-white">
                 <!-- Overlapping background -->
                 <div
@@ -17,7 +17,7 @@
                         <span class="block lg:inline">Simple pricing</span>
                         <!-- <span class="block lg:inline text-gray-600">no commitment.</span> -->
                     </h1>
-                    <p class="mt-4 text-xl text-gray-400">
+                    <p class="mt-4 text-md sm:text-xl text-gray-400">
                         Everything you need, nothing you don't.
                     </p>
                 </div>
@@ -40,11 +40,11 @@
                         <a
                             @click.prevent="pricing('150')"
                             href=""
-                            class="hover:bg-indigo-500 transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
+                            class=" hover:bg-indigo-500 transition transform hover:scale-75 duration-700 bg-white sm:bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
                             <div>
                                 <h3
-                                    class="text-white text-sm font-semibold uppercase tracking-wide"
+                                    class="text-gray-700 sm:text-white  text-sm font-semibold uppercase tracking-wide"
                                 >
                                     Premium Price
                                 </h3>
@@ -53,7 +53,7 @@
                                 >
                                     <div class="mt-3 flex items-center">
                                         <p
-                                            class="text-white text-4xl font-extrabold tracking-tight"
+                                            class="text-gray-700 sm:text-white text-4xl font-extrabold tracking-tight"
                                         >
                                             KES 150
                                         </p>
@@ -67,7 +67,7 @@
                             <h4 class="sr-only">Features</h4>
                             <ul
                                 role="list"
-                                class="border-indigo-500 divide-indigo-500 divide-opacity-75 mt-7 border-t divide-y lg:border-t-0 mb-10"
+                                class="border-indigo-500 divide-indigo-500 divide-opacity-75 mt-7 border-b sm:border-t divide-y lg:border-t-0 mb-10"
                             >
                                 <li class="py-3 flex items-center">
                                     <!-- Heroicon name: solid/check -->
@@ -85,7 +85,7 @@
                                         />
                                     </svg>
                                     <span
-                                        class="text-white ml-3 text-sm font-medium"
+                                        class="text-gray-700 sm:text-white ml-3 text-sm font-medium"
                                         >Fresh Tenders Posted within 10 days
                                         ago</span
                                     >
@@ -124,7 +124,7 @@
                             <h4 class="sr-only">Features</h4>
                             <ul
                                 role="list"
-                                class="border-gray-200 divide-gray-200 mt-7 border-t divide-y lg:border-t-0 mb-10"
+                                class="border-indigo-500 divide-gray-200 mt-7 border-b sm:border-t divide-y lg:border-t-0 mb-10"
                             >
                                 <li class="py-3 flex items-center">
                                     <!-- Heroicon name: solid/check -->
@@ -153,11 +153,11 @@
                         <a
                             @click.prevent="pricing('50')"
                             href=""
-                            class="hover:bg-indigo-500 hover:text-black transition transform hover:scale-75 duration-700 bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
+                            class="hover:bg-indigo-500 hover:text-black transition transform hover:scale-75 duration-700 bg-white sm:bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
                             <div>
                                 <h3
-                                    class="text-white text-sm font-semibold uppercase tracking-wide"
+                                    class="text-gray-700 sm:text-white text-sm font-semibold uppercase tracking-wide"
                                 >
                                     Regular Price
                                 </h3>
@@ -166,7 +166,7 @@
                                 >
                                     <div class="mt-3 flex items-center">
                                         <p
-                                            class="text-white text-4xl font-extrabold tracking-tight"
+                                            class="text-gray-700 sm:text-white text-4xl font-extrabold tracking-tight"
                                         >
                                             KES 50
                                         </p>
@@ -181,7 +181,7 @@
                             <h4 class="sr-only">Features</h4>
                             <ul
                                 role="list"
-                                class="border-indigo-500 divide-indigo-500 divide-opacity-75 mt-7 border-t divide-y lg:border-t-0 mb-10"
+                                class="border-indigo-500 divide-indigo-500 divide-opacity-75 mt-7 border-b sm:border-t divide-y lg:border-t-0 mb-10"
                             >
                                 <li class="py-3 flex items-center">
                                     <!-- Heroicon name: solid/check -->
@@ -199,7 +199,7 @@
                                         />
                                     </svg>
                                     <span
-                                        class="text-white ml-3 text-sm font-medium"
+                                        class="text-gray-700 sm:text-white ml-3 text-sm font-medium"
                                         >Fresh Tenders Posted between 20-30 days
                                         ago</span
                                     >
@@ -211,7 +211,7 @@
             </div>
         </div>
 
-        <section class="pt-20 pb-24 2xl:py-40 bg-white rounded-3xl">
+        <section class="pt-10 sm:pt-20 pb-24 2xl:py-40 bg-white rounded-3xl">
             <div class="mx-auto px-1">
                 <div class="mb-16 md:mb-24 text-center">
                     <h1
@@ -608,7 +608,7 @@
 
                         <button
                             @click="membership('platinum')"
-                            class="transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3"
+                            class="transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3 mb-8"
                         >
                             <div class="px-2 py-16 bg-indigo-700 rounded-3xl">
                                 <div
@@ -864,7 +864,7 @@
             </div>
         </section>
 
-        <div class="bg-indigo-700 mt-10 mx-10 rounded-3xl">
+        <div class="bg-indigo-700 mt-10 mx-2 sm:mx-10 rounded-3xl">
             <div
                 class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8"
             >
@@ -897,7 +897,7 @@
             <div>
                 <div class="mb-8 md:mb-12 text-center">
                     <h1
-                        class="mb-2 text-5xl lg:text-6xl 2xl:text-7xl text-gray-700 font-bold font-heading font-heading-font"
+                        class="mb-2 text-3xl sm:text-5xl lg:text-6xl 2xl:text-7xl text-gray-700 font-bold font-heading font-heading-font"
                     >
                         Services Offered
                     </h1>
@@ -927,7 +927,7 @@
                         <div class="w-10/12 my-6">
                             <h2
                                 tabindex="0"
-                                class="focus:outline-none text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font"
+                                class="focus:outline-none text-xl sm:text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font"
                             >
                                 Daily Tender Alert
                             </h2>
@@ -938,7 +938,7 @@
                     <div
                         tabindex="0"
                         aria-label="card 1"
-                        class="focus:outline-none flex ml-20 sm:w-full md:w-5/12 pb-20"
+                        class="focus:outline-none flex sm:ml-20 sm:w-full md:w-5/12 pb-20"
                     >
                         <div class="w-20 h-20 relative mr-5">
                             <div
@@ -953,7 +953,7 @@
                         <div class="w-10/12 my-6">
                             <h2
                                 tabindex="0"
-                                class="focus:outline-none text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font"
+                                class="focus:outline-none text-xl sm:text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font"
                             >
                                 Tender Analysis
                             </h2>
@@ -979,7 +979,7 @@
                         <div class="w-10/12 my-6">
                             <h2
                                 tabindex="0"
-                                class="focus:outline-none text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font"
+                                class="focus:outline-none text-xl sm:text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font"
                             >
                                 Tender Data in Excel
                             </h2>
@@ -990,7 +990,7 @@
                     <div
                         tabindex="0"
                         aria-label="card 1"
-                        class="focus:outline-none flex ml-20 sm:w-full md:w-5/12 pb-20"
+                        class="focus:outline-none flex sm:ml-20 sm:w-full md:w-5/12 pb-20"
                     >
                         <div class="w-20 h-20 relative mr-5">
                             <div
@@ -1005,7 +1005,7 @@
                         <div class="w-10/12 my-6">
                             <h2
                                 tabindex="0"
-                                class="focus:outline-none text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font"
+                                class="focus:outline-none text-xl sm:text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font"
                             >
                                 Contract Awards
                             </h2>
@@ -1031,7 +1031,7 @@
                         <div class="w-10/12 my-6">
                             <h2
                                 tabindex="0"
-                                class="focus:outline-none text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font"
+                                class="focus:outline-none text-xl sm:text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font"
                             >
                                 Tender Project Information
                             </h2>
@@ -1042,7 +1042,7 @@
                     <div
                         tabindex="0"
                         aria-label="card 1"
-                        class="focus:outline-none flex ml-20 sm:w-full md:w-5/12 pb-20"
+                        class="focus:outline-none flex sm:ml-20 sm:w-full md:w-5/12 pb-20"
                     >
                         <div class="w-20 h-20 relative mr-5">
                             <div
@@ -1057,7 +1057,7 @@
                         <div class="w-10/12 my-6">
                             <h2
                                 tabindex="0"
-                                class="focus:outline-none text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font"
+                                class="focus:outline-none text-xl sm:text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font"
                             >
                                 Bid Consultancy
                             </h2>
@@ -1083,7 +1083,7 @@
                         <div class="w-10/12 my-6">
                             <h2
                                 tabindex="0"
-                                class="focus:outline-none text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font"
+                                class="focus:outline-none text-xl sm:text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font"
                             >
                                 Knowledge Center
                             </h2>
@@ -1094,7 +1094,7 @@
                     <div
                         tabindex="0"
                         aria-label="card 1"
-                        class="focus:outline-none flex ml-20 sm:w-full md:w-5/12 pb-20"
+                        class="focus:outline-none flex sm:ml-20 sm:w-full md:w-5/12 pb-20"
                     >
                         <div class="w-20 h-20 relative mr-5">
                             <div
@@ -1109,7 +1109,7 @@
                         <div class="w-10/12 my-6">
                             <h2
                                 tabindex="0"
-                                class="focus:outline-none text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font"
+                                class="focus:outline-none text-xl sm:text-4xl font-extrabold leading-tight text-gray-800 dark:text-white font-heading-font"
                             >
                                 Dispute Redressal
                             </h2>
@@ -1643,12 +1643,12 @@ export default {
     methods: {
         pricing(value) {
             // this.$inertia.get("pricing", value);
-            this.$parent.spinner = true
+            this.$parent.spinner = true;
             this.$inertia
                 .get(`pricing/${value}`)
                 .then(result => {
                     if (result) {
-                        this.$parent.spinner = false
+                        this.$parent.spinner = false;
                     }
                 })
                 .catch(err => {
