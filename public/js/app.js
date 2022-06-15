@@ -7694,6 +7694,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     console.log(route().current());
+    console.log("me");
     this.activeMenu = this.$route.name;
   },
   watch: {},

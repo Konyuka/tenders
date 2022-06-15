@@ -147,6 +147,7 @@ export default {
     },
     mounted() {
         console.log(route().current());
+        console.log("me");
 
         this.activeMenu = this.$route.name;
     },
