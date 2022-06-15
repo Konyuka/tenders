@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="flex flex-row my-5 mx-5">
-                        <div class="w-4/5 mr-5 min-h-screen">
+                        <div class="sm:w-4/5 w-full sm:mr-5 min-h-screen">
                             <div class="w-full bg-white dark:bg-gray-800">
                                 <div
                                     class="container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 "
@@ -59,7 +59,7 @@
                                 >
                                     <div class="flex justify-between w-full">
                                         <div
-                                            class="font-heading-font font-extrabold"
+                                            class="text-xs sm:text-lg font-heading-font font-extrabold"
                                         >
                                             Posted:
                                             <span
@@ -69,7 +69,7 @@
                                             >
                                         </div>
                                         <div
-                                            class="font-heading-font font-extrabold"
+                                            class="text-xs sm:text-lg font-heading-font font-extrabold"
                                             v-if="expired(post)"
                                         >
                                             Last date of Bid:
@@ -81,7 +81,7 @@
                                         </div>
                                         <div
                                             v-else
-                                            class="font-heading-font font-extrabold"
+                                            class="text-xs sm:text-lg font-heading-font font-extrabold"
                                         >
                                             Last Day of Bid:
                                             <span
@@ -96,14 +96,14 @@
                                     </div>
 
                                     <p
-                                        class="mt-2 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
+                                        class="text-xs sm:text-lg mt-2 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
                                     >
                                         <!-- <span
                                             class="mb-2 inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-lg font-extrabold font-heading-font tracking-widest"
                                         >
                                         </span> -->
                                         <span
-                                            class="rounded bg-indigo-50 text-indigo-500 text-md font-extrabold font-heading-font tracking-widest mr-2"
+                                            class="rounded bg-white sm:bg-indigo-50 text-indigo-500 text-md font-extrabold font-heading-font tracking-widest mr-2"
                                         >
                                             <!-- # {{ i + 1 }} # -->
                                             {{ postNumber(i) }}
@@ -117,7 +117,7 @@
                                         class="flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full"
                                     >
                                         <span
-                                            class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                                            class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none pr-3 py-1 border-r-2 border-gray-200"
                                         >
                                             <i
                                                 class="w-4 h-4 mr-1 fas fa-coins text-indigo-600"
@@ -125,7 +125,7 @@
                                             {{ post.funded_by }}
                                         </span>
                                         <span
-                                            class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                                            class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none pr-3 py-1 border-r-2 border-gray-200"
                                         >
                                             <i
                                                 class="w-4 h-4 mr-1 fas fa-location-crosshairs text-indigo-600"
@@ -190,7 +190,8 @@
                                             @click.prevent="setPageNumber"
                                             href=""
                                             class="rounded bg-gray-200 py-1 px-1 flex items-center text-gray-500 hover:text-indigo-500 cursor-pointer hover:underline"
-                                            ><span class="font-bold"
+                                            ><span
+                                                class="text-sm sm:text-lg font-bold"
                                                 >Jump To Page
                                                 <i
                                                     class="fas fa-caret-right"
@@ -202,7 +203,7 @@
                                     </div>
 
                                     <div
-                                        class="text-gray-500 dark:text-gray-400"
+                                        class="text-xs sm:text-lg text-gray-500 dark:text-gray-400"
                                     >
                                         Page
                                         <span
@@ -212,7 +213,7 @@
                                         >
                                         of
                                         <span
-                                            class="text-indigo-600 font-primary-font ml-1 text-xl"
+                                            class="text-indigo-600 font-primary-font ml-1 text-xs sm:text-xl"
                                             >{{ this.Posts.length }}</span
                                         >
                                         tenders
@@ -264,7 +265,7 @@
                             </div>
                         </div>
 
-                        <div class="p-5 rounded-lg">
+                        <div class="hidden sm:flex  p-5 rounded-lg">
                             <SearchFilter />
                         </div>
                     </div>

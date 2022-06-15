@@ -12,7 +12,7 @@
 
                 <section class="text-gray-600 body-font overflow-hidden">
                     <div class="flex flex-row my-5 mx-2">
-                        <div class="w-4/5 mr-5">
+                        <div class="sm:w-4/5 w-full sm:mr-5">
                             <div class="columns-1">
                                 <a
                                     v-for="post in this.getArray.slice(0, 1)"
@@ -23,7 +23,7 @@
                                     <div class="flex justify-between w-full">
                                         <div class="text-center">
                                             <h1
-                                                class="text-3xl text-gray-600 font-heading-font font-bold mt-0 mb-6"
+                                                class="text-lg sm:text-3xl text-gray-600 font-heading-font font-bold mt-0 mb-6"
                                             >
                                                 Daily
                                                 <span
@@ -34,7 +34,7 @@
                                             </h1>
                                         </div>
                                         <div
-                                            class="font-heading-font font-extrabold"
+                                            class="invisible sm:visible text-xs sm:text-lg font-heading-font font-extrabold"
                                         >
                                             Posted:
                                             <span
@@ -44,7 +44,7 @@
                                             >
                                         </div>
                                         <div
-                                            class="font-heading-font font-extrabold"
+                                            class="invisible sm:visible font-heading-font font-extrabold"
                                             v-if="expired(post)"
                                         >
                                             Last date of Bid:
@@ -56,7 +56,7 @@
                                         </div>
                                         <div
                                             v-else
-                                            class="font-heading-font font-extrabold"
+                                            class="invisible sm:visible font-heading-font font-extrabold"
                                         >
                                             Last Day of Bid:
                                             <span
@@ -70,7 +70,7 @@
                                         </div>
                                     </div>
                                     <p
-                                        class="m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
+                                        class="text-md sm:text-lg m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
                                     >
                                         {{ post.tender_brief }}
                                     </p>
@@ -79,7 +79,7 @@
                                         class="flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full"
                                     >
                                         <span
-                                            class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                                            class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
                                         >
                                             <i
                                                 class="w-4 h-4 mr-1 fas fa-coins text-green-500"
@@ -87,7 +87,7 @@
                                             {{ post.funded_by }}
                                         </span>
                                         <span
-                                            class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                                            class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
                                         >
                                             <i
                                                 class="w-4 h-4 mr-1 fas fa-location-crosshairs text-green-500"
@@ -125,7 +125,7 @@
                                 >
                                     <div class="flex justify-between w-full">
                                         <div
-                                            class="font-heading-font font-extrabold"
+                                            class="text-xs sm:text-lg font-heading-font font-extrabold"
                                         >
                                             Posted:
                                             <span
@@ -135,7 +135,7 @@
                                             >
                                         </div>
                                         <div
-                                            class="font-heading-font font-extrabold"
+                                            class="text-xs sm:text-lg font-heading-font font-extrabold"
                                             v-if="expired(post)"
                                         >
                                             Last date of Bid:
@@ -147,7 +147,7 @@
                                         </div>
                                         <div
                                             v-else
-                                            class="font-heading-font font-extrabold"
+                                            class="text-xs sm:text-lg font-heading-font font-extrabold"
                                         >
                                             Last Day of Bid:
                                             <span
@@ -161,7 +161,7 @@
                                         </div>
                                     </div>
                                     <p
-                                        class="mt-2 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
+                                        class="text-xs sm:text-lg mt-2 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
                                     >
                                         <!-- <span
                                             class="rounded bg-indigo-50 text-indigo-500 text-md font-extrabold font-heading-font tracking-widest mr-2"
@@ -175,7 +175,7 @@
                                         class="flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full"
                                     >
                                         <span
-                                            class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                                            class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0  leading-none pr-3 py-1 border-r-2 border-gray-200"
                                         >
                                             <i
                                                 class="w-4 h-4 mr-1 fas fa-coins text-indigo-600"
@@ -183,7 +183,7 @@
                                             {{ post.funded_by }}
                                         </span>
                                         <span
-                                            class="text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                                            class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none pr-3 py-1 border-r-2 border-gray-200"
                                         >
                                             <i
                                                 class="w-4 h-4 mr-1 fas fa-location-crosshairs text-indigo-600"
@@ -216,7 +216,7 @@
                         </div>
 
                         <div
-                            class="border-indigo-600 border-2 p-5 rounded-lg shadow-2xl"
+                            class="hidden sm:flex border-indigo-600 border-2 p-5 rounded-lg shadow-2xl"
                         >
                             <SearchFilter />
                         </div>
