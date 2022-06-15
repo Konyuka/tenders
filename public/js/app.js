@@ -7687,17 +7687,26 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      activeMenu: "landing",
+      activeMenu: "",
       openMenu: "",
       currentMenu: "Home"
     };
   },
   mounted: function mounted() {
     console.log(route().current());
-    console.log("me");
-    this.activeMenu = this.$route.name;
+    this.activeMenu = route().current();
   },
-  watch: {},
+  watch: {
+    activeMenu: function activeMenu(value) {
+      if (value == "listing") {
+        this.currentMenu = "Tender Listings";
+      } else if (value == "blogs") {
+        this.currentMenu = "Blogs";
+      } else if (value == "about") {
+        this.currentMenu = "About & Contacts";
+      }
+    }
+  },
   computed: {
     currentRouteName: function currentRouteName() {
       return this.$route.name;
