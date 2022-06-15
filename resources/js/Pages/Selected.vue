@@ -64,7 +64,7 @@
                                     {{ post.work_detail }}
                                 </p> -->
                                 <div
-                                    class="flex border-t border-indigo-300 py-2"
+                                    class="text-sm sm:text-lg flex border-t border-indigo-300 py-2"
                                 >
                                     <span
                                         class="text-gray-500 font-extrabold font-heading-font"
@@ -83,7 +83,7 @@
                                     </span>
                                 </div>
                                 <div
-                                    class="flex border-t border-indigo-300 py-2"
+                                    class="text-sm sm:text-lg flex border-t border-indigo-300 py-2"
                                 >
                                     <span
                                         class="text-gray-500 font-extrabold font-heading-font"
@@ -100,7 +100,7 @@
                                     </span>
                                 </div>
                                 <div
-                                    class="flex border-t mb-6 border-indigo-300 py-2"
+                                    class="text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
                                 >
                                     <span
                                         class="text-gray-500 font-extrabold font-heading-font"
@@ -112,13 +112,13 @@
                                     <span class="ml-auto text-gray-900">
                                         <a
                                             @click="purchase"
-                                            class="cursor-pointer transform transition hover:scale-125 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 text-white hover:text-black text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800"
-                                            >Purchase Tender to view</a
+                                            class="cursor-pointer transform transition hover:scale-125 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 text-white hover:text-black text-xs sm:text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800"
+                                            >Purchase to view</a
                                         >
                                     </span>
                                 </div>
                                 <div
-                                    class="flex border-t mb-6 border-indigo-300 py-2"
+                                    class="text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
                                 >
                                     <span
                                         class="text-gray-500 font-extrabold font-heading-font"
@@ -130,13 +130,13 @@
                                     <span class="ml-auto text-gray-900">
                                         <a
                                             @click="purchase"
-                                            class="cursor-pointer transform transition hover:scale-125 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 text-white hover:text-black text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800"
-                                            >Purchase Tender to view</a
+                                            class="cursor-pointer transform transition hover:scale-125 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 text-white hover:text-black text-xs sm:text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800"
+                                            >Purchase to view</a
                                         >
                                     </span>
                                 </div>
                                 <div
-                                    class="flex border-t mb-6 border-indigo-300 py-2"
+                                    class="text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
                                 >
                                     <span
                                         class="text-gray-500 font-extrabold font-heading-font"
@@ -168,7 +168,7 @@
                                     >
                                 </div>
                                 <div
-                                    class="flex border-t mb-6 border-indigo-300 py-2"
+                                    class="text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
                                 >
                                     <span
                                         class="text-gray-500 font-extrabold font-heading-font"
@@ -209,7 +209,7 @@
                                     </span>
                                 </div>
                                 <div
-                                    class="flex border-t mb-6 border-indigo-300 py-2"
+                                    class="text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
                                 >
                                     <span
                                         class="text-gray-500 font-extrabold font-heading-font"
@@ -228,16 +228,16 @@
 
                                 <div class="flex">
                                     <span
-                                        class="title-font font-medium text-2xl text-gray-900 font-heading-font"
+                                        class="title-font font-medium text-xl sm:text-2xl text-gray-900 font-heading-font"
                                         >KES
                                         <span
-                                            class="ml-3 font-heading-font font-extrabold text-indigo-600 text-2xl"
+                                            class="ml-3 font-heading-font font-extrabold text-indigo-600 text-xl sm:text-2xl"
                                             >{{ this.amount }}</span
                                         >
                                     </span>
                                     <a
                                         @click="purchase"
-                                        class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-6 focus:outline-none rounded"
+                                        class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-2 text-sm sm:text-lg sm:px-6 focus:outline-none rounded"
                                         >Purchase Tender Details</a
                                     >
                                     <!-- <a :href="route('checkout', post._id)" class="transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-6 focus:outline-none rounded">Purchase Tender Details</a> -->

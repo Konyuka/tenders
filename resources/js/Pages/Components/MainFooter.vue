@@ -31,9 +31,10 @@
                     >© 2022 <a href="https://flowbite.com">Bidders Portal™</a>.
                     <br class="flex sm:hidden" />
                     <span
-                        class="flex sm:hidden text-sm text-gray-800 sm:text-center"
+                        class="block sm:hidden text-sm text-gray-800 sm:text-center"
                         >Designed with
-                        <i class="fas fa-heart text-red-600"></i> by<a
+                        <i class="fas fa-heart text-red-600"></i> by
+                        <a
                             href="mailto:michaelsaiba84@gmail.com"
                             class="underline"
                         >
@@ -50,7 +51,8 @@
                 >
                     <span class="text-sm text-gray-800 sm:text-center"
                         >Designed with
-                        <i class="fas fa-heart text-red-600"></i> by<a
+                        <i class="fas fa-heart text-red-600"></i> by
+                        <a
                             href="mailto:michaelsaiba84@gmail.com"
                             class="underline"
                         >

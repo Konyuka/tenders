@@ -160,6 +160,8 @@ export default {
                 this.currentMenu = "About & Contacts";
             } else if (value == "landing") {
                 this.currentMenu = "Home";
+            } else if (value == "selected") {
+                this.currentMenu = "Tender Details";
             }
         }
     },
@@ -199,6 +201,8 @@ export default {
                 this.currentMenu = "About & Contacts";
             } else if (value == "landing") {
                 this.currentMenu = "Home";
+            } else if (value == "selected") {
+                this.currentMenu = "Tender Details";
             }
             // route(`${value}`);
         }

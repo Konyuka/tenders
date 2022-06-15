@@ -7537,6 +7537,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MainFooter",
   components: {//   Categories,
@@ -7719,6 +7721,8 @@ __webpack_require__.r(__webpack_exports__);
         this.currentMenu = "About & Contacts";
       } else if (value == "landing") {
         this.currentMenu = "Home";
+      } else if (value == "selected") {
+        this.currentMenu = "Tender Details";
       }
     }
   },
@@ -7759,6 +7763,8 @@ __webpack_require__.r(__webpack_exports__);
         this.currentMenu = "About & Contacts";
       } else if (value == "landing") {
         this.currentMenu = "Home";
+      } else if (value == "selected") {
+        this.currentMenu = "Tender Details";
       } // route(`${value}`);
 
     }
@@ -80453,12 +80459,12 @@ var staticRenderFns = [
                   "span",
                   {
                     staticClass:
-                      "flex sm:hidden text-sm text-gray-800 sm:text-center"
+                      "block sm:hidden text-sm text-gray-800 sm:text-center"
                   },
                   [
                     _vm._v("Designed with\n                    "),
                     _c("i", { staticClass: "fas fa-heart text-red-600" }),
-                    _vm._v(" by"),
+                    _vm._v(" by\n                    "),
                     _c(
                       "a",
                       {
@@ -80492,7 +80498,7 @@ var staticRenderFns = [
                   [
                     _vm._v("Designed with\n                    "),
                     _c("i", { staticClass: "fas fa-heart text-red-600" }),
-                    _vm._v(" by"),
+                    _vm._v(" by\n                    "),
                     _c(
                       "a",
                       {
@@ -88036,7 +88042,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t border-indigo-300 py-2"
+                                "text-sm sm:text-lg flex border-t border-indigo-300 py-2"
                             },
                             [
                               _vm._m(2),
@@ -88068,7 +88074,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t border-indigo-300 py-2"
+                                "text-sm sm:text-lg flex border-t border-indigo-300 py-2"
                             },
                             [
                               _vm._m(3),
@@ -88094,7 +88100,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t mb-6 border-indigo-300 py-2"
+                                "text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
                             },
                             [
                               _vm._m(4),
@@ -88107,10 +88113,10 @@ var render = function() {
                                     "a",
                                     {
                                       staticClass:
-                                        "cursor-pointer transform transition hover:scale-125 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 text-white hover:text-black text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
+                                        "cursor-pointer transform transition hover:scale-125 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 text-white hover:text-black text-xs sm:text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
                                       on: { click: _vm.purchase }
                                     },
-                                    [_vm._v("Purchase Tender to view")]
+                                    [_vm._v("Purchase to view")]
                                   )
                                 ]
                               )
@@ -88121,7 +88127,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t mb-6 border-indigo-300 py-2"
+                                "text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
                             },
                             [
                               _vm._m(5),
@@ -88134,10 +88140,10 @@ var render = function() {
                                     "a",
                                     {
                                       staticClass:
-                                        "cursor-pointer transform transition hover:scale-125 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 text-white hover:text-black text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
+                                        "cursor-pointer transform transition hover:scale-125 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 text-white hover:text-black text-xs sm:text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
                                       on: { click: _vm.purchase }
                                     },
-                                    [_vm._v("Purchase Tender to view")]
+                                    [_vm._v("Purchase to view")]
                                   )
                                 ]
                               )
@@ -88148,7 +88154,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t mb-6 border-indigo-300 py-2"
+                                "text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
                             },
                             [
                               _c(
@@ -88222,7 +88228,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t mb-6 border-indigo-300 py-2"
+                                "text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
                             },
                             [
                               _c(
@@ -88305,7 +88311,7 @@ var render = function() {
                               "span",
                               {
                                 staticClass:
-                                  "title-font font-medium text-2xl text-gray-900 font-heading-font"
+                                  "title-font font-medium text-xl sm:text-2xl text-gray-900 font-heading-font"
                               },
                               [
                                 _vm._v(
@@ -88315,7 +88321,7 @@ var render = function() {
                                   "span",
                                   {
                                     staticClass:
-                                      "ml-3 font-heading-font font-extrabold text-indigo-600 text-2xl"
+                                      "ml-3 font-heading-font font-extrabold text-indigo-600 text-xl sm:text-2xl"
                                   },
                                   [_vm._v(_vm._s(this.amount))]
                                 )
@@ -88326,7 +88332,7 @@ var render = function() {
                               "a",
                               {
                                 staticClass:
-                                  "cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-6 focus:outline-none rounded",
+                                  "cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-2 text-sm sm:text-lg sm:px-6 focus:outline-none rounded",
                                 on: { click: _vm.purchase }
                               },
                               [_vm._v("Purchase Tender Details")]
@@ -88553,7 +88559,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "flex border-t mb-6 border-indigo-300 py-2" },
+      {
+        staticClass:
+          "text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
+      },
       [
         _c(
           "span",
