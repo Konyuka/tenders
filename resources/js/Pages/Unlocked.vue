@@ -42,7 +42,7 @@
                                     </h1>
                                 </div>
                                 <div
-                                    class="flex border-t border-indigo-300 py-2"
+                                    class="text-sm sm:text-lg flex border-t border-indigo-300 py-2"
                                 >
                                     <span
                                         class="text-gray-500 font-extrabold font-heading-font"
@@ -62,7 +62,7 @@
                                 </div>
 
                                 <div
-                                    class="flex border-t border-indigo-300 py-2"
+                                    class="text-sm sm:text-lg flex border-t border-indigo-300 py-2"
                                 >
                                     <span
                                         class="text-gray-500 font-extrabold font-heading-font"
@@ -81,7 +81,7 @@
                                     </span>
                                 </div>
                                 <div
-                                    class="flex border-t border-indigo-300 py-2"
+                                    class="text-sm sm:text-lg flex border-t border-indigo-300 py-2"
                                 >
                                     <span
                                         class="text-gray-500 font-extrabold font-heading-font"
@@ -98,7 +98,7 @@
                                     </span>
                                 </div>
                                 <div
-                                    class="flex border-t mb-6 border-indigo-300 py-2"
+                                    class="text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
                                 >
                                     <span
                                         class="text-gray-500 font-extrabold font-heading-font"
@@ -113,24 +113,9 @@
                                         Detail in Tender Document
                                     </span>
                                 </div>
-                                <!-- <div
-                                    class="flex border-t border-indigo-300 py-2"
-                                >
-                                    <span
-                                        class="text-gray-500 font-extrabold font-heading-font"
-                                        ><i
-                                            class="mr-10 fas fa-angles-right text-indigo-600"
-                                        ></i>
-                                        Contact Phone</span
-                                    >
-                                    <span
-                                        class="ml-auto text-gray-900 font-primary-font"
-                                    >
-                                        {{ post.phone }}
-                                    </span>
-                                </div> -->
+
                                 <div
-                                    class="flex border-t border-indigo-300 py-2"
+                                    class="text-sm sm:text-lg flex border-t border-indigo-300 py-2"
                                 >
                                     <span
                                         class="text-gray-500 font-extrabold font-heading-font"
@@ -147,7 +132,7 @@
                                     </span>
                                 </div>
                                 <div
-                                    class="flex border-t border-indigo-300 py-2"
+                                    class="text-sm sm:text-lg flex border-t border-indigo-300 py-2"
                                 >
                                     <span
                                         class="text-gray-500 font-extrabold font-heading-font"
@@ -164,7 +149,7 @@
                                     </span>
                                 </div>
                                 <div
-                                    class="flex border-t mb-6 border-indigo-300 py-2"
+                                    class="text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
                                 >
                                     <span
                                         class="text-gray-500 font-extrabold font-heading-font"
@@ -196,7 +181,7 @@
                                     >
                                 </div>
                                 <div
-                                    class="flex border-t mb-6 border-indigo-300 py-2"
+                                    class="text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
                                 >
                                     <span
                                         class="text-gray-500 font-extrabold font-heading-font"
@@ -237,7 +222,7 @@
                                     </span>
                                 </div>
                                 <div
-                                    class="flex border-t mb-6 border-indigo-300 py-2"
+                                    class="text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
                                 >
                                     <span
                                         class="text-gray-500 font-extrabold font-heading-font"
@@ -255,7 +240,7 @@
                                 </div>
                                 <div class="flex"></div>
 
-                                <div class="flex">
+                                <div class="grid grid-cols-2 gap-4">
                                     <a
                                         :href="
                                             route(
@@ -263,28 +248,29 @@
                                                 this.post._id
                                             )
                                         "
+                                        target="_blank"
                                     >
                                         <button
-                                            class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-6 focus:outline-none rounded"
+                                            class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-1 px-2 text-xs sm:text-lg sm:px-6 focus:outline-none rounded"
                                         >
-                                            Download Tender Documents
+                                            Download Documents
                                             <i
-                                                class="fas fa-download text-white ml-2 mt-1"
+                                                class=" fas fa-download text-white ml-2 mt-1"
                                             ></i>
                                         </button>
                                     </a>
                                     <a
                                         @click="sendToMail"
-                                        class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-6 focus:outline-none rounded"
+                                        class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-1 px-2 text-xs sm:text-lg sm:px-6 focus:outline-none rounded"
                                     >
                                         Send Details To Email
                                         <i
-                                            class="fas fa-paper-plane text-white ml-2 mt-1"
+                                            class=" fas fa-paper-plane text-white ml-2 mt-1"
                                         ></i>
                                     </a>
                                     <!-- <a :href="route('checkout', post._id)" class="transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-6 focus:outline-none rounded">Purchase Tender Details</a> -->
 
-                                    <button
+                                    <!-- <button
                                         class="hover:bg-red-500 hover:text-white rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4"
                                     >
                                         <svg
@@ -299,7 +285,7 @@
                                                 d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
                                             ></path>
                                         </svg>
-                                    </button>
+                                    </button> -->
                                 </div>
                             </div>
 
@@ -474,11 +460,13 @@ export default {
             return diffInMs / (1000 * 60 * 60 * 24);
         },
         downloadTender() {
-            let data = {
-                trans_id: this.transId,
-                post_id: this.post._id
-            };
-            this.$inertia.post("/download_tender", data);
+            // route("download_tender", this.post._id);
+            // this.$inertia.get(`/download_tender/${this.post._id}`);
+            // const routeData = this.$inertia.post(
+            //     "/download_tender",
+            //     this.post._id
+            // );
+            // window.open(routeData.href, "_blank");
         },
         formatDate(value) {
             return moment(value).format("MMMM Do YYYY");

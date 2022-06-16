@@ -13707,20 +13707,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -13828,12 +13814,13 @@ __webpack_require__.r(__webpack_exports__);
       var diffInMs = date2 - date1;
       return diffInMs / (1000 * 60 * 60 * 24);
     },
-    downloadTender: function downloadTender() {
-      var data = {
-        trans_id: this.transId,
-        post_id: this.post._id
-      };
-      this.$inertia.post("/download_tender", data);
+    downloadTender: function downloadTender() {// route("download_tender", this.post._id);
+      // this.$inertia.get(`/download_tender/${this.post._id}`);
+      // const routeData = this.$inertia.post(
+      //     "/download_tender",
+      //     this.post._id
+      // );
+      // window.open(routeData.href, "_blank");
     },
     formatDate: function formatDate(value) {
       return moment(value).format("MMMM Do YYYY");
@@ -89262,7 +89249,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t border-indigo-300 py-2"
+                                "text-sm sm:text-lg flex border-t border-indigo-300 py-2"
                             },
                             [
                               _vm._m(1),
@@ -89294,7 +89281,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t border-indigo-300 py-2"
+                                "text-sm sm:text-lg flex border-t border-indigo-300 py-2"
                             },
                             [
                               _vm._m(2),
@@ -89326,7 +89313,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t border-indigo-300 py-2"
+                                "text-sm sm:text-lg flex border-t border-indigo-300 py-2"
                             },
                             [
                               _vm._m(3),
@@ -89354,7 +89341,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t border-indigo-300 py-2"
+                                "text-sm sm:text-lg flex border-t border-indigo-300 py-2"
                             },
                             [
                               _vm._m(5),
@@ -89380,7 +89367,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t border-indigo-300 py-2"
+                                "text-sm sm:text-lg flex border-t border-indigo-300 py-2"
                             },
                             [
                               _vm._m(6),
@@ -89406,7 +89393,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t mb-6 border-indigo-300 py-2"
+                                "text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
                             },
                             [
                               _c(
@@ -89480,7 +89467,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "flex border-t mb-6 border-indigo-300 py-2"
+                                "text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
                             },
                             [
                               _c(
@@ -89560,7 +89547,7 @@ var render = function() {
                           _vm._v(" "),
                           _c("div", { staticClass: "flex" }),
                           _vm._v(" "),
-                          _c("div", { staticClass: "flex" }, [
+                          _c("div", { staticClass: "grid grid-cols-2 gap-4" }, [
                             _c(
                               "a",
                               {
@@ -89568,7 +89555,8 @@ var render = function() {
                                   href: _vm.route(
                                     "download_tender",
                                     this.post._id
-                                  )
+                                  ),
+                                  target: "_blank"
                                 }
                               },
                               [_vm._m(8)]
@@ -89578,7 +89566,7 @@ var render = function() {
                               "a",
                               {
                                 staticClass:
-                                  "cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-6 focus:outline-none rounded",
+                                  "cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-1 px-2 text-xs sm:text-lg sm:px-6 focus:outline-none rounded",
                                 on: { click: _vm.sendToMail }
                               },
                               [
@@ -89587,39 +89575,8 @@ var render = function() {
                                 ),
                                 _c("i", {
                                   staticClass:
-                                    "fas fa-paper-plane text-white ml-2 mt-1"
+                                    " fas fa-paper-plane text-white ml-2 mt-1"
                                 })
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "hover:bg-red-500 hover:text-white rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4"
-                              },
-                              [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass: "w-5 h-5",
-                                    attrs: {
-                                      fill: "currentColor",
-                                      "stroke-linecap": "round",
-                                      "stroke-linejoin": "round",
-                                      "stroke-width": "2",
-                                      viewBox: "0 0 24 24"
-                                    }
-                                  },
-                                  [
-                                    _c("path", {
-                                      attrs: {
-                                        d:
-                                          "M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
-                                      }
-                                    })
-                                  ]
-                                )
                               ]
                             )
                           ])
@@ -89765,7 +89722,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "flex border-t mb-6 border-indigo-300 py-2" },
+      {
+        staticClass:
+          "text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
+      },
       [
         _c(
           "span",
@@ -89818,7 +89778,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "flex border-t mb-6 border-indigo-300 py-2" },
+      {
+        staticClass:
+          "text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2"
+      },
       [
         _c(
           "span",
@@ -89847,13 +89810,13 @@ var staticRenderFns = [
       "button",
       {
         staticClass:
-          "cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-6 focus:outline-none rounded"
+          "cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-1 px-2 text-xs sm:text-lg sm:px-6 focus:outline-none rounded"
       },
       [
         _vm._v(
-          "\n                                        Download Tender Documents\n                                        "
+          "\n                                        Download Documents\n                                        "
         ),
-        _c("i", { staticClass: "fas fa-download text-white ml-2 mt-1" })
+        _c("i", { staticClass: " fas fa-download text-white ml-2 mt-1" })
       ]
     )
   },
