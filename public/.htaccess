@@ -15,14 +15,14 @@
     RewriteRule ^ %1 [L,R=307]
 
     # Send Requests To Front Controller...
+    # RewriteCond %{REQUEST_FILENAME} !-d
+    # RewriteCond %{REQUEST_FILENAME} !-f
+    # RewriteRule ^ /index.php [L]
+
+    RewriteBase /
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ /index.php [L]
-
-    # RewriteBase /
-    # RewriteCond %{REQUEST_FILENAME} !-f
-    # RewriteCond %{REQUEST_FILENAME} !-d
-    # RewriteRule ^.*$ /index.php [L,QSA]
+    RewriteRule ^.*$ /index.php [L,QSA]
 </IfModule>
 
 
