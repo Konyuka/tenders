@@ -47,10 +47,11 @@ class LandingController extends Controller
 
     public function free($slug)
     {
-        return Inertia::render('Unlock', [
+        // return dd($slug);
+        return Inertia::render('Unlocked', [
             'post' => Post::where('_id', '=', $slug)->first(),
             'status' => 'Unlocked',
-            'transId' => null,
+            'transId' => $slug,
             'payment' => null,
        ]);
     }
