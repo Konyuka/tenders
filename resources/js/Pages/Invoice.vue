@@ -435,11 +435,155 @@
             </div>
         </div>
 
+        <!-- For Mobile     -->
+        <div
+            v-if="paymentModal"
+            class="flex sm:hidden relative z-10"
+            aria-labelledby="modal-title"
+            role="dialog"
+            aria-modal="true"
+        >
+            <div
+                class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+            ></div>
+
+            <div class="fixed z-10 inset-0 overflow-y-auto">
+                <div
+                    class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0"
+                >
+                    <div
+                        class="relative bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-sm sm:w-full sm:p-6"
+                    >
+                        <div></div>
+                        <div
+                            class="relative bg-white rounded-lg shadow dark:bg-gray-700"
+                        >
+                            <!-- Modal header -->
+                            <div class="flex justify-end p-2">
+                                <a
+                                    v-if="status == 'Cancelled'"
+                                    @click="closeSTK"
+                                    class="hover:cursor-pointer"
+                                >
+                                    <!-- <a
+                            v-if="status == 'Cancelled'"
+                            :href="route('checkout', post._id)"
+                            @click="closeSTK"
+                        > -->
+                                    <button
+                                        type="button"
+                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                                        data-modal-toggle="popup-modal"
+                                    >
+                                        <svg
+                                            class="w-5 h-5"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                clip-rule="evenodd"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="p-4 pt-0 text-center">
+                                <!-- <i class="fas fa-coins fa-2xl mb-10"></i> -->
+                                <h3
+                                    v-if="status != 'Cancelled'"
+                                    class="mb-5 text-xs font-extrabold text-gray-800 dark:text-gray-400"
+                                >
+                                    Complete transaction on your phone by
+                                    entering your MPESA pin
+                                </h3>
+                            </div>
+                            <div
+                                v-if="status == 'Cancelled'"
+                                class="p-4 pt-0 text-center"
+                            >
+                                <h3
+                                    class="mb-5 font-heading-font text-lg font-extrabold text-red-600 dark:text-gray-400 italic"
+                                >
+                                    Transaction Was Cancelled
+                                </h3>
+                            </div>
+                            <div
+                                v-if="status == 'Waiting'"
+                                class="p-4 pt-0 text-center"
+                            >
+                                <!-- <i ="fas fa-coins fa-2xl mb-10"></i> -->
+                                <h3
+                                    class="mb-5 font-heading-font text-lg font-extrabold text-green-600 dark:text-gray-400 italic"
+                                >
+                                    Transaction Pending
+                                </h3>
+                            </div>
+                            <div class="flex flex-col px-10">
+                                <h4
+                                    v-if="status != 'Cancelled'"
+                                    class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400"
+                                >
+                                    Phone Number:
+                                    <span
+                                        class="ml-2 font-extrabold text-md sm:text-xl text-indigo-600"
+                                    >
+                                        {{ this.form.number }}</span
+                                    >
+                                </h4>
+                                <!-- <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Transaction Number: <span class="ml-2 font-extrabold text-xl text-indigo-600"> {{ $page['props']['Status']  }}</span> </h4> -->
+                                <!-- <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Payment Amount: <span class="ml-2 font-extrabold text-xl text-indigo-600"> KES {{ this.amount }}</span> </h4> -->
+                            </div>
+                            <div class="p-4 pt-0 text-center mt-5">
+                                <!-- <button @click="requestAccess" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        Request Access Token
+                    </button>
+                    <button @click="registerURLS" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        Register URL's
+                    </button>
+                    <button @click="simulate" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        Simulate
+                    </button>
+                    <button @click="stkPush" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        STK
+                    </button> -->
+                                <!-- <a :href="route('confirmation', this.post._id)"> -->
+
+                                <!-- <button
+                            v-if="status == 'Cancelled'"
+                            @click="stkPush"
+                            data-modal-toggle="popup-modal"
+                            type="button"
+                            class="text-white bg-orange-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                        >
+                            Restart Mpesa Express Payment
+                        </button> -->
+
+                                <button
+                                    v-if="status != 'Cancelled'"
+                                    @click="confirm"
+                                    data-modal-toggle="popup-modal"
+                                    type="button"
+                                    class="text-white bg-indigo-600 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                                >
+                                    Tap at intervals to Confirm Payment
+                                </button>
+                                <!-- </a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div
             v-if="paymentModal"
             id="popup-modal"
             tabindex="-1"
-            class="overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full"
+            class=" overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex hidden items-center z-50 w-full md:inset-0 h-modal md:h-full"
         >
             <div class="relative p-4 w-full max-w-md h-full md:h-auto">
                 <div
@@ -502,13 +646,6 @@
                             Transaction Was Cancelled
                         </h3>
                     </div>
-                    <!-- <div v-if="transactionRestart" class="p-4 pt-0 text-center">
-                        <h3
-                            class="mb-5 font-heading-font text-lg font-extrabold text-orange-400 dark:text-gray-400 italic"
-                        >
-                            Restarting The Transaction
-                        </h3>
-                    </div> -->
                     <div
                         v-if="status == 'Waiting'"
                         class="p-4 pt-0 text-center"

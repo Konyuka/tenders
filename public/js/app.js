@@ -10673,6 +10673,143 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
@@ -85321,8 +85458,223 @@ var render = function() {
         ? _c(
             "div",
             {
+              staticClass: "flex sm:hidden relative z-10",
+              attrs: {
+                "aria-labelledby": "modal-title",
+                role: "dialog",
+                "aria-modal": "true"
+              }
+            },
+            [
+              _c("div", {
+                staticClass:
+                  "fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "fixed z-10 inset-0 overflow-y-auto" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0"
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "relative bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-sm sm:w-full sm:p-6"
+                      },
+                      [
+                        _c("div"),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "relative bg-white rounded-lg shadow dark:bg-gray-700"
+                          },
+                          [
+                            _c("div", { staticClass: "flex justify-end p-2" }, [
+                              _vm.status == "Cancelled"
+                                ? _c(
+                                    "a",
+                                    {
+                                      staticClass: "hover:cursor-pointer",
+                                      on: { click: _vm.closeSTK }
+                                    },
+                                    [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white",
+                                          attrs: {
+                                            type: "button",
+                                            "data-modal-toggle": "popup-modal"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass: "w-5 h-5",
+                                              attrs: {
+                                                fill: "currentColor",
+                                                viewBox: "0 0 20 20",
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  "fill-rule": "evenodd",
+                                                  d:
+                                                    "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+                                                  "clip-rule": "evenodd"
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "p-4 pt-0 text-center" }, [
+                              _vm.status != "Cancelled"
+                                ? _c(
+                                    "h3",
+                                    {
+                                      staticClass:
+                                        "mb-5 text-xs font-extrabold text-gray-800 dark:text-gray-400"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                Complete transaction on your phone by\n                                entering your MPESA pin\n                            "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ]),
+                            _vm._v(" "),
+                            _vm.status == "Cancelled"
+                              ? _c(
+                                  "div",
+                                  { staticClass: "p-4 pt-0 text-center" },
+                                  [
+                                    _c(
+                                      "h3",
+                                      {
+                                        staticClass:
+                                          "mb-5 font-heading-font text-lg font-extrabold text-red-600 dark:text-gray-400 italic"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                Transaction Was Cancelled\n                            "
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.status == "Waiting"
+                              ? _c(
+                                  "div",
+                                  { staticClass: "p-4 pt-0 text-center" },
+                                  [
+                                    _c(
+                                      "h3",
+                                      {
+                                        staticClass:
+                                          "mb-5 font-heading-font text-lg font-extrabold text-green-600 dark:text-gray-400 italic"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                Transaction Pending\n                            "
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "flex flex-col px-10" }, [
+                              _vm.status != "Cancelled"
+                                ? _c(
+                                    "h4",
+                                    {
+                                      staticClass:
+                                        "mb-5 text-sm font-bold text-gray-500 dark:text-gray-400"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                Phone Number:\n                                "
+                                      ),
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass:
+                                            "ml-2 font-extrabold text-md sm:text-xl text-indigo-600"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                    " +
+                                              _vm._s(this.form.number)
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "p-4 pt-0 text-center mt-5" },
+                              [
+                                _vm.status != "Cancelled"
+                                  ? _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "text-white bg-indigo-600 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2",
+                                        attrs: {
+                                          "data-modal-toggle": "popup-modal",
+                                          type: "button"
+                                        },
+                                        on: { click: _vm.confirm }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                Tap at intervals to Confirm Payment\n                            "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ]
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ])
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.paymentModal
+        ? _c(
+            "div",
+            {
               staticClass:
-                "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
+                " overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex hidden items-center z-50 w-full md:inset-0 h-modal md:h-full",
               attrs: { id: "popup-modal", tabindex: "-1" }
             },
             [
