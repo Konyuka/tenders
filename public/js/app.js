@@ -88685,62 +88685,62 @@ var render = function() {
                   )
                 ])
               ]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _vm.status == "Success"
-          ? _c(
-              "div",
-              {
-                staticClass:
-                  "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
-                attrs: { id: "popup-modal", tabindex: "-1" }
-              },
-              [
-                _c(
+            ),
+            _vm._v(" "),
+            _vm.status == "Success"
+              ? _c(
                   "div",
                   {
-                    staticClass: "relative p-4 w-full max-w-md h-full md:h-auto"
+                    staticClass:
+                      "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
+                    attrs: { id: "popup-modal", tabindex: "-1" }
                   },
                   [
                     _c(
                       "div",
                       {
                         staticClass:
-                          "relative bg-white rounded-lg shadow dark:bg-gray-700"
+                          "relative p-4 w-full max-w-md h-full md:h-auto"
                       },
                       [
-                        _c("div", { staticClass: "flex justify-end p-5" }),
-                        _vm._v(" "),
-                        _vm._m(7),
-                        _vm._v(" "),
                         _c(
                           "div",
-                          { staticClass: "p-4 pt-0 text-center mt-5" },
+                          {
+                            staticClass:
+                              "relative bg-white rounded-lg shadow dark:bg-gray-700"
+                          },
                           [
+                            _c("div", { staticClass: "flex justify-end p-5" }),
+                            _vm._v(" "),
+                            _vm._m(7),
+                            _vm._v(" "),
                             _c(
-                              "a",
-                              {
-                                attrs: {
-                                  href: _vm.route("unlock", this.transId)
-                                }
-                              },
+                              "div",
+                              { staticClass: "p-4 pt-0 text-center mt-5" },
                               [
                                 _c(
-                                  "button",
+                                  "a",
                                   {
-                                    staticClass:
-                                      "text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-lg inline-flex items-center px-5 py-2.5 text-center mr-2",
                                     attrs: {
-                                      "data-modal-toggle": "popup-modal",
-                                      type: "button"
+                                      href: _vm.route("unlock", this.transId)
                                     }
                                   },
                                   [
-                                    _vm._v(
-                                      "\n                                Tap to Unlock Tender Details\n                            "
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-lg inline-flex items-center px-5 py-2.5 text-center mr-2",
+                                        attrs: {
+                                          "data-modal-toggle": "popup-modal",
+                                          type: "button"
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                    Tap to Unlock Tender Details\n                                "
+                                        )
+                                      ]
                                     )
                                   ]
                                 )
@@ -88752,9 +88752,10 @@ var render = function() {
                     )
                   ]
                 )
-              ]
-            )
-          : _vm._e(),
+              : _vm._e()
+          ],
+          1
+        ),
         _vm._v(" "),
         _c("MainFooter")
       ],
@@ -88908,7 +88909,7 @@ var staticRenderFns = [
         },
         [
           _vm._v(
-            "\n                            Thank you! Purchase Confirmed\n                        "
+            "\n                                Thank you! Purchase Confirmed\n                            "
           )
         ]
       )
