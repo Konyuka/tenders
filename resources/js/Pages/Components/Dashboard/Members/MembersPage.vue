@@ -26,18 +26,17 @@
                             {{ membership }}
                         </span>
                     </h1>
-                    <p class="mt-6 max-w-3xl text-3xl text-gray-700">
-                        Bookmarked Tenders
-                    </p>
                 </div>
             </div>
-
             <!-- Overlapping cards -->
-            <section
+            <!-- <section
                 class="-mt-32 max-w-7xl mx-auto relative z-10 pb-32 px-4 sm:px-6 lg:px-8"
                 aria-labelledby="contact-heading"
             >
                 <h2 class="sr-only" id="contact-heading">Contact us</h2>
+                <p class="mt-6 max-w-3xl text-3xl text-gray-700">
+                    Bookmarked Tenders
+                </p>
                 <div
                     class="grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-y-0 lg:gap-x-8"
                 >
@@ -74,14 +73,20 @@
                         </div>
                     </a>
                 </div>
-            </section>
+            </section> -->
         </div>
+        <Subscriptions />
     </div>
 </template>
 
 <script>
+import Subscriptions from "../../Subscriptions.vue";
+
 export default {
     name: "MembersPage",
+    components: {
+        Subscriptions
+    },
     computed: {
         membership() {
             if (this.$parent.user.membership == "gold") {

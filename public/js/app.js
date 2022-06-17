@@ -3699,9 +3699,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -5184,10 +5181,10 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     return {
       paymentLog: "",
       form: {
-        userName: "Saiba",
-        userPhone: this.removeSpaces("254716202298"),
-        userEmail: "saiba@mail.com",
-        number: this.removeSpaces("254716202298"),
+        userName: "",
+        userPhone: this.removeSpaces(""),
+        userEmail: "",
+        number: this.removeSpaces(""),
         account: "Bidders Portal",
         amount: this.amount // amount: this.post.price
         // amount: ''
@@ -5303,6 +5300,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Subscriptions_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Subscriptions.vue */ "./resources/js/Pages/Components/Subscriptions.vue");
 //
 //
 //
@@ -5384,8 +5382,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MembersPage",
+  components: {
+    Subscriptions: _Subscriptions_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   computed: {
     membership: function membership() {
       if (this.$parent.user.membership == "gold") {
@@ -8165,6 +8167,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Subscriptions_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Subscriptions.vue */ "./resources/js/Pages/Components/Subscriptions.vue");
 //
 //
 //
@@ -9254,549 +9257,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ServiceIntro",
-  components: {//   Categories,
+  components: {
+    Subscriptions: _Subscriptions_vue__WEBPACK_IMPORTED_MODULE_0__["default"] //   Categories,
+
   },
   data: function data() {
     return {
@@ -9888,6 +9354,626 @@ __webpack_require__.r(__webpack_exports__);
   watch: {},
   computed: {},
   methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/Subscriptions.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Components/Subscriptions.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Subscription",
+  components: {//   Categories,
+  },
+  data: function data() {
+    return {};
+  },
+  watch: {},
+  computed: {},
+  methods: {
+    membership: function membership(value) {
+      console.log(value);
+
+      if (this.$parent.user == null) {
+        this.$parent.chooseAuth = true;
+      } else {
+        var payload = {
+          membership: value,
+          user: this.$parent.user
+        };
+        this.$inertia.post("/checkout/".concat(value), payload); // `/checkout/${value}`
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -10972,11 +11058,11 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       expressModal: false,
       paymentLog: "",
       form: {
-        userName: "saiba",
-        userPhone: "254716202298",
-        userEmail: "saiba@mail.com",
-        number: this.removeSpaces("254716202298"),
-        account: "Laborex Kenya LTD",
+        userName: "",
+        userPhone: "",
+        userEmail: "",
+        number: this.removeSpaces(""),
+        account: "",
         amount: this.amount // amount: this.post.price
         // amount: ''
         // account: this.form.userName,
@@ -74757,10 +74843,7 @@ var render = function() {
         _vm.admin
           ? _c(
               "div",
-              {
-                staticClass:
-                  "container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6"
-              },
+              { staticClass: "py-1 h-64 px-6" },
               [
                 _vm.currentMenu == "tenders" ? _c("TendersPage") : _vm._e(),
                 _vm._v(" "),
@@ -77032,54 +77115,52 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "bg-white" }, [
-      _c("div", { staticClass: "relative pb-32 bg-gray-50" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "relative max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8"
-          },
-          [
-            _c(
-              "h1",
-              {
-                staticClass:
-                  "text-4xl font-extrabold tracking-tight text-black md:text-5xl lg:text-6xl"
-              },
-              [
-                _vm._v(
-                  "\n                    Membership Plan:\n                    "
-                ),
-                _c(
-                  "span",
-                  { staticClass: "text-indigo-600 text-5xl ml-5 capitalize" },
-                  [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.membership) +
-                        "\n                    "
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("p", { staticClass: "mt-6 max-w-3xl text-3xl text-gray-700" }, [
-              _vm._v(
-                "\n                    Bookmarked Tenders\n                "
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "bg-white" }, [
+        _c("div", { staticClass: "relative pb-32 bg-gray-50" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "relative max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8"
+            },
+            [
+              _c(
+                "h1",
+                {
+                  staticClass:
+                    "text-4xl font-extrabold tracking-tight text-black md:text-5xl lg:text-6xl"
+                },
+                [
+                  _vm._v(
+                    "\n                    Membership Plan:\n                    "
+                  ),
+                  _c(
+                    "span",
+                    { staticClass: "text-indigo-600 text-5xl ml-5 capitalize" },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.membership) +
+                          "\n                    "
+                      )
+                    ]
+                  )
+                ]
               )
-            ])
-          ]
-        )
+            ]
+          )
+        ])
       ]),
       _vm._v(" "),
-      _vm._m(1)
-    ])
-  ])
+      _c("Subscriptions")
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -77101,102 +77182,6 @@ var staticRenderFns = [
         attrs: { "aria-hidden": "true" }
       })
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "section",
-      {
-        staticClass:
-          "-mt-32 max-w-7xl mx-auto relative z-10 pb-32 px-4 sm:px-6 lg:px-8",
-        attrs: { "aria-labelledby": "contact-heading" }
-      },
-      [
-        _c("h2", { staticClass: "sr-only", attrs: { id: "contact-heading" } }, [
-          _vm._v("Contact us")
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-y-0 lg:gap-x-8"
-          },
-          [
-            _c(
-              "a",
-              {
-                staticClass:
-                  "transform transition hover:scale-125 duration-700 flex flex-col bg-white rounded-2xl shadow-xl"
-              },
-              [
-                _c(
-                  "div",
-                  { staticClass: "flex-1 relative pt-16 px-6 pb-8 md:px-8" },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "absolute top-0 p-5 inline-block bg-indigo-200 rounded-xl shadow-lg transform -translate-y-1/2"
-                      },
-                      [
-                        _c("i", {
-                          staticClass:
-                            "fas fa-caret-down text-2xl text-indigo-700"
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "h3",
-                      { staticClass: "text-xl font-medium text-gray-900" },
-                      [
-                        _vm._v(
-                          "\n                            Tender Name\n                        "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "mt-4 text-base text-gray-500" }, [
-                      _vm._v(
-                        "\n                            No Tender has been saved yet\n                        "
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "p-6 bg-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8"
-                  },
-                  [
-                    _c(
-                      "a",
-                      {
-                        staticClass:
-                          "text-base font-medium text-indigo-700 hover:text-indigo-600",
-                        attrs: { href: "#" }
-                      },
-                      [
-                        _vm._v("Preview tender on blank page"),
-                        _c("span", { attrs: { "aria-hidden": "true" } }, [
-                          _vm._v("\n                                →")
-                        ])
-                      ]
-                    )
-                  ]
-                )
-              ]
-            )
-          ]
-        )
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -82053,1001 +82038,289 @@ var render = function() {
       "section",
       { staticClass: "pt-10 sm:pt-20 pb-24 2xl:py-40 bg-white rounded-3xl" },
       [
-        _c("div", { staticClass: "mx-auto px-1" }, [
-          _vm._m(4),
-          _vm._v(" "),
-          _c("div", { staticClass: "max-w-full mx-auto" }, [
-            _c("div", { staticClass: "flex flex-wrap items-center -mx-3" }, [
-              _c(
-                "button",
-                {
+        _c(
+          "div",
+          { staticClass: "mx-auto px-1" },
+          [_vm._m(4), _vm._v(" "), _c("Subscriptions")],
+          1
+        ),
+        _vm._v(" "),
+        _vm.chooseAuth
+          ? _c(
+              "div",
+              {
+                staticClass: "flex sm:hidden relative z-10",
+                attrs: {
+                  "aria-labelledby": "modal-title",
+                  role: "dialog",
+                  "aria-modal": "true"
+                }
+              },
+              [
+                _c("div", {
                   staticClass:
-                    "transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3 mb-8 lg:mb-0",
-                  on: {
-                    click: function($event) {
-                      return _vm.membership("bronze")
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "px-2 py-16 bg-indigo-400 rounded-3xl" },
-                    [
-                      _vm._m(5),
-                      _vm._v(" "),
-                      _c(
-                        "ul",
-                        {
-                          staticClass:
-                            "text-sm text-white mb-16 font-primary-font"
-                        },
-                        [
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Access all Tenders")])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [
-                              _vm._v(
-                                "Exclusive Tender Details\n                                        Access"
-                              )
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Email Notifications Updates")])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [
-                              _vm._v(
-                                "Access To Tender News and\n                                        blogs"
-                              )
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Billed Daily")])
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "text-center" }, [
+                    "fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "fixed z-10 inset-0 overflow-y-auto" },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0"
+                      },
+                      [
                         _c(
-                          "a",
+                          "div",
                           {
                             staticClass:
-                              "transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black",
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                return _vm.membership("bronze")
-                              }
-                            }
+                              "relative bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-sm sm:w-full sm:p-6"
                           },
-                          [_vm._v("Subscribe to Plan")]
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "relative bg-white rounded-lg shadow dark:bg-gray-700"
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "flex justify-end p-5" },
+                                  [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white",
+                                        attrs: {
+                                          type: "button",
+                                          "data-modal-toggle": "popup-modal"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.chooseAuth = false
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "svg",
+                                          {
+                                            staticClass: "w-5 h-5",
+                                            attrs: {
+                                              fill: "currentColor",
+                                              viewBox: "0 0 20 20",
+                                              xmlns:
+                                                "http://www.w3.org/2000/svg"
+                                            }
+                                          },
+                                          [
+                                            _c("path", {
+                                              attrs: {
+                                                "fill-rule": "evenodd",
+                                                d:
+                                                  "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+                                                "clip-rule": "evenodd"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _vm._m(5),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "flex justify-around mb-5" },
+                                  [
+                                    _c("div", [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "font-primary-font text-white bg-indigo-600 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-extrabold rounded-xl text-xl sm:text-2xl inline-flex items-center px-4 py-4 sm:px-10 sm:py-4 text-center mr-2",
+                                          attrs: {
+                                            href: _vm.route("login"),
+                                            "data-modal-toggle": "popup-modal",
+                                            type: "button"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                        Sign In\n                                    "
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "font-primary-font text-white bg-indigo-600 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-extrabold rounded-xl text-xl sm:text-2xl inline-flex items-center px-4 py-4 sm:px-10 sm:py-4 text-center mr-2",
+                                          attrs: {
+                                            href: _vm.route("register"),
+                                            "data-modal-toggle": "popup-modal",
+                                            type: "button"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                        Sign Up\n                                    "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("div", {
+                                  staticClass: "p-4 pt-0 text-center mt-5"
+                                })
+                              ]
+                            )
+                          ]
                         )
-                      ])
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3 mb-8 lg:mb-0",
-                  on: {
-                    click: function($event) {
-                      return _vm.membership("silver")
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "px-2 py-16 bg-indigo-500 rounded-3xl" },
-                    [
-                      _vm._m(6),
-                      _vm._v(" "),
-                      _c(
-                        "ul",
-                        {
-                          staticClass:
-                            "text-sm text-white mb-16 font-primary-font"
-                        },
-                        [
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.chooseAuth
+          ? _c(
+              "div",
+              {
+                staticClass:
+                  "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex hidden items-center z-50 w-full md:inset-0 h-modal md:h-full",
+                attrs: { id: "popup-modal", tabindex: "-1" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "relative p-4 w-full max-w-md h-full md:h-auto"
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "relative bg-white rounded-lg shadow dark:bg-gray-700"
+                      },
+                      [
+                        _c("div", { staticClass: "flex justify-end p-5" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white",
+                              attrs: {
+                                type: "button",
+                                "data-modal-toggle": "popup-modal"
+                              },
+                              on: {
+                                click: function($event) {
+                                  _vm.chooseAuth = false
+                                }
+                              }
+                            },
+                            [
                               _c(
                                 "svg",
                                 {
+                                  staticClass: "w-5 h-5",
                                   attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
+                                    fill: "currentColor",
+                                    viewBox: "0 0 20 20",
                                     xmlns: "http://www.w3.org/2000/svg"
                                   }
                                 },
                                 [
                                   _c("path", {
                                     attrs: {
+                                      "fill-rule": "evenodd",
                                       d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
+                                        "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+                                      "clip-rule": "evenodd"
                                     }
                                   })
                                 ]
                               )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Access all Tenders")])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(6),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "flex justify-around mb-5" }, [
+                          _c("div", [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "font-primary-font text-white bg-indigo-600 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-extrabold rounded-xl text-2xl inline-flex items-center px-10 py-4 text-center mr-2",
+                                attrs: {
+                                  href: _vm.route("login"),
+                                  "data-modal-toggle": "popup-modal",
+                                  type: "button"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                Sign In\n                            "
+                                )
+                              ]
+                            )
                           ]),
                           _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [
-                              _vm._v(
-                                "Exclusive Tender Details\n                                        Access"
-                              )
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Email Notifications Updates")])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [
-                              _vm._v(
-                                "Access To Tender News and\n                                        blogs"
-                              )
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Billed Weekly")])
+                          _c("div", [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "font-primary-font text-white bg-indigo-600 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-extrabold rounded-xl text-2xl inline-flex items-center px-10 py-4 text-center mr-2",
+                                attrs: {
+                                  href: _vm.route("register"),
+                                  "data-modal-toggle": "popup-modal",
+                                  type: "button"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                Sign Up\n                            "
+                                )
+                              ]
+                            )
                           ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "text-center" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black",
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                return _vm.membership("silver")
-                              }
-                            }
-                          },
-                          [_vm._v("Subscribe to Plan")]
-                        )
-                      ])
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3 mb-8 lg:mb-0",
-                  on: {
-                    click: function($event) {
-                      return _vm.membership("gold")
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "px-2 py-16 bg-indigo-600 rounded-3xl" },
-                    [
-                      _vm._m(7),
-                      _vm._v(" "),
-                      _c(
-                        "ul",
-                        {
-                          staticClass:
-                            "text-sm text-white mb-16 font-primary-font"
-                        },
-                        [
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Access all Tenders")])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [
-                              _vm._v(
-                                "Exclusive Tender Details\n                                        Access"
-                              )
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Email Notifications Updates")])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [
-                              _vm._v(
-                                "Access To Tender News and\n                                        blogs"
-                              )
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Billed Monthly")])
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "text-center" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black",
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                return _vm.membership("gold")
-                              }
-                            }
-                          },
-                          [_vm._v("Subscribe to Plan")]
-                        )
-                      ])
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3 mb-8",
-                  on: {
-                    click: function($event) {
-                      return _vm.membership("platinum")
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "px-2 py-16 bg-indigo-700 rounded-3xl" },
-                    [
-                      _vm._m(8),
-                      _vm._v(" "),
-                      _c(
-                        "ul",
-                        {
-                          staticClass:
-                            "text-sm text-white mb-16 font-primary-font"
-                        },
-                        [
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Access all Tenders")])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [
-                              _vm._v(
-                                "Exclusive Tender Details\n                                        Access"
-                              )
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Email Notifications Updates")])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [
-                              _vm._v(
-                                "Access To Tender News and\n                                        blogs"
-                              )
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Billed Every 6 Months")])
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "text-center" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black",
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                return _vm.membership("platinum")
-                              }
-                            }
-                          },
-                          [_vm._v("Subscribe to Plan")]
-                        )
-                      ])
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3 mb-8 lg:mb-0",
-                  on: {
-                    click: function($event) {
-                      return _vm.membership("diamond")
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "px-2 py-16 bg-indigo-800 rounded-3xl" },
-                    [
-                      _vm._m(9),
-                      _vm._v(" "),
-                      _c(
-                        "ul",
-                        {
-                          staticClass:
-                            "text-sm text-white mb-16 font-primary-font"
-                        },
-                        [
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Access all Tenders")])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [
-                              _vm._v(
-                                "Exclusive Tender Details\n                                        Access"
-                              )
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Email Notifications Updates")])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [
-                              _vm._v(
-                                "Access To Tender News and\n                                        blogs"
-                              )
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "flex items-center mb-8" }, [
-                            _c("span", { staticClass: "mr-6" }, [
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    width: "20",
-                                    height: "16",
-                                    viewbox: "0 0 20 16",
-                                    fill: "none",
-                                    xmlns: "http://www.w3.org/2000/svg"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
-                                      fill: "white"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Billed Annually")])
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "text-center" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black",
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                return _vm.membership("diamond")
-                              }
-                            }
-                          },
-                          [_vm._v("Subscribe to Plan")]
-                        )
-                      ])
-                    ]
-                  )
-                ]
-              )
-            ])
-          ])
-        ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "p-4 pt-0 text-center mt-5" })
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
       ]
     ),
     _vm._v(" "),
-    _vm._m(10),
+    _vm._m(7),
     _vm._v(" "),
-    _vm._m(11),
+    _vm._m(8),
     _vm._v(" "),
-    _vm._m(12),
+    _vm._m(9),
     _vm._v(" "),
     _c("div", { staticClass: "bg-indigo-700 mt-7 rounded-lg" }, [
       _c(
@@ -83291,7 +82564,7 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("dl", { staticClass: "mt-8 space-y-6" }, [
-                    _vm._m(13),
+                    _vm._m(10),
                     _vm._v(" "),
                     _c("dd", { staticClass: "flex text-base text-indigo-50" }, [
                       _c(
@@ -83324,7 +82597,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(14),
+                    _vm._m(11),
                     _vm._v(" "),
                     _c("dd", { staticClass: "flex text-base text-indigo-50" }, [
                       _c(
@@ -83360,127 +82633,12 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(15)
+              _vm._m(12)
             ])
           ])
         ]
       )
-    ]),
-    _vm._v(" "),
-    _vm.chooseAuth
-      ? _c(
-          "div",
-          {
-            staticClass:
-              "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
-            attrs: { id: "popup-modal", tabindex: "-1" }
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "relative p-4 w-full max-w-md h-full md:h-auto" },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "relative bg-white rounded-lg shadow dark:bg-gray-700"
-                  },
-                  [
-                    _c("div", { staticClass: "flex justify-end p-5" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white",
-                          attrs: {
-                            type: "button",
-                            "data-modal-toggle": "popup-modal"
-                          },
-                          on: {
-                            click: function($event) {
-                              _vm.chooseAuth = false
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "w-5 h-5",
-                              attrs: {
-                                fill: "currentColor",
-                                viewBox: "0 0 20 20",
-                                xmlns: "http://www.w3.org/2000/svg"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  "fill-rule": "evenodd",
-                                  d:
-                                    "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
-                                  "clip-rule": "evenodd"
-                                }
-                              })
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(16),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "flex justify-around mb-5" }, [
-                      _c("div", [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "font-primary-font text-white bg-gray-400 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-extrabold rounded-xl text-2xl inline-flex items-center px-10 py-4 text-center mr-2",
-                            attrs: {
-                              href: _vm.route("login"),
-                              "data-modal-toggle": "popup-modal",
-                              type: "button"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                            Sign In\n                        "
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "font-primary-font text-white bg-indigo-600 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-extrabold rounded-xl text-2xl inline-flex items-center px-10 py-4 text-center mr-2",
-                            attrs: {
-                              href: _vm.route("register"),
-                              "data-modal-toggle": "popup-modal",
-                              type: "button"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                            Sign Up\n                        "
-                            )
-                          ]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "p-4 pt-0 text-center mt-5" })
-                  ]
-                )
-              ]
-            )
-          ]
-        )
-      : _vm._e()
+    ])
   ])
 }
 var staticRenderFns = [
@@ -83670,125 +82828,43 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pb-8 mb-14 border-b border-gray-400" }, [
-      _c("div", { staticClass: "flex justify-between items-center px-3" }, [
-        _c(
-          "h3",
-          { staticClass: "text-3xl text-white font-bold font-heading" },
-          [
-            _vm._v(
-              "\n                                        Bronze\n                                    "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-lg text-white font-bold" }, [
+    return _c("div", { staticClass: "p-4 pt-0 text-center mt-5" }, [
+      _c("i", { staticClass: "fas fa-lock-open fa-2xl mb-10 text-gray-300" }),
+      _vm._v(" "),
+      _c(
+        "h3",
+        {
+          staticClass:
+            "mb-5 text-xl sm:text-3xl font-extrabold text-gray-800 dark:text-gray-400"
+        },
+        [
           _vm._v(
-            "\n                                        KES 1,500\n                                    "
+            "\n                                    Link An Account To Subscribe\n                                "
           )
-        ])
-      ])
+        ]
+      )
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pb-8 mb-14 border-b border-gray-400" }, [
-      _c("div", { staticClass: "flex justify-between items-center px-3" }, [
-        _c(
-          "h3",
-          { staticClass: "text-3xl text-white font-bold font-heading" },
-          [
-            _vm._v(
-              "\n                                        Silver\n                                    "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-lg text-white font-bold" }, [
+    return _c("div", { staticClass: "p-4 pt-0 text-center mt-5" }, [
+      _c("i", { staticClass: "fas fa-lock-open fa-2xl mb-10 text-gray-300" }),
+      _vm._v(" "),
+      _c(
+        "h3",
+        {
+          staticClass:
+            "mb-5 text-3xl font-extrabold text-gray-800 dark:text-gray-400"
+        },
+        [
           _vm._v(
-            "\n                                        KES 6,000\n                                    "
+            "\n                            Link An Account To Subscribe\n                        "
           )
-        ])
-      ])
+        ]
+      )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pb-8 mb-14 border-b border-gray-400" }, [
-      _c("div", { staticClass: "flex justify-between items-center px-3" }, [
-        _c(
-          "h3",
-          { staticClass: "text-3xl text-white font-bold font-heading" },
-          [
-            _vm._v(
-              "\n                                        Gold\n                                    "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-lg text-white font-bold" }, [
-          _vm._v(
-            "\n                                        KES 9,000\n                                    "
-          )
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pb-8 mb-14 border-b border-gray-400" }, [
-      _c("div", { staticClass: "flex justify-between items-center px-3" }, [
-        _c(
-          "h3",
-          { staticClass: "text-3xl text-white font-bold font-heading" },
-          [
-            _vm._v(
-              "\n                                        Platinum\n                                    "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-lg text-white font-bold" }, [
-          _vm._v(
-            "\n                                        KES 30,000\n                                    "
-          )
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "pb-8 mb-14 border-b border-blueGray-300" },
-      [
-        _c("div", { staticClass: "flex justify-between items-center px-3" }, [
-          _c(
-            "h3",
-            { staticClass: "text-3xl text-white font-bold font-heading" },
-            [
-              _vm._v(
-                "\n                                        Diamond\n                                    "
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "text-lg text-white font-bold" }, [
-            _vm._v(
-              "\n                                        KES 50,000\n                                    "
-            )
-          ])
-        ])
-      ]
-    )
   },
   function() {
     var _vm = this
@@ -84601,27 +83677,6 @@ var staticRenderFns = [
         )
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-4 pt-0 text-center mt-5" }, [
-      _c("i", { staticClass: "fas fa-lock-open fa-2xl mb-10 text-gray-300" }),
-      _vm._v(" "),
-      _c(
-        "h3",
-        {
-          staticClass:
-            "mb-5 text-3xl font-extrabold text-gray-800 dark:text-gray-400"
-        },
-        [
-          _vm._v(
-            "\n                        Link Your Account\n                    "
-          )
-        ]
-      )
-    ])
   }
 ]
 render._withStripped = true
@@ -84693,6 +83748,1064 @@ var render = function() {
   )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/Subscriptions.vue?vue&type=template&id=d0965c74&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Components/Subscriptions.vue?vue&type=template&id=d0965c74&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "max-w-full mx-auto" }, [
+      _c("div", { staticClass: "flex flex-wrap items-center -mx-3" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3 mb-8 lg:mb-0",
+            on: {
+              click: function($event) {
+                return _vm.membership("bronze")
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "px-2 py-16 bg-indigo-400 rounded-3xl" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "ul",
+                { staticClass: "text-sm text-white mb-16 font-primary-font" },
+                [
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Access all Tenders")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Exclusive Tender Details Access")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Email Notifications Updates")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Access To Tender News and blogs")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Billed Daily")])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-center" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black",
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        return _vm.membership("bronze")
+                      }
+                    }
+                  },
+                  [_vm._v("Subscribe to Plan")]
+                )
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3 mb-8 lg:mb-0",
+            on: {
+              click: function($event) {
+                return _vm.membership("silver")
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "px-2 py-16 bg-indigo-500 rounded-3xl" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "ul",
+                { staticClass: "text-sm text-white mb-16 font-primary-font" },
+                [
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Access all Tenders")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Exclusive Tender Details Access")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Email Notifications Updates")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Access To Tender News and blogs")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Billed Weekly")])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-center" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black",
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        return _vm.membership("silver")
+                      }
+                    }
+                  },
+                  [_vm._v("Subscribe to Plan")]
+                )
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3 mb-8 lg:mb-0",
+            on: {
+              click: function($event) {
+                return _vm.membership("gold")
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "px-2 py-16 bg-indigo-600 rounded-3xl" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c(
+                "ul",
+                { staticClass: "text-sm text-white mb-16 font-primary-font" },
+                [
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Access all Tenders")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Exclusive Tender Details Access")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Email Notifications Updates")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Access To Tender News and blogs")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Billed Monthly")])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-center" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black",
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        return _vm.membership("gold")
+                      }
+                    }
+                  },
+                  [_vm._v("Subscribe to Plan")]
+                )
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3 mb-8 lg:mb-0",
+            on: {
+              click: function($event) {
+                return _vm.membership("platinum")
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "px-2 py-16 bg-indigo-700 rounded-3xl" }, [
+              _vm._m(3),
+              _vm._v(" "),
+              _c(
+                "ul",
+                { staticClass: "text-sm text-white mb-16 font-primary-font" },
+                [
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Access all Tenders")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Exclusive Tender Details Access")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Email Notifications Updates")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Access To Tender News and blogs")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Billed Every 6 Months")])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-center" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black",
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        return _vm.membership("platinum")
+                      }
+                    }
+                  },
+                  [_vm._v("Subscribe to Plan")]
+                )
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "transform transition hover:scale-75 duration-700 w-full lg:w-1/5 px-3 mb-8 lg:mb-0",
+            on: {
+              click: function($event) {
+                return _vm.membership("diamond")
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "px-2 py-16 bg-indigo-800 rounded-3xl" }, [
+              _vm._m(4),
+              _vm._v(" "),
+              _c(
+                "ul",
+                { staticClass: "text-sm text-white mb-16 font-primary-font" },
+                [
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Access all Tenders")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Exclusive Tender Details Access")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Email Notifications Updates")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Access To Tender News and blogs")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "flex items-center mb-8" }, [
+                    _c("span", { staticClass: "mr-6" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            width: "20",
+                            height: "16",
+                            viewbox: "0 0 20 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M6.81671 15.0418L0 8.2251L0.90027 7.32483L6.81671 13.2413L19.0997 0.958252L20 1.85852L6.81671 15.0418Z",
+                              fill: "white"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Billed Annually")])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-center" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "transform transition hover:scale-125 duration-700 bg-white hover:bg-transparent hover:text-white inline-block px-10 py-4 border border-blueGray-300 hover:border-blueGray-100 rounded-full font-bold text-black",
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        return _vm.membership("diamond")
+                      }
+                    }
+                  },
+                  [_vm._v("Subscribe to Plan")]
+                )
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pb-8 mb-14 border-b border-gray-400" }, [
+      _c("div", { staticClass: "flex justify-between items-center px-3" }, [
+        _c(
+          "h3",
+          { staticClass: "text-3xl text-white font-bold font-heading" },
+          [
+            _vm._v(
+              "\n                                Bronze\n                            "
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-lg text-white font-bold" }, [
+          _vm._v(
+            "\n                                KES 1,500\n                            "
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pb-8 mb-14 border-b border-gray-400" }, [
+      _c("div", { staticClass: "flex justify-between items-center px-3" }, [
+        _c(
+          "h3",
+          { staticClass: "text-3xl text-white font-bold font-heading" },
+          [
+            _vm._v(
+              "\n                                Silver\n                            "
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-lg text-white font-bold" }, [
+          _vm._v(
+            "\n                                KES 6,000\n                            "
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pb-8 mb-14 border-b border-gray-400" }, [
+      _c("div", { staticClass: "flex justify-between items-center px-3" }, [
+        _c(
+          "h3",
+          { staticClass: "text-3xl text-white font-bold font-heading" },
+          [
+            _vm._v(
+              "\n                                Gold\n                            "
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-lg text-white font-bold" }, [
+          _vm._v(
+            "\n                                KES 9,000\n                            "
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pb-8 mb-14 border-b border-gray-400" }, [
+      _c("div", { staticClass: "flex justify-between items-center px-3" }, [
+        _c(
+          "h3",
+          { staticClass: "text-3xl text-white font-bold font-heading" },
+          [
+            _vm._v(
+              "\n                                Platinum\n                            "
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-lg text-white font-bold" }, [
+          _vm._v(
+            "\n                                KES 30,000\n                            "
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "pb-8 mb-14 border-b border-blueGray-300" },
+      [
+        _c("div", { staticClass: "flex justify-between items-center px-3" }, [
+          _c(
+            "h3",
+            { staticClass: "text-3xl text-white font-bold font-heading" },
+            [
+              _vm._v(
+                "\n                                Diamond\n                            "
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-lg text-white font-bold" }, [
+            _vm._v(
+              "\n                                KES 50,000\n                            "
+            )
+          ])
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -104723,6 +104836,8 @@ var map = {
 	"./Components/ServiceIntro.vue": "./resources/js/Pages/Components/ServiceIntro.vue",
 	"./Components/Spinner": "./resources/js/Pages/Components/Spinner.vue",
 	"./Components/Spinner.vue": "./resources/js/Pages/Components/Spinner.vue",
+	"./Components/Subscriptions": "./resources/js/Pages/Components/Subscriptions.vue",
+	"./Components/Subscriptions.vue": "./resources/js/Pages/Components/Subscriptions.vue",
 	"./Components/TopBanner": "./resources/js/Pages/Components/TopBanner.vue",
 	"./Components/TopBanner.vue": "./resources/js/Pages/Components/TopBanner.vue",
 	"./Dashboard": "./resources/js/Pages/Dashboard.vue",
@@ -106258,6 +106373,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Spinner_vue_vue_type_template_id_81d38d2e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Spinner_vue_vue_type_template_id_81d38d2e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Components/Subscriptions.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/Pages/Components/Subscriptions.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Subscriptions_vue_vue_type_template_id_d0965c74_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Subscriptions.vue?vue&type=template&id=d0965c74&scoped=true& */ "./resources/js/Pages/Components/Subscriptions.vue?vue&type=template&id=d0965c74&scoped=true&");
+/* harmony import */ var _Subscriptions_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Subscriptions.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Components/Subscriptions.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Subscriptions_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Subscriptions_vue_vue_type_template_id_d0965c74_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Subscriptions_vue_vue_type_template_id_d0965c74_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "d0965c74",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Components/Subscriptions.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Components/Subscriptions.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/Pages/Components/Subscriptions.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Subscriptions_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Subscriptions.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/Subscriptions.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Subscriptions_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Components/Subscriptions.vue?vue&type=template&id=d0965c74&scoped=true&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/Pages/Components/Subscriptions.vue?vue&type=template&id=d0965c74&scoped=true& ***!
+  \****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Subscriptions_vue_vue_type_template_id_d0965c74_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Subscriptions.vue?vue&type=template&id=d0965c74&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Components/Subscriptions.vue?vue&type=template&id=d0965c74&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Subscriptions_vue_vue_type_template_id_d0965c74_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Subscriptions_vue_vue_type_template_id_d0965c74_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

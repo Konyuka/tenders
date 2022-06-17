@@ -578,10 +578,7 @@
             </nav>
 
             <!-- Navigation ends -->
-            <div
-                v-if="admin"
-                class="container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6"
-            >
+            <div v-if="admin" class="py-1 h-64 px-6">
                 <TendersPage v-if="currentMenu == 'tenders'" />
                 <PaymentsPage v-if="currentMenu == 'payments'" />
                 <SupportPage v-if="currentMenu == 'support'" />
