@@ -487,10 +487,10 @@ export default {
         return {
             paymentLog: "",
             form: {
-                userName: "Saiba",
-                userPhone: this.removeSpaces("254716202298"),
-                userEmail: "saiba@mail.com",
-                number: this.removeSpaces("254716202298"),
+                userName: "",
+                userPhone: this.removeSpaces(""),
+                userEmail: "",
+                number: this.removeSpaces(""),
                 account: "Bidders Portal",
                 amount: this.amount
                 // amount: this.post.price

@@ -852,11 +852,11 @@ export default {
             expressModal: false,
             paymentLog: "",
             form: {
-                userName: "saiba",
-                userPhone: "254716202298",
-                userEmail: "saiba@mail.com",
-                number: this.removeSpaces("254716202298"),
-                account: "Laborex Kenya LTD",
+                userName: "",
+                userPhone: "",
+                userEmail: "",
+                number: this.removeSpaces(""),
+                account: "",
                 amount: this.amount
                 // amount: this.post.price
                 // amount: ''
