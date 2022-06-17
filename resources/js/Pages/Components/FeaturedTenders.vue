@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="bg-white mx-5 rounded-lg">
+        <section class="bg-white mx-2 sm:mx-5 rounded-lg">
             <div class="container px-1 py-6 mx-auto">
                 <div>
                     <h1
@@ -200,7 +200,7 @@
                                             <!-- {{ post.country }} -->
                                             KES
                                             <span
-                                                class="ml-1 text-green-500 font-heading-font font-extrabold text-lg"
+                                                class="ml-1 text-green-500 font-heading-font font-extrabold text-xs sm:text-lg"
                                             >
                                                 {{ amount(post.created_at) }}
                                             </span>

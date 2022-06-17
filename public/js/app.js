@@ -79617,7 +79617,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("section", { staticClass: "bg-white mx-5 rounded-lg" }, [
+    _c("section", { staticClass: "bg-white mx-2 sm:mx-5 rounded-lg" }, [
       _c("div", { staticClass: "container px-1 py-6 mx-auto" }, [
         _vm._m(0),
         _vm._v(" "),
@@ -79971,7 +79971,7 @@ var render = function() {
                                     "span",
                                     {
                                       staticClass:
-                                        "ml-1 text-green-500 font-heading-font font-extrabold text-lg"
+                                        "ml-1 text-green-500 font-heading-font font-extrabold text-xs sm:text-lg"
                                     },
                                     [
                                       _vm._v(
@@ -86562,7 +86562,7 @@ var render = function() {
         _c("div", { staticClass: "text-gray-600 body-font " }, [
           _c(
             "main",
-            { staticClass: "px-5 py-4 mx-auto", attrs: { id: "top" } },
+            { staticClass: "sm:px-5 py-4 mx-auto", attrs: { id: "top" } },
             [
               _vm._m(0),
               _vm._v(" "),
@@ -86803,7 +86803,7 @@ var render = function() {
                                       "span",
                                       {
                                         staticClass:
-                                          "ml-1 text-green-500 font-heading-font font-extrabold text-lg"
+                                          "ml-1 text-green-500 font-heading-font font-extrabold text-xs sm:text-lg"
                                       },
                                       [
                                         _vm._v(

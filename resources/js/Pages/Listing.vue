@@ -14,7 +14,7 @@
                     </button>
                 </header> -->
 
-                <main id="top" class="px-5 py-4 mx-auto">
+                <main id="top" class="sm:px-5 py-4 mx-auto">
                     <div class="flex flex-col text-center w-full mb-6">
                         <h2
                             class="text-xl text-indigo-500 tracking-widest font-medium title-font m-5"
@@ -142,7 +142,7 @@
                                             <!-- {{ post.country }} -->
                                             KES
                                             <span
-                                                class="ml-1 text-green-500 font-heading-font font-extrabold text-lg"
+                                                class="ml-1 text-green-500 font-heading-font font-extrabold text-xs sm:text-lg"
                                             >
                                                 {{ amount(post.created_at) }}
                                             </span>
