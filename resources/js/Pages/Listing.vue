@@ -133,25 +133,53 @@
                                             <!-- {{ post.country }} -->
                                             Kenya
                                         </span>
+                                        <span
+                                            class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none pr-3 py-1 border-r-2 border-gray-200"
+                                        >
+                                            <i
+                                                class="w-4 h-4 mr-1 fas fa-money-bill-transfer text-indigo-600"
+                                            ></i>
+                                            <!-- {{ post.country }} -->
+                                            KES
+                                            <span
+                                                class="ml-1 text-green-500 font-heading-font font-extrabold text-lg"
+                                            >
+                                                {{ amount(post.created_at) }}
+                                            </span>
+                                        </span>
                                     </div>
 
-                                    <div class="mt-4">
-                                        <a
-                                            class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
-                                            >Tender Details
-                                            <svg
-                                                class="w-4 h-4 ml-2"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                fill="none"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
+                                    <div
+                                        class="mt-4 flex justify-between w-full"
+                                    >
+                                        <div>
+                                            <a
+                                                class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
+                                                >Tender Details
+                                                <svg
+                                                    class="w-4 h-4 ml-2"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                    stroke-width="2"
+                                                    fill="none"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                >
+                                                    <path d="M5 12h14"></path>
+                                                    <path
+                                                        d="M12 5l7 7-7 7"
+                                                    ></path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <!-- <div class="justify-items-end">
+                                            <button
+                                                @click="purchase(post._id)"
+                                                class="transform transition hover:scale-125 duration-300 inline-flex items-center py-2 px-2 text-sm font-medium text-white bg-indigo-600 rounded-sm border border-gray-300 hover:bg-green-500 hover:text-white dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                                             >
-                                                <path d="M5 12h14"></path>
-                                                <path d="M12 5l7 7-7 7"></path>
-                                            </svg>
-                                        </a>
+                                                Express Purchase
+                                            </button>
+                                        </div> -->
                                     </div>
                                 </a>
                             </div>
@@ -176,10 +204,9 @@
                                     >
                                         <input
                                             v-model="jumpPage"
-                                            class="m-2 border h-10 w-10 text-center form-control rounded"
+                                            class="text-xs m-2 border h-10 w-10 text-center form-control rounded"
                                             type="text"
                                             id="fourth"
-                                            maxlength="1"
                                         />
                                     </div>
 
@@ -359,6 +386,22 @@ export default {
         };
     },
     methods: {
+        purchase(value) {
+            alert("check");
+            this.$inertia.post(`/checkout/${value}`);
+        },
+        amount(value) {
+            var given = moment(value, "YYYY-MM-DD");
+            var current = moment().startOf("day");
+            var diff = moment.duration(current.diff(given)).asDays();
+            if (diff <= 10) {
+                return 150;
+            } else if (diff >= 11 && this.daysDiff <= 20) {
+                return 100;
+            } else {
+                return 50;
+            }
+        },
         postNumber(i) {
             // console.log i;
             // alert('this')

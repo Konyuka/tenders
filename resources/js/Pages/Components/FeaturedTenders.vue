@@ -191,6 +191,20 @@
                                             <!-- {{ post.country }} -->
                                             Kenya
                                         </span>
+                                        <span
+                                            class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none pr-3 py-1 border-r-2 border-gray-200"
+                                        >
+                                            <i
+                                                class="w-4 h-4 mr-1 fas fa-money-bill-transfer text-indigo-600"
+                                            ></i>
+                                            <!-- {{ post.country }} -->
+                                            KES
+                                            <span
+                                                class="ml-1 text-green-500 font-heading-font font-extrabold text-lg"
+                                            >
+                                                {{ amount(post.created_at) }}
+                                            </span>
+                                        </span>
                                     </div>
 
                                     <div class="mt-4">
@@ -272,6 +286,18 @@ export default {
         }
     },
     methods: {
+        amount(value) {
+            var given = moment(value, "YYYY-MM-DD");
+            var current = moment().startOf("day");
+            var diff = moment.duration(current.diff(given)).asDays();
+            if (diff <= 10) {
+                return 150;
+            } else if (diff >= 11 && this.daysDiff <= 20) {
+                return 100;
+            } else {
+                return 50;
+            }
+        },
         updateCnt(post, i) {
             this.cnt = i * post.length;
         },

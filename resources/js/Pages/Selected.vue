@@ -366,19 +366,17 @@ export default {
             }
         },
         amount() {
-            if (this.daysDiff <= 7) {
+            if (this.daysDiff <= 10) {
                 return 150;
-            } else if (this.daysDiff >= 8 && this.daysDiff <= 14) {
+            } else if (this.daysDiff >= 11 && this.daysDiff <= 20) {
                 return 100;
-            } else {
+            } else if (this.daysDiff >= 21 && this.daysDiff <= 31) {
                 return 50;
             }
         },
         daysDiff() {
-            // var given = moment("2018-03-10", "YYYY-MM-DD");
             var given = moment(this.post.created_at, "YYYY-MM-DD");
             var current = moment().startOf("day");
-            //Difference in number of days
             var diff = moment.duration(current.diff(given)).asDays();
             return diff;
         },
