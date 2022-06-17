@@ -7059,7 +7059,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
 
       if (diff <= 10) {
         return 150;
-      } else if (diff >= 11 && this.daysDiff <= 20) {
+      } else if (diff >= 11 && this.diff <= 20) {
         return 100;
       } else {
         return 50;
@@ -11864,10 +11864,11 @@ vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       var given = moment(value, "YYYY-MM-DD");
       var current = moment().startOf("day");
       var diff = moment.duration(current.diff(given)).asDays();
+      console.log(diff);
 
       if (diff <= 10) {
         return 150;
-      } else if (diff >= 11 && this.daysDiff <= 20) {
+      } else if (diff >= 11 && diff <= 20) {
         return 100;
       } else {
         return 50;

@@ -159,14 +159,14 @@ class LandingController extends Controller
             ->whereBetween('created_at', [$to, $from])
             ->latest()->get();
         }else if($slug==100){
-            $from = new DateTime('-10 day');
+            $from = new DateTime('-11 day');
             $to = new DateTime('-20 day');
             $posts = Post::select("*")
             ->whereBetween('created_at', [$to, $from])
             ->latest()->get();
         }else if($slug==50){
-            $from = new DateTime('-20 day');
-            $to = new DateTime('-30 day');
+            $from = new DateTime('-21 day');
+            $to = new DateTime('-31 day');
             $posts = Post::select("*")
             ->whereBetween('created_at', [$to, $from])
             ->latest()->get();

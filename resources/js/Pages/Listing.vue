@@ -394,9 +394,10 @@ export default {
             var given = moment(value, "YYYY-MM-DD");
             var current = moment().startOf("day");
             var diff = moment.duration(current.diff(given)).asDays();
+            console.log(diff);
             if (diff <= 10) {
                 return 150;
-            } else if (diff >= 11 && this.daysDiff <= 20) {
+            } else if (diff >= 11 && diff <= 20) {
                 return 100;
             } else {
                 return 50;

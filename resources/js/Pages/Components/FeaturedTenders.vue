@@ -292,7 +292,7 @@ export default {
             var diff = moment.duration(current.diff(given)).asDays();
             if (diff <= 10) {
                 return 150;
-            } else if (diff >= 11 && this.daysDiff <= 20) {
+            } else if (diff >= 11 && this.diff <= 20) {
                 return 100;
             } else {
                 return 50;
