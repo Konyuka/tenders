@@ -11781,6 +11781,9 @@ vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
     this.setPages();
   },
   computed: {
+    disableButton: function disableButton() {
+      return this.page == 1 ? "cursor-not-allowed" : "";
+    },
     displayedPosts: function displayedPosts() {
       return this.paginate(this.Posts);
     }
@@ -86723,25 +86726,24 @@ var render = function() {
                     ),
                     _vm._v(" "),
                     _c("footer", { staticClass: "flex justify-around mt-4" }, [
-                      _vm.page != 1
-                        ? _c(
-                            "button",
-                            {
-                              staticClass:
-                                "inline-flex items-center py-4 px-6 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
-                              on: {
-                                click: function($event) {
-                                  _vm.page--
-                                }
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                Previous\n                            "
-                              )
-                            ]
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "inline-flex items-center py-4 px-6 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
+                          class: _vm.disableButton,
+                          on: {
+                            click: function($event) {
+                              _vm.page--
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                Previous\n                            "
                           )
-                        : _vm._e(),
+                        ]
+                      ),
                       _vm._v(" "),
                       _vm.page == 1 ? _c("button") : _vm._e(),
                       _vm._v(" "),

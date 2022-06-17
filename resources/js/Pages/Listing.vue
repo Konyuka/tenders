@@ -158,8 +158,8 @@
 
                             <footer class="flex justify-around mt-4">
                                 <button
-                                    v-if="page != 1"
                                     @click="page--"
+                                    v-bind:class="disableButton"
                                     class="inline-flex items-center py-4 px-6 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                                 >
                                     Previous
@@ -338,6 +338,9 @@ export default {
         this.setPages();
     },
     computed: {
+        disableButton() {
+            return this.page == 1 ? "cursor-not-allowed" : "";
+        },
         displayedPosts() {
             return this.paginate(this.Posts);
         }
