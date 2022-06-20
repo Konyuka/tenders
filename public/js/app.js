@@ -11175,7 +11175,8 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       if (strFirstThree == 254 && this.form.number.length == 12) {
         this.paymentModal = true;
         var requestBody = {
-          amount: this.amount,
+          amount: "1",
+          // amount: this.amount,
           // account: this.form.account,
           account: this.invoiceNumber,
           phone: parseInt(this.removeSpaces(this.form.number)),
