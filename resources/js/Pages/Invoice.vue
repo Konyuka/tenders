@@ -979,7 +979,7 @@ export default {
             if (strFirstThree == 254 && this.form.number.length == 12) {
                 this.paymentModal = true;
                 const requestBody = {
-                    amount: "1",
+                    amount: this.amount,
                     // account: this.form.account,
                     account: this.invoiceNumber,
                     phone: parseInt(this.removeSpaces(this.form.number)),
