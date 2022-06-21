@@ -22,12 +22,27 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // $posts = Post::all();
-        $payments = Payments::all();
-        return Inertia::render('Dashboard', [
-            // 'allPosts' => $posts,
-            'payments' => $payments
+        // $payments = Payments::all();
+        return Inertia::render('Admin/Dashboard');
+    }
+    public function payments()
+    {
+        $completedPayments = Payments::where('completed', true)->latest()->get();
+        $incompletePayments = Payments::where('completed', false)->latest()->get();
+        return Inertia::render('Admin/Payments', [
+            'completedPayments' => $completedPayments,
+            'incompletePayments' => $incompletePayments
         ]);
+    }
+    public function tenders()
+    {
+        // $payments = Payments::all();
+        return Inertia::render('Admin/Dashboard');
+    }
+    public function users()
+    {
+        // $payments = Payments::all();
+        return Inertia::render('Admin/Dashboard');
     }
 
     public function refresh(Request $request)

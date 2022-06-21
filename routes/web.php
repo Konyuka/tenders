@@ -52,13 +52,6 @@ Route::get('/download_tender/{slugs}', [LandingController::class, 'downloadTende
 Route::post('/invoice/{slugs}', [LandingController::class, 'invoice'])
     ->name('invoice');
 
-
-// Route::get('/stkpush', [LandingController::class, 'stkpush'])
-//     ->name('stkpush');
-
-// Route::get('/stkpush', [PaymentsController::class, 'triggerStk'])
-//     ->name('stkpush');
-
 Route::post('get-token', [PaymentsController::class, 'newAccessToken'])
     ->name('get-token');
 
@@ -68,12 +61,6 @@ Route::post('register-urls', [PaymentsController::class, 'registerURLS'])
 Route::post('simulate', [PaymentsController::class, 'simulateTransaction'])
     ->name('simulate');
 
-// Route::post('/checkout/stkPush', [LandingController::class, 'stkPush'])
-//     ->name('stk');
-
-// Route::post('/invoice/{slugs}/stkPush', [PaymentsController::class, 'stkPush'])
-//     ->name('stk');
-
 Route::post('/invoice/payment/stkPush', [PaymentsController::class, 'triggerStk'])
     ->name('stk');
 
@@ -82,9 +69,6 @@ Route::post('/invoice/{slugs}/c2b', [PaymentsController::class, 'triggerC2B'])
 
 Route::post('/confirm/ebook/payment', [PaymentsController::class, 'confirm'])
     ->name('confirm');
-
-
-
 
 Route::get('transaction-status', function(){
     return view('status');
@@ -98,6 +82,13 @@ Route::post('/confirmation', [PaymentsController::class, 'setTransactionDetails'
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/payment', [DashboardController::class, 'payments'])
+    ->name('admin.payment');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/tender', [DashboardController::class, 'tenders'])
+    ->name('admin.tender');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/user', [DashboardController::class, 'users'])
+    ->name('admin.user');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->post('/import', [DashboardController::class, 'import'])
     ->name('import');
@@ -107,8 +98,6 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/post', [DashboardControl
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/refresh', [DashboardController::class, 'refresh'])
     ->name('refresh');
-// Route::middleware(['auth:sanctum', 'verified'])->post('/refresh', [DashboardController::class, 'refresh'])
-//     ->name('refresh');
 
 
 

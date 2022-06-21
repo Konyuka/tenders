@@ -1,626 +1,488 @@
 <template>
-    <div class="flex flex-no-wrap bg-gray-50 min-h-screen">
-        <!-- Sidebar starts -->
-        <!-- Remove class [ hidden ] and replace [ sm:flex ] with [ flex ] -->
+    <div>
+        <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
+        <div class="relative z-40 md:hidden" role="dialog" aria-modal="true">
+            <!--
+      Off-canvas menu backdrop, show/hide based on off-canvas menu state.
 
-        <div
-            class="absolute border-r border-gray-100 sm:relative h-full min-h-screen bg-gray-100 z-20 p-4"
-        >
-            <div class="flex w-full">
-                <div class="w-1/4 flex justify-center flex-col w-full">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="icon icon-tabler icon-tabler-menu-2 cursor-pointer mt-1"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="#718096"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        @click="sidebarHandler()"
-                    >
-                        <path stroke="none" d="M0 0h24v24H0z" />
-                        <line x1="4" y1="6" x2="20" y2="6" />
-                        <line x1="4" y1="12" x2="20" y2="12" />
-                        <line x1="4" y1="18" x2="20" y2="18" />
-                    </svg>
-                    <ul
-                        v-if="admin"
-                        aria-orientation="vertical"
-                        class="rounded py-8 mt-4"
-                    >
-                        <li
-                            class="cursor-pointer text-sm leading-3 tracking-normal py-1 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none"
+      Entering: "transition-opacity ease-linear duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "transition-opacity ease-linear duration-300"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+            <div class="fixed inset-0 bg-gray-600 bg-opacity-75"></div>
+
+            <div class="fixed inset-0 flex z-40">
+                <!--
+        Off-canvas menu, show/hide based on off-canvas menu state.
+
+        Entering: "transition ease-in-out duration-300 transform"
+          From: "-translate-x-full"
+          To: "translate-x-0"
+        Leaving: "transition ease-in-out duration-300 transform"
+          From: "translate-x-0"
+          To: "-translate-x-full"
+      -->
+                <div
+                    class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-indigo-700"
+                >
+                    <!--
+          Close button, show/hide based on off-canvas menu state.
+
+          Entering: "ease-in-out duration-300"
+            From: "opacity-0"
+            To: "opacity-100"
+          Leaving: "ease-in-out duration-300"
+            From: "opacity-100"
+            To: "opacity-0"
+        -->
+                    <div class="absolute top-0 right-0 -mr-12 pt-2">
+                        <button
+                            type="button"
+                            class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                         >
-                            <div class="flex items-center">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="icon icon-tabler icon-tabler-grid"
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
-                                    fill="none"
+                            <span class="sr-only">Close sidebar</span>
+                            <!-- Heroicon name: outline/x -->
+                            <svg
+                                class="h-6 w-6 text-white"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                aria-hidden="true"
+                            >
+                                <path
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
-                                >
-                                    <path
-                                        stroke="none"
-                                        d="M0 0h24v24H0z"
-                                    ></path>
-                                    <rect
-                                        x="4"
-                                        y="4"
-                                        width="6"
-                                        height="6"
-                                        rx="1"
-                                    ></rect>
-                                    <rect
-                                        x="14"
-                                        y="4"
-                                        width="6"
-                                        height="6"
-                                        rx="1"
-                                    ></rect>
-                                    <rect
-                                        x="4"
-                                        y="14"
-                                        width="6"
-                                        height="6"
-                                        rx="1"
-                                    ></rect>
-                                    <rect
-                                        x="14"
-                                        y="14"
-                                        width="6"
-                                        height="6"
-                                        rx="1"
-                                    ></rect>
-                                </svg>
-                            </div>
-                        </li>
-                        <li
-                            class="cursor-pointer text-sm leading-3 tracking-normal mt-6 py-1 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none flex items-center"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="flex-shrink-0 flex items-center px-4">
+                        <a
+                            :href="route('landing')"
+                            class="font-bold-font font-bold"
+                            >Bidders Portal</a
                         >
-                            <span class="text-gray-800">
+                        <!-- <img
+                            class="h-8 w-auto"
+                            src="https://tailwindui.com/img/logos/workflow-logo-indigo-300-mark-white-text.svg"
+                            alt="Workflow"
+                        /> -->
+                    </div>
+                    <div class="mt-5 flex-1 h-0 overflow-y-auto">
+                        <nav class="px-2 space-y-1">
+                            <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-600" -->
+                            <a
+                                href="#"
+                                class="bg-indigo-800 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                            >
+                                <!-- Heroicon name: outline/home -->
+                                <i class="fas fa-coins fa-2x text-black"></i>
+                                Payments
+                            </a>
+
+                            <a
+                                href="#"
+                                class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                            >
+                                <!-- Heroicon name: outline/users -->
                                 <svg
+                                    class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300"
                                     xmlns="http://www.w3.org/2000/svg"
-                                    class="icon icon-tabler icon-tabler-puzzle"
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
                                     fill="none"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2"
+                                    stroke="currentColor"
+                                    aria-hidden="true"
                                 >
                                     <path
-                                        stroke="none"
-                                        d="M0 0h24v24H0z"
-                                    ></path>
-                                    <path
-                                        d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1"
-                                    ></path>
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                                    />
                                 </svg>
-                            </span>
-                        </li>
-                        <li
-                            class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-6 py-1 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none"
-                        >
-                            <span class="text-gray-800">
+                                Team
+                            </a>
+
+                            <a
+                                href="#"
+                                class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                            >
+                                <!-- Heroicon name: outline/folder -->
                                 <svg
+                                    class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300"
                                     xmlns="http://www.w3.org/2000/svg"
-                                    class="icon icon-tabler icon-tabler-compass"
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
                                     fill="none"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2"
+                                    stroke="currentColor"
+                                    aria-hidden="true"
                                 >
                                     <path
-                                        stroke="none"
-                                        d="M0 0h24v24H0z"
-                                    ></path>
-                                    <polyline
-                                        points="8 16 10 10 16 8 14 14 8 16"
-                                    ></polyline>
-                                    <circle cx="12" cy="12" r="9"></circle>
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+                                    />
                                 </svg>
-                            </span>
-                        </li>
-                        <li
-                            class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-6 py-1 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none"
-                        >
-                            <span class="text-gray-800">
+                                Projects
+                            </a>
+
+                            <a
+                                href="#"
+                                class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                            >
+                                <!-- Heroicon name: outline/calendar -->
                                 <svg
+                                    class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300"
                                     xmlns="http://www.w3.org/2000/svg"
-                                    class="icon icon-tabler icon-tabler-code"
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
                                     fill="none"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2"
+                                    stroke="currentColor"
+                                    aria-hidden="true"
                                 >
                                     <path
-                                        stroke="none"
-                                        d="M0 0h24v24H0z"
-                                    ></path>
-                                    <polyline points="7 8 3 12 7 16"></polyline>
-                                    <polyline
-                                        points="17 8 21 12 17 16"
-                                    ></polyline>
-                                    <line x1="14" y1="4" x2="10" y2="20"></line>
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                    />
                                 </svg>
-                            </span>
-                        </li>
-                    </ul>
-                    <ul
-                        v-else
-                        aria-orientation="vertical"
-                        class="rounded py-8 mt-4"
-                    >
-                        <!-- <li
-                            class="cursor-pointer text-sm leading-3 tracking-normal py-1 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none"
-                        >
-                            <div class="flex items-center">
+                                Calendar
+                            </a>
+
+                            <a
+                                href="#"
+                                class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                            >
+                                <!-- Heroicon name: outline/inbox -->
                                 <svg
+                                    class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300"
                                     xmlns="http://www.w3.org/2000/svg"
-                                    class="icon icon-tabler icon-tabler-grid"
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
                                     fill="none"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2"
+                                    stroke="currentColor"
+                                    aria-hidden="true"
                                 >
                                     <path
-                                        stroke="none"
-                                        d="M0 0h24v24H0z"
-                                    ></path>
-                                    <rect
-                                        x="4"
-                                        y="4"
-                                        width="6"
-                                        height="6"
-                                        rx="1"
-                                    ></rect>
-                                    <rect
-                                        x="14"
-                                        y="4"
-                                        width="6"
-                                        height="6"
-                                        rx="1"
-                                    ></rect>
-                                    <rect
-                                        x="4"
-                                        y="14"
-                                        width="6"
-                                        height="6"
-                                        rx="1"
-                                    ></rect>
-                                    <rect
-                                        x="14"
-                                        y="14"
-                                        width="6"
-                                        height="6"
-                                        rx="1"
-                                    ></rect>
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
+                                    />
                                 </svg>
-                            </div>
-                        </li> -->
-                    </ul>
+                                Documents
+                            </a>
+
+                            <a
+                                href="#"
+                                class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                            >
+                                <!-- Heroicon name: outline/chart-bar -->
+                                <svg
+                                    class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2"
+                                    stroke="currentColor"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                                    />
+                                </svg>
+                                Reports
+                            </a>
+                        </nav>
+                    </div>
                 </div>
 
-                <div
-                    class="mt-8 w-3/4 flex justify-start flex-col pr-12 transition duration-150 ease-in-out"
-                    id="mobile-nav"
-                >
-                    <a :href="route('landing')" class="flex items-center">
-                        <!-- <img
-                            class="p-1 dark:bg-white rounded-full"
-                            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg5.svg"
-                            alt="circle"
-                        /> -->
-                        <!-- <h1
-                            class=" font-normal text-md leading-6 text-gray-800 dark:text-white "
-                        >
-                        </h1> -->
-                        <!-- <i class="fas fa-home text-indigo-600"> </i> -->
-                        <span
-                            class="hover:text-black text-xl text-extrabold font-primary-font text-indigo-600 p-1"
-                            >Home</span
-                        >
-                    </a>
-
-                    <ul
-                        v-if="admin"
-                        aria-orientation="vertical"
-                        class="rounded py-8"
-                    >
-                        <li
-                            @click="selectedMenu('tenders')"
-                            :class="
-                                this.currentMenu == 'tenders'
-                                    ? 'text-indigo-700'
-                                    : ''
-                            "
-                            class="cursor-pointer text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none"
-                        >
-                            <span class="ml-2">Tenders</span>
-                        </li>
-                        <li
-                            @click="selectedMenu('payments')"
-                            :class="
-                                this.currentMenu == 'payments'
-                                    ? 'text-indigo-700'
-                                    : ''
-                            "
-                            class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-6 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none flex items-center"
-                        >
-                            <span class="ml-2">Payments</span>
-                        </li>
-                        <li
-                            @click="selectedMenu('support')"
-                            :class="
-                                this.currentMenu == 'support'
-                                    ? 'text-indigo-700'
-                                    : ''
-                            "
-                            class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-6 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none"
-                        >
-                            <span class="ml-2">Support</span>
-                        </li>
-                        <li
-                            @click="selectedMenu('users')"
-                            :class="
-                                this.currentMenu == 'users'
-                                    ? 'text-indigo-700'
-                                    : ''
-                            "
-                            class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-6 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none"
-                        >
-                            <span class="ml-2">Users</span>
-                        </li>
-                    </ul>
-
-                    <ul v-else aria-orientation="vertical" class="rounded py-8">
-                        <!-- <li
-                            @click="selectedMenu('tenders')"
-                            :class="
-                                this.currentMenu == 'tenders'
-                                    ? 'text-indigo-700'
-                                    : ''
-                            "
-                            class="cursor-pointer text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none"
-                        >
-                            <span class="ml-2">Membership</span>
-                        </li> -->
-                    </ul>
+                <div class="flex-shrink-0 w-14" aria-hidden="true">
+                    <!-- Dummy element to force sidebar to shrink to fit close icon -->
                 </div>
             </div>
         </div>
-        <!-- Sidebar ends -->
-        <div class="w-full">
-            <!-- Navigation starts -->
-            <nav
-                class="h-16 flex items-center lg:items-stretch justify-end lg:justify-between bg-white shadow relative z-10"
+
+        <!-- Static sidebar for desktop -->
+        <div class="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
+            <!-- Sidebar component, swap this element with another sidebar if you like -->
+            <div
+                class="flex flex-col flex-grow pt-5 bg-indigo-700 overflow-y-auto"
             >
-                <div class="hidden lg:flex w-full pr-6">
-                    <div
-                        class="w-1/2 h-full hidden lg:flex items-center pl-6 pr-24"
+                <div class="flex items-center flex-shrink-0 px-4">
+                    <a
+                        :href="route('landing')"
+                        class="font-bold-font font-bold text-white text-3xl"
                     >
-                        <div class="relative w-full">
-                            <div
-                                class="text-gray-500 absolute ml-4 inset-0 m-auto w-4 h-4"
+                        Bidders Portal
+                    </a>
+
+                    <!-- <img
+                        class="h-8 w-auto"
+                        src="https://tailwindui.com/img/logos/workflow-logo-indigo-300-mark-white-text.svg"
+                        alt="Workflow"
+                    /> -->
+                </div>
+                <div class="mt-5 flex-1 flex flex-col">
+                    <nav class="flex-1 px-2 pb-4 space-y-1">
+                        <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-600" -->
+                        <a
+                            :href="route('dashboard')"
+                            :class="
+                                this.activeMenu == 'dashboard'
+                                    ? 'bg-white text-black'
+                                    : 'bg-indigo-800'
+                            "
+                            class="mb-4 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                        >
+                            <!-- Heroicon name: outline/home -->
+                            <i class="fas fa-home fa-xl text-gray-200 mr-2"></i>
+                            Dashboard
+                        </a>
+
+                        <a
+                            :href="route('admin.payment')"
+                            :class="
+                                this.activeMenu == 'admin.payment'
+                                    ? 'bg-white text-black'
+                                    : 'bg-indigo-800'
+                            "
+                            class="text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                        >
+                            <!-- Heroicon name: outline/home -->
+                            <i
+                                class="fas fa-coins fa-xl text-gray-200 mr-2"
+                            ></i>
+                            Payments
+                        </a>
+
+                        <!-- <a
+                            :href="route('admin.tender')"
+                            :class="
+                                this.activeMenu == 'admin.tender'
+                                    ? 'bg-white text-black'
+                                    : 'bg-indigo-800'
+                            "
+                            class="text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                        >
+                            <i
+                                class="fas fa-file-circle-check fa-xl text-gray-200 mr-2"
+                            ></i>
+                            Tenders
+                        </a> -->
+
+                        <!-- <a
+                            :href="route('admin.user')"
+                            :class="
+                                this.activeMenu == 'admin.user'
+                                    ? 'bg-white text-black'
+                                    : 'bg-indigo-800'
+                            "
+                            class="text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                        >
+                            <i
+                                class="fas fa-users fa-xl text-gray-200 mr-2"
+                            ></i>
+                            Users
+                        </a> -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="md:pl-64 flex flex-col flex-1">
+            <div
+                class="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white shadow"
+            >
+                <button
+                    type="button"
+                    class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
+                >
+                    <span class="sr-only">Open sidebar</span>
+                    <!-- Heroicon name: outline/menu-alt-2 -->
+                    <svg
+                        class="h-6 w-6"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M4 6h16M4 12h16M4 18h7"
+                        />
+                    </svg>
+                </button>
+                <div class="flex-1 px-4 flex justify-between">
+                    <div class="flex-1 flex">
+                        <form
+                            class="w-full flex md:ml-0"
+                            action="#"
+                            method="GET"
+                        >
+                            <label for="search-field" class="sr-only"
+                                >Search</label
                             >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="icon icon-tabler icon-tabler-search"
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
-                                    fill="none"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                >
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <circle cx="10" cy="10" r="7" />
-                                    <line x1="21" y1="21" x2="15" y2="15" />
-                                </svg>
-                            </div>
-                            <input
-                                class="border border-gray-100 focus:outline-none focus:border-indigo-700 rounded w-full text-sm text-gray-500 bg-gray-100 pl-12 py-2"
-                                type="text"
-                                placeholder="Search"
-                            />
-                        </div>
-                    </div>
-                    <div class="w-1/2 hidden lg:flex">
-                        <div class="w-full flex items-center pl-8 justify-end">
                             <div
-                                class="h-full w-20 flex items-center justify-center border-r border-l"
+                                class="relative w-full text-gray-400 focus-within:text-gray-600"
                             >
                                 <div
-                                    class="relative cursor-pointer text-gray-600"
+                                    class="absolute inset-y-0 left-0 flex items-center pointer-events-none"
                                 >
+                                    <!-- Heroicon name: solid/search -->
                                     <svg
+                                        class="h-5 w-5"
                                         xmlns="http://www.w3.org/2000/svg"
-                                        class="icon icon-tabler icon-tabler-bell"
-                                        width="28"
-                                        height="28"
-                                        viewBox="0 0 24 24"
-                                        stroke-width="1.5"
-                                        stroke="currentColor"
-                                        fill="none"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                        aria-hidden="true"
                                     >
                                         <path
-                                            stroke="none"
-                                            d="M0 0h24v24H0z"
-                                        ></path>
-                                        <path
-                                            d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"
-                                        ></path>
-                                        <path
-                                            d="M9 17v1a3 3 0 0 0 6 0v-1"
-                                        ></path>
+                                            fill-rule="evenodd"
+                                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                            clip-rule="evenodd"
+                                        />
                                     </svg>
-                                    <div
-                                        class="w-2 h-2 rounded-full bg-red-400 border border-white absolute inset-0 mt-1 mr-1 m-auto"
-                                    ></div>
                                 </div>
+                                <input
+                                    id="search-field"
+                                    class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
+                                    placeholder="Search"
+                                    type="search"
+                                    name="search"
+                                />
                             </div>
-                            <div
-                                class="flex items-center relative cursor-pointer"
-                                @click="dropdownHandler($event)"
+                        </form>
+                    </div>
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <button
+                            type="button"
+                            class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        >
+                            <span class="sr-only">View notifications</span>
+                            <!-- Heroicon name: outline/bell -->
+                            <svg
+                                class="h-6 w-6"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                aria-hidden="true"
                             >
-                                <div class="rounded-full">
-                                    <ul
-                                        class="p-2 w-full border-r bg-white absolute rounded left-0 shadow mt-12 sm:mt-16 hidden"
-                                    >
-                                        <a
-                                            :href="route('profile.show')"
-                                            class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center"
-                                        >
-                                            <div class="flex items-center">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    class="icon icon-tabler icon-tabler-user"
-                                                    width="18"
-                                                    height="18"
-                                                    viewBox="0 0 24 24"
-                                                    stroke-width="1.5"
-                                                    stroke="currentColor"
-                                                    fill="none"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                >
-                                                    <path
-                                                        stroke="none"
-                                                        d="M0 0h24v24H0z"
-                                                    />
-                                                    <circle
-                                                        cx="12"
-                                                        cy="7"
-                                                        r="4"
-                                                    />
-                                                    <path
-                                                        d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"
-                                                    />
-                                                </svg>
-                                                <span class="text-sm ml-2"
-                                                    >My Profile</span
-                                                >
-                                            </div>
-                                        </a>
-                                        <li
-                                            @click="logout"
-                                            class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mt-2"
-                                        >
-                                            <div class="flex items-center">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    class="icon icon-tabler icon-tabler-logout"
-                                                    width="20"
-                                                    height="20"
-                                                    viewBox="0 0 24 24"
-                                                    stroke-width="1.5"
-                                                    stroke="currentColor"
-                                                    fill="none"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                >
-                                                    <path
-                                                        stroke="none"
-                                                        d="M0 0h24v24H0z"
-                                                    />
-                                                    <path
-                                                        d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"
-                                                    />
-                                                    <path
-                                                        d="M7 12h14l-3 -3m0 6l3 -3"
-                                                    />
-                                                </svg>
-                                                <span class="text-sm ml-2"
-                                                    >Sign out</span
-                                                >
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="relative">
-                                        <div
-                                            class="flex justify-around py-10 rounded-full h-10 w-10 object-cover"
-                                        >
-                                            <i class="fas fa-user fa-xl"></i>
-                                        </div>
-                                        <!-- <img class="rounded-full h-10 w-10 object-cover" src="https://downloader.la/temp/[Downloader.la]-6246c91bbab39.jpg" alt="avatar" /> -->
-                                        <!-- <div class="w-2 h-2 rounded-full bg-green-400 border border-white absolute inset-0 mb-0 mr-0 m-auto"></div> -->
-                                    </div>
-                                </div>
-                                <p class="text-gray-800 text-sm mx-3">
-                                    Account Setting
-                                </p>
-                                <div class="cursor-pointer text-gray-600">
-                                    <svg
-                                        aria-haspopup="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="icon icon-tabler icon-tabler-chevron-down"
-                                        width="20"
-                                        height="20"
-                                        viewBox="0 0 24 24"
-                                        stroke-width="1.5"
-                                        stroke="currentColor"
-                                        fill="none"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    >
-                                        <path stroke="none" d="M0 0h24v24H0z" />
-                                        <polyline points="6 9 12 15 18 9" />
-                                    </svg>
-                                </div>
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                                />
+                            </svg>
+                        </button>
+
+                        <!-- Profile dropdown -->
+                        <div class="ml-3 relative">
+                            <div>
+                                <button
+                                    @click="openProfile = !openProfile"
+                                    type="button"
+                                    class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                    id="user-menu-button"
+                                    aria-expanded="false"
+                                    aria-haspopup="true"
+                                >
+                                    <span class="sr-only">Open user menu</span>
+                                    <img
+                                        class="h-8 w-8 rounded-full"
+                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                        alt=""
+                                    />
+                                </button>
+                            </div>
+
+                            <!--
+              Dropdown menu, show/hide based on menu state.
+
+              Entering: "transition ease-out duration-100"
+                From: "transform opacity-0 scale-95"
+                To: "transform opacity-100 scale-100"
+              Leaving: "transition ease-in duration-75"
+                From: "transform opacity-100 scale-100"
+                To: "transform opacity-0 scale-95"
+            -->
+                            <div
+                                v-if="openProfile"
+                                class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                role="menu"
+                                aria-orientation="vertical"
+                                aria-labelledby="user-menu-button"
+                                tabindex="-1"
+                            >
+                                <!-- Active: "bg-gray-100", Not Active: "" -->
+                                <a
+                                    href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700"
+                                    role="menuitem"
+                                    tabindex="-1"
+                                    id="user-menu-item-0"
+                                    >Your Profile</a
+                                >
+
+                                <a
+                                    href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700"
+                                    role="menuitem"
+                                    tabindex="-1"
+                                    id="user-menu-item-1"
+                                    >Settings</a
+                                >
+
+                                <a
+                                    href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700"
+                                    role="menuitem"
+                                    tabindex="-1"
+                                    id="user-menu-item-2"
+                                    >Sign out</a
+                                >
                             </div>
                         </div>
                     </div>
                 </div>
-                <div
-                    class="text-gray-600 mr-8 visible lg:hidden relative"
-                    @click="dropdownHandler($event)"
-                >
-                    <ul
-                        class="p-2 w-40 border-r bg-white absolute rounded right-0 shadow mt-12 hidden"
-                    >
-                        <li
-                            class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center"
-                        >
-                            <div class="flex items-center">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="icon icon-tabler icon-tabler-user"
-                                    width="18"
-                                    height="18"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
-                                    fill="none"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                >
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <circle cx="12" cy="7" r="4" />
-                                    <path
-                                        d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"
-                                    />
-                                </svg>
-                                <span class="text-sm ml-2">My Profile</span>
-                            </div>
-                        </li>
-                        <li
-                            @click="logout"
-                            class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mt-2"
-                        >
-                            <div class="flex items-center">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="icon icon-tabler icon-tabler-logout"
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
-                                    fill="none"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                >
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <path
-                                        d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"
-                                    />
-                                    <path d="M7 12h14l-3 -3m0 6l3 -3" />
-                                </svg>
-                                <span class="text-sm ml-2">Sign out</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <svg
-                        aria-label="Main Menu"
-                        aria-haspopup="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="icon icon-tabler icon-tabler-menu cursor-pointer"
-                        width="30"
-                        height="30"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path stroke="none" d="M0 0h24v24H0z" />
-                        <line x1="4" y1="8" x2="20" y2="8" />
-                        <line x1="4" y1="16" x2="20" y2="16" />
-                    </svg>
+            </div>
+
+            <main>
+                <div class="py-6">
+                    <slot />
                 </div>
-            </nav>
-
-            <!-- Navigation ends -->
-            <div v-if="admin" class="py-1 h-64 px-6">
-                <TendersPage v-if="currentMenu == 'tenders'" />
-                <PaymentsPage v-if="currentMenu == 'payments'" />
-                <SupportPage v-if="currentMenu == 'support'" />
-                <UsersPage v-if="currentMenu == 'users'" />
-            </div>
-
-            <div
-                v-else
-                class="container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6"
-            >
-                <MembersPage v-if="currentMenu == 'membership'" />
-            </div>
+            </main>
         </div>
     </div>
 </template>
 
 <script>
-import TendersPage from "../Pages/Components/Dashboard/TendersPage.vue";
-import PaymentsPage from "../Pages/Components/Dashboard/PaymentsPage.vue";
-import SupportPage from "../Pages/Components/Dashboard/SupportPage.vue";
-import UsersPage from "../Pages/Components/Dashboard/UsersPage.vue";
-
-import MembersPage from "../Pages/Components/Dashboard/Members/MembersPage.vue";
+// import TendersPage from "../Pages/Components/Dashboard/TendersPage.vue";
 
 const app = document.getElementById("app");
 export default {
     name: "DashboardLayout",
     components: {
-        TendersPage,
-        PaymentsPage,
-        SupportPage,
-        UsersPage,
-        MembersPage
+        // TendersPage,
     },
     props: {
         allPosts: Array
-        // payments: Array
-        // initialPage: JSON.parse(app.dataset.page),
     },
     mounted() {
         // this.user = this.$page.props.user.name
-        this.sidebarHandler();
+        // this.sidebarHandler();
         if (this.user.admin == 0) {
             this.currentMenu = "membership";
         } else {
@@ -628,6 +490,9 @@ export default {
         }
     },
     computed: {
+        activeMenu() {
+            return route().current();
+        },
         posts() {
             return this.pageData.props.allPosts;
         },
@@ -648,7 +513,8 @@ export default {
     data() {
         return {
             currentMenu: "",
-            pageData: JSON.parse(app.dataset.page)
+            pageData: JSON.parse(app.dataset.page),
+            openProfile: false
         };
     },
     methods: {
@@ -659,15 +525,15 @@ export default {
             axios.post(route("logout").url()).then(response => {
                 window.location = "/";
             });
-        },
-        dropdownHandler(event) {
-            let single = event.currentTarget.getElementsByTagName("ul")[0];
-            single.classList.toggle("hidden");
-        },
-        sidebarHandler() {
-            var sideBar = document.getElementById("mobile-nav");
-            sideBar.classList.toggle("hidden");
         }
+        // dropdownHandler(event) {
+        //     let single = event.currentTarget.getElementsByTagName("ul")[0];
+        //     single.classList.toggle("hidden");
+        // },
+        // sidebarHandler() {
+        //     var sideBar = document.getElementById("mobile-nav");
+        //     sideBar.classList.toggle("hidden");
+        // }
     }
 };
 </script>

@@ -54,6 +54,7 @@ module.exports = {
     plugins: [
         require('@tailwindcss/ui'),
         require("tailwind-gradient-mask-image")
+        // require('@tailwindcss/forms'),
         // require('@tailwindcss/aspect-ratio')
     ],
 };
