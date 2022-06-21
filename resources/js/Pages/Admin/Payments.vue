@@ -146,7 +146,7 @@
                                             scope="col"
                                             class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900"
                                         >
-                                            Amount Paid
+                                            Amount To Paid
                                         </th>
                                         <th
                                             scope="col"

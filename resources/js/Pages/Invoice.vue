@@ -170,7 +170,8 @@
                                     @click="mpesaExpress"
                                     class="hover:bg-green-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-green-600 text-base font-medium leading-4 text-white"
                                 >
-                                    Send Mpesa Prompt to {{ form.number }}
+                                    Send Mpesa Prompt to {{ form.number }} or
+                                    Edit.....
                                 </button>
                             </div>
                         </div>
@@ -742,6 +743,8 @@ export default {
     mounted() {
         this.Status = "";
 
+        this.form.number = this.user.userPhone;
+
         if (this.membership != null) {
             this.postPurchase = false;
             this.form.userName = this.user.name;
@@ -987,9 +990,9 @@ export default {
                     // post: this.post._id,
                     post: this.post,
                     user: this.user,
-                    user_name: this.form.userName,
-                    user_phone: this.form.userPhone,
-                    user_email: this.form.userEmail,
+                    user_name: this.user.userName,
+                    user_phone: this.user.userPhone,
+                    user_email: this.user.userEmail,
                     restartTrans: this.transactionRestart
                 };
                 //    console.log(requestBody)

@@ -11144,6 +11144,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
@@ -11169,6 +11170,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
   },
   mounted: function mounted() {
     this.Status = "";
+    this.form.number = this.user.userPhone;
 
     if (this.membership != null) {
       this.postPurchase = false;
@@ -11404,9 +11406,9 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
           // post: this.post._id,
           post: this.post,
           user: this.user,
-          user_name: this.form.userName,
-          user_phone: this.form.userPhone,
-          user_email: this.form.userEmail,
+          user_name: this.user.userName,
+          user_phone: this.user.userPhone,
+          user_email: this.user.userEmail,
           restartTrans: this.transactionRestart
         }; //    console.log(requestBody)
 
@@ -76091,7 +76093,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                        Amount Paid\n                                    "
+              "\n                                        Amount To Paid\n                                    "
             )
           ]
         ),
@@ -85960,7 +85962,7 @@ var render = function() {
                                   _vm._v(
                                     "\n                                Send Mpesa Prompt to " +
                                       _vm._s(_vm.form.number) +
-                                      "\n                            "
+                                      " or\n                                Edit.....\n                            "
                                   )
                                 ]
                               )
