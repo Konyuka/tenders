@@ -1,7 +1,12 @@
 <template>
     <div>
         <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-        <div class="relative z-40 md:hidden" role="dialog" aria-modal="true">
+        <div
+            v-if="openSidebar"
+            class="relative z-40 md:hidden"
+            role="dialog"
+            aria-modal="true"
+        >
             <!--
       Off-canvas menu backdrop, show/hide based on off-canvas menu state.
 
@@ -40,6 +45,7 @@
         -->
                     <div class="absolute top-0 right-0 -mr-12 pt-2">
                         <button
+                            @click="openSidebar == false"
                             type="button"
                             class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                         >
@@ -88,118 +94,35 @@
                             </a>
 
                             <a
-                                href="#"
-                                class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                                :href="route('dashboard')"
+                                :class="
+                                    this.activeMenu == 'dashboard'
+                                        ? 'bg-white text-black'
+                                        : 'bg-indigo-800'
+                                "
+                                class="mb-4 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
                             >
-                                <!-- Heroicon name: outline/users -->
-                                <svg
-                                    class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="2"
-                                    stroke="currentColor"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                                    />
-                                </svg>
-                                Team
+                                <!-- Heroicon name: outline/home -->
+                                <i
+                                    class="fas fa-home fa-xl text-gray-200 mr-2"
+                                ></i>
+                                Dashboard
                             </a>
 
                             <a
-                                href="#"
-                                class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                                :href="route('admin.payment')"
+                                :class="
+                                    this.activeMenu == 'admin.payment'
+                                        ? 'bg-white text-black'
+                                        : 'bg-indigo-800'
+                                "
+                                class="text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
                             >
-                                <!-- Heroicon name: outline/folder -->
-                                <svg
-                                    class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="2"
-                                    stroke="currentColor"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
-                                    />
-                                </svg>
-                                Projects
-                            </a>
-
-                            <a
-                                href="#"
-                                class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-base font-medium rounded-md"
-                            >
-                                <!-- Heroicon name: outline/calendar -->
-                                <svg
-                                    class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="2"
-                                    stroke="currentColor"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                                    />
-                                </svg>
-                                Calendar
-                            </a>
-
-                            <a
-                                href="#"
-                                class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-base font-medium rounded-md"
-                            >
-                                <!-- Heroicon name: outline/inbox -->
-                                <svg
-                                    class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="2"
-                                    stroke="currentColor"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                                    />
-                                </svg>
-                                Documents
-                            </a>
-
-                            <a
-                                href="#"
-                                class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-base font-medium rounded-md"
-                            >
-                                <!-- Heroicon name: outline/chart-bar -->
-                                <svg
-                                    class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="2"
-                                    stroke="currentColor"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                                    />
-                                </svg>
-                                Reports
+                                <!-- Heroicon name: outline/home -->
+                                <i
+                                    class="fas fa-coins fa-xl text-gray-200 mr-2"
+                                ></i>
+                                Payments
                             </a>
                         </nav>
                     </div>
@@ -263,36 +186,6 @@
                             ></i>
                             Payments
                         </a>
-
-                        <!-- <a
-                            :href="route('admin.tender')"
-                            :class="
-                                this.activeMenu == 'admin.tender'
-                                    ? 'bg-white text-black'
-                                    : 'bg-indigo-800'
-                            "
-                            class="text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
-                        >
-                            <i
-                                class="fas fa-file-circle-check fa-xl text-gray-200 mr-2"
-                            ></i>
-                            Tenders
-                        </a> -->
-
-                        <!-- <a
-                            :href="route('admin.user')"
-                            :class="
-                                this.activeMenu == 'admin.user'
-                                    ? 'bg-white text-black'
-                                    : 'bg-indigo-800'
-                            "
-                            class="text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
-                        >
-                            <i
-                                class="fas fa-users fa-xl text-gray-200 mr-2"
-                            ></i>
-                            Users
-                        </a> -->
                     </nav>
                 </div>
             </div>
@@ -302,6 +195,7 @@
                 class="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white shadow"
             >
                 <button
+                    @click="openSidebar == true"
                     type="button"
                     class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
                 >
@@ -365,29 +259,6 @@
                         </form>
                     </div>
                     <div class="ml-4 flex items-center md:ml-6">
-                        <button
-                            type="button"
-                            class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        >
-                            <span class="sr-only">View notifications</span>
-                            <!-- Heroicon name: outline/bell -->
-                            <svg
-                                class="h-6 w-6"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                                />
-                            </svg>
-                        </button>
-
                         <!-- Profile dropdown -->
                         <div class="ml-3 relative">
                             <div>
@@ -428,7 +299,7 @@
                             >
                                 <!-- Active: "bg-gray-100", Not Active: "" -->
                                 <a
-                                    href="#"
+                                    :href="route('profile.show')"
                                     class="block px-4 py-2 text-sm text-gray-700"
                                     role="menuitem"
                                     tabindex="-1"
@@ -437,16 +308,8 @@
                                 >
 
                                 <a
-                                    href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700"
-                                    role="menuitem"
-                                    tabindex="-1"
-                                    id="user-menu-item-1"
-                                    >Settings</a
-                                >
-
-                                <a
-                                    href="#"
+                                    href=""
+                                    @click.prevent="logout"
                                     class="block px-4 py-2 text-sm text-gray-700"
                                     role="menuitem"
                                     tabindex="-1"
@@ -514,7 +377,8 @@ export default {
         return {
             currentMenu: "",
             pageData: JSON.parse(app.dataset.page),
-            openProfile: false
+            openProfile: false,
+            openSidebar: false
         };
     },
     methods: {

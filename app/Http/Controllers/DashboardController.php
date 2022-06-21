@@ -23,7 +23,9 @@ class DashboardController extends Controller
     public function index()
     {
         // $payments = Payments::all();
-        return Inertia::render('Admin/Dashboard');
+        return Inertia::render('Admin/Dashboard', [
+            'refreshed' => false,
+        ]);
     }
     public function payments()
     {
@@ -75,8 +77,8 @@ class DashboardController extends Controller
 
         };
 
-        return Inertia::render('Dashboard', [
-            // 'allPosts' => $posts,
+        return Inertia::render('Admin/Dashboard', [
+            'refreshed' => true,
         ]);
     }
 
