@@ -42,7 +42,7 @@
                                 </p>
                                 <a
                                     class="text-indigo-500 inline-flex items-center mt-4"
-                                    >Learn More
+                                    >Read More
                                     <svg
                                         class="w-4 h-4 ml-2"
                                         viewBox="0 0 24 24"
@@ -59,6 +59,7 @@
                             </div>
                         </a>
                         <a
+                            href="how-to-get-government-tenders-in-kenya"
                             class="mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700 py-8 flex flex-wrap md:flex-nowrap"
                         >
                             <div
@@ -93,7 +94,7 @@
                                 </p>
                                 <a
                                     class="text-indigo-500 inline-flex items-center mt-4"
-                                    >Learn More
+                                    >Read More
                                     <svg
                                         class="w-4 h-4 ml-2"
                                         viewBox="0 0 24 24"
@@ -110,6 +111,7 @@
                             </div>
                         </a>
                         <a
+                            href="how-to-apply-for-a-tender-in-kenya"
                             class="mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700 py-8 flex flex-wrap md:flex-nowrap"
                         >
                             <div
@@ -144,7 +146,7 @@
                                 </p>
                                 <a
                                     class="text-indigo-500 inline-flex items-center mt-4"
-                                    >Learn More
+                                    >Read More
                                     <svg
                                         class="w-4 h-4 ml-2"
                                         viewBox="0 0 24 24"

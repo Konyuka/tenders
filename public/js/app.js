@@ -4511,6 +4511,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -4550,6 +4552,276 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
 /* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Landing",
+  props: {},
+  components: {
+    TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  watch: {},
+  mounted: function mounted() {},
+  computed: {},
+  data: function data() {
+    return {
+      modal: false
+    };
+  },
+  methods: {
+    clearFilters: function clearFilters() {},
+    loadFilters: function loadFilters() {}
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Blogs/GovTender.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Blogs/GovTender.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! .././Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
+/* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! .././Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
+/* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! .././Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -76261,9 +76533,7 @@ var render = function() {
                             "text-indigo-500 inline-flex items-center mt-4"
                         },
                         [
-                          _vm._v(
-                            "Learn More\n                                "
-                          ),
+                          _vm._v("Read More\n                                "),
                           _c(
                             "svg",
                             {
@@ -76293,7 +76563,8 @@ var render = function() {
                   "a",
                   {
                     staticClass:
-                      "mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700 py-8 flex flex-wrap md:flex-nowrap"
+                      "mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700 py-8 flex flex-wrap md:flex-nowrap",
+                    attrs: { href: "how-to-get-government-tenders-in-kenya" }
                   },
                   [
                     _vm._m(1),
@@ -76325,9 +76596,7 @@ var render = function() {
                             "text-indigo-500 inline-flex items-center mt-4"
                         },
                         [
-                          _vm._v(
-                            "Learn More\n                                "
-                          ),
+                          _vm._v("Read More\n                                "),
                           _c(
                             "svg",
                             {
@@ -76357,7 +76626,8 @@ var render = function() {
                   "a",
                   {
                     staticClass:
-                      "mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700 py-8 flex flex-wrap md:flex-nowrap"
+                      "mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700 py-8 flex flex-wrap md:flex-nowrap",
+                    attrs: { href: "how-to-apply-for-a-tender-in-kenya" }
                   },
                   [
                     _vm._m(2),
@@ -76389,9 +76659,7 @@ var render = function() {
                             "text-indigo-500 inline-flex items-center mt-4"
                         },
                         [
-                          _vm._v(
-                            "Learn More\n                                "
-                          ),
+                          _vm._v("Read More\n                                "),
                           _c(
                             "svg",
                             {
@@ -76540,120 +76808,372 @@ var staticRenderFns = [
           [
             _c(
               "div",
-              { staticClass: "lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start" },
+              { staticClass: "lg:grid lg:grid-cols-1 lg:gap-8 lg:items-start" },
               [
-                _c(
-                  "div",
-                  {
-                    staticClass: "text-base max-w-prose mx-auto lg:max-w-none"
-                  },
-                  [
-                    _c(
-                      "h2",
-                      {
-                        staticClass:
-                          "text-base text-indigo-600 font-semibold tracking-wide uppercase"
-                      },
-                      [
-                        _vm._v(
-                          "\n                                Bidders Portal\n                            "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        staticClass:
-                          "font-heading-font mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
-                      },
-                      [
-                        _vm._v(
-                          "\n                                How to apply for a Tender in Kenya\n                            "
-                        )
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      " relative z-10 text-base max-w-prose mx-auto lg:max-w-5xl lg:mx-0"
-                  },
-                  [
-                    _c(
-                      "p",
-                      {
-                        staticClass:
-                          "font-primary-font text-lg text-gray-500 mb-2"
-                      },
-                      [
-                        _vm._v(
-                          "\n                                There are a number of qualifications and\n                                requirements one must meet to qualify for\n                                applying for a tender in Kenya. While owning\n                                a business is a sure way to accumulate and\n                                maintain wealth, it can get stagnant if the\n                                business is not run in the right way.\n                            "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        staticClass:
-                          "font-primary-font text-lg text-gray-500 mb-2"
-                      },
-                      [
-                        _vm._v(
-                          "\n                                Having the skills and means necessary to\n                                attract business to your side by winning a\n                                tender is a huge way to boost your revenue.\n                                For this reason, it is important to know\n                                what it takes to qualify for a tender.\n                            "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        staticClass:
-                          "font-primary-font text-lg text-gray-500 mb-2"
-                      },
-                      [
-                        _vm._v(
-                          "\n                                Outlined below, is the best way to go about\n                                applying for a tender in Kenya.\n                            "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "relative z-10" }, [
+                _c("div", [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "text-base max-w-prose mx-auto lg:max-w-none"
+                    },
+                    [
                       _c(
-                        "div",
+                        "h2",
                         {
                           staticClass:
-                            "prose prose-indigo text-gray-500 mx-auto lg:max-w-none"
+                            "text-base text-indigo-600 font-semibold tracking-wide uppercase"
                         },
                         [
-                          _c("ul", { attrs: { role: "list" } }, [
-                            _c("li", [
-                              _vm._v(
-                                "\n                                            Quis elit egestas venenatis\n                                            mattis dignissim.\n                                        "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("li", [
-                              _vm._v(
-                                "\n                                            Cras cras lobortis vitae vivamus\n                                            ultricies facilisis tempus.\n                                        "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("li", [
-                              _vm._v(
-                                "\n                                            Orci in sit morbi dignissim\n                                            metus diam arcu pretium.\n                                        "
-                              )
-                            ])
-                          ])
+                          _vm._v(
+                            "\n                                    Bidders Portal\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "mb-5 font-heading-font mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    How to apply for a Tender in Kenya\n                                "
+                          )
                         ]
                       )
-                    ])
-                  ]
-                )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        " relative z-10 text-base max-w-prose mx-auto lg:max-w-5xl lg:mx-0"
+                    },
+                    [
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    There are a number of qualifications and\n                                    requirements one must meet to qualify\n                                    for applying for a tender in Kenya.\n                                    While owning a business is a sure way to\n                                    accumulate and maintain wealth, it can\n                                    get stagnant if the business is not run\n                                    in the right way.\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Having the skills and means necessary to\n                                    attract business to your side by winning\n                                    a tender is a huge way to boost your\n                                    revenue. For this reason, it is\n                                    important to know what it takes to\n                                    qualify for a tender.\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Outlined below, is the best way to go\n                                    about applying for a tender in Kenya.\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "relative z-10" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "prose prose-indigo text-gray-500 mx-auto lg:max-w-none"
+                          },
+                          [
+                            _c("ul", { attrs: { role: "list" } }, [
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                Have a registered business.\n                                                To qualify for a tender, one\n                                                must have a business that is\n                                                registered and tax\n                                                compliant, more advantageous\n                                                if the company has physical\n                                                offices.\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                One must have the needed\n                                                documents. Tenders come with\n                                                requirements, once the\n                                                tenders have been announced;\n                                                you must have all the\n                                                documents required. It is\n                                                also important to answer\n                                                every section of the\n                                                application to avoid being\n                                                canceled out due to silly\n                                                mistakes.\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                Ensure that you are\n                                                registered within a certain\n                                                body. A lot of tenders and\n                                                contracts as a whole prefer\n                                                if the business is\n                                                registered with bodies like\n                                                NEMA or NCA. These\n                                                registrations align to the\n                                                field in which your business\n                                                is built in.\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                Make sure you have complied\n                                                with all statutory\n                                                requirements. There are\n                                                certain basic stature\n                                                requirements for every\n                                                business before qualifying\n                                                for a tender. These are the\n                                                business registration\n                                                certificate, Pin\n                                                certificate, Business\n                                                permit, Tax compliance\n                                                certificate, and finally, a\n                                                filled tender document. If\n                                                one has bought a tender,\n                                                they must attach a copy of\n                                                the receipt to prove the\n                                                purchase.\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                Find the optimal value from\n                                                the tender. When applying\n                                                for a tender, one must\n                                                realize that there will be\n                                                more companies applying for\n                                                the same. As is naturally\n                                                expected, the lowest bidders\n                                                stand a higher chance of\n                                                getting the tender. It is,\n                                                therefore, important to\n                                                carefully analyze and carry\n                                                out research on the\n                                                background of the tender to\n                                                come up with optimal values\n                                                that will increase their\n                                                chances of securing the\n                                                tender.\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                Fill out the application\n                                                fully. In conclusion, it is\n                                                important to note that\n                                                filling out the tender form\n                                                thoroughly and completely is\n                                                a key detail in the\n                                                application of a tender.\n                                                While sending the\n                                                application, ensure that you\n                                                have attached all the\n                                                necessary documents for your\n                                                bid to be accepted. Failure\n                                                to comply with these\n                                                requirements could lead to\n                                                the tender being dismissed\n                                                before going through for\n                                                further evaluation and\n                                                consideration.\n                                            "
+                                )
+                              ])
+                            ])
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                ])
+              ]
+            )
+          ]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Blogs/GovTender.vue?vue&type=template&id=29195ccb&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Blogs/GovTender.vue?vue&type=template&id=29195ccb& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "h-screen" }, [
+    _c(
+      "body",
+      { staticClass: "overflow-x-hidden antialiased" },
+      [
+        _c("TopBanner"),
+        _vm._v(" "),
+        _c("MainMenu"),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c("MainFooter")
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "py-16 bg-gray-50 overflow-hidden" }, [
+        _c(
+          "div",
+          { staticClass: "max-w-7xl mx-auto px-4 space-y-8 sm:px-6 lg:px-8" },
+          [
+            _c(
+              "div",
+              { staticClass: "lg:grid lg:grid-cols-1 lg:gap-8 lg:items-start" },
+              [
+                _c("div", [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "text-base max-w-prose mx-auto lg:max-w-none"
+                    },
+                    [
+                      _c(
+                        "h2",
+                        {
+                          staticClass:
+                            "mb-2 text-base text-indigo-600 font-semibold tracking-wide uppercase"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Bidders Portal\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "mb-5 font-heading-font mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    How To Get Government Tenders In Kenya\n                                "
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        " relative z-10 text-base max-w-prose mx-auto lg:max-w-5xl lg:mx-0"
+                    },
+                    [
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    If you are looking to grow a business or\n                                    make more money, tenders are a good way\n                                    to source opportunity and capital. A\n                                    government tender is a sure way to make\n                                    revenue and expand a business.\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    There are procedures one must be\n                                    familiar with to access and qualify for\n                                    a tender. Below is a summarized guide on\n                                    the procedure and what it takes to\n                                    access tenders with the government in\n                                    Kenya. To access government tenders, one\n                                    needs to sign up for their IFMIS\n                                    self-registration.\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    The Integrated Financial Management\n                                    Information System, (IFMIS) is an online\n                                    portal designed and intended for\n                                    suppliers to find a platform that will\n                                    enable them to make deals and\n                                    transactions as well as check on\n                                    tenders.\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Since the beginning of the year 2014,\n                                    the government made a formal\n                                    announcement that all tenders would be\n                                    posted online via IFMIS. This included\n                                    tenders, bids, and contracts as well all\n                                    to be posted in IFMIS for all to see and\n                                    those that qualify can apply. This opens\n                                    transparency and fairness as anyone with\n                                    the right credentials can apply. It also\n                                    promotes accountability which makes\n                                    working with the government tenders an\n                                    inward investment.\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    There are certain criteria one must meet\n                                    to qualify to register with IFMIS as\n                                    outlined below:\n                                "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "relative z-10" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "prose prose-indigo text-gray-500 mx-auto lg:max-w-none"
+                          },
+                          [
+                            _c("ul", { attrs: { role: "list" } }, [
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                National ID or passport,\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                A Certificate of\n                                                Incorporation or Business\n                                                Registration Certificate.\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                One must also have a\n                                                Partnership Deed if you are\n                                                running a partnership\n                                                business\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                A CR12 if you are running a\n                                                Limited Company.\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                The tax compliance\n                                                certificate\n                                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                                A tax compliance certificate\n                                                Letter from the National\n                                                Construction Authority\n                                                (NCA).\n                                            "
+                                )
+                              ])
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "font-primary-font text-lg text-gray-500 mb-2"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    The system with IFMIS is pretty\n                                    straightforward to use and with the\n                                    right requirement, creating an account\n                                    as a supplier is quite easy. Once the\n                                    process is done, you can see the tenders\n                                    in place and offer the necessary bid.\n                                "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ])
               ]
             )
           ]
@@ -105434,6 +105954,8 @@ var map = {
 	"./Blog.vue": "./resources/js/Pages/Blog.vue",
 	"./Blogs/ApplyTender": "./resources/js/Pages/Blogs/ApplyTender.vue",
 	"./Blogs/ApplyTender.vue": "./resources/js/Pages/Blogs/ApplyTender.vue",
+	"./Blogs/GovTender": "./resources/js/Pages/Blogs/GovTender.vue",
+	"./Blogs/GovTender.vue": "./resources/js/Pages/Blogs/GovTender.vue",
 	"./Blogs/WinTender": "./resources/js/Pages/Blogs/WinTender.vue",
 	"./Blogs/WinTender.vue": "./resources/js/Pages/Blogs/WinTender.vue",
 	"./Checkout": "./resources/js/Pages/Checkout.vue",
@@ -105935,6 +106457,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApplyTender_vue_vue_type_template_id_91f3212a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApplyTender_vue_vue_type_template_id_91f3212a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Blogs/GovTender.vue":
+/*!************************************************!*\
+  !*** ./resources/js/Pages/Blogs/GovTender.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GovTender_vue_vue_type_template_id_29195ccb___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GovTender.vue?vue&type=template&id=29195ccb& */ "./resources/js/Pages/Blogs/GovTender.vue?vue&type=template&id=29195ccb&");
+/* harmony import */ var _GovTender_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GovTender.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Blogs/GovTender.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _GovTender_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _GovTender_vue_vue_type_template_id_29195ccb___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _GovTender_vue_vue_type_template_id_29195ccb___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Blogs/GovTender.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Blogs/GovTender.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/Pages/Blogs/GovTender.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GovTender_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./GovTender.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Blogs/GovTender.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GovTender_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Blogs/GovTender.vue?vue&type=template&id=29195ccb&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/Pages/Blogs/GovTender.vue?vue&type=template&id=29195ccb& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GovTender_vue_vue_type_template_id_29195ccb___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./GovTender.vue?vue&type=template&id=29195ccb& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Blogs/GovTender.vue?vue&type=template&id=29195ccb&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GovTender_vue_vue_type_template_id_29195ccb___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GovTender_vue_vue_type_template_id_29195ccb___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

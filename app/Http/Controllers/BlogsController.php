@@ -13,4 +13,12 @@ class BlogsController extends Controller
     {
         return Inertia::render('Blogs/WinTender',);
     }
+    public function govTender()
+    {
+        return Inertia::render('Blogs/GovTender',);
+    }
+    public function applyTender()
+    {
+        return Inertia::render('Blogs/ApplyTender',);
+    }
 }

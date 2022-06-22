@@ -31,10 +31,9 @@ Route::get('/pricing/{slugs}', [LandingController::class, 'pricing'])
 
 Route::get('/blogs', [LandingController::class, 'blogs'])
     ->name('blogs');
-
-
-
 Route::get('how-to-win-a-tender', [BlogsController::class, 'winTender']);
+Route::get('how-to-get-government-tenders-in-kenya', [BlogsController::class, 'govTender']);
+Route::get('how-to-apply-for-a-tender-in-kenya', [BlogsController::class, 'applyTender']);
 
 
 
