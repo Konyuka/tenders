@@ -4287,6 +4287,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -75648,7 +75657,31 @@ var render = function() {
   return _c("div", [
     _c("div", { staticClass: "px-4 sm:px-6 lg:px-8" }, [
       _c("div", { staticClass: "sm:flex sm:items-center" }, [
-        _vm._m(0),
+        _c("div", { staticClass: "sm:flex-auto" }, [
+          _vm.completedTrans
+            ? _c("h1", { staticClass: "text-xl font-semibold text-gray-900" }, [
+                _vm._v(
+                  "\n                    Completed Transactions\n                "
+                )
+              ])
+            : _c("h1", { staticClass: "text-xl font-semibold text-gray-900" }, [
+                _vm._v(
+                  "\n                    Incomplete Transactions\n                "
+                )
+              ]),
+          _vm._v(" "),
+          _vm.completedTrans
+            ? _c("p", { staticClass: "mt-2 text-sm text-gray-700" }, [
+                _vm._v(
+                  "\n                    Transaction details for Successful Tender Purchases\n                "
+                )
+              ])
+            : _c("p", { staticClass: "mt-2 text-sm text-gray-700" }, [
+                _vm._v(
+                  "\n                    Transaction details for Unsuccessful Tender Purchases\n                "
+                )
+              ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "mt-4 sm:mt-0 sm:ml-16 sm:flex-none" }, [
           _vm.completedTrans
@@ -75717,7 +75750,7 @@ var render = function() {
                             staticClass: "min-w-full divide-y divide-gray-300"
                           },
                           [
-                            _vm._m(1),
+                            _vm._m(0),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -75833,7 +75866,7 @@ var render = function() {
                             staticClass: "min-w-full divide-y divide-gray-300"
                           },
                           [
-                            _vm._m(2),
+                            _vm._m(1),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -75956,22 +75989,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sm:flex-auto" }, [
-      _c("h1", { staticClass: "text-xl font-semibold text-gray-900" }, [
-        _vm._v("\n                    Completed Transactions\n                ")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "mt-2 text-sm text-gray-700" }, [
-        _vm._v(
-          "\n                    Transaction details for Successful Tender Purchases\n                "
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

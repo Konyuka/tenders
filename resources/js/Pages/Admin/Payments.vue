@@ -4,11 +4,20 @@
         <div class="px-4 sm:px-6 lg:px-8">
             <div class="sm:flex sm:items-center">
                 <div class="sm:flex-auto">
-                    <h1 class="text-xl font-semibold text-gray-900">
+                    <h1
+                        v-if="completedTrans"
+                        class="text-xl font-semibold text-gray-900"
+                    >
                         Completed Transactions
                     </h1>
-                    <p class="mt-2 text-sm text-gray-700">
+                    <h1 v-else class="text-xl font-semibold text-gray-900">
+                        Incomplete Transactions
+                    </h1>
+                    <p v-if="completedTrans" class="mt-2 text-sm text-gray-700">
                         Transaction details for Successful Tender Purchases
+                    </p>
+                    <p v-else class="mt-2 text-sm text-gray-700">
+                        Transaction details for Unsuccessful Tender Purchases
                     </p>
                 </div>
                 <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
