@@ -170,8 +170,7 @@
                                     @click="mpesaExpress"
                                     class="hover:bg-green-500 transform transition  duration-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-green-600 text-base font-medium leading-4 text-white"
                                 >
-                                    Send Mpesa Prompt to {{ form.number }} or
-                                    Edit.....
+                                    Confirm Mpesa Payment Number
                                 </button>
                             </div>
                         </div>
@@ -417,13 +416,13 @@
                                     >
                                         <button
                                             @click="stkPush"
-                                            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-green-700 bg-indigo-700 rounded text-white px-2 sm:px-4 py-2 text-xs"
+                                            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-green-700 bg-indigo-700 rounded text-white px-1 sm:px-4 py-2 text-xs"
                                         >
-                                            Make Payment
+                                            Send Mpesa Prompt
                                         </button>
                                         <button
                                             @click="paymentModal == false"
-                                            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-red-600 bg-red-400 rounded text-white px-2 sm:px-4 py-2 text-xs"
+                                            class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-red-600 bg-red-400 rounded text-white px-1 sm:px-4 py-2 text-xs"
                                         >
                                             Cancel Transaction
                                         </button>

@@ -11451,7 +11451,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
@@ -86547,9 +86546,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                Send Mpesa Prompt to " +
-                                      _vm._s(_vm.form.number) +
-                                      " or\n                                Edit.....\n                            "
+                                    "\n                                Confirm Mpesa Payment Number\n                            "
                                   )
                                 ]
                               )
@@ -86786,12 +86783,12 @@ var render = function() {
                                       "button",
                                       {
                                         staticClass:
-                                          "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-green-700 bg-indigo-700 rounded text-white px-2 sm:px-4 py-2 text-xs",
+                                          "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-green-700 bg-indigo-700 rounded text-white px-1 sm:px-4 py-2 text-xs",
                                         on: { click: _vm.stkPush }
                                       },
                                       [
                                         _vm._v(
-                                          "\n                                        Make Payment\n                                    "
+                                          "\n                                        Send Mpesa Prompt\n                                    "
                                         )
                                       ]
                                     ),
@@ -86800,7 +86797,7 @@ var render = function() {
                                       "button",
                                       {
                                         staticClass:
-                                          "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-red-600 bg-red-400 rounded text-white px-2 sm:px-4 py-2 text-xs",
+                                          "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-red-600 bg-red-400 rounded text-white px-1 sm:px-4 py-2 text-xs",
                                         on: {
                                           click: function($event) {
                                             _vm.paymentModal == false
