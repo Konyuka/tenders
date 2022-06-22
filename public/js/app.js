@@ -87959,7 +87959,11 @@ var render = function() {
                                           },
                                           [
                                             _vm._v(
-                                              "\n                                            Tender Closed\n                                        "
+                                              "\n                                            " +
+                                                _vm._s(
+                                                  _vm.dateFormat(post.expiry)
+                                                ) +
+                                                "\n                                        "
                                             )
                                           ]
                                         )
