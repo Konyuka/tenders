@@ -12097,6 +12097,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -12130,6 +12142,13 @@ vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
     },
     page: function page() {
       this.scroll();
+    },
+    jumpPage: function jumpPage(value) {
+      if (value == "") {
+        this.switchToJump = false;
+      } else {
+        this.switchToJump = true;
+      }
     }
   },
   mounted: function mounted() {
@@ -12161,6 +12180,7 @@ vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
   },
   data: function data() {
     return {
+      switchToJump: false,
       spinner: false,
       formatedDate: "",
       postExpired: false,
@@ -12215,6 +12235,7 @@ vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       jquery__WEBPACK_IMPORTED_MODULE_9___default()("html, body").animate({
         scrollTop: jquery__WEBPACK_IMPORTED_MODULE_9___default()("#top").offset().top
       }, 2000);
+      this.switchToJump = false;
     },
     setPageNumber: function setPageNumber() {
       this.page = this.jumpPage;
@@ -87626,6 +87647,21 @@ var render = function() {
                                 attrs: { type: "text", id: "fourth" },
                                 domProps: { value: _vm.jumpPage },
                                 on: {
+                                  keyup: function($event) {
+                                    if (
+                                      !$event.type.indexOf("key") &&
+                                      _vm._k(
+                                        $event.keyCode,
+                                        "enter",
+                                        13,
+                                        $event.key,
+                                        "Enter"
+                                      )
+                                    ) {
+                                      return null
+                                    }
+                                    return _vm.setPageNumber($event)
+                                  },
                                   input: function($event) {
                                     if ($event.target.composing) {
                                       return
@@ -87712,7 +87748,7 @@ var render = function() {
                       _vm._v(" "),
                       _vm.page == this.pages.length ? _c("button") : _vm._e(),
                       _vm._v(" "),
-                      _vm.page < _vm.pages.length
+                      _vm.page < _vm.pages.length && _vm.switchToJump == false
                         ? _c(
                             "button",
                             {

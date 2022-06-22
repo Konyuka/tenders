@@ -203,6 +203,7 @@
                                         class="flex flex-row justify-center text-center px-2 mt-1"
                                     >
                                         <input
+                                            @keyup.enter="setPageNumber"
                                             v-model="jumpPage"
                                             class="text-xs m-2 border h-10 w-10 text-center form-control rounded"
                                             type="text"
@@ -251,9 +252,20 @@
                                     v-if="page == this.pages.length"
                                 ></button>
 
+                                <!-- <button
+                                    @click.prevent="setPageNumber"
+                                    v-if="switchToJump && jumpPage != ''"
+                                    class="inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                >
+                                    Jump to Page {{ jumpPage }}
+                                </button> -->
+
                                 <button
                                     @click="page++"
-                                    v-if="page < pages.length"
+                                    v-if="
+                                        page < pages.length &&
+                                            switchToJump == false
+                                    "
                                     class="inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                                 >
                                     Next
@@ -344,6 +356,13 @@ export default {
         },
         page() {
             this.scroll();
+        },
+        jumpPage(value) {
+            if (value == "") {
+                this.switchToJump = false;
+            } else {
+                this.switchToJump = true;
+            }
         }
     },
     mounted() {
@@ -374,6 +393,7 @@ export default {
     },
     data() {
         return {
+            switchToJump: false,
             spinner: false,
             formatedDate: "",
             postExpired: false,
@@ -430,10 +450,12 @@ export default {
                 },
                 2000
             );
+            this.switchToJump = false;
         },
         setPageNumber() {
             this.page = this.jumpPage;
             this.jumpPage = "";
+
             this.scroll();
         },
         setPages() {
