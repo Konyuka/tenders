@@ -17,13 +17,13 @@
                 <form method="POST" action="{{ route('login') }}" >
                     @csrf
                 <h3 class="mb-10 text-2xl text-white font-bold font-heading">Sign in to your Account</h3>
-                <div class="flex items-center pl-6 mb-3 bg-white rounded-full">
+                <div class="flex items-center pl-6 mb-3 bg-white rounded-md">
                     <span class="inline-block pr-3 py-2 border-r border-gray-50">
                     <i class="fas fa-at text-indigo-700"></i>
                     </span>
                     <input class="w-full pl-4 pr-6 py-4 font-bold placeholder-gray-900 rounded-r-full focus:outline-none" type="email" id="email" name="email" placeholder="Email Address">
                 </div>
-                <div class="flex items-center pl-6 mb-3 bg-white rounded-full">
+                <div class="flex items-center pl-6 mb-3 bg-white rounded-md">
                     <span class="inline-block pr-3 py-2 border-r border-gray-50">
                     <i class="fas fa-key text-indigo-700"></i>
                     </span>
