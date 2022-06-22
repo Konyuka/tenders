@@ -196,6 +196,7 @@
                                 class="w-full py-4 sm:px-0 bg-white dark:bg-gray-800 flex justify-end"
                             >
                                 <button
+                                    @click.prevent="clearFilters"
                                     role="button"
                                     aria-label="cancel form"
                                     class="font-primary-font bg-gray-200 focus:outline-none transition duration-150 ease-in-out hover:bg-gray-300 dark:bg-gray-700 rounded text-red-600 dark:text-indigo-600 px-6 py-2 text-sm mr-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700"
@@ -294,6 +295,23 @@ export default {
         }
     },
     methods: {
+        clearFilters() {
+            this.payload.keyword = null;
+            this.payload.region = null;
+            this.payload.entity = null;
+            this.payload.number = null;
+            this.payload.price = null;
+            this.payload.closing = null;
+            this.payload.publishing = null;
+
+            localStorage.setItem("keyword", null);
+            localStorage.setItem("region", null);
+            localStorage.setItem("entity", null);
+            localStorage.setItem("number", null);
+            localStorage.setItem("price", null);
+            localStorage.setItem("closing", null);
+            localStorage.setItem("publishing", null);
+        },
         searchTenders() {
             if (this.currentRoute == "landing") {
                 this.$parent.$parent.spinner = true;

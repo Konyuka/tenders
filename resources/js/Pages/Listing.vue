@@ -214,7 +214,7 @@
                                     <div
                                         class="flex justify-center text-center mt-1"
                                     >
-                                        <a
+                                        <!-- <a
                                             @click.prevent="setPageNumber"
                                             href=""
                                             class="rounded bg-gray-200 py-1 px-1 flex items-center text-gray-500 hover:text-indigo-500 cursor-pointer hover:underline"
@@ -227,7 +227,7 @@
                                             ><i
                                                 class="bx bx-caret-right ml-1"
                                             ></i
-                                        ></a>
+                                        ></a> -->
                                     </div>
 
                                     <div
@@ -252,13 +252,13 @@
                                     v-if="page == this.pages.length"
                                 ></button>
 
-                                <!-- <button
+                                <button
                                     @click.prevent="setPageNumber"
                                     v-if="switchToJump && jumpPage != ''"
                                     class="inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                                 >
                                     Jump to Page {{ jumpPage }}
-                                </button> -->
+                                </button>
 
                                 <button
                                     @click="page++"

@@ -8544,6 +8544,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -8621,6 +8622,22 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
     }
   },
   methods: {
+    clearFilters: function clearFilters() {
+      this.payload.keyword = null;
+      this.payload.region = null;
+      this.payload.entity = null;
+      this.payload.number = null;
+      this.payload.price = null;
+      this.payload.closing = null;
+      this.payload.publishing = null;
+      localStorage.setItem("keyword", null);
+      localStorage.setItem("region", null);
+      localStorage.setItem("entity", null);
+      localStorage.setItem("number", null);
+      localStorage.setItem("price", null);
+      localStorage.setItem("closing", null);
+      localStorage.setItem("publishing", null);
+    },
     searchTenders: function searchTenders() {
       var _this = this;
 
@@ -82810,7 +82827,13 @@ var render = function() {
                     {
                       staticClass:
                         "font-primary-font bg-gray-200 focus:outline-none transition duration-150 ease-in-out hover:bg-gray-300 dark:bg-gray-700 rounded text-red-600 dark:text-indigo-600 px-6 py-2 text-sm mr-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700",
-                      attrs: { role: "button", "aria-label": "cancel form" }
+                      attrs: { role: "button", "aria-label": "cancel form" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.clearFilters($event)
+                        }
+                      }
                     },
                     [
                       _vm._v(
@@ -88193,35 +88216,9 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "flex justify-center text-center mt-1"
-                            },
-                            [
-                              _c(
-                                "a",
-                                {
-                                  staticClass:
-                                    "rounded bg-gray-200 py-1 px-1 flex items-center text-gray-500 hover:text-indigo-500 cursor-pointer hover:underline",
-                                  attrs: { href: "" },
-                                  on: {
-                                    click: function($event) {
-                                      $event.preventDefault()
-                                      return _vm.setPageNumber($event)
-                                    }
-                                  }
-                                },
-                                [
-                                  _vm._m(2),
-                                  _c("i", {
-                                    staticClass: "bx bx-caret-right ml-1"
-                                  })
-                                ]
-                              )
-                            ]
-                          ),
+                          _c("div", {
+                            staticClass: "flex justify-center text-center mt-1"
+                          }),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -88268,6 +88265,29 @@ var render = function() {
                       _vm._v(" "),
                       _vm.page == this.pages.length ? _c("button") : _vm._e(),
                       _vm._v(" "),
+                      _vm.switchToJump && _vm.jumpPage != ""
+                        ? _c(
+                            "button",
+                            {
+                              staticClass:
+                                "inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white",
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.setPageNumber($event)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                Jump to Page " +
+                                  _vm._s(_vm.jumpPage) +
+                                  "\n                            "
+                              )
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
                       _vm.page < _vm.pages.length && _vm.switchToJump == false
                         ? _c(
                             "button",
@@ -88289,7 +88309,7 @@ var render = function() {
                         : _vm._e()
                     ]),
                     _vm._v(" "),
-                    _vm._m(3)
+                    _vm._m(2)
                   ]
                 ),
                 _vm._v(" "),
@@ -88352,15 +88372,6 @@ var staticRenderFns = [
         )
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "text-sm sm:text-lg font-bold" }, [
-      _vm._v("Jump To Page\n                                            "),
-      _c("i", { staticClass: "fas fa-caret-right" })
-    ])
   },
   function() {
     var _vm = this
