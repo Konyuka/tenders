@@ -8545,6 +8545,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -8603,6 +8605,15 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
   },
   data: function data() {
     return {
+      attrs: [{
+        key: "today",
+        // highlight: "green",
+        highlight: {
+          color: "green",
+          fillMode: "outline"
+        },
+        dates: new Date()
+      }],
       payload: {
         keyword: null,
         region: null,
@@ -82717,6 +82728,7 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c("vc-date-picker", {
+                              attrs: { attributes: _vm.attrs },
                               scopedSlots: _vm._u([
                                 {
                                   key: "default",
@@ -82770,6 +82782,7 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c("vc-date-picker", {
+                              attrs: { attributes: _vm.attrs },
                               scopedSlots: _vm._u([
                                 {
                                   key: "default",

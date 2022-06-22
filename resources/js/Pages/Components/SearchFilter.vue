@@ -143,6 +143,7 @@
                                             >
                                             <vc-date-picker
                                                 v-model="payload.publishing"
+                                                :attributes="attrs"
                                             >
                                                 <template
                                                     v-slot="{
@@ -169,6 +170,7 @@
                                             >
                                             <vc-date-picker
                                                 v-model="payload.closing"
+                                                :attributes="attrs"
                                             >
                                                 <template
                                                     v-slot="{
@@ -276,6 +278,17 @@ export default {
     },
     data() {
         return {
+            attrs: [
+                {
+                    key: "today",
+                    // highlight: "green",
+                    highlight: {
+                        color: "green",
+                        fillMode: "outline"
+                    },
+                    dates: new Date()
+                }
+            ],
             payload: {
                 keyword: null,
                 region: null,
