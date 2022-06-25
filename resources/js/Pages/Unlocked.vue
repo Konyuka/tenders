@@ -343,6 +343,7 @@ import TopBanner from "./Components/TopBanner.vue";
 import MainMenu from "./Components/MainMenu.vue";
 import MainFooter from "./Components/MainFooter.vue";
 import dateFormat from "dateformat";
+import moment from "moment";
 
 export default {
     name: "Selected",

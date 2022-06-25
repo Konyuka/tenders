@@ -5270,6 +5270,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
 /* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 //
 //
 //
@@ -5672,6 +5674,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -5762,10 +5765,10 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       if (this.membership != null) {
         console.log("no post");
       } else {
-        var given = moment(this.post.created_at, "YYYY-MM-DD");
-        var current = moment().startOf("day"); //Difference in number of days
+        var given = moment__WEBPACK_IMPORTED_MODULE_3___default()(this.post.created_at, "YYYY-MM-DD");
+        var current = moment__WEBPACK_IMPORTED_MODULE_3___default()().startOf("day"); //Difference in number of days
 
-        var diff = moment.duration(current.diff(given)).asDays();
+        var diff = moment__WEBPACK_IMPORTED_MODULE_3___default.a.duration(current.diff(given)).asDays();
         return diff;
       }
     }
@@ -5833,7 +5836,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       this.$inertia.post("/confirmation", paymentDetails);
     },
     formatDate: function formatDate(value) {
-      return moment(value).format("MMMM Do YYYY");
+      return moment__WEBPACK_IMPORTED_MODULE_3___default()(value).format("MMMM Do YYYY");
     },
     stkPush: function stkPush() {
       // var str = '012123';
@@ -7370,7 +7373,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-filters */ "./node_modules/vue2-filters/dist/vue2-filters.js");
 /* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue2_filters__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _SearchFilter_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SearchFilter.vue */ "./resources/js/Pages/Components/SearchFilter.vue");
-/* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
 //
 //
 //
@@ -7627,6 +7632,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue2_filters__WEBPACK_IMPORTED_MODULE_2___default.a);
+
  // const now = new Date();
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -7657,9 +7663,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
   },
   methods: {
     amount: function amount(value) {
-      var given = moment(value, "YYYY-MM-DD");
-      var current = moment().startOf("day");
-      var diff = moment.duration(current.diff(given)).asDays();
+      var given = moment__WEBPACK_IMPORTED_MODULE_4___default()(value, "YYYY-MM-DD");
+      var current = moment__WEBPACK_IMPORTED_MODULE_4___default()().startOf("day");
+      var diff = moment__WEBPACK_IMPORTED_MODULE_4___default.a.duration(current.diff(given)).asDays();
 
       if (diff <= 10) {
         return 150;
@@ -7673,7 +7679,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       this.cnt = i * post.length;
     },
     dateChangeFormat: function dateChangeFormat(value) {
-      var togo = moment(value).fromNow(true);
+      var togo = moment__WEBPACK_IMPORTED_MODULE_4___default()(value).fromNow(true);
 
       if (togo == "Invalid date") {
         return true;
@@ -7682,17 +7688,17 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       }
     },
     expired: function expired(post) {
-      var current = moment().startOf("day");
-      var given = moment(post.expiry, "YYYY-MM-DD");
+      var current = moment__WEBPACK_IMPORTED_MODULE_4___default()().startOf("day");
+      var given = moment__WEBPACK_IMPORTED_MODULE_4___default()(post.expiry, "YYYY-MM-DD");
       return;
 
       if (dateChangeFormat) {
-        var given = moment(this.formatedDate, "YYYY-MM-DD");
+        var given = moment__WEBPACK_IMPORTED_MODULE_4___default()(this.formatedDate, "YYYY-MM-DD");
       } else {
-        var given = moment(post.expiry, "YYYY-MM-DD");
+        var given = moment__WEBPACK_IMPORTED_MODULE_4___default()(post.expiry, "YYYY-MM-DD");
       }
 
-      var diff = moment.duration(given.diff(current)).asDays();
+      var diff = moment__WEBPACK_IMPORTED_MODULE_4___default.a.duration(given.diff(current)).asDays();
 
       if (diff < 0) {
         return true;
@@ -7717,10 +7723,10 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       var finalDate = changeDay.replaceAt(3, daycut);
       this.formatedDate = finalDate; // return moment(finalDate, "YYYY-MM-DD");
 
-      return Object(dateformat__WEBPACK_IMPORTED_MODULE_4__["default"])(finalDate, "mmmm dS yyyy");
+      return Object(dateformat__WEBPACK_IMPORTED_MODULE_5__["default"])(finalDate, "mmmm dS yyyy");
     },
     formatDate: function formatDate(value) {
-      return moment(value).format("MMMM Do YYYY");
+      return moment__WEBPACK_IMPORTED_MODULE_4___default()(value).format("MMMM Do YYYY");
     },
     togoFormat: function togoFormat(value) {
       var length = 10;
@@ -7737,13 +7743,13 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       var changeDay = myTruncatedString.replaceAt(0, monthcut);
       var finalDate = changeDay.replaceAt(3, daycut);
       this.formatedDate = finalDate;
-      return moment(finalDate).fromNow(true);
+      return moment__WEBPACK_IMPORTED_MODULE_4___default()(finalDate).fromNow(true);
     },
     togo: function togo(value) {
-      return moment(value).fromNow();
+      return moment__WEBPACK_IMPORTED_MODULE_4___default()(value).fromNow();
     },
     ago: function ago(value) {
-      return moment(value).fromNow();
+      return moment__WEBPACK_IMPORTED_MODULE_4___default()(value).fromNow();
     }
   }
 });
@@ -10847,7 +10853,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
-/* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
 //
 //
 //
@@ -11566,6 +11574,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
@@ -11638,7 +11647,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     },
     now: function now() {
       var now = new Date();
-      return Object(dateformat__WEBPACK_IMPORTED_MODULE_1__["default"])(now);
+      return Object(dateformat__WEBPACK_IMPORTED_MODULE_2__["default"])(now);
     },
     memberPurchase: function memberPurchase() {
       if (this.membership != null) {
@@ -11688,10 +11697,10 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       if (this.membership != null) {
         console.log("no post");
       } else {
-        var given = moment(this.post.created_at, "YYYY-MM-DD");
-        var current = moment().startOf("day"); //Difference in number of days
+        var given = moment__WEBPACK_IMPORTED_MODULE_1___default()(this.post.created_at, "YYYY-MM-DD");
+        var current = moment__WEBPACK_IMPORTED_MODULE_1___default()().startOf("day"); //Difference in number of days
 
-        var diff = moment.duration(current.diff(given)).asDays();
+        var diff = moment__WEBPACK_IMPORTED_MODULE_1___default.a.duration(current.diff(given)).asDays();
         return diff;
       }
     }
@@ -11770,7 +11779,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       this.$inertia.post("/confirmation", paymentDetails);
     },
     formatDate: function formatDate(value) {
-      return moment(value).format("MMMM Do YYYY");
+      return moment__WEBPACK_IMPORTED_MODULE_1___default()(value).format("MMMM Do YYYY");
     },
     mpesaExpress: function mpesaExpress() {
       this.expressModal = true;
@@ -12200,8 +12209,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue2-filters */ "./node_modules/vue2-filters/dist/vue2-filters.js");
 /* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue2_filters__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Jetstream/Button.vue */ "./resources/js/Jetstream/Button.vue");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_10__);
 //
 //
 //
@@ -12532,7 +12543,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue2_filters__WEBPACK_IMPORTED_MODULE_7___default.a); // window.$ = window.jQuery = require('jquery')
+vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue2_filters__WEBPACK_IMPORTED_MODULE_7___default.a);
+ // window.$ = window.jQuery = require('jquery')
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -12568,13 +12580,13 @@ vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
   mounted: function mounted() {
     // console.log(this.$route.name);
     if (this.dateChangeFormat) {
-      var given = moment(this.formatedDate, "YYYY-MM-DD");
+      var given = moment__WEBPACK_IMPORTED_MODULE_9___default()(this.formatedDate, "YYYY-MM-DD");
     } else {
-      var given = moment(this.post.expiry, "YYYY-MM-DD");
+      var given = moment__WEBPACK_IMPORTED_MODULE_9___default()(this.post.expiry, "YYYY-MM-DD");
     }
 
-    var current = moment().startOf("day");
-    var diff = moment.duration(current.diff(given)).asDays();
+    var current = moment__WEBPACK_IMPORTED_MODULE_9___default()().startOf("day");
+    var diff = moment__WEBPACK_IMPORTED_MODULE_9___default.a.duration(current.diff(given)).asDays();
 
     if (diff < 0) {
       this.postExpired = true;
@@ -12612,9 +12624,9 @@ vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       this.$inertia.post("/checkout/".concat(value));
     },
     amount: function amount(value) {
-      var given = moment(value, "YYYY-MM-DD");
-      var current = moment().startOf("day");
-      var diff = moment.duration(current.diff(given)).asDays();
+      var given = moment__WEBPACK_IMPORTED_MODULE_9___default()(value, "YYYY-MM-DD");
+      var current = moment__WEBPACK_IMPORTED_MODULE_9___default()().startOf("day");
+      var diff = moment__WEBPACK_IMPORTED_MODULE_9___default.a.duration(current.diff(given)).asDays();
       console.log(diff);
 
       if (diff <= 10) {
@@ -12646,8 +12658,8 @@ vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       console.log(i);
     },
     scroll: function scroll() {
-      jquery__WEBPACK_IMPORTED_MODULE_9___default()("html, body").animate({
-        scrollTop: jquery__WEBPACK_IMPORTED_MODULE_9___default()("#top").offset().top
+      jquery__WEBPACK_IMPORTED_MODULE_10___default()("html, body").animate({
+        scrollTop: jquery__WEBPACK_IMPORTED_MODULE_10___default()("#top").offset().top
       }, 2000);
       this.switchToJump = false;
     },
@@ -12673,7 +12685,7 @@ vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       return Posts.slice(from, to);
     },
     dateChangeFormat: function dateChangeFormat(value) {
-      var togo = moment(value).fromNow(true);
+      var togo = moment__WEBPACK_IMPORTED_MODULE_9___default()(value).fromNow(true);
 
       if (togo == "Invalid date") {
         return true;
@@ -12696,7 +12708,7 @@ vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       var changeDay = myTruncatedString.replaceAt(0, monthcut);
       var finalDate = changeDay.replaceAt(3, daycut);
       this.formatedDate = finalDate;
-      return moment(finalDate).fromNow(true);
+      return moment__WEBPACK_IMPORTED_MODULE_9___default()(finalDate).fromNow(true);
     },
     getDifferenceInDays: function getDifferenceInDays(date1, date2) {
       // const diffInMs = Math.abs(date2 - date1);
@@ -12747,13 +12759,13 @@ vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       return Object(dateformat__WEBPACK_IMPORTED_MODULE_5__["default"])(finalDate, "mmmm dS yyyy");
     },
     formatDate: function formatDate(value) {
-      return moment(value).format("MMMM Do YYYY");
+      return moment__WEBPACK_IMPORTED_MODULE_9___default()(value).format("MMMM Do YYYY");
     },
     togo: function togo(value) {
-      return moment(value).fromNow();
+      return moment__WEBPACK_IMPORTED_MODULE_9___default()(value).fromNow();
     },
     ago: function ago(value) {
-      return moment(value).fromNow();
+      return moment__WEBPACK_IMPORTED_MODULE_9___default()(value).fromNow();
     },
     clearFilters: function clearFilters() {},
     loadFilters: function loadFilters() {}
@@ -13611,7 +13623,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
 /* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
-/* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
 //
 //
 //
@@ -13932,6 +13946,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -13983,20 +13998,20 @@ var now = new Date(); // dateFormat(now, "W");
       }
     },
     daysDiff: function daysDiff() {
-      var given = moment(this.post.created_at, "YYYY-MM-DD");
-      var current = moment().startOf("day");
-      var diff = moment.duration(current.diff(given)).asDays();
+      var given = moment__WEBPACK_IMPORTED_MODULE_3___default()(this.post.created_at, "YYYY-MM-DD");
+      var current = moment__WEBPACK_IMPORTED_MODULE_3___default()().startOf("day");
+      var diff = moment__WEBPACK_IMPORTED_MODULE_3___default.a.duration(current.diff(given)).asDays();
       return diff;
     },
     ago: function ago() {
-      return moment(this.post.created_at).fromNow();
+      return moment__WEBPACK_IMPORTED_MODULE_3___default()(this.post.created_at).fromNow();
     },
     togo: function togo() {
-      return moment(this.post.expiry).fromNow(true);
+      return moment__WEBPACK_IMPORTED_MODULE_3___default()(this.post.expiry).fromNow(true);
     },
     togoFormat: function togoFormat() {
-      return Object(dateformat__WEBPACK_IMPORTED_MODULE_3__["default"])(this.formatedDate, "mmmm dS yyyy");
-      return moment(this.formatedDate).fromNow(true);
+      return Object(dateformat__WEBPACK_IMPORTED_MODULE_4__["default"])(this.formatedDate, "mmmm dS yyyy");
+      return moment__WEBPACK_IMPORTED_MODULE_3___default()(this.formatedDate).fromNow(true);
     }
   },
   data: function data() {
@@ -14042,7 +14057,7 @@ var now = new Date(); // dateFormat(now, "W");
 
       this.formatedDate = myTruncatedString; // return myTruncatedString;
 
-      return Object(dateformat__WEBPACK_IMPORTED_MODULE_3__["default"])(finalDate, "mmmm dS yyyy");
+      return Object(dateformat__WEBPACK_IMPORTED_MODULE_4__["default"])(finalDate, "mmmm dS yyyy");
     },
     dateFormat: function dateFormat(value) {
       var length = 10;
@@ -14060,13 +14075,13 @@ var now = new Date(); // dateFormat(now, "W");
       var finalDate = changeDay.replaceAt(3, daycut); // this.formatedDate = finalDate;
 
       this.formatedDate = myTruncatedString;
-      return Object(dateformat__WEBPACK_IMPORTED_MODULE_3__["default"])(myTruncatedString, "mmmm dS yyyy");
+      return Object(dateformat__WEBPACK_IMPORTED_MODULE_4__["default"])(myTruncatedString, "mmmm dS yyyy");
     },
     purchase: function purchase() {
       this.$inertia.post("/checkout/".concat(this.post._id));
     },
     formatDate: function formatDate(value) {
-      return moment(value).format("MMMM Do YYYY");
+      return moment__WEBPACK_IMPORTED_MODULE_3___default()(value).format("MMMM Do YYYY");
     },
     formatDateChange: function formatDateChange(value) {
       var formats = [// "MM/DD/YYYY",
@@ -14074,7 +14089,7 @@ var now = new Date(); // dateFormat(now, "W");
       // "MM-DD-YYYY",
       // "YYYY-MM-DD",
       "DD-MM-YYYY", "ddd, ll"];
-      return moment(value, formats);
+      return moment__WEBPACK_IMPORTED_MODULE_3___default()(value, formats);
     }
   }
 });
@@ -14192,6 +14207,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
 /* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
 /* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
 //
 //
 //
@@ -14532,6 +14549,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -14581,17 +14599,17 @@ __webpack_require__.r(__webpack_exports__);
     },
     daysDiff: function daysDiff() {
       // var given = moment("2018-03-10", "YYYY-MM-DD");
-      var given = moment(this.post.created_at, "YYYY-MM-DD");
-      var current = moment().startOf("day"); //Difference in number of days
+      var given = moment__WEBPACK_IMPORTED_MODULE_4___default()(this.post.created_at, "YYYY-MM-DD");
+      var current = moment__WEBPACK_IMPORTED_MODULE_4___default()().startOf("day"); //Difference in number of days
 
-      var diff = moment.duration(current.diff(given)).asDays();
+      var diff = moment__WEBPACK_IMPORTED_MODULE_4___default.a.duration(current.diff(given)).asDays();
       return diff;
     },
     ago: function ago() {
-      return moment(this.post.created_at).fromNow();
+      return moment__WEBPACK_IMPORTED_MODULE_4___default()(this.post.created_at).fromNow();
     },
     togo: function togo() {
-      return moment(this.post.expiry).fromNow(true);
+      return moment__WEBPACK_IMPORTED_MODULE_4___default()(this.post.expiry).fromNow(true);
     }
   },
   data: function data() {
@@ -14648,7 +14666,7 @@ __webpack_require__.r(__webpack_exports__);
       // window.open(routeData.href, "_blank");
     },
     formatDate: function formatDate(value) {
-      return moment(value).format("MMMM Do YYYY");
+      return moment__WEBPACK_IMPORTED_MODULE_4___default()(value).format("MMMM Do YYYY");
     },
     clearFilters: function clearFilters() {},
     loadFilters: function loadFilters() {}
@@ -58641,7 +58659,8 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
             return wordKey[2];
         },
         translate: function (number, withoutSuffix, key, isFuture) {
-            var wordKey = translator.words[key];
+            var wordKey = translator.words[key],
+                word;
 
             if (key.length === 1) {
                 // Nominativ
@@ -58649,7 +58668,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
                 return isFuture || withoutSuffix ? wordKey[0] : wordKey[1];
             }
 
-            const word = translator.correctGrammaticalCase(number, wordKey);
+            word = translator.correctGrammaticalCase(number, wordKey);
             // Nominativ
             if (key === 'yy' && withoutSuffix && word === 'годину') {
                 return number + ' година';
@@ -58787,7 +58806,8 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
             return wordKey[2];
         },
         translate: function (number, withoutSuffix, key, isFuture) {
-            var wordKey = translator.words[key];
+            var wordKey = translator.words[key],
+                word;
 
             if (key.length === 1) {
                 // Nominativ
@@ -58795,7 +58815,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
                 return isFuture || withoutSuffix ? wordKey[0] : wordKey[1];
             }
 
-            const word = translator.correctGrammaticalCase(number, wordKey);
+            word = translator.correctGrammaticalCase(number, wordKey);
             // Nominativ
             if (key === 'yy' && withoutSuffix && word === 'godinu') {
                 return number + ' godina';
@@ -61780,7 +61800,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var require;//! moment.js
-//! version : 2.29.2
+//! version : 2.29.3
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 //! license : MIT
 //! momentjs.com
@@ -67415,7 +67435,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 
     //! moment.js
 
-    hooks.version = '2.29.2';
+    hooks.version = '2.29.3';
 
     setHookCallback(createLocal);
 
@@ -109294,7 +109314,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__["InertiaApp"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(laravel_jetstream__WEBPACK_IMPORTED_MODULE_2__["InertiaForm"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(portal_vue__WEBPACK_IMPORTED_MODULE_3___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(portal_vue__WEBPACK_IMPORTED_MODULE_3___default.a); // Vue.use(moment);
+
 var app = document.getElementById('app');
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   render: function render(h) {

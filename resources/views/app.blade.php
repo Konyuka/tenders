@@ -18,7 +18,7 @@
 
         <!-- Scripts -->
         @routes
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script> --}}
         <script src="{{ mix('js/app.js') }}" defer></script>
         {!! \App\Meta::render() !!}
     </head>

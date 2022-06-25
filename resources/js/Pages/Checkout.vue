@@ -404,6 +404,7 @@
 import TopBanner from "./Components/TopBanner.vue";
 import MainMenu from "./Components/MainMenu.vue";
 import MainFooter from "./Components/MainFooter.vue";
+import moment from "moment";
 
 const { default: axios } = require("axios");
 

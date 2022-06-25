@@ -718,6 +718,7 @@
 
 <script>
 import MainMenu from "./Components/MainMenu.vue";
+import moment from "moment";
 
 const { default: axios } = require("axios");
 import dateFormat from "dateformat";

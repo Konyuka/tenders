@@ -322,6 +322,7 @@
 import TopBanner from "./Components/TopBanner.vue";
 import MainMenu from "./Components/MainMenu.vue";
 import MainFooter from "./Components/MainFooter.vue";
+import moment from "moment";
 
 import dateFormat from "dateformat";
 const now = new Date();
