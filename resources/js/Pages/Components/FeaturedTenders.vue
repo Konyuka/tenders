@@ -12,7 +12,7 @@
 
                 <section class="text-gray-600 body-font overflow-hidden">
                     <div class="flex flex-row my-5 mx-2">
-                        <div class="sm:w-4/5 w-full sm:mr-5">
+                        <div class="md:w-4/5 w-full sm:mr-5">
                             <div class="columns-1">
                                 <a
                                     v-for="post in this.getArray.slice(0, 1)"
