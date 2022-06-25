@@ -83,6 +83,21 @@
                                     >
                                         <dt>Subtotal</dt>
                                         <dd>
+                                            KES
+                                            {{
+                                                formatMoney(
+                                                    this.amountMembership
+                                                )
+                                            }}
+                                        </dd>
+                                    </div>
+
+                                    <div
+                                        v-else
+                                        class="flex items-center justify-between"
+                                    >
+                                        <dt>Subtotal</dt>
+                                        <dd>
                                             KES {{ formatMoney(this.amount) }}
                                         </dd>
                                     </div>
@@ -509,12 +524,21 @@ export default {
             } else if (this.form.userPhone.length != 12) {
                 alert("Invalid Phone Number");
             } else {
-                const payload = {
-                    post: value,
-                    user: this.form,
-                    amount: this.amount
-                };
-                this.$inertia.post(`/invoice/${this.post._id}`, payload);
+                if (value == null) {
+                    const payload = {
+                        post: this.membership,
+                        user: this.form,
+                        amount: this.amount
+                    };
+                    this.$inertia.post(`/invoice/${this.user.id}`, payload);
+                } else {
+                    const payload = {
+                        post: value,
+                        user: this.form,
+                        amount: this.amount
+                    };
+                    this.$inertia.post(`/invoice/${this.post._id}`, payload);
+                }
             }
         },
         formatMoney(n) {

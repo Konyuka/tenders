@@ -591,19 +591,32 @@ export default {
         return {};
     },
     watch: {},
-    computed: {},
+    computed: {
+        currentMenu() {
+            return route().current();
+        }
+    },
     methods: {
         membership(value) {
             console.log(value);
-            if (this.$parent.user == null) {
-                this.$parent.chooseAuth = true;
-            } else {
+            if (this.currentMenu == "admin.subscriptions") {
                 let payload = {
                     membership: value,
-                    user: this.$parent.user
+                    user: this.$parent.$parent.user
                 };
                 this.$inertia.post(`/checkout/${value}`, payload);
-                // `/checkout/${value}`
+            } else {
+                // console.log(this.$parent.$parent.user);
+                if (this.$parent.$parent.user == null) {
+                    this.$parent.chooseAuth = true;
+                } else {
+                    let payload = {
+                        membership: value,
+                        user: this.$parent.$parent.user
+                    };
+                    this.$inertia.post(`/checkout/${value}`, payload);
+                    // `/checkout/${value}`
+                }
             }
         }
     }

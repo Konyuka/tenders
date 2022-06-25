@@ -38,13 +38,15 @@ class DashboardController extends Controller
     }
     public function tenders()
     {
-        // $payments = Payments::all();
         return Inertia::render('Admin/Dashboard');
     }
-    public function users()
+    public function subscriptions()
     {
-        // $payments = Payments::all();
-        return Inertia::render('Admin/Dashboard');
+        return Inertia::render('Admin/Subscriptions');
+    }
+    public function wishlist()
+    {
+        return Inertia::render('Admin/Subscriptions');
     }
 
     public function refresh(Request $request)

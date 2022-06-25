@@ -172,19 +172,52 @@
                         </a>
 
                         <a
+                            v-if="admin"
                             :href="route('admin.payment')"
                             :class="
                                 this.activeMenu == 'admin.payment'
                                     ? 'bg-white text-black'
                                     : 'bg-indigo-800'
                             "
-                            class="text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                            class="mb-4 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
                         >
                             <!-- Heroicon name: outline/home -->
                             <i
                                 class="fas fa-coins fa-xl text-gray-200 mr-2"
                             ></i>
                             Payments
+                        </a>
+
+                        <a
+                            v-if="!admin"
+                            :href="route('admin.subscriptions')"
+                            :class="
+                                this.activeMenu == 'admin.subscriptions'
+                                    ? 'bg-white text-black'
+                                    : 'bg-indigo-800'
+                            "
+                            class="mb-4 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                        >
+                            <!-- Heroicon name: outline/home -->
+                            <i
+                                class="fas fa-certificate fa-xl text-gray-200 mr-2"
+                            ></i>
+                            Subscriptions
+                        </a>
+
+                        <a
+                            v-if="!admin"
+                            :href="route('admin.wishlist')"
+                            :class="
+                                this.activeMenu == 'admin.wishlist'
+                                    ? 'bg-white text-black'
+                                    : 'bg-indigo-800'
+                            "
+                            class="text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                        >
+                            <!-- Heroicon name: outline/home -->
+                            <i class="fas fa-star fa-xl text-gray-200 mr-2"></i>
+                            Wishlist
                         </a>
                     </nav>
                 </div>

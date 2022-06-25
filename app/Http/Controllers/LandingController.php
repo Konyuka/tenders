@@ -230,7 +230,11 @@ class LandingController extends Controller
     {
         // return dd( json_decode($request) );
         $post = $request->post;
-        $post_id = $post['_id'];
+        if($post == 'bronze' || $post == 'silver' || $post == 'gold' || $post == 'platinum' || $post == 'diamond'){
+            $post_id = $post;
+        }else{
+            $post_id = $post['_id'];
+        }
 
         $user = $request->user;
         $user_phone = $user['userPhone'];

@@ -85,8 +85,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/payment', [Dash
     ->name('admin.payment');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/tender', [DashboardController::class, 'tenders'])
     ->name('admin.tender');
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/user', [DashboardController::class, 'users'])
-    ->name('admin.user');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/subscriptions', [DashboardController::class, 'subscriptions'])
+    ->name('admin.subscriptions');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/wishlist', [DashboardController::class, 'wishlist'])
+    ->name('admin.wishlist');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->post('/import', [DashboardController::class, 'import'])
