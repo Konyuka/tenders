@@ -232,7 +232,7 @@
                         <div
                             class="hidden sm:flex border-indigo-600 border-2 p-5 rounded-lg shadow-2xl"
                         >
-                            <SearchFilter />
+                            <!-- <SearchFilter /> -->
                         </div>
                     </div>
                 </section>
@@ -250,10 +250,10 @@
 </template>
 
 <script>
-import Button from "../../Jetstream/Button.vue";
+// import Button from "../../Jetstream/Button.vue";
 import Vue from "vue";
 import Vue2Filters from "vue2-filters";
-import SearchFilter from "./SearchFilter.vue";
+// import SearchFilter from "./SearchFilter.vue";
 Vue.use(Vue2Filters);
 import moment from "moment";
 
@@ -264,8 +264,8 @@ export default {
     name: "FeaturedTenders",
     mixins: [Vue2Filters.mixin],
     components: {
-        Button,
-        SearchFilter
+        // Button,
+        // SearchFilter
     },
     mounted() {},
     data() {

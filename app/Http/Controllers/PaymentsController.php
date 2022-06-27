@@ -216,8 +216,14 @@ class PaymentsController extends Controller
         $userPhone=$request->user_phone;
         $userEmail=$request->user_email;
         $post=$request->post;
-        $post_id=$request->post['_id'];
+        if(is_string($post)){
+            $post_id=$post;
+        }else{
+            $post_id=$request->post['_id'];
+        };
         $user=$request->user;
+
+        // return dd($post_id);
 
         $mpesa = new Mpesa();
         $BusinessShortCode=env('MPESA_STK_SHORTCODE');

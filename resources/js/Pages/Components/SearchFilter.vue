@@ -226,6 +226,7 @@
 <script>
 import Vue from "vue";
 import VCalendar from "v-calendar";
+// import moment from "moment";
 
 Vue.use(VCalendar, {
     componentPrefix: "vc" // Use <vc-calendar /> instead of <v-calendar />

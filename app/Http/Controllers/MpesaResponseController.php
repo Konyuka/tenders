@@ -97,10 +97,14 @@ class MpesaResponseController extends Controller
         if ($result_code==0){
             $payment = Payments::where(['trans_id'=>$trans_id])->first();
             if ($payment){
+
+
                 $payment->completed=true;
                 $payment->waiting=false;
                 $payment->save();
                 $post=$payment->info;
+
+
                 // return Inertia::render('Success', [
                 //     'Payment' => true,
                 // ]);
