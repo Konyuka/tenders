@@ -10856,6 +10856,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -11584,7 +11594,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Invoice",
   props: {
-    post: Object,
+    post: "",
     user: Object,
     transId: String,
     accessTokenResponse: Object,
@@ -11599,6 +11609,18 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   mounted: function mounted() {
+    // if (this.post == "diamond") {
+    //     this.amountMembership = 50000;
+    // } else if (this.post == "platinum") {
+    //     this.amountMembership = 30000;
+    // } else if (this.post == "gold") {
+    //     this.amountMembership = 9000;
+    // } else if (this.post == "silver") {
+    //     this.amountMembership = 6000;
+    // } else if (this.post === "bronze") {
+    //     this.amountMembership = 1500;
+    //     // console.log("1500");
+    // }
     this.Status = "";
     this.form.number = this.user.userPhone;
 
@@ -11628,6 +11650,26 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     // }
   },
   computed: {
+    amountMembership: function amountMembership() {
+      if (this.post == "diamond") {
+        return 50000;
+      } else if (this.post == "platinum") {
+        return 30000;
+      } else if (this.post == "gold") {
+        return 9000;
+      } else if (this.post == "silver") {
+        return 6000;
+      } else if (this.post === "bronze") {
+        return 1500;
+      }
+    },
+    membershipSub: function membershipSub() {
+      if (_typeof(this.post) === "object") {
+        return false;
+      } else if (typeof this.post === "string") {
+        return true;
+      }
+    },
     invoiceNumber: function invoiceNumber() {
       var n = parseInt(this.invoiceDetails.invoice_number); // return n;
 
@@ -11656,15 +11698,15 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
         return false;
       }
     },
-    amountMembership: function amountMembership() {
-      if (this.membership == "gold") {
-        return 50000;
-      } else if (this.membership == "silver") {
-        return 10000;
-      } else if (this.membership == "bronze") {
-        return 2000;
-      }
-    },
+    // amountMembership() {
+    //     if (this.membership == "gold") {
+    //         return 50000;
+    //     } else if (this.membership == "silver") {
+    //         return 10000;
+    //     } else if (this.membership == "bronze") {
+    //         return 2000;
+    //     }
+    // },
     waiting: function waiting() {
       if (this.Status == "Waiting") {
         return false;
@@ -11707,6 +11749,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
   },
   data: function data() {
     return {
+      // amountMembership: "",
       unpaidAlert: false,
       expressModal: false,
       paymentLog: "",
@@ -86646,60 +86689,63 @@ var render = function() {
                     "flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8"
                 },
                 [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full"
-                    },
-                    [
-                      _c(
-                        "p",
-                        {
-                          staticClass:
-                            "font-heading-font text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800"
-                        },
-                        [
-                          _vm._v(
-                            "\n                        Tender Brief\n                    "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
+                  !_vm.membershipSub
+                    ? _c(
                         "div",
                         {
                           staticClass:
-                            "mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full"
+                            "flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full"
                         },
                         [
-                          _vm._m(0),
+                          _c(
+                            "p",
+                            {
+                              staticClass:
+                                "font-heading-font text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800"
+                            },
+                            [
+                              _vm._v(
+                                "\n                        Tender Brief\n                    "
+                              )
+                            ]
+                          ),
                           _vm._v(" "),
                           _c(
                             "div",
                             {
                               staticClass:
-                                "border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-4 space-y-4 md:space-y-0"
+                                "mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full"
                             },
                             [
+                              _vm._m(0),
+                              _vm._v(" "),
                               _c(
                                 "div",
                                 {
                                   staticClass:
-                                    "w-full flex flex-col justify-start items-start space-y-8"
+                                    "border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-4 space-y-4 md:space-y-0"
                                 },
                                 [
                                   _c(
-                                    "h3",
+                                    "div",
                                     {
                                       staticClass:
-                                        "text-lg sm:text-xl dark:text-white xl:text-xl font-semibold leading-6 text-gray-800"
+                                        "w-full flex flex-col justify-start items-start space-y-8"
                                     },
                                     [
-                                      _vm._v(
-                                        "\n                                    " +
-                                          _vm._s(_vm.post.tender_brief) +
-                                          "\n                                "
+                                      _c(
+                                        "h3",
+                                        {
+                                          staticClass:
+                                            "text-lg sm:text-xl dark:text-white xl:text-xl font-semibold leading-6 text-gray-800"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                    " +
+                                              _vm._s(_vm.post.tender_brief) +
+                                              "\n                                "
+                                          )
+                                        ]
                                       )
                                     ]
                                   )
@@ -86709,8 +86755,7 @@ var render = function() {
                           )
                         ]
                       )
-                    ]
-                  ),
+                    : _vm._e(),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -86767,20 +86812,39 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _c(
-                                "p",
-                                {
-                                  staticClass:
-                                    "text-lg font-semibold leading-6 dark:text-white text-gray-800"
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                KES " +
-                                      _vm._s(_vm.amount) +
-                                      "\n                            "
+                              !_vm.membershipSub
+                                ? _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "text-lg font-semibold leading-6 dark:text-white text-gray-800"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                KES " +
+                                          _vm._s(_vm.amount) +
+                                          "\n                            "
+                                      )
+                                    ]
                                   )
-                                ]
-                              )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.membershipSub
+                                ? _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "text-lg font-semibold leading-6 dark:text-white text-gray-800"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                KES " +
+                                          _vm._s(_vm.amountMembership) +
+                                          "\n                            "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
                             ]
                           ),
                           _vm._v(" "),

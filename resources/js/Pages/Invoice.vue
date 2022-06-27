@@ -90,6 +90,7 @@
                     class="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8"
                 >
                     <div
+                        v-if="!membershipSub"
                         class="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full"
                     >
                         <p
@@ -157,9 +158,16 @@
                                     </div>
                                 </div>
                                 <p
+                                    v-if="!membershipSub"
                                     class="text-lg font-semibold leading-6 dark:text-white text-gray-800"
                                 >
                                     KES {{ amount }}
+                                </p>
+                                <p
+                                    v-if="membershipSub"
+                                    class="text-lg font-semibold leading-6 dark:text-white text-gray-800"
+                                >
+                                    KES {{ amountMembership }}
                                 </p>
                             </div>
 
@@ -726,7 +734,7 @@ import dateFormat from "dateformat";
 export default {
     name: "Invoice",
     props: {
-        post: Object,
+        post: "",
         user: Object,
         transId: String,
         accessTokenResponse: Object,
@@ -741,6 +749,19 @@ export default {
         MainMenu
     },
     mounted() {
+        // if (this.post == "diamond") {
+        //     this.amountMembership = 50000;
+        // } else if (this.post == "platinum") {
+        //     this.amountMembership = 30000;
+        // } else if (this.post == "gold") {
+        //     this.amountMembership = 9000;
+        // } else if (this.post == "silver") {
+        //     this.amountMembership = 6000;
+        // } else if (this.post === "bronze") {
+        //     this.amountMembership = 1500;
+        //     // console.log("1500");
+        // }
+
         this.Status = "";
 
         this.form.number = this.user.userPhone;
@@ -772,6 +793,26 @@ export default {
         // }
     },
     computed: {
+        amountMembership() {
+            if (this.post == "diamond") {
+                return 50000;
+            } else if (this.post == "platinum") {
+                return 30000;
+            } else if (this.post == "gold") {
+                return 9000;
+            } else if (this.post == "silver") {
+                return 6000;
+            } else if (this.post === "bronze") {
+                return 1500;
+            }
+        },
+        membershipSub() {
+            if (typeof this.post === "object") {
+                return false;
+            } else if (typeof this.post === "string") {
+                return true;
+            }
+        },
         invoiceNumber() {
             const n = parseInt(this.invoiceDetails.invoice_number);
             // return n;
@@ -800,15 +841,15 @@ export default {
                 return false;
             }
         },
-        amountMembership() {
-            if (this.membership == "gold") {
-                return 50000;
-            } else if (this.membership == "silver") {
-                return 10000;
-            } else if (this.membership == "bronze") {
-                return 2000;
-            }
-        },
+        // amountMembership() {
+        //     if (this.membership == "gold") {
+        //         return 50000;
+        //     } else if (this.membership == "silver") {
+        //         return 10000;
+        //     } else if (this.membership == "bronze") {
+        //         return 2000;
+        //     }
+        // },
         waiting() {
             if (this.Status == "Waiting") {
                 return false;
@@ -851,6 +892,7 @@ export default {
     },
     data() {
         return {
+            // amountMembership: "",
             unpaidAlert: false,
             expressModal: false,
             paymentLog: "",
