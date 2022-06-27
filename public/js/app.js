@@ -7371,9 +7371,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-filters */ "./node_modules/vue2-filters/dist/vue2-filters.js");
 /* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_filters__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
+/* harmony import */ var _SearchFilter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SearchFilter.vue */ "./resources/js/Pages/Components/SearchFilter.vue");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
 //
 //
 //
@@ -7627,7 +7628,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 // import Button from "../../Jetstream/Button.vue";
 
- // import SearchFilter from "./SearchFilter.vue";
+
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue2_filters__WEBPACK_IMPORTED_MODULE_1___default.a);
 
@@ -7636,8 +7637,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FeaturedTenders",
   mixins: [vue2_filters__WEBPACK_IMPORTED_MODULE_1___default.a.mixin],
-  components: {// Button,
-    // SearchFilter
+  components: {
+    // Button,
+    SearchFilter: _SearchFilter_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   mounted: function mounted() {},
   data: function data() {
@@ -7660,9 +7662,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
   },
   methods: {
     amount: function amount(value) {
-      var given = moment__WEBPACK_IMPORTED_MODULE_2___default()(value, "YYYY-MM-DD");
-      var current = moment__WEBPACK_IMPORTED_MODULE_2___default()().startOf("day");
-      var diff = moment__WEBPACK_IMPORTED_MODULE_2___default.a.duration(current.diff(given)).asDays();
+      var given = moment__WEBPACK_IMPORTED_MODULE_3___default()(value, "YYYY-MM-DD");
+      var current = moment__WEBPACK_IMPORTED_MODULE_3___default()().startOf("day");
+      var diff = moment__WEBPACK_IMPORTED_MODULE_3___default.a.duration(current.diff(given)).asDays();
 
       if (diff <= 10) {
         return 150;
@@ -7676,7 +7678,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       this.cnt = i * post.length;
     },
     dateChangeFormat: function dateChangeFormat(value) {
-      var togo = moment__WEBPACK_IMPORTED_MODULE_2___default()(value).fromNow(true);
+      var togo = moment__WEBPACK_IMPORTED_MODULE_3___default()(value).fromNow(true);
 
       if (togo == "Invalid date") {
         return true;
@@ -7685,17 +7687,17 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       }
     },
     expired: function expired(post) {
-      var current = moment__WEBPACK_IMPORTED_MODULE_2___default()().startOf("day");
-      var given = moment__WEBPACK_IMPORTED_MODULE_2___default()(post.expiry, "YYYY-MM-DD");
+      var current = moment__WEBPACK_IMPORTED_MODULE_3___default()().startOf("day");
+      var given = moment__WEBPACK_IMPORTED_MODULE_3___default()(post.expiry, "YYYY-MM-DD");
       return;
 
       if (dateChangeFormat) {
-        var given = moment__WEBPACK_IMPORTED_MODULE_2___default()(this.formatedDate, "YYYY-MM-DD");
+        var given = moment__WEBPACK_IMPORTED_MODULE_3___default()(this.formatedDate, "YYYY-MM-DD");
       } else {
-        var given = moment__WEBPACK_IMPORTED_MODULE_2___default()(post.expiry, "YYYY-MM-DD");
+        var given = moment__WEBPACK_IMPORTED_MODULE_3___default()(post.expiry, "YYYY-MM-DD");
       }
 
-      var diff = moment__WEBPACK_IMPORTED_MODULE_2___default.a.duration(given.diff(current)).asDays();
+      var diff = moment__WEBPACK_IMPORTED_MODULE_3___default.a.duration(given.diff(current)).asDays();
 
       if (diff < 0) {
         return true;
@@ -7720,10 +7722,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       var finalDate = changeDay.replaceAt(3, daycut);
       this.formatedDate = finalDate; // return moment(finalDate, "YYYY-MM-DD");
 
-      return Object(dateformat__WEBPACK_IMPORTED_MODULE_3__["default"])(finalDate, "mmmm dS yyyy");
+      return Object(dateformat__WEBPACK_IMPORTED_MODULE_4__["default"])(finalDate, "mmmm dS yyyy");
     },
     formatDate: function formatDate(value) {
-      return moment__WEBPACK_IMPORTED_MODULE_2___default()(value).format("MMMM Do YYYY");
+      return moment__WEBPACK_IMPORTED_MODULE_3___default()(value).format("MMMM Do YYYY");
     },
     togoFormat: function togoFormat(value) {
       var length = 10;
@@ -7740,13 +7742,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       var changeDay = myTruncatedString.replaceAt(0, monthcut);
       var finalDate = changeDay.replaceAt(3, daycut);
       this.formatedDate = finalDate;
-      return moment__WEBPACK_IMPORTED_MODULE_2___default()(finalDate).fromNow(true);
+      return moment__WEBPACK_IMPORTED_MODULE_3___default()(finalDate).fromNow(true);
     },
     togo: function togo(value) {
-      return moment__WEBPACK_IMPORTED_MODULE_2___default()(value).fromNow();
+      return moment__WEBPACK_IMPORTED_MODULE_3___default()(value).fromNow();
     },
     ago: function ago(value) {
-      return moment__WEBPACK_IMPORTED_MODULE_2___default()(value).fromNow();
+      return moment__WEBPACK_IMPORTED_MODULE_3___default()(value).fromNow();
     }
   }
 });
@@ -81469,10 +81471,15 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", {
-                staticClass:
-                  "hidden sm:flex border-indigo-600 border-2 p-5 rounded-lg shadow-2xl"
-              })
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "hidden sm:flex border-indigo-600 border-2 p-5 rounded-lg shadow-2xl"
+                },
+                [_c("SearchFilter")],
+                1
+              )
             ])
           ]
         ),

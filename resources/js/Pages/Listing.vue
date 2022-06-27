@@ -331,7 +331,7 @@ import Vue from "vue";
 import Vue2Filters from "vue2-filters";
 import Button from "../Jetstream/Button.vue";
 Vue.use(Vue2Filters);
-import moment from "moment"
+import moment from "moment";
 
 // window.$ = window.jQuery = require('jquery')
 import $ from "jquery";
