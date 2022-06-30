@@ -31,7 +31,6 @@
                             >
                             <a
                                 @click.prevent="goToListing"
-                                href=""
                                 class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-5 py-5 font-bold text-2xl leading-3 shadow-md rounded-md "
                                 ><span class="text-indigo-600">
                                     <i class="fas fa-list-ol"></i
@@ -133,10 +132,12 @@
 </template>
 
 <script>
+// import Spinner from "./Components/Spinner.vue";
+
 export default {
     name: "MainMenu",
     components: {
-        //   Categories,
+        // Spinner
     },
     data() {
         return {
@@ -146,7 +147,7 @@ export default {
         };
     },
     mounted() {
-        console.log(route().current());
+        // console.log(route().current());
 
         this.activeMenu = route().current();
     },
@@ -166,15 +167,15 @@ export default {
         }
     },
     computed: {
-        currentRouteName() {
-            return this.$route.name;
+        currentRoute() {
+            return route().current();
         }
     },
     methods: {
         goToListing() {
             this.$parent.spinner = true;
             this.$inertia
-                .get("listing")
+                .get("/listing")
                 .then(result => {
                     if (result) {
                         setTimeout(() => (this.$parent.spinner = false), 1000);

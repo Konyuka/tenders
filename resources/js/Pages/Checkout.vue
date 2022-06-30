@@ -397,6 +397,7 @@
                 </div>
             </div>
         </body>
+        <Spinner v-if="spinner" />
     </div>
 </template>
 
@@ -404,6 +405,7 @@
 import TopBanner from "./Components/TopBanner.vue";
 import MainMenu from "./Components/MainMenu.vue";
 import MainFooter from "./Components/MainFooter.vue";
+import Spinner from "./Components/Spinner.vue";
 import moment from "moment";
 
 const { default: axios } = require("axios");
@@ -423,7 +425,8 @@ export default {
     components: {
         TopBanner,
         MainMenu,
-        MainFooter
+        MainFooter,
+        Spinner
     },
     watch: {},
     mounted() {
@@ -501,12 +504,17 @@ export default {
     },
     data() {
         return {
+            spinner: false,
             paymentLog: "",
             form: {
                 userName: "",
+                // userName: "Mikael",
                 userPhone: this.removeSpaces(""),
+                // userPhone: this.removeSpaces("254716202298"),
                 userEmail: "",
+                // userEmail: "mikael@gmail.com",
                 number: this.removeSpaces(""),
+                // number: this.removeSpaces("254716202298"),
                 account: "Bidders Portal",
                 amount: this.amount
                 // amount: this.post.price

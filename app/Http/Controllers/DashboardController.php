@@ -55,13 +55,15 @@ class DashboardController extends Controller
         $data = json_decode($response, true);
         // $posts = $request->tenders;
 
-        $posts = $data['TenderDetails'][0]['TenderLists'];
+        // return dd($data);
 
+        $posts = $data['TenderDetails'][0]['TenderLists'];
+        // return dd($posts);
         set_time_limit(50000);
         foreach ($posts as $post => $value ) {
-            if(!Post::where('tender_number',$value['Tender_No'])->exists()){
+            if(!Post::where('tender_brief',$value['Tender_Brief'])->where('tender_number',$value['Tender_No'])->where('link',$value['FileUrl'])->where('work_detail',$value['Work_Detail'])->exists()){
 
-                Post::Create([
+                $createdPost = Post::Create([
                     'purchasing_authority' => $value['Purchasing_Authority'],
                     'tender_number' => $value['Tender_No'],
                     'tender_brief' => $value['Tender_Brief'],
@@ -74,6 +76,8 @@ class DashboardController extends Controller
                     'link' => $value['FileUrl'],
                     'expiry' => $value['Tender_Expiry']
                 ]);
+
+                // return dd($createdPost);
             }
 
 

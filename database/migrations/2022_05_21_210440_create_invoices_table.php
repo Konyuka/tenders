@@ -17,7 +17,7 @@ class CreateInvoicesTable extends Migration
             $table->id();
             $table->string('prefix')->default('BID-');
             $table->string('number_sequence')->default('0001');
-            $table->string("invoice_number")->nullable();
+            $table->bigInteger("invoice_number")->nullable();
             $table->string('unique_timestamp')->nullable()->unique();
             $table->string("amount")->nullable();
             $table->string("post_id")->nullable();

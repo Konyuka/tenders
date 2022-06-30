@@ -30,6 +30,8 @@ class LandingController extends Controller
         // $posts = Post::take(6)->get();
         $posts = Post::latest()->limit(6)->get();
 
+        // return dd(json_decode($posts, true));
+
         // return Inertia::render('Landings');
         Meta::addMeta('title', 'Bidders Portal Tenders Kenya');
         Meta::addMeta('description', 'Tenders in Kenya | Government Tenders | Free Tenders Kenya | Public Tenders Kenya | Open tenders | Bidding Kenya | Kenya Tenders Today');
@@ -188,13 +190,16 @@ class LandingController extends Controller
     {
 
         // $key = \Request::get('payload');
-        $key = \Request::get('keyword');
+        // $key = \Request::get('keyword');
+        $key = str_replace(' ', '%', \Request::get('keyword'));
+        // return dd($key);
         $region = \Request::get('region');
-        $entity = \Request::get('entity');
-        $number = \Request::get('number');
-        $price = \Request::get('price');
-        $closing = \Request::get('closing');
-        $publishing = \Request::get('publishing');
+        $entity = str_replace(' ', '%', \Request::get('entity'));
+        $number = str_replace(' ', '%', \Request::get('number'));
+        // $number = \Request::get('number');
+        $price = str_replace(' ', '%', \Request::get('price'));
+        $closing = str_replace(' ', '%', \Request::get('closing'));
+        $publishing = str_replace(' ', '%', \Request::get('publishing'));
 
 
         // $publishFormat = Carbon::parse($publishing)->format('Y-m-d');
@@ -207,12 +212,14 @@ class LandingController extends Controller
         // date('Y-m-d', strtotime($date))
         // return dd(json_decode($search));
 
+        // $results = (new Search())->registerModel(Model::class, function(ModelSearchAspect $modelSearchAspect) { $modelSearchAspect->addSearchableAttribute('title') ->orderBy('title'); })->search(str_replace(' ', '%', $request->input('query'))); return response()->json($results);
 
+        // str_replace(' ', '%', $request->input('query'))
         $search = Post::where('title', 'like', '%' . $key . '%')
                 ->orWhere('tender_brief', 'like', '%' . $key . '%')
                 ->orWhere('funded_by', 'like', '%' . $key . '%')
                 ->orWhere('country', 'like', '%' . $key . '%')
-                ->orWhere('work_detail', 'like', '%' . $key . '%')
+                // ->orWhere('work_detail', 'like', '%' . $key . '%')
                 ->orWhere('address', 'like', '%' . $region . '%')
                 ->orWhere('tender_number', 'like', '%' . $number . '%')
                 ->orWhere('purchasing_authority', 'like', '%' . $entity . '%')

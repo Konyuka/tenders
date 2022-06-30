@@ -5270,8 +5270,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
 /* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Components_Spinner_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/Spinner.vue */ "./resources/js/Pages/Components/Spinner.vue");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
 //
 //
 //
@@ -5674,6 +5675,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 
@@ -5697,7 +5700,8 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
   components: {
     TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Spinner: _Components_Spinner_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   watch: {},
   mounted: function mounted() {
@@ -5765,22 +5769,27 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       if (this.membership != null) {
         console.log("no post");
       } else {
-        var given = moment__WEBPACK_IMPORTED_MODULE_3___default()(this.post.created_at, "YYYY-MM-DD");
-        var current = moment__WEBPACK_IMPORTED_MODULE_3___default()().startOf("day"); //Difference in number of days
+        var given = moment__WEBPACK_IMPORTED_MODULE_4___default()(this.post.created_at, "YYYY-MM-DD");
+        var current = moment__WEBPACK_IMPORTED_MODULE_4___default()().startOf("day"); //Difference in number of days
 
-        var diff = moment__WEBPACK_IMPORTED_MODULE_3___default.a.duration(current.diff(given)).asDays();
+        var diff = moment__WEBPACK_IMPORTED_MODULE_4___default.a.duration(current.diff(given)).asDays();
         return diff;
       }
     }
   },
   data: function data() {
     return {
+      spinner: false,
       paymentLog: "",
       form: {
         userName: "",
+        // userName: "Mikael",
         userPhone: this.removeSpaces(""),
+        // userPhone: this.removeSpaces("254716202298"),
         userEmail: "",
+        // userEmail: "mikael@gmail.com",
         number: this.removeSpaces(""),
+        // number: this.removeSpaces("254716202298"),
         account: "Bidders Portal",
         amount: this.amount // amount: this.post.price
         // amount: ''
@@ -5836,7 +5845,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       this.$inertia.post("/confirmation", paymentDetails);
     },
     formatDate: function formatDate(value) {
-      return moment__WEBPACK_IMPORTED_MODULE_3___default()(value).format("MMMM Do YYYY");
+      return moment__WEBPACK_IMPORTED_MODULE_4___default()(value).format("MMMM Do YYYY");
     },
     stkPush: function stkPush() {
       // var str = '012123';
@@ -8291,10 +8300,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
+// import Spinner from "./Components/Spinner.vue";
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MainMenu",
-  components: {//   Categories,
+  components: {// Spinner
   },
   data: function data() {
     return {
@@ -8304,7 +8313,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    console.log(route().current());
+    // console.log(route().current());
     this.activeMenu = route().current();
   },
   watch: {
@@ -8323,8 +8332,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
-    currentRouteName: function currentRouteName() {
-      return this.$route.name;
+    currentRoute: function currentRoute() {
+      return route().current();
     }
   },
   methods: {
@@ -8332,7 +8341,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.$parent.spinner = true;
-      this.$inertia.get("listing").then(function (result) {
+      this.$inertia.get("/listing").then(function (result) {
         if (result) {
           setTimeout(function () {
             return _this.$parent.spinner = false;
@@ -10853,9 +10862,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
+/* harmony import */ var _Components_Spinner_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/Spinner.vue */ "./resources/js/Pages/Components/Spinner.vue");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 //
@@ -11584,6 +11594,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 //
 //
 //
+//
+//
+
 
 
 
@@ -11606,7 +11619,8 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     invoiceStatus: [Boolean, String]
   },
   components: {
-    MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Spinner: _Components_Spinner_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   mounted: function mounted() {
     // if (this.post == "diamond") {
@@ -11689,7 +11703,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     },
     now: function now() {
       var now = new Date();
-      return Object(dateformat__WEBPACK_IMPORTED_MODULE_2__["default"])(now);
+      return Object(dateformat__WEBPACK_IMPORTED_MODULE_3__["default"])(now);
     },
     memberPurchase: function memberPurchase() {
       if (this.membership != null) {
@@ -11739,10 +11753,10 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       if (this.membership != null) {
         console.log("no post");
       } else {
-        var given = moment__WEBPACK_IMPORTED_MODULE_1___default()(this.post.created_at, "YYYY-MM-DD");
-        var current = moment__WEBPACK_IMPORTED_MODULE_1___default()().startOf("day"); //Difference in number of days
+        var given = moment__WEBPACK_IMPORTED_MODULE_2___default()(this.post.created_at, "YYYY-MM-DD");
+        var current = moment__WEBPACK_IMPORTED_MODULE_2___default()().startOf("day"); //Difference in number of days
 
-        var diff = moment__WEBPACK_IMPORTED_MODULE_1___default.a.duration(current.diff(given)).asDays();
+        var diff = moment__WEBPACK_IMPORTED_MODULE_2___default.a.duration(current.diff(given)).asDays();
         return diff;
       }
     }
@@ -11750,6 +11764,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
   data: function data() {
     return {
       // amountMembership: "",
+      spinner: false,
       unpaidAlert: false,
       expressModal: false,
       paymentLog: "",
@@ -11822,7 +11837,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       this.$inertia.post("/confirmation", paymentDetails);
     },
     formatDate: function formatDate(value) {
-      return moment__WEBPACK_IMPORTED_MODULE_1___default()(value).format("MMMM Do YYYY");
+      return moment__WEBPACK_IMPORTED_MODULE_2___default()(value).format("MMMM Do YYYY");
     },
     mpesaExpress: function mpesaExpress() {
       this.expressModal = true;
@@ -13666,9 +13681,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TopBanner.vue */ "./resources/js/Pages/Components/TopBanner.vue");
 /* harmony import */ var _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/MainMenu.vue */ "./resources/js/Pages/Components/MainMenu.vue");
 /* harmony import */ var _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/MainFooter.vue */ "./resources/js/Pages/Components/MainFooter.vue");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
+/* harmony import */ var _Components_Spinner_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/Spinner.vue */ "./resources/js/Pages/Components/Spinner.vue");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var dateformat__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! dateformat */ "./node_modules/dateformat/lib/dateformat.js");
 //
 //
 //
@@ -13989,6 +14005,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 
 
 
@@ -14007,7 +14026,8 @@ var now = new Date(); // dateFormat(now, "W");
   components: {
     TopBanner: _Components_TopBanner_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     MainMenu: _Components_MainMenu_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    MainFooter: _Components_MainFooter_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Spinner: _Components_Spinner_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   watch: {},
   mounted: function mounted() {
@@ -14041,24 +14061,25 @@ var now = new Date(); // dateFormat(now, "W");
       }
     },
     daysDiff: function daysDiff() {
-      var given = moment__WEBPACK_IMPORTED_MODULE_3___default()(this.post.created_at, "YYYY-MM-DD");
-      var current = moment__WEBPACK_IMPORTED_MODULE_3___default()().startOf("day");
-      var diff = moment__WEBPACK_IMPORTED_MODULE_3___default.a.duration(current.diff(given)).asDays();
+      var given = moment__WEBPACK_IMPORTED_MODULE_4___default()(this.post.created_at, "YYYY-MM-DD");
+      var current = moment__WEBPACK_IMPORTED_MODULE_4___default()().startOf("day");
+      var diff = moment__WEBPACK_IMPORTED_MODULE_4___default.a.duration(current.diff(given)).asDays();
       return diff;
     },
     ago: function ago() {
-      return moment__WEBPACK_IMPORTED_MODULE_3___default()(this.post.created_at).fromNow();
+      return moment__WEBPACK_IMPORTED_MODULE_4___default()(this.post.created_at).fromNow();
     },
     togo: function togo() {
-      return moment__WEBPACK_IMPORTED_MODULE_3___default()(this.post.expiry).fromNow(true);
+      return moment__WEBPACK_IMPORTED_MODULE_4___default()(this.post.expiry).fromNow(true);
     },
     togoFormat: function togoFormat() {
-      return Object(dateformat__WEBPACK_IMPORTED_MODULE_4__["default"])(this.formatedDate, "mmmm dS yyyy");
-      return moment__WEBPACK_IMPORTED_MODULE_3___default()(this.formatedDate).fromNow(true);
+      return Object(dateformat__WEBPACK_IMPORTED_MODULE_5__["default"])(this.formatedDate, "mmmm dS yyyy");
+      return moment__WEBPACK_IMPORTED_MODULE_4___default()(this.formatedDate).fromNow(true);
     }
   },
   data: function data() {
     return {
+      spinner: false,
       modal: false,
       postExpired: false,
       formatedDate: ""
@@ -14100,7 +14121,7 @@ var now = new Date(); // dateFormat(now, "W");
 
       this.formatedDate = myTruncatedString; // return myTruncatedString;
 
-      return Object(dateformat__WEBPACK_IMPORTED_MODULE_4__["default"])(finalDate, "mmmm dS yyyy");
+      return Object(dateformat__WEBPACK_IMPORTED_MODULE_5__["default"])(finalDate, "mmmm dS yyyy");
     },
     dateFormat: function dateFormat(value) {
       var length = 10;
@@ -14118,13 +14139,13 @@ var now = new Date(); // dateFormat(now, "W");
       var finalDate = changeDay.replaceAt(3, daycut); // this.formatedDate = finalDate;
 
       this.formatedDate = myTruncatedString;
-      return Object(dateformat__WEBPACK_IMPORTED_MODULE_4__["default"])(myTruncatedString, "mmmm dS yyyy");
+      return Object(dateformat__WEBPACK_IMPORTED_MODULE_5__["default"])(myTruncatedString, "mmmm dS yyyy");
     },
     purchase: function purchase() {
       this.$inertia.post("/checkout/".concat(this.post._id));
     },
     formatDate: function formatDate(value) {
-      return moment__WEBPACK_IMPORTED_MODULE_3___default()(value).format("MMMM Do YYYY");
+      return moment__WEBPACK_IMPORTED_MODULE_4___default()(value).format("MMMM Do YYYY");
     },
     formatDateChange: function formatDateChange(value) {
       var formats = [// "MM/DD/YYYY",
@@ -14132,7 +14153,7 @@ var now = new Date(); // dateFormat(now, "W");
       // "MM-DD-YYYY",
       // "YYYY-MM-DD",
       "DD-MM-YYYY", "ddd, ll"];
-      return moment__WEBPACK_IMPORTED_MODULE_3___default()(value, formats);
+      return moment__WEBPACK_IMPORTED_MODULE_4___default()(value, formats);
     }
   }
 });
@@ -77801,316 +77822,47 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {}, [
-    _c("body", { staticClass: "overflow-x-hidden antialiased" }, [
-      _c(
-        "div",
-        { staticClass: "flex flex-col h-screen" },
-        [
-          _c("TopBanner", { staticClass: "sticky top-0 z-50" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "bg-white" }, [
-            _c("div", {
-              staticClass:
-                "hidden lg:block fixed top-0 left-0 w-1/2 h-full bg-white",
-              attrs: { "aria-hidden": "true" }
-            }),
+  return _c(
+    "div",
+    {},
+    [
+      _c("body", { staticClass: "overflow-x-hidden antialiased" }, [
+        _c(
+          "div",
+          { staticClass: "flex flex-col h-screen" },
+          [
+            _c("TopBanner", { staticClass: "sticky top-0 z-50" }),
             _vm._v(" "),
-            _c("div", {
-              staticClass:
-                "hidden lg:block fixed top-0 right-0 w-1/2 h-full bg-indigo-900",
-              attrs: { "aria-hidden": "true" }
-            }),
-            _vm._v(" "),
-            _c(
-              "main",
-              {
+            _c("div", { staticClass: "bg-white" }, [
+              _c("div", {
                 staticClass:
-                  "mt-5 relative grid grid-cols-1 gap-x-16 max-w-7xl mx-auto lg:px-8 lg:grid-cols-2"
-              },
-              [
-                _c("h1", { staticClass: "sr-only" }, [_vm._v("Checkout")]),
-                _vm._v(" "),
-                _c(
-                  "section",
-                  {
-                    staticClass:
-                      "bg-indigo-900 text-indigo-300 pt-6 pb-12 md:px-10 lg:max-w-lg lg:w-full lg:mx-auto lg:px-0 lg:pt-0 lg:pb-24 lg:bg-transparent lg:row-start-1 lg:col-start-2",
-                    attrs: { "aria-labelledby": "summary-heading" }
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "max-w-2xl mx-auto px-4 lg:max-w-none lg:px-0"
-                      },
-                      [
-                        _c(
-                          "h2",
-                          {
-                            staticClass: "sr-only",
-                            attrs: { id: "summary-heading" }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                Order summary\n                            "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm.membership == null
-                          ? _c("dl", [
-                              _c("dt", { staticClass: "text-sm font-medium" }, [
-                                _vm._v(
-                                  "\n                                    Cart Value\n                                "
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "dd",
-                                {
-                                  staticClass:
-                                    "mt-1 text-3xl font-extrabold text-white"
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                    KES " +
-                                      _vm._s(_vm.formatMoney(this.amount)) +
-                                      "\n                                "
-                                  )
-                                ]
-                              )
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.membership != null
-                          ? _c("dl", [
-                              _c("dt", { staticClass: "text-sm font-medium" }, [
-                                _vm._v(
-                                  "\n                                    Cart Value\n                                "
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "dd",
-                                {
-                                  staticClass:
-                                    "mt-1 text-3xl font-extrabold text-white"
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                    KES\n                                    " +
-                                      _vm._s(
-                                        _vm.formatMoney(this.amountMembership)
-                                      ) +
-                                      "\n                                "
-                                  )
-                                ]
-                              )
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.membership != null
-                          ? _c("dl", [
-                              _c("dt", { staticClass: "text-sm font-medium" }, [
-                                _vm._v(
-                                  "\n                                    Purchase Description\n                                "
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "dd",
-                                {
-                                  staticClass:
-                                    "mb-5 mt-1 text-3xl font-extrabold text-white"
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                    Subscription for\n                                    "
-                                  ),
-                                  _c(
-                                    "span",
-                                    { staticClass: "text-white uppercase" },
-                                    [_vm._v(_vm._s(this.membership))]
-                                  )
-                                ]
-                              )
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("ul", {
-                          staticClass:
-                            "text-sm font-medium divide-y divide-white divide-opacity-10",
-                          attrs: { role: "list" }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "dl",
-                          {
-                            staticClass:
-                              "text-sm font-medium space-y-6 border-t border-white border-opacity-10 pt-6"
-                          },
-                          [
-                            this.membership != null
-                              ? _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "flex items-center justify-between"
-                                  },
-                                  [
-                                    _c("dt", [_vm._v("Subtotal")]),
-                                    _vm._v(" "),
-                                    _c("dd", [
-                                      _vm._v(
-                                        "\n                                        KES\n                                        " +
-                                          _vm._s(
-                                            _vm.formatMoney(
-                                              this.amountMembership
-                                            )
-                                          ) +
-                                          "\n                                    "
-                                      )
-                                    ])
-                                  ]
-                                )
-                              : _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "flex items-center justify-between"
-                                  },
-                                  [
-                                    _c("dt", [_vm._v("Subtotal")]),
-                                    _vm._v(" "),
-                                    _c("dd", [
-                                      _vm._v(
-                                        "\n                                        KES " +
-                                          _vm._s(_vm.formatMoney(this.amount)) +
-                                          "\n                                    "
-                                      )
-                                    ])
-                                  ]
-                                ),
-                            _vm._v(" "),
-                            _vm._m(0),
-                            _vm._v(" "),
-                            this.membership == null
-                              ? _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "flex items-center justify-between border-t border-white border-opacity-10 text-white pt-6"
-                                  },
-                                  [
-                                    _c("dt", { staticClass: "text-base" }, [
-                                      _vm._v("Total")
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("dd", { staticClass: "text-base" }, [
-                                      _vm._v(
-                                        "\n                                        KES " +
-                                          _vm._s(_vm.formatMoney(this.amount)) +
-                                          "\n                                    "
-                                      )
-                                    ])
-                                  ]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            this.membership != null
-                              ? _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "flex items-center justify-between border-t border-white border-opacity-10 text-white pt-6"
-                                  },
-                                  [
-                                    _c("dt", { staticClass: "text-base" }, [
-                                      _vm._v("Total")
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("dd", { staticClass: "text-base" }, [
-                                      _vm._v(
-                                        "\n                                        KES\n                                        " +
-                                          _vm._s(
-                                            _vm.formatMoney(
-                                              this.amountMembership
-                                            )
-                                          ) +
-                                          "\n                                    "
-                                      )
-                                    ])
-                                  ]
-                                )
-                              : _vm._e()
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "hidden sm:flex mt-10  justify-end pt-6 border-t border-gray-200"
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "font-primary-font bg-white border border-transparent rounded-md shadow-sm py-2 px-4 text-lg font-bold text-gray-700 hover:bg-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500",
-                            attrs: { type: "submit" },
-                            on: {
-                              click: function($event) {
-                                return _vm.invoice(_vm.post)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                Proceed to Payment\n                                "
-                            ),
-                            _c("i", {
-                              staticClass:
-                                "fas fa-caret-right ml-2 fa-lg text-green-500"
-                            }),
-                            _vm._v(" "),
-                            _c("i", {
-                              staticClass:
-                                "fas fa-caret-right fa-lg text-green-500"
-                            })
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "section",
-                  {
-                    staticClass:
-                      "py-16 lg:max-w-lg lg:w-full lg:mx-auto lg:pt-0 lg:pb-24 lg:row-start-1 lg:col-start-1",
-                    attrs: { "aria-labelledby": "payment-and-shipping-heading" }
-                  },
-                  [
-                    _c(
-                      "h2",
-                      {
-                        staticClass: "sr-only",
-                        attrs: { id: "payment-and-shipping-heading" }
-                      },
-                      [
-                        _vm._v(
-                          "\n                            Payment and shipping details\n                        "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("form", [
+                  "hidden lg:block fixed top-0 left-0 w-1/2 h-full bg-white",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" "),
+              _c("div", {
+                staticClass:
+                  "hidden lg:block fixed top-0 right-0 w-1/2 h-full bg-indigo-900",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" "),
+              _c(
+                "main",
+                {
+                  staticClass:
+                    "mt-5 relative grid grid-cols-1 gap-x-16 max-w-7xl mx-auto lg:px-8 lg:grid-cols-2"
+                },
+                [
+                  _c("h1", { staticClass: "sr-only" }, [_vm._v("Checkout")]),
+                  _vm._v(" "),
+                  _c(
+                    "section",
+                    {
+                      staticClass:
+                        "bg-indigo-900 text-indigo-300 pt-6 pb-12 md:px-10 lg:max-w-lg lg:w-full lg:mx-auto lg:px-0 lg:pt-0 lg:pb-24 lg:bg-transparent lg:row-start-1 lg:col-start-2",
+                      attrs: { "aria-labelledby": "summary-heading" }
+                    },
+                    [
                       _c(
                         "div",
                         {
@@ -78118,197 +77870,656 @@ var render = function() {
                             "max-w-2xl mx-auto px-4 lg:max-w-none lg:px-0"
                         },
                         [
-                          _c("div", [
+                          _c(
+                            "h2",
+                            {
+                              staticClass: "sr-only",
+                              attrs: { id: "summary-heading" }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                Order summary\n                            "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm.membership == null
+                            ? _c("dl", [
+                                _c(
+                                  "dt",
+                                  { staticClass: "text-sm font-medium" },
+                                  [
+                                    _vm._v(
+                                      "\n                                    Cart Value\n                                "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "dd",
+                                  {
+                                    staticClass:
+                                      "mt-1 text-3xl font-extrabold text-white"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                    KES " +
+                                        _vm._s(_vm.formatMoney(this.amount)) +
+                                        "\n                                "
+                                    )
+                                  ]
+                                )
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.membership != null
+                            ? _c("dl", [
+                                _c(
+                                  "dt",
+                                  { staticClass: "text-sm font-medium" },
+                                  [
+                                    _vm._v(
+                                      "\n                                    Cart Value\n                                "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "dd",
+                                  {
+                                    staticClass:
+                                      "mt-1 text-3xl font-extrabold text-white"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                    KES\n                                    " +
+                                        _vm._s(
+                                          _vm.formatMoney(this.amountMembership)
+                                        ) +
+                                        "\n                                "
+                                    )
+                                  ]
+                                )
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.membership != null
+                            ? _c("dl", [
+                                _c(
+                                  "dt",
+                                  { staticClass: "text-sm font-medium" },
+                                  [
+                                    _vm._v(
+                                      "\n                                    Purchase Description\n                                "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "dd",
+                                  {
+                                    staticClass:
+                                      "mb-5 mt-1 text-3xl font-extrabold text-white"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                    Subscription for\n                                    "
+                                    ),
+                                    _c(
+                                      "span",
+                                      { staticClass: "text-white uppercase" },
+                                      [_vm._v(_vm._s(this.membership))]
+                                    )
+                                  ]
+                                )
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c("ul", {
+                            staticClass:
+                              "text-sm font-medium divide-y divide-white divide-opacity-10",
+                            attrs: { role: "list" }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "dl",
+                            {
+                              staticClass:
+                                "text-sm font-medium space-y-6 border-t border-white border-opacity-10 pt-6"
+                            },
+                            [
+                              this.membership != null
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "flex items-center justify-between"
+                                    },
+                                    [
+                                      _c("dt", [_vm._v("Subtotal")]),
+                                      _vm._v(" "),
+                                      _c("dd", [
+                                        _vm._v(
+                                          "\n                                        KES\n                                        " +
+                                            _vm._s(
+                                              _vm.formatMoney(
+                                                this.amountMembership
+                                              )
+                                            ) +
+                                            "\n                                    "
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                : _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "flex items-center justify-between"
+                                    },
+                                    [
+                                      _c("dt", [_vm._v("Subtotal")]),
+                                      _vm._v(" "),
+                                      _c("dd", [
+                                        _vm._v(
+                                          "\n                                        KES " +
+                                            _vm._s(
+                                              _vm.formatMoney(this.amount)
+                                            ) +
+                                            "\n                                    "
+                                        )
+                                      ])
+                                    ]
+                                  ),
+                              _vm._v(" "),
+                              _vm._m(0),
+                              _vm._v(" "),
+                              this.membership == null
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "flex items-center justify-between border-t border-white border-opacity-10 text-white pt-6"
+                                    },
+                                    [
+                                      _c("dt", { staticClass: "text-base" }, [
+                                        _vm._v("Total")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("dd", { staticClass: "text-base" }, [
+                                        _vm._v(
+                                          "\n                                        KES " +
+                                            _vm._s(
+                                              _vm.formatMoney(this.amount)
+                                            ) +
+                                            "\n                                    "
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              this.membership != null
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "flex items-center justify-between border-t border-white border-opacity-10 text-white pt-6"
+                                    },
+                                    [
+                                      _c("dt", { staticClass: "text-base" }, [
+                                        _vm._v("Total")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("dd", { staticClass: "text-base" }, [
+                                        _vm._v(
+                                          "\n                                        KES\n                                        " +
+                                            _vm._s(
+                                              _vm.formatMoney(
+                                                this.amountMembership
+                                              )
+                                            ) +
+                                            "\n                                    "
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                : _vm._e()
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "hidden sm:flex mt-10  justify-end pt-6 border-t border-gray-200"
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "font-primary-font bg-white border border-transparent rounded-md shadow-sm py-2 px-4 text-lg font-bold text-gray-700 hover:bg-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500",
+                              attrs: { type: "submit" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.invoice(_vm.post)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                Proceed to Payment\n                                "
+                              ),
+                              _c("i", {
+                                staticClass:
+                                  "fas fa-caret-right ml-2 fa-lg text-green-500"
+                              }),
+                              _vm._v(" "),
+                              _c("i", {
+                                staticClass:
+                                  "fas fa-caret-right fa-lg text-green-500"
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "section",
+                    {
+                      staticClass:
+                        "py-16 lg:max-w-lg lg:w-full lg:mx-auto lg:pt-0 lg:pb-24 lg:row-start-1 lg:col-start-1",
+                      attrs: {
+                        "aria-labelledby": "payment-and-shipping-heading"
+                      }
+                    },
+                    [
+                      _c(
+                        "h2",
+                        {
+                          staticClass: "sr-only",
+                          attrs: { id: "payment-and-shipping-heading" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Payment and shipping details\n                        "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("form", [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "max-w-2xl mx-auto px-4 lg:max-w-none lg:px-0"
+                          },
+                          [
+                            _c("div", [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "text-lg font-extrabold text-gray-900",
+                                  attrs: { id: "contact-info-heading" }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                        Contact information\n                                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: " shadow-2xl" }, [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass:
+                                      "block text-sm font-medium text-gray-700",
+                                    attrs: { for: "email-address" }
+                                  },
+                                  [_vm._v("Contact Name")]
+                                ),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "mt-1" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.userName,
+                                        expression: "form.userName"
+                                      }
+                                    ],
+                                    staticClass:
+                                      "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                    attrs: {
+                                      required: "",
+                                      placeholder: "Mark Massai",
+                                      type: "text",
+                                      id: "phone-number",
+                                      name: "phone-number"
+                                    },
+                                    domProps: { value: _vm.form.userName },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "userName",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "mt-6 shadow-2xl" }, [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass:
+                                      "block text-sm font-medium text-gray-700",
+                                    attrs: { for: "email-address" }
+                                  },
+                                  [_vm._v("Contact Email")]
+                                ),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "mt-1" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.userEmail,
+                                        expression: "form.userEmail"
+                                      }
+                                    ],
+                                    staticClass:
+                                      "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                    attrs: {
+                                      required: "",
+                                      placeholder: "user@email.com",
+                                      type: "email",
+                                      id: "email-address",
+                                      name: "email-address"
+                                    },
+                                    domProps: { value: _vm.form.userEmail },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "userEmail",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "mt-6 shadow-2xl" }, [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass:
+                                      "block text-sm font-medium text-gray-700",
+                                    attrs: { for: "email-address" }
+                                  },
+                                  [_vm._v("Contact Phone")]
+                                ),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "mt-1" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.userPhone,
+                                        expression: "form.userPhone"
+                                      }
+                                    ],
+                                    staticClass:
+                                      "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                    attrs: {
+                                      required: "",
+                                      placeholder: "254 7XX XXX XXX",
+                                      type: "number",
+                                      id: "phone-number",
+                                      name: "phone-number"
+                                    },
+                                    domProps: { value: _vm.form.userPhone },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "userPhone",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(1)
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "flex justify-center pt-10 sm:hidden" },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "font-primary-font bg-indigo-800 border border-transparent rounded-md shadow-sm py-2 px-4 text-lg font-bold text-white hover:bg-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500",
+                              attrs: { type: "submit" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.invoice(_vm.post)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                Proceed to Payment\n                                "
+                              ),
+                              _c("i", {
+                                staticClass:
+                                  "fas fa-caret-right ml-2 fa-lg text-white-500"
+                              }),
+                              _vm._v(" "),
+                              _c("i", {
+                                staticClass:
+                                  "fas fa-caret-right fa-lg text-white-500"
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _vm.paymentModal
+          ? _c(
+              "div",
+              {
+                staticClass:
+                  "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
+                attrs: { id: "popup-modal", tabindex: "-1" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "relative p-4 w-full max-w-md h-full md:h-auto"
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "relative bg-white rounded-lg shadow dark:bg-gray-700"
+                      },
+                      [
+                        _c("div", { staticClass: "flex justify-end p-2" }, [
+                          _vm.status == "Cancelled"
+                            ? _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    href: _vm.route("checkout", _vm.post._id)
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white",
+                                      attrs: {
+                                        type: "button",
+                                        "data-modal-toggle": "popup-modal"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass: "w-5 h-5",
+                                          attrs: {
+                                            fill: "currentColor",
+                                            viewBox: "0 0 20 20",
+                                            xmlns: "http://www.w3.org/2000/svg"
+                                          }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              "fill-rule": "evenodd",
+                                              d:
+                                                "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+                                              "clip-rule": "evenodd"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            : _vm._e()
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _vm.status == "Cancelled"
+                          ? _c("div", { staticClass: "p-4 pt-0 text-center" }, [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "mb-5 text-sm font-extrabold text-red-500 dark:text-gray-400 italic"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                            Transaction Was Cancelled\n                        "
+                                  )
+                                ]
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.status == "Waiting"
+                          ? _c("div", { staticClass: "p-4 pt-0 text-center" }, [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "mb-5 text-sm font-extrabold text-green-500 dark:text-gray-400 italic"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                            Transaction Pending\n                        "
+                                  )
+                                ]
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "flex flex-col px-10" }, [
+                          _c(
+                            "h4",
+                            {
+                              staticClass:
+                                "mb-5 text-sm font-bold text-gray-500 dark:text-gray-400"
+                            },
+                            [
+                              _vm._v(
+                                "\n                            Phone Number:\n                            "
+                              ),
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "ml-2 font-extrabold text-xl text-indigo-600"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                " +
+                                      _vm._s(this.form.number)
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "p-4 pt-0 text-center mt-5" },
+                          [
                             _c(
-                              "h3",
+                              "button",
                               {
                                 staticClass:
-                                  "text-lg font-extrabold text-gray-900",
-                                attrs: { id: "contact-info-heading" }
+                                  "text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2",
+                                attrs: {
+                                  "data-modal-toggle": "popup-modal",
+                                  type: "button"
+                                },
+                                on: { click: _vm.confirm }
                               },
                               [
                                 _vm._v(
-                                  "\n                                        Contact information\n                                    "
+                                  "\n                            Tap at intervals to Confirm Payment\n                        "
                                 )
                               ]
-                            ),
-                            _vm._v(" "),
-                            _c("div", { staticClass: " shadow-2xl" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass:
-                                    "block text-sm font-medium text-gray-700",
-                                  attrs: { for: "email-address" }
-                                },
-                                [_vm._v("Contact Name")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "mt-1" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.userName,
-                                      expression: "form.userName"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
-                                  attrs: {
-                                    required: "",
-                                    placeholder: "Mark Massai",
-                                    type: "text",
-                                    id: "phone-number",
-                                    name: "phone-number"
-                                  },
-                                  domProps: { value: _vm.form.userName },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "userName",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "mt-6 shadow-2xl" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass:
-                                    "block text-sm font-medium text-gray-700",
-                                  attrs: { for: "email-address" }
-                                },
-                                [_vm._v("Contact Email")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "mt-1" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.userEmail,
-                                      expression: "form.userEmail"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
-                                  attrs: {
-                                    required: "",
-                                    placeholder: "user@email.com",
-                                    type: "email",
-                                    id: "email-address",
-                                    name: "email-address"
-                                  },
-                                  domProps: { value: _vm.form.userEmail },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "userEmail",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "mt-6 shadow-2xl" }, [
-                              _c(
-                                "label",
-                                {
-                                  staticClass:
-                                    "block text-sm font-medium text-gray-700",
-                                  attrs: { for: "email-address" }
-                                },
-                                [_vm._v("Contact Phone")]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "mt-1" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.userPhone,
-                                      expression: "form.userPhone"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "h-10 p-2 border-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
-                                  attrs: {
-                                    required: "",
-                                    placeholder: "254 7XX XXX XXX",
-                                    type: "number",
-                                    id: "phone-number",
-                                    name: "phone-number"
-                                  },
-                                  domProps: { value: _vm.form.userPhone },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "userPhone",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ])
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(1)
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "flex justify-center pt-10 sm:hidden" },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "font-primary-font bg-indigo-800 border border-transparent rounded-md shadow-sm py-2 px-4 text-lg font-bold text-white hover:bg-green-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500",
-                            attrs: { type: "submit" },
-                            on: {
-                              click: function($event) {
-                                return _vm.invoice(_vm.post)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                Proceed to Payment\n                                "
-                            ),
-                            _c("i", {
-                              staticClass:
-                                "fas fa-caret-right ml-2 fa-lg text-white-500"
-                            }),
-                            _vm._v(" "),
-                            _c("i", {
-                              staticClass:
-                                "fas fa-caret-right fa-lg text-white-500"
-                            })
+                            )
                           ]
                         )
                       ]
@@ -78317,174 +78528,13 @@ var render = function() {
                 )
               ]
             )
-          ])
-        ],
-        1
-      ),
+          : _vm._e()
+      ]),
       _vm._v(" "),
-      _vm.paymentModal
-        ? _c(
-            "div",
-            {
-              staticClass:
-                "overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full",
-              attrs: { id: "popup-modal", tabindex: "-1" }
-            },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "relative p-4 w-full max-w-md h-full md:h-auto"
-                },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "relative bg-white rounded-lg shadow dark:bg-gray-700"
-                    },
-                    [
-                      _c("div", { staticClass: "flex justify-end p-2" }, [
-                        _vm.status == "Cancelled"
-                          ? _c(
-                              "a",
-                              {
-                                attrs: {
-                                  href: _vm.route("checkout", _vm.post._id)
-                                }
-                              },
-                              [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white",
-                                    attrs: {
-                                      type: "button",
-                                      "data-modal-toggle": "popup-modal"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "svg",
-                                      {
-                                        staticClass: "w-5 h-5",
-                                        attrs: {
-                                          fill: "currentColor",
-                                          viewBox: "0 0 20 20",
-                                          xmlns: "http://www.w3.org/2000/svg"
-                                        }
-                                      },
-                                      [
-                                        _c("path", {
-                                          attrs: {
-                                            "fill-rule": "evenodd",
-                                            d:
-                                              "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
-                                            "clip-rule": "evenodd"
-                                          }
-                                        })
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          : _vm._e()
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(2),
-                      _vm._v(" "),
-                      _vm.status == "Cancelled"
-                        ? _c("div", { staticClass: "p-4 pt-0 text-center" }, [
-                            _c(
-                              "h3",
-                              {
-                                staticClass:
-                                  "mb-5 text-sm font-extrabold text-red-500 dark:text-gray-400 italic"
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Transaction Was Cancelled\n                        "
-                                )
-                              ]
-                            )
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.status == "Waiting"
-                        ? _c("div", { staticClass: "p-4 pt-0 text-center" }, [
-                            _c(
-                              "h3",
-                              {
-                                staticClass:
-                                  "mb-5 text-sm font-extrabold text-green-500 dark:text-gray-400 italic"
-                              },
-                              [
-                                _vm._v(
-                                  "\n                            Transaction Pending\n                        "
-                                )
-                              ]
-                            )
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "flex flex-col px-10" }, [
-                        _c(
-                          "h4",
-                          {
-                            staticClass:
-                              "mb-5 text-sm font-bold text-gray-500 dark:text-gray-400"
-                          },
-                          [
-                            _vm._v(
-                              "\n                            Phone Number:\n                            "
-                            ),
-                            _c(
-                              "span",
-                              {
-                                staticClass:
-                                  "ml-2 font-extrabold text-xl text-indigo-600"
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                " +
-                                    _vm._s(this.form.number)
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "p-4 pt-0 text-center mt-5" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2",
-                            attrs: {
-                              "data-modal-toggle": "popup-modal",
-                              type: "button"
-                            },
-                            on: { click: _vm.confirm }
-                          },
-                          [
-                            _vm._v(
-                              "\n                            Tap at intervals to Confirm Payment\n                        "
-                            )
-                          ]
-                        )
-                      ])
-                    ]
-                  )
-                ]
-              )
-            ]
-          )
-        : _vm._e()
-    ])
-  ])
+      _vm.spinner ? _c("Spinner") : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -82204,7 +82254,6 @@ var render = function() {
                   {
                     staticClass:
                       "bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-5 py-5 font-bold text-2xl leading-3 shadow-md rounded-md ",
-                    attrs: { href: "" },
                     on: {
                       click: function($event) {
                         $event.preventDefault()
@@ -87541,7 +87590,9 @@ var render = function() {
               )
             ]
           )
-        : _vm._e()
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.spinner ? _c("Spinner") : _vm._e()
     ],
     1
   )
@@ -90504,6 +90555,8 @@ var render = function() {
           ],
           1
         ),
+        _vm._v(" "),
+        _vm.spinner ? _c("Spinner") : _vm._e(),
         _vm._v(" "),
         _c("MainFooter")
       ],

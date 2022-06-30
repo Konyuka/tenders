@@ -256,7 +256,6 @@ import Vue2Filters from "vue2-filters";
 import SearchFilter from "./SearchFilter.vue";
 Vue.use(Vue2Filters);
 import moment from "moment";
-
 import dateFormat from "dateformat";
 // const now = new Date();
 

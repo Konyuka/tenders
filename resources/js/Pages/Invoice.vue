@@ -720,12 +720,15 @@
             </div>
         </div>
 
+        <Spinner v-if="spinner" />
+
         <!-- expressModal     -->
     </div>
 </template>
 
 <script>
 import MainMenu from "./Components/MainMenu.vue";
+import Spinner from "./Components/Spinner.vue";
 import moment from "moment";
 
 const { default: axios } = require("axios");
@@ -746,7 +749,8 @@ export default {
         invoiceStatus: [Boolean, String]
     },
     components: {
-        MainMenu
+        MainMenu,
+        Spinner
     },
     mounted() {
         // if (this.post == "diamond") {
@@ -893,6 +897,7 @@ export default {
     data() {
         return {
             // amountMembership: "",
+            spinner: false,
             unpaidAlert: false,
             expressModal: false,
             paymentLog: "",
