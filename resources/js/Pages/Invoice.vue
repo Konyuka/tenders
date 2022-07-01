@@ -579,6 +579,7 @@
                                 >
                                     Tap at intervals to Confirm Payment
                                 </button>
+
                                 <!-- </a> -->
                             </div>
                         </div>
@@ -706,13 +707,22 @@
                         </button> -->
 
                         <button
-                            v-if="status != 'Cancelled'"
+                            v-if="status != 'Cancelled' && timeout == false"
                             @click="confirm"
                             data-modal-toggle="popup-modal"
                             type="button"
                             class="text-white bg-indigo-600 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                         >
                             Tap at intervals to Confirm Payment
+                        </button>
+                        <button
+                            v-if="timeout"
+                            @click="closeSTK"
+                            data-modal-toggle="popup-modal"
+                            type="button"
+                            class="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                        >
+                            Restart Process
                         </button>
                         <!-- </a> -->
                     </div>
@@ -897,6 +907,7 @@ export default {
     data() {
         return {
             // amountMembership: "",
+            timeout: false,
             spinner: false,
             unpaidAlert: false,
             expressModal: false,
@@ -1017,17 +1028,25 @@ export default {
                 alert("Your Number Format Should be 254 7XX XXX XXX");
             }
         },
+        timedOut() {
+            alert("timeout");
+        },
         stkPush() {
             // if (this.status == "Cancelled") {
             //     this.transactionRestart = true;
             // } else {
             //     this.transactionRestart = false;
             // }
-
+            this.timeout = false;
             this.expressModal = false;
             var strFirstThree = this.form.number.substring(0, 3);
             if (strFirstThree == 254 && this.form.number.length == 12) {
                 this.paymentModal = true;
+                // setInterval((this.timeout = true), 5000);
+                setTimeout(() => {
+                    this.timeout = true;
+                }, 60000);
+                // setTimeout(() => this.timedOut(), 60000);
                 const requestBody = {
                     // amount: "1",
                     amount: this.amount,

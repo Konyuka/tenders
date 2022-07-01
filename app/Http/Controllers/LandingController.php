@@ -239,18 +239,18 @@ class LandingController extends Controller
     {
         $baseURL = url('');
         $currentURL = url()->current();
-        return dd( $baseURL, $currentURL );
+        $slugValue = str_replace($baseURL.'/invoice/', '', $currentURL);
+        // return dd( $baseURL, $currentURL, $slugValue );
 
-    // $id = $request->route('id');
-    // $id = Route::currentRouteName();
-    // $id = Route::current();
-    return dump($id);
-        $post = $request->post;
+        // $post = $request->post;
+        $post = Post::where('_id', '=', $slugValue)->first();
         // return dd($post);
         if($post == 'bronze' || $post == 'silver' || $post == 'gold' || $post == 'platinum' || $post == 'diamond'){
             $post_id = $post;
         }else{
-            $post_id = $post['_id'];
+            $post_id = $slugValue;
+            // $post_id = $post['_id'];
+            // return dd($post_id);
         }
 
         $user = $request->user;
@@ -297,7 +297,8 @@ class LandingController extends Controller
 
         return Inertia::render('Invoice', [
             // 'post' => $request->post,
-            'post' => $post,
+            // 'post' => $post,
+            'post' => Post::where('_id', '=', $slugValue)->first(),
             'user' => $user,
             'invoiceStatus' => $invoicePaid,
             'invoiceDetails' => json_decode($createdInvoice),

@@ -11596,6 +11596,16 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -11764,6 +11774,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
   data: function data() {
     return {
       // amountMembership: "",
+      timeout: false,
       spinner: false,
       unpaidAlert: false,
       expressModal: false,
@@ -11874,17 +11885,28 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
         alert("Your Number Format Should be 254 7XX XXX XXX");
       }
     },
+    timedOut: function timedOut() {
+      alert("timeout");
+    },
     stkPush: function stkPush() {
+      var _this = this;
+
       // if (this.status == "Cancelled") {
       //     this.transactionRestart = true;
       // } else {
       //     this.transactionRestart = false;
       // }
+      this.timeout = false;
       this.expressModal = false;
       var strFirstThree = this.form.number.substring(0, 3);
 
       if (strFirstThree == 254 && this.form.number.length == 12) {
-        this.paymentModal = true;
+        this.paymentModal = true; // setInterval((this.timeout = true), 5000);
+
+        setTimeout(function () {
+          _this.timeout = true;
+        }, 60000); // setTimeout(() => this.timedOut(), 60000);
+
         var requestBody = {
           // amount: "1",
           amount: this.amount,
@@ -87564,7 +87586,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "p-4 pt-0 text-center mt-5" }, [
-                        _vm.status != "Cancelled"
+                        _vm.status != "Cancelled" && _vm.timeout == false
                           ? _c(
                               "button",
                               {
@@ -87579,6 +87601,26 @@ var render = function() {
                               [
                                 _vm._v(
                                   "\n                        Tap at intervals to Confirm Payment\n                    "
+                                )
+                              ]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.timeout
+                          ? _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2",
+                                attrs: {
+                                  "data-modal-toggle": "popup-modal",
+                                  type: "button"
+                                },
+                                on: { click: _vm.closeSTK }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        Restart Process\n                    "
                                 )
                               ]
                             )
