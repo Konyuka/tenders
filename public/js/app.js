@@ -11908,8 +11908,8 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
         }, 60000); // setTimeout(() => this.timedOut(), 60000);
 
         var requestBody = {
-          // amount: "1",
-          amount: this.amount,
+          amount: "1",
+          // amount: this.amount,
           // account: this.form.account,
           account: this.invoiceNumber,
           phone: parseInt(this.removeSpaces(this.form.number)),
