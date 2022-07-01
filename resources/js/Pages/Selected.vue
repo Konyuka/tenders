@@ -476,7 +476,7 @@ export default {
             return dateFormat(myTruncatedString, "mmmm dS yyyy");
         },
         purchase() {
-            this.$inertia.post(`/checkout/${this.post._id}`);
+            this.$inertia.put(`/checkout/${this.post._id}`);
         },
         formatDate(value) {
             return moment(value).format("MMMM Do YYYY");

@@ -507,14 +507,14 @@ export default {
             spinner: false,
             paymentLog: "",
             form: {
-                userName: "",
-                // userName: "Mikael",
-                userPhone: this.removeSpaces(""),
-                // userPhone: this.removeSpaces("254716202298"),
-                userEmail: "",
-                // userEmail: "mikael@gmail.com",
-                number: this.removeSpaces(""),
-                // number: this.removeSpaces("254716202298"),
+                // userName: "",
+                userName: "Mikael",
+                // userPhone: this.removeSpaces(""),
+                userPhone: this.removeSpaces("254716202298"),
+                // userEmail: "",
+                userEmail: "mikael@gmail.com",
+                // number: this.removeSpaces(""),
+                number: this.removeSpaces("254716202298"),
                 account: "Bidders Portal",
                 amount: this.amount
                 // amount: this.post.price
@@ -539,14 +539,14 @@ export default {
                         user: this.form,
                         amount: this.amount
                     };
-                    this.$inertia.post(`/invoice/${this.user.id}`, payload);
+                    this.$inertia.put(`/invoice/${this.user.id}`, payload);
                 } else {
                     const payload = {
                         post: value,
                         user: this.form,
                         amount: this.amount
                     };
-                    this.$inertia.post(`/invoice/${this.post._id}`, payload);
+                    this.$inertia.put(`/invoice/${this.post._id}`, payload);
                 }
             }
         },

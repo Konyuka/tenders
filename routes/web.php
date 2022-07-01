@@ -39,7 +39,7 @@ Route::get('how-to-apply-for-a-tender-in-kenya', [BlogsController::class, 'apply
 
 
 
-Route::post('/checkout/{slugs}', [LandingController::class, 'checkout'])
+Route::any('/checkout/{slugs}', [LandingController::class, 'checkout'])
     ->name('checkout');
 
 Route::get('/unlock/{slugs}', [LandingController::class, 'unlock'])
@@ -48,7 +48,7 @@ Route::get('/unlock/{slugs}', [LandingController::class, 'unlock'])
 Route::get('/download_tender/{slugs}', [LandingController::class, 'downloadTender'])
     ->name('download_tender');
 
-Route::post('/invoice/{slugs}', [LandingController::class, 'invoice'])
+Route::any('/invoice/{slugs}', [LandingController::class, 'invoice'])
     ->name('invoice');
 
 Route::post('get-token', [PaymentsController::class, 'newAccessToken'])

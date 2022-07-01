@@ -5782,14 +5782,14 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       spinner: false,
       paymentLog: "",
       form: {
-        userName: "",
-        // userName: "Mikael",
-        userPhone: this.removeSpaces(""),
-        // userPhone: this.removeSpaces("254716202298"),
-        userEmail: "",
-        // userEmail: "mikael@gmail.com",
-        number: this.removeSpaces(""),
-        // number: this.removeSpaces("254716202298"),
+        // userName: "",
+        userName: "Mikael",
+        // userPhone: this.removeSpaces(""),
+        userPhone: this.removeSpaces("254716202298"),
+        // userEmail: "",
+        userEmail: "mikael@gmail.com",
+        // number: this.removeSpaces(""),
+        number: this.removeSpaces("254716202298"),
         account: "Bidders Portal",
         amount: this.amount // amount: this.post.price
         // amount: ''
@@ -5815,14 +5815,14 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
             user: this.form,
             amount: this.amount
           };
-          this.$inertia.post("/invoice/".concat(this.user.id), payload);
+          this.$inertia.put("/invoice/".concat(this.user.id), payload);
         } else {
           var _payload = {
             post: value,
             user: this.form,
             amount: this.amount
           };
-          this.$inertia.post("/invoice/".concat(this.post._id), _payload);
+          this.$inertia.put("/invoice/".concat(this.post._id), _payload);
         }
       }
     },
@@ -14142,7 +14142,7 @@ var now = new Date(); // dateFormat(now, "W");
       return Object(dateformat__WEBPACK_IMPORTED_MODULE_5__["default"])(myTruncatedString, "mmmm dS yyyy");
     },
     purchase: function purchase() {
-      this.$inertia.post("/checkout/".concat(this.post._id));
+      this.$inertia.put("/checkout/".concat(this.post._id));
     },
     formatDate: function formatDate(value) {
       return moment__WEBPACK_IMPORTED_MODULE_4___default()(value).format("MMMM Do YYYY");

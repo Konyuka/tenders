@@ -13,6 +13,8 @@ use Carbon\Carbon;
 // use App\Http\Controllers\DateTime;
 use DateTime;
 use DB;
+// use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Route;
 
 include('pdflayerController.php');
 
@@ -235,8 +237,16 @@ class LandingController extends Controller
 
     public function invoice(Request $request)
     {
-        // return dd( json_decode($request) );
+        $baseURL = url('');
+        $currentURL = url()->current();
+        return dd( $baseURL, $currentURL );
+
+    // $id = $request->route('id');
+    // $id = Route::currentRouteName();
+    // $id = Route::current();
+    return dump($id);
         $post = $request->post;
+        // return dd($post);
         if($post == 'bronze' || $post == 'silver' || $post == 'gold' || $post == 'platinum' || $post == 'diamond'){
             $post_id = $post;
         }else{
