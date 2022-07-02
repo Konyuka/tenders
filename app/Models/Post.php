@@ -17,6 +17,7 @@ class Post extends Eloquent
     protected $dates = array('created_at');
 
     protected $fillable = [
+        'bdr_no',
         'purchasing_authority',
         'tender_number',
         'tender_brief',

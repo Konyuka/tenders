@@ -61,9 +61,10 @@ class DashboardController extends Controller
         // return dd($posts);
         set_time_limit(50000);
         foreach ($posts as $post => $value ) {
-            if(!Post::where('tender_brief',$value['Tender_Brief'])->where('tender_number',$value['Tender_No'])->where('link',$value['FileUrl'])->where('work_detail',$value['Work_Detail'])->exists()){
+            if(!Post::where('bdr_no',$value['BDR_No'])->exists()){
 
                 $createdPost = Post::Create([
+                    'bdr_no' => $value['BDR_No'],
                     'purchasing_authority' => $value['Purchasing_Authority'],
                     'tender_number' => $value['Tender_No'],
                     'tender_brief' => $value['Tender_Brief'],

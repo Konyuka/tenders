@@ -15,6 +15,8 @@ use DateTime;
 use DB;
 // use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Route;
+use App\Mail\BiddersEmail;
+use Illuminate\Support\Facades\Mail;
 
 include('pdflayerController.php');
 
@@ -71,9 +73,31 @@ class LandingController extends Controller
         $clientInvoice = $payment->account;
         $clientEmail = $payment->user_email;
         $clientName = urlencode($payment->user_name);
+        $tenderID = $payment->info;
+        $post = Post::where(['_id'=>$tenderID])->first();
+
+        // return dd($post);
+
 
         // return  dd($clientName);
         if($payment->email_sent == 0){
+
+            $mailInfo = new \stdClass();
+            $mailInfo->recieverName = $clientName;
+            $mailInfo->sender = "Bidders Portal";
+            $mailInfo->senderCompany = "Ochangaberg Limited";
+            // $mailInfo->to = $clientEmail;
+            $mailInfo->to = 'michaelsaiba84@gmail.com';
+            $mailInfo->from = 'saiba@talkduka.co.ke';
+            $mailInfo->title = 'Purchased Tender Details';
+            $mailInfo->subject = $post->tender_brief;
+            $mailInfo->name = "Bidders Portal Purchased Tender details";
+            $mailInfo->cc = "support@biddersportal.com";
+            $mailInfo->bcc = "michaelsaiba84@gmail.com";
+
+            // Mail::to($clientEmail)
+            Mail::to('michaelsaiba84@gmail.com')
+            ->send(new BiddersEmail($mailInfo));
 
         }
 
