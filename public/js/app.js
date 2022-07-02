@@ -5782,14 +5782,14 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       spinner: false,
       paymentLog: "",
       form: {
-        // userName: "",
-        userName: "Mikael",
-        // userPhone: this.removeSpaces(""),
-        userPhone: this.removeSpaces("254716202298"),
-        // userEmail: "",
-        userEmail: "mikael@gmail.com",
-        // number: this.removeSpaces(""),
-        number: this.removeSpaces("254716202298"),
+        userName: "",
+        // userName: "Mikael",
+        userPhone: this.removeSpaces(""),
+        // userPhone: this.removeSpaces("254716202298"),
+        userEmail: "",
+        // userEmail: "mikael@gmail.com",
+        number: this.removeSpaces(""),
+        // number: this.removeSpaces("254716202298"),
         account: "Bidders Portal",
         amount: this.amount // amount: this.post.price
         // amount: ''
@@ -81145,7 +81145,7 @@ var render = function() {
                   "div",
                   { staticClass: "columns-1" },
                   [
-                    _vm._l(this.getArray.slice(0, 1), function(post) {
+                    _vm._l(this.posts.slice(0, 1), function(post) {
                       return _c(
                         "a",
                         {
