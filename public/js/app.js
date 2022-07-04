@@ -5705,6 +5705,18 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
   },
   watch: {},
   mounted: function mounted() {
+    if (localStorage.getItem("userName") != "null") {
+      this.form.userName = localStorage.getItem("userName");
+    }
+
+    if (localStorage.getItem("userPhone") != "null") {
+      this.form.userPhone = localStorage.getItem("userPhone");
+    }
+
+    if (localStorage.getItem("userEmail") != "null") {
+      this.form.userEmail = localStorage.getItem("userEmail");
+    }
+
     this.Status = "";
 
     if (this.membership != null) {
@@ -5783,18 +5795,11 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       paymentLog: "",
       form: {
         userName: "",
-        // userName: "Mikael",
         userPhone: this.removeSpaces(""),
-        // userPhone: this.removeSpaces("254716202298"),
         userEmail: "",
-        // userEmail: "mikael@gmail.com",
         number: this.removeSpaces(""),
-        // number: this.removeSpaces("254716202298"),
         account: "Bidders Portal",
-        amount: this.amount // amount: this.post.price
-        // amount: ''
-        // account: this.form.userName,
-
+        amount: this.amount
       },
       modal: false,
       paymentModal: false
@@ -5809,6 +5814,10 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       } else if (this.form.userPhone.length != 12) {
         alert("Invalid Phone Number");
       } else {
+        localStorage.setItem("userName", this.form.userName);
+        localStorage.setItem("userPhone", this.form.userPhone);
+        localStorage.setItem("userEmail", this.form.userEmail);
+
         if (value == null) {
           var payload = {
             post: this.membership,

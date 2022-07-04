@@ -430,6 +430,16 @@ export default {
     },
     watch: {},
     mounted() {
+        if (localStorage.getItem("userName") != "null") {
+            this.form.userName = localStorage.getItem("userName");
+        }
+        if (localStorage.getItem("userPhone") != "null") {
+            this.form.userPhone = localStorage.getItem("userPhone");
+        }
+        if (localStorage.getItem("userEmail") != "null") {
+            this.form.userEmail = localStorage.getItem("userEmail");
+        }
+
         this.Status = "";
 
         if (this.membership != null) {
@@ -508,18 +518,11 @@ export default {
             paymentLog: "",
             form: {
                 userName: "",
-                // userName: "Mikael",
                 userPhone: this.removeSpaces(""),
-                // userPhone: this.removeSpaces("254716202298"),
                 userEmail: "",
-                // userEmail: "mikael@gmail.com",
                 number: this.removeSpaces(""),
-                // number: this.removeSpaces("254716202298"),
                 account: "Bidders Portal",
                 amount: this.amount
-                // amount: this.post.price
-                // amount: ''
-                // account: this.form.userName,
             },
             modal: false,
             paymentModal: false
@@ -533,6 +536,9 @@ export default {
             } else if (this.form.userPhone.length != 12) {
                 alert("Invalid Phone Number");
             } else {
+                localStorage.setItem("userName", this.form.userName);
+                localStorage.setItem("userPhone", this.form.userPhone);
+                localStorage.setItem("userEmail", this.form.userEmail);
                 if (value == null) {
                     const payload = {
                         post: this.membership,

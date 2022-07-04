@@ -169,6 +169,8 @@ return [
         Jenssegers\Mongodb\MongodbServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         \Safaricom\Mpesa\MpesaServiceProvider::class,
+        // 'Thujohn\Twitter\TwitterServiceProvider',
+
 
         /*
          * Application Service Providers...
@@ -233,7 +235,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'Mpesa'=> \Safaricom\Mpesa\MpesaServiceProvider::class
+        'Mpesa'=> \Safaricom\Mpesa\MpesaServiceProvider::class,
+        // 'Twitter' => 'Thujohn\Twitter\Facades\Twitter',
     ],
 
     'debug_blacklist' => [
