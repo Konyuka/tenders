@@ -1050,6 +1050,7 @@ export default {
                 const requestBody = {
                     // amount: "1",
                     amount: this.amount,
+
                     // account: this.form.account,
                     account: this.invoiceNumber,
                     phone: parseInt(this.removeSpaces(this.form.number)),
