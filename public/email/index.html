@@ -19,8 +19,7 @@
         <!--[if !mso]><!-->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!--<![endif]-->
-        <!-- <title></title> -->
-        <title>{{$mailMessage->title}}</title>
+        <title></title>
 
         <style type="text/css">
             @media only screen and (min-width: 620px) {
@@ -268,7 +267,7 @@
                                                                             align="center">
 
                                                                             <img align="center" border="0"
-                                                                                src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+                                                                                src="{{ URL::asset('public/iamges/image-5.png') }}"
                                                                                 alt="email icon" title="email icon"
                                                                                 style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 50%;max-width: 290px;"
                                                                                 width="290"
@@ -327,7 +326,7 @@
                                                                                 {{ $mailMessage -> invoiceNumber }}
                                                                                 is</span><br /><span
                                                                                 style="font-size: 14px; line-height: 19.6px;">{{
-                                                                                $mailMessage -> receiptNumber
+                                                                                        $mailMessage -> receiptNumber
                                                                                 }} </span><br /><br /></span>
                                                                     </p>
                                                                 </div>
@@ -398,8 +397,8 @@
                                                                 <div class="v-text-align"
                                                                     style="line-height: 170%; text-align: left; word-wrap: break-word;">
                                                                     <p style="font-size: 14px; line-height: 170%;">{{
-                                                                        $mailMessage -> workDetail
-                                                                        }}</p>
+                                                                            $mailMessage -> workDetail
+                                                                    }}</p>
                                                                 </div>
 
                                                             </td>
@@ -468,7 +467,8 @@
                                                                 <div class="v-text-align"
                                                                     style="line-height: 170%; text-align: left; word-wrap: break-word;">
                                                                     <p style="font-size: 14px; line-height: 170%;">{{
-                                                                        $mailMessage -> tenderNumber }} </p>
+                                                                            $mailMessage -> tenderNumber
+                                                                    }} </p>
                                                                 </div>
 
                                                             </td>
@@ -507,8 +507,8 @@
                                                                 <div class="v-text-align"
                                                                     style="line-height: 170%; text-align: left; word-wrap: break-word;">
                                                                     <p style="font-size: 14px; line-height: 170%;">{{
-                                                                        $mailMessage -> fundedBy
-                                                                        }} </p>
+                                                                            $mailMessage -> fundedBy
+                                                                    }} </p>
                                                                 </div>
 
                                                             </td>
@@ -585,11 +585,9 @@
 
                                                                 <div class="v-text-align"
                                                                     style="line-height: 170%; text-align: left; word-wrap: break-word;">
-                                                                    <p style="font-size: 14px; line-height: 170%;">
-                                                                        {{
-                                                                        date('d-M-y', strtotime($mailMessage
-                                                                        ->datePosted))
-                                                                        }}  </p>
+                                                                    <p style="font-size: 14px; line-height: 170%;">{{
+                                                                            $mailMessage -> datePosted
+                                                                    }} </p>
                                                                 </div>
 
                                                             </td>
@@ -644,8 +642,8 @@
                                                                 <div class="v-text-align"
                                                                     style="line-height: 170%; text-align: left; word-wrap: break-word;">
                                                                     <p style="font-size: 14px; line-height: 170%;">{{
-                                                                        $mailMessage -> purchasingAuthority
-                                                                        }} </p>
+                                                                            $mailMessage -> purchasingAuthority
+                                                                    }} </p>
                                                                 </div>
 
                                                             </td>
@@ -684,8 +682,8 @@
                                                                 <div class="v-text-align"
                                                                     style="line-height: 170%; text-align: left; word-wrap: break-word;">
                                                                     <p style="font-size: 14px; line-height: 170%;">{{
-                                                                        $mailMessage -> contactEmail
-                                                                        }} </p>
+                                                                            $mailMessage -> contactEmail
+                                                                    }} </p>
                                                                 </div>
 
                                                             </td>
@@ -724,8 +722,8 @@
                                                                 <div class="v-text-align"
                                                                     style="line-height: 170%; text-align: left; word-wrap: break-word;">
                                                                     <p style="font-size: 14px; line-height: 170%;">{{
-                                                                        $mailMessage -> competitionType
-                                                                        }} </p>
+                                                                            $mailMessage -> competitionType
+                                                                    }} </p>
                                                                 </div>
 
                                                             </td>
@@ -763,12 +761,9 @@
 
                                                                 <div class="v-text-align"
                                                                     style="line-height: 170%; text-align: left; word-wrap: break-word;">
-                                                                    <p style="font-size: 14px; line-height: 170%;">
-                                                                        {{
-                                                                        date('d-M-y', strtotime($mailMessage
-                                                                        ->lastDate))
-                                                                        }} 
-                                                                    </p>
+                                                                    <p style="font-size: 14px; line-height: 170%;">{{
+                                                                            $mailMessage -> lastDate
+                                                                    }} </p>
                                                                 </div>
 
                                                             </td>
@@ -817,8 +812,8 @@
 
                                                                 <div class="v-text-align" align="left">
                                                                     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:'Rubik',sans-serif;"><tr><td class="v-text-align" style="font-family:'Rubik',sans-serif;" align="left"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.biddersportal.com" style="height:27px; v-text-anchor:middle; width:174px;" arcsize="15%" stroke="f" fillcolor="#1725bd"><w:anchorlock/><center style="color:#FFFFFF;font-family:'Rubik',sans-serif;"><![endif]-->
-                                                                    <a href="https://www.biddersportal.com/download_tender/{{ $mailMessage->postID }}"
-                                                                        target=" _blank" class="v-size-width"
+                                                                    <a href="https://www.biddersportal.com"
+                                                                        target="_blank" class="v-size-width"
                                                                         style="box-sizing: border-box;display: inline-block;font-family:'Rubik',sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #1725bd; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:30%; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;border-top-width: 0px; border-top-style: solid; border-left-width: 0px; border-left-style: solid; border-right-width: 0px; border-right-style: solid; border-bottom-width: 0px; border-bottom-style: solid;">
                                                                         <span
                                                                             style="display:block;padding:5px 18px;line-height:120%;"><span
@@ -843,7 +838,7 @@
 
                                                                 <h1 class="v-text-align v-font-size"
                                                                     style="margin: 0px; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: 'Rubik',sans-serif; font-size: 18px;">
-                                                                    <strong>Need Help?</strong>
+                                                                    <strong>Need Help</strong>
                                                                 </h1>
 
                                                             </td>
@@ -864,8 +859,7 @@
                                                                     style="line-height: 140%; text-align: center; word-wrap: break-word;">
                                                                     <p style="font-size: 14px; line-height: 140%;">
                                                                         Bidders Portal Offers Exclusive Tender
-                                                                        Information. Drop us an enquiry at
-                                                                        support@biddersportal.com</p>
+                                                                        Information</p>
                                                                 </div>
 
                                                             </td>
@@ -890,7 +884,7 @@
                                                                         <span
                                                                             style="display:block;padding:10px 20px;line-height:120%;"><span
                                                                                 style="font-size: 14px; line-height: 16.8px;">Bidders
-                                                                                Portal</span></span>
+                                                                                portal Home</span></span>
                                                                     </a>
                                                                     <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->
                                                                 </div>
@@ -937,6 +931,109 @@
                                                             <td class="v-container-padding-padding"
                                                                 style="overflow-wrap:break-word;word-break:break-word;padding:30px 10px 10px;font-family:'Rubik',sans-serif;"
                                                                 align="left">
+
+                                                                <div align="center">
+                                                                    <div style="display: table; max-width:187px;">
+                                                                        <!--[if (mso)|(IE)]><table width="187" cellpadding="0" cellspacing="0" border="0"><tr><td style="border-collapse:collapse;" align="center"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; mso-table-lspace: 0pt;mso-table-rspace: 0pt; width:187px;"><tr><![endif]-->
+
+
+                                                                        <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 15px;" valign="top"><![endif]-->
+                                                                        <table align="left" border="0" cellspacing="0"
+                                                                            cellpadding="0" width="32" height="32"
+                                                                            style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 15px">
+                                                                            <tbody>
+                                                                                <tr style="vertical-align: top">
+                                                                                    <td align="left" valign="middle"
+                                                                                        style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                                                                                        <a href="https://facebook.com/"
+                                                                                            title="Facebook"
+                                                                                            target="_blank">
+                                                                                            <img src="images/image-1.png"
+                                                                                                alt="Facebook"
+                                                                                                title="Facebook"
+                                                                                                width="32"
+                                                                                                style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                                                                                        </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <!--[if (mso)|(IE)]></td><![endif]-->
+
+                                                                        <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 15px;" valign="top"><![endif]-->
+                                                                        <table align="left" border="0" cellspacing="0"
+                                                                            cellpadding="0" width="32" height="32"
+                                                                            style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 15px">
+                                                                            <tbody>
+                                                                                <tr style="vertical-align: top">
+                                                                                    <td align="left" valign="middle"
+                                                                                        style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                                                                                        <a href="https://twitter.com/"
+                                                                                            title="Twitter"
+                                                                                            target="_blank">
+                                                                                            <img src="images/image-2.png"
+                                                                                                alt="Twitter"
+                                                                                                title="Twitter"
+                                                                                                width="32"
+                                                                                                style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                                                                                        </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <!--[if (mso)|(IE)]></td><![endif]-->
+
+                                                                        <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 15px;" valign="top"><![endif]-->
+                                                                        <table align="left" border="0" cellspacing="0"
+                                                                            cellpadding="0" width="32" height="32"
+                                                                            style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 15px">
+                                                                            <tbody>
+                                                                                <tr style="vertical-align: top">
+                                                                                    <td align="left" valign="middle"
+                                                                                        style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                                                                                        <a href="https://instagram.com/"
+                                                                                            title="Instagram"
+                                                                                            target="_blank">
+                                                                                            <img src="images/image-4.png"
+                                                                                                alt="Instagram"
+                                                                                                title="Instagram"
+                                                                                                width="32"
+                                                                                                style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                                                                                        </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <!--[if (mso)|(IE)]></td><![endif]-->
+
+                                                                        <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 0px;" valign="top"><![endif]-->
+                                                                        <table align="left" border="0" cellspacing="0"
+                                                                            cellpadding="0" width="32" height="32"
+                                                                            style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 0px">
+                                                                            <tbody>
+                                                                                <tr style="vertical-align: top">
+                                                                                    <td align="left" valign="middle"
+                                                                                        style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                                                                                        <a href="https://youtube.com/"
+                                                                                            title="YouTube"
+                                                                                            target="_blank">
+                                                                                            <img src="images/image-3.png"
+                                                                                                alt="YouTube"
+                                                                                                title="YouTube"
+                                                                                                width="32"
+                                                                                                style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                                                                                        </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <!--[if (mso)|(IE)]></td><![endif]-->
+
+
+                                                                        <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
+                                                                    </div>
+                                                                </div>
+
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -955,7 +1052,7 @@
                                                                     <p style="font-size: 14px; line-height: 140%;">
                                                                         Bidders Portal</p>
                                                                     <p style="font-size: 14px; line-height: 140%;">All
-                                                                        rights reserved. Ochangaberg Limited</p>
+                                                                        rights reserved.  Ochangaberg Limited</p>
                                                                     <p style="font-size: 14px; line-height: 140%;"> </p>
                                                                     <p style="font-size: 14px; line-height: 140%;">
                                                                         Preferences | Unsubscribe  | View in browser</p>
@@ -988,5 +1085,3 @@
     </body>
 
     </html>
-
-

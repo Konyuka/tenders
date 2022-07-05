@@ -94,10 +94,30 @@ class LandingController extends Controller
             $mailInfo->name = "Bidders Portal Purchased Tender details";
             $mailInfo->cc = "support@biddersportal.com";
             $mailInfo->bcc = "michaelsaiba84@gmail.com";
+            $mailInfo->invoiceNumber = $clientInvoice;
+            $mailInfo->receiptNumber = $slug;
+
+            $mailInfo->tenderBrief = $post->tender_brief;
+            $mailInfo->tenderNumber = $post->tender_number;
+            $mailInfo->workDetail = $post->work_detail;
+            $mailInfo->purchasingAuthority = $post->purchasing_authority;
+            $mailInfo->competitionType = $post->competition_type;
+            $mailInfo->fundedBy = $post->funded_by;
+            $mailInfo->contactEmail = $post->email;
+            // $mailInfo->physicalAddress = $post->physicalAddress;
+            $mailInfo->datePosted = $post->created_at;
+            $mailInfo->lastDate = $post->expiry;
+            $mailInfo->postID = $post->_id;
 
             // Mail::to($clientEmail)
             Mail::to('michaelsaiba84@gmail.com')
             ->send(new BiddersEmail($mailInfo));
+
+            $payment = Payments::where(['trans_id'=>$slug])->first();
+                if ($payment){
+                    $payment->sms_sent=true;
+                    $payment->save();
+                }
 
         }
 
