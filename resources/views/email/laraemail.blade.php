@@ -316,7 +316,8 @@
                                                                             style="font-size: 14px; line-height: 19.6px;"><span
                                                                                 style="line-height: 19.6px; font-size: 14px;">Purchase
                                                                                 Confirmed! Thank you
-                                                                                {{ $mailMessage -> recieverName }} for
+                                                                                {{ str_replace('+', ' ',
+                                                                                $mailMessage -> recieverName) }} for
                                                                                 choosing
                                                                                 bidders portal</span><br /><span
                                                                                 style="line-height: 19.6px; font-size: 14px;">Your
@@ -884,12 +885,13 @@
 
                                                                 <div class="v-text-align" align="center">
                                                                     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:'Rubik',sans-serif;"><tr><td class="v-text-align" style="font-family:'Rubik',sans-serif;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.biddersportal.com" style="height:37px; v-text-anchor:middle; width:174px;" arcsize="11%" stroke="f" fillcolor="#1725bd"><w:anchorlock/><center style="color:#FFFFFF;font-family:'Rubik',sans-serif;"><![endif]-->
-                                                                    <a href="https://www.biddersportal.com"
-                                                                        target="_blank" class="v-size-width"
+                                                                    <a href="https://www.biddersportal.com/unlock/{{ $mailMessage->receiptNumber }}
+                                                                        target=" _blank" class="v-size-width"
                                                                         style="box-sizing: border-box;display: inline-block;font-family:'Rubik',sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #1725bd; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:30%; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
                                                                         <span
                                                                             style="display:block;padding:10px 20px;line-height:120%;"><span
-                                                                                style="font-size: 14px; line-height: 16.8px;">Bidders
+                                                                                style="font-size: 14px; line-height: 16.8px;">View
+                                                                                From Bidders
                                                                                 Portal</span></span>
                                                                     </a>
                                                                     <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->

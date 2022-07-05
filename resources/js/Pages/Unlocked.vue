@@ -259,7 +259,7 @@
                                             ></i>
                                         </button>
                                     </a>
-                                    <a
+                                    <!-- <a
                                         @click="sendToMail"
                                         class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-1 px-2 text-xs sm:text-lg sm:px-6 focus:outline-none rounded"
                                     >
@@ -267,7 +267,7 @@
                                         <i
                                             class=" fas fa-paper-plane text-white ml-2 mt-1"
                                         ></i>
-                                    </a>
+                                    </a> -->
                                     <!-- <a :href="route('checkout', post._id)" class="transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-6 focus:outline-none rounded">Purchase Tender Details</a> -->
 
                                     <!-- <button

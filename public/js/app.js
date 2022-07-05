@@ -11917,8 +11917,8 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
         }, 60000); // setTimeout(() => this.timedOut(), 60000);
 
         var requestBody = {
-          // amount: "1",
-          amount: this.amount,
+          amount: "1",
+          // amount: this.amount,
           // account: this.form.account,
           account: this.invoiceNumber,
           phone: parseInt(this.removeSpaces(this.form.number)),
@@ -91413,24 +91413,6 @@ var render = function() {
                                 }
                               },
                               [_vm._m(8)]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass:
-                                  "cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-1 px-2 text-xs sm:text-lg sm:px-6 focus:outline-none rounded",
-                                on: { click: _vm.sendToMail }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                    Send Details To Email\n                                    "
-                                ),
-                                _c("i", {
-                                  staticClass:
-                                    " fas fa-paper-plane text-white ml-2 mt-1"
-                                })
-                              ]
                             )
                           ])
                         ]
