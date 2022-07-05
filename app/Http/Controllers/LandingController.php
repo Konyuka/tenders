@@ -115,7 +115,7 @@ class LandingController extends Controller
 
             $payment = Payments::where(['trans_id'=>$slug])->first();
                 if ($payment){
-                    $payment->sms_sent=true;
+                    $payment->mail_sent=true;
                     $payment->save();
                 }
 

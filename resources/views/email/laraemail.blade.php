@@ -818,7 +818,7 @@
 
                                                                 <div class="v-text-align" align="left">
                                                                     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:'Rubik',sans-serif;"><tr><td class="v-text-align" style="font-family:'Rubik',sans-serif;" align="left"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.biddersportal.com" style="height:27px; v-text-anchor:middle; width:174px;" arcsize="15%" stroke="f" fillcolor="#1725bd"><w:anchorlock/><center style="color:#FFFFFF;font-family:'Rubik',sans-serif;"><![endif]-->
-                                                                    <a href="https://www.biddersportal.com/download_tender/{{ $mailMessage->postID }}"
+                                                                    <a href="https://www.biddersportal.com/download_tender/{{$mailMessage->postID}}"
                                                                         target=" _blank" class="v-size-width"
                                                                         style="box-sizing: border-box;display: inline-block;font-family:'Rubik',sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #1725bd; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:30%; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;border-top-width: 0px; border-top-style: solid; border-left-width: 0px; border-left-style: solid; border-right-width: 0px; border-right-style: solid; border-bottom-width: 0px; border-bottom-style: solid;">
                                                                         <span
@@ -892,7 +892,7 @@
                                                                         <span
                                                                             style="display:block;padding:10px 20px;line-height:120%;"><span
                                                                                 style="font-size: 14px; line-height: 16.8px;">View
-                                                                                From Bidders
+                                                                                Details From Bidders
                                                                                 Portal</span></span>
                                                                     </a>
                                                                     <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->
