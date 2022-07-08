@@ -109,8 +109,8 @@ class LandingController extends Controller
             $mailInfo->lastDate = $post->expiry;
             $mailInfo->postID = $post->_id;
 
-            // Mail::to($clientEmail)
-            Mail::to('michaelsaiba84@gmail.com')
+            Mail::to($clientEmail)
+            // Mail::to('michaelsaiba84@gmail.com')
             ->send(new BiddersEmail($mailInfo));
 
             $payment = Payments::where(['trans_id'=>$slug])->first();
