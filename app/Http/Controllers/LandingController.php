@@ -86,14 +86,14 @@ class LandingController extends Controller
             $mailInfo->recieverName = $clientName;
             $mailInfo->sender = "Bidders Portal";
             $mailInfo->senderCompany = "Ochangaberg Limited";
-            // $mailInfo->to = $clientEmail;
-            $mailInfo->to = 'michaelsaiba84@gmail.com';
+            $mailInfo->to = $clientEmail;
+            // $mailInfo->to = 'michaelsaiba84@gmail.com';
             $mailInfo->from = 'saiba@talkduka.co.ke';
             $mailInfo->title = 'Purchased Tender Details';
             $mailInfo->subject = $post->tender_brief;
             $mailInfo->name = "Bidders Portal Purchased Tender details";
             $mailInfo->cc = "support@biddersportal.com";
-            $mailInfo->bcc = "michaelsaiba84@gmail.com";
+            $mailInfo->bcc = "ochangai@gmail.com";
             $mailInfo->invoiceNumber = $clientInvoice;
             $mailInfo->receiptNumber = $slug;
 

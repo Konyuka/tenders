@@ -60,6 +60,7 @@ class DashboardController extends Controller
         $posts = $data['TenderDetails'][0]['TenderLists'];
         // return dd($posts);
         set_time_limit(50000);
+        // set_time_limit(50000);
         foreach ($posts as $post => $value ) {
             if(!Post::where('bdr_no',$value['BDR_No'])->exists()){
 
