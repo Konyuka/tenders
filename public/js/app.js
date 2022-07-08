@@ -9910,8 +9910,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ServiceIntro",
@@ -11918,8 +11916,8 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
         }, 60000); // setTimeout(() => this.timedOut(), 60000);
 
         var requestBody = {
-          // amount: "1",
-          amount: this.amount,
+          amount: "1",
+          // amount: this.amount,
           // account: this.form.account,
           account: this.invoiceNumber,
           phone: parseInt(this.removeSpaces(this.form.number)),
@@ -84454,7 +84452,7 @@ var staticRenderFns = [
               },
               [
                 _vm._v(
-                  "\n                We focus on bringing you closer and invested in your market\n                niche. There are millions of tenders awaiting and we ensure\n                that you\n            "
+                  "\n                We focus on bringing you closer to tenders that meets your market niche. There are millions of tenders awaiting for your in our database.\n            "
                 )
               ]
             ),

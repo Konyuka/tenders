@@ -49,7 +49,7 @@ class TaskCron extends Command
 
         $posts = $data['TenderDetails'][0]['TenderLists'];
 
-        set_time_limit(50000);
+        set_time_limit(500000);
         foreach ($posts as $post => $value ) {
             if(!Post::where('tender_number',$value['Tender_No'])->exists()){
 

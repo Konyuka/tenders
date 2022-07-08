@@ -76,7 +76,7 @@ class LandingController extends Controller
         $tenderID = $payment->info;
         $post = Post::where(['_id'=>$tenderID])->first();
 
-        // return dd($post);
+        // return dd(json_decode($payment, true));
 
 
         // return  dd($clientName);
@@ -88,7 +88,8 @@ class LandingController extends Controller
             $mailInfo->senderCompany = "Ochangaberg Limited";
             $mailInfo->to = $clientEmail;
             // $mailInfo->to = 'michaelsaiba84@gmail.com';
-            $mailInfo->from = 'saiba@talkduka.co.ke';
+            $mailInfo->from = 'support@biddersportal.com';
+            // $mailInfo->from = 'saiba@talkduka.co.ke';
             $mailInfo->title = 'Purchased Tender Details';
             $mailInfo->subject = $post->tender_brief;
             $mailInfo->name = "Bidders Portal Purchased Tender details";
