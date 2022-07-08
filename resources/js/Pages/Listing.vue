@@ -537,6 +537,7 @@ export default {
             }
         },
         dateFormat(value) {
+            return value;
             var length = 10;
             var myString = value;
             var myTruncatedString = myString.substring(0, length);

@@ -427,6 +427,7 @@ export default {
             return diffInMs / (1000 * 60 * 60 * 24);
         },
         finalDateFormat(value) {
+            return value;
             var length = 10;
             var myString = value;
             var myTruncatedString = myString.substring(0, length);
@@ -452,6 +453,7 @@ export default {
             return dateFormat(finalDate, "mmmm dS yyyy");
         },
         dateFormat(value) {
+            return value;
             var length = 10;
             var myString = value;
             var myTruncatedString = myString.substring(0, length);

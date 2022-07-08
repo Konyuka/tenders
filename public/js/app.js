@@ -7724,6 +7724,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       }
     },
     dateFormat: function dateFormat(value) {
+      return value;
       var length = 10;
       var myString = value;
       var myTruncatedString = myString.substring(0, length); // console.log(myTruncatedString);
@@ -12829,6 +12830,7 @@ vue__WEBPACK_IMPORTED_MODULE_6___default.a.use(vue2_filters__WEBPACK_IMPORTED_MO
       }
     },
     dateFormat: function dateFormat(value) {
+      return value;
       var length = 10;
       var myString = value;
       var myTruncatedString = myString.substring(0, length); // console.log(myTruncatedString);
@@ -14136,6 +14138,7 @@ var now = new Date(); // dateFormat(now, "W");
       return diffInMs / (1000 * 60 * 60 * 24);
     },
     finalDateFormat: function finalDateFormat(value) {
+      return value;
       var length = 10;
       var myString = value;
       var myTruncatedString = myString.substring(0, length);
@@ -14155,6 +14158,7 @@ var now = new Date(); // dateFormat(now, "W");
       return Object(dateformat__WEBPACK_IMPORTED_MODULE_5__["default"])(finalDate, "mmmm dS yyyy");
     },
     dateFormat: function dateFormat(value) {
+      return value;
       var length = 10;
       var myString = value;
       var myTruncatedString = myString.substring(0, length);
