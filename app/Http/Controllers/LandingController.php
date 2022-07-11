@@ -170,25 +170,46 @@ class LandingController extends Controller
 
     public function downloadTender($slug)
     {
-        // return dd($request->post_id);
-        // $post_id = $request->post_id;
         $post = Post::where('_id', '=', $slug)
                         ->first();
         $link = $post->link;
+        $url = $link;
+        $post_id = $post->_id;
+        $fileName = $post->purchasing_authority;
+        // $fileName = 'downloaded.pdf';
+
+        // $headers = header("Content-Type: application/pdf");
+        // return response()->down/load($link, 'pdf');
+
+        // return response()->streamDownload(function () {
+        // // $url = "https://api-sandbox.xxxxx.co/SG/2.0/reports/waybill?tids=MYKPSxxxxxxxx&h=0";
+        // $response = Http::get($url);
+        //     echo $response->getBody()->getContents();
+        // }, 'myfile.pdf');
+
+        // $data = file_get_contents($url);
+
+        // // $fileName = 'downloaded.pdf';
+        // $save = \Storage::disk('public')->put('downloaded.pdf', $data);
+        // return
+
+        // $save = file_put_contents($fileName, $data);
+
+
+
 
         //Instantiate the class
         $html2pdf = new pdflayer();
         // return dd($link);
 
         $html2pdf->set_param(
-            'document_url', $link
+            'document_url', $link,
             // 'document_url','https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//42022/20/b44c2a06-050c-400f-bd08-9993ff9f6461/b44c2a06-050c-400f-bd08-9993ff9f6461.html',
-            // 'document_name', 'GlobalTenderDocuments'
+            'document_name', $fileName
         );
         // return ($link);
         //start the conversion
         $html2pdf->convert();
-
         //display the PDF file
         $html2pdf->display_pdf();
 

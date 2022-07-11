@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "504837b38c4dbae2fba9612595443170",
+    "content-hash": "937ed2189c9cc9af9c52bfa22b0641fc",
     "packages": [
         {
             "name": "alcaeus/mongo-php-adapter",
@@ -129,6 +129,95 @@
                 "source": "https://github.com/asm89/stack-cors/tree/v2.1.1"
             },
             "time": "2022-01-18T09:12:03+00:00"
+        },
+        {
+            "name": "atymic/twitter",
+            "version": "3.1.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/atymic/twitter.git",
+                "reference": "0cfc76c1b049cd85845caa14ade929979b09c8b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/atymic/twitter/zipball/0cfc76c1b049cd85845caa14ade929979b09c8b0",
+                "reference": "0cfc76c1b049cd85845caa14ade929979b09c8b0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.4 || ^7.0",
+                "guzzlehttp/oauth-subscriber": "^0.6",
+                "illuminate/support": "6 - 9",
+                "kamermans/guzzle-oauth2-subscriber": "^1.0",
+                "league/oauth2-client": "^2.6",
+                "nesbot/carbon": "^1.2 || ^2.26",
+                "php": "^7.4 || ^8.0",
+                "php-di/php-di": "^6.2",
+                "phpoption/phpoption": "^1.7",
+                "psr/log": "^1.1 || ^2.0 || ^3.0",
+                "react/http": "^1.2",
+                "vlucas/phpdotenv": "*"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.8 - 7",
+                "phpspec/prophecy-phpunit": "^2.0",
+                "phpunit/phpunit": "^8.3 || ^9.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Atymic\\Twitter\\ServiceProvider\\LaravelServiceProvider"
+                    ],
+                    "aliases": {
+                        "Twitter": "Atymic\\Twitter\\Facade\\Twitter"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Atymic\\Twitter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "atymic",
+                    "email": "atymicq@gmail.com",
+                    "homepage": "https://atymic.dev"
+                },
+                {
+                    "name": "reliq",
+                    "email": "reliq@reliqarts.com",
+                    "homepage": "https://iamreliq.com"
+                }
+            ],
+            "description": "Twitter API for PHP & Laravel",
+            "keywords": [
+                "laravel",
+                "laravel5",
+                "laravel6",
+                "twitter"
+            ],
+            "support": {
+                "issues": "https://github.com/atymic/twitter/issues",
+                "source": "https://github.com/atymic/twitter/tree/3.1.15"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/atymic",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/reliq",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-02-13T23:16:47+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",

@@ -51,7 +51,8 @@ class DashboardController extends Controller
 
     public function refresh(Request $request)
     {
-        $response = Http::get('https://www.biddetail.com/kenya/C62A8CB5DD405E768CAD792637AC0446/F4454993C1DE1AB1948A9D33364FA9CC');
+        $response = Http::get('https://www.biddetail.com/kenya/C62A8CB5DD405E768CAD792637AC0446/F4454993C1DE1AB1948A9D33364FA9CC', ['auth' =>  ['C62A8CB5DD405E768CAD792637AC0446', 'F4454993C1DE1AB1948A9D33364FA9CC']]);
+        // $request->header('X-Header-Name');
         $data = json_decode($response, true);
         // $posts = $request->tenders;
 

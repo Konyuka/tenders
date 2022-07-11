@@ -259,15 +259,15 @@
                                             ></i>
                                         </button>
                                     </a>
-                                    <!-- <a
-                                        @click="sendToMail"
+                                    <button
+                                        @click="downloadTender"
                                         class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-1 px-2 text-xs sm:text-lg sm:px-6 focus:outline-none rounded"
                                     >
                                         Send Details To Email
                                         <i
                                             class=" fas fa-paper-plane text-white ml-2 mt-1"
                                         ></i>
-                                    </a> -->
+                                    </button>
                                     <!-- <a :href="route('checkout', post._id)" class="transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-6 focus:outline-none rounded">Purchase Tender Details</a> -->
 
                                     <!-- <button
@@ -409,7 +409,9 @@ export default {
     data() {
         return {
             modal: false,
-            postExpired: false
+            postExpired: false,
+            appApiPath:
+                "https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//102021/16/79edf846-7b0d-429e-82f8-12f950ed0af6/79edf846-7b0d-429e-82f8-12f950ed0af6.htm"
         };
     },
     methods: {
@@ -462,13 +464,39 @@ export default {
             return diffInMs / (1000 * 60 * 60 * 24);
         },
         downloadTender() {
-            // route("download_tender", this.post._id);
-            // this.$inertia.get(`/download_tender/${this.post._id}`);
-            // const routeData = this.$inertia.post(
-            //     "/download_tender",
-            //     this.post._id
-            // );
-            // window.open(routeData.href, "_blank");
+            axios({
+                url:
+                    "https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//102021/16/79edf846-7b0d-429e-82f8-12f950ed0af6/79edf846-7b0d-429e-82f8-12f950ed0af6.htm", // download file link goes here
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                responseType: "blob"
+            }).then(res => {
+                var FILE = window.URL.createObjectURL(new Blob([res.data]));
+
+                var docUrl = document.createElement("x");
+                docUrl.href = FILE;
+                docUrl.setAttribute("download", "sample.pdf");
+                document.body.appendChild(docUrl);
+                docUrl.click();
+            });
+        },
+        async downloadFile() {
+            url =
+                "https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//102021/16/79edf846-7b0d-429e-82f8-12f950ed0af6/79edf846-7b0d-429e-82f8-12f950ed0af6.htm";
+            const response = await this.$http.get(
+                // this.appApiPath + "/testpdf",
+                url,
+                {
+                    responseType: "arraybuffer"
+                }
+            );
+            const blob = new Blob([response.data], { type: "application/pdf" });
+            const link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.download = "test.pdf";
+            link.click();
         },
         formatDate(value) {
             return moment(value).format("MMMM Do YYYY");
