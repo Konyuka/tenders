@@ -170,6 +170,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         \Safaricom\Mpesa\MpesaServiceProvider::class,
         // 'Thujohn\Twitter\TwitterServiceProvider',
+        Atymic\Twitter\ServiceProvider\LaravelServiceProvider::class,
 
 
         /*
@@ -237,6 +238,7 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Mpesa'=> \Safaricom\Mpesa\MpesaServiceProvider::class,
         // 'Twitter' => 'Thujohn\Twitter\Facades\Twitter',
+        'Twitter'   => Atymic\Twitter\Facade\Twitter::class,
     ],
 
     'debug_blacklist' => [

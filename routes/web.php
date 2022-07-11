@@ -100,6 +100,11 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/post', [DashboardControl
 Route::middleware(['auth:sanctum', 'verified'])->get('/refresh', [DashboardController::class, 'refresh'])
     ->name('refresh');
 
+Route::get('/tweet', [DashboardController::class, 'tweet'])
+    ->name('tweet');
+Route::get('/tweet/cbk', [DashboardController::class, 'tweetcbk'])
+    ->name('tweet.cbk');
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->delete('/delete/{post}', [DashboardController::class, 'delete'])

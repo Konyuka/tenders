@@ -15,6 +15,12 @@ use Maatwebsite\Excel\Concerns\ToCollection;
 use Illuminate\Support\Facades\DB;
 use File;
 use Illuminate\Support\Facades\Http;
+use Atymic\Twitter\Twitter as TwitterContract;
+use Illuminate\Http\JsonResponse;
+// use Twitter;
+// use Atymic\Twitter\Facade\Twitter;
+// require "vendor/autoload.php";
+use Abraham\TwitterOAuth\TwitterOAuth;
 
 
 
@@ -47,6 +53,39 @@ class DashboardController extends Controller
     public function wishlist()
     {
         return Inertia::render('Admin/Subscriptions');
+    }
+
+    public function tweet()
+    {
+        // $callback = route('tweet.cbk');
+        // $callback = url('tweet.cbk');
+        // $callback = 'tweet/cbk';
+        $access_token = "1542467985151074304-HPshHmygORR037GxNp8QnqVqFpWsaB";
+        $access_token_secret = "oFOkrHCKe0PXzEftq9cV36OkXopY6znCgWaWhqDNpQRfI";
+        $connection = new TwitterOAuth("CpOJ9JnYou8kXAFL7eNi8XYNc","1aJlligmUpqW7TJRvzhjNqGlXcj6H6yZWjsgmOWjUTabtfm8md", $access_token, $access_token_secret);
+        // $content = $connection->get("account/verify_credentials");
+        $content = $connection->get("statuses/home_timeline");
+        // $connection->setApiVersion('2');
+        // $connection->setTimeouts(10, 15);
+        $statues = $connection->post("statuses/update", ["status" => "hello world"]);
+        // $accessToken = $connection->oauth('oauth/request_token',['oauth_callback'=>$callback]);
+        // $route = $connection->url('oauth/authorize',['oauth_token'=>$accessToken['oauth_token']]);
+        // $content = $connection->get("account/verify_credentials");
+        return dd($content);
+        // return redirect($content);
+        // return Inertia::render('Admin/Subscriptions');
+    }
+
+    public function tweetcbk(Request $request)
+    {
+        // $callback = route('tweetcbk');
+        // $connection = new TwitterOAuth("CpOJ9JnYou8kXAFL7eNi8XYNc","1aJlligmUpqW7TJRvzhjNqGlXcj6H6yZWjsgmOWjUTabtfm8md");
+        // $accesToken = $connection->oauth('oauth/request_token',['oauth_callback'=>$callback]);
+        // $route = $connection->url('oauth/authorize',['oauth_token'=>$accesToken['oauth_token']]);
+        // return redirect($route);
+        return dd($request->all());
+        echo 'check';
+        // return Inertia::render('Admin/Subscriptions');
     }
 
     public function refresh(Request $request)

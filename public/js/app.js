@@ -92240,24 +92240,6 @@ var render = function() {
                                 }
                               },
                               [_vm._m(8)]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-1 px-2 text-xs sm:text-lg sm:px-6 focus:outline-none rounded",
-                                on: { click: _vm.downloadTender }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                    Send Details To Email\n                                    "
-                                ),
-                                _c("i", {
-                                  staticClass:
-                                    " fas fa-paper-plane text-white ml-2 mt-1"
-                                })
-                              ]
                             )
                           ])
                         ]
