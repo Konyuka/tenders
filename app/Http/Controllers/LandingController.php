@@ -17,7 +17,7 @@ use DB;
 use Illuminate\Support\Facades\Route;
 use App\Mail\BiddersEmail;
 use Illuminate\Support\Facades\Mail;
-
+use Dompdf\Dompdf;
 include('pdflayerController.php');
 
 
@@ -176,6 +176,17 @@ class LandingController extends Controller
         $url = $link;
         $post_id = $post->_id;
         $fileName = $post->purchasing_authority;
+
+        // return response()->streamDownload(function () {
+        //     echo file_get_contents($link);
+        // }, 'nice-name.pdf');
+
+        // $dompdf = new Dompdf();
+        // $dompdf->loadHtml($url);
+        // $dompdf->setPaper('A4', 'landscape');
+        // $dompdf->render();
+        // return $dompdf->stream();
+
         // $fileName = 'downloaded.pdf';
 
         // $headers = header("Content-Type: application/pdf");
@@ -200,18 +211,14 @@ class LandingController extends Controller
 
         //Instantiate the class
         $html2pdf = new pdflayer();
-        // return dd($link);
-
         $html2pdf->set_param(
             'document_url', $link,
-            // 'document_url','https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//42022/20/b44c2a06-050c-400f-bd08-9993ff9f6461/b44c2a06-050c-400f-bd08-9993ff9f6461.html',
             'document_name', $fileName
         );
-        // return ($link);
-        //start the conversion
         $html2pdf->convert();
         //display the PDF file
-        $html2pdf->display_pdf();
+        // $html2pdf->display_pdf();
+        $html2pdf->download_pdf($fileName.'.pdf');
 
     }
 

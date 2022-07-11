@@ -31,7 +31,7 @@ class pdflayer{
 
     //Your pdflayer API access key
     //Get your free access key at https://pdflayer.com/product
-    private $access_key = 'aeb9047f38e048187aab403928efc759';
+    private $access_key = '0b4a11743f3ea2e4a3c778274118d949';
 
     //API endpoint
     //only needs to change if the API changes location
@@ -97,6 +97,7 @@ class pdflayer{
         if( !empty($this->params['document_html']) ){
 
             $postData['document_html'] = $this->params['document_html'];
+            // $postData['document_html'] = $this->params['document_html'];
 
         }
 
@@ -146,8 +147,10 @@ class pdflayer{
     returns: null
     */
     public function download_pdf($file_name=''){
+    // public function download_pdf($file_name=''){
 
-        $file_name = ( empty($file_name) ) ? 'pdf' : $file_name;
+        $file_name = ( empty($file_name) ) ? 'BiddersPortal.pdf' : $file_name;
+        // $file_name = $this->params['document_name'].'pdf';
 
         if( empty($this->pdf) ){
 

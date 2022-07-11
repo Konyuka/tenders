@@ -12,6 +12,7 @@
         "ext-mongo": "*",
         "abraham/twitteroauth": "^4.0",
         "atymic/twitter": "^3.1",
+        "dompdf/dompdf": "^2.0",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.4",
