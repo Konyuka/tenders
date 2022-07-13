@@ -1112,6 +1112,7 @@ export default {
                                     .setInterval(() => {
                                         this.confirm();
                                     }, 3000)
+
                                     .then(result => {
                                         alert("clear");
                                         return clearInterval(myInterval);
