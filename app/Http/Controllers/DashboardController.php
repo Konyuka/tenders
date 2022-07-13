@@ -57,6 +57,32 @@ class DashboardController extends Controller
 
     public function tweet()
     {
+        // $url = "https://api.twitter.com/2/tweets";
+        $url = "https://api.twitter.com/2/tweets/counts/all";
+        // $access_token = "1542467985151074304-HPshHmygORR037GxNp8QnqVqFpWsaB";
+        $access_token = "AAAAAAAAAAAAAAAAAAAAAOiFeQEAAAAAV5Y5UdpJKcnBQjzRpSjD73ukR0c%3DFHXYRjEVUIP3SRl89BF8OYj5TIL3xRLwjbvHx8YCD1H7dARBsA";
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $headers = array(
+        // "Accept: application/json",
+        "Authorization: Bearer $access_token",
+        );
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        //for debug only!
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        $resp = curl_exec($curl);
+        curl_close($curl);
+        var_dump($resp);
+        return dd(json_decode($resp));
+
+
+        // $authorization = "Authorization: Bearer AAAAAAAAAAAAAAAAAAAAAOiFeQEAAAAAJszzWmhxepBPKIYtYFwqKDx5kZ0%3DafcyVYATBAN9ZlMNzWpnLM1QMYVr6MCsXNP8kgwl81ianB9WK1";
+        // $withToken = Http::withToken($authorization)
+        //     ->get("https://api.twitter.com/2/tweets");
+        // return dd(json_decode($withToken));
+
         // $callback = route('tweet.cbk');
         // $callback = url('tweet.cbk');
         // $callback = 'tweet/cbk';
@@ -64,14 +90,15 @@ class DashboardController extends Controller
         $access_token_secret = "oFOkrHCKe0PXzEftq9cV36OkXopY6znCgWaWhqDNpQRfI";
         $connection = new TwitterOAuth("CpOJ9JnYou8kXAFL7eNi8XYNc","1aJlligmUpqW7TJRvzhjNqGlXcj6H6yZWjsgmOWjUTabtfm8md", $access_token, $access_token_secret);
         // $content = $connection->get("account/verify_credentials");
-        $content = $connection->get("statuses/home_timeline");
+        // $content = $connection->get("statuses/home_timeline");
+        $contents = $connection->get("https://api.twitter.com/2/tweets/counts/all");
         // $connection->setApiVersion('2');
         // $connection->setTimeouts(10, 15);
-        $statues = $connection->post("statuses/update", ["status" => "hello world"]);
+        // $statues = $connection->post("statuses/update", ["status" => "hello world"]);
         // $accessToken = $connection->oauth('oauth/request_token',['oauth_callback'=>$callback]);
         // $route = $connection->url('oauth/authorize',['oauth_token'=>$accessToken['oauth_token']]);
         // $content = $connection->get("account/verify_credentials");
-        return dd($content);
+        return dd($contents);
         // return redirect($content);
         // return Inertia::render('Admin/Subscriptions');
     }

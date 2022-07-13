@@ -32,11 +32,29 @@
                                         class="my-6 w-11/12 mx-auto xl:w-full xl:mx-0"
                                     >
                                         <div class="w-full flex flex-col mb-6">
-                                            <label
-                                                for="FirstName"
-                                                class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100"
-                                                >Search by Keyword</label
-                                            >
+                                            <div class="flex justify-between">
+                                                <label
+                                                    for="FirstName"
+                                                    class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100"
+                                                    >Search by Keyword</label
+                                                >
+                                                <label
+                                                    for="FirstName"
+                                                    class="transform transition hover:scale-125 duration-700 underline italics font-primary-font pb-2 text-md font-extrabold text-red-600 dark:text-gray-100"
+                                                >
+                                                    <a
+                                                        @click.prevent="
+                                                            clearFilters
+                                                        "
+                                                        href=""
+                                                    >
+                                                        <i
+                                                            class="fas fa-filter-circle-xmark mr-1"
+                                                        ></i>
+                                                        Clear Filters
+                                                    </a>
+                                                </label>
+                                            </div>
                                             <input
                                                 @keyup.enter="searchTenders()"
                                                 v-model="payload.keyword"

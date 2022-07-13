@@ -40,6 +40,7 @@ class PaymentsController extends Controller
 
     public function setTransactionDetails(Request $request)
     {
+        // return dd(json_decode($request));
         $payment_number = $request->payment_number;
         $invoicePaid = $request->invoicePaid;
         $invoiceDetails = $request->invoiceDetails;
@@ -98,12 +99,19 @@ class PaymentsController extends Controller
                         ->first();
                     //    return dd($transaction);
         if ($transaction!=null){
+            // return Inertia::render('Unlocked', [
+            //         'post' => Post::where('_id', '=', $post_id)->first(),
+            //         'status' => 'Unlocked',
+            //         'transId' => $post_id,
+            //         'payment' => null,
+            // ]);
+
             return Inertia::render('Selected', [
                 'post' => Post::where('_id', '=', $post_id)->first(),
                 'transId' => $transaction->trans_id,
                 'status' => 'Success'
             ]);
-            // return dd('Paid');
+
         }else if($transactionWaiting!=null){
             return Inertia::render('Invoice', [
                 'post' => Post::where('_id', '=', $post_id)->first(),
@@ -216,6 +224,14 @@ class PaymentsController extends Controller
         $userPhone=$request->user_phone;
         $userEmail=$request->user_email;
         $post=$request->post;
+
+        // $payment_number = $request->payment_number;
+        // $invoicePaid = $request->invoicePaid;
+        // $invoiceDetails = $request->invoiceDetails;
+        // $user = $request->user;
+        // $invoiceNumber = $request->invoiceNumber;
+
+
         if(is_string($post)){
             $post_id=$post;
         }else{
@@ -262,30 +278,55 @@ class PaymentsController extends Controller
               "completed"=>false,
               "waiting"=> true,
             ]);
+
+            // return Inertia::render('Invoice', [
+            // // 'post' => $request->post,
+            //     'post' => $post,
+            //     'user' => $user,
+            //     'status' => $statusClear
+            //     // 'invoiceStatus' => $invoicePaid,
+            //     // 'invoiceDetails' => json_decode($createdInvoice),
+
+            // ]);
+            // return dd($request->all());
+            // return dd($request);
+            // $this->setTransactionDetails($request->all());
+            // $validator = $this->setTransactionDetails($request);
+            // echo $validator;
+            // return $this->setTransactionDetails($request, $request->all());
+
+            // return Inertia::render('Unlocked', [
+            //         'post' => Post::where('_id', '=', $post_id)->first(),
+            //         'status' => 'Unlocked',
+            //         'transId' => $post_id,
+            //         'payment' => null,
+            // ]);
+
         }
 
-        $error_msg = $stkPushSimulation->errorMessage ?? '';
-        // return dd('done');
-        $restart = $request->restartTrans;
+            $error_msg = $stkPushSimulation->errorMessage ?? '';
+            // return dd('done');
+            $restart = $request->restartTrans;
 
-        if($restart == true){
-            $statusClear = '';
-        }else{
-            $statusClear = '';
-        }
+            if($restart == true){
+                $statusClear = '';
+            }else{
+                $statusClear = '';
+            }
 
-        return Inertia::render('Invoice', [
-            // 'post' => $request->post,
-            'post' => $post,
-            'user' => $user,
-            'status' => $statusClear
-            // 'invoiceStatus' => $invoicePaid,
-            // 'invoiceDetails' => json_decode($createdInvoice),
+            // $validator = $this->setTransactionDetails($request);
+            // echo $validator;
+            // return $this->setTransactionDetails($request->all());
 
-        ]);
-        // return back()->withInput()->with('failed','We could not complete this transaction please try again. ' .$error_msg);
+            return Inertia::render('Invoice', [
+                // 'post' => $request->post,
+                'post' => $post,
+                'user' => $user,
+                'status' => $statusClear
+                // 'invoiceStatus' => $invoicePaid,
+                // 'invoiceDetails' => json_decode($createdInvoice),
 
-        // return Redirect::route('clients.show, $id')->with( ['data' => $data] );
+            ]);
 
     }
 

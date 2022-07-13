@@ -678,34 +678,21 @@
                                 {{ this.form.number }}</span
                             >
                         </h4>
-                        <!-- <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Transaction Number: <span class="ml-2 font-extrabold text-xl text-indigo-600"> {{ $page['props']['Status']  }}</span> </h4> -->
-                        <!-- <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Payment Amount: <span class="ml-2 font-extrabold text-xl text-indigo-600"> KES {{ this.amount }}</span> </h4> -->
                     </div>
                     <div class="p-4 pt-0 text-center mt-5">
-                        <!-- <button @click="requestAccess" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                        Request Access Token
-                    </button>
-                    <button @click="registerURLS" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                        Register URL's
-                    </button>
-                    <button @click="simulate" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                        Simulate
-                    </button>
-                    <button @click="stkPush" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                        STK
-                    </button> -->
-                        <!-- <a :href="route('confirmation', this.post._id)"> -->
-
-                        <!-- <button
-                            v-if="status == 'Cancelled'"
-                            @click="stkPush"
-                            data-modal-toggle="popup-modal"
-                            type="button"
-                            class="text-white bg-orange-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                        <div
+                            v-if="status != 'Cancelled' && !timeout"
+                            id="timer"
+                            class="mb-4"
                         >
-                            Restart Mpesa Express Payment
-                        </button> -->
-
+                            <!-- <span id="minutes">{{ minutes | twoDigits }}</span> -->
+                            <!-- <span id="middle">:</span> -->
+                            <span
+                                id="seconds"
+                                class="font-extrabold text-indigo-700 font-primary-font text-lg"
+                                >{{ seconds | twoDigits }} Seconds</span
+                            >
+                        </div>
                         <button
                             v-if="status != 'Cancelled' && timeout == false"
                             @click="confirm"
@@ -740,6 +727,8 @@
 import MainMenu from "./Components/MainMenu.vue";
 import Spinner from "./Components/Spinner.vue";
 import moment from "moment";
+import { Countdown } from "vue3-flip-countdown";
+import { FlipCountdown } from "vue2-flip-countdown";
 
 const { default: axios } = require("axios");
 import dateFormat from "dateformat";
@@ -747,6 +736,7 @@ import dateFormat from "dateformat";
 export default {
     name: "Invoice",
     props: {
+        main_color: "#EC685C",
         post: "",
         user: Object,
         transId: String,
@@ -760,7 +750,9 @@ export default {
     },
     components: {
         MainMenu,
-        Spinner
+        Spinner,
+        Countdown,
+        FlipCountdown
     },
     mounted() {
         // if (this.post == "diamond") {
@@ -904,9 +896,22 @@ export default {
             }
         }
     },
+    filters: {
+        twoDigits: function(num) {
+            if (num < 10) {
+                return "0" + num;
+            } else {
+                return num;
+            }
+        }
+    },
     data() {
         return {
-            // amountMembership: "",
+            minutes: 0,
+            seconds: 60,
+            interval: null,
+            showContinue: true,
+            showReset: false,
             timeout: false,
             spinner: false,
             unpaidAlert: false,
@@ -919,9 +924,6 @@ export default {
                 number: this.removeSpaces(""),
                 account: "",
                 amount: this.amount
-                // amount: this.post.price
-                // amount: ''
-                // account: this.form.userName,
             },
             modal: false,
             paymentModal: false,
@@ -929,6 +931,33 @@ export default {
         };
     },
     methods: {
+        startTimer() {
+            (this.showContinue = false),
+                (this.showReset = true),
+                (this.interval = setInterval(() => {
+                    if (this.seconds === 0) {
+                        this.seconds = 59;
+                        this.minutes--;
+                    } else {
+                        this.seconds--;
+                    }
+
+                    if (this.minutes === 0 && this.seconds === 0) {
+                        this.resetTimer();
+                    }
+                }, 1000));
+        },
+        pauseTimer() {
+            (this.showReset = true), (this.showContinue = true);
+            // this.message = "Never quit, keep going!!";
+            clearInterval(this.interval);
+        },
+        resetTimer() {
+            this.showContinue = true;
+            (this.showReset = true), (this.minutes = 0);
+            this.seconds = 60;
+            // this.message = default_title;
+        },
         getAccessToken() {
             axios
                 .post("/get-token")
@@ -1038,6 +1067,8 @@ export default {
             //     this.transactionRestart = false;
             // }
             this.timeout = false;
+            this.resetTimer();
+            this.startTimer();
             this.expressModal = false;
             var strFirstThree = this.form.number.substring(0, 3);
             if (strFirstThree == 254 && this.form.number.length == 12) {
@@ -1045,6 +1076,7 @@ export default {
                 // setInterval((this.timeout = true), 5000);
                 setTimeout(() => {
                     this.timeout = true;
+                    this.pauseTimer();
                 }, 60000);
                 // setTimeout(() => this.timedOut(), 60000);
                 const requestBody = {
@@ -1061,6 +1093,11 @@ export default {
                     user_phone: this.user.userPhone,
                     user_email: this.user.userEmail,
                     restartTrans: this.transactionRestart
+                    // payment_number: this.form.number,
+                    // post_id: this.post._id,
+                    // invoicePaid: this.invoiceDetails.payment_status,
+                    // invoiceDetails: this.invoiceDetails,
+                    // invoiceNumber: this.invoiceNumber
                 };
                 //    console.log(requestBody)
                 axios
@@ -1068,6 +1105,30 @@ export default {
                     .post(`/invoice/payment/stkPush/`, requestBody)
                     .then(response => {
                         console.log(response);
+                        if (this.status != "Cancelled") {
+                            if (this.status == "Success") {
+                                alert("stop");
+                                const myInterval = window
+                                    .setInterval(() => {
+                                        this.confirm();
+                                    }, 3000)
+                                    .then(result => {
+                                        alert("clear");
+                                        return clearInterval(myInterval);
+                                    })
+                                    .catch(err => {});
+                            }
+                            const myInterval = window.setInterval(() => {
+                                this.confirm();
+                            }, 2000);
+                            if (this.status == "Success") {
+                                // alert("stop");
+                                const myInterval = window.setInterval(() => {
+                                    this.confirm();
+                                }, 3000);
+                                return clearInterval(myInterval);
+                            }
+                        }
                     })
                     .catch(error => {
                         console.log(error);

@@ -348,6 +348,22 @@ export default {
     },
     watch: {},
     mounted() {
+        if (this.status == "Success") {
+            // this.$inertia.get(encodeURI(`/unlock/${this.transId}`));
+            // this.$inertia.get(`/unlock/`, this.transId);
+            // this.$inertia.get("/checkout/", this.post._id);
+            // this.$inertia.get("unlock", this.transId);
+            // this.$inertia.get(`/unlock/${this.transId}`);
+            // alert("Success");
+            // route("unlock", this.transId);
+            // var myInterval = window.setInterval(() => {
+            //     // this.confirm();
+            //     // this.$inertia.get("/unlock/", this.transId);
+            //     // this.$inertia.post("unlock", this.transId)
+            //     // route("unlock", this.transId);
+            // }, 2000);
+            // clearInterval(myInterval);
+        }
         const date1 = new Date();
         const date2 = new Date(this.checkDateExpryFormat(this.post.expiry));
 

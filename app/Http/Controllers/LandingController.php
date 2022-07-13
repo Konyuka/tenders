@@ -177,6 +177,20 @@ class LandingController extends Controller
         $post_id = $post->_id;
         $fileName = $post->purchasing_authority;
 
+        // $file = $link;
+        // $headers = [header('Content-Type: application/pdf')];
+        // if (file_exists($file)) {
+        //     return \Response::download($file, 'tender.pdf', $headers);
+        // } else {
+        //     echo('File not found.');
+        // }
+
+        // $filename = 'file.pdf';
+        // $tempfile = tempname(sys_get_temp_dir(), $filename);
+        // copy($link, $tempfile);
+
+        // return response()->download($tempfile, $filename);
+
         // return response()->streamDownload(function () {
         //     echo file_get_contents($link);
         // }, 'nice-name.pdf');
@@ -186,6 +200,7 @@ class LandingController extends Controller
         // $dompdf->setPaper('A4', 'landscape');
         // $dompdf->render();
         // return $dompdf->stream();
+
 
         // $fileName = 'downloaded.pdf';
 
