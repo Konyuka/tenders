@@ -228,7 +228,8 @@ class LandingController extends Controller
         $html2pdf = new pdflayer();
         $html2pdf->set_param(
             'document_url', $link,
-            'document_name', $fileName
+            'document_name', $fileName,
+            'text_encoding', 'utf-16'
         );
         $html2pdf->convert();
         //display the PDF file

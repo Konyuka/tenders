@@ -5,6 +5,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\BlogsController;
+use Illuminate\Support\Facades\URL;
 
 
 // Route::get('/', function () {
@@ -122,3 +123,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/download', [DashboardCont
 // })->name('dashboard');
 
 // URL::forceScheme('https');
+
+// if (env('APP_ENV') === 'local') {
+//     // URL::forceSchema('http');
+//     \URL::forceScheme('http');
+// }

@@ -171,6 +171,7 @@ return [
         \Safaricom\Mpesa\MpesaServiceProvider::class,
         // 'Thujohn\Twitter\TwitterServiceProvider',
         Atymic\Twitter\ServiceProvider\LaravelServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
 
         /*

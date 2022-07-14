@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,6 +15,16 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        //check that app is local
+        // if ($this->app->isLocal()) {
+        // //if local register your services you require for development
+        //     $this->app->register('Barryvdh\Debugbar\ServiceProvider');
+        // } else {
+        // //else register your services you require for production
+        //     $this->app['request']->server->set('HTTPS', true);
+        // }
+
+        // URL::forceScheme('`http`');
 
     }
 
@@ -24,6 +35,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
+        // if($this->app->environment('local')) {
+        //     \URL::forceScheme('http');
+        // }
+
+
     }
 }
