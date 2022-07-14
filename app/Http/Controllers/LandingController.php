@@ -229,7 +229,12 @@ class LandingController extends Controller
         $html2pdf->set_param(
             'document_url', $link,
             'document_name', $fileName,
-            'text_encoding', 'utf-16'
+            'text_encoding', 'utf-16',
+            'accept_lang', 'en-US',
+            'inine', 1,
+            'encryption ', 128,
+            'user_agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36',
+            'viewport ', '414x736'
         );
         $html2pdf->convert();
         //display the PDF file
