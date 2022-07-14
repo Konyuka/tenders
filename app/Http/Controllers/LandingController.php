@@ -238,8 +238,8 @@ class LandingController extends Controller
         );
         $html2pdf->convert();
         //display the PDF file
-        // $html2pdf->display_pdf();
-        $html2pdf->download_pdf($fileName.'.pdf');
+        $html2pdf->display_pdf($fileName.'.pdf');
+        // $html2pdf->download_pdf($fileName.'.pdf');
 
     }
 
