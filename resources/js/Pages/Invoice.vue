@@ -1080,8 +1080,8 @@ export default {
                 }, 60000);
                 // setTimeout(() => this.timedOut(), 60000);
                 const requestBody = {
-                    amount: "1",
-                    // amount: this.amount,
+                    // amount: "1",
+                    amount: this.amount,
 
                     // account: this.form.account,
                     account: this.invoiceNumber,
