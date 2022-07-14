@@ -229,7 +229,7 @@ class LandingController extends Controller
         $html2pdf->set_param(
             'document_url', $link,
             'document_name', $fileName,
-            'text_encoding', 'utf-16',
+            'text_encoding', 'utf-8',
             'accept_lang', 'en-US',
             'inline', 1,
             'encryption ', 128,
@@ -240,7 +240,7 @@ class LandingController extends Controller
         $html2pdf->convert();
         //display the PDF file
         // $html2pdf->display_pdf($fileName.'.pdf');
-        $html2pdf->download_pdf($fileName.'.pdf');
+        $html2pdf->download_pdf($fileName);
 
     }
 
