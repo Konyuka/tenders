@@ -221,7 +221,7 @@ class LandingController extends Controller
 
         // $save = file_put_contents($fileName, $data);
 
-
+// somethi
 
 
         //Instantiate the class
