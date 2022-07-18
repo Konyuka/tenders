@@ -1066,6 +1066,7 @@ export default {
             // } else {
             //     this.transactionRestart = false;
             // }
+
             this.timeout = false;
             this.resetTimer();
             this.startTimer();
