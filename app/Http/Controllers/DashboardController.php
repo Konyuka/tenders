@@ -33,6 +33,7 @@ class DashboardController extends Controller
             'refreshed' => false,
         ]);
     }
+
     public function payments()
     {
         $completedPayments = Payments::where('completed', true)->latest()->get();
@@ -42,6 +43,15 @@ class DashboardController extends Controller
             'incompletePayments' => $incompletePayments
         ]);
     }
+
+    public function twitter()
+    {
+        $freeTender = Post::latest()->limit(1)->get();
+        return Inertia::render('Admin/Twitter', [
+            'freeTender' => $freeTender,
+        ]);
+    }
+
     public function tenders()
     {
         return Inertia::render('Admin/Dashboard');
@@ -199,12 +209,13 @@ class DashboardController extends Controller
         // ]);
         //tweet something
         $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text(".@biddersportal is so cool");
-        $twitter->tweets()->tweet($tweet);
+        $tweetContent = $twitter->tweets()->tweet($tweet);
+        return $tweetContent;
         // You can also use the sub classes / methods directly if you like:
         // $user = new UserLookup($credentials);
         // $user = $user->getSingleUserByID('2244994945', null);
 
-        return
+        // return
 
 
         // $url = "https://api.twitter.com/2/tweets";
@@ -267,7 +278,8 @@ class DashboardController extends Controller
 
     public function refresh(Request $request)
     {
-        $response = Http::get('https://www.biddetail.com/kenya/C62A8CB5DD405E768CAD792637AC0446/F4454993C1DE1AB1948A9D33364FA9CC', ['auth' =>  ['C62A8CB5DD405E768CAD792637AC0446', 'F4454993C1DE1AB1948A9D33364FA9CC']]);
+        $apiURL = env('TENDER_API_URL');
+        $response = Http::get($apiURL, ['auth' =>  ['C62A8CB5DD405E768CAD792637AC0446', 'F4454993C1DE1AB1948A9D33364FA9CC']]);
         // $request->header('X-Header-Name');
         $data = json_decode($response, true);
         // $posts = $request->tenders;

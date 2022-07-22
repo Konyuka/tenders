@@ -189,6 +189,23 @@
                         </a>
 
                         <a
+                            v-if="admin"
+                            :href="route('admin.apitwitter')"
+                            :class="
+                                this.activeMenu == 'admin.apitwitter'
+                                    ? 'bg-white text-black'
+                                    : 'bg-indigo-800'
+                            "
+                            class="mb-4 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                        >
+                            <!-- Heroicon name: outline/home -->
+                            <i
+                                class="fas fa-coins fa-xl text-gray-200 mr-2"
+                            ></i>
+                            Twitter
+                        </a>
+
+                        <a
                             v-if="!admin"
                             :href="route('admin.subscriptions')"
                             :class="
