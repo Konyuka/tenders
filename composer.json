@@ -12,6 +12,8 @@
         "ext-mongo": "*",
         "abraham/twitteroauth": "^4.0",
         "atymic/twitter": "^3.1",
+        "barryvdh/laravel-dompdf": "^2.0",
+        "coderjerk/bird-elephant": "^0.5.0",
         "dompdf/dompdf": "^2.0",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
@@ -27,6 +29,8 @@
         "phpoffice/phpspreadsheet": "^1.14",
         "psr/simple-cache": "1.0",
         "safaricom/mpesa": "^1.0",
+        "smolblog/oauth2-twitter": "^1.0",
+        "spatie/browsershot": "^3.57",
         "thujohn/twitter": "^3.1",
         "tightenco/ziggy": "^0.9.4"
     },

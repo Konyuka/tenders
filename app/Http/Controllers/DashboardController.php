@@ -21,8 +21,8 @@ use Illuminate\Http\JsonResponse;
 // use Atymic\Twitter\Facade\Twitter;
 // require "vendor/autoload.php";
 use Abraham\TwitterOAuth\TwitterOAuth;
-
-
+use Coderjerk\BirdElephant\BirdElephant;
+use Smolblog\OAuth2\Client\Provider\Twitter;
 
 class DashboardController extends Controller
 {
@@ -55,8 +55,158 @@ class DashboardController extends Controller
         return Inertia::render('Admin/Subscriptions');
     }
 
+    public function tweetAuth()
+    {
+        // return dd('twende');
+        // session_start();
+
+        // require_once('bootstrap.php');
+
+        $provider = new Twitter([
+            'clientId'     => $_ENV['TWITTER_CLIENT_ID'],
+            'clientSecret' => $_ENV['TWITTER_CLIENT_SECRET'],
+            'redirectUri'  => $_ENV['TWITTER_CALLBACK_URL'],
+        ]);
+        // $provider = new Smolblog\OAuth2\Client\Provider\Twitter([
+        //     'clientId'     => $_ENV['OAUTH2_CLIENT_ID'],
+        //     'clientSecret' => $_ENV['OAUTH2_CLIENT_SECRET'],
+        //     'redirectUri'  => $_ENV['TWITTER_CALLBACK_URI'],
+        // ]);
+
+        if (!isset($_GET['code'])) {
+            unset($_SESSION['oauth2state']);
+            unset($_SESSION['oauth2verifier']);
+
+            //list of poible scopes. Only use the scopes you actually need in practice.
+            $options = [
+                'scope' => [
+                    'tweet.read',
+                    'tweet.write',
+                    'tweet.moderate.write',
+                    'users.read',
+                    'follows.read',
+                    'follows.write',
+                    'offline.access',
+                    'space.read',
+                    'mute.read',
+                    'mute.write',
+                    'like.read',
+                    'like.write',
+                    'list.read',
+                    'list.write',
+                    'block.read',
+                    'block.write',
+                    'bookmark.read',
+                    'bookmark.write'
+                ]
+            ];
+
+            // If we don't have an authorization code then get one
+            $authUrl = $provider->getAuthorizationUrl($options);
+            $_SESSION['oauth2state'] = $provider->getState();
+
+            // We also need to store the PKCE Verification code so we can send it with
+            // the authorization code request.
+            $_SESSION['oauth2verifier'] = $provider->getPkceVerifier();
+
+            header('Location: ' . $authUrl);
+            exit;
+
+            // Check given state against previously stored one to mitigate CSRF attack
+        } elseif (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['oauth2state'])) {
+
+            unset($_SESSION['oauth2state']);
+
+            exit('Invalid state');
+        } else {
+            try {
+                // Try to get an access token (using the authorization code grant)
+                $token = $provider->getAccessToken('authorization_code', [
+                    'code' => $_GET['code'],
+                    'code_verifier' => $_SESSION['oauth2verifier']
+                ]);
+            } catch (Exception $e) {
+                echo '<pre>';
+                print_r($e);
+                echo '</pre>';
+
+                exit('There has been an error.');
+            }
+            //save token object to session
+            $_SESSION['oauth-2-access-token'] = $token;
+
+            session_write_close();
+
+            header("Location: https://{$_SERVER['HTTP_HOST']}/");
+        }
+    }
     public function tweet()
     {
+
+        session_start();
+
+        if (isset($_SESSION['oauth-2-access-token'])) {
+            $token = $_SESSION['oauth-2-access-token'];
+        }
+
+        if (isset($_SESSION['oauth-2-access-token']) && $token->hasExpired()) {
+
+            $provider = new Smolblog\OAuth2\Client\Provider\Twitter([
+                'clientId'     => $_ENV['TWITTER_ACCESS_TOKEN'],
+                'clientSecret' => $_ENV['TWITTER_ACCESS_TOKEN_SECRET'],
+                'redirectUri'  => $_ENV['TWITTER_CALLBACK_URL'],
+            ]);
+
+            $newToken = $provider->getAccessToken('refresh_token', [
+                'refresh_token' => $token->getRefreshToken()
+            ]);
+
+            $_SESSION['oauth-2-access-token'] = $newToken;
+
+            $token = $newToken;
+        }
+
+        if (!isset($_SESSION['oauth-2-access-token'])) {
+            // echo "<a href='authenticate.php'>Login With Twitter</a>";
+            $this->tweetAuth();
+            // echo "<a href='twitter_auth'>Login With Twitter</a>";
+            exit(1);
+        }
+        
+
+        $credentials = array(
+            //these are values that you can obtain from developer portal:
+            'consumer_key' => env('TWITTER_CONSUMER_KEY'), // identifies your app, always needed
+            'consumer_secret' => env('TWITTER_CONSUMER_SECRET'), // app secret, always needed
+            'bearer_token' => env('TWITTER_BEARER_TOKEN'), // OAuth 2.0 Bearer Token requests
+
+            //this is a value created duting an OAuth 2.0 with PKCE authentication flow:
+            'auth_token' => env('TWITTER_BEARER_TOKEN'), // OAuth 2.0 auth token
+            'auth_token' => $token->getToken(),
+
+            //these are values created during an OAuth 1.0a authentication flow to act ob behalf of other users, but these can also be obtained for your app from the developer portal in order to act on behalf of your app.
+            'token_identifier' => env('TWITTER_ACCESS_TOKEN'), // OAuth 1.0a User Context requests
+            'token_secret' => env('TWITTER_ACCESS_TOKEN_SECRET'), // OAuth 1.0a User Context requests
+        );
+
+        $twitter = new BirdElephant($credentials);
+
+        // $followers = $twitter->user('biddersportal')->followers();
+        // //pass your query params to the methods directly
+        // $following = $twitter->user('biddersportal')->following([
+        //     'max_results' => 20,
+        //     'user.fields' => 'profile_image_url'
+        // ]);
+        //tweet something
+        $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text(".@biddersportal is so cool");
+        $twitter->tweets()->tweet($tweet);
+        // You can also use the sub classes / methods directly if you like:
+        // $user = new UserLookup($credentials);
+        // $user = $user->getSingleUserByID('2244994945', null);
+
+        return
+
+
         // $url = "https://api.twitter.com/2/tweets";
         $url = "https://api.twitter.com/2/tweets/counts/all";
         // $access_token = "1542467985151074304-HPshHmygORR037GxNp8QnqVqFpWsaB";

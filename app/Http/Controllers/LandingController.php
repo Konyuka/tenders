@@ -19,6 +19,10 @@ use App\Mail\BiddersEmail;
 use Illuminate\Support\Facades\Mail;
 use Dompdf\Dompdf;
 include('pdflayerController.php');
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Storage;
+use File;
+use Spatie\Browsershot\Browsershot;
 
 
 class LandingController extends Controller
@@ -176,6 +180,58 @@ class LandingController extends Controller
         $url = $link;
         $post_id = $post->_id;
         $fileName = $post->purchasing_authority;
+
+        // $savedFile = file_put_contents($fileName.'.pdf', fopen($url, 'r'));
+        // return;
+        // $savedFile = \Storage::disk('public')->put($fileName, $url);
+        // $savedFile = \Storage::disk('public')->putFile($fileName, $url);
+        // $savedFile = \Storage::disk('public')->file_put_contents($fileName, fopen($url, 'r'));
+        // return dd($savedFile);
+
+        // $c = curl_init($url);
+        // curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
+        // $content = curl_exec($c);
+        // if (curl_error($c))
+        //     die(curl_error($c));
+        // $status = curl_getinfo($c, CURLINFO_HTTP_CODE);
+        // curl_close($c);
+        // $encodings = [
+        // 'CP1251',
+        // 'UCS-2LE',
+        // 'UCS-2BE',
+        // 'UTF-8',
+        // 'UTF-16',
+        // 'UTF-16BE',
+        // 'UTF-16LE',
+        // 'UTF-32',
+        // 'CP866',
+        // ];
+        // $html = mb_detect_encoding($content, $encodings, true); // Output UTF-16 as the encoding
+
+        // echo $content;//display's correct character but with chinses huko chini
+        // echo htmlspecialchars_decode($content);
+        // return;
+
+        // echo base_path().'\node_modules\\';
+        // return Browsershot::url('https://example.com')->noSandbox()->addChromiumArguments([ 'no-sandbox', ])->save('example.pdf');
+        // return Browsershot::url('https://example.com')->setNodeBinary('/usr/local/bin/node')->setNpmBinary('/usr/local/bin/npm')->save('example.pdf');
+        // return Browsershot::url($url)->setNodeBinary('$PATH:C:\Program Files\nodejs')->setNpmBinary('$PATH:C:\Users\USER\AppData\Roaming\npm')->save('example.pdf');
+        // return Browsershot::url($url)->setNodeBinary('C:\Program Files\nodejs')->setNpmBinary('C:\Users\USER\AppData\Roaming\npm')->save('example.pdf');
+        // return Browsershot::url($url)->setNodeBinary('$PATH:/usr/local/bin/node')->setNpmBinary('$PATH:/usr/local/bin/npm')->save('example.pdf');
+        // return Browsershot::url($url)->setIncludePath('C:\xampp7\htdocs\tenders\node_modules\\')->save('example.pdf');
+        // return Browsershot::url($url)->setIncludePath('/C:/xampp7/htdocs/tenders/node_modules/')->save('example.pdf');
+
+        // $savedFile = file_put_contents('tenderfiles/'.$fileName.'.html', fopen($url, 'r'));
+        // return File::get(public_path() . '\tenderfiles\\'.$fileName.'.html');
+
+        // // // PDF::loadHTML($url)->setPaper('a4', 'landscape')->setWarnings(false)->save('myfile.pdf');
+        // $pdf = \App::make('dompdf.wrapper');
+        // $pdf->loadHTML($savedFile);
+        // // echo storage_path('app');
+        // // $pdf->loadHTML(Storage::get($fileName));
+        // $pdf->loadHTML(Storage::get('\public\\'.$fileName));
+        // return $pdf->stream();
+
 
         // $file = $link;
         // $headers = [header('Content-Type: application/pdf')];
