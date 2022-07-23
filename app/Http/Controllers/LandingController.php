@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 use App\Mail\BiddersEmail;
 use Illuminate\Support\Facades\Mail;
 use Dompdf\Dompdf;
+
 include('pdflayerController.php');
+
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Storage;
 use File;
@@ -50,9 +52,9 @@ class LandingController extends Controller
     {
         return Inertia::render('Selected', [
 
-           'post' => Post::where('_id', '=', $slug)->first(),
-           'Status' => ''
-       ]);
+            'post' => Post::where('_id', '=', $slug)->first(),
+            'Status' => ''
+        ]);
     }
 
     public function free($slug)
@@ -63,28 +65,28 @@ class LandingController extends Controller
             'status' => 'Unlocked',
             'transId' => $slug,
             'payment' => null,
-       ]);
+        ]);
     }
 
     public function unlock($slug)
     {
         // return dd($slug);
         $payment = Payments::where('trans_id', '=', $slug)
-                    ->where('completed', '=', true)
-                    ->where('waiting', '=', false)
-                    ->first();
+            ->where('completed', '=', true)
+            ->where('waiting', '=', false)
+            ->first();
         $clientNumber = $payment->phone;
         $clientInvoice = $payment->account;
         $clientEmail = $payment->user_email;
         $clientName = urlencode($payment->user_name);
         $tenderID = $payment->info;
-        $post = Post::where(['_id'=>$tenderID])->first();
+        $post = Post::where(['_id' => $tenderID])->first();
 
         // return dd(json_decode($payment, true));
 
 
         // return  dd($clientName);
-        if($payment->email_sent == 0){
+        if ($payment->email_sent == 0) {
 
             $mailInfo = new \stdClass();
             $mailInfo->recieverName = $clientName;
@@ -115,34 +117,33 @@ class LandingController extends Controller
             $mailInfo->postID = $post->_id;
 
             Mail::to($clientEmail)
-            // Mail::to('michaelsaiba84@gmail.com')
-            ->send(new BiddersEmail($mailInfo));
+                // Mail::to('michaelsaiba84@gmail.com')
+                ->send(new BiddersEmail($mailInfo));
 
-            $payment = Payments::where(['trans_id'=>$slug])->first();
-                if ($payment){
-                    $payment->mail_sent=true;
-                    $payment->save();
-                }
-
+            $payment = Payments::where(['trans_id' => $slug])->first();
+            if ($payment) {
+                $payment->mail_sent = true;
+                $payment->save();
+            }
         }
 
-        if($payment->sms_sent == 0){
+        if ($payment->sms_sent == 0) {
             // return dd('sending');
 
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile={$clientNumber}&msg=Thank+you+{$clientName}+for+the+purchase%21+Your+invoice+number+is+{$clientInvoice}.+Thank+you+for+choosing+Bidders+Portal&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
-            // CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile={$clientNumber}&msg=Thank+you+{$clientName}+for+the+purchase%21+Your+invoice+number+is+{$clientInvoice}.+Tender+and+Invoice+details+have+been+mailed+to+the+submitted+email+{$clientEmail}.+Thank+you+for+choosing+Bidders+Portal&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "GET",
-            CURLOPT_HTTPHEADER => array(
-                "cache-control: no-cache"
-            ),
+                CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile={$clientNumber}&msg=Thank+you+{$clientName}+for+the+purchase%21+Your+invoice+number+is+{$clientInvoice}.+Thank+you+for+choosing+Bidders+Portal&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
+                // CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile={$clientNumber}&msg=Thank+you+{$clientName}+for+the+purchase%21+Your+invoice+number+is+{$clientInvoice}.+Tender+and+Invoice+details+have+been+mailed+to+the+submitted+email+{$clientEmail}.+Thank+you+for+choosing+Bidders+Portal&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "GET",
+                CURLOPT_HTTPHEADER => array(
+                    "cache-control: no-cache"
+                ),
             ));
 
             $response = curl_exec($curl);
@@ -151,31 +152,31 @@ class LandingController extends Controller
             curl_close($curl);
 
             if ($err) {
-            echo "cURL Error #:" . $err;
+                echo "cURL Error #:" . $err;
             } else {
                 $sms_sent = true;
-                $payment = Payments::where(['trans_id'=>$slug])->first();
-                if ($payment){
-                    $payment->sms_sent=true;
+                $payment = Payments::where(['trans_id' => $slug])->first();
+                if ($payment) {
+                    $payment->sms_sent = true;
                     $payment->save();
                 }
-            // echo $response;
+                // echo $response;
             }
         }
 
         return Inertia::render('Unlocked', [
-           'post' => Post::where('_id', '=', $payment->info)->first(),
-           'status' => 'Unlocked',
-           'transId' => $slug,
-           'payment' => $payment,
+            'post' => Post::where('_id', '=', $payment->info)->first(),
+            'status' => 'Unlocked',
+            'transId' => $slug,
+            'payment' => $payment,
 
-       ]);
+        ]);
     }
 
     public function downloadTender($slug)
     {
         $post = Post::where('_id', '=', $slug)
-                        ->first();
+            ->first();
         $link = $post->link;
         $url = $link;
         $post_id = $post->_id;
@@ -277,27 +278,35 @@ class LandingController extends Controller
 
         // $save = file_put_contents($fileName, $data);
 
-// somethi
+        // somethi
 
 
         //Instantiate the class
         $html2pdf = new pdflayer();
         $html2pdf->set_param(
-            'document_url', $link,
-            'document_name', $fileName,
-            'text_encoding', 'utf-8',
-            'accept_lang', 'en-US',
-            'inline', 1,
-            'encryption ', 128,
-            'user_agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36',
-            'viewport ', '414x736',
-            'force', 1
+            'document_url',
+            $link,
+            'document_name',
+            $fileName,
+            'text_encoding',
+            'utf-8',
+            'accept_lang',
+            'en-US',
+            'inline',
+            1,
+            'encryption ',
+            128,
+            'user_agent',
+            'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36',
+            'viewport ',
+            '414x736',
+            'force',
+            1
         );
         $html2pdf->convert();
         //display the PDF file
         // $html2pdf->display_pdf($fileName.'.pdf');
         $html2pdf->download_pdf($fileName);
-
     }
 
     public function listing()
@@ -308,24 +317,24 @@ class LandingController extends Controller
 
     public function pricing($slug)
     {
-        if($slug==150){
+        if ($slug == 150) {
             $from = new DateTime();
             $to = new DateTime('-10 day');
             $posts = Post::select("*")
-            ->whereBetween('created_at', [$to, $from])
-            ->latest()->get();
-        }else if($slug==100){
+                ->whereBetween('created_at', [$to, $from])
+                ->latest()->get();
+        } else if ($slug == 100) {
             $from = new DateTime('-11 day');
             $to = new DateTime('-20 day');
             $posts = Post::select("*")
-            ->whereBetween('created_at', [$to, $from])
-            ->latest()->get();
-        }else if($slug==50){
+                ->whereBetween('created_at', [$to, $from])
+                ->latest()->get();
+        } else if ($slug == 50) {
             $from = new DateTime('-21 day');
             $to = new DateTime('-31 day');
             $posts = Post::select("*")
-            ->whereBetween('created_at', [$to, $from])
-            ->latest()->get();
+                ->whereBetween('created_at', [$to, $from])
+                ->latest()->get();
         }
 
         return Inertia::render('Listing', [
@@ -369,19 +378,19 @@ class LandingController extends Controller
 
         // str_replace(' ', '%', $request->input('query'))
         $search = Post::where('title', 'like', '%' . $key . '%')
-                ->orWhere('tender_brief', 'like', '%' . $key . '%')
-                ->orWhere('funded_by', 'like', '%' . $key . '%')
-                ->orWhere('country', 'like', '%' . $key . '%')
-                // ->orWhere('work_detail', 'like', '%' . $key . '%')
-                ->orWhere('address', 'like', '%' . $region . '%')
-                ->orWhere('tender_number', 'like', '%' . $number . '%')
-                ->orWhere('purchasing_authority', 'like', '%' . $entity . '%')
-                ->orWhere('tender_brief', 'like', '%' . $entity . '%')
-                ->orWhere('funded_by', 'like', '%' . $entity . '%')
-                ->orWhere('address', 'like', '%' . $entity . '%')
-                ->orWhere('expiry', 'like', '%' . $closingFormat . '%')
-                ->orWhere('created_at', 'like', '%' . $publishFormat . '%')
-                ->latest()->get();
+            ->orWhere('tender_brief', 'like', '%' . $key . '%')
+            ->orWhere('funded_by', 'like', '%' . $key . '%')
+            ->orWhere('country', 'like', '%' . $key . '%')
+            // ->orWhere('work_detail', 'like', '%' . $key . '%')
+            ->orWhere('address', 'like', '%' . $region . '%')
+            ->orWhere('tender_number', 'like', '%' . $number . '%')
+            ->orWhere('purchasing_authority', 'like', '%' . $entity . '%')
+            ->orWhere('tender_brief', 'like', '%' . $entity . '%')
+            ->orWhere('funded_by', 'like', '%' . $entity . '%')
+            ->orWhere('address', 'like', '%' . $entity . '%')
+            ->orWhere('expiry', 'like', '%' . $closingFormat . '%')
+            ->orWhere('created_at', 'like', '%' . $publishFormat . '%')
+            ->latest()->get();
 
         return Inertia::render('Listing', ['Posts' => json_decode($search, true)]);
     }
@@ -390,15 +399,15 @@ class LandingController extends Controller
     {
         $baseURL = url('');
         $currentURL = url()->current();
-        $slugValue = str_replace($baseURL.'/invoice/', '', $currentURL);
+        $slugValue = str_replace($baseURL . '/invoice/', '', $currentURL);
         // return dd( $baseURL, $currentURL, $slugValue );
 
         // $post = $request->post;
         $post = Post::where('_id', '=', $slugValue)->first();
         // return dd($post);
-        if($post == 'bronze' || $post == 'silver' || $post == 'gold' || $post == 'platinum' || $post == 'diamond'){
+        if ($post == 'bronze' || $post == 'silver' || $post == 'gold' || $post == 'platinum' || $post == 'diamond') {
             $post_id = $post;
-        }else{
+        } else {
             $post_id = $slugValue;
             // $post_id = $post['_id'];
             // return dd($post_id);
@@ -416,34 +425,33 @@ class LandingController extends Controller
         $newInvoiceID = $lastInvoiceID + 1;
         $current_date_time = Carbon::now()->timestamp;
         $invoiceRecord = Invoice::
-                    //   where('unique_timestamp', '=', $current_date_time)
-                    //   where('invoice_number', '=', $newInvoiceID)
-                      where('post_id', '=', $post_id)
-                    ->where('user_phone', '=', $user_phone)
-                    ->where('user_email', '=', $user_email)
-                    ->first();
+            //   where('unique_timestamp', '=', $current_date_time)
+            //   where('invoice_number', '=', $newInvoiceID)
+            where('post_id', '=', $post_id)
+            ->where('user_phone', '=', $user_phone)
+            ->where('user_email', '=', $user_email)
+            ->first();
         // return dd(\json_decode($invoiceRecord, true));
-        if($invoiceRecord != null){
-           $paymentStatus = $invoiceRecord->payment_status;
-           $createdInvoice = $invoiceRecord;
+        if ($invoiceRecord != null) {
+            $paymentStatus = $invoiceRecord->payment_status;
+            $createdInvoice = $invoiceRecord;
         }
-        if($invoiceRecord != null && $paymentStatus == 0){
-            $invoicePaid= false;
-        }else if($invoiceRecord != null && $paymentStatus == 1){
+        if ($invoiceRecord != null && $paymentStatus == 0) {
+            $invoicePaid = false;
+        } else if ($invoiceRecord != null && $paymentStatus == 1) {
             $invoicePaid = true;
-        }
-        else{
+        } else {
             $createdInvoice =  Invoice::create([
-              "invoice_number"=>$newInvoiceID,
-              "unique_timestamp"=>$current_date_time,
-              "amount"=>$amount,
-              "post_id"=>$post_id,
-              "user_phone"=>$user_phone,
-              "user_email"=>$user_email,
-              "user_name"=>$user_name,
-              "payment_status"=>false,
+                "invoice_number" => $newInvoiceID,
+                "unique_timestamp" => $current_date_time,
+                "amount" => $amount,
+                "post_id" => $post_id,
+                "user_phone" => $user_phone,
+                "user_email" => $user_email,
+                "user_name" => $user_name,
+                "payment_status" => false,
             ]);
-            $invoicePaid= false;
+            $invoicePaid = false;
         };
 
         return Inertia::render('Invoice', [
@@ -469,19 +477,18 @@ class LandingController extends Controller
         // }
 
         return Inertia::render('Checkout', [
-           'post' => Post::where('_id', '=', $slugs)->first(),
-           'membership' => $request->membership,
-           'user' => $request->user
-       ]);
-
+            'post' => Post::where('_id', '=', $slugs)->first(),
+            'membership' => $request->membership,
+            'user' => $request->user
+        ]);
     }
 
     public function getAccessToken()
     {
         $url = env('MPESA_ENV') == 'sandbox'
-        // ? 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
-        ? 'https://api.safaricom.co.ke/oauth/v1/generate'
-        : 'https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
+            // ? 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
+            ? 'https://api.safaricom.co.ke/oauth/v1/generate'
+            : 'https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
         // return dd($url);
         $curl = curl_init($url);
         curl_setopt_array(
@@ -498,9 +505,9 @@ class LandingController extends Controller
         curl_close($curl);
 
         return $response->access_token;
-    //     return Inertia::render('Checkout', [
-    //        'accessTokenResponse' => $response
-    //    ]);
+        //     return Inertia::render('Checkout', [
+        //        'accessTokenResponse' => $response
+        //    ]);
     }
 
     public function registerURLS()
@@ -517,8 +524,8 @@ class LandingController extends Controller
         // return dd($response);
 
         return Inertia::render('Checkout', [
-           'registeredURLSResponse' => $response
-       ]);
+            'registeredURLSResponse' => $response
+        ]);
 
         // return $response;
     }
@@ -532,12 +539,12 @@ class LandingController extends Controller
         curl_setopt_array(
             $curl,
             array(
-                    CURLOPT_URL => $url,
-                    CURLOPT_HTTPHEADER => array('Content-Type:application/json','Authorization:Bearer '. $this->getAccessToken()),
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_POST => true,
-                    CURLOPT_POSTFIELDS => json_encode($body)
-                )
+                CURLOPT_URL => $url,
+                CURLOPT_HTTPHEADER => array('Content-Type:application/json', 'Authorization:Bearer ' . $this->getAccessToken()),
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => json_encode($body)
+            )
         );
         $curl_response = curl_exec($curl);
         curl_close($curl);
@@ -547,7 +554,7 @@ class LandingController extends Controller
     public function stkPush(Request $request)
     {
         $timestamp = date('YmdHis');
-        $password = env('MPESA_STK_SHORTCODE').env('MPESA_PASSKEY').$timestamp;
+        $password = env('MPESA_STK_SHORTCODE') . env('MPESA_PASSKEY') . $timestamp;
 
         $curl_post_data = array(
             'BusinessShortCode' => env('MPESA_STK_SHORTCODE'),
@@ -558,10 +565,10 @@ class LandingController extends Controller
             'PartyA' => $request->phone,
             'PartyB' => env('MPESA_STK_SHORTCODE'),
             'PhoneNumber' => $request->phone,
-            'CallBackURL' => env('MPESA_TEST_URL').'/api/stkpush',
+            'CallBackURL' => env('MPESA_TEST_URL') . '/api/stkpush',
             'AccountReference' => $request->account,
             'TransactionDesc' => $request->account
-          );
+        );
 
         $url = '/stkpush/v1/processrequest';
 
@@ -614,17 +621,15 @@ class LandingController extends Controller
             'TransactionID' => $request->transactionid,
             'PartyA' => env('MPESA_SHORTCODE'),
             'IdentifierType' => '4',
-            'ResultURL' => env('MPESA_TEST_URL'). '/api/transaction-status/result_url',
-            'QueueTimeOutURL' => env('MPESA_TEST_URL'). '/api/transaction-status/timeout_url',
+            'ResultURL' => env('MPESA_TEST_URL') . '/api/transaction-status/result_url',
+            'QueueTimeOutURL' => env('MPESA_TEST_URL') . '/api/transaction-status/timeout_url',
             'Remarks' => 'CheckTransaction',
             'Occasion' => 'VerifyTransaction'
-          );
+        );
 
         $url =  'transactionstatus/v1/query';
         $response = $this->makeHttp($url, $body);
 
         return $response;
     }
-
-
 }

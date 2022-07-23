@@ -152,7 +152,6 @@ class DashboardController extends Controller
     }
     public function tweet()
     {
-
         session_start();
 
         if (isset($_SESSION['oauth-2-access-token'])) {
@@ -161,9 +160,9 @@ class DashboardController extends Controller
 
         if (isset($_SESSION['oauth-2-access-token']) && $token->hasExpired()) {
 
-            $provider = new Smolblog\OAuth2\Client\Provider\Twitter([
-                'clientId'     => $_ENV['TWITTER_ACCESS_TOKEN'],
-                'clientSecret' => $_ENV['TWITTER_ACCESS_TOKEN_SECRET'],
+            $provider = new Twitter([
+                'clientId'     => $_ENV['TWITTER_CLIENT_ID'],
+                'clientSecret' => $_ENV['TWITTER_CLIENT_SECRET'],
                 'redirectUri'  => $_ENV['TWITTER_CALLBACK_URL'],
             ]);
 
@@ -182,7 +181,7 @@ class DashboardController extends Controller
             // echo "<a href='twitter_auth'>Login With Twitter</a>";
             exit(1);
         }
-        
+
 
         $credentials = array(
             //these are values that you can obtain from developer portal:
@@ -199,6 +198,8 @@ class DashboardController extends Controller
             'token_secret' => env('TWITTER_ACCESS_TOKEN_SECRET'), // OAuth 1.0a User Context requests
         );
 
+        // return dd($credentials);
+
         $twitter = new BirdElephant($credentials);
 
         // $followers = $twitter->user('biddersportal')->followers();
@@ -207,78 +208,46 @@ class DashboardController extends Controller
         //     'max_results' => 20,
         //     'user.fields' => 'profile_image_url'
         // ]);
-        //tweet something
-        $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text(".@biddersportal is so cool");
+
+        //tweet text
+        // $post = Post::where('_id', '=', $slug)->first();
+        // return dd($slug);
+        $freeTender = Post::latest()->limit(1)->get();
+        $tenderBrief = $freeTender[0]->tender_brief;   
+        $purchasingAuthority = $freeTender[0]->purchasing_authority;   
+        $tenderNumber = $freeTender[0]->tender_number;   
+        $fundedBy = $freeTender[0]->funded_by;   
+        $expiry = $freeTender[0]->expiry;   
+        $tenderID = $freeTender[0]->_id;   
+        http://localhost:8000/free/62dae635cbe25889a706ebd5
+        $tenderURL = url('free/'.$tenderID);
+        // $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text("Find Free Tenders Daily Courtsy of https://www.biddersportal.com/ \r\n \r\nFree Tender Brief: .$tenderBrief.\r\nPurchasing Authority: .$purchasingAuthority.\r\nTender Number: .$tenderNumber.\r\nFunded By: .$fundedBy.\r\nTender Expiry: .$expiry");
+        $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text("Find Free Tenders Daily At https://www.biddersportal.com/ \r\n\r\n \r\nFree Tender Brief: " .$tenderBrief."\r\nPurchasing Authority: " .$purchasingAuthority."\r\nTender Number: " .$tenderNumber."\r\nFunded By: " .$fundedBy."\r\nTender Expiry: " .$expiry);
         $tweetContent = $twitter->tweets()->tweet($tweet);
         return $tweetContent;
+
+        // tweet text with image
+        // $image = $twitter->tweets()->upload('https://downloader.la/temp/[Downloader.la]-62db06db34279.jpg');
+        // $media = (new \Coderjerk\BirdElephant\Compose\Media)->mediaIds([$image->media_id_string]);
+        // $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text('Thanks @biddersportal')->media($media);
+
         // You can also use the sub classes / methods directly if you like:
         // $user = new UserLookup($credentials);
         // $user = $user->getSingleUserByID('2244994945', null);
 
-        // return
-
-
-        // $url = "https://api.twitter.com/2/tweets";
-        $url = "https://api.twitter.com/2/tweets/counts/all";
-        // $access_token = "1542467985151074304-HPshHmygORR037GxNp8QnqVqFpWsaB";
-        $access_token = "AAAAAAAAAAAAAAAAAAAAAOiFeQEAAAAAV5Y5UdpJKcnBQjzRpSjD73ukR0c%3DFHXYRjEVUIP3SRl89BF8OYj5TIL3xRLwjbvHx8YCD1H7dARBsA";
-        $curl = curl_init($url);
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        $headers = array(
-        // "Accept: application/json",
-        "Authorization: Bearer $access_token",
-        );
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-        //for debug only!
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-        $resp = curl_exec($curl);
-        curl_close($curl);
-        var_dump($resp);
-        return dd(json_decode($resp));
-
-
-        // $authorization = "Authorization: Bearer AAAAAAAAAAAAAAAAAAAAAOiFeQEAAAAAJszzWmhxepBPKIYtYFwqKDx5kZ0%3DafcyVYATBAN9ZlMNzWpnLM1QMYVr6MCsXNP8kgwl81ianB9WK1";
-        // $withToken = Http::withToken($authorization)
-        //     ->get("https://api.twitter.com/2/tweets");
-        // return dd(json_decode($withToken));
-
-        // $callback = route('tweet.cbk');
-        // $callback = url('tweet.cbk');
-        // $callback = 'tweet/cbk';
-        $access_token = "1542467985151074304-HPshHmygORR037GxNp8QnqVqFpWsaB";
-        $access_token_secret = "oFOkrHCKe0PXzEftq9cV36OkXopY6znCgWaWhqDNpQRfI";
-        $connection = new TwitterOAuth("CpOJ9JnYou8kXAFL7eNi8XYNc","1aJlligmUpqW7TJRvzhjNqGlXcj6H6yZWjsgmOWjUTabtfm8md", $access_token, $access_token_secret);
-        // $content = $connection->get("account/verify_credentials");
-        // $content = $connection->get("statuses/home_timeline");
-        $contents = $connection->get("https://api.twitter.com/2/tweets/counts/all");
-        // $connection->setApiVersion('2');
-        // $connection->setTimeouts(10, 15);
-        // $statues = $connection->post("statuses/update", ["status" => "hello world"]);
-        // $accessToken = $connection->oauth('oauth/request_token',['oauth_callback'=>$callback]);
-        // $route = $connection->url('oauth/authorize',['oauth_token'=>$accessToken['oauth_token']]);
-        // $content = $connection->get("account/verify_credentials");
-        return dd($contents);
-        // return redirect($content);
-        // return Inertia::render('Admin/Subscriptions');
     }
 
     public function tweetcbk(Request $request)
     {
-        // $callback = route('tweetcbk');
-        // $connection = new TwitterOAuth("CpOJ9JnYou8kXAFL7eNi8XYNc","1aJlligmUpqW7TJRvzhjNqGlXcj6H6yZWjsgmOWjUTabtfm8md");
-        // $accesToken = $connection->oauth('oauth/request_token',['oauth_callback'=>$callback]);
-        // $route = $connection->url('oauth/authorize',['oauth_token'=>$accesToken['oauth_token']]);
-        // return redirect($route);
+
         return dd($request->all());
-        echo 'check';
         // return Inertia::render('Admin/Subscriptions');
     }
 
     public function refresh(Request $request)
     {
         $apiURL = env('TENDER_API_URL');
+        // return dd($apiURL);
         $response = Http::get($apiURL, ['auth' =>  ['C62A8CB5DD405E768CAD792637AC0446', 'F4454993C1DE1AB1948A9D33364FA9CC']]);
         // $request->header('X-Header-Name');
         $data = json_decode($response, true);
@@ -290,8 +259,8 @@ class DashboardController extends Controller
         // return dd($posts);
         set_time_limit(50000);
         // set_time_limit(50000);
-        foreach ($posts as $post => $value ) {
-            if(!Post::where('bdr_no',$value['BDR_No'])->exists()){
+        foreach ($posts as $post => $value) {
+            if (!Post::where('bdr_no', $value['BDR_No'])->exists()) {
 
                 $createdPost = Post::Create([
                     'bdr_no' => $value['BDR_No'],
@@ -310,8 +279,6 @@ class DashboardController extends Controller
 
                 // return dd($createdPost);
             }
-
-
         };
 
         return Inertia::render('Admin/Dashboard', [
@@ -324,10 +291,10 @@ class DashboardController extends Controller
     {
         $validated = $request->validate([
             'purchasing_Authority' => ['max:50'],
-            'tender_number' => ['required' ],
-            'tender_brief' => [ ],
-            'competition_type' => [ ],
-            'category' => [ ],
+            'tender_number' => ['required'],
+            'tender_brief' => [],
+            'competition_type' => [],
+            'category' => [],
             'funded_by' => [],
             'country' => [],
             'work_detail' => [],
@@ -362,59 +329,59 @@ class DashboardController extends Controller
     public function import(Request $request)
     {
         if ($request->file) {
-        $file = $request->file;
-        $extension = $file->getClientOriginalExtension();
-        $fileSize = $file->getSize();
-        $this->checkUploadedFileProperties($extension, $fileSize);
-        $import = new ImportPost();
-        Excel::import($import, $request->file('file')->store('files'));
-        $posts = DB::table('uploads')->get();
-        // return dd($posts);
-        foreach($posts as $row){
+            $file = $request->file;
+            $extension = $file->getClientOriginalExtension();
+            $fileSize = $file->getSize();
+            $this->checkUploadedFileProperties($extension, $fileSize);
+            $import = new ImportPost();
+            Excel::import($import, $request->file('file')->store('files'));
+            $posts = DB::table('uploads')->get();
+            // return dd($posts);
+            foreach ($posts as $row) {
 
-            Post::firstOrCreate([
-                'purchasing_authority'  => $row->purchasing_authority,
-                'tender_number'  => $row->tender_number,
-                'tender_brief'  => $row->tender_brief,
-                'competition_type'  => $row->competition_type,
-                'category'  => $row->category,
-                'funded_by'  => $row->funded_by,
-                'country'  => $row->country,
-                'value'  => $row->value,
-                'work_detail'  => $row->work_detail,
-                'expiry'  => $row->expiry,
-                'address'  => $row->address,
-                'email'  => $row->email,
-                'phone'  => $row->phone,
-                'link'  => $row->link
-            ]);
-        }
+                Post::firstOrCreate([
+                    'purchasing_authority'  => $row->purchasing_authority,
+                    'tender_number'  => $row->tender_number,
+                    'tender_brief'  => $row->tender_brief,
+                    'competition_type'  => $row->competition_type,
+                    'category'  => $row->category,
+                    'funded_by'  => $row->funded_by,
+                    'country'  => $row->country,
+                    'value'  => $row->value,
+                    'work_detail'  => $row->work_detail,
+                    'expiry'  => $row->expiry,
+                    'address'  => $row->address,
+                    'email'  => $row->email,
+                    'phone'  => $row->phone,
+                    'link'  => $row->link
+                ]);
+            }
 
-        $mongoPosts = Post::all();
-        foreach($mongoPosts as $index => $row){
-            Upload::where('tender_number', $row->tender_number)->update(
-                [
-                    '_id' => $row->_id
-                ]
-            );
-        }
-        return Inertia::render('Success', ['Status' => 'upload']);
+            $mongoPosts = Post::all();
+            foreach ($mongoPosts as $index => $row) {
+                Upload::where('tender_number', $row->tender_number)->update(
+                    [
+                        '_id' => $row->_id
+                    ]
+                );
+            }
+            return Inertia::render('Success', ['Status' => 'upload']);
         } else {
             return dd('not uploaded correctly');
         }
     }
 
-    public function checkUploadedFileProperties($extension, $fileSize) : void
+    public function checkUploadedFileProperties($extension, $fileSize): void
     {
         $valid_extension = array("csv", "xlsx"); //Only want csv and excel files
         $maxFileSize = 2097152; // Uploaded file size limit is 2mb
         if (in_array(strtolower($extension), $valid_extension)) {
-        if ($fileSize <= $maxFileSize) {
+            if ($fileSize <= $maxFileSize) {
+            } else {
+                throw new \Exception('No file was uploaded', Response::HTTP_REQUEST_ENTITY_TOO_LARGE); //413 error
+            }
         } else {
-        throw new \Exception('No file was uploaded', Response::HTTP_REQUEST_ENTITY_TOO_LARGE); //413 error
-        }
-        } else {
-        throw new \Exception('Invalid file extension', Response::HTTP_UNSUPPORTED_MEDIA_TYPE); //415 error
+            throw new \Exception('Invalid file extension', Response::HTTP_UNSUPPORTED_MEDIA_TYPE); //415 error
         }
     }
 
@@ -446,7 +413,6 @@ class DashboardController extends Controller
         $post->update($validated);
         $upload->update($validated);
         return Inertia::render('Success', ['Status' => 'edit']);
-
     }
 
     public function download(Request $request)
@@ -454,5 +420,4 @@ class DashboardController extends Controller
         $file_path = public_path('templates/upload_tenders.xlsx');
         return response()->download($file_path);
     }
-
 }

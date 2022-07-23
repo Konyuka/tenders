@@ -107,7 +107,7 @@ Route::get('/tweet', [DashboardController::class, 'tweet'])
     ->name('tweet');
 Route::get('/twitter_auth', [DashboardController::class, 'tweetAuth'])
     ->name('tweet.auth');
-Route::get('/tweet/cbk', [DashboardController::class, 'tweetcbk'])
+Route::get('/tweet_callback', [DashboardController::class, 'tweet'])
     ->name('tweet.cbk');
 
 
