@@ -23,6 +23,8 @@ use Illuminate\Http\JsonResponse;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use Coderjerk\BirdElephant\BirdElephant;
 use Smolblog\OAuth2\Client\Provider\Twitter;
+// require_once('bootstrap.php');
+// session_start();
 
 class DashboardController extends Controller
 {
@@ -49,6 +51,7 @@ class DashboardController extends Controller
         $freeTender = Post::latest()->limit(1)->get();
         return Inertia::render('Admin/Twitter', [
             'freeTender' => $freeTender,
+            'tweetPosted' => null,
         ]);
     }
 
@@ -67,7 +70,6 @@ class DashboardController extends Controller
 
     public function tweetAuth()
     {
-        // return dd('twende');
         // session_start();
 
         // require_once('bootstrap.php');
@@ -77,11 +79,6 @@ class DashboardController extends Controller
             'clientSecret' => $_ENV['TWITTER_CLIENT_SECRET'],
             'redirectUri'  => $_ENV['TWITTER_CALLBACK_URL'],
         ]);
-        // $provider = new Smolblog\OAuth2\Client\Provider\Twitter([
-        //     'clientId'     => $_ENV['OAUTH2_CLIENT_ID'],
-        //     'clientSecret' => $_ENV['OAUTH2_CLIENT_SECRET'],
-        //     'redirectUri'  => $_ENV['TWITTER_CALLBACK_URI'],
-        // ]);
 
         if (!isset($_GET['code'])) {
             unset($_SESSION['oauth2state']);
@@ -198,20 +195,9 @@ class DashboardController extends Controller
             'token_secret' => env('TWITTER_ACCESS_TOKEN_SECRET'), // OAuth 1.0a User Context requests
         );
 
-        // return dd($credentials);
+        // $twitter = new BirdElephant($credentials);
+        $twitter = new \Coderjerk\BirdElephant\BirdElephant($credentials);
 
-        $twitter = new BirdElephant($credentials);
-
-        // $followers = $twitter->user('biddersportal')->followers();
-        // //pass your query params to the methods directly
-        // $following = $twitter->user('biddersportal')->following([
-        //     'max_results' => 20,
-        //     'user.fields' => 'profile_image_url'
-        // ]);
-
-        //tweet text
-        // $post = Post::where('_id', '=', $slug)->first();
-        // return dd($slug);
         $freeTender = Post::latest()->limit(1)->get();
         $tenderBrief = $freeTender[0]->tender_brief;   
         $purchasingAuthority = $freeTender[0]->purchasing_authority;   
@@ -219,21 +205,42 @@ class DashboardController extends Controller
         $fundedBy = $freeTender[0]->funded_by;   
         $expiry = $freeTender[0]->expiry;   
         $tenderID = $freeTender[0]->_id;   
-        http://localhost:8000/free/62dae635cbe25889a706ebd5
-        $tenderURL = url('free/'.$tenderID);
-        // $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text("Find Free Tenders Daily Courtsy of https://www.biddersportal.com/ \r\n \r\nFree Tender Brief: .$tenderBrief.\r\nPurchasing Authority: .$purchasingAuthority.\r\nTender Number: .$tenderNumber.\r\nFunded By: .$fundedBy.\r\nTender Expiry: .$expiry");
-        $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text("Find Free Tenders Daily At https://www.biddersportal.com/ \r\n\r\n \r\nFree Tender Brief: " .$tenderBrief."\r\nPurchasing Authority: " .$purchasingAuthority."\r\nTender Number: " .$tenderNumber."\r\nFunded By: " .$fundedBy."\r\nTender Expiry: " .$expiry);
-        $tweetContent = $twitter->tweets()->tweet($tweet);
-        return $tweetContent;
+        $tenderURL = 'http://biddersportal.com/unlock/'.$tenderID;
+
+        try {
+            $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text("Find Free Tenders Daily At https://www.biddersportal.com/ \r\n\r\n \r\nFree Tender Brief: " .$tenderBrief."\r\nPurchasing Authority: " .$purchasingAuthority."\r\nTender Number: " .$tenderNumber."\r\nFunded By: " .$fundedBy."\r\nTender Expiry: " .$expiry);
+            $tweetContent = $twitter->tweets()->tweet($tweet);
+        } catch (Exception $e) {
+            var_dump($e->getResponse()->getBody()->getContents());
+            // return dd('error');
+        }
+
+        $posts = Post::latest()->limit(6)->get();
+        return Inertia::render('Landing', [
+            'allPosts' => $posts,
+        ]);
+
+        // $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text("Find Free Tenders Daily At https://www.biddersportal.com/ \r\n\r\n \r\nFree Tender Brief: " .$tenderBrief."\r\nPurchasing Authority: " .$purchasingAuthority."\r\nTender Number: " .$tenderNumber."\r\nFunded By: " .$fundedBy."\r\nTender Expiry: " .$expiry);
+        // $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text('Thanks @biddersportal '.$tenderURL);
+        // $tweetContent = $twitter->tweets()->tweet($tweet);
+        // return $tweetContent;
+        
 
         // tweet text with image
-        // $image = $twitter->tweets()->upload('https://downloader.la/temp/[Downloader.la]-62db06db34279.jpg');
-        // $media = (new \Coderjerk\BirdElephant\Compose\Media)->mediaIds([$image->media_id_string]);
-        // $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text('Thanks @biddersportal')->media($media);
+        // $image = $twitter->tweets()->upload('./img/1.png');
+        // $media = (new \Coderjerk\BirdElephant\Compose\Media)->mediaIds(
+        //     [
+        //         $image->media_id_string
+        //     ]
+        // );
+        // $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text('Thanks bidders')
+        //     ->media($media);
+        // $tweetContent = $twitter->tweets()->tweet($tweet);
+        // return $tweetContent;
 
-        // You can also use the sub classes / methods directly if you like:
-        // $user = new UserLookup($credentials);
-        // $user = $user->getSingleUserByID('2244994945', null);
+       
+
+       
 
     }
 
