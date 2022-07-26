@@ -220,8 +220,8 @@ class DashboardController extends Controller
         //     'allPosts' => $posts,
         // ]);
 
-        // $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text("Find Free Tenders Daily At https://www.biddersportal.com/ \r\n\r\n \r\nFree Tender Brief: " .$tenderBrief."\r\nPurchasing Authority: " .$purchasingAuthority."\r\nTender Number: " .$tenderNumber."\r\nFunded By: " .$fundedBy."\r\nTender Expiry: " .$expiry);
-        $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text('Thanks @biddersportal '.$tenderURL);
+        $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text("Find Free Tenders Daily At https://www.biddersportal.com/ \r\n\r\n \r\nFree Tender Brief: " .$tenderBrief."\r\nPurchasing Authority: " .$purchasingAuthority."\r\nTender Number: " .$tenderNumber."\r\nFunded By: " .$fundedBy."\r\nTender Expiry: " .$expiry);
+        // $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text('Thanks @biddersportal '.$tenderURL);
         $tweetContent = $twitter->tweets()->tweet($tweet);
         $posts = Post::latest()->limit(6)->get();
         return Inertia::render('Landing', [
