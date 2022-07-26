@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
     {
 
         // $schedule->call(function () {
-        //     info('Task is running');
+        //     info('New Task is running');
         // })->everyMinute();
 
         $schedule->command('task:cron')

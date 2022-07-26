@@ -38,9 +38,21 @@
         </p>
         <a
           :href="route('tweet')"
-          class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto"
+          class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-black hover:text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto"
         >
-          Tweet Free Tender
+          Post Free Tender on Facebook <i class="ml-2 fab fa-facebook"></i>
+        </a>
+        <a
+          :href="route('tweet')"
+          class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-black hover:text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto"
+        >
+          Post Free Tender on Linkedin <i class="ml-2 fab fa-linkedin"></i>
+        </a>
+        <a
+          :href="route('tweet')"
+          class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-black hover:text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto"
+        >
+          Post Free Tender on Twitter <i class="ml-2 fab fa-twitter"></i>
         </a>
       </div>
     </div>

@@ -287,65 +287,57 @@
 
       <div
         v-if="searchModal"
-        id="defaultModal"
+        class="z-50 fixed left-0 w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+        id="exampleModalScrollable"
         tabindex="-1"
+        aria-labelledby="exampleModalScrollableLabel"
         aria-hidden="true"
-        class="overflow-y-auto overflow-x-hidden fixed justify-center mx-auto flex sm:hidden items-center z-50 w-full md:inset-0 h-modal md:h-full"
       >
-        <div class="relative p-4 w-full max-w-5xl h-full md:h-auto">
-          <!-- Modal content -->
-          <div class="bg-white rounded-lg shadow-2xl dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex justify-between items-start p-5 rounded-t">
+        <div
+          class="sm:h-[calc(100%-3rem)] max-w-lg mt-32 mx-auto relative w-auto pointer-events-none"
+        >
+          <div
+            class="max-h-full overflow-hidden border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current"
+          >
+            <div
+              class="flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md"
+            >
+              <h5
+                class="text-xl font-medium leading-normal text-gray-800"
+                id="exampleModalScrollableLabel"
+              >
+                <!-- Modal title -->
+              </h5>
               <button
                 @click="searchModal = false"
                 type="button"
-                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                data-modal-toggle="defaultModal"
+                class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                data-bs-dismiss="modal"
+                aria-label="Close"
               >
-                <svg
-                  class="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
+                <i class="fas fa-xmark text-black fa-xl"></i>
               </button>
             </div>
-            <!-- Modal body -->
-            <div class="container p-2">
-              <!-- <section
-                  class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800"
-                >
-                </section> -->
+            <div class="flex-auto overflow-y-auto relative p-4">
               <SearchFilter />
             </div>
-            <!-- Modal footer -->
-            <div
-              class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600"
-            >
-              <button
-                @click="loadFilters"
-                data-modal-toggle="defaultModal"
-                type="button"
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            <!-- <div
+                class="flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md"
               >
-                Find Tenders
-              </button>
-              <button
-                @click="clearFilters"
-                data-modal-toggle="defaultModal"
-                type="button"
-                class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
-              >
-                Clear Filters
-              </button>
-            </div>
+                <button
+                  type="button"
+                  class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 fdivs:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+                >
+                  Save changes
+                </button>
+              </div> -->
           </div>
         </div>
       </div>
@@ -481,10 +473,10 @@ export default {
       //     return i + 10;
       // }
     },
-    // updateCnt(i) {
-    //   // this.cnt = i * this.Posts.length;
-    //   //   console.log(i);
-    // },
+    updateCnt(i) {
+      // this.cnt = i * this.Posts.length;
+      //   console.log(i);
+    },
     scroll() {
       $("html, body").animate(
         {

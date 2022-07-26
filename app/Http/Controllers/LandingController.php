@@ -311,6 +311,14 @@ class LandingController extends Controller
 
     public function listing()
     {
+        // $posts = Post::paginate(20);
+        // return dd(json_decode($posts));
+    	// return response()->json($users);
+        // return response()->json($posts);
+        // return Inertia::render('Listing', ['Posts' => response()->json_decode($posts)]);
+        // return Inertia::render('Listing', ['Posts' => json_decode($posts)]);
+        // return Inertia::render('Listing', ['Posts' => json_decode($posts, true)]);
+
         $posts = Post::latest()->get();
         return Inertia::render('Listing', ['Posts' => json_decode($posts, true)]);
     }
