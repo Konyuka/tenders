@@ -6,5 +6,9 @@ module.exports = {
         plugins: [
             new Dotenv()
         ]
+    },
+    chainWebpack: config =>
+    {
+        config.plugins.delete('prefetch');
     }
 }

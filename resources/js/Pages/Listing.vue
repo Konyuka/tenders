@@ -481,10 +481,10 @@ export default {
       //     return i + 10;
       // }
     },
-    updateCnt(i) {
-      // this.cnt = i * this.Posts.length;
-      //   console.log(i);
-    },
+    // updateCnt(i) {
+    //   // this.cnt = i * this.Posts.length;
+    //   //   console.log(i);
+    // },
     scroll() {
       $("html, body").animate(
         {
