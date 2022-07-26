@@ -15,7 +15,7 @@ use Maatwebsite\Excel\Concerns\ToCollection;
 use Illuminate\Support\Facades\DB;
 use File;
 use Illuminate\Support\Facades\Http;
-use Atymic\Twitter\Twitter as TwitterContract;
+// use Atymic\Twitter\Twitter as TwitterContract;
 use Illuminate\Http\JsonResponse;
 // use Twitter;
 // use Atymic\Twitter\Facade\Twitter;
@@ -142,9 +142,9 @@ class DashboardController extends Controller
             //save token object to session
             $_SESSION['oauth-2-access-token'] = $token;
 
-            session_write_close();
+            // session_write_close();
 
-            header("Location: https://{$_SERVER['HTTP_HOST']}/");
+            header("Location: http://{$_SERVER['HTTP_HOST']}/tweet");
         }
     }
     public function tweet()
@@ -195,8 +195,8 @@ class DashboardController extends Controller
             'token_secret' => env('TWITTER_ACCESS_TOKEN_SECRET'), // OAuth 1.0a User Context requests
         );
 
-        // $twitter = new BirdElephant($credentials);
-        $twitter = new \Coderjerk\BirdElephant\BirdElephant($credentials);
+        $twitter = new BirdElephant($credentials);
+        // $twitter = new \Coderjerk\BirdElephant\BirdElephant($credentials);
 
         $freeTender = Post::latest()->limit(1)->get();
         $tenderBrief = $freeTender[0]->tender_brief;   
@@ -207,22 +207,26 @@ class DashboardController extends Controller
         $tenderID = $freeTender[0]->_id;   
         $tenderURL = 'http://biddersportal.com/unlock/'.$tenderID;
 
-        try {
-            $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text("Find Free Tenders Daily At https://www.biddersportal.com/ \r\n\r\n \r\nFree Tender Brief: " .$tenderBrief."\r\nPurchasing Authority: " .$purchasingAuthority."\r\nTender Number: " .$tenderNumber."\r\nFunded By: " .$fundedBy."\r\nTender Expiry: " .$expiry);
-            $tweetContent = $twitter->tweets()->tweet($tweet);
-        } catch (Exception $e) {
-            var_dump($e->getResponse()->getBody()->getContents());
-            // return dd('error');
-        }
+        // try {
+        //     $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text("Find Free Tenders Daily At https://www.biddersportal.com/ \r\n\r\n \r\nFree Tender Brief: " .$tenderBrief."\r\nPurchasing Authority: " .$purchasingAuthority."\r\nTender Number: " .$tenderNumber."\r\nFunded By: " .$fundedBy."\r\nTender Expiry: " .$expiry);
+        //     $tweetContent = $twitter->tweets()->tweet($tweet);
+        // } catch (Exception $e) {
+        //     var_dump($e->getResponse()->getBody()->getContents());
+        //     // return dd('error');
+        // }
+        // return $tweetContent;
+        // $posts = Post::latest()->limit(6)->get();
+        // return Inertia::render('Landing', [
+        //     'allPosts' => $posts,
+        // ]);
 
+        // $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text("Find Free Tenders Daily At https://www.biddersportal.com/ \r\n\r\n \r\nFree Tender Brief: " .$tenderBrief."\r\nPurchasing Authority: " .$purchasingAuthority."\r\nTender Number: " .$tenderNumber."\r\nFunded By: " .$fundedBy."\r\nTender Expiry: " .$expiry);
+        $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text('Thanks @biddersportal '.$tenderURL);
+        $tweetContent = $twitter->tweets()->tweet($tweet);
         $posts = Post::latest()->limit(6)->get();
         return Inertia::render('Landing', [
             'allPosts' => $posts,
         ]);
-
-        // $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text("Find Free Tenders Daily At https://www.biddersportal.com/ \r\n\r\n \r\nFree Tender Brief: " .$tenderBrief."\r\nPurchasing Authority: " .$purchasingAuthority."\r\nTender Number: " .$tenderNumber."\r\nFunded By: " .$fundedBy."\r\nTender Expiry: " .$expiry);
-        // $tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text('Thanks @biddersportal '.$tenderURL);
-        // $tweetContent = $twitter->tweets()->tweet($tweet);
         // return $tweetContent;
         
 
