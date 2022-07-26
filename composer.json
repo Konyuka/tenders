@@ -31,6 +31,7 @@
         "safaricom/mpesa": "^1.0",
         "smolblog/oauth2-twitter": "^1.0",
         "spatie/browsershot": "^3.57",
+        "spatie/laravel-tail": "^4.3",
         "thujohn/twitter": "^3.1",
         "tightenco/ziggy": "^0.9.4"
     },
