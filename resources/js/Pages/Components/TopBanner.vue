@@ -27,12 +27,17 @@
             />
           </div>
           <a :href="route('landing')" class="flex space-x-3 items-center">
-            <!-- <img class="p-1 dark:bg-white rounded-full" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg5.svg" alt="circle" /> -->
-            <h1
+            <img
+              class="p-1 dark:bg-white rounded-full object-fit h-18 w-64"
+              :src="'/img/bp.png'"
+              alt="circle"
+            />
+            <!-- < class="object-cover h-48 w-96" > -->
+            <!-- <h1
               class="font-bold-font text-4xl sm:text-6xl leading-6 text-indigo-700 dark:text-white"
             >
               Bidders Portal
-            </h1>
+            </h1> -->
           </a>
 
           <div v-if="!user" class="hidden sm:flex flex-row space-x-4">
