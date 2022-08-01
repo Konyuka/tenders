@@ -63,6 +63,12 @@ class LandingController extends Controller
         ]);
     }
 
+    public function subscriptions()
+    {
+        return Inertia::render('Subscriptions', [
+        ]);
+    }
+
     public function free($slug)
     {
         // return dd($slug);

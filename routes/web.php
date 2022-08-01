@@ -27,6 +27,9 @@ Route::get('/listing', [LandingController::class, 'listing'])
 Route::get('/about', [LandingController::class, 'about'])
     ->name('about');
 
+Route::get('/subscriptions', [LandingController::class, 'subscriptions'])
+    ->name('subscriptions');
+
 Route::post('/search', [LandingController::class, 'search'])
     ->name('search');
 
