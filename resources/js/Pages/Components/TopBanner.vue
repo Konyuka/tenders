@@ -28,7 +28,7 @@
           </div>
           <a :href="route('landing')" class="flex space-x-3 items-center">
             <img
-              class="p-1 dark:bg-white rounded-full object-fit h-18 w-64"
+              class="p-1 dark:bg-white rounded-full object-fit h-18 w-96"
               :src="'/img/bp.png'"
               alt="circle"
             />
