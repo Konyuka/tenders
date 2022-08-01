@@ -386,7 +386,7 @@ export default {
       } else if (value == "twitter") {
         // https://twitter.com/intent/tweet?url=link_to_be_shared
         window.open(`https://twitter.com/intent/tweet?url=${shareUrl}`, "_blank");
-        alert("twitter");
+        // alert("twitter");
       } else if (value == "google") {
         alert("google");
       }

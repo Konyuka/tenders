@@ -57,6 +57,12 @@ class LandingController extends Controller
         ]);
     }
 
+    public function about()
+    {
+        return Inertia::render('About', [
+        ]);
+    }
+
     public function free($slug)
     {
         // return dd($slug);

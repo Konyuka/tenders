@@ -24,6 +24,9 @@ Route::get('/free/{slug}', [LandingController::class, 'free'])
 Route::get('/listing', [LandingController::class, 'listing'])
     ->name('listing');
 
+Route::get('/about', [LandingController::class, 'about'])
+    ->name('about');
+
 Route::post('/search', [LandingController::class, 'search'])
     ->name('search');
 
