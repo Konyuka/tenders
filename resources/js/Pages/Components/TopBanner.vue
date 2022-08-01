@@ -28,7 +28,7 @@
           </div>
           <a :href="route('landing')" class="flex space-x-3 items-center">
             <img
-              class="p-1 dark:bg-white rounded-full object-fit h-18 w-96"
+              class="p-1 dark:bg-white rounded-full object-fit h-18 w-64 sm:w-96"
               :src="'/img/bp.png'"
               alt="circle"
             />
@@ -60,7 +60,7 @@
             >
           </div>
 
-          <div @click="openSearch" class="sm:hidden">
+          <div @click="openSearch" class="mt-4 sm:hidden">
             <i class="fas fa-search fa-xl"></i>
           </div>
 

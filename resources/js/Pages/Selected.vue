@@ -182,13 +182,13 @@
                     class="title-font font-medium text-xl sm:text-2xl text-gray-900 font-heading-font"
                     >KES
                     <span
-                      class="ml-3 font-heading-font font-extrabold text-indigo-600 text-xl sm:text-2xl"
+                      class="mr-2 font-heading-font font-extrabold text-indigo-600 text-xl sm:text-2xl"
                       >{{ this.amount }}</span
                     >
                   </span>
                   <a
                     @click="purchase"
-                    class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-2 text-sm sm:text-lg sm:px-6 focus:outline-none rounded"
+                    class="ml-2 cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex text-white hover:text-black border-0 py-2 px-2 text-sm sm:text-lg sm:px-6 focus:outline-none rounded"
                     >Purchase Tender Details</a
                   >
 

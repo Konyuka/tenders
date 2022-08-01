@@ -173,15 +173,38 @@
                 </div>
                 <div class="flex"></div>
 
-                <div class="grid grid-cols-2 gap-4">
+                <div class="flex sm:grid grid-cols-3 gap-6 justify-between">
                   <!-- <a :href="route('download_tender', this.post._id)" target="_blank"> -->
-                  <button
-                    @click="downloadTender"
-                    class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-1 px-2 text-xs sm:text-lg sm:px-6 focus:outline-none rounded"
-                  >
-                    Download Documents
-                    <i class="fas fa-download text-white ml-2 mt-1"></i>
-                  </button>
+                  <div>
+                    <button
+                      @click="downloadTender"
+                      class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-1 px-2 text-xs sm:text-lg sm:px-6 focus:outline-none rounded"
+                    >
+                      Download Documents
+                      <i class="fas fa-download text-white ml-2 mt-1"></i>
+                    </button>
+                  </div>
+                  <div class=""></div>
+
+                  <div>
+                    <a
+                      class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-white flex ml-auto text-white hover:text-black border-0 text-sm sm:text-lg sm:px-6 focus:outline-none rounded"
+                    >
+                    </a>
+
+                    <button
+                      @click="shareSocial('whatsapp')"
+                      class="hover:bg-indigo-500 hover:text-white rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-900 ml-4"
+                    >
+                      <i class="fab fa-whatsapp"></i>
+                    </button>
+                    <button
+                      @click="shareSocial('twitter')"
+                      class="hover:bg-indigo-500 hover:text-white rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-900 ml-4"
+                    >
+                      <i class="fab fa-twitter"></i>
+                    </button>
+                  </div>
                   <!-- </a> -->
                   <!-- <a :href="route('download_tender', this.post._id)" target="_blank">
                     <button
