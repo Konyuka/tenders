@@ -73,6 +73,7 @@
             <a :href="route('landing')" class="font-bold-font font-bold"
               >Bidders Portal</a
             >
+
             <!-- <img
                             class="h-8 w-auto"
                             src="https://tailwindui.com/img/logos/workflow-logo-indigo-300-mark-white-text.svg"
@@ -145,6 +146,10 @@
                     /> -->
         </div>
         <div class="mt-5 flex-1 flex flex-col">
+          <!-- <div class="text-white font-bold italic capitalize">
+            Todays Visits: <span id="visits"></span>
+          </div> -->
+          <!-- <button @click="websiteVisits()" class="bg-green-200">refresh visits</button> -->
           <nav class="flex-1 px-2 pb-4 space-y-1">
             <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-600" -->
             <a
@@ -219,6 +224,9 @@
               Wishlist
             </a>
           </nav>
+          <!-- <div class="text-white font-bold italic capitalize">
+            Todays Visits: <span id="visits"></span>
+          </div> -->
         </div>
       </div>
     </div>
@@ -349,8 +357,18 @@
   </div>
 </template>
 
+<script
+  async
+  src="https://api.countapi.xyz/hit/biddersportal.com/26c22b66-d3fe-45dd-9c9e-666925da30cd?callback=websiteVisits"
+></script>
+
 <script>
 // import TendersPage from "../Pages/Components/Dashboard/TendersPage.vue";
+
+function websiteVisits(response) {
+  alert("buda");
+  document.querySelector("#visits").textContent = response.value;
+}
 
 const app = document.getElementById("app");
 export default {
@@ -400,6 +418,23 @@ export default {
     };
   },
   methods: {
+    websiteVisits() {
+      axios
+        .get(
+          "https://api.countapi.xyz/hit/biddersportal.com/26c22b66-d3fe-45dd-9c9e-666925da30cd?callback=websiteVisits"
+        )
+        .then((response) => {
+          // alert("resonse");
+          let type = typeof response.data;
+          let data = response.data;
+          let value = data.substring(data.indexOf('"value":') + 1);
+          console.log(value);
+          // document.querySelector("#visits").textContent = response.value;
+
+          // window.location = "/";
+        });
+      // alert("method");
+    },
     selectedMenu(Value) {
       this.currentMenu = Value;
     },
