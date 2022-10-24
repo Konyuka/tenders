@@ -14,6 +14,10 @@
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=307]
 
+
+    RewriteCond %{HTTP_HOST} ^biddersportal.com$ [NC]
+    RewriteRule ^(.*)$ https://www.biddersportal.com/$1 [R=301,L]
+
     # Send Requests To Front Controller...
     # RewriteCond %{REQUEST_FILENAME} !-d
     # RewriteCond %{REQUEST_FILENAME} !-f
