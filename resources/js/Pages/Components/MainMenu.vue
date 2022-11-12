@@ -26,22 +26,63 @@
                 Home</a
               >
               <a
+                :href="route('about')"
+                class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-5 py-5 font-bold text-2xl leading-3 shadow-md rounded-md"
+                ><span class="text-indigo-600"> <i class="fas fa-address-card"></i></span>
+                About & Contacts</a
+              >
+
+              <div class="flex justify-center">
+                <div>
+                  <div class="dropdown relative">
+                    <button
+                      @click="servicesDropdown=!servicesDropdown"
+                      class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-5 py-5 font-bold text-2xl leading-3 shadow-md rounded-md"
+                      ><span class="text-indigo-600">
+                        <i class="fas fa-list-ol"></i
+                      ></span>
+                      Our Services 
+                      <i v-if="servicesDropdown" class="ml-2 fas fa-caret-up text-indigo-600"></i>
+                      <i v-else class="ml-2 fas fa-caret-down text-indigo-600"></i>
+                      </button
+                    >
+
+                    <ul
+                      v-if="servicesDropdown"
+                      class="dropdown-menu min-w-max absolute bg-white text-base z-50 float-left list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none"
+                      aria-labelledby="dropdownMenuButton1"
+                    >
+                      <li class="font-primary">
+                        <a
+                          @click.prevent="goToListing"
+                          class="dropdown-item text-sm py-4 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-gray-700 hover:text-white bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 "
+                          href="#"
+                          >Tender Information Services</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class="dropdown-item text-sm py-4 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-gray-700 hover:text-white bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500"
+                          href="#"
+                          >Bid Outsourcing Services</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <a
                 @click.prevent="goToListing"
                 class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-5 py-5 font-bold text-2xl leading-3 shadow-md rounded-md"
                 ><span class="text-indigo-600"> <i class="fas fa-list-ol"></i></span>
                 Tenders Listing</a
-              >
+              > -->
               <a
                 :href="route('blogs')"
                 class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-5 py-5 font-bold text-2xl leading-3 shadow-md rounded-md"
                 ><span class="text-indigo-600"> <i class="fas fa-blog"></i></span>
                 Blogs</a
-              >
-              <a
-                :href="route('about')"
-                class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-5 py-5 font-bold text-2xl leading-3 shadow-md rounded-md"
-                ><span class="text-indigo-600"> <i class="fas fa-address-card"></i></span>
-                About & Contacts</a
               >
             </ul>
           </div>
@@ -88,7 +129,13 @@
               >
                 Home
               </li>
-              <!-- @click="selectedMenu('listing')" -->
+              <li
+                v-if="this.activeMenu != 'about'"
+                @click="selectedMenu('about')"
+                class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold"
+              >
+                About & Contacts
+              </li>
               <li
                 v-if="this.activeMenu != 'listing'"
                 @click.prevent="goToListing"
@@ -102,13 +149,6 @@
                 class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold"
               >
                 Blogs
-              </li>
-              <li
-                v-if="this.activeMenu != 'about'"
-                @click="selectedMenu('about')"
-                class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-extrabold"
-              >
-                About & Contacts
               </li>
             </ul>
           </div>
@@ -128,6 +168,7 @@ export default {
   },
   data() {
     return {
+      servicesDropdown: false,
       activeMenu: "",
       openMenu: "",
       currentMenu: "Home",

@@ -371,11 +371,11 @@
                                             Send Mpesa Prompt
                                         </button>
                                         <button
-                                            @click="paymentModal == false"
+                                            @click="expressModal=false"
                                             class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-red-600 bg-red-400 rounded text-white px-1 sm:px-4 py-2 text-xs"
                                         >
                                             Cancel Transaction
-                                        </button>
+                                        </button>    
                                     </div>
                                 </div>
                             </div>
@@ -873,6 +873,10 @@ export default {
         };
     },
     methods: {
+        closeModal()
+        { 
+            this.paymentModal=false      
+        },
         startTimer() {
             (this.showContinue = false),
                 (this.showReset = true),
@@ -1023,8 +1027,8 @@ export default {
                 }, 60000);
                 // setTimeout(() => this.timedOut(), 60000);
                 const requestBody = {
-                    amount: "1",
-                    // amount: this.amount,
+                    // amount: "1",
+                    amount: this.amount,
 
                     // account: this.form.account,
                     account: this.invoiceNumber,

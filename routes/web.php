@@ -129,7 +129,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/download', [DashboardCont
 //     return Inertia\Inertia::render('Dashboard');
 // })->name('dashboard');
 
-URL::forceScheme('https');
+// URL::forceScheme('https');
 
 if (env('APP_ENV') === 'local') {
     // URL::forceSchema('http');
