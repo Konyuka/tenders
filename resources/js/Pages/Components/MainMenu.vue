@@ -39,11 +39,11 @@
                       @click="servicesDropdown=!servicesDropdown"
                       class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-5 py-5 font-bold text-2xl leading-3 shadow-md rounded-md"
                       ><span class="text-indigo-600">
-                        <i class="fas fa-list-ol"></i
+                        <i class="fas fa-briefcase"></i
                       ></span>
                       Our Services 
-                      <i v-if="servicesDropdown" class="ml-2 fas fa-caret-up text-indigo-600"></i>
-                      <i v-else class="ml-2 fas fa-caret-down text-indigo-600"></i>
+                      <i v-if="servicesDropdown" class="ml-5 fas fa-arrow-up-short-wide text-black"></i>
+                      <i v-else class="ml-5 fas fa-arrow-down-short-wide text-black"></i>
                       </button
                     >
 
@@ -55,16 +55,16 @@
                       <li class="font-primary">
                         <a
                           @click.prevent="goToListing"
-                          class="dropdown-item text-sm py-4 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-gray-700 hover:text-white bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 "
+                          class="rounded-md transform transition hover:scale-90 duration-700 ease-in-out dropdown-item text-sm py-4 px-5 font-bold block w-full whitespace-nowrap bg-transparent text-gray-700 hover:text-white bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 "
                           href="#"
-                          >Tender Information Services</a
+                          ><i class="fas fa-caret-right mr-1 text-indigo-600"></i> Tender Information Services</a
                         >
                       </li>
                       <li>
                         <a
-                          class="dropdown-item text-sm py-4 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-gray-700 hover:text-white bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500"
+                          class="rounded-md transform transition hover:scale-90 duration-700 ease-in-out dropdown-item text-sm py-4 px-5 font-bold block w-full whitespace-nowrap bg-transparent text-gray-700 hover:text-white bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500"
                           href="#"
-                          >Bid Outsourcing Services</a
+                          ><i class="fas fa-caret-right mr-1 text-indigo-600"></i> Bid Outsourcing Services</a
                         >
                       </li>
                     </ul>
