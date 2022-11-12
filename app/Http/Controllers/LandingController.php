@@ -98,46 +98,46 @@ class LandingController extends Controller
 
 
         // return  dd($clientName);
-        if ($payment->email_sent == 0) {
+        // if ($payment->email_sent == 0) {
 
-            $mailInfo = new \stdClass();
-            $mailInfo->recieverName = $clientName;
-            $mailInfo->sender = "Bidders Portal";
-            $mailInfo->senderCompany = "Ochangaberg Limited";
-            $mailInfo->to = $clientEmail;
-            // $mailInfo->to = 'michaelsaiba84@gmail.com';
-            $mailInfo->from = 'support@biddersportal.com';
-            // $mailInfo->from = 'saiba@talkduka.co.ke';
-            $mailInfo->title = 'Purchased Tender Details';
-            $mailInfo->subject = $post->tender_brief;
-            $mailInfo->name = "Bidders Portal Purchased Tender details";
-            $mailInfo->cc = "support@biddersportal.com";
-            $mailInfo->bcc = "ochangai@gmail.com";
-            $mailInfo->invoiceNumber = $clientInvoice;
-            $mailInfo->receiptNumber = $slug;
+        //     $mailInfo = new \stdClass();
+        //     $mailInfo->recieverName = $clientName;
+        //     $mailInfo->sender = "Bidders Portal";
+        //     $mailInfo->senderCompany = "Ochangaberg Limited";
+        //     $mailInfo->to = $clientEmail;
+        //     // $mailInfo->to = 'michaelsaiba84@gmail.com';
+        //     $mailInfo->from = 'support@biddersportal.com';
+        //     // $mailInfo->from = 'saiba@talkduka.co.ke';
+        //     $mailInfo->title = 'Purchased Tender Details';
+        //     $mailInfo->subject = $post->tender_brief;
+        //     $mailInfo->name = "Bidders Portal Purchased Tender details";
+        //     $mailInfo->cc = "support@biddersportal.com";
+        //     $mailInfo->bcc = "ochangai@gmail.com";
+        //     $mailInfo->invoiceNumber = $clientInvoice;
+        //     $mailInfo->receiptNumber = $slug;
 
-            $mailInfo->tenderBrief = $post->tender_brief;
-            $mailInfo->tenderNumber = $post->tender_number;
-            $mailInfo->workDetail = $post->work_detail;
-            $mailInfo->purchasingAuthority = $post->purchasing_authority;
-            $mailInfo->competitionType = $post->competition_type;
-            $mailInfo->fundedBy = $post->funded_by;
-            $mailInfo->contactEmail = $post->email;
-            // $mailInfo->physicalAddress = $post->physicalAddress;
-            $mailInfo->datePosted = $post->created_at;
-            $mailInfo->lastDate = $post->expiry;
-            $mailInfo->postID = $post->_id;
+        //     $mailInfo->tenderBrief = $post->tender_brief;
+        //     $mailInfo->tenderNumber = $post->tender_number;
+        //     $mailInfo->workDetail = $post->work_detail;
+        //     $mailInfo->purchasingAuthority = $post->purchasing_authority;
+        //     $mailInfo->competitionType = $post->competition_type;
+        //     $mailInfo->fundedBy = $post->funded_by;
+        //     $mailInfo->contactEmail = $post->email;
+        //     // $mailInfo->physicalAddress = $post->physicalAddress;
+        //     $mailInfo->datePosted = $post->created_at;
+        //     $mailInfo->lastDate = $post->expiry;
+        //     $mailInfo->postID = $post->_id;
 
-            Mail::to($clientEmail)
-                // Mail::to('michaelsaiba84@gmail.com')
-                ->send(new BiddersEmail($mailInfo));
+        //     Mail::to($clientEmail)
+        //         // Mail::to('michaelsaiba84@gmail.com')
+        //         ->send(new BiddersEmail($mailInfo));
 
-            $payment = Payments::where(['trans_id' => $slug])->first();
-            if ($payment) {
-                $payment->mail_sent = true;
-                $payment->save();
-            }
-        }
+        //     $payment = Payments::where(['trans_id' => $slug])->first();
+        //     if ($payment) {
+        //         $payment->mail_sent = true;
+        //         $payment->save();
+        //     }
+        // }
 
         if ($payment->sms_sent == 0) {
             // return dd('sending');

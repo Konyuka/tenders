@@ -529,30 +529,40 @@ export default {
         };
     },
     methods: {
-        invoice(value) {
-            var strFirstThree = this.form.userPhone.substring(0, 3);
-            if (strFirstThree != 254) {
-                alert("Number Format Should Start with 254");
-            } else if (this.form.userPhone.length != 12) {
-                alert("Invalid Phone Number");
-            } else {
-                localStorage.setItem("userName", this.form.userName);
-                localStorage.setItem("userPhone", this.form.userPhone);
-                localStorage.setItem("userEmail", this.form.userEmail);
-                if (value == null) {
-                    const payload = {
-                        post: this.membership,
-                        user: this.form,
-                        amount: this.amount
-                    };
-                    this.$inertia.put(`/invoice/${this.user.id}`, payload);
+        invoice(value)
+        {
+            if (this.form.userPhone == null) {
+                const payload = {
+                            post: value,
+                            user: this.form,
+                            amount: this.amount
+                        };
+                        this.$inertia.put(`/invoice/${this.post._id}`, payload);
+            } else { 
+                var strFirstThree = this.form.userPhone.substring(0, 3);
+                if (strFirstThree != 254) {
+                    alert("Number Format Should Start with 254");
+                } else if (this.form.userPhone.length != 12) {
+                    alert("Invalid Phone Number");
                 } else {
-                    const payload = {
-                        post: value,
-                        user: this.form,
-                        amount: this.amount
-                    };
-                    this.$inertia.put(`/invoice/${this.post._id}`, payload);
+                    localStorage.setItem("userName", this.form.userName);
+                    localStorage.setItem("userPhone", this.form.userPhone);
+                    localStorage.setItem("userEmail", this.form.userEmail);
+                    if (value == null) {
+                        const payload = {
+                            post: this.membership,
+                            user: this.form,
+                            amount: this.amount
+                        };
+                        this.$inertia.put(`/invoice/${this.user.id}`, payload);
+                    } else {
+                        const payload = {
+                            post: value,
+                            user: this.form,
+                            amount: this.amount
+                        };
+                        this.$inertia.put(`/invoice/${this.post._id}`, payload);
+                    }
                 }
             }
         },

@@ -3,9 +3,9 @@
 namespace App\Imports;
 
 use App\Models\Upload;
-use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
+use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\WithValidation;
 
 class ImportPost implements ToModel, WithStartRow
@@ -37,11 +37,11 @@ class ImportPost implements ToModel, WithStartRow
     }
 
     public function transformDate($value, $format = 'Y-m-d')
-{
-    try {
-        return \Carbon\Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($value));
-    } catch (\ErrorException $e) {
-        return \Carbon\Carbon::createFromFormat($format, $value);
+    {
+        try {
+            return \Carbon\Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($value));
+        } catch (\ErrorException $e) {
+            return \Carbon\Carbon::createFromFormat($format, $value);
+        }
     }
-}
 }

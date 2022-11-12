@@ -10,64 +10,6 @@
             <div
                 class="right-0 flex justify-center items-center space-y-2 flex-col"
             >
-                <!-- <div class="rounded-md bg-red-50 p-4 mb-10">
-                    <div class="flex">
-                        <div class="flex-shrink-0">
-                            <i
-                                class="fas fa-circle-exclamation fa-3x text-red-400"
-                            ></i>
-                        </div>
-                        <div class="ml-3">
-                            <h3
-                                v-if="this.transactionStatus == 'Cancelled'"
-                                class="text-2xl font-extrabold font-heading-font text-red-800"
-                            >
-                                Transaction Cancelled...
-                            </h3>
-                            <h3
-                                v-else
-                                class="text-2xl font-extrabold font-heading-font text-red-800"
-                            >
-                                Payment Pending...
-                            </h3>
-
-                            <div
-                                class="mt-2 text-lg text-red-700 font-primary-font"
-                            >
-                                <p v-if="this.transactionStatus == 'Cancelled'">
-                                    Kindly Choose a payment gateway to
-                                    re-initiate payment procedure.
-
-                                    <br />
-
-                                    You can also use the Manual M-Pesa method at
-                                    the bottom right
-                                </p>
-                                <p v-else>
-                                    Kindly Proceed to make payment to access
-                                    tender details.
-                                </p>
-                            </div>
-                            <div class="mt-4">
-                                <div class="-mx-2 -my-1.5 flex">
-                                    <button
-                                        type="button"
-                                        class="bg-red-50 px-2 py-1.5 rounded-md text-sm font-extrabold font-primary-font text-red-800 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-50 focus:ring-red-600"
-                                    >
-                                        View status
-                                    </button>
-                                    <button
-                                        @click="this.unpaidAlert == false"
-                                        type="button"
-                                        class="ml-3 bg-red-50 px-2 py-1.5 rounded-md text-sm font-extrabold font-primary-font text-red-800 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-50 focus:ring-red-600"
-                                    >
-                                        Dismiss
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
 
                 <div>
                     <h1
@@ -1081,8 +1023,8 @@ export default {
                 }, 60000);
                 // setTimeout(() => this.timedOut(), 60000);
                 const requestBody = {
-                    // amount: "1",
-                    amount: this.amount,
+                    amount: "1",
+                    // amount: this.amount,
 
                     // account: this.form.account,
                     account: this.invoiceNumber,
