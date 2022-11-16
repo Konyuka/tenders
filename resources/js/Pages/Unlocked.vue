@@ -433,9 +433,10 @@ export default {
       });
     },
     downloadFile() {
-
+      
       axios({
-        url: 'https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//102021/16/79edf846-7b0d-429e-82f8-12f950ed0af6/79edf846-7b0d-429e-82f8-12f950ed0af6.htm',
+        url: this.post.link,
+        // url: 'https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//102021/16/79edf846-7b0d-429e-82f8-12f950ed0af6/79edf846-7b0d-429e-82f8-12f950ed0af6.htm',
         method: 'GET',
         responseType: 'blob',
       }).then((response) => {
@@ -443,67 +444,11 @@ export default {
         var fileLink = document.createElement('a');
         
         fileLink.href = fileURL;
-        fileLink.setAttribute('download', 'file.htm');
+        fileLink.setAttribute('download', 'file.html');
         document.body.appendChild(fileLink);
         
         fileLink.click();
       })
-
-
-      
-      // var url = "https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//102021/16/79edf846-7b0d-429e-82f8-12f950ed0af6/79edf846-7b0d-429e-82f8-12f950ed0af6.htm"
-      // // var fileName = "file.pdf"
-      // //Create XMLHTTP Request.
-      // var req = new XMLHttpRequest();
-      // req.open("GET", url, true);
-      // req.responseType = "blob";
-      // req.onload = function () {
-      //   //Convert the Byte Data to BLOB object.
-      //   var blob = new Blob([req.response], { type: "application/octetstream" });
-
-      //   //Check the Browser type and download the File.
-      //   var isIE = false || !!document.documentMode;
-      //   if (isIE) {
-      //     window.navigator.msSaveBlob(blob, fileName);
-      //   } else {
-      //     var url = window.URL || window.webkitURL;
-      //     // link = "https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//102021/16/79edf846-7b0d-429e-82f8-12f950ed0af6/79edf846-7b0d-429e-82f8-12f950ed0af6.htm";
-      //     link = url.createObjectURL(blob);
-      //     console.log(link)
-      //     var a = document.createElement("a");
-      //     a.setAttribute("download", fileName);
-      //     a.setAttribute("href", link);
-      //     document.body.appendChild(a);
-      //     a.click();
-      //     document.body.removeChild(a);
-      //   }
-      // };
-      // var res = req.send();
-      // window.open(res, '_blank');
-      
-
-      // var url = "https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//102021/16/79edf846-7b0d-429e-82f8-12f950ed0af6/79edf846-7b0d-429e-82f8-12f950ed0af6.htm"
-      // var link = document.createElement('a');
-      // link.href = url;
-      // link.download = 'file.pdf';
-      // link.dispatchEvent(new MouseEvent('click'));
-      // alert('hi')
-      // window.open(pdfUrl, '_blank');
-      // return;
-
-      // url = "https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//102021/16/79edf846-7b0d-429e-82f8-12f950ed0af6/79edf846-7b0d-429e-82f8-12f950ed0af6.htm";
-      // const response = this.$http.get(
-      //   // this.appApiPath + "/testpdf",
-      //   url,
-      //   {
-      //     responseType: "arraybuffer",
-      //   }
-      // );
-      // const blob = new Blob([response.data], { type: "application/pdf" });
-      // const link = document.createElement("a");
-      // link.href = window.URL.createObjectURL(blob);
-      // link.download = "test.pdf";
-      // link.click();
     },
     formatDate(value) {
       return moment(value).format("MMMM Do YYYY");
