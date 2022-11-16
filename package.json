@@ -40,6 +40,7 @@
         "jquery": "^3.6.0",
         "laravel-vue-pagination": "^3.0.0",
         "moment": "^2.29.3",
+        "pdf-lib": "^1.17.1",
         "puppeteer": "^15.4.0",
         "tailwind-gradient-mask-image": "^1.0.0",
         "v-calendar": "^2.4.1",
