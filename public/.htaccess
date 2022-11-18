@@ -27,10 +27,8 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^.*$ /index.php [L,QSA]
-</IfModule>
 
-<IfModule mod_expires.c>
-  ExpiresActive On
+    ExpiresActive On
 
  # Images
   ExpiresByType image/jpeg "access plus 1 year"
@@ -60,24 +58,36 @@
   # Others
   ExpiresByType application/pdf "access plus 1 year"
   ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
-</IfModule>
 
-# BEGIN Expires-Headers
-<IfModule mod_expires.c>
   <FilesMatch "\.(js|css)$">
     ExpiresActive On
     ExpiresDefault "access plus 1 weeks"
   </FilesMatch>
-</IfModule>
-# END Expires-Headers
 
-# BEGIN Cache-Control-Headers
-<ifmodule mod_headers.c>
   <filesmatch "(gif|ico|jpeg|jpe|jpg|svg|png|css|js)$">
     Header set Cache-Control "max-age=604800, public"
   </filesmatch>
-</ifmodule>
-# END Cache-Control-Headers
+
+    
+</IfModule>
+
+
+
+# <IfModule mod_expires.c>
+  
+# </IfModule>
+
+# # BEGIN Expires-Headers
+# <IfModule mod_expires.c>
+  
+# </IfModule>
+# # END Expires-Headers
+
+# # BEGIN Cache-Control-Headers
+# <ifmodule mod_headers.c>
+  
+# </ifmodule>
+# # END Cache-Control-Headers
 
 
 

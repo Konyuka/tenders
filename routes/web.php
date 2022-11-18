@@ -7,6 +7,10 @@ use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\BlogsController;
 use Illuminate\Support\Facades\URL;
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: *");
+
 
 // Route::get('/', function () {
 //     return view('welcome');
