@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\URL;
 //     return view('welcome');
 // });
 
-Route::get('/', [LandingController::class, 'index'])
+Route::middleware(['cors'])->get('/', [LandingController::class, 'index'])
     ->name('landing');
 
 Route::get('/selected/{slug}', [LandingController::class, 'selected'])
