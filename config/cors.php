@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'paths' => ['https://www.tenderfiles.com/*', 'api/*', '/','sanctum/csrf-cookie'],
+    'paths' => ['https://www.tenderfiles.com/*', 'api/*', '/*','sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],
 
