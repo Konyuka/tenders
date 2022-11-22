@@ -7,16 +7,17 @@ use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\BlogsController;
 use Illuminate\Support\Facades\URL;
 
+// header("Access-Control-Allow-Origin: *");
+// header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS");
+// header("Access-Control-Allow-Headers: *");
+
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: *");
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::middleware(['cors'])->get('/', [LandingController::class, 'index'])
+Route::get('/', [LandingController::class, 'index'])
+// Route::middleware(['cors'])->get('/', [LandingController::class, 'index'])
     ->name('landing');
 
 Route::get('/selected/{slug}', [LandingController::class, 'selected'])
@@ -136,8 +137,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/download', [DashboardCont
 // URL::forceScheme('https');
 
 if (env('APP_ENV') === 'local') {
-    // URL::forceSchema('http');
+    URL::forceSchema('http');
     // \URL::forceScheme('http');
 } else {
-    // \URL::forceScheme('https');
+    URL::forceScheme('https');
 }
