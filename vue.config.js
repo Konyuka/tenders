@@ -3,7 +3,7 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     devServer: {
-        proxy: 'https://localhost:8000'
+        proxy: 'https://localhost:8000/'
     },
     configureWebpack: {
         plugins: [
