@@ -15,20 +15,20 @@ return [
     |
     */
 
-    'paths' => ['https://www.tenderfiles.com/*', 'api/*', '/*','sanctum/csrf-cookie'],
+    'paths' => [ '*', 'https://www.tenderfiles.com/*', 'api/*', '/*','sanctum/csrf-cookie'],
     // 'paths' => ['https://www.tenderfiles.com/*', 'api/*', '/*','sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],
 
     'allowed_origins' => ['*', 'http://localhost:8000/*', 'https://www.biddersportal.com/*', 'https://www.tenderfiles.com/*', ],
 
-    'allowed_origins_patterns' => [],
+    'allowed_origins_patterns' => ['*'],
 
     'allowed_headers' => ['*'],
 
     // 'exposed_headers' => ['Access-Control-Allow-Origin'],
-    'exposed_headers' => false,
-    // 'exposed_headers' => ['*'],
+    // 'exposed_headers' => false,
+    'exposed_headers' => ['*'],
 
     'max_age' => 0,
 

@@ -435,8 +435,8 @@ export default {
     downloadFile() {
       
       axios({
-        // url: this.post.link,
-        url: 'https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//102021/16/79edf846-7b0d-429e-82f8-12f950ed0af6/79edf846-7b0d-429e-82f8-12f950ed0af6.htm/',
+        url: encodeURI(this.post.link),
+        // url: 'https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//102021/16/79edf846-7b0d-429e-82f8-12f950ed0af6/79edf846-7b0d-429e-82f8-12f950ed0af6.htm/',
         method: 'GET',
         responseType: 'blob',
         headers: {
