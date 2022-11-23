@@ -297,6 +297,9 @@ import MainMenu from "./Components/MainMenu.vue";
 import MainFooter from "./Components/MainFooter.vue";
 import dateFormat from "dateformat";
 import moment from "moment";
+import axios from "axios";
+axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded'
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 export default {
   name: "Selected",
@@ -435,15 +438,16 @@ export default {
     downloadFile() {
       
       axios({
-        url: encodeURI(this.post.link),
-        // url: 'https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//102021/16/79edf846-7b0d-429e-82f8-12f950ed0af6/79edf846-7b0d-429e-82f8-12f950ed0af6.htm/',
+        // url: encodeURI(this.post.link),
+        url: encodeURI('https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//112022/18/bbdf837b-7c5b-4a39-9960-701b89d2cc5d/bbdf837b-7c5b-4a39-9960-701b89d2cc5d.pdf'),
+        // url: encodeURI('http://localhost:8000/GlobalTenderDocuments//GlobalDocuments//112022/18/bbdf837b-7c5b-4a39-9960-701b89d2cc5d/bbdf837b-7c5b-4a39-9960-701b89d2cc5d.pdf'),
         method: 'GET',
         responseType: 'blob',
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-          "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
-        }
+        // headers: {
+        //   "Access-Control-Allow-Origin": "*",
+        //   "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+        //   "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+        // }
       }).then((response) => {
         var fileURL = window.URL.createObjectURL(new Blob([response.data]));
         var fileLink = document.createElement('a');
