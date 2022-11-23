@@ -438,16 +438,11 @@ export default {
     downloadFile() {
       
       axios({
-        // url: encodeURI(this.post.link),
-        url: encodeURI('https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//112022/18/bbdf837b-7c5b-4a39-9960-701b89d2cc5d/bbdf837b-7c5b-4a39-9960-701b89d2cc5d.pdf'),
+        url: encodeURI(this.post.link),
+        // url: encodeURI('https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//112022/18/bbdf837b-7c5b-4a39-9960-701b89d2cc5d/bbdf837b-7c5b-4a39-9960-701b89d2cc5d.pdf'),
         // url: encodeURI('http://localhost:8000/GlobalTenderDocuments//GlobalDocuments//112022/18/bbdf837b-7c5b-4a39-9960-701b89d2cc5d/bbdf837b-7c5b-4a39-9960-701b89d2cc5d.pdf'),
         method: 'GET',
         responseType: 'blob',
-        // headers: {
-        //   "Access-Control-Allow-Origin": "*",
-        //   "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-        //   "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
-        // }
       }).then((response) => {
         var fileURL = window.URL.createObjectURL(new Blob([response.data]));
         var fileLink = document.createElement('a');
@@ -458,6 +453,7 @@ export default {
         
         fileLink.click();
       })
+
     },
     formatDate(value) {
       return moment(value).format("MMMM Do YYYY");

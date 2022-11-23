@@ -109,12 +109,12 @@
                   <div
                     class="flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full"
                   >
-                    <span
+                    <!-- <span
                       class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none pr-3 py-1 border-r-2 border-gray-200"
                     >
                       <i class="w-4 h-4 mr-1 fas fa-coins text-indigo-600"></i>
                       {{ post.funded_by }}
-                    </span>
+                    </span> -->
                     <span
                       class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none pr-3 py-1 border-r-2 border-gray-200"
                     >

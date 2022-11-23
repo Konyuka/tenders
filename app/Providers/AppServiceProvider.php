@@ -17,12 +17,17 @@ class AppServiceProvider extends ServiceProvider
         //
         //check that app is local
         // if ($this->app->isLocal()) {
-        // //if local register your services you require for development
-        //     $this->app->register('Barryvdh\Debugbar\ServiceProvider');
+        // $this->app->register('Barryvdh\Debugbar\ServiceProvider');
         // } else {
-        // //else register your services you require for production
         //     $this->app['request']->server->set('HTTPS', true);
         // }
+        
+        if (env('APP_ENV') === 'local') {
+            $this->app->register('Barryvdh\Debugbar\ServiceProvider');
+        } else {
+            // URL::forceScheme('https');
+            $this->app['request']->server->set('HTTPS', true);
+        }
 
         // URL::forceScheme('`http`');
 

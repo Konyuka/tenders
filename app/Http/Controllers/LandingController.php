@@ -12,7 +12,8 @@ use App\Meta;
 use Carbon\Carbon;
 // use App\Http\Controllers\DateTime;
 use DateTime;
-use DB;
+// use DB;
+use Illuminate\Support\Facades\DB;
 // use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Route;
 use App\Mail\BiddersEmail;
@@ -353,18 +354,27 @@ class LandingController extends Controller
         // $html2pdf->display_pdf($fileName.'.pdf');
         $html2pdf->download_pdf($fileName);
     }
+    
 
     public function listing()
     {
-        // $posts = Post::paginate(20);
-        // return dd(json_decode($posts));
-    	// return response()->json($users);
-        // return response()->json($posts);
-        // return Inertia::render('Listing', ['Posts' => response()->json_decode($posts)]);
-        // return Inertia::render('Listing', ['Posts' => json_decode($posts)]);
-        // return Inertia::render('Listing', ['Posts' => json_decode($posts, true)]);
+        // $posts = Post::latest()->paginate(10);
+        // function trim($value)
+        // {
+        //     return strtok($value,' ');
+        // }
 
-        $posts = Post::latest()->get();
+        // $today = Carbon::now();
+        // $date = Carbon::createFromFormat('Y-m-d H:i:s', $today)->format('d-m-Y');
+        // $sample  = trim('30-04-2022 00:00:00');
+        // $sample  = '30-05-2022 00:00:00';
+        // $trimmed = strtok($sample,' ');
+        // return dd($date);
+        $posts = Post::select(['_id', 'created_at', 'expiry', 'tender_brief' ])
+        ->latest()
+        // ->whereDate(trim('expiry'), '>', '23-11-2022')
+        ->get();
+        // $expiry = $posts->expiry;
         return Inertia::render('Listing', ['Posts' => json_decode($posts, true)]);
     }
 
