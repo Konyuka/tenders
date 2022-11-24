@@ -11,10 +11,6 @@
         "php": "^7.2 || ^8.0",
         "ext-mongo": "*",
         "abraham/twitteroauth": "^4.0",
-        "atymic/twitter": "^3.1",
-        "barryvdh/laravel-dompdf": "^2.0",
-        "coderjerk/bird-elephant": "^0.5.0",
-        "dompdf/dompdf": "^2.0",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.4",
@@ -29,10 +25,7 @@
         "phpoffice/phpspreadsheet": "^1.14",
         "psr/simple-cache": "1.0",
         "safaricom/mpesa": "^1.0",
-        "smolblog/oauth2-twitter": "^1.0",
-        "spatie/browsershot": "^3.57",
         "spatie/laravel-tail": "^4.3",
-        "thujohn/twitter": "^3.1",
         "tightenco/ziggy": "^0.9.4"
     },
     "require-dev": {

@@ -5,26 +5,34 @@
         <!-- For large and Medium-sized Screen -->
         <div class="flex justify-between">
           <div class="hidden sm:flex flex-row items-center space-x-6">
-            <img
-              class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"
-              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg1.svg"
-              alt="twitter"
-            />
-            <img
-              class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"
-              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg2.svg"
-              alt="facebook"
-            />
-            <img
-              class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"
-              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg3.svg"
-              alt="linkdin"
-            />
-            <img
-              class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"
-              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg4.svg"
-              alt="instagram"
-            />
+            <a href="https://twitter.com/biddersportal" target="_blank" rel="noopener noreferrer">
+              <img
+                class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"
+                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg1.svg"
+                alt="twitter"
+              />
+            </a>
+            <a href="https://facebook.com/BiddersPortal" target="_blank" rel="noopener noreferrer">
+              <img
+                class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"
+                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg2.svg"
+                alt="facebook"
+              />
+            </a>
+            <a href="https://www.linkedin.com/in/bidders-portal-6960b2252/" target="_blank" rel="noopener noreferrer">
+              <img
+                class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"
+                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg3.svg"
+                alt="linkdin"
+              />
+            </a>
+            <!-- <a href="https://" target="_blank" rel="noopener noreferrer">
+              <img
+                class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-125 duration-700 ease-in-out hover:animate-pulse active:animate-ping p-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"
+                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-3-svg4.svg"
+                alt="instagram"
+              />
+            </a> -->
           </div>
           <a :href="route('landing')" class="flex space-x-3 items-center">
             <img
