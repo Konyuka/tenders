@@ -37,9 +37,13 @@ class LandingController extends Controller
      */
     public function index()
     {
-        // $posts = Post::all();
-        // $posts = Post::take(6)->get();
-        $posts = Post::latest()->limit(6)->get();
+        // $posts = Post::latest()->limit(6)->get();
+
+        $posts = Post::
+        select(['_id', 'created_at', 'expiry', 'tender_brief'])
+        ->latest()
+        ->limit(6)
+        ->get();
 
         // return dd(json_decode($posts, true));
 

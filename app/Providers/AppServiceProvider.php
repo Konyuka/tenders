@@ -22,12 +22,12 @@ class AppServiceProvider extends ServiceProvider
         //     $this->app['request']->server->set('HTTPS', true);
         // }
         
-        if (env('APP_ENV') === 'local') {
-            $this->app->register('Barryvdh\Debugbar\ServiceProvider');
-        } else {
-            // URL::forceScheme('https');
-            $this->app['request']->server->set('HTTPS', true);
-        }
+        // if (env('APP_ENV') === 'local') {
+        //     $this->app->register('Barryvdh\Debugbar\ServiceProvider');
+        // } else {
+        //     // URL::forceScheme('https');
+        //     $this->app['request']->server->set('HTTPS', true);
+        // }
 
         // URL::forceScheme('`http`');
 

@@ -137,7 +137,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/download', [DashboardCont
 // URL::forceScheme('https');
 
 if (env('APP_ENV') === 'local') {
-    URL::forceScheme('http');
+    // URL::forceScheme('http');
     // \URL::forceScheme('http');
 } else {
     URL::forceScheme('https');
