@@ -4,16 +4,17 @@
             class="2xl:mx-auto dark:bg-gray-900 2xl:container md:px-5 px-4 md:py-5 py-9"
         >
             <div class="relative rounded-md shadow-2xl">
-                <img
+                <!-- <img
                     src="https://i.ibb.co/SBpL1cK/pexels-aleksandar-pasaric-325185-1.png"
                     alt="city view"
                     class="w-full h-full rounded-md  object-center object-fill absolute sm:block hidden"
                 />
                 <img
                     src="https://i.ibb.co/LQpxBsc/mobile.png"
+
                     alt="city view"
                     class="w-full h-full rounded-md absolute object-center object-fill sm:hidden"
-                />
+                /> -->
                 <div
                     class="text-xl relative z-20 bg-gradient-to-r from-blue-700 to-transparent w-full h-full z-40 top-0 md:p-16 p-6 flex flex-col justify-between rounded-md "
                 >
