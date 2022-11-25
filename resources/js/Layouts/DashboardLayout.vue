@@ -190,8 +190,23 @@
               class="mb-4 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
             >
               <!-- Heroicon name: outline/home -->
-              <i class="fas fa-coins fa-xl text-gray-200 mr-2"></i>
+              <i class="fas fa-hashtag fa-xl text-gray-200 mr-2"></i>
               Social Media
+            </a>
+
+            <a
+              v-if="admin"
+              :href="route('admin.blog')"
+              :class="
+                this.activeMenu == 'admin.blog'
+                  ? 'bg-white text-black'
+                  : 'bg-indigo-800'
+              "
+              class="mb-4 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
+            >
+              <!-- Heroicon name: outline/home -->
+              <i class="fas fa-blog fa-xl text-gray-200 mr-2"></i>
+              Blogs
             </a>
 
             <a
@@ -357,18 +372,9 @@
   </div>
 </template>
 
-<script
-  async
-  src="https://api.countapi.xyz/hit/biddersportal.com/26c22b66-d3fe-45dd-9c9e-666925da30cd?callback=websiteVisits"
-></script>
 
 <script>
-// import TendersPage from "../Pages/Components/Dashboard/TendersPage.vue";
 
-function websiteVisits(response) {
-  alert("buda");
-  document.querySelector("#visits").textContent = response.value;
-}
 
 const app = document.getElementById("app");
 export default {

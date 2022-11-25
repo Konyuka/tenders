@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\Invoice;
 use Safaricom\Mpesa\Mpesa;
 use App\Models\Payments;
+use App\Models\Blog;
 use App\Meta;
 use Carbon\Carbon;
 // use App\Http\Controllers\DateTime;
@@ -412,7 +413,11 @@ class LandingController extends Controller
 
     public function blogs()
     {
-        return Inertia::render('Blog',);
+        $blogs = Blog::latest()->get();
+
+        return Inertia::render('Blog', [
+            'blogs' => $blogs,
+        ]);
     }
 
     public function search()

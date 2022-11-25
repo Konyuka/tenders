@@ -3,28 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use App\Models\Post;
 use App\Models\Payments;
+use App\Models\Blog;
 use App\Models\Upload;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ImportPost;
-use Illuminate\Support\Collection;
-use Maatwebsite\Excel\Concerns\ToCollection;
 use Illuminate\Support\Facades\DB;
-use File;
 use Illuminate\Support\Facades\Http;
-// use Atymic\Twitter\Twitter as TwitterContract;
-use Illuminate\Http\JsonResponse;
-// use Twitter;
-// use Atymic\Twitter\Facade\Twitter;
-// require "vendor/autoload.php";
-use Abraham\TwitterOAuth\TwitterOAuth;
 use Coderjerk\BirdElephant\BirdElephant;
 use Smolblog\OAuth2\Client\Provider\Twitter;
-// require_once('bootstrap.php');
-// session_start();
+
 
 class DashboardController extends Controller
 {
@@ -33,6 +23,32 @@ class DashboardController extends Controller
         // $payments = Payments::all();
         return Inertia::render('Admin/Dashboard', [
             'refreshed' => false,
+        ]);
+    }
+
+    public function blogPost(Request $request)
+    {
+        // return dd($request);
+
+        $article = Blog::create([
+            'added_by' => $request->added_by,
+            'title' => $request->title,
+            'content' => $request->content,
+            'live' => $request->live,
+            'draft' => $request->draft
+        ]);
+        
+        return Inertia::render('Admin/Blogs', [
+            // 'blogs' => $blogs,
+        ]);
+    }
+
+    public function blogs()
+    {
+        $blogs = Blog::latest()->get();
+
+        return Inertia::render('Admin/Blogs', [
+            'blogs' => $blogs,
         ]);
     }
 

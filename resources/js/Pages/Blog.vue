@@ -7,6 +7,51 @@
             <section class="text-gray-600 body-font overflow-hidden">
                 <div class="container px-5 py-24 mx-auto">
                     <div class="-my-8 divide-y-2 divide-gray-100">
+
+                        <button
+                            v-for="(blog, index) in blogs"  :key="index"
+                            @click="showDetails(blog)"
+                            class="mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700  py-8 flex flex-wrap md:flex-nowrap"
+                        >
+                            <div
+                                class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col"
+                            >
+                                <span
+                                    class="captalize font-semibold title-font text-gray-700"
+                                    >Tender News</span
+                                >
+                                <span class="mt-1 text-gray-500 text-sm"
+                                    >{{ formatDate(blog.created_at) }}</span
+                                >
+                            </div>
+                            <div class="md:flex-grow">
+                                <h2
+                                    class="text-2xl font-medium text-gray-900 title-font mb-2"
+                                >
+                                    {{ blog.title }}
+                                </h2>
+                                <p class="leading-relaxed">
+                                    {{ truncateWords(blog.content) }}
+                                </p>
+                                <a
+                                    class="text-indigo-500 inline-flex items-center mt-4"
+                                    >Read More
+                                    <svg
+                                        class="w-4 h-4 ml-2"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        fill="none"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M5 12h14"></path>
+                                        <path d="M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </button>
+                        
                         <a
                             href="how-to-win-a-tender"
                             class="mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700  py-8 flex flex-wrap md:flex-nowrap"
@@ -175,10 +220,13 @@
 import TopBanner from "./Components/TopBanner.vue";
 import MainMenu from "./Components/MainMenu.vue";
 import MainFooter from "./Components/MainFooter.vue";
+import moment from "moment";
 
 export default {
     name: "Landing",
-    props: {},
+    props: {
+        blogs: Array,
+    },
     components: {
         TopBanner,
         MainMenu,
@@ -193,8 +241,16 @@ export default {
         };
     },
     methods: {
-        clearFilters() {},
-        loadFilters() {}
+        showDetails(blog){
+            
+        },
+        truncateWords(str){
+            
+            return str.split(" ").splice(0, 70).join(" ");
+        },
+        formatDate(date) {
+            return moment(date).format('MMM Do YY');
+        },
     }
 };
 </script>

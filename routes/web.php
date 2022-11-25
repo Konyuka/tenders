@@ -95,6 +95,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardCon
     ->name('dashboard');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/payment', [DashboardController::class, 'payments'])
     ->name('admin.payment');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/blog', [DashboardController::class, 'blogs'])
+    ->name('admin.blog');
+Route::middleware(['auth:sanctum', 'verified'])->post('/dashboard/blog/post', [DashboardController::class, 'blogPost'])
+    ->name('admin.blog.post');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/apitwitter', [DashboardController::class, 'twitter'])
     ->name('admin.apitwitter');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/tender', [DashboardController::class, 'tenders'])
