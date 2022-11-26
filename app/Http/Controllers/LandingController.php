@@ -63,6 +63,15 @@ class LandingController extends Controller
         ]);
     }
 
+    public function blogDetails(Request $request)
+    {
+        $blog = Blog::where('id', '=', $request->id)->first();
+        // return dd($blog);
+        return Inertia::render('Blogs/BlogTemplate', [
+            'blog' => $blog,
+        ]);
+    }
+
     public function about()
     {
         return Inertia::render('About', [

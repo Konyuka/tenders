@@ -192,11 +192,9 @@ export default {
     },
     data() {
         return {
-            // title: null,
-            // content: null,
+            title: null,
+            content: null,
             activeTab: 'active',
-            title: 'heeader',
-            content: 'content',
             pageData: JSON.parse(app.dataset.page),
 
         };

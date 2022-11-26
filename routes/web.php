@@ -23,6 +23,9 @@ Route::get('/', [LandingController::class, 'index'])
 Route::get('/selected/{slug}', [LandingController::class, 'selected'])
     ->name('selected');
 
+Route::put('/blog/{slug}', [LandingController::class, 'blogDetails'])
+    ->name('blogdetails');
+
 Route::get('/free/{slug}', [LandingController::class, 'free'])
     ->name('free');
 

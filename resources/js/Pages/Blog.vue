@@ -7,11 +7,12 @@
             <section class="text-gray-600 body-font overflow-hidden">
                 <div class="container px-5 py-24 mx-auto">
                     <div class="-my-8 divide-y-2 divide-gray-100">
-
-                        <button
+                        
+                        <a
                             v-for="(blog, index) in blogs"  :key="index"
-                            @click="showDetails(blog)"
-                            class="mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700  py-8 flex flex-wrap md:flex-nowrap"
+                            @click.prevent="showDetails(blog)"
+                            href="#"
+                            class="hover:cursor-pointer mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700  py-8 flex flex-wrap md:flex-nowrap"
                         >
                             <div
                                 class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col"
@@ -50,8 +51,7 @@
                                     </svg>
                                 </a>
                             </div>
-                        </button>
-                        
+                        </a>
                         <a
                             href="how-to-win-a-tender"
                             class="mb-2 shadow-xl transform transition hover:bg-indigo-100 px-6 rounded-xl duration-700  py-8 flex flex-wrap md:flex-nowrap"
@@ -242,7 +242,9 @@ export default {
     },
     methods: {
         showDetails(blog){
-            
+            const string = blog.title.replaceAll(' ', '-');
+            console.log(string)
+            this.$inertia.put(`/blog/${string}`, blog);
         },
         truncateWords(str){
             
