@@ -177,13 +177,13 @@
                   <!-- <a :href="route('download_tender', this.post._id)" target="_blank"> -->
                   <div>
                     <!-- @click="downloadTender" -->
-                    <button
+                    <!-- <button
                     @click="downloadFile"
                       class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-1 px-2 text-xs sm:text-lg sm:px-6 focus:outline-none rounded"
                     >
                       Download Documents
                       <i class="fas fa-download text-white ml-2 mt-1"></i>
-                    </button>
+                    </button> -->
                     <!-- <a
                       href="https://www.tenderfiles.com/GlobalTenderDocuments//GlobalDocuments//102021/16/79edf846-7b0d-429e-82f8-12f950ed0af6/79edf846-7b0d-429e-82f8-12f950ed0af6.htm"
                       download="file_name"
