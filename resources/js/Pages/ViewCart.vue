@@ -65,14 +65,16 @@
                               </tr>
                             </thead>
                             <tbody class="bg-white">
-                              <tr v-for="tender in Tenders">
+                              <tr v-for="(tender, index) in TenderList" :key="index">
                                 <td
                                   class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-40 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">
                                    {{ tender.tender_brief }}</td>
-                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">KES. </td>
+                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">
+                                  KES <span class="font-bold text-green-500">{{ getPrice(tender.created_at) }}</span> 
+                                </td>
                                 <td
                                   class="group relative whitespace-nowrap border-b border-gray-200 py-4 pr-4 pl-3 text-right text-md font-medium sm:pr-6 lg:pr-8">
-                                  <a href="#" class="text-indigo-600 hover:text-indigo-900"> 
+                                  <a @click.prevent="removeTender(index)" href="#" class="text-indigo-600 hover:text-indigo-900"> 
                                     <i class="tranform transition  group-hover:font-bold group-hover:text-lg hover:scale-110 duration-700 fas fa-xmark"></i> 
                                   </a>
                                 </td>
@@ -91,16 +93,16 @@
       
               <dl class="mt-10 space-y-6 text-sm font-medium text-gray-500">
                 <div class="flex justify-between">
-                  <dt>Subtotal</dt>
-                  <dd class="text-gray-900">$104.00</dd>
+                  <!-- <dt>Subtotal</dt>
+                  <dd class="text-gray-900">$104.00</dd> -->
                 </div>
                 <div class="flex justify-between">
-                  <dt>Taxes</dt>
-                  <dd class="text-gray-900">$8.32</dd>
+                  <!-- <dt>Taxes</dt>
+                  <dd class="text-gray-900">$8.32</dd> -->
                 </div>
                 <div class="flex justify-between border-t border-gray-200 pt-6 text-gray-900">
                   <dt class="text-base">Total</dt>
-                  <dd class="text-base">$126.32</dd>
+                  <dd class="text-base">KES <span class="font-extrabold text-green-500 text-md"> {{ getTotalAmount() }} </span></dd>
                 </div>
               </dl>
             </div>
@@ -181,6 +183,7 @@
 import TopBanner from "./Components/TopBanner.vue";
 import MainMenu from "./Components/MainMenu.vue";
 import MainFooter from "./Components/MainFooter.vue";
+import moment from "moment";
 
 export default {
   name: 'ViewCart',
@@ -192,19 +195,56 @@ export default {
   props: {
     Tenders: Array,
   },
+  // mounted(){
+  //   this.TenderList = this.Tenders
+  // },
+  beforeMount(){
+    this.TenderList = this.Tenders
+  },
   data(){
     return{
-
+      TenderList: Array
     }
   },
   watch: {
-
+    TenderList(value){
+      console.log(value)
+      if(value.length == 0){
+        this.$inertia.get('/')
+      }
+    }
   },
   computed: {
 
   },
   methods: {
-      
+    removeTender(value){
+      let splicedTender = this.TenderList.splice(value, 1);
+      this.$store.commit('removeFromCart', splicedTender[0]._id)
+      // console.log(splicedTender[0])
+    },
+    getTotalAmount(){
+      let totalsarray =[]
+      for (let index = 0; index < this.TenderList.length; index++) {
+        const element = this.TenderList[index];
+        let price = this.getPrice(element.created_at)
+        totalsarray.push(price)        
+      }
+      return totalsarray.reduce((a, b) => a + b, 0)
+    },
+    getPrice(value){
+      // console.log(value)
+      var given = moment(value, "YYYY-MM-DD");
+      var current = moment().startOf("day");
+      var diff = moment.duration(current.diff(given)).asDays();
+      if (diff <= 10) {
+        return 150;
+      } else if (diff >= 11 && this.diff <= 20) {
+        return 100;
+      } else {
+        return 50;
+      }
+    }
   }
 
 }

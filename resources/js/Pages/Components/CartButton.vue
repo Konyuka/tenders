@@ -35,8 +35,12 @@ export default {
   },
   methods: {
     goToCart(){
-      let tenderList = this.$store.state.tenderIDs
-      this.$inertia.post('/view_cart', tenderList)
+      if (this.storecount==0){
+        alert('No Items in Cart')
+      }else{
+        let tenderList = this.$store.state.tenderIDs
+        this.$inertia.post('/view_cart', tenderList)
+      }
     }
   }
 
