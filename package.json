@@ -47,6 +47,8 @@
         "vue-timer-hook": "^1.0.0",
         "vue2-filters": "^0.14.0",
         "vue2-flip-countdown": "^0.12.1",
-        "vue3-flip-countdown": "^0.1.6"
+        "vue3-flip-countdown": "^0.1.6",
+        "vuex": "^3.6.0",
+        "vuex-persistedstate": "^4.1.0"
     }
 }

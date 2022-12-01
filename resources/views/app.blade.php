@@ -29,7 +29,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Bidders Portal') }}</title>
 
     <link rel="icon" type="image/png" href="../img/favicon.png" />
 

@@ -7,6 +7,7 @@ import { InertiaForm } from 'laravel-jetstream';
 // import { InertiaProgress } from '@inertiajs/progress'
 // InertiaProgress.init()
 import PortalVue from 'portal-vue';
+import store from './store';
 
 // import { SetupCalendar } from 'v-calendar';
 // app.use(SetupCalendar, {})
@@ -20,11 +21,12 @@ Vue.use(PortalVue);
 const app = document.getElementById('app');
 
 new Vue({
+    store,
     render: (h) =>
         h(InertiaApp, {
             props: {
                 initialPage: JSON.parse(app.dataset.page),
                 resolveComponent: (name) => require(`./Pages/${name}`).default,
             },
-        }),
+    }),
 }).$mount(app);

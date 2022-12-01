@@ -87,11 +87,16 @@
             </ul>
           </div>
           <div class="hidden sm:flex space-x-5 justify-center items-center pr-6">
-            <a
-              href="mailto:support@biddersportal.com"
-              class="transform transition hover:scale-125 duration-700 ease-in-out fas fa-envelope fa-2xl text-indigo-600"
-            ></a>
-            <!-- <a @click="openModal" href="#" class="transform transition hover:scale-125 duration-700 ease-in-out fas fa-search fa-2xl text-indigo-600"></a> -->
+            <!-- <div class="relative flex transform transition hover:scale-125 duration-700 ease-in-out">
+              <a href="#" class="ml-3 fa-2xl text-indigo-600 fa-solid fa-cart-shopping p-1">
+              </a>
+              <span
+                class="absolute right-0 top-0 rounded-full bg-black w-5 h-5 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center">
+                {{ storecount }}
+              </span>
+            </div> -->
+            <a href="mailto:support@biddersportal.com"
+              class="transform transition hover:scale-125 duration-700 ease-in-out fas fa-envelope fa-2xl text-indigo-600"></a>
           </div>
         </nav>
         <!-- for smaller devcies -->
@@ -195,6 +200,9 @@ export default {
     },
   },
   computed: {
+    storecount(){
+      return this.$store.state.tenderIDs.length
+    },
     curivntRoute() {
       return route().current();
     },

@@ -8,10 +8,9 @@ module.exports = {
     configureWebpack: {
         plugins: [
             new Dotenv()
-        ]
+        ],
     },
-    chainWebpack: config =>
-    {
+    chainWebpack: config => {
         config.plugins.delete('prefetch');
     }
 }

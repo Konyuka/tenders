@@ -49,8 +49,7 @@
                 <a
                   v-for="(post, i) in displayedPosts"
                   :key="post._id"
-                  :href="route('selected', post._id)"
-                  class="group bg-white border-2 mt-1 my-2 border-indigo-600 shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl items-start"
+                  class="group bg-white border-2 mt-1 my-2 border-indigo-600 shadow-xl hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl items-start"
                 >
                   <div class="flex justify-between w-full">
                     <div class="text-xs sm:text-lg font-heading-font font-extrabold">
@@ -140,33 +139,16 @@
                     </span>
                   </div>
 
-                  <div class="mt-4 flex justify-between w-full">
-                    <div>
-                      <a
-                        class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
-                        >Tender Details
-                        <svg
-                          class="w-4 h-4 ml-2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
-                          <path d="M5 12h14"></path>
-                          <path d="M12 5l7 7-7 7"></path>
-                        </svg>
-                      </a>
-                    </div>
-                    <!-- <div class="justify-items-end">
-                                            <button
-                                                @click="purchase(post._id)"
-                                                class="transform transition hover:scale-125 duration-300 inline-flex items-center py-2 px-2 text-sm font-medium text-white bg-indigo-600 rounded-sm border border-gray-300 hover:bg-green-500 hover:text-white dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                                            >
-                                                Express Purchase
-                                            </button>
-                                        </div> -->
+                  <div class="flex w-full justify-between mt-10 text-lg">
+                    <a :href="route('selected', post._id)"
+                      class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold transform transition hover:scale-110 hover:font-bold duration-700">More
+                      Tender Details <i class="fa-solid fa-book-open-reader p-1"></i>
+                    </a>
+                  
+                    <a @click="addToCart(post._id)" href="#"
+                      class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold transform transition hover:scale-110 hover:font-bold duration-700">Add
+                      Tender To Cart <i class="fa-solid fa-cart-shopping p-1"></i>
+                    </a>
                   </div>
                 </a>
               </div>
@@ -440,6 +422,10 @@ export default {
     };
   },
   methods: {
+    addToCart(postID) {
+      this.$store.commit('addToCart', postID)
+      alert('Tender Added To Cart')
+    },
     purchase(value) {
       alert("check");
       this.$inertia.post(`/checkout/${value}`);

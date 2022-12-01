@@ -115,8 +115,7 @@
                 <a
                   v-for="post in this.getArray.slice(1)"
                   :key="post._id"
-                  :href="route('selected', post._id)"
-                  class="group bg-white border-2 mt-1 my-2 border-indigo-600 rounded-lg shadow-xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl items-start"
+                  class="group bg-white border-2 mt-1 my-2 border-indigo-600 rounded-lg shadow-xl hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl items-start"
                 >
                   <div class="flex justify-between w-full">
                     <div class="text-xs sm:text-lg font-heading-font font-extrabold">
@@ -198,25 +197,22 @@
                     </span>
                   </div>
 
-                  <div class="mt-4">
+                  <div class="flex w-full justify-between mt-10 text-lg">
                     <a
-                      class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold"
-                      >Tender Details
-                      <svg
-                        class="w-4 h-4 ml-2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                      </svg>
+                      :href="route('selected', post._id)"
+                      class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold transform transition hover:scale-110 hover:font-bold duration-700"
+                      >More Tender Details <i class="fa-solid fa-book-open-reader p-1"></i>
+                    </a>
+
+                    <a
+                      @click="addToCart(post._id)"
+                      href="#"
+                      class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold transform transition hover:scale-110 hover:font-bold duration-700"
+                      >Add Tender To Cart <i class="fa-solid fa-cart-shopping p-1"></i>
                     </a>
                   </div>
                 </a>
+
               </div>
             </div>
 
@@ -277,6 +273,19 @@ export default {
     },
   },
   methods: {
+    async addToCart(postID){
+      let currentItems = this.$store.state.tenderIDs
+      // console.log(currentItems)
+      if (currentItems.includes(postID)){
+        alert('Tender Already in Cart')
+      }else{
+        await this.$store.commit('addToCart', postID)
+        .then(()=>{
+          alert('Tender Added To Cart')
+        })
+      } 
+
+    },
     amount(value) {
       var given = moment(value, "YYYY-MM-DD");
       var current = moment().startOf("day");

@@ -67,6 +67,9 @@
         </div>
 
         <Spinner v-if="spinner" />
+
+        <CartButton class="z-90" />
+
       </div>
     </body>
   </div>
@@ -80,6 +83,7 @@ import FeaturedTenders from "./Components/FeaturedTenders.vue";
 import ServiceIntro from "./Components/ServiceIntro.vue";
 import MainFooter from "./Components/MainFooter.vue";
 import Spinner from "./Components/Spinner.vue";
+import CartButton from "./Components/CartButton.vue";
 import SearchFilter from "./Components/SearchFilter.vue";
 
 const app = document.getElementById("app");
@@ -94,6 +98,7 @@ export default {
     ServiceIntro,
     MainFooter,
     SearchFilter,
+    CartButton,
   },
   beforeCreate() {
     this.spinner = true;

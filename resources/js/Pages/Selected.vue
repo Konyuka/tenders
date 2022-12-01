@@ -191,11 +191,17 @@
                     class="ml-2 cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex text-white hover:text-black border-0 py-2 px-2 text-sm sm:text-lg sm:px-6 focus:outline-none rounded"
                     >Purchase Tender Details</a
                   >
-
                   <a
-                    class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-white flex ml-auto text-white hover:text-black border-0 text-sm sm:text-lg sm:px-6 focus:outline-none rounded"
+                    @click="purchase"
+                    class=" cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-orange-500 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-2 text-sm sm:text-lg sm:px-6 focus:outline-none rounded"
+                    >Add To Cart <i class="fa-solid fa-cart-shopping p-1"></i> </a
                   >
-                  </a>
+
+                  <!-- <a
+                    class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 flex ml-auto text-black hover:text-black border-0 text-sm sm:text-lg sm:px-6 focus:outline-none rounded"
+                  >
+                  Add to Cart 
+                  </a> -->
 
                   <button
                     @click="shareSocial('whatsapp')"
