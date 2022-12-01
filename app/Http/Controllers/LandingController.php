@@ -54,25 +54,25 @@ class LandingController extends Controller
         return Inertia::render('Landing', ['allPosts' => $posts]);
     }
 
-    // public function viewCart(Request $request)
-    // {
-    //     $bodyContent = json_decode($request->getContent());
-    //     $tenders = [];
-    //     foreach ($bodyContent as $tenderID ){
-    //         $tender = Post::where('_id', $tenderID)->first();
-    //         array_push($tenders, $tender);
-    //     }
-    //     return Inertia::render('ViewCart', [
-    //         'Tenders' => $tenders,
-    //     ]);
-    // }
-
-    public function viewCart()
+    public function viewCart(Request $request)
     {
-        
+        $bodyContent = json_decode($request->getContent());
+        $tenders = [];
+        foreach ($bodyContent as $tenderID ){
+            $tender = Post::where('_id', $tenderID)->first();
+            array_push($tenders, $tender);
+        }
         return Inertia::render('ViewCart', [
+            'Tenders' => $tenders,
         ]);
     }
+
+    // public function viewCart()
+    // {
+        
+    //     return Inertia::render('ViewCart', [
+    //     ]);
+    // }
 
     public function selected($slug)
     {

@@ -11,12 +11,12 @@
         <main class="mx-auto max-w-9xl px-4 pt-4 pb-16 sm:px-6 sm:pt-8 sm:pb-24 lg:px-8 xl:px-2 xl:pt-14">
           <h1 class="sr-only">Checkout</h1>
       
-          <div class="mx-auto grid max-w-lg grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-            <div class="mx-auto w-full max-w-lg">
+          <div class="mx-auto grid max-w-lg grid-cols-1 gap-x-2 gap-y-16 lg:max-w-none lg:grid-cols-2">
+            <div class="mx-auto w-full max-w-3xl">
               <h2 class="sr-only">Order summary</h2>
       
               <div class="flow-root">
-                <ul role="list" class="-my-6 divide-y divide-gray-200">
+                <!-- <ul role="list" class="-my-6 divide-y divide-gray-200">
                   <li class="flex space-x-6 py-6">
                     <img src="https://tailwindui.com/img/ecommerce-images/checkout-page-05-product-01.jpg"
                       alt="Front of women&#039;s basic tee in heather gray."
@@ -43,8 +43,50 @@
                     </div>
                   </li>
       
-                  <!-- More products... -->
-                </ul>
+                </ul> -->
+                <div class="">
+                  <div class="mt-8 flex flex-col">
+                    <div class="-my-2 -mx-4 sm:-mx-6 lg:-mx-8">
+                      <div class="inline-block min-w-full py-2 align-middle">
+                        <div class="shadow-sm ring-1 ring-black ring-opacity-5">
+                          <table class="min-w-full border-separate" style="border-spacing: 0">
+                            <thead class="bg-gray-50">
+                              <tr>
+                                <th scope="col"
+                                  class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-bold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8">
+                                  Tender Brief</th>
+                                <th scope="col"
+                                  class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-bold text-gray-900 backdrop-blur backdrop-filter sm:table-cell">
+                                  Tender Price</th>
+                                <th scope="col"
+                                  class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pr-4 pl-3 backdrop-blur backdrop-filter sm:pr-6 lg:pr-8">
+                                  <span class="sr-only">Remove Item</span>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody class="bg-white">
+                              <tr v-for="tender in Tenders">
+                                <td
+                                  class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-40 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">
+                                   {{ tender.tender_brief }}</td>
+                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">KES. </td>
+                                <td
+                                  class="group relative whitespace-nowrap border-b border-gray-200 py-4 pr-4 pl-3 text-right text-md font-medium sm:pr-6 lg:pr-8">
+                                  <a href="#" class="text-indigo-600 hover:text-indigo-900"> 
+                                    <i class="tranform transition  group-hover:font-bold group-hover:text-lg hover:scale-110 duration-700 fas fa-xmark"></i> 
+                                  </a>
+                                </td>
+                              </tr>
+                
+                              <!-- More people... -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
       
               <dl class="mt-10 space-y-6 text-sm font-medium text-gray-500">
@@ -55,10 +97,6 @@
                 <div class="flex justify-between">
                   <dt>Taxes</dt>
                   <dd class="text-gray-900">$8.32</dd>
-                </div>
-                <div class="flex justify-between">
-                  <dt>Shipping</dt>
-                  <dd class="text-gray-900">$14.00</dd>
                 </div>
                 <div class="flex justify-between border-t border-gray-200 pt-6 text-gray-900">
                   <dt class="text-base">Total</dt>
