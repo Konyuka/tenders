@@ -325,6 +325,7 @@
       </div>
 
       <Spinner v-if="spinner" />
+      <CartButton class="z-90" />
       <div v-if="Posts != null">
         <MainFooter />
       </div>
@@ -338,6 +339,7 @@ import MainMenu from "./Components/MainMenu.vue";
 import MainFooter from "./Components/MainFooter.vue";
 import SearchFilter from "./Components/SearchFilter.vue";
 import Spinner from "./Components/Spinner.vue";
+import CartButton from "./Components/CartButton.vue";
 import dateFormat from "dateformat";
 
 import Vue from "vue";
@@ -363,6 +365,7 @@ export default {
     MainFooter,
     SearchFilter,
     Button,
+    CartButton
   },
   watch: {
     Posts() {

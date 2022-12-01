@@ -276,7 +276,7 @@
       </div>
 
       <Spinner v-if="spinner" />
-
+      <CartButton class="z-90" />
       <MainFooter />
     </div>
   </div>
@@ -287,6 +287,7 @@ import TopBanner from "./Components/TopBanner.vue";
 import MainMenu from "./Components/MainMenu.vue";
 import MainFooter from "./Components/MainFooter.vue";
 import Spinner from "./Components/Spinner.vue";
+import CartButton from "./Components/CartButton.vue";
 import moment from "moment";
 
 import dateFormat from "dateformat";
@@ -307,6 +308,7 @@ export default {
     MainMenu,
     MainFooter,
     Spinner,
+    CartButton
   },
   watch: {},
   mounted() {

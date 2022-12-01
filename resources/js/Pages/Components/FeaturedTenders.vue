@@ -280,9 +280,7 @@ export default {
         alert('Tender Already in Cart')
       }else{
         await this.$store.commit('addToCart', postID)
-        .then(()=>{
-          alert('Tender Added To Cart')
-        })
+        alert('Tender Added To Cart')
       } 
 
     },

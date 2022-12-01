@@ -20,6 +20,12 @@ Route::get('/', [LandingController::class, 'index'])
 // Route::middleware(['cors'])->get('/', [LandingController::class, 'index'])
     ->name('landing');
 
+// Route::post('/view_cart', [LandingController::class, 'viewCart'])
+//     ->name('view_cart');
+
+Route::get('/view_cart', [LandingController::class, 'viewCart'])
+    ->name('view_cart');
+
 Route::get('/selected/{slug}', [LandingController::class, 'selected'])
     ->name('selected');
 
