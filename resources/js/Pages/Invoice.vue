@@ -1048,8 +1048,8 @@ export default {
                 };
                 //    console.log(requestBody)
                 axios
-                // .post(`/invoice/payment/stkPush/`, requestBody)
-                .post(`/invoice/${this.post._id}/stkPush/`, requestBody)
+                // .post(`/invoice/${this.post._id}/stkPush/`, requestBody)
+                .post(`/invoice/payment/stkPush/`, requestBody)
                     .then(response => {
                         console.log(response);
                         if (this.status != "Cancelled") {
