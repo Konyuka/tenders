@@ -110,7 +110,7 @@
             <div class="mx-auto w-full max-w-lg">
       
               
-              <form class="mt-6">
+              <div class="mt-6">
                 <h2 class="mb-10 text-lg font-bold text-gray-900 justify-center">Enter Customer Details</h2>
 
                 <div class="mt-6">
@@ -139,11 +139,11 @@
       
                 
                 <!-- Submit button, enable/disable based on form state -->
-                <button type="submit" 
+                <button @click="goToInvoice"
                   class="mt-6 w-full rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500">
                   Proceed to Payment
                 </button>
-              </form>
+              </div>
       
               <!-- <div class="mt-10 divide-y divide-gray-200 border-t border-b border-gray-200">
                 <button type="button" disabled
@@ -205,6 +205,16 @@ export default {
 
   },
   methods: {
+    goToInvoice(){
+      let currentItems = this.$store.state.tenderIDs
+      const payload = {
+        post: currentItems.toString(),
+        // user: this.form,
+        amount: this.getTotalAmount()
+      };
+      // console.log(payload)
+      this.$inertia.post('/multiple_tenders_invoice', payload)
+    },
     removeTender(value){
       let splicedTender = this.TenderList.splice(value, 1);
       this.$store.commit('removeFromCart', splicedTender[0]._id)

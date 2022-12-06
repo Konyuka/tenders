@@ -496,6 +496,32 @@ class LandingController extends Controller
         return Inertia::render('Listing', ['Posts' => json_decode($search, true)]);
     }
 
+    public function invoiceMultiple(Request $request){
+        $invoice = new Invoice();
+        $lastInvoiceID = $invoice->orderBy('invoice_number', 'DESC')->pluck('invoice_number')->first();
+        $newInvoiceID = $lastInvoiceID + 1;
+        $current_date_time = Carbon::now()->timestamp;
+
+        $createdInvoice =  Invoice::create([
+            "invoice_number" => $newInvoiceID,
+            "unique_timestamp" => $current_date_time,
+            "amount" => $request->amount,
+            "post_id" => $request->post,
+            // "user_phone" => $user_phone,
+            // "user_email" => $user_email,
+            // "user_name" => $user_name,
+            "payment_status" => false,
+        ]);
+        $invoicePaid = false;
+        return Inertia::render('InvoiceMultiple', [
+            'post' => null,
+            'user' => null,
+            'invoiceStatus' => $invoicePaid,
+            'invoiceDetails' => json_decode($createdInvoice),
+
+        ]);
+    }
+
     public function invoice(Request $request)
     {
         $baseURL = url('');
@@ -566,16 +592,25 @@ class LandingController extends Controller
         ]);
     }
 
+    public function checkoutMultiple(Request $request)
+    {
+        $bodyContent = json_decode($request->getContent());
+        $tenders = [];
+        foreach($bodyContent as $tenderID){
+            $tender = Post::where('_id', $tenderID)->first();
+            array_push($tenders, $tender);
+        };
+        // $tenderList = Post::all()->latest();
+
+        return Inertia::render('CheckoutMultiple', [
+            'tenders' => $tenders
+        ]);
+    }
+
+
     public function checkout(Request $request, $slugs)
     {
-        // return dd($request->membership);
-        // if ($a > $b) {
-        //     echo "a is bigger than b";
-        // } elseif ($a == $b) {
-        //     echo "a is equal to b";
-        // } else {
-        //     echo "a is smaller than b";
-        // }
+       
 
         return Inertia::render('Checkout', [
             'post' => Post::where('_id', '=', $slugs)->first(),

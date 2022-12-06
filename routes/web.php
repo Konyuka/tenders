@@ -23,6 +23,9 @@ Route::get('/', [LandingController::class, 'index'])
 Route::post('/view_cart', [LandingController::class, 'viewCart'])
     ->name('view_cart');
 
+Route::post('/multiple_tenders', [LandingController::class, 'checkoutMultiple'])
+    ->name('multiple_tenders');
+
 // Route::get('/view_cart', [LandingController::class, 'viewCart'])
 //     ->name('view_cart');
 
@@ -71,6 +74,9 @@ Route::middleware(['cors'])->get('/download_tender/{slugs}', [LandingController:
 
 Route::any('/invoice/{slugs}', [LandingController::class, 'invoice'])
     ->name('invoice');
+
+Route::post('/multiple_tenders_invoice', [LandingController::class, 'invoiceMultiple'])
+    ->name('invoice_multiple');
 
 Route::post('get-token', [PaymentsController::class, 'newAccessToken'])
     ->name('get-token');

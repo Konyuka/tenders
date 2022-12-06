@@ -471,6 +471,9 @@ export default {
 
       return dateFormat(myTruncatedString, "mmmm dS yyyy");
     },
+    purchaseMultiples() {
+      this.$inertia.put(`/checkout/${this.post._id}`);
+    },
     purchase() {
       this.$inertia.put(`/checkout/${this.post._id}`);
     },
