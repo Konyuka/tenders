@@ -116,24 +116,24 @@
                 <div class="mt-6">
                   <label for="email-address" class="block text-sm font-medium text-gray-700">Client Name</label>
                   <div class="mt-1">
-                    <input type="text" id="email-address" name="email-address" autocomplete="email"
-                      class="h-10 border-2 block w-full rounded-md border-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                    <input v-model="form.userName" type="text" id="email-address" name="email-address" autocomplete="email"
+                      class="font-bold px-4 h-10 border-2 block w-full rounded-md border-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                   </div>
                 </div>
       
                 <div class="mt-6">
                   <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
                   <div class="mt-1">
-                    <input type="email" id="email-address" name="email-address" autocomplete="email"
-                      class="h-10 border-2 block w-full rounded-md border-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                    <input v-model="form.userEmail" type="email" id="email-address" name="email-address" autocomplete="email"
+                      class="font-bold px-4 h-10 border-2 block w-full rounded-md border-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                   </div>
                 </div>
       
                 <div class="mt-6">
                   <label for="phone" class="block text-sm font-medium text-gray-700">Phone number</label>
                   <div class="mt-1">
-                    <input type="number" name="phone" id="phone" autocomplete="tel"
-                      class="h-10 border-2 block w-full rounded-md border-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                    <input v-model="form.userPhone" type="number" name="phone" id="phone" autocomplete="tel"
+                      class="font-bold px-4 h-10 border-2 block w-full rounded-md border-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                   </div>
                 </div>
       
@@ -190,7 +190,13 @@ export default {
   },
   data(){
     return{
-      TenderList: Array
+      TenderList: Array,
+      form:{
+        userName:'Michael Saiba',
+        userEmail:'michaelsaiba84@gmail.com',
+        userPhone:'254716202298',
+      }
+      
     }
   },
   watch: {
@@ -209,7 +215,8 @@ export default {
       let currentItems = this.$store.state.tenderIDs
       const payload = {
         post: currentItems.toString(),
-        // user: this.form,
+        posts: currentItems,
+        user: this.form,
         amount: this.getTotalAmount()
       };
       // console.log(payload)

@@ -501,21 +501,64 @@ class LandingController extends Controller
         $lastInvoiceID = $invoice->orderBy('invoice_number', 'DESC')->pluck('invoice_number')->first();
         $newInvoiceID = $lastInvoiceID + 1;
         $current_date_time = Carbon::now()->timestamp;
+        
 
-        $createdInvoice =  Invoice::create([
-            "invoice_number" => $newInvoiceID,
-            "unique_timestamp" => $current_date_time,
-            "amount" => $request->amount,
-            "post_id" => $request->post,
-            // "user_phone" => $user_phone,
-            // "user_email" => $user_email,
-            // "user_name" => $user_name,
-            "payment_status" => false,
-        ]);
+        $user = $request->user;
+        $user_phone = $user['userPhone'];
+        $user_email = $user['userEmail'];
+        $user_name = $user['userName'];
+
+        $invoiceRecord = Invoice::
+            //   where('unique_timestamp', '=', $current_date_time)
+            //   where('invoice_number', '=', $newInvoiceID)
+            where('post_id', '=', $request->post)
+            ->where('user_phone', '=', $user_phone)
+            ->where('user_email', '=', $user_email)
+            ->first();
+
+        $postList = [];    
+        foreach ($request->posts as $item) {
+            $post = Post::where('_id', '=', $item)->first();
+            array_push($postList, $post);
+        }
+
+        if ($invoiceRecord != null) {
+            $paymentStatus = $invoiceRecord->payment_status;
+            $createdInvoice = $invoiceRecord;
+        }
+        if ($invoiceRecord != null && $paymentStatus == 0) {
+            $invoicePaid = false;
+        } else if ($invoiceRecord != null && $paymentStatus == 1) {
+            $invoicePaid = true;
+        } else {
+            $createdInvoice =  Invoice::create([
+                "invoice_number" => $newInvoiceID,
+                "unique_timestamp" => $current_date_time,
+                "amount" => $request->amount,
+                "post_id" => $request->post,
+                "user_phone" => $user_phone,
+                "user_email" => $user_email,
+                "user_name" => $user_name,
+                "payment_status" => false,
+            ]);
+            $invoicePaid = false;
+        };
+
+        // $createdInvoice =  Invoice::create([
+        //     "invoice_number" => $newInvoiceID,
+        //     "unique_timestamp" => $current_date_time,
+        //     "amount" => $request->amount,
+        //     "post_id" => $request->post,
+        //     "user_phone" => $user_phone,
+        //     "user_email" => $user_email,
+        //     "user_name" => $user_name,
+        //     "payment_status" => false,
+        // ]);
+
         $invoicePaid = false;
         return Inertia::render('InvoiceMultiple', [
-            'post' => null,
-            'user' => null,
+            'posts' => $postList,
+            'user' => $user,
             'invoiceStatus' => $invoicePaid,
             'invoiceDetails' => json_decode($createdInvoice),
 

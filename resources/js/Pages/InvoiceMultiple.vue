@@ -38,14 +38,14 @@
                         <p
                             class="font-heading-font text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800"
                         >
-                            Tender Brief
+                            Tender Briefs
                         </p>
                         <div
                             class="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full"
                         >
-                            <div class="pb-4 md:pb-8 w-full md:w-40">
+                            <!-- <div class="pb-4 md:pb-8 w-full md:w-40">
                                 <i class="fas fa-caret-right fa-3x"></i>
-                            </div>
+                            </div> -->
                             <div
                                 class="border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-4 space-y-4 md:space-y-0"
                             >
@@ -53,9 +53,10 @@
                                     class="w-full flex flex-col justify-start items-start space-y-8"
                                 >
                                     <h3
+                                        v-for="(post, index) in posts" :key="index"
                                         class="text-lg sm:text-xl dark:text-white xl:text-xl font-semibold leading-6 text-gray-800"
                                     >
-                                        {{ post.tender_brief }}
+                                        <span class="font-bold mr-2">{{ index + 1 }}</span> <span class="font-medium">{{ post.tender_brief }}</span>
                                     </h3>
                                 </div>
                             </div>
@@ -103,7 +104,7 @@
                                     v-if="!membershipSub"
                                     class="text-lg font-semibold leading-6 dark:text-white text-gray-800"
                                 >
-                                    KES {{ amount }}
+                                    KES {{ invoiceDetails.amount }}
                                 </p>
                                 <p
                                     v-if="membershipSub"
@@ -679,7 +680,7 @@ export default {
     name: "Invoice",
     props: {
         main_color: "#EC685C",
-        // post: "",
+        posts: Array,
         user: Object,
         transId: String,
         accessTokenResponse: Object,
@@ -833,7 +834,8 @@ export default {
             if (this.membership != null) {
                 console.log("no post");
             } else {
-                var given = moment(this.post.created_at, "YYYY-MM-DD");
+                var given = moment("YYYY-MM-DD");
+                // var given = moment(this.post.created_at, "YYYY-MM-DD");
                 var current = moment().startOf("day");
                 //Difference in number of days
                 var diff = moment.duration(current.diff(given)).asDays();
@@ -941,22 +943,26 @@ export default {
         },
         closeSTK() {
             this.paymentModal = false;
+            clearInterval(myInterval);
+            alert('aye')
             // this.status = "";
             const paymentDetails = {
                 payment_number: this.form.number,
                 post_id: this.post._id,
+                posts: this.posts,
                 invoicePaid: this.invoiceDetails.payment_status,
                 invoiceDetails: this.invoiceDetails,
                 user: this.user,
                 restart: true,
                 invoiceNumber: this.invoiceNumber
             };
-            this.$inertia.post("/confirmation", paymentDetails);
+            // this.$inertia.post("/confirmation", paymentDetails);
         },
         confirm() {
             const paymentDetails = {
                 payment_number: this.form.number,
-                post_id: this.post._id,
+                post_id: this.invoiceDetails.post_id,
+                posts: this.posts,
                 invoicePaid: this.invoiceDetails.payment_status,
                 invoiceDetails: this.invoiceDetails,
                 user: this.user,
@@ -1010,11 +1016,7 @@ export default {
             alert("timeout");
         },
         stkPush() {
-            // if (this.status == "Cancelled") {
-            //     this.transactionRestart = true;
-            // } else {
-            //     this.transactionRestart = false;
-            // }
+            
 
             this.timeout = false;
             this.resetTimer();
@@ -1031,13 +1033,12 @@ export default {
                 // setTimeout(() => this.timedOut(), 60000);
                 const requestBody = {
                     // amount: "1",
-                    amount: this.amount,
+                    amount: this.invoiceDetails.amount,
 
-                    // account: this.form.account,
                     account: this.invoiceNumber,
                     phone: parseInt(this.removeSpaces(this.form.number)),
-                    // post: this.post._id,
-                    post: this.post,
+                    posts: this.posts,
+                    post: this.invoiceDetails.post_id,
                     user: this.user,
                     user_name: this.user.userName,
                     user_phone: this.user.userPhone,
@@ -1049,7 +1050,6 @@ export default {
                     // invoiceDetails: this.invoiceDetails,
                     // invoiceNumber: this.invoiceNumber
                 };
-                //    console.log(requestBody)
                 axios
                     // .post(`/invoice/${this.post._id}/stkPush/`, requestBody)
                     .post(`/invoice/payment/stkPush/`, requestBody)

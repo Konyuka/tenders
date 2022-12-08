@@ -1007,11 +1007,6 @@ export default {
             alert("timeout");
         },
         stkPush() {
-            // if (this.status == "Cancelled") {
-            //     this.transactionRestart = true;
-            // } else {
-            //     this.transactionRestart = false;
-            // }
 
             this.timeout = false;
             this.resetTimer();
@@ -1046,7 +1041,6 @@ export default {
                     // invoiceDetails: this.invoiceDetails,
                     // invoiceNumber: this.invoiceNumber
                 };
-                //    console.log(requestBody)
                 axios
                 // .post(`/invoice/${this.post._id}/stkPush/`, requestBody)
                 .post(`/invoice/payment/stkPush/`, requestBody)

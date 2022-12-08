@@ -32,7 +32,7 @@
                     <br class="flex sm:hidden" />
                     <span
                         class="block sm:hidden text-sm text-gray-800 sm:text-center"
-                        >Designed with
+                        >Developed with
                         <i class="fas fa-heart text-red-600"></i> by
                         <a
                             href="mailto:michaelsaiba84@gmail.com"
