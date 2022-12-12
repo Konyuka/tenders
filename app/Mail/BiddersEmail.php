@@ -42,8 +42,7 @@ class BiddersEmail extends Mailable
             ->bcc($cc, $name)
             ->replyTo($from, $name)
             ->subject($subject)
-            ->with(['mailMessage' => $this->mailData]);;
+            ->with(['mailMessage' => $this->mailData]);
 
-        return $this->view('view.name');
     }
 }

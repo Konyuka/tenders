@@ -115,9 +115,76 @@ class LandingController extends Controller
         ]);
     }
 
-    public function unlock($slug)
+    public function toMail(Request $request)
     {
         // return dd($slug);
+        Mail::to('user@provider.com')->send(new \App\Mail\SendMail($request));
+
+        return Inertia::render('Unlocked', [
+            // 'post' => Post::where('_id', '=', $slug)->first(),
+            // 'status' => 'Unlocked',
+            // 'transId' => $slug,
+            // 'payment' => null,
+        ]);
+    }
+
+    public function unlockMultiple(Request $request)
+    {
+        $payment = Payments::where('trans_id', '=', $request->transId)
+            ->where('completed', '=', true)
+            ->where('waiting', '=', false)
+            ->first();
+        $clientNumber = $payment->phone;
+        $clientInvoice = $payment->account;
+        $clientEmail = $payment->user_email;
+        $clientName = urlencode($payment->user_name);
+        $posts = $request->posts;
+
+        // if ($payment->sms_sent == 0) {
+
+        //     $curl = curl_init();
+
+        //     curl_setopt_array($curl, array(
+        //         CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile={$clientNumber}&msg=Thank+you+{$clientName}+for+the+purchase%21+Your+invoice+number+is+{$clientInvoice}.+Thank+you+for+choosing+Bidders+Portal&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
+        //         // CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile={$clientNumber}&msg=Thank+you+{$clientName}+for+the+purchase%21+Your+invoice+number+is+{$clientInvoice}.+Tender+and+Invoice+details+have+been+mailed+to+the+submitted+email+{$clientEmail}.+Thank+you+for+choosing+Bidders+Portal&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
+        //         CURLOPT_RETURNTRANSFER => true,
+        //         CURLOPT_ENCODING => "",
+        //         CURLOPT_MAXREDIRS => 10,
+        //         CURLOPT_TIMEOUT => 30,
+        //         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        //         CURLOPT_CUSTOMREQUEST => "GET",
+        //         CURLOPT_HTTPHEADER => array(
+        //             "cache-control: no-cache"
+        //         ),
+        //     ));
+
+        //     $response = curl_exec($curl);
+        //     $err = curl_error($curl);
+
+        //     curl_close($curl);
+
+        //     if ($err) {
+        //         echo "cURL Error #:" . $err;
+        //     } else {
+        //         $sms_sent = true;
+        //         $payment = Payments::where(['trans_id' => $request->transId])->first();
+        //         if ($payment) {
+        //             $payment->sms_sent = true;
+        //             $payment->save();
+        //         }
+        //     }
+        // }
+
+        return Inertia::render('UnlockedMultiple', [
+            'posts' => $posts,
+            'status' => 'Unlocked',
+            'transId' => $request->transId,
+            'payment' => $payment,
+
+        ]);
+    }
+    public function unlock($slug)
+    {
         $payment = Payments::where('trans_id', '=', $slug)
             ->where('completed', '=', true)
             ->where('waiting', '=', false)
@@ -129,53 +196,7 @@ class LandingController extends Controller
         $tenderID = $payment->info;
         $post = Post::where(['_id' => $tenderID])->first();
 
-        // return dd(json_decode($payment, true));
-
-
-        // return  dd($clientName);
-        // if ($payment->email_sent == 0) {
-
-        //     $mailInfo = new \stdClass();
-        //     $mailInfo->recieverName = $clientName;
-        //     $mailInfo->sender = "Bidders Portal";
-        //     $mailInfo->senderCompany = "Ochangaberg Limited";
-        //     $mailInfo->to = $clientEmail;
-        //     // $mailInfo->to = 'michaelsaiba84@gmail.com';
-        //     $mailInfo->from = 'support@biddersportal.com';
-        //     // $mailInfo->from = 'saiba@talkduka.co.ke';
-        //     $mailInfo->title = 'Purchased Tender Details';
-        //     $mailInfo->subject = $post->tender_brief;
-        //     $mailInfo->name = "Bidders Portal Purchased Tender details";
-        //     $mailInfo->cc = "support@biddersportal.com";
-        //     $mailInfo->bcc = "ochangai@gmail.com";
-        //     $mailInfo->invoiceNumber = $clientInvoice;
-        //     $mailInfo->receiptNumber = $slug;
-
-        //     $mailInfo->tenderBrief = $post->tender_brief;
-        //     $mailInfo->tenderNumber = $post->tender_number;
-        //     $mailInfo->workDetail = $post->work_detail;
-        //     $mailInfo->purchasingAuthority = $post->purchasing_authority;
-        //     $mailInfo->competitionType = $post->competition_type;
-        //     $mailInfo->fundedBy = $post->funded_by;
-        //     $mailInfo->contactEmail = $post->email;
-        //     // $mailInfo->physicalAddress = $post->physicalAddress;
-        //     $mailInfo->datePosted = $post->created_at;
-        //     $mailInfo->lastDate = $post->expiry;
-        //     $mailInfo->postID = $post->_id;
-
-        //     Mail::to($clientEmail)
-        //         // Mail::to('michaelsaiba84@gmail.com')
-        //         ->send(new BiddersEmail($mailInfo));
-
-        //     $payment = Payments::where(['trans_id' => $slug])->first();
-        //     if ($payment) {
-        //         $payment->mail_sent = true;
-        //         $payment->save();
-        //     }
-        // }
-
         if ($payment->sms_sent == 0) {
-            // return dd('sending');
 
             $curl = curl_init();
 
@@ -392,23 +413,10 @@ class LandingController extends Controller
 
     public function listing()
     {
-        // $posts = Post::latest()->paginate(10);
-        // function trim($value)
-        // {
-        //     return strtok($value,' ');
-        // }
-
-        // $today = Carbon::now();
-        // $date = Carbon::createFromFormat('Y-m-d H:i:s', $today)->format('d-m-Y');
-        // $sample  = trim('30-04-2022 00:00:00');
-        // $sample  = '30-05-2022 00:00:00';
-        // $trimmed = strtok($sample,' ');
-        // return dd($date);
         $posts = Post::select(['_id', 'created_at', 'expiry', 'tender_brief' ])
         ->latest()
-        // ->whereDate(trim('expiry'), '>', '23-11-2022')
         ->get();
-        // $expiry = $posts->expiry;
+
         return Inertia::render('Listing', ['Posts' => json_decode($posts, true)]);
     }
 
@@ -449,20 +457,20 @@ class LandingController extends Controller
         ]);
     }
 
-    public function search()
+    public function search(Request $request)
     {
+        // return dd($request->keyword);
 
         // $key = \Request::get('payload');
         // $key = \Request::get('keyword');
-        $key = str_replace(' ', '%', \Request::get('keyword'));
+        $key = str_replace(' ', '%', $request->keyword);
         // return dd($key);
-        $region = \Request::get('region');
-        $entity = str_replace(' ', '%', \Request::get('entity'));
-        $number = str_replace(' ', '%', \Request::get('number'));
-        // $number = \Request::get('number');
-        $price = str_replace(' ', '%', \Request::get('price'));
-        $closing = str_replace(' ', '%', \Request::get('closing'));
-        $publishing = str_replace(' ', '%', \Request::get('publishing'));
+        $region = $request->region;
+        $entity = str_replace(' ', '%', $request->entity);
+        $number = str_replace(' ', '%', $request->number);
+        $price = str_replace(' ', '%', $request->price);
+        $closing = str_replace(' ', '%', $request->closing);
+        $publishing = str_replace(' ', '%', $request->publishing);
 
 
         // $publishFormat = Carbon::parse($publishing)->format('Y-m-d');

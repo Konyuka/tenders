@@ -162,6 +162,73 @@
       </div> 
     </div>
 
+    <!-- v-if="status == 'Success'" -->
+    
+    <div   id="popup-modal" tabindex="-1"
+      class="overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full">
+      <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <!-- Modal header -->
+          <div class="flex justify-end p-5">
+            <!-- <a v-if="status=='Cancelled'" :href="route('checkout', post._id)">
+                        <button  type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="popup-modal">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        </button>
+                        </a> -->
+          </div>
+          <!-- Modal body -->
+          <div class="p-4 pt-0 text-center mt-5">
+            <i class="fas fa-coins fa-2xl mb-10 text-green-500"></i>
+            <h3 class="mb-5 text-2xl font-extrabold text-green-500 dark:text-gray-400 italic">
+              Thank you! Purchase Confirmed
+            </h3>
+            <p class="my-10 text-sm font-bold text-indigo-700">Tender Details have been sent to: <br/> {{ form.userEmail }}</p>
+          </div>
+
+          <section v-if="optionChosen=='mail'" class="px-10" aria-labelledby="contact-info-heading">
+            <div class="mt-6">
+              <label for="email-address" class="block text-sm font-bold text-gray-700">Email address</label>
+              <div class="mt-1">
+                <input v-model="form.userEmail" type="email" id="email-address" name="email-address" autocomplete="email"
+                  class="font-bold p-5 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+              </div>
+            </div>
+            <div class="p-4 pt-0 text-center mt-5">
+              <a>
+                <button @click="choseMethod('mail')" data-modal-toggle="popup-modal" type="button"
+                  class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-2 py-1 text-center mr-2">
+                  Send to Mail <i class="ml-2 fas fa-paper-plane"></i>
+                </button>
+              </a>
+            </div>
+          </section>
+
+    
+          <div class="mt-10 p-4 pt-0 text-center mt-5">
+            <a>
+              <button @click="choseMethod('mail')" data-modal-toggle="popup-modal" type="button"
+                class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-2 py-2.5 text-center mr-2">
+                Mail Details 
+              </button>
+            </a>
+            <a>
+              <button @click="choseMethod('download')" data-modal-toggle="popup-modal" type="button"
+                class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-2 py-2.5 text-center mr-2">
+                Download Details 
+              </button>
+            </a>
+            <!-- <a @click="unlockMultile">
+              <button data-modal-toggle="popup-modal" type="button"
+                class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-lg inline-flex items-center px-5 py-2.5 text-center mr-2">
+                Tap to Unlock Tender Details
+              </button>
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
     <MainFooter />
   </div>
 </template>
@@ -181,20 +248,34 @@ export default {
   },
   props: {
     Tenders: Array,
+    transId: String,
+    status: String,
+    email: String,
   },
-  // mounted(){
-  //   this.TenderList = this.Tenders
-  // },
+  mounted(){
+    // this.TenderList = this.Tenders
+    if (localStorage.getItem("userName") != "null") {
+      this.form.userName = localStorage.getItem("userName");
+    }
+    if (localStorage.getItem("userPhone") != "null") {
+      this.form.userPhone = localStorage.getItem("userPhone");
+    }
+    if (localStorage.getItem("userEmail") != "null") {
+      this.form.userEmail = localStorage.getItem("userEmail");
+    }
+  },
   beforeMount(){
     this.TenderList = this.Tenders
   },
   data(){
     return{
+      emailAddress:null,
+      optionChosen:null,
       TenderList: Array,
       form:{
-        userName:'Michael Saiba',
-        userEmail:'michaelsaiba84@gmail.com',
-        userPhone:'254716202298',
+        userName:null,
+        userEmail: null,
+        userPhone: null,
       }
       
     }
@@ -211,7 +292,21 @@ export default {
 
   },
   methods: {
+    choseMethod(value){
+      this.optionChosen = value
+    },
+    unlockMultile(){
+      let currentItems = this.$store.state.tenderIDs
+      const payload = {
+        transId: this.transId,
+        posts: currentItems,
+      };
+      this.$inertia.post(`/unlock/multiple/${this.transId}`, payload)
+    },
     goToInvoice(){
+      localStorage.setItem("userName", this.form.userName);
+      localStorage.setItem("userPhone", this.form.userPhone);
+      localStorage.setItem("userEmail", this.form.userEmail);
       let currentItems = this.$store.state.tenderIDs
       const payload = {
         post: currentItems.toString(),

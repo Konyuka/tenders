@@ -943,19 +943,19 @@ export default {
         },
         closeSTK() {
             this.paymentModal = false;
-            clearInterval(myInterval);
-            alert('aye')
-            // this.status = "";
-            const paymentDetails = {
-                payment_number: this.form.number,
-                post_id: this.post._id,
-                posts: this.posts,
-                invoicePaid: this.invoiceDetails.payment_status,
-                invoiceDetails: this.invoiceDetails,
-                user: this.user,
-                restart: true,
-                invoiceNumber: this.invoiceNumber
-            };
+            // clearInterval(myInterval);
+            // alert('aye')
+            // // this.status = "";
+            // const paymentDetails = {
+            //     payment_number: this.form.number,
+            //     post_id: this.post._id,
+            //     posts: this.posts,
+            //     invoicePaid: this.invoiceDetails.payment_status,
+            //     invoiceDetails: this.invoiceDetails,
+            //     user: this.user,
+            //     restart: true,
+            //     invoiceNumber: this.invoiceNumber
+            // };
             // this.$inertia.post("/confirmation", paymentDetails);
         },
         confirm() {

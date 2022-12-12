@@ -103,11 +103,21 @@ class PaymentsController extends Controller
 
 
         if ($transaction!=null){
-            return Inertia::render('Selected', [
-                'post' => Post::where('_id', '=', $post_id)->first(),
-                'transId' => $transaction->trans_id,
-                'status' => 'Success'
-            ]);
+
+            if($posts != null){
+                return Inertia::render('ViewCart', [
+                    'Tenders' => $posts,
+                    'transId' => $transaction->trans_id,
+                    'status' => 'Success',
+                    'email' => $user['userEmail'],
+                ]);
+            }else{
+                return Inertia::render('Selected', [
+                    'post' => Post::where('_id', '=', $post_id)->first(),
+                    'transId' => $transaction->trans_id,
+                    'status' => 'Success'
+                ]);
+            }
         }
         
         if($transactionWaiting!=null){
@@ -218,7 +228,8 @@ class PaymentsController extends Controller
         // $LipaNaMpesaPasskey=$this->lipaNaMpesaPassword();
         $LipaNaMpesaPasskey=env('MPESA_PASSKEY');
         $TransactionType="CustomerPayBillOnline";
-        $Amount=$amount;
+        $Amount=1;
+        // $Amount=$amount;
         $PartyA=$phone;
         // $PartyA='254722326662';
         $PartyB=env('MPESA_STK_SHORTCODE');
