@@ -161,10 +161,8 @@
         </main>
       </div> 
     </div>
-
-    <!-- v-if="status == 'Success'" -->
     
-    <div   id="popup-modal" tabindex="-1"
+    <div v-if="status == 'Success'"  id="popup-modal" tabindex="-1"
       class="overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full">
       <div class="relative p-4 w-full max-w-md h-full md:h-auto">
         <!-- Modal content -->
@@ -183,7 +181,7 @@
             <h3 class="mb-5 text-2xl font-extrabold text-green-500 dark:text-gray-400 italic">
               Thank you! Purchase Confirmed
             </h3>
-            <p class="my-10 text-sm font-bold text-indigo-700">Tender Details have been sent to: <br/> {{ form.userEmail }}</p>
+            <p v-if="emailSent" class="my-10 text-sm font-bold text-indigo-700">Tender Details have been sent to: <br/> {{ form.userEmail }}</p>
           </div>
 
           <section v-if="optionChosen=='mail'" class="px-10" aria-labelledby="contact-info-heading">
@@ -196,7 +194,7 @@
             </div>
             <div class="p-4 pt-0 text-center mt-5">
               <a>
-                <button @click="choseMethod('mail')" data-modal-toggle="popup-modal" type="button"
+                <button @click="sendMail" data-modal-toggle="popup-modal" type="button"
                   class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-2 py-1 text-center mr-2">
                   Send to Mail <i class="ml-2 fas fa-paper-plane"></i>
                 </button>
@@ -269,6 +267,7 @@ export default {
   },
   data(){
     return{
+      emailSent:false,
       emailAddress:null,
       optionChosen:null,
       TenderList: Array,
@@ -292,14 +291,27 @@ export default {
 
   },
   methods: {
+    sendMail(){
+      const payload = {
+        transId: this.transId,
+        posts: this.TenderList,
+        user: this.form,
+      };
+
+      console.log(payload)
+      return 
+
+      this.$inertia.post(`/send/to_mail/${this.transId}`, payload)
+    },
     choseMethod(value){
       this.optionChosen = value
     },
     unlockMultile(){
-      let currentItems = this.$store.state.tenderIDs
+      // let currentItems = this.$store.state.tenderIDs
       const payload = {
         transId: this.transId,
-        posts: currentItems,
+        // posts: currentItems,
+        posts: this.TenderList,
       };
       this.$inertia.post(`/unlock/multiple/${this.transId}`, payload)
     },

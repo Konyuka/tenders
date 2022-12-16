@@ -977,41 +977,6 @@ export default {
         mpesaExpress() {
             this.expressModal = true;
         },
-        c2b() {
-            // if (this.status == "Cancelled") {
-            //     this.transactionRestart = true;
-            // } else {
-            //     this.transactionRestart = false;
-            // }
-
-            var strFirstThree = this.form.number.substring(0, 3);
-            if (strFirstThree == 254 && this.form.number.length == 12) {
-                // this.paymentModal = true;
-                const requestBody = {
-                    amount: "1",
-                    account: this.invoiceNumber,
-                    phone: parseInt(this.removeSpaces(this.form.number)),
-                    // post: this.post._id,
-                    post: this.post,
-                    user: this.user,
-                    user_name: this.form.userName,
-                    user_phone: this.form.userPhone,
-                    user_email: this.form.userEmail,
-                    restartTrans: this.transactionRestart
-                };
-                //    console.log(requestBody)
-                axios
-                    .post(`/invoice/${this.post._id}/c2b/`, requestBody)
-                    .then(response => {
-                        console.log(response.data);
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
-            } else {
-                alert("Your Number Format Should be 254 7XX XXX XXX");
-            }
-        },
         timedOut() {
             alert("timeout");
         },

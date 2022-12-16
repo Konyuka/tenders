@@ -117,8 +117,8 @@ class LandingController extends Controller
 
     public function toMail(Request $request)
     {
-        // return dd($slug);
-        Mail::to('user@provider.com')->send(new \App\Mail\SendMail($request));
+        return dd($request);
+        Mail::to($request->user['userEmail'])->send(new \App\Mail\SendMail($request));
 
         return Inertia::render('Unlocked', [
             // 'post' => Post::where('_id', '=', $slug)->first(),

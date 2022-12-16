@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Models\Payments;
 
 class SendMail extends Mailable
 {
@@ -16,9 +17,9 @@ class SendMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($mailData)
     {
-        //
+        $this->mailData = $mailData;
     }
 
     /**
@@ -28,12 +29,17 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        $address = $this->mailData->to;
-        $subject = $this->mailData->subject;
-        $name = $this->mailData->name;
-        $cc = $this->mailData->cc;
-        $bcc = $this->mailData->bcc;
-        $from = $this->mailData->from;
+        // $data = $this->mailData->posts;
+        $transID = $this->mailData->transId;
+        $transaction = Payments::where('trans_id', '=', $transID)->first();
+        $userDetails = $this->mailData->user;
+        return dd($this->mailData);
+
+        $address = $this->mailData->user['userEmail'];
+        $subject = 'Purchased Tender Details';
+        $name = $this->mailData->user['userName'];
+        $cc = 'michaelsaiba84@gmail.com';
+        $from = "Bidders Portal";
         return $this->view('email.multiple')
         ->text('email.laraemail_plain')
         ->from($from, $name)
@@ -41,6 +47,11 @@ class SendMail extends Mailable
             ->bcc($cc, $name)
             ->replyTo($from, $name)
             ->subject($subject)
-            ->with(['mailMessage' => $this->mailData]);
+            ->with([
+            'mailMessages' => $this->mailData->posts,
+            'recieverName' => $name,
+            'invoiceNumber' => $transaction->account,
+            'receiptNumber' => $transID,
+            ]);
     }
 }

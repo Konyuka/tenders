@@ -72,7 +72,7 @@ Route::get('/unlock/{slugs}', [LandingController::class, 'unlock'])
 Route::post('/unlock/multiple/{slugs}', [LandingController::class, 'unlockMultiple'])
     ->name('unlockMultiple');
 
-Route::post('/send/to_mail', [LandingController::class, 'toMail'])
+Route::post('/send/to_mail/{slugs}', [LandingController::class, 'toMail'])
     ->name('to_mail');
 
 Route::middleware(['cors'])->get('/download_tender/{slugs}', [LandingController::class, 'downloadTender'])
