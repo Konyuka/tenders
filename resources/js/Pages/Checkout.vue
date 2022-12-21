@@ -594,7 +594,8 @@ export default {
             if (strFirstThree == 254 && this.form.number.length == 12) {
                 this.paymentModal = true;
                 const requestBody = {
-                    amount: "1",
+                    // amount: "1",
+                    amount: this.form.amount,
                     account: this.form.account,
                     phone: this.removeSpaces(this.form.number),
                     post: this.post._id,
