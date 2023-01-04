@@ -254,7 +254,7 @@
         </h2>
         <p class="mt-4 text-lg leading-6 text-indigo-200 font-heading-font">
           We focus on bringing you closer to tenders that meets your market niche. There
-          are millions of tenders awaiting for your in our database.
+          are millions of tenders awaiting for you in our database.
         </p>
         <a
           href="#"
