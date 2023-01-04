@@ -50,11 +50,10 @@
                     class="hidden sm:flex mt-4 space-x-6 sm:justify-center md:mt-0"
                 >
                     <span class="text-sm text-gray-800 sm:text-center"
-                        >Designed with
-                        <i class="fas fa-heart text-red-600"></i> by
+                        >Developed by
                         <a
                             href="mailto:michaelsaiba84@gmail.com"
-                            class="underline"
+                            class="text-indigo-800 underline"
                         >
                             Michael Saiba.</a
                         >
