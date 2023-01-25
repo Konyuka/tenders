@@ -163,7 +163,7 @@
     </div>
     
     <div v-if="status == 'Success'"  id="popup-modal" tabindex="-1"
-      class="overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-50 w-full md:inset-0 h-modal md:h-full">
+      class="overflow-y-auto overflow-x-hidden fixed justify-center mx-auto sm:flex flex items-center z-40 w-full md:inset-0 h-modal md:h-full">
       <div class="relative p-4 w-full max-w-md h-full md:h-auto">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -211,9 +211,9 @@
               </button>
             </a>
             <a>
-              <button @click="choseMethod('download')" data-modal-toggle="popup-modal" type="button"
+              <button @click="choseMethod('show')" data-modal-toggle="popup-modal" type="button"
                 class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-2 py-2.5 text-center mr-2">
-                Download Details 
+                Show Tender Details 
               </button>
             </a>
             <!-- <a @click="unlockMultile">
@@ -226,6 +226,203 @@
         </div>
       </div>
     </div>
+
+    <div v-if="tenderDetailsModal" class="relative z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+    
+      <div class="fixed inset-0 z-10 overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          
+          <div
+            class="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-7xl sm:p-6">
+            <div class="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
+              <button @click="tenderDetailsModal=false" type="button"
+                class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                <span class="sr-only">Close</span>
+                <!-- Heroicon name: outline/x-mark -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <div class="sm:flex sm:items-start">
+              <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title">Purchased Tender Details</h3>
+                <button type="button"
+                  class="mt-2 inline-flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">
+                  Download as PDF
+                </button>
+                <div class="mt-2">
+                  <section class="text-gray-600 body-font overflow-hidden">
+                    <div v-for="(post, index) in Tenders" :key="index" class="container px-5 py-10 mx-auto">
+                      <div class="lg:w-4/5 mx-auto flex flex-wrap">
+                        <div class="w-full h-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+                          <a href="#" class="text-sm title-font text-gray-500 tracking-widest">Tender Brief</a>
+                          <h1 class="text-gray-500 text-md title-font font-bold my-4 font-heading-font">
+                            {{ post.tender_brief }}
+                          </h1>
+                          <div class="flex mb-4">
+                            <a
+                              class="flex-grow text-indigo-500 border-b-2 border-indigo-600 py-2 text-lg px-1 font-heading-font font-extrabold">Tender
+                              Description</a>
+                            <!-- <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Reviews</a>
+                                  <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Details</a> -->
+                          </div>
+                          <div class="flex justify-center m-5">
+                            <!-- <a
+                                                          @click="purchase"
+                                                          class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 text-white hover:text-black text-sm font-extrabold mr-2 px-3 py-2 rounded dark:bg-blue-200 dark:text-blue-800"
+                                                          >Purchase Tender to view Work Details</a
+                                                      > -->
+                            <h1 class="font-primary-font text-gray-900 text-md title-font font-bold my-4">
+                              {{ post.work_detail }}
+                            </h1>
+                          </div>
+                          <div class="text-sm sm:text-lg flex border-t border-indigo-300 py-2">
+                            <span class="text-gray-500 font-extrabold font-heading-font"><i
+                                class="mr-10 fas fa-angles-right text-indigo-600"></i> Tender
+                              Number</span>
+                            <span class="ml-auto text-gray-900">
+                              <span class="ml-auto text-gray-900 font-primary-font">
+                                {{ post.tender_number }}
+                                <!-- <a :href="route('checkout', post._id)" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a> -->
+                              </span>
+                            </span>
+                          </div>
+                  
+                          <div class="text-sm sm:text-lg flex border-t border-indigo-300 py-2">
+                            <span class="text-gray-500 font-extrabold font-heading-font"><i
+                                class="mr-10 fas fa-angles-right text-indigo-600"></i> Competition
+                              Type</span>
+                            <span class="ml-auto text-gray-900">
+                              <span class="ml-auto text-gray-900 font-primary-font">
+                                {{ post.competition_type }}
+                                <!-- <a :href="route('checkout', post._id)" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a> -->
+                              </span>
+                            </span>
+                          </div>
+                          <div class="text-sm sm:text-lg flex border-t border-indigo-300 py-2">
+                            <span class="text-gray-500 font-extrabold font-heading-font"><i
+                                class="mr-10 fas fa-angles-right text-indigo-600"></i> Funded
+                              By</span>
+                            <span class="ml-auto text-gray-900 font-primary-font">
+                              {{ post.funded_by }}
+                              <!-- <a :href="route('checkout', post._id)" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a> -->
+                            </span>
+                          </div>
+                          <div class="text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2">
+                            <span class="text-gray-500 font-extrabold font-heading-font"><i
+                                class="mr-10 fas fa-angles-right text-indigo-600"></i> Tender
+                              Value in USD</span>
+                            <span class="ml-auto text-gray-900 font-primary-font">
+                              Detail in Tender Document
+                            </span>
+                          </div>
+                  
+                          <div class="text-sm sm:text-lg flex border-t border-indigo-300 py-2">
+                            <span class="text-gray-500 font-extrabold font-heading-font"><i
+                                class="mr-10 fas fa-angles-right text-indigo-600"></i> Contact
+                              Email</span>
+                            <span class="ml-auto text-gray-900 font-primary-font">
+                              {{ post.email }}
+                              <!-- <a :href="route('checkout', post._id)" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a> -->
+                            </span>
+                          </div>
+                          <div class="text-sm sm:text-lg flex border-t border-indigo-300 py-2">
+                            <span class="text-gray-500 font-extrabold font-heading-font"><i
+                                class="mr-10 fas fa-angles-right text-indigo-600"></i> Physical
+                              Address</span>
+                            <span class="ml-auto text-gray-900 font-primary-font">
+                              {{ post.address }}
+                              <!-- <a :href="route('checkout', post._id)" class="bg-indigo-400 hover:bg-indigo-600 text-white  text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Purchase Tender to view</a> -->
+                            </span>
+                          </div>
+                          <div class="text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2">
+                            <span class="text-gray-500 font-extrabold font-heading-font"><i
+                                class="mr-10 fas fa-angles-right text-indigo-600"></i>
+                              Date Posted
+                              <span
+                                class="bg-green-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
+                                <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                    clip-rule="evenodd"></path>
+                                </svg>
+                                {{ ago(post.created_at) }}
+                              </span>
+                            </span>
+                            <span class="ml-auto text-gray-900 font-primary-font">{{
+                            formatDate(post.created_at)
+                            }}</span>
+                          </div>
+                          <div class="text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2">
+                            <span class="text-gray-500 font-extrabold font-heading-font"><i
+                                class="mr-10 fas fa-angles-right text-indigo-600"></i>
+                              Last Date of Bid
+                  
+                              <!-- <span v-if="this.postExpired"
+                                class="font-heading-font bg-red-200 text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
+                                <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                    clip-rule="evenodd"></path>
+                                </svg>
+                                <div>Tender Closed</div>
+                              </span> -->
+                            </span>
+                            <span class="ml-auto text-gray-900 font-primary-font">{{ finalDateFormat(post.expiry) }}
+                            </span>
+                          </div>
+                          <div class="text-sm sm:text-lg flex border-t mb-6 border-indigo-300 py-2">
+                            <span class="text-gray-500 font-extrabold font-heading-font"><i
+                                class="mr-10 fas fa-angles-right text-indigo-600"></i>
+                              Country</span>
+                            <span class="ml-auto text-gray-900 font-primary-font">
+                              Kenya
+                              <!-- {{ post.country }} -->
+                            </span>
+                          </div>
+                          <div class="flex"></div>
+                  
+                          <div class="flex sm:grid grid-cols-3 gap-6 justify-between">
+                            <!-- <a :href="route('download_tender', this.post._id)" target="_blank"> -->
+                            <div>
+                              
+                            </div>
+                            <div class=""></div>
+                  
+                            <div>
+                              <a
+                                class="cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-white flex ml-auto text-white hover:text-black border-0 text-sm sm:text-lg sm:px-6 focus:outline-none rounded">
+                              </a>
+                  
+                              <button @click="shareSocial('whatsapp')"
+                                class="hover:bg-indigo-500 hover:text-white rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-900 ml-4">
+                                <i class="fab fa-whatsapp"></i>
+                              </button>
+                              <button @click="shareSocial('twitter')"
+                                class="hover:bg-indigo-500 hover:text-white rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-900 ml-4">
+                                <i class="fab fa-twitter"></i>
+                              </button>
+                            </div>
+                            
+                          </div>
+                        </div>
+                  
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <MainFooter />
   </div>
@@ -267,7 +464,8 @@ export default {
   },
   data(){
     return{
-      emailSent:false,
+      tenderDetailsModal:false,
+      emailSent:true,
       emailAddress:null,
       optionChosen:null,
       TenderList: Array,
@@ -285,12 +483,30 @@ export default {
       if(value.length == 0){
         this.$inertia.get('/')
       }
+    },
+    status(value){
+      if (value == 'Success'){
+
+        this.$inertia.get('/')
+      }
     }
   },
   computed: {
 
   },
   methods: {
+    shareSocial(){
+      
+    },
+    finalDateFormat(value) {
+      return value;
+    },
+    ago(value) {
+      return moment(value).fromNow();
+    },
+    formatDate(value) {
+      return moment(value).format("MMMM Do YYYY");
+    },
     sendMail(){
       const payload = {
         transId: this.transId,
@@ -305,6 +521,12 @@ export default {
     },
     choseMethod(value){
       this.optionChosen = value
+      if(value=='mail'){
+        
+      }
+      if(value=='show'){
+        this.tenderDetailsModal = true
+      }
     },
     unlockMultile(){
       // let currentItems = this.$store.state.tenderIDs

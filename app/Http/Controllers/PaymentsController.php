@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Post;
 use Carbon\Carbon;
 
+use function PHPUnit\Framework\isNull;
 
 class PaymentsController extends Controller
 {
@@ -85,11 +86,12 @@ class PaymentsController extends Controller
                         ->where('completed', '=', false)
                         ->where('waiting', '=', true)
                         ->first();
+
         $transactionFail = Payments::where('info', '=', $post_id )
                         ->where('phone', '=', $payment_number)
                         ->where('completed', '=', false)
                         ->where('waiting', '=', false)
-                        ->where('restart', '=', false)
+                        // ->where('restart', '=', false)
                         ->first();
 
         $transactionRestart = Payments::where('info', '=', $post_id )
@@ -99,12 +101,12 @@ class PaymentsController extends Controller
                         ->where('restart', '=', true)
                         ->first();
 
-        // dump($transactionFail, $transactionRestart);                
-
 
         if ($transaction!=null){
 
             if($posts != null){
+
+
                 return Inertia::render('ViewCart', [
                     'Tenders' => $posts,
                     'transId' => $transaction->trans_id,
@@ -122,6 +124,7 @@ class PaymentsController extends Controller
         
         if($transactionWaiting!=null){
             if($posts != null){
+                Log::info($posts);
                 return Inertia::render('InvoiceMultiple', [
                     'posts' => $posts,
                     'user' => $user,
@@ -131,6 +134,7 @@ class PaymentsController extends Controller
                     'invoiceDetails' => $invoiceDetails,
                 ]);
             }else{
+                
                 return Inertia::render('Invoice', [
                     'post' => Post::where('_id', '=', $post_id)->first(),
                     'user' => $user,
@@ -191,9 +195,6 @@ class PaymentsController extends Controller
 
     public function triggerStk(Request $request)
     {
-        //stk push here
-        // return  dd($request);
-        // return dd( json_decode($request) );
 
         $request->validate(['phone'=>'required'],['amount'=>'required'],['user_name'=>'required'],['account'=>'required'],['user_phone'=>'required'],['user_email'=>'required'],['post'=>'required'],['user'=>'required']);
 
@@ -221,95 +222,95 @@ class PaymentsController extends Controller
 
         $user=$request->user;
 
-        // return dd($post_id);
-
+        
         $mpesa = new Mpesa();
         $BusinessShortCode=env('MPESA_STK_SHORTCODE');
-        // $LipaNaMpesaPasskey=$this->lipaNaMpesaPassword();
         $LipaNaMpesaPasskey=env('MPESA_PASSKEY');
         $TransactionType="CustomerPayBillOnline";
         // $Amount=1;
         $Amount=$amount;
         $PartyA=$phone;
-        // $PartyA='254722326662';
         $PartyB=env('MPESA_STK_SHORTCODE');
-        // $PhoneNumber='254722326662';
         $PhoneNumber=$phone;
-        $CallBackURL=env('MPESA_TEST_URL'). '/api/stkpush';
-        // $CallBackURL="https://tenderske.herokuapp.com/api/stkpush";
+        $CallBackURL=env('MPESA_TEST_URL').'/api/stkpush/';
         $AccountReference=$account;
         $TransactionDesc="Bidders Portal Account";
         $Remarks="Bidders Portal Kenya";
 
+        // return dd($CallBackURL);
+
+
         $stkPushSimulation=$mpesa->STKPushSimulation($BusinessShortCode, $LipaNaMpesaPasskey, $TransactionType, $Amount, $PartyA, $PartyB, $PhoneNumber, $CallBackURL, $AccountReference, $TransactionDesc, $Remarks);
         $stkPushSimulation=json_decode($stkPushSimulation);
-        // return $stkPushSimulation;
-
-        $result_code =$stkPushSimulation->ResponseCode ?? null;
+        $result_code = $stkPushSimulation->ResponseCode ?? null;
         if (isset($result_code) and $result_code=="0"){
             $trans_id =$stkPushSimulation->MerchantRequestID;
 
-            Payments::create([
-              "user_name"=>$userName,
-              "trans_id"=>$trans_id,
-              "amount"=>$Amount,
-              "phone"=>$PhoneNumber,
-              "account"=>$account,
-              "info"=>$post_id,
-              "user_phone"=>$userPhone,
-              "user_email"=>$userEmail,
-              "completed"=>false,
-              "waiting"=> true,
-            ]);
+            if(Payments::where('info', '=', $post_id)->where('phone', '=', $phone)->where('completed', '!=', true)->exists()){
+                Payments::where('info', '=', $post_id)->where('phone', '=', $phone)->where('completed', '!=', true)
+                ->update([
+                    'waiting' => true,
+                    'trans_id' => $trans_id,
+                ]);
+            }else{
+                Payments::create([
+                  "user_name"=>$userName,
+                  "trans_id"=>$trans_id,
+                  "amount"=>$Amount,
+                  "phone"=> $phone,
+                  "account"=>$account,
+                  "info"=>$post_id,
+                  "user_phone"=>$userPhone,
+                  "user_email"=>$userEmail,
+                  "completed"=>false,
+                  "waiting"=> true,
+                ]);
+            }
 
         }
 
-            $error_msg = $stkPushSimulation->errorMessage ?? '';
-            // return dd('done');
-            $restart = $request->restartTrans;
+        // $error_msg = $stkPushSimulation->errorMessage ?? '';
+        $restart = $request->restartTrans;
 
-            if($restart == true){
-                $statusClear = '';
-            }else{
-                $statusClear = '';
-            }
+        if($restart == true){
+            $statusClear = '';
+        }else{
+            $statusClear = '';
+        }
 
-        // $validator = $this->setTransactionDetails($request);
-        // echo $validator;
-        // return $this->setTransactionDetails($request->all());
-        return Inertia::render('Invoice', [
-            // 'post' => $request->post,
-            'post' => $post,
-            'user' => $user,
-            'status' => $statusClear
-            // 'invoiceStatus' => $invoicePaid,
-            // 'invoiceDetails' => json_decode($createdInvoice),
+        // return Inertia::render('Invoice', [
+        //     // 'post' => $request->post,
+        //     'post' => $post,
+        //     'user' => $user,
+        //     'status' => $statusClear
+        //     // 'invoiceStatus' => $invoicePaid,
+        //     // 'invoiceDetails' => json_decode($createdInvoice),
 
-        ]);
+        // ]);
 
 
-            if(is_string($post)){
+        if(is_string($post)){
 
-                return Inertia::render('Invoice', [
-                    // 'post' => $request->post,
-                    'post' => $post,
-                    'user' => $user,
-                    'status' => $statusClear
-                    // 'invoiceStatus' => $invoicePaid,
-                    // 'invoiceDetails' => json_decode($createdInvoice),
-    
-                ]);
-            }else{
-                return Inertia::render('InvoiceMultiple', [
-                    'posts' => $posts,
-                    'user' => $user,
-                    'status' => $statusClear,
-                    // 'transId' => $transactionWaiting->trans_id,
-                    // 'invoiceStatus' => $paidStatus,
-                    // 'invoiceDetails' => $invoiceDetails,
-                ]);
+            return Inertia::render('Invoice', [
+                // 'post' => $request->post,
+                'post' => $post,
+                'user' => $user,
+                'status' => $statusClear
+                // 'invoiceStatus' => $invoicePaid,
+                // 'invoiceDetails' => json_decode($createdInvoice),
 
-            }
+            ]);
+        }else{
+            return Inertia::render('InvoiceMultiple', [
+                'posts' => $posts,
+                'user' => $user,
+                'status' => $statusClear,
+                // 'transId' => $transactionWaiting->trans_id,
+                // 'invoiceStatus' => $paidStatus,
+                // 'invoiceDetails' => $invoiceDetails,
+            ]);
+
+        }
 
 
     }

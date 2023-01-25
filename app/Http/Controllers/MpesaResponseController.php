@@ -84,7 +84,6 @@ class MpesaResponseController extends Controller
     }
 
     public function stkPush(Request $request){
-        // return dd($request->all());
         Log::info('STK Push endpoint hit');
         Log::info($request->all());
 
@@ -94,24 +93,14 @@ class MpesaResponseController extends Controller
         $trans_id= $object->Body->stkCallback->MerchantRequestID;
         $result_code= $object->Body->stkCallback->ResultCode;
         $result_description= $object->Body->stkCallback->ResultDesc;
+        Log::info($result_code);
         if ($result_code==0){
             $payment = Payments::where(['trans_id'=>$trans_id])->first();
             if ($payment){
-
-
                 $payment->completed=true;
                 $payment->waiting=false;
                 $payment->save();
                 $post=$payment->info;
-
-
-                // return Inertia::render('Success', [
-                //     'Payment' => true,
-                // ]);
-                // $info=$payment->info;
-                // $data= explode("/", $info);
-                // $id=$data[1];
-                // EbookSubscription::create(['user_id'=>$payment->user_id,'ebook_id'=>$id]);
             }
         }else if($result_code==1032){
                 $payment = Payments::where(['trans_id'=>$trans_id])->first();
@@ -121,10 +110,6 @@ class MpesaResponseController extends Controller
                 $post=$payment->info;
         }
 
-
-        // return dd($request);
-        // return redirect()->route('success');
-        // return Inertia::render('Success', ['Status' => 'Cancelled' ]);
 
         return [
             'ResultCode' => 0,

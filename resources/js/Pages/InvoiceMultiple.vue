@@ -485,35 +485,11 @@
                                         {{ this.form.number }}</span
                                     >
                                 </h4>
-                                <!-- <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Transaction Number: <span class="ml-2 font-extrabold text-xl text-indigo-600"> {{ $page['props']['Status']  }}</span> </h4> -->
-                                <!-- <h4 class="mb-5 text-sm font-bold text-gray-500 dark:text-gray-400">Payment Amount: <span class="ml-2 font-extrabold text-xl text-indigo-600"> KES {{ this.amount }}</span> </h4> -->
                             </div>
                             <div class="p-4 pt-0 text-center mt-5">
-                                <!-- <button @click="requestAccess" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                        Request Access Token
-                    </button>
-                    <button @click="registerURLS" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                        Register URL's
-                    </button>
-                    <button @click="simulate" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                        Simulate
-                    </button>
-                    <button @click="stkPush" data-modal-toggle="popup-modal" type="button" class="text-white bg-indigo-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                        STK
-                    </button> -->
-                                <!-- <a :href="route('confirmation', this.post._id)"> -->
+                                
 
                                 <!-- <button
-                            v-if="status == 'Cancelled'"
-                            @click="stkPush"
-                            data-modal-toggle="popup-modal"
-                            type="button"
-                            class="text-white bg-orange-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
-                        >
-                            Restart Mpesa Express Payment
-                        </button> -->
-
-                                <button
                                     v-if="status != 'Cancelled'"
                                     @click="confirm"
                                     data-modal-toggle="popup-modal"
@@ -521,9 +497,8 @@
                                     class="text-white bg-indigo-600 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                                 >
                                     Tap at intervals to Confirm Payment
-                                </button>
+                                </button> -->
 
-                                <!-- </a> -->
                             </div>
                         </div>
                     </div>
@@ -636,7 +611,7 @@
                                 >{{ seconds | twoDigits }} Seconds</span
                             >
                         </div>
-                        <button
+                        <!-- <button
                             v-if="status != 'Cancelled' && timeout == false"
                             @click="confirm"
                             data-modal-toggle="popup-modal"
@@ -644,7 +619,7 @@
                             class="text-white bg-indigo-600 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                         >
                             Tap at intervals to Confirm Payment
-                        </button>
+                        </button> -->
                         <button
                             v-if="timeout"
                             @click="closeSTK"
@@ -880,7 +855,10 @@ export default {
     methods: {
         closeModal()
         { 
-            this.paymentModal=false      
+            this.paymentModal=false 
+            // if(data=='successful'){
+
+            // }else     
         },
         startTimer() {
             (this.showContinue = false),
@@ -888,9 +866,9 @@ export default {
                 (this.interval = setInterval(() => {
                     if (this.seconds === 0) {
                         this.seconds = 59;
-                        this.minutes--;
+                        this.minutes--
                     } else {
-                        this.seconds--;
+                        this.seconds--
                     }
 
                     if (this.minutes === 0 && this.seconds === 0) {
@@ -908,26 +886,6 @@ export default {
             (this.showReset = true), (this.minutes = 0);
             this.seconds = 60;
             // this.message = default_title;
-        },
-        getAccessToken() {
-            axios
-                .post("/get-token")
-                .then(response => {
-                    console.log(response.data);
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        },
-        registerURL() {
-            axios
-                .post("/register-urls")
-                .then(response => {
-                    console.log(response.data);
-                })
-                .catch(error => {
-                    console.log(error);
-                });
         },
         formatMoney(n) {
             return "" + (Math.round(n * 100) / 100).toLocaleString();
@@ -1020,6 +978,8 @@ export default {
                     .post(`/invoice/payment/stkPush/`, requestBody)
                     .then(response => {
                         console.log(response);
+                        // this.startConfrirm('nothing')
+
                         if (this.status != "Cancelled") {
                             if (this.status == "Success") {
                                 alert("stop");
@@ -1045,10 +1005,13 @@ export default {
                                 return clearInterval(myInterval);
                             }
                         }
+                        
+                        
                     })
                     .catch(error => {
                         console.log(error);
                     });
+                    
             } else {
                 alert("Your Number Format Should be 254 7XX XXX XXX");
             }
