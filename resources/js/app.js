@@ -18,6 +18,10 @@ Vue.use(InertiaForm);
 Vue.use(PortalVue);
 // Vue.use(moment);
 
+if (process.env.NODE_ENV !== 'production') {
+    Vue.config.devtools = false;
+}
+
 const app = document.getElementById('app');
 
 new Vue({
