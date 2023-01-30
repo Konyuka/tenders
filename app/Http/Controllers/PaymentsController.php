@@ -124,7 +124,7 @@ class PaymentsController extends Controller
         
         if($transactionWaiting!=null){
             if($posts != null){
-                Log::info($posts);
+                // Log::info($posts);
                 return Inertia::render('InvoiceMultiple', [
                     'posts' => $posts,
                     'user' => $user,
@@ -232,7 +232,7 @@ class PaymentsController extends Controller
         $PartyA=$phone;
         $PartyB=env('MPESA_STK_SHORTCODE');
         $PhoneNumber=$phone;
-        $CallBackURL=env('MPESA_TEST_URL').'/api/stkpush/';
+        $CallBackURL=env('MPESA_TEST_URL').'/api/stkpush';
         $AccountReference=$account;
         $TransactionDesc="Bidders Portal Account";
         $Remarks="Bidders Portal Kenya";

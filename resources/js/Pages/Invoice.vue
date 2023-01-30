@@ -699,10 +699,12 @@ export default {
     },
     methods: {
         startConfrirm(data) {
+            console.log*(data)
             const myInterval = window.setInterval(() => {
                 this.confirm();
             }, 2000);
             if(data == 'stop'){
+                console.log('stop')
                 clearInterval(myInterval);
             }
         },
