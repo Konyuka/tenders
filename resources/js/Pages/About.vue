@@ -95,7 +95,7 @@
                 <p class="mt-2 text-base text-warm-gray-500">
                   <span class="block">info@biddersportal.com</span>
 
-                  <span class="block">+254 716 202 298</span>
+                  <span class="block">+254 112 047 733</span>
                 </p>
               </div>
             </div>

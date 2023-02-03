@@ -23,10 +23,10 @@
                   <div class="flex justify-between w-full">
                     <div class="text-center">
                       <h1
-                        class="text-lg sm:text-3xl text-gray-600 font-heading-font font-bold mt-0 mb-6"
+                        class="flex text-lg sm:text-3xl text-gray-600 font-heading-font font-bold mt-0 mb-2"
                       >
                         Daily
-                        <span class="text-green-600 font-bold-font">Free</span>
+                        <span class="text-green-600 font-bold-font ml-2 mr-2">Free</span>
                         Tender
                       </h1>
                     </div>
@@ -67,7 +67,7 @@
                     </div>
                   </div>
                   <p
-                    class="text-md sm:text-lg m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
+                    class="text-xs sm:text-lg m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
                   >
                     {{ post.tender_brief }}
                   </p>
@@ -200,15 +200,15 @@
                   <div class="flex w-full justify-between mt-10 text-lg">
                     <a
                       :href="route('selected', post._id)"
-                      class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold transform transition hover:scale-110 hover:font-bold duration-700"
-                      >More Tender Details <i class="fa-solid fa-book-open-reader p-1"></i>
+                      class="text-indigo-600 text-sm sm:text-lg inline-flex items-center font-heading-font font-extrabold transform transition hover:scale-110 hover:font-bold duration-700"
+                      >Details & Single Checkout <i class="fa-solid fa-book-open-reader p-1"></i>
                     </a>
 
                     <a
                       @click="addToCart(post._id)"
                       href="#"
-                      class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold transform transition hover:scale-110 hover:font-bold duration-700"
-                      >Add Tender To Cart <i class="fa-solid fa-cart-shopping p-1"></i>
+                      class="text-indigo-600 text-sm sm:text-lg inline-flex items-center font-heading-font font-extrabold transform transition hover:scale-110 hover:font-bold duration-700"
+                      >Add To Cart <i class="fa-solid fa-cart-shopping p-1"></i>
                     </a>
                   </div>
                 </a>

@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div  class="cursor:pointer fixed z-90 bottom-14 right-7  flex transform transition hover:scale-150 duration-700 ease-in-out">
+    <div  class="cursor:pointer fixed z-50 bottom-14 right-7  flex transform transition hover:scale-150 duration-700 ease-in-out">
       <a  @click.prevent="goToCart()" href="#" class="mr-4 fa-2xl text-black fa-solid fa-cart-shopping p-1">
       </a>
       <span

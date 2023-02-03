@@ -10,21 +10,32 @@
 
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div class="bg-gray-50">
-          <div class="pt-12 sm:pt-16 lg:pt-20">
+          <div class="pt-6 sm:pt-16 lg:pt-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div class="text-center">
-                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl">
-                  Simple no-tricks pricing
+                <h2 class="text-2xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl">
+                  Single Purchase Pricing
                 </h2>
-                <p class="mt-4 text-xl text-gray-600">
-                  Everything you need, nothing you don't.
+                <p class="text-left mt-4 text-sm sm:text-xl text-gray-600">
+                  Our pricing options are designed to give you the most value for your money, whether you're a small business owner just
+                  starting out or a seasoned pro looking to stay ahead of the game. With our affordable pricing plans, you'll have access
+                  to the latest and most comprehensive tender information in Kenya, all in one convenient place.
+                  
+                  <br><br>
+                  We understand that every business has unique needs, which is why we offer custom pricing solutions for those looking for
+                  a more tailored approach. Simply contact us to discuss your specific requirements and we'll work with you to create a
+                  package that fits your needs and budget. 
+
+                  <br><br>
+                  Be sure to also checkout our affordable membership plans.
+                
                 </p>
               </div>
             </div>
           </div>
           <div class="mt-8 bg-white pb-16 sm:mt-12 sm:pb-20 lg:pb-28">
             <div class="relative">
-              <div class="absolute inset-0 h-1/2 bg-gray-100"></div>
+              <div class="absolute inset-0 h-1/2 bg-gray-50"></div>
               <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div
                   class="max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex"
@@ -216,9 +227,9 @@
                       Pay once, own everything!
                     </p>
                     <div
-                      class="mt-4 flex items-center justify-center text-3xl font-extrabold text-gray-900"
+                      class="mt-4 flex items-center justify-center text-2xl sm:text-3xl font-extrabold text-gray-900"
                     >
-                      <span> Membership </span>
+                      <span> Membership Plans</span>
                     </div>
                     <p class="mt-4 text-sm">
                       <a href="#" class="font-medium text-gray-500 underline">
@@ -229,9 +240,9 @@
                       <div class="rounded-md shadow">
                         <a
                           :href="route('subscriptions')"
-                          class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500"
+                          class="font-bold flex items-center justify-center px-5 py-3 border border-transparent text-base rounded-md text-white bg-indigo-600 hover:bg-indigo-500"
                         >
-                          Membership Plans
+                          View Plans
                         </a>
                       </div>
                     </div>
@@ -246,22 +257,27 @@
 
     <div class="bg-indigo-700 mt-10 mx-2 sm:mx-10 rounded-3xl">
       <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
-          <span class="block"
-            >Simplicity in productivity <i class="fas fa-thumbs-up"></i
-          ></span>
-          <span class="block">Explore Bidders Portal today.</span>
+        <h2 class="text-xl font-extrabold text-white sm:text-4xl">
+          <span class="block">Explore Bidders Portal</span>
         </h2>
-        <p class="mt-4 text-lg leading-6 text-indigo-200 font-heading-font">
-          We focus on bringing you closer to tenders that meets your market niche. There
-          are millions of tenders awaiting for you in our database.
+        <p class="mt-4 text-sm sm:text-lg leading-6 text-indigo-200 font-heading-font">
+          Are you tired of constantly checking the government tender website and still missing out on opportunities? Well, you're
+          in luck! By signing up for our newsletter and email notifications, you'll never miss a beat in the tendering game.
+          <br><br>
+          Think of it like having a personal assistant for tenders, except this one never takes a sick day and always has the
+          latest information at its fingertips. We'll send you updates as soon as new tenders are posted, so you'll always be one
+          step ahead of the competition.
+          <br><br>
+          And the best part? Our newsletters are chock-full of hilarious tender-related jokes and puns, so you'll get a laugh and
+          valuable information all in one. So why settle for a boring inbox when you can have one that's not only informative, but
+          also entertaining? Sign up now and never miss a tender opportunity again!
         </p>
-        <a
-          href="#"
-          class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-bold rounded-md text-gray-500 hover:text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto font-heading-font transform transition hover:scale-125 duration-700 hover:shadow-2xl"
+        <button
+          @click="notificationModal=true"
+          class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-bold rounded-md text-black hover:text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto font-heading-font transform transition hover:scale-90 duration-700 hover:shadow-2xl"
         >
-          Sign up for free
-        </a>
+          Email Notifications
+        </button>
       </div>
     </div>
 
@@ -269,13 +285,13 @@
       <div>
         <div class="mb-8 md:mb-12 text-center">
           <h1
-            class="mb-2 text-3xl sm:text-5xl lg:text-6xl 2xl:text-7xl text-gray-700 font-bold font-heading font-heading-font"
+            class="uppercase mb-2 text-3xl sm:text-5xl lg:text-6xl 2xl:text-7xl text-gray-700 font-extrabold font-heading font-heading-font"
           >
             Services Offered
           </h1>
         </div>
 
-        <div
+        <!-- <div
           tabindex="0"
           aria-label="group of cards"
           class="focus:outline-none mt-2 ml-18 flex flex-wrap justify-center"
@@ -292,7 +308,6 @@
               <div
                 class="absolute text-white bottom-0 left-0 bg-indigo-700 rounded w-16 h-16 flex items-center justify-center mt-2 mr-3"
               >
-                <!-- <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/icon_and_text-SVG1.svg" alt="drawer"> -->
                 <i class="fas fa-bell fa-2xl"></i>
               </div>
             </div>
@@ -303,7 +318,6 @@
               >
                 Daily Tender Alert
               </h2>
-              <!-- <p tabindex="0" class="focus:outline-none text-base text-gray-600 dark:text-gray-200 leading-normal pt-2">It provides a very simple start, no need to write a lot of code, you just import it and start the primitive components and create the ones you need.</p> -->
             </div>
           </div>
 
@@ -329,7 +343,6 @@
               >
                 Tender Analysis
               </h2>
-              <!-- <p tabindex="0" class="focus:outline-none text-base text-gray-600 dark:text-gray-200 leading-normal pt-2">It provides a very simple start, no need to write a lot of code, you just import it and start the primitive components and create the ones you need.</p> -->
             </div>
           </div>
 
@@ -355,7 +368,6 @@
               >
                 Tender Data in Excel
               </h2>
-              <!-- <p tabindex="0" class="focus:outline-none text-base text-gray-600 dark:text-gray-200 leading-normal pt-2">It provides a very simple start, no need to write a lot of code, you just import it and start the primitive components and create the ones you need.</p> -->
             </div>
           </div>
 
@@ -381,7 +393,6 @@
               >
                 Contract Awards
               </h2>
-              <!-- <p tabindex="0" class="focus:outline-none text-base text-gray-600 dark:text-gray-200 leading-normal pt-2">It provides a very simple start, no need to write a lot of code, you just import it and start the primitive components and create the ones you need.</p> -->
             </div>
           </div>
 
@@ -407,7 +418,6 @@
               >
                 Tender Project Information
               </h2>
-              <!-- <p tabindex="0" class="focus:outline-none text-base text-gray-600 dark:text-gray-200 leading-normal pt-2">It provides a very simple start, no need to write a lot of code, you just import it and start the primitive components and create the ones you need.</p> -->
             </div>
           </div>
 
@@ -433,7 +443,6 @@
               >
                 Bid Consultancy
               </h2>
-              <!-- <p tabindex="0" class="focus:outline-none text-base text-gray-600 dark:text-gray-200 leading-normal pt-2">It provides a very simple start, no need to write a lot of code, you just import it and start the primitive components and create the ones you need.</p> -->
             </div>
           </div>
 
@@ -459,7 +468,6 @@
               >
                 Knowledge Center
               </h2>
-              <!-- <p tabindex="0" class="focus:outline-none text-base text-gray-600 dark:text-gray-200 leading-normal pt-2">It provides a very simple start, no need to write a lot of code, you just import it and start the primitive components and create the ones you need.</p> -->
             </div>
           </div>
 
@@ -485,10 +493,11 @@
               >
                 Dispute Redressal
               </h2>
-              <!-- <p tabindex="0" class="focus:outline-none text-base text-gray-600 dark:text-gray-200 leading-normal pt-2">It provides a very simple start, no need to write a lot of code, you just import it and start the primitive components and create the ones you need.</p> -->
             </div>
           </div>
-        </div>
+        </div> -->
+        <OurServices />
+
       </div>
     </section>
 
@@ -680,7 +689,7 @@
                       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                     />
                   </svg>
-                  <span class="ml-3">+254 716 202 298</span>
+                  <span class="ml-3">+254 112 047 733</span>
                 </dd>
                 <dt><span class="sr-only">Email</span></dt>
                 <dd class="flex text-base text-indigo-50">
@@ -703,32 +712,6 @@
                   <span class="ml-3">support@biddersportal.com</span>
                 </dd>
               </dl>
-              <!-- <ul role="list" class="mt-8 flex space-x-12">
-                    <li>
-                    <a class="text-indigo-200 hover:text-indigo-100" href="#">
-                        <span class="sr-only">Facebook</span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" aria-hidden="true">
-                        <path d="M22.258 1H2.242C1.556 1 1 1.556 1 2.242v20.016c0 .686.556 1.242 1.242 1.242h10.776v-8.713h-2.932V11.39h2.932V8.887c0-2.906 1.775-4.489 4.367-4.489 1.242 0 2.31.093 2.62.134v3.037l-1.797.001c-1.41 0-1.683.67-1.683 1.653v2.168h3.362l-.438 3.396h-2.924V23.5h5.733c.686 0 1.242-.556 1.242-1.242V2.242C23.5 1.556 22.944 1 22.258 1" fill="currentColor" />
-                        </svg>
-                    </a>
-                    </li>
-                    <li>
-                    <a class="text-indigo-200 hover:text-indigo-100" href="#">
-                        <span class="sr-only">GitHub</span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" aria-hidden="true">
-                        <path d="M11.999 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.386.6.11.819-.26.819-.578 0-.284-.01-1.04-.017-2.04-3.337.724-4.042-1.61-4.042-1.61-.545-1.386-1.332-1.755-1.332-1.755-1.09-.744.082-.73.082-.73 1.205.086 1.838 1.238 1.838 1.238 1.07 1.833 2.81 1.304 3.493.996.109-.775.419-1.303.762-1.603C7.145 17 4.343 15.97 4.343 11.373c0-1.31.468-2.382 1.236-3.22-.124-.304-.536-1.524.118-3.176 0 0 1.007-.323 3.3 1.23.956-.266 1.983-.4 3.003-.404 1.02.005 2.046.138 3.005.404 2.29-1.553 3.296-1.23 3.296-1.23.655 1.652.243 2.872.12 3.176.77.838 1.233 1.91 1.233 3.22 0 4.61-2.806 5.624-5.478 5.921.43.37.814 1.103.814 2.223 0 1.603-.015 2.898-.015 3.291 0 .321.217.695.825.578C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12.001-12" fill="currentColor" />
-                        </svg>
-                    </a>
-                    </li>
-                    <li>
-                    <a class="text-indigo-200 hover:text-indigo-100" href="#">
-                        <span class="sr-only">Twitter</span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" aria-hidden="true">
-                        <path d="M7.548 22.501c9.056 0 14.01-7.503 14.01-14.01 0-.213 0-.425-.015-.636A10.02 10.02 0 0024 5.305a9.828 9.828 0 01-2.828.776 4.94 4.94 0 002.165-2.724 9.867 9.867 0 01-3.127 1.195 4.929 4.929 0 00-8.391 4.491A13.98 13.98 0 011.67 3.9a4.928 4.928 0 001.525 6.573A4.887 4.887 0 01.96 9.855v.063a4.926 4.926 0 003.95 4.827 4.917 4.917 0 01-2.223.084 4.93 4.93 0 004.6 3.42A9.88 9.88 0 010 20.289a13.941 13.941 0 007.548 2.209" fill="currentColor" />
-                        </svg>
-                    </a>
-                    </li>
-                </ul> -->
             </div>
 
             <!-- Contact form -->
@@ -847,26 +830,134 @@
         </div>
       </div>
     </div>
+
+    <div v-if="notificationModal" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+    
+      <div class="fixed inset-0 z-10 overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          
+          <div
+            class="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+            <div>
+              <div class="mt-3 text-center sm:mt-5">
+                <div class="mt-2">
+                  
+                  <section class="py-5 sm:py-10 bg-white overflow-hidden">
+                    <div class="container px-4 mx-auto">
+                      <div class="text-center max-w-xl mx-auto">
+                        <div class="mb-6 relative mx-auto w-16 h-16 bg-indigo-600 rounded-full">
+                          <img class="absolute top-0 left-0" src="flaro-assets/images/applications/blur.svg" alt="">
+                          <div class="absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
+                            <svg width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M5.00098 13.3335L18.152 22.1008C19.2716 22.8473 20.7303 22.8473 21.85 22.1008L35.001 13.3335M8.33431 31.6668H31.6676C33.5086 31.6668 35.001 30.1744 35.001 28.3335V11.6668C35.001 9.82588 33.5086 8.3335 31.6676 8.3335H8.33431C6.49336 8.3335 5.00098 9.82588 5.00098 11.6668V28.3335C5.00098 30.1744 6.49336 31.6668 8.33431 31.6668Z"
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <h2 class="mb-3 text-lg sm:text-4xl md:text-7xl text-center font-bold font-heading tracking-px-n leading-tight">Join Our
+                          Newsletter</h2>
+                        <p class="text-xs sm:text-sm mb-11 font-medium text-gray-600 leading-relaxed">
+                          Why was the tender document always so organized? <br>
+                          Because it had a strong binding proposal
+                        </p>
+                        <form class="mb-9">
+                          <div class="mb-5">
+                            <input
+                              v-model="newsForm.name"
+                              class="px-4 py-3 w-full text-gray-500 font-medium text-center placeholder-gray-500 outline-none border border-gray-300 rounded-lg focus:ring focus:ring-indigo-300"
+                              id="newsletterInput1-1" type="text" placeholder="First &amp; last name">
+                          </div>
+                          <div class="mb-5">
+                            <input
+                            v-model="newsForm.email"
+                              class="px-4 py-3 w-full text-gray-500 font-medium text-center placeholder-gray-500 outline-none border border-gray-300 rounded-lg focus:ring focus:ring-indigo-300"
+                              id="newsletterInput1-2" type="text" placeholder="Email address">
+                          </div>
+                          <div class="mb-5 mt-5">
+                            <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tailored Tender Category Mailing</label>
+                            <textarea
+                            v-model="newsForm.messsage"
+                             id="message" rows="4"
+                              class="block p-2.5 w-full text-xs sm:text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                              placeholder="Write to us your desired kind of tendering mail you would like to receive. This could also be your desired category tags..."></textarea>
+                          </div>
+                          <div class="mt-3 flex sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
+                            <!-- <button type="button"
+                              class="inline-flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:col-start-2 sm:text-sm">
+                              Confirm</button> -->
+                              <button @click="newsletter" type="button"
+                                class="mr-2 mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-indigo-600 px-4 py-2 text-base font-medium text-white hover:text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm">Confrim</button>
+                            <button @click="notificationModal=false" type="button"
+                              class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:col-start-2 sm:mt-0 sm:text-sm">Later</button>
+                          </div>
+                        </form>
+                        <div class="flex flex-wrap justify-center items-center -m-1.5">
+                          <div class="w-auto p-1.5">
+                            <svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M8.00033 10.0002V11.3336M4.00033 14.0002H12.0003C12.7367 14.0002 13.3337 13.4033 13.3337 12.6669V8.66691C13.3337 7.93053 12.7367 7.33358 12.0003 7.33358H4.00033C3.26395 7.33358 2.66699 7.93053 2.66699 8.66691V12.6669C2.66699 13.4033 3.26395 14.0002 4.00033 14.0002ZM10.667 7.33358V4.66691C10.667 3.19415 9.47308 2.00024 8.00033 2.00024C6.52757 2.00024 5.33366 3.19415 5.33366 4.66691V7.33358H10.667Z"
+                                stroke="#A1A1AA" stroke-width="1.5" stroke-linecap="round"></path>
+                            </svg>
+                          </div>
+                          <div class="w-auto p-1.5">
+                            <p class="font-sans text-xs sm:text-sm text-gray-600">We never share your information to any third party</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
 import Subscriptions from "./Subscriptions.vue";
+import OurServices from "./OurServices.vue";
+
 export default {
   name: "ServiceIntro",
   components: {
     Subscriptions,
-    //   Categories,
+    OurServices,
   },
   data() {
     return {
+      notificationModal: false,
       chooseAuth: false,
       membershipModal: true,
+      newsForm:{
+        name:null,
+        email:null,
+        messsage:null,
+      }
     };
+  },
+  mounted(){
+    if (localStorage.getItem("userName") != "null") {
+      this.newsForm.name = localStorage.getItem("userName");
+    }
+    if (localStorage.getItem("userPhone") != "null") {
+      this.newsForm.email = localStorage.getItem("userEmail");
+    }
+    
   },
   watch: {},
   computed: {},
   methods: {
+    newsletter(){
+
+    },
     pricing(value) {
       // this.$inertia.get("pricing", value);
       this.$parent.spinner = true;
