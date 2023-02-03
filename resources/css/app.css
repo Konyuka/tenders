@@ -4,9 +4,16 @@
 @import "tailwindcss/utilities";
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap");
+/* @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/webfonts/fa-solid-900.woff2 "); */
+
+/* @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap"); */
+@import url("https://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffGjEGItzYw.woff2");
+
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@600&family=Titillium+Web:wght@300&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@1,900&display=swap");
+/* @import url("https://fonts.gstatic.com/s/dosis/v27/HhyJU5sn9vOmLxNkIwRSjTVNWLEJ6bQl2xME.woff2 "); */
+
+/* @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@1,900&display=swap"); */
+@import url("https://fonts.gstatic.com/s/alegreyasanssc/v23/mtGk4-RGJqfMvt7P8FUr0Q1j-Hf1BkxddiNRMqp7.woff2");
 
 @layer utilities {
     input[type="number"]::-webkit-inner-spin-button,

@@ -36,13 +36,15 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
     <!-- Scripts -->
-    @routes
     <script src="{{ mix('js/app.js') }}" defer></script>
+    
+    @routes
+
     <!-- <script src="//www.sejda.com/js/sejda-js-api.min.js"></script> -->
+
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVZJ5KQXEK"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVZJ5KQXEK"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -52,17 +54,16 @@
         gtag('js', new Date());
 
         gtag('config', 'G-HVZJ5KQXEK');
-    </script>
+    </script> -->
+
     {!! \App\Meta::render() !!}
 </head>
 
 <body class="font-sans antialiased">
-    <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-526RBXB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+
     @inertia
 
-    <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "12d0fb8c1fb34a6b9ef7fac09b4a54f9"}'></script><!-- End Cloudflare Web Analytics -->
 
 </body>

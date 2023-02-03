@@ -53,8 +53,3 @@ $response = tap($kernel->handle(
 ))->send();
 
 $kernel->terminate($request, $response);
-
-// header("Access-Control-Allow-Origin: *");
-// header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS");
-// header("Access-Control-Allow-Headers: *");
-// header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
