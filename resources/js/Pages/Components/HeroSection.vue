@@ -103,13 +103,20 @@
                                         class="text-left mt-3 max-w-md mx-auto text-base text-gray-900 font-primary-font sm:text-lg md:mt-5 md:text-xl md:max-w-3xl"
                                     >
                                         Welcome to the one-stop shop for all things tenders in Kenya! <br> <br>
-                                        Tired of sifting through stacks of government documents
-                                        just to find a single tender? Look no further! <br> <br>
+                                        Bidders Portal™ system is a web based platform that provides live tenders information to our clients at affordable
+                                        rates at the click of a button <br> <br>
+
+                                        Tired of sifting through stacks of documents
+                                        just to find a single tender? Look no further!
                                         We've got you covered with our extensive database of tender information,
                                         straight from the source. No more endless hours of searching and no more missed opportunities. <br> <br>
-                                         With us, you'll never
+                                        Our Search Engine is optimized to use any keyword to help you locate your tenders easily. You can
+                                        search tenders by Country, County, Government Tenders, Parastatal Tenders, Private Limited Company Tenders, NGO Tenders,
+                                        Development Partners Tenders, Posting Dates, Closing Dates, Tendering Organization, Funding, Sector/Type, Tender Number
+                                        and many other filters <br> <br>
+                                        With us, you'll never
                                         miss a beat in the Kenyan tender game. And the best part? We've made it all easy and fun! So sit back, relax, and let us
-                                        do the heavy lifting. <br> <br>
+                                        do the heavy lifting.
                                         
                                         You just focus on winning that tender and making your business dreams a reality. Let's get
                                         tendering!

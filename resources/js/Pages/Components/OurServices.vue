@@ -3,9 +3,9 @@
     <section class="py-3">
 
       <div class="mb-20 container px-4 mx-auto sm:grid grid-cols-2 gap-6">
-        <div class="relative p-6 text-center bg-indigo-700 rounded-xl shadow-2xl">
+        <div class="mt-5 sm:mt-10 relative p-6 text-center bg-indigo-700 rounded-xl shadow-2xl">
           <!-- <img class="block mx-auto mb-5 w-28 h-28" src="trizzle-assets/images/avatar-men-1.png" alt=""> -->
-          <h4 class="mt-5 uppercase text-lg sm:text-4xl text-black font-bold mb-3">Tender Information</h4>
+          <h4 class="uppercase text-lg sm:text-4xl text-black font-bold mb-3">Tender Information</h4>
           <p class="text-white mb-3 text-xs sm:text-lg">
             Bidders Portal provides a comprehensive database of all government and private tenders in Kenya, updated daily to ensure
             the most up-to-date information. With access to this information, you'll never miss a tender opportunity again
@@ -32,22 +32,7 @@
           </p>
         </div>
 
-        <div class="mt-5 sm:mt-10 relative p-6 text-center bg-gray-100 rounded-xl shadow-xl">
-          <!-- <img class="block mx-auto mb-5 w-28 h-28" src="trizzle-assets/images/avatar-men-1.png" alt=""> -->
-          <h4 class="uppercase text-lg sm:text-4xl text-black font-bold mb-3">Tender Alerts</h4>
-          <p class="text-gray-600 mb-3 text-xs sm:text-lg">
-            Receive notifications as soon as new tenders are posted, so you never miss a beat in the tendering game
-          </p>
-        </div>
-
-        <div class="mt-5 sm:mt-10 relative p-6 text-center bg-indigo-700 rounded-xl shadow-2xl">
-          <!-- <img class="block mx-auto mb-5 w-28 h-28" src="trizzle-assets/images/avatar-men-1.png" alt=""> -->
-          <h4 class="uppercase text-lg sm:text-4xl text-black font-bold mb-3">Tender Analysis</h4>
-          <p class="text-white mb-3 text-xs sm:text-lg">
-            Receive notifications as soon as new tenders are posted, so you never miss a beat in the tendering game
-          </p>
-        </div>
-
+        
         <div class="mt-5 sm:mt-10 relative p-6 text-center bg-gray-100 rounded-xl shadow-xl">
           <!-- <img class="block mx-auto mb-5 w-28 h-28" src="trizzle-assets/images/avatar-men-1.png" alt=""> -->
           <h4 class="uppercase text-lg sm:text-4xl text-black font-bold mb-3">Bidding Assistance</h4>
