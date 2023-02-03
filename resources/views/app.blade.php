@@ -68,6 +68,10 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-526RBXB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     @inertia
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "12d0fb8c1fb34a6b9ef7fac09b4a54f9"}'></script><!-- End Cloudflare Web Analytics -->
+    
 </body>
 
 </html>

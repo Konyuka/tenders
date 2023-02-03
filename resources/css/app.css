@@ -4,13 +4,8 @@
 @import "tailwindcss/utilities";
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
-/* @import "../../node_modules/font-awesome/scss/font-awesome.scss";  */
-/* @import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'; */
-/* @import "~font-awesome/scss/font-awesome.scss"; */
-/* @import "../../node_modules/font-awesome/css/font-awesome.css";  */
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@600&family=Titillium+Web:wght@300&display=swap");
-/* @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Staatliches&display=swap'); */
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@1,900&display=swap");
 
 @layer utilities {
@@ -35,10 +30,8 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    /* background: #cbd5e0; */
     background: rgb(56, 178, 172);
     background: #3730a3;
-    /* background: linear-gradient(90deg, rgb(61, 99, 97) 0%, rgb(26, 89, 97) 35%, rgb(22, 80, 92) 100%); */
     border-radius: 100vh;
     border: 3px solid #ffffff;
 }
