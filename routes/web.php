@@ -5,19 +5,16 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\BlogsController;
-use Illuminate\Support\Facades\URL;
+// use Illuminate\Support\Facades\URL;
+use Spatie\Sitemap\SitemapGenerator;
+use Carbon\Carbon;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
 
-// header("Access-Control-Allow-Origin: *");
-// header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS");
-// header("Access-Control-Allow-Headers: *");
 
-// header("Access-Control-Allow-Origin: *");
-// header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS");
-// header("Access-Control-Allow-Headers: *");
-// header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+
 
 Route::get('/', [LandingController::class, 'index'])
-// Route::middleware(['cors'])->get('/', [LandingController::class, 'index'])
     ->name('landing');
 
 Route::post('/view_cart', [LandingController::class, 'viewCart'])
@@ -26,8 +23,6 @@ Route::post('/view_cart', [LandingController::class, 'viewCart'])
 Route::post('/multiple_tenders', [LandingController::class, 'checkoutMultiple'])
     ->name('multiple_tenders');
 
-// Route::get('/view_cart', [LandingController::class, 'viewCart'])
-//     ->name('view_cart');
 
 Route::get('/selected/{slug}', [LandingController::class, 'selected'])
     ->name('selected');
@@ -99,9 +94,6 @@ Route::post('/invoice/payment/stkPush', [PaymentsController::class, 'triggerStk'
 Route::post('/invoice/{slugs}/c2b', [PaymentsController::class, 'triggerC2B'])
     ->name('c2b');
 
-Route::post('/confirm/ebook/payment', [PaymentsController::class, 'confirm'])
-    ->name('confirm');
-
 Route::get('transaction-status', function(){
     return view('status');
 });
@@ -142,9 +134,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/refresh', [DashboardContr
 Route::get('/tweet', [DashboardController::class, 'tweet'])
     ->name('tweet');
 
-
-
-
 Route::middleware(['auth:sanctum', 'verified'])->delete('/delete/{post}', [DashboardController::class, 'delete'])
     ->name('delete');
 
@@ -155,11 +144,134 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/download', [DashboardCont
     ->name('download');
 
 
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return Inertia\Inertia::render('Dashboard');
-// })->name('dashboard');
+// Route::get('/sitemap', [SitemapController::class, 'index'])
+//     ->name('sitemap');
 
-// URL::forceScheme('https');
+
+Route::get('sitemap', function () {
+    SitemapGenerator::create('https://biddersportal.com')
+    // SitemapGenerator::create('http://127.0.0.1:8000')
+    ->getSitemap()
+
+    ->add(Url::create('/')
+    ->setLastModificationDate(Carbon::yesterday())
+        ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+        ->setPriority(0.1))
+
+    ->add(Url::create('/view_cart')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/selected/{slug}')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/blog/{slug}')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/free/{slug}')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/listing')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/about')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/subscriptions')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/search')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/listing')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/pricing/{slugs}')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/blogs')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/how-to-win-a-tender')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/how-to-get-government-tenders-in-kenya')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/how-to-apply-for-a-tender-in-kenya')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/checkout/{slugs}')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/unlock/{slugs}')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/unlock/multiple/{slugs}')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/send/to_mail/{slugs}')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/invoice/{slugs}')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/multiple_tenders_invoice')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/invoice/payment/stkPush')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->add(Url::create('/confirmation')
+    ->setLastModificationDate(Carbon::yesterday())
+    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+    ->setPriority(0.1))
+
+    ->writeToFile(public_path('sitemap.xml'));
+    // SitemapGenerator::create(env('APP_URL'))
+
+});
 
 if (env('APP_ENV') === 'local') {
     // URL::forceScheme('http');

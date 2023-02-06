@@ -95,7 +95,7 @@
                                             >Connection to the rightful
                                         </span>
                                         <span
-                                            class="block text-indigo-600 xl:inline font-bold-font"
+                                            class="block text-indigo-600 xl:inline font-extrabold"
                                             >Tender!</span
                                         >
                                     </h1>

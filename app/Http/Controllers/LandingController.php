@@ -189,6 +189,8 @@ class LandingController extends Controller
             ->where('completed', '=', true)
             ->where('waiting', '=', false)
             ->first();
+        // return dd($payment);  
+        
         $clientNumber = $payment->phone;
         $clientInvoice = $payment->account;
         $clientEmail = $payment->user_email;
