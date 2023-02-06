@@ -4,19 +4,16 @@ import Vue from 'vue';
 
 import { InertiaApp } from '@inertiajs/inertia-vue';
 import { InertiaForm } from 'laravel-jetstream';
-// import { InertiaProgress } from '@inertiajs/progress'
-// InertiaProgress.init()
+import VueMeta from 'vue-meta'
 import PortalVue from 'portal-vue';
 import store from './store';
 
-// import { SetupCalendar } from 'v-calendar';
-// app.use(SetupCalendar, {})
 
 Vue.mixin({ methods: { route } });
 Vue.use(InertiaApp);
 Vue.use(InertiaForm);
 Vue.use(PortalVue);
-// Vue.use(moment);
+Vue.use(VueMeta)
 
 if (process.env.NODE_ENV !== 'production') {
     Vue.config.devtools = false;

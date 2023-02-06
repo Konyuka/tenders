@@ -170,7 +170,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         \Safaricom\Mpesa\MpesaServiceProvider::class,
         // 'Thujohn\Twitter\TwitterServiceProvider',
-        Atymic\Twitter\ServiceProvider\LaravelServiceProvider::class,
+        // Atymic\Twitter\ServiceProvider\LaravelServiceProvider::class,
         // Barryvdh\Debugbar\ServiceProvider::class,
 
 

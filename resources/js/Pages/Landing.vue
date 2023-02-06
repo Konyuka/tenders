@@ -83,6 +83,16 @@ export default {
     SearchFilter,
     CartButton,
   },
+  metaInfo: {
+    title: 'Bidders Portal - Tender Information and Facilitations in Kenya',
+    meta: [
+      { 
+        vmid: 'Bidders Portal', 
+        name: 'Bidders Portal', 
+        content: 'Purchase Kenyan Tender Information 2023' 
+      }
+    ]
+  },
   beforeCreate() {
     this.spinner = true;
   },
