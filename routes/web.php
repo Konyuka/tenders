@@ -5,11 +5,11 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\BlogsController;
-// use Illuminate\Support\Facades\URL;
-use Spatie\Sitemap\SitemapGenerator;
-use Carbon\Carbon;
-use Spatie\Sitemap\Sitemap;
-use Spatie\Sitemap\Tags\Url;
+use Illuminate\Support\Facades\URL;
+// use Spatie\Sitemap\SitemapGenerator;
+// use Carbon\Carbon;
+// use Spatie\Sitemap\Sitemap;
+// use Spatie\Sitemap\Tags\Url;
 
 
 
@@ -148,130 +148,130 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/download', [DashboardCont
 //     ->name('sitemap');
 
 
-Route::get('sitemap', function () {
-    SitemapGenerator::create('https://biddersportal.com')
-    // SitemapGenerator::create('http://127.0.0.1:8000')
-    ->getSitemap()
+// Route::get('sitemap', function () {
+//     SitemapGenerator::create('https://biddersportal.com')
+//     // SitemapGenerator::create('http://127.0.0.1:8000')
+//     ->getSitemap()
 
-    ->add(Url::create('/')
-    ->setLastModificationDate(Carbon::yesterday())
-        ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-        ->setPriority(0.1))
+//     ->add(Url::create('/')
+//     ->setLastModificationDate(Carbon::yesterday())
+//         ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//         ->setPriority(0.1))
 
-    ->add(Url::create('/view_cart')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/view_cart')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/selected/{slug}')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/selected/{slug}')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/blog/{slug}')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/blog/{slug}')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/free/{slug}')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/free/{slug}')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/listing')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/listing')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/about')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/about')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/subscriptions')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/subscriptions')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/search')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/search')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/listing')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/listing')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/pricing/{slugs}')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/pricing/{slugs}')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/blogs')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/blogs')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/how-to-win-a-tender')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/how-to-win-a-tender')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/how-to-get-government-tenders-in-kenya')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/how-to-get-government-tenders-in-kenya')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/how-to-apply-for-a-tender-in-kenya')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/how-to-apply-for-a-tender-in-kenya')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/checkout/{slugs}')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/checkout/{slugs}')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/unlock/{slugs}')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/unlock/{slugs}')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/unlock/multiple/{slugs}')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/unlock/multiple/{slugs}')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/send/to_mail/{slugs}')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/send/to_mail/{slugs}')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/invoice/{slugs}')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/invoice/{slugs}')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/multiple_tenders_invoice')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/multiple_tenders_invoice')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/invoice/payment/stkPush')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/invoice/payment/stkPush')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->add(Url::create('/confirmation')
-    ->setLastModificationDate(Carbon::yesterday())
-    ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-    ->setPriority(0.1))
+//     ->add(Url::create('/confirmation')
+//     ->setLastModificationDate(Carbon::yesterday())
+//     ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+//     ->setPriority(0.1))
 
-    ->writeToFile(public_path('sitemap.xml'));
-    // SitemapGenerator::create(env('APP_URL'))
+//     ->writeToFile(public_path('sitemap.xml'));
+//     // SitemapGenerator::create(env('APP_URL'))
 
-});
+// });
 
 if (env('APP_ENV') === 'local') {
     // URL::forceScheme('http');
