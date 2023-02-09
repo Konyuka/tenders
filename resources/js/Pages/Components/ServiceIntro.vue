@@ -503,7 +503,7 @@
 
     <div class="bg-indigo-700 mt-5 rounded-3xl">
       <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-        <h2 class="text-lg sm:text-3xl text-center font-extrabold text-white font-bold-font">
+        <h2 class="text-lg sm:text-3xl text-center font-extrabold text-white">
           Frequently asked questions
           <i class="ml-5 fas fa-circle-question text-white-600 fa-xl"></i>
         </h2>

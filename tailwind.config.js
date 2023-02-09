@@ -7,10 +7,13 @@ module.exports = {
         purgeLayersByDefault: true,
     },
     purge: [
+        './resources/**/*.html',
+        './resources/**/*.vue',
+        './resources/**/*.jsx',
+        './resources/**/*.js',
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
-        './resources/js/**/*.vue',
     ],
 
     theme: {
