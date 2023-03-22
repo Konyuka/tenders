@@ -114,6 +114,7 @@ class LandingController extends Controller
             'payment' => null,
         ]);
     }
+    
 
     public function toMail(Request $request)
     {
