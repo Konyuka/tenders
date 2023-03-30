@@ -109,7 +109,7 @@
                       />
                     </div>
 
-                    <div class="w-full flex flex-col mb-6">
+                    <!-- <div class="w-full flex flex-col mb-6">
                       <label
                         for="FirstName"
                         class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100"
@@ -125,7 +125,7 @@
                         <option value="2">KES 100</option>
                         <option value="3">KES 50</option>
                       </select>
-                    </div>
+                    </div> -->
 
                     <div class="mb-6">
                       <label

@@ -183,7 +183,10 @@
                     >KES
                     <span
                       class="mr-2 font-heading-font font-extrabold text-indigo-600 text-xl sm:text-2xl"
-                      >{{ this.amount }}</span
+                      >
+                      <!-- {{ this.amount }} -->
+                      1500
+                      </span
                     >
                   </span>
                   <a
