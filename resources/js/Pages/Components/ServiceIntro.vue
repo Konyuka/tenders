@@ -61,7 +61,7 @@
                             <h3
                               class="text-gray-700 sm:text-white text-sm font-semibold uppercase tracking-wide"
                             >
-                              Premium Price
+                              Tender Information Price
                             </h3>
                             <div
                               class="flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start"
@@ -70,7 +70,7 @@
                                 <p
                                   class="text-gray-700 sm:text-white text-4xl font-extrabold tracking-tight"
                                 >
-                                  KES 150
+                                  KES 1500
                                 </p>
                                 <!-- <div class="ml-4">
                         <p class="text-indigo-200 text-sm">Billed Depending on Tender Expiry</p>
@@ -107,7 +107,7 @@
                           </ul>
                         </a>
 
-                        <a
+                        <!-- <a
                           @click.prevent="pricing('100')"
                           href=""
                           class="transition transform hover:scale-75 duration-700 bg-white ring-2 ring-indigo-700 shadow-xl pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
@@ -127,12 +127,8 @@
                                 >
                                   KES 100
                                 </p>
-                                <!-- <div class="ml-4">
-                        <p class="text-gray-700 text-sm">USD / mo</p>
-                        <p class="text-gray-500 text-sm">Billed yearly ($220)</p>
-                        </div> -->
+                               
                               </div>
-                              <!-- <a href="#" class="bg-indigo-600 text-white hover:bg-indigo-700 mt-6 w-full inline-block py-2 px-8 border border-transparent rounded-md shadow-sm text-center text-sm font-medium sm:mt-0 sm:w-auto lg:mt-6 lg:w-full">Buy Scale</a> -->
                             </div>
                           </div>
                           <h4 class="sr-only">Features</h4>
@@ -141,7 +137,6 @@
                             class="border-indigo-500 divide-gray-200 mt-7 border-b sm:border-t divide-y lg:border-t-0 mb-10"
                           >
                             <li class="py-3 flex items-center">
-                              <!-- Heroicon name: solid/check -->
                               <svg
                                 class="text-gray-600 w-5 h-5 flex-shrink-0"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -182,12 +177,7 @@
                                 >
                                   KES 50
                                 </p>
-                                <!-- <div class="ml-4">
-                        <p class="text-white text-sm">USD / mo</p>
-                        <p class="text-indigo-200 text-sm">Billed yearly ($140)</p>
-                        </div> -->
                               </div>
-                              <!-- <a href="#" class="bg-white text-indigo-600 hover:bg-indigo-50 mt-6 w-full inline-block py-2 px-8 border border-transparent rounded-md shadow-sm text-center text-sm font-medium sm:mt-0 sm:w-auto lg:mt-6 lg:w-full">Buy Growth</a> -->
                             </div>
                           </div>
                           <h4 class="sr-only">Features</h4>
@@ -196,7 +186,6 @@
                             class="border-indigo-500 divide-indigo-500 divide-opacity-75 mt-7 border-b sm:border-t divide-y lg:border-t-0 mb-10"
                           >
                             <li class="py-3 flex items-center">
-                              <!-- Heroicon name: solid/check -->
                               <svg
                                 class="text-indigo-200 w-5 h-5 flex-shrink-0"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -216,7 +205,8 @@
                               >
                             </li>
                           </ul>
-                        </a>
+                        </a> -->
+                        
                       </div>
                     </div>
                   </div>
