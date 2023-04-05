@@ -60,7 +60,7 @@
                         {{ ago(post.created_at) }}</span
                       >
                     </div>
-                    <div
+                    <!-- <div
                       class="text-xs sm:text-lg font-heading-font font-extrabold"
                       v-if="expired(post)"
                     >
@@ -84,7 +84,7 @@
                           dateFormat(post.expiry)
                         }}</span
                       >
-                    </div>
+                    </div> -->
                   </div>
 
                   <p

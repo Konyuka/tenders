@@ -18,6 +18,15 @@ module.exports = {
 
     theme: {
         extend: {
+            // colors:{
+            //     'indigo':{
+            //         700: '#5854a4',
+            //     }
+            // },
+            
+            // backgroundColor: {
+            //     'indigo-700': '#5854a4',
+            // },
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
                 'heading-font': ['Titillium Web', 'cursive'],

@@ -16,7 +16,7 @@
                 <p
                   class="font-primary-font text-sm text-gray-800 dark:text-gray-100 font-medium"
                 >
-                  Fill in where required. Leave unnecessary fields as blank
+                  Fill in where applies
                 </p>
               </div>
               <div class="mx-auto pt-4">
@@ -34,8 +34,8 @@
                           class="transform transition hover:scale-125 duration-700 underline italics font-primary-font pb-2 text-md font-extrabold text-red-600 dark:text-gray-100"
                         >
                           <a @click.prevent="clearFilters" href="">
-                            <i class="fas fa-filter-circle-xmark mr-1"></i>
-                            Clear Filters
+                            <!-- <i class="text-xs fas fa-filter-circle-xmark mr-1"></i> -->
+                            Clear
                           </a>
                         </label>
                       </div>
@@ -177,7 +177,7 @@
                   aria-label="cancel form"
                   class="font-primary-font bg-gray-200 focus:outline-none transition duration-150 ease-in-out hover:bg-gray-300 dark:bg-gray-700 rounded text-red-600 dark:text-indigo-600 px-6 py-2 text-sm mr-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700"
                 >
-                  Clear Filters
+                  Clear
                 </button>
                 <button
                   @click.prevent="searchTenders"
@@ -186,7 +186,7 @@
                   class="font-primary-font focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-indigo-700 focus:outline-none transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-2 text-sm"
                   type="submit"
                 >
-                  Search Tenders
+                  Search
                 </button>
               </div>
             </div>

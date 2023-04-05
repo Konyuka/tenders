@@ -30,7 +30,7 @@
                         Tender
                       </h1>
                     </div>
-                    <div
+                    <!-- <div
                       class="invisible sm:visible text-xs sm:text-lg font-heading-font font-extrabold"
                     >
                       Posted:
@@ -39,7 +39,7 @@
                       >
                         {{ ago(post.created_at) }}</span
                       >
-                    </div>
+                    </div> -->
                     <div
                       class="invisible sm:visible font-heading-font font-extrabold"
                       v-if="expired(post)"
@@ -51,7 +51,7 @@
                         Tender Closed
                       </span>
                     </div>
-                    <div
+                    <!-- <div
                       v-else
                       class="invisible sm:visible font-heading-font font-extrabold"
                     >
@@ -64,7 +64,7 @@
                           dateFormat(post.expiry)
                         }}</span
                       >
-                    </div>
+                    </div> -->
                   </div>
                   <p
                     class="text-xs sm:text-lg m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
@@ -126,7 +126,7 @@
                         {{ ago(post.created_at) }}</span
                       >
                     </div>
-                    <div
+                    <!-- <div
                       class="text-xs sm:text-lg font-heading-font font-extrabold"
                       v-if="expired(post)"
                     >
@@ -146,11 +146,10 @@
                         class="inline-block py-1 px-2 rounded bg-green-100 text-green-500 text-xs font-bold tracking-widest"
                       >
                         {{
-                          // togoFormat(post.expiry)
                           dateFormat(post.expiry)
                         }}</span
                       >
-                    </div>
+                    </div> -->
                   </div>
                   <p
                     class="text-xs sm:text-lg mt-2 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"

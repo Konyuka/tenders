@@ -101,7 +101,7 @@
                               </svg>
                               <span
                                 class="text-gray-700 sm:text-white ml-3 text-sm font-medium"
-                                >Fresh Tenders Posted within 10 days ago</span
+                                >Tender Information Posted Every 6 Hours</span
                               >
                             </li>
                           </ul>

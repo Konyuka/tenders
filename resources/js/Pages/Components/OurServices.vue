@@ -22,6 +22,16 @@
           </p>
         </div>
 
+        <div class="mt-5 sm:mt-10 relative p-6 text-center bg-gray-100 rounded-xl shadow-xl">
+            <!-- <img class="block mx-auto mb-5 w-28 h-28" src="trizzle-assets/images/avatar-men-1.png" alt=""> -->
+            <h4 class="uppercase text-lg sm:text-4xl text-black font-bold mb-3">Bidding Assistance</h4>
+            <p class="text-gray-600 mb-3 text-xs sm:text-lg">
+              Bidders Portal provides assistance with all aspects of the bidding process, from writing a winning proposal to
+              negotiating with government officials. Our team of experts has extensive experience in the tendering process and will
+              help you navigate the process with ease
+            </p>
+          </div>
+
         <div class="mt-5 sm:mt-10 relative p-6 text-center bg-indigo-700 rounded-xl shadow-2xl">
           <!-- <img class="block mx-auto mb-5 w-28 h-28" src="trizzle-assets/images/avatar-men-1.png" alt=""> -->
           <h4 class="uppercase text-lg sm:text-4xl text-black font-bold mb-3">Tender Analysis</h4>
@@ -33,15 +43,7 @@
         </div>
 
         
-        <div class="mt-5 sm:mt-10 relative p-6 text-center bg-gray-100 rounded-xl shadow-xl">
-          <!-- <img class="block mx-auto mb-5 w-28 h-28" src="trizzle-assets/images/avatar-men-1.png" alt=""> -->
-          <h4 class="uppercase text-lg sm:text-4xl text-black font-bold mb-3">Bidding Assistance</h4>
-          <p class="text-gray-600 mb-3 text-xs sm:text-lg">
-            Bidders Portal provides assistance with all aspects of the bidding process, from writing a winning proposal to
-            negotiating with government officials. Our team of experts has extensive experience in the tendering process and will
-            help you navigate the process with ease
-          </p>
-        </div>
+        
 
         <div class="mt-5 sm:mt-10 relative p-6 text-center bg-indigo-700 rounded-xl shadow-2xl">
           <!-- <img class="block mx-auto mb-5 w-28 h-28" src="trizzle-assets/images/avatar-men-1.png" alt=""> -->
@@ -62,15 +64,6 @@
           </p>
         </div>
 
-        <div class="mt-5 sm:mt-10 relative p-6 text-center bg-indigo-700 rounded-xl shadow-2xl">
-          <!-- <img class="block mx-auto mb-5 w-28 h-28" src="trizzle-assets/images/avatar-men-1.png" alt=""> -->
-          <h4 class="uppercase text-lg sm:text-4xl text-black font-bold mb-3">Knowledge Center</h4>
-          <p class="text-white mb-3 text-xs sm:text-lg">
-            Bidders Portal's Knowledge Center is a comprehensive resource for all things related to tendering in Kenya. This
-            includes articles, tutorials, and other resources to help you stay informed and ahead of the game
-          </p>
-        </div>
-
         <div class="mt-5 sm:mt-10 relative p-6 text-center bg-gray-100 rounded-xl shadow-xl">
           <!-- <img class="block mx-auto mb-5 w-28 h-28" src="trizzle-assets/images/avatar-men-1.png" alt=""> -->
           <h4 class="uppercase text-lg sm:text-4xl text-black font-bold mb-3">Dispute Redressal</h4>
@@ -79,6 +72,15 @@
             process. Our team of experts will work with you to find a fair and mutually agreeable solution
           </p>
         </div>
+
+        <div class="mt-5 sm:mt-10 relative p-6 text-center bg-indigo-700 rounded-xl shadow-2xl">
+            <!-- <img class="block mx-auto mb-5 w-28 h-28" src="trizzle-assets/images/avatar-men-1.png" alt=""> -->
+            <h4 class="uppercase text-lg sm:text-4xl text-black font-bold mb-3">Knowledge Center</h4>
+            <p class="text-white mb-3 text-xs sm:text-lg">
+              Bidders Portal's Knowledge Center is a comprehensive resource for all things related to tendering in Kenya. This
+              includes articles, tutorials, and other resources to help you stay informed and ahead of the game
+            </p>
+          </div>
 
       </div>
     </section>
