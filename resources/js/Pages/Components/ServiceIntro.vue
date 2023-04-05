@@ -51,7 +51,7 @@
                         class="hidden absolute top-4 bottom-6 left-8 right-8 inset-0 bg-indigo-700 rounded-tl-lg rounded-tr-lg lg:block"
                       ></div>
 
-                      <div class="relative space-y-6 lg:space-y-0 lg:grid lg:grid-cols-3">
+                      <div class="relative space-y-6 lg:space-y-0 lg:grid lg:grid-cols-1">
                         <a
                           @click.prevent="pricing('150')"
                           href=""
