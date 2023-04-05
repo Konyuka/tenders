@@ -67,7 +67,8 @@
                                 </div>
                                 <p v-if="!membershipSub"
                                     class="text-lg font-semibold leading-6 dark:text-white text-gray-800">
-                                    KES {{ amount }}
+                                    KES 1500
+                                    <!-- KES {{ amount }} -->
                                 </p>
                                 <p v-if="membershipSub"
                                     class="text-lg font-semibold leading-6 dark:text-white text-gray-800">
