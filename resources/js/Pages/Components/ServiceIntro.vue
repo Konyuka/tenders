@@ -166,7 +166,7 @@
                             <h3
                               class="text-gray-700 sm:text-white text-sm font-semibold uppercase tracking-wide"
                             >
-                              Annual Tender Price
+                              Annual Subscription Price
                             </h3>
                             <div
                               class="flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start"
