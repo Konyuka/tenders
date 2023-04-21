@@ -70,7 +70,7 @@
                                 <p
                                   class="text-gray-700 sm:text-white text-4xl font-extrabold tracking-tight"
                                 >
-                                  KES 1,500
+                                  KES 500
                                 </p>
                                 <!-- <div class="ml-4">
                         <p class="text-indigo-200 text-sm">Billed Depending on Tender Expiry</p>
