@@ -93,9 +93,9 @@
               <div>
                 <h3 class="text-lg font-medium text-warm-gray-900">Contacts</h3>
                 <p class="mt-2 text-base text-warm-gray-500">
-                  <span class="block">info@biddersportal.com</span>
+                  <span class="block">support@biddersportsl.com</span>
 
-                  <span class="block">+254 112 047 733</span>
+                  <span class="block">+254 100 571 601</span>
                 </p>
               </div>
             </div>

@@ -228,7 +228,7 @@ class PaymentsController extends Controller
         $LipaNaMpesaPasskey=env('MPESA_PASSKEY');
         $TransactionType="CustomerPayBillOnline";
         // $Amount=1;
-        $Amount=1500;
+        $Amount=500;
         $PartyA=$phone;
         $PartyB=env('MPESA_STK_SHORTCODE');
         $PhoneNumber=$phone;

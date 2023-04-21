@@ -135,7 +135,7 @@
                         class="ml-1 text-green-500 font-heading-font font-extrabold text-xs sm:text-lg"
                       >
                         <!-- {{ amount(post.created_at) }} -->
-                        1500
+                        500
                       </span>
                     </span>
                   </div>

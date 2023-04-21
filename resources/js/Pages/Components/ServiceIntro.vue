@@ -36,7 +36,7 @@
           <div class="mt-8 bg-white pb-16 sm:mt-12 sm:pb-20 lg:pb-28">
             <div class="relative">
               <div class="absolute inset-0 h-1/2 bg-gray-50"></div>
-              <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div
                   class="max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex"
                 >
@@ -51,7 +51,7 @@
                         class="hidden absolute top-4 bottom-6 left-8 right-8 inset-0 bg-indigo-700 rounded-tl-lg rounded-tr-lg lg:block"
                       ></div>
 
-                      <div class="relative space-y-6 lg:space-y-0 lg:grid lg:grid-cols-1">
+                      <div class="relative space-y-6 lg:space-y-0 lg:grid lg:grid-cols-3">
                         <a
                           @click.prevent="pricing('150')"
                           href=""
@@ -61,7 +61,7 @@
                             <h3
                               class="text-gray-700 sm:text-white text-sm font-semibold uppercase tracking-wide"
                             >
-                              Tender Information Price
+                              Single Tender Price
                             </h3>
                             <div
                               class="flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start"
@@ -70,7 +70,7 @@
                                 <p
                                   class="text-gray-700 sm:text-white text-4xl font-extrabold tracking-tight"
                                 >
-                                  KES 1500
+                                  KES 1,500
                                 </p>
                                 <!-- <div class="ml-4">
                         <p class="text-indigo-200 text-sm">Billed Depending on Tender Expiry</p>
@@ -101,22 +101,22 @@
                               </svg>
                               <span
                                 class="text-gray-700 sm:text-white ml-3 text-sm font-medium"
-                                >Tender Information Posted Every 6 Hours</span
+                                >Single tender details</span
                               >
                             </li>
                           </ul>
                         </a>
 
-                        <!-- <a
-                          @click.prevent="pricing('100')"
-                          href=""
+                        <!-- @click.prevent="pricing('100')" -->
+                        <a
+                          href="#"
                           class="transition transform hover:scale-75 duration-700 bg-white ring-2 ring-indigo-700 shadow-xl pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
                           <div>
                             <h3
                               class="text-indigo-600 text-sm font-semibold uppercase tracking-wide"
                             >
-                              Intermediate Price
+                              Monthly Subscription Price
                             </h3>
                             <div
                               class="flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start"
@@ -125,7 +125,7 @@
                                 <p
                                   class="text-indigo-600 text-4xl font-extrabold tracking-tight"
                                 >
-                                  KES 100
+                                  KES 3,000
                                 </p>
                                
                               </div>
@@ -151,7 +151,7 @@
                                 />
                               </svg>
                               <span class="text-gray-600 ml-3 text-sm font-medium"
-                                >Fresh Tenders Posted between 10-20 days ago</span
+                                >Tender information for a month</span
                               >
                             </li>
                           </ul>
@@ -166,7 +166,7 @@
                             <h3
                               class="text-gray-700 sm:text-white text-sm font-semibold uppercase tracking-wide"
                             >
-                              Regular Price
+                              Annual Tender Price
                             </h3>
                             <div
                               class="flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start"
@@ -175,7 +175,7 @@
                                 <p
                                   class="text-gray-700 sm:text-white text-4xl font-extrabold tracking-tight"
                                 >
-                                  KES 50
+                                  KES 30,000
                                 </p>
                               </div>
                             </div>
@@ -201,11 +201,11 @@
                               </svg>
                               <span
                                 class="text-gray-700 sm:text-white ml-3 text-sm font-medium"
-                                >Fresh Tenders Posted between 20-30 days ago</span
+                                >Tender information for a year</span
                               >
                             </li>
                           </ul>
-                        </a> -->
+                        </a>
                         
                       </div>
                     </div>
@@ -214,22 +214,22 @@
                     class="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12"
                   >
                     <p class="text-lg leading-6 font-medium text-gray-900">
-                      Pay once, own everything!
+                      Get customized tender notifications
                     </p>
                     <div
                       class="mt-4 flex items-center justify-center text-2xl sm:text-3xl font-extrabold text-gray-900"
                     >
-                      <span> Membership Plans</span>
+                      <span> Notification Plans</span>
                     </div>
-                    <p class="mt-4 text-sm">
+                    <!-- <p class="mt-4 text-sm">
                       <a href="#" class="font-medium text-gray-500 underline">
                         Learn about our membership policy
                       </a>
-                    </p>
+                    </p> -->
                     <div class="mt-6">
                       <div class="rounded-md shadow">
+                        <!-- :href="route('subscriptions')" -->
                         <a
-                          :href="route('subscriptions')"
                           class="font-bold flex items-center justify-center px-5 py-3 border border-transparent text-base rounded-md text-white bg-indigo-600 hover:bg-indigo-500"
                         >
                           View Plans
@@ -533,7 +533,7 @@
                 If you encounter a problem while making a payment through MPESA, the first thing you should do is
                 contact Bidders Portal customer service on
                 <span class="font-extrabold text-white">
-                  <a href="tel:+254 112 047 733">+254 112 047 733</a> <br>
+                  <a href="tel:+254 100 571 601">+254 100 571 601</a> <br>
                 </span>
                 They will assist you in resolving any issues and ensuring that your payment goes through
                 successfully
@@ -754,7 +754,7 @@
                       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                     />
                   </svg>
-                  <span class="ml-3">+254 112 047 733</span>
+                  <span class="ml-3">+254 100 571 601</span>
                 </dd>
                 <dt><span class="sr-only">Email</span></dt>
                 <dd class="flex text-base text-indigo-50">

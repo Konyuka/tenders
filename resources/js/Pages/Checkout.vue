@@ -39,7 +39,7 @@
                                     <dd
                                         class="mt-1 text-3xl font-extrabold text-white"
                                     >
-                                        KES 1500
+                                        KES 500
                                         <!-- KES {{ formatMoney(this.amount) }} -->
                                     </dd>
                                 </dl>
@@ -99,7 +99,7 @@
                                     >
                                         <dt>Subtotal</dt>
                                         <dd>
-                                            KES 1500
+                                            KES 500
                                             <!-- KES {{ formatMoney(this.amount) }} -->
                                         </dd>
                                     </div>
@@ -117,7 +117,7 @@
                                     >
                                         <dt class="text-base">Total</dt>
                                         <dd class="text-base">
-                                            KES 1500
+                                            KES 500
                                             <!-- KES {{ formatMoney(this.amount) }} -->
                                         </dd>
                                     </div>
