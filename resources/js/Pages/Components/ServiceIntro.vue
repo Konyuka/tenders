@@ -70,7 +70,7 @@
                                 <p
                                   class="text-gray-700 sm:text-white text-4xl font-extrabold tracking-tight"
                                 >
-                                  KES 500
+                                  KES  500
                                 </p>
                                 <!-- <div class="ml-4">
                         <p class="text-indigo-200 text-sm">Billed Depending on Tender Expiry</p>
@@ -107,8 +107,8 @@
                           </ul>
                         </a>
 
-                        <!-- @click.prevent="pricing('100')" -->
                         <a
+                          @click.prevent="subscription(3000)"
                           href="#"
                           class="transition transform hover:scale-75 duration-700 bg-white ring-2 ring-indigo-700 shadow-xl pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
@@ -158,7 +158,7 @@
                         </a>
 
                         <a
-                          @click.prevent="pricing('50')"
+                          @click.prevent="subscription(30000)"
                           href=""
                           class="hover:bg-indigo-500 hover:text-black transition transform hover:scale-75 duration-700 bg-white sm:bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
@@ -984,6 +984,87 @@
       </div>
     </div>
 
+    <div
+              v-if="chooseAuth"
+              class="flex relative z-10"
+              aria-labelledby="modal-title"
+              role="dialog"
+              aria-modal="true"
+            >
+              <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+              <div class="fixed z-10 inset-0 overflow-y-auto">
+                <div
+                  class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0"
+                >
+                  <div
+                    class="relative bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-sm sm:w-full sm:p-6"
+                  >
+                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                      <!-- Modal header -->
+                      <div class="flex justify-end p-5">
+                        <button
+                          @click="chooseAuth = false"
+                          type="button"
+                          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                          data-modal-toggle="popup-modal"
+                        >
+                          <svg
+                            class="w-5 h-5"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                              clip-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                      <!-- Modal body -->
+                      <div class="p-4 pt-0 text-center mt-5">
+                        <i class="fas fa-lock-open fa-2xl mb-10 text-gray-300"></i>
+                        <h3
+                          class="mb-5 text-xl sm:text-3xl font-extrabold text-gray-800 dark:text-gray-400"
+                        >
+                          Link An Account To Subscribe
+                        </h3>
+                      </div>
+
+                      <div class="flex justify-around mb-5">
+                        <div>
+                          <a
+                            :href="route('login')"
+                            data-modal-toggle="popup-modal"
+                            type="button"
+                            class="font-primary-font text-white bg-indigo-600 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-extrabold rounded-xl text-xl sm:text-2xl inline-flex items-center px-4 py-4 sm:px-10 sm:py-4 text-center mr-2"
+                          >
+                            Sign In
+                          </a>
+                        </div>
+                        <div>
+                          <a
+                            :href="route('register')"
+                            data-modal-toggle="popup-modal"
+                            type="button"
+                            class="font-primary-font text-white bg-indigo-600 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-extrabold rounded-xl text-xl sm:text-2xl inline-flex items-center px-4 py-4 sm:px-10 sm:py-4 text-center mr-2"
+                          >
+                            Sign Up
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="p-4 pt-0 text-center mt-5"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+    
+
   </div>
 </template>
 
@@ -1021,8 +1102,53 @@ export default {
   watch: {},
   computed: {},
   methods: {
-    newsletter(){
-
+    membership(value) {
+      console.log(value);
+      if (this.currentMenu == "admin.subscriptions") {
+        let payload = {
+          membership: value,
+          user: this.$parent.$parent.user,
+        };
+        this.$inertia.post(`/checkout/${value}`, payload);
+      } else {
+        // console.log(this.$parent.$parent.user);
+        // alert("check");
+        if (this.$parent.$parent.user == null) {
+          this.$parent.chooseAuth = true;
+        } else {
+          let payload = {
+            membership: value,
+            user: this.$parent.$parent.user,
+          };
+          this.$inertia.post(`/checkout/${value}`, payload);
+          // `/checkout/${value}`
+        }
+      }
+    },
+    subscription(value){
+      // console.log(this.$parent.user)
+      if(value==3000){
+        if (this.$parent.user == null){
+          this.chooseAuth = true;
+        }else{
+          let payload = {
+            membership: value,
+            user: this.$parent.user,
+          };
+          this.$inertia.post(`/checkout/${value}`, payload);
+        }
+      }
+      if(value == 30000){
+        if (this.$parent.user == null) {
+          this.chooseAuth = true;
+        } else {
+          let payload = {
+            membership: value,
+            user: this.$parent.user,
+          };
+          this.$inertia.post(`/checkout/${value}`, payload);
+        }
+      }
     },
     pricing(value) {
       // this.$inertia.get("pricing", value);

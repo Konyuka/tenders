@@ -583,13 +583,19 @@ class LandingController extends Controller
         $slugValue = str_replace($baseURL . '/invoice/', '', $currentURL);
         // return dd( $baseURL, $currentURL, $slugValue );
 
-        // $post = $request->post;
-        $post = Post::where('_id', '=', $slugValue)->first();
+        $post = $request->post;
         // return dd($post);
-        if ($post == 'bronze' || $post == 'silver' || $post == 'gold' || $post == 'platinum' || $post == 'diamond') {
+        if ($post == 3000 || $post == 30000) {
             $post_id = $post;
+            if($post==3000){
+                $post = 'Monthly';
+            }
+            if($post==30000){
+                $post = 'Annualy';
+            }
         } else {
             $post_id = $slugValue;
+            $post = Post::where('_id', '=', $slugValue)->first();
             // $post_id = $post['_id'];
             // return dd($post_id);
         }
@@ -637,8 +643,8 @@ class LandingController extends Controller
 
         return Inertia::render('Invoice', [
             // 'post' => $request->post,
-            // 'post' => $post,
-            'post' => Post::where('_id', '=', $slugValue)->first(),
+            // 'post' => Post::where('_id', '=', $slugValue)->first(),
+            'post' => $post,
             'user' => $user,
             'invoiceStatus' => $invoicePaid,
             'invoiceDetails' => json_decode($createdInvoice),
