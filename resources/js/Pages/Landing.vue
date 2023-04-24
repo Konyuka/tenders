@@ -99,6 +99,9 @@ export default {
   watch: {},
   mounted() {},
   computed: {
+    subscription() {
+      return this.pageData.props.subscription;
+    },
     posts() {
       return this.pageData.props.allPosts;
     },

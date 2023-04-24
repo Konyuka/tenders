@@ -589,6 +589,20 @@ export default {
         }
     },
     computed: {
+        actualPostID(){
+            if (this.amountMembership == undefined) {
+                return this.post._id
+            } else {
+                return this.post
+            }
+        },
+        actualAmount(){
+            if (this.amountMembership == undefined) {
+                return this.amount
+            } else {
+                return this.amountMembership
+            }
+        },
         amountMembership() {
             if (this.post == "Monthly") {
                 return 3000;
@@ -780,7 +794,7 @@ export default {
         confirm() {
             const paymentDetails = {
                 payment_number: this.form.number,
-                post_id: this.post._id,
+                post_id: this.actualPostID,
                 invoicePaid: this.invoiceDetails.payment_status,
                 invoiceDetails: this.invoiceDetails,
                 user: this.user,
@@ -807,11 +821,12 @@ export default {
                     this.timeout = true;
                     this.pauseTimer();
                 }, 60000);
+
+                
                 const requestBody = {
-                    amount: this.amount,
                     account: this.invoiceNumber,
                     phone: parseInt(this.removeSpaces(this.form.number)),
-                    // post: this.post._id,
+                    amount: this.actualAmount,
                     post: this.post,
                     user: this.user,
                     user_name: this.user.userName,
