@@ -598,7 +598,7 @@ export default {
         },
         actualAmount(){
             if (this.amountMembership == undefined) {
-                return this.amount
+                return 500
             } else {
                 return this.amountMembership
             }
