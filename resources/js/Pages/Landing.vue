@@ -5,7 +5,7 @@
         <TopBanner />
         <MainMenu class="sticky top-0 z-50" />
         <HeroSection @modalState="searchModal = true" />
-        <FeaturedTenders />
+        <FeaturedTenders :user="user" />
         <ServiceIntro />
         <MainFooter />
 
