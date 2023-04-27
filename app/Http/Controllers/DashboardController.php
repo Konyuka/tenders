@@ -56,6 +56,7 @@ class DashboardController extends Controller
     {
         $completedPayments = Payments::where('completed', true)->latest()->get();
         $incompletePayments = Payments::where('completed', false)->latest()->get();
+        // return dd($incompletePayments);
         return Inertia::render('Admin/Payments', [
             'completedPayments' => $completedPayments,
             'incompletePayments' => $incompletePayments

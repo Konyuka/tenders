@@ -21,7 +21,7 @@
             <div
                 class="mt-3 flex flex-col xl:flex-row justify-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
                 <div class="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
-                    <div v-if="!membershipSub"
+                    <div v-if="typeof post === 'object'" 
                         class="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
                         <p
                             class="font-heading-font text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800">
@@ -43,9 +43,31 @@
                             </div>
                         </div>
                     </div>
+                    <div v-if="typeof post === 'string'"
+                        class="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
+                        <p
+                            class="font-heading-font text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800">
+                            Subscription type
+                        </p>
+                        <div
+                            class="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full">
+                            <div class="pb-4 md:pb-8 w-full md:w-40">
+                                <i class="fas fa-caret-right fa-3x"></i>
+                            </div>
+                            <div
+                                class="border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-4 space-y-4 md:space-y-0">
+                                <div class="w-full flex flex-col justify-start items-start space-y-8">
+                                    <h3
+                                        class="text-lg sm:text-xl dark:text-white xl:text-xl font-semibold leading-6 text-gray-800">
+                                        {{ post }}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div
-                        class="flex justify-center flex-col md:flex-row flex-col items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 xl:space-x-8">
+                        class="flex justify-center flex-col md:flex-row items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 xl:space-x-8">
                         <div
                             class="flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6">
                             <h3 class="text-xl dark:text-white font-semibold leading-5 text-gray-800">
@@ -67,7 +89,7 @@
                                 </div>
                                 <p v-if="!membershipSub"
                                     class="text-lg font-semibold leading-6 dark:text-white text-gray-800">
-                                    KES 1500
+                                    KES 500
                                     <!-- KES {{ amount }} -->
                                 </p>
                                 <p v-if="membershipSub"
@@ -567,18 +589,26 @@ export default {
         }
     },
     computed: {
-        amountMembership() {
-            if (this.post == "diamond") {
-                return 50000;
-            } else if (this.post == "platinum") {
-                return 30000;
-            } else if (this.post == "gold") {
-                return 9000;
-            } else if (this.post == "silver") {
-                return 6000;
-            } else if (this.post === "bronze") {
-                return 1500;
+        actualPostID(){
+            if (this.amountMembership == undefined) {
+                return this.post._id
+            } else {
+                return this.post
             }
+        },
+        actualAmount(){
+            if (this.amountMembership == undefined) {
+                return 500
+            } else {
+                return this.amountMembership
+            }
+        },
+        amountMembership() {
+            if (this.post == "Monthly") {
+                return 3000;
+            } else if (this.post == "Annualy") {
+                return 30000;
+            } 
         },
         membershipSub() {
             if (typeof this.post === "object") {
@@ -764,7 +794,7 @@ export default {
         confirm() {
             const paymentDetails = {
                 payment_number: this.form.number,
-                post_id: this.post._id,
+                post_id: this.actualPostID,
                 invoicePaid: this.invoiceDetails.payment_status,
                 invoiceDetails: this.invoiceDetails,
                 user: this.user,
@@ -791,11 +821,12 @@ export default {
                     this.timeout = true;
                     this.pauseTimer();
                 }, 60000);
+
+                
                 const requestBody = {
-                    amount: this.amount,
                     account: this.invoiceNumber,
                     phone: parseInt(this.removeSpaces(this.form.number)),
-                    // post: this.post._id,
+                    amount: this.actualAmount,
                     post: this.post,
                     user: this.user,
                     user_name: this.user.userName,

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopBanner />
+    <!-- <TopBanner /> -->
     <MainMenu />
 
     <div>

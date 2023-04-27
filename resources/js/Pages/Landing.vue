@@ -2,10 +2,10 @@
   <div>
     <body class="overflow-x-hidden overflow-y-scroll antialiased">
       <div class="flex flex-col h-screen">
-        <TopBanner />
+        <!-- <TopBanner /> -->
         <MainMenu class="sticky top-0 z-50" />
         <HeroSection @modalState="searchModal = true" />
-        <FeaturedTenders />
+        <FeaturedTenders :user="user" />
         <ServiceIntro />
         <MainFooter />
 
@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import TopBanner from "./Components/TopBanner.vue";
+// import TopBanner from "./Components/TopBanner.vue";
 import MainMenu from "./Components/MainMenu.vue";
 import HeroSection from "./Components/HeroSection.vue";
 import FeaturedTenders from "./Components/FeaturedTenders.vue";
@@ -74,7 +74,7 @@ export default {
   name: "Landing",
   components: {
     Spinner,
-    TopBanner,
+    // TopBanner,
     MainMenu,
     HeroSection,
     FeaturedTenders,
@@ -99,6 +99,9 @@ export default {
   watch: {},
   mounted() {},
   computed: {
+    subscription() {
+      return this.pageData.props.subscription;
+    },
     posts() {
       return this.pageData.props.allPosts;
     },

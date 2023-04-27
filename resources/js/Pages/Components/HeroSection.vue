@@ -5,7 +5,7 @@
         >
             <div class="relative rounded-md shadow-2xl">
                 <div
-                    class="text-xl relative bg-gradient-to-r from-blue-700 to-transparent w-full h-full z-40 top-0 md:p-16 p-6 flex flex-col justify-between rounded-md "
+                    class="text-xl relative bg-gradient-to-r from-blue-700 to-transparent w-full h-full z-40 top-0 p-6 flex flex-col justify-between rounded-md "
                 >
                    
 
@@ -85,14 +85,14 @@
                         </div>
 
                         <div class="relative pt-2 pb-2 sm:pb-2">
-                            <main class="mt-16 mx-auto max-w-7xl px-4 sm:mt-14">
+                            <main class="mt-1 mx-auto max-w-7xl px-4">
                                 <div class="text-center">
                                     <h1
-                                        class="text-2xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
+                                        class="leading-10  text-4xl tracking-tight font-extrabold text-gray-900"
                                     >
                                         <span
                                             class="block xl:inline text-white font-heading-font"
-                                            >Connection to the rightful
+                                            >Connection   to   the   rightful
                                         </span>
                                         <span
                                             class="block text-indigo-600 xl:inline font-extrabold"
@@ -100,7 +100,7 @@
                                         >
                                     </h1>
                                     <p
-                                        class="text-left mt-3 max-w-md mx-auto text-base text-gray-900 font-primary-font sm:text-lg md:mt-5 md:text-xl md:max-w-3xl"
+                                        class="text-left mt-3 max-w-3xl mx-auto text-base text-gray-900 font-primary-font sm:text-sm md:mt-3"
                                     >
                                         Welcome to the one-stop shop for all things tenders in Kenya! <br> <br>
                                         Bidders Portal™ system is a web based platform that provides live tenders information to our clients at affordable

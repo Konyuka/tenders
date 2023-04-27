@@ -15,7 +15,7 @@ Vue.use(InertiaForm);
 Vue.use(PortalVue);
 Vue.use(VueMeta)
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'production') {
     Vue.config.devtools = false;
 }
 

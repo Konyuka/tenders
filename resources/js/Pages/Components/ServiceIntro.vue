@@ -36,7 +36,7 @@
           <div class="mt-8 bg-white pb-16 sm:mt-12 sm:pb-20 lg:pb-28">
             <div class="relative">
               <div class="absolute inset-0 h-1/2 bg-gray-50"></div>
-              <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div
                   class="max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex"
                 >
@@ -51,7 +51,7 @@
                         class="hidden absolute top-4 bottom-6 left-8 right-8 inset-0 bg-indigo-700 rounded-tl-lg rounded-tr-lg lg:block"
                       ></div>
 
-                      <div class="relative space-y-6 lg:space-y-0 lg:grid lg:grid-cols-1">
+                      <div class="relative space-y-6 lg:space-y-0 lg:grid lg:grid-cols-3">
                         <a
                           @click.prevent="pricing('150')"
                           href=""
@@ -61,7 +61,7 @@
                             <h3
                               class="text-gray-700 sm:text-white text-sm font-semibold uppercase tracking-wide"
                             >
-                              Tender Information Price
+                              Single Tender Price
                             </h3>
                             <div
                               class="flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start"
@@ -70,7 +70,7 @@
                                 <p
                                   class="text-gray-700 sm:text-white text-4xl font-extrabold tracking-tight"
                                 >
-                                  KES 1500
+                                  KES  500
                                 </p>
                                 <!-- <div class="ml-4">
                         <p class="text-indigo-200 text-sm">Billed Depending on Tender Expiry</p>
@@ -101,22 +101,22 @@
                               </svg>
                               <span
                                 class="text-gray-700 sm:text-white ml-3 text-sm font-medium"
-                                >Tender Information Posted Every 6 Hours</span
+                                >Single tender details</span
                               >
                             </li>
                           </ul>
                         </a>
 
-                        <!-- <a
-                          @click.prevent="pricing('100')"
-                          href=""
+                        <a
+                          @click.prevent="subscription(3000)"
+                          href="#"
                           class="transition transform hover:scale-75 duration-700 bg-white ring-2 ring-indigo-700 shadow-xl pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
                           <div>
                             <h3
                               class="text-indigo-600 text-sm font-semibold uppercase tracking-wide"
                             >
-                              Intermediate Price
+                              Monthly Subscription Price
                             </h3>
                             <div
                               class="flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start"
@@ -125,7 +125,7 @@
                                 <p
                                   class="text-indigo-600 text-4xl font-extrabold tracking-tight"
                                 >
-                                  KES 100
+                                  KES 3,000
                                 </p>
                                
                               </div>
@@ -151,14 +151,14 @@
                                 />
                               </svg>
                               <span class="text-gray-600 ml-3 text-sm font-medium"
-                                >Fresh Tenders Posted between 10-20 days ago</span
+                                >Tender information for a month</span
                               >
                             </li>
                           </ul>
                         </a>
 
                         <a
-                          @click.prevent="pricing('50')"
+                          @click.prevent="subscription(30000)"
                           href=""
                           class="hover:bg-indigo-500 hover:text-black transition transform hover:scale-75 duration-700 bg-white sm:bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12"
                         >
@@ -166,7 +166,8 @@
                             <h3
                               class="text-gray-700 sm:text-white text-sm font-semibold uppercase tracking-wide"
                             >
-                              Regular Price
+                              Annual Subscription Price
+                              
                             </h3>
                             <div
                               class="flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start"
@@ -175,7 +176,7 @@
                                 <p
                                   class="text-gray-700 sm:text-white text-4xl font-extrabold tracking-tight"
                                 >
-                                  KES 50
+                                  KES 30,000
                                 </p>
                               </div>
                             </div>
@@ -201,11 +202,11 @@
                               </svg>
                               <span
                                 class="text-gray-700 sm:text-white ml-3 text-sm font-medium"
-                                >Fresh Tenders Posted between 20-30 days ago</span
+                                >Tender information for a year</span
                               >
                             </li>
                           </ul>
-                        </a> -->
+                        </a>
                         
                       </div>
                     </div>
@@ -214,22 +215,22 @@
                     class="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12"
                   >
                     <p class="text-lg leading-6 font-medium text-gray-900">
-                      Pay once, own everything!
+                      Get customized tender notifications
                     </p>
                     <div
                       class="mt-4 flex items-center justify-center text-2xl sm:text-3xl font-extrabold text-gray-900"
                     >
-                      <span> Membership Plans</span>
+                      <span> Notification Plans</span>
                     </div>
-                    <p class="mt-4 text-sm">
+                    <!-- <p class="mt-4 text-sm">
                       <a href="#" class="font-medium text-gray-500 underline">
                         Learn about our membership policy
                       </a>
-                    </p>
+                    </p> -->
                     <div class="mt-6">
                       <div class="rounded-md shadow">
+                        <!-- :href="route('subscriptions')" -->
                         <a
-                          :href="route('subscriptions')"
                           class="font-bold flex items-center justify-center px-5 py-3 border border-transparent text-base rounded-md text-white bg-indigo-600 hover:bg-indigo-500"
                         >
                           View Plans
@@ -491,411 +492,6 @@
       </div>
     </section>
 
-    <div class="bg-indigo-700 mt-5 rounded-3xl">
-      <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-        <h2 class="text-lg sm:text-3xl text-center font-extrabold text-white">
-          Frequently asked questions
-          <i class="ml-5 fas fa-circle-question text-white-600 fa-xl"></i>
-        </h2>
-        <div class="mt-6 border-t border-indigo-300 border-opacity-25 pt-10">
-          <dl
-            class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-12"
-          >
-
-            <div>
-              <dt class="text-md sm:text-lg leading-6 font-extrabold text-white font-heading-font">
-                Do I have to register an account to purchase a tender?
-              </dt>
-              <dd class="mt-2 text-sm sm:text-base text-indigo-200 font-primary-font">
-                You don't have to register an account to purchase tender details. It's
-                that Quick, Simple and Efficient. You can however subscribe to a plan of
-                choice and also register a free account to save tenders to your wishlist
-                for future reference
-              </dd>
-            </div>
-
-            <div>
-              <dt class="text-md sm:text-lg leading-6 font-extrabold text-white font-heading-font">
-                Do you have other payment gateways besides Mpesa?
-              </dt>
-              <dd class="mt-2 text-sm sm:text-base text-indigo-200 font-primary-font">
-                Besides Mpesa, you can also make payment using a credit cards. In the
-                future, you will be able to make payment using online gateways such as
-                Paypal
-              </dd>
-            </div>
-
-            <div>
-              <dt class="text-md sm:text-lg leading-6 font-extrabold text-white font-heading-font">
-                What should I do if I encounter a problem while making a payment through MPESA?
-              </dt>
-              <dd class="mt-2 text-sm sm:text-base text-indigo-200 font-primary-font">
-                If you encounter a problem while making a payment through MPESA, the first thing you should do is
-                contact Bidders Portal customer service on
-                <span class="font-extrabold text-white">
-                  <a href="tel:+254 112 047 733">+254 112 047 733</a> <br>
-                </span>
-                They will assist you in resolving any issues and ensuring that your payment goes through
-                successfully
-              </dd>
-            </div>
-
-            <div>
-              <dt class="text-md sm:text-lg leading-6 font-extrabold text-white font-heading-font">
-                How do I participate in a tender in Kenya?
-              </dt>
-              <dd class="mt-2 text-sm sm:text-base text-indigo-200 font-primary-font">
-                To participate in a tender in Kenya, you need to register as a bidder with the relevant government agency or
-                procurement
-                department. You will then receive notifications about open tenders that match your area of expertise
-              </dd>
-            </div>
-
-            <div>
-              <dt class="text-md sm:text-lg leading-6 font-extrabold text-white font-heading-font">
-                Is it possible to bid for a tender in Kenya if I am based outside the country?
-              </dt>
-              <dd class="mt-2 text-sm sm:text-base text-indigo-200 font-primary-font">
-                Yes, it is possible to bid for a tender in Kenya if you are based outside the country. However, you may need to appoint
-                a representative in Kenya to handle the bidding process on your behalf.
-              </dd>
-            </div>
-
-            <div>
-              <dt class="text-md sm:text-lg leading-6 font-extrabold text-white font-heading-font">
-                What happens if I am awarded a tender in Kenya?
-              </dt>
-              <dd class="mt-2 text-sm sm:text-base text-indigo-200 font-primary-font">
-                If you are awarded a tender in Kenya, you will be required to sign a contract with the government agency or procurement
-                department that issued the tender. You will then proceed to execute the project or supply the goods and services
-                specified in the tender document
-              </dd>
-            </div>
-
-            <div>
-              <dt class="text-md sm:text-lg leading-6 font-extrabold text-white font-heading-font">
-                What happens if I fail to execute a project or supply goods and services after being awarded a tender in Kenya?
-              </dt>
-              <dd class="mt-2 text-sm sm:text-base text-indigo-200 font-primary-font">
-                If you fail to execute a project or supply goods and services after being awarded a tender in Kenya, you may be liable
-                to pay damages to the government agency or procurement department that issued the tender. You may also be banned from
-                bidding for future tenders
-              </dd>
-            </div>
-
-            <div>
-              <dt class="text-md sm:text-lg leading-6 font-extrabold text-white font-heading-font">
-                Can I withdraw my bid after submitting it for a tender in Kenya?
-              </dt>
-              <dd class="mt-2 text-sm sm:text-base text-indigo-200 font-primary-font">
-                Yes, you can withdraw your bid after submitting it for a tender in Kenya. However, you should do this in writing and
-                within the deadline specified in the tender document
-              </dd>
-            </div>
-
-            <div>
-              <dt class="text-md sm:text-lg leading-6 font-extrabold text-white font-heading-font">
-                How frequently are the tenders updated?
-              </dt>
-              <dd class="mt-2 text-sm sm:text-base text-indigo-200 font-primary-font">
-                We normally update new tenders every 3 hours. You are guaranteed new
-                tenders on a daily basis
-              </dd>
-            </div>
-
-            <div>
-              <dt class="text-md sm:text-lg leading-6 font-extrabold text-white font-heading-font">
-                What is a tender in Kenya?
-              </dt>
-              <dd class="mt-2 text-sm sm:text-base text-indigo-200 font-primary-font">
-                A tender is simply a competitive bidding process in which a company or organization invites bids from contractors to execute a
-                specific project or supply goods and services
-              </dd>
-            </div>
-
-            
-
-          </dl>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-indigo-700 mt-7 rounded-lg">
-      <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-        <div class="relative bg-white shadow-xl">
-          <h2 class="sr-only">Contact us</h2>
-
-          <div class="grid grid-cols-1 lg:grid-cols-3">
-            <!-- Contact information -->
-            <div
-              class="relative overflow-hidden py-10 px-6 bg-indigo-700 sm:px-10 xl:p-12"
-            >
-              <div
-                class="absolute inset-0 pointer-events-none sm:hidden"
-                aria-hidden="true"
-              >
-                <svg
-                  class="absolute inset-0 w-full h-full"
-                  width="343"
-                  height="388"
-                  viewBox="0 0 343 388"
-                  fill="none"
-                  preserveAspectRatio="xMidYMid slice"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M-99 461.107L608.107-246l707.103 707.107-707.103 707.103L-99 461.107z"
-                    fill="url(#linear1)"
-                    fill-opacity=".1"
-                  />
-                  <defs>
-                    <linearGradient
-                      id="linear1"
-                      x1="254.553"
-                      y1="107.554"
-                      x2="961.66"
-                      y2="814.66"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stop-color="#fff"></stop>
-                      <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-              <div
-                class="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none sm:block lg:hidden"
-                aria-hidden="true"
-              >
-                <svg
-                  class="absolute inset-0 w-full h-full"
-                  width="359"
-                  height="339"
-                  viewBox="0 0 359 339"
-                  fill="none"
-                  preserveAspectRatio="xMidYMid slice"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M-161 382.107L546.107-325l707.103 707.107-707.103 707.103L-161 382.107z"
-                    fill="url(#linear2)"
-                    fill-opacity=".1"
-                  />
-                  <defs>
-                    <linearGradient
-                      id="linear2"
-                      x1="192.553"
-                      y1="28.553"
-                      x2="899.66"
-                      y2="735.66"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stop-color="#fff"></stop>
-                      <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-              <div
-                class="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none lg:block"
-                aria-hidden="true"
-              >
-                <svg
-                  class="absolute inset-0 w-full h-full"
-                  width="160"
-                  height="678"
-                  viewBox="0 0 160 678"
-                  fill="none"
-                  preserveAspectRatio="xMidYMid slice"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M-161 679.107L546.107-28l707.103 707.107-707.103 707.103L-161 679.107z"
-                    fill="url(#linear3)"
-                    fill-opacity=".1"
-                  />
-                  <defs>
-                    <linearGradient
-                      id="linear3"
-                      x1="192.553"
-                      y1="325.553"
-                      x2="899.66"
-                      y2="1032.66"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stop-color="#fff"></stop>
-                      <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-              <h3 class="text-lg font-medium text-white">Contact information</h3>
-              <p class="mt-6 text-base text-indigo-50 max-w-3xl">
-                Feel Free to reach us on
-              </p>
-              <dl class="mt-8 space-y-6">
-                <dt>
-                  <span class="sr-only">Phone number</span>
-                </dt>
-                <dd class="flex text-base text-indigo-50">
-                  <!-- Heroicon name: outline/phone -->
-                  <svg
-                    class="flex-shrink-0 w-6 h-6 text-indigo-200"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                  <span class="ml-3">+254 112 047 733</span>
-                </dd>
-                <dt><span class="sr-only">Email</span></dt>
-                <dd class="flex text-base text-indigo-50">
-                  <!-- Heroicon name: outline/mail -->
-                  <svg
-                    class="flex-shrink-0 w-6 h-6 text-indigo-200"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <span class="ml-3">support@biddersportal.com</span>
-                </dd>
-              </dl>
-            </div>
-
-            <!-- Contact form -->
-            <div class="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
-              <h3 class="text-lg font-medium text-gray-900">Send us a message</h3>
-              <form
-                action="#"
-                method="POST"
-                class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
-              >
-                <div>
-                  <label for="first-name" class="block text-sm font-medium text-gray-900"
-                    >First name</label
-                  >
-                  <div class="mt-1">
-                    <input
-                      type="text"
-                      name="first-name"
-                      id="first-name"
-                      autocomplete="given-name"
-                      class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label for="last-name" class="block text-sm font-medium text-gray-900"
-                    >Last name</label
-                  >
-                  <div class="mt-1">
-                    <input
-                      type="text"
-                      name="last-name"
-                      id="last-name"
-                      autocomplete="family-name"
-                      class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label for="email" class="block text-sm font-medium text-gray-900"
-                    >Email</label
-                  >
-                  <div class="mt-1">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autocomplete="email"
-                      class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div class="flex justify-between">
-                    <label for="phone" class="block text-sm font-medium text-gray-900"
-                      >Phone</label
-                    >
-                    <span id="phone-optional" class="text-sm text-gray-500"
-                      >Optional</span
-                    >
-                  </div>
-                  <div class="mt-1">
-                    <input
-                      type="text"
-                      name="phone"
-                      id="phone"
-                      autocomplete="tel"
-                      class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                      aria-describedby="phone-optional"
-                    />
-                  </div>
-                </div>
-                <div class="sm:col-span-2">
-                  <label for="subject" class="block text-sm font-medium text-gray-900"
-                    >Subject</label
-                  >
-                  <div class="mt-1">
-                    <input
-                      type="text"
-                      name="subject"
-                      id="subject"
-                      class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                    />
-                  </div>
-                </div>
-                <div class="sm:col-span-2">
-                  <div class="flex justify-between">
-                    <label for="message" class="block text-sm font-medium text-gray-900"
-                      >Message</label
-                    >
-                    <span id="message-max" class="text-sm text-gray-500"
-                      >Max. 500 characters</span
-                    >
-                  </div>
-                  <div class="mt-1">
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows="4"
-                      class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"
-                      aria-describedby="message-max"
-                    ></textarea>
-                  </div>
-                </div>
-                <div class="sm:col-span-2 sm:flex sm:justify-end">
-                  <button
-                    type="submit"
-                    class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto"
-                  >
-                    Submit
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div v-if="notificationModal" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
       
       <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
@@ -983,6 +579,87 @@
       </div>
     </div>
 
+    <div
+              v-if="chooseAuth"
+              class="flex relative z-10"
+              aria-labelledby="modal-title"
+              role="dialog"
+              aria-modal="true"
+            >
+              <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+              <div class="fixed z-10 inset-0 overflow-y-auto">
+                <div
+                  class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0"
+                >
+                  <div
+                    class="relative bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-sm sm:w-full sm:p-6"
+                  >
+                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                      <!-- Modal header -->
+                      <div class="flex justify-end p-5">
+                        <button
+                          @click="chooseAuth = false"
+                          type="button"
+                          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                          data-modal-toggle="popup-modal"
+                        >
+                          <svg
+                            class="w-5 h-5"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                              clip-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                      <!-- Modal body -->
+                      <div class="p-4 pt-0 text-center mt-5">
+                        <i class="fas fa-lock-open fa-2xl mb-10 text-gray-300"></i>
+                        <h3
+                          class="mb-5 text-xl sm:text-3xl font-extrabold text-gray-800 dark:text-gray-400"
+                        >
+                          Link An Account To Subscribe
+                        </h3>
+                      </div>
+
+                      <div class="flex justify-around mb-5">
+                        <div>
+                          <a
+                            :href="route('login')"
+                            data-modal-toggle="popup-modal"
+                            type="button"
+                            class="font-primary-font text-white bg-indigo-600 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-extrabold rounded-xl text-xl sm:text-2xl inline-flex items-center px-4 py-4 sm:px-10 sm:py-4 text-center mr-2"
+                          >
+                            Sign In
+                          </a>
+                        </div>
+                        <div>
+                          <a
+                            :href="route('register')"
+                            data-modal-toggle="popup-modal"
+                            type="button"
+                            class="font-primary-font text-white bg-indigo-600 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-extrabold rounded-xl text-xl sm:text-2xl inline-flex items-center px-4 py-4 sm:px-10 sm:py-4 text-center mr-2"
+                          >
+                            Sign Up
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="p-4 pt-0 text-center mt-5"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+    
+
   </div>
 </template>
 
@@ -1020,8 +697,53 @@ export default {
   watch: {},
   computed: {},
   methods: {
-    newsletter(){
-
+    membership(value) {
+      console.log(value);
+      if (this.currentMenu == "admin.subscriptions") {
+        let payload = {
+          membership: value,
+          user: this.$parent.$parent.user,
+        };
+        this.$inertia.post(`/checkout/${value}`, payload);
+      } else {
+        // console.log(this.$parent.$parent.user);
+        // alert("check");
+        if (this.$parent.$parent.user == null) {
+          this.$parent.chooseAuth = true;
+        } else {
+          let payload = {
+            membership: value,
+            user: this.$parent.$parent.user,
+          };
+          this.$inertia.post(`/checkout/${value}`, payload);
+          // `/checkout/${value}`
+        }
+      }
+    },
+    subscription(value){
+      // console.log(this.$parent.user)
+      if(value==3000){
+        if (this.$parent.user == null){
+          this.chooseAuth = true;
+        }else{
+          let payload = {
+            membership: value,
+            user: this.$parent.user,
+          };
+          this.$inertia.post(`/checkout/${value}`, payload);
+        }
+      }
+      if(value == 30000){
+        if (this.$parent.user == null) {
+          this.chooseAuth = true;
+        } else {
+          let payload = {
+            membership: value,
+            user: this.$parent.user,
+          };
+          this.$inertia.post(`/checkout/${value}`, payload);
+        }
+      }
     },
     pricing(value) {
       // this.$inertia.get("pricing", value);

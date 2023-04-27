@@ -192,17 +192,18 @@
                         class="ml-1 text-green-500 font-heading-font font-extrabold text-xs sm:text-lg"
                       >
                         <!-- {{ amount(post.created_at) }} -->
-                        1500
+                        500
                       </span>
                     </span>
                   </div>
 
                   <div class="flex w-full justify-between mt-10 text-lg">
-                    <a
-                      :href="route('selected', post._id)"
+                    <!-- :href="" -->
+                    <button
+                      @click="checkLockStatus(post._id)"
                       class="text-indigo-600 text-sm sm:text-lg inline-flex items-center font-heading-font font-extrabold transform transition hover:scale-110 hover:font-bold duration-700"
                       >Details & Single Checkout <i class="fa-solid fa-book-open-reader p-1"></i>
-                    </a>
+                    </button>
 
                     <a
                       @click="addToCart(post._id)"
@@ -244,6 +245,7 @@ import SearchFilter from "./SearchFilter.vue";
 Vue.use(Vue2Filters);
 import moment from "moment";
 import dateFormat from "dateformat";
+import { is } from "@babel/types";
 // const now = new Date();
 
 export default {
@@ -253,15 +255,50 @@ export default {
     // Button,
     SearchFilter,
   },
-  mounted() {},
+  mounted() {
+    // let memb = this.user.membership
+    // console.log(memb)
+  },
   data() {
     return {
       postExpired: false,
       cnt: 0,
     };
   },
+  props: {
+    user: Object, // define the prop "message"
+  },
   watch: {},
   computed: {
+    subscriptionStatus(){
+      if(this.user.membership=="Annualy"){
+        const subscriptionDate = new Date(this.user.membership_date);
+        const now = new Date();
+
+        const diffInMs = now.getTime() - subscriptionDate.getTime();
+        const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365);
+        if (diffInYears <= 1) {
+          return true
+         } else {
+          alert('Annual Subscription Expired')
+          return false
+        }
+      }else if(this.user.membership == "Monthly"){
+        const subscriptionDate = new Date(this.user.membership_date);
+        const now = new Date();
+
+        // const diffInMs = now.getTime() - subscriptionDate.getTime();
+        const diffInMonths = (now.getFullYear() - subscriptionDate.getFullYear()) * 12 + (now.getMonth() - subscriptionDate.getMonth());
+        if (diffInMonths  <= 1) {
+          return true
+        } else {
+          alert('Monthly Subscription Expired')
+          return false
+        }
+      }else{
+        return false
+      }
+    },
     getArray() {
       const arr = this.posts.filter((item, index) => {
         return index >= 1; //will return the array from the second value
@@ -273,6 +310,13 @@ export default {
     },
   },
   methods: {
+    checkLockStatus(postID) {
+      if (this.subscriptionStatus==true) {
+        this.$inertia.get(`/unlock/${postID}`);
+      } else {
+        this.$inertia.get(`/selected/${postID}`);
+      }
+    },
     async addToCart(postID){
       let currentItems = this.$store.state.tenderIDs
       // console.log(currentItems)

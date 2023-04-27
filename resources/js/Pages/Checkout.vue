@@ -39,7 +39,7 @@
                                     <dd
                                         class="mt-1 text-3xl font-extrabold text-white"
                                     >
-                                        KES 1500
+                                        KES 500
                                         <!-- KES {{ formatMoney(this.amount) }} -->
                                     </dd>
                                 </dl>
@@ -64,9 +64,12 @@
                                         class="mb-5 mt-1 text-3xl font-extrabold text-white"
                                     >
                                         Subscription for
-                                        <span class="text-white uppercase">{{
-                                            this.membership
+                                        <span class="text-white capitalize">{{
+                                            this.membershipType
                                         }}</span>
+                                        <!-- <span class="text-white uppercase">{{
+                                            this.membership
+                                        }}</span> -->
                                     </dd>
                                 </dl>
 
@@ -99,7 +102,7 @@
                                     >
                                         <dt>Subtotal</dt>
                                         <dd>
-                                            KES 1500
+                                            KES 500
                                             <!-- KES {{ formatMoney(this.amount) }} -->
                                         </dd>
                                     </div>
@@ -117,7 +120,7 @@
                                     >
                                         <dt class="text-base">Total</dt>
                                         <dd class="text-base">
-                                            KES 1500
+                                            KES 500
                                             <!-- KES {{ formatMoney(this.amount) }} -->
                                         </dd>
                                     </div>
@@ -422,7 +425,7 @@ export default {
         registeredURLSResponse: Object,
         payment: null,
         status: String,
-        membership: String,
+        membership: Number,
         user: Object
     },
     components: {
@@ -462,17 +465,18 @@ export default {
                 return false;
             }
         },
+        membershipType() {
+            if (this.membership == 3000) {
+                return 'Monthly';
+            } else if (this.membership == 30000) {
+                return 'Yearly';
+            }
+        },
         amountMembership() {
-            if (this.membership == "diamond") {
-                return 50000;
-            } else if (this.membership == "platinum") {
+            if (this.membership == 3000) {
+                return 3000;
+            } else if (this.membership == 30000) {
                 return 30000;
-            } else if (this.membership == "gold") {
-                return 9000;
-            } else if (this.membership == "silver") {
-                return 6000;
-            } else if (this.membership == "bronze") {
-                return 1500;
             }
         },
         waiting() {
@@ -535,12 +539,21 @@ export default {
         invoice(value)
         {
             if (this.form.userPhone == null) {
-                const payload = {
-                            post: value,
-                            user: this.form,
-                            amount: this.amount
-                        };
-                        this.$inertia.put(`/invoice/${this.post._id}`, payload);
+                if (value == null) {
+                    const payload = {
+                        post: this.membership,
+                        user: this.form,
+                        amount: this.membership
+                    };
+                    this.$inertia.put(`/invoice/${this.user.id}`, payload);
+                } else {
+                    const payload = {
+                        post: value,
+                        user: this.form,
+                        amount: this.amount
+                    };
+                    this.$inertia.put(`/invoice/${this.post._id}`, payload);
+                }
             } else { 
                 var strFirstThree = this.form.userPhone.substring(0, 3);
                 if (strFirstThree != 254) {
@@ -555,7 +568,7 @@ export default {
                         const payload = {
                             post: this.membership,
                             user: this.form,
-                            amount: this.amount
+                            amount: this.membership
                         };
                         this.$inertia.put(`/invoice/${this.user.id}`, payload);
                     } else {

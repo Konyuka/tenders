@@ -38,7 +38,6 @@ class LandingController extends Controller
      */
     public function index()
     {
-        // $posts = Post::latest()->limit(6)->get();
 
         $posts = Post::
         select(['_id', 'created_at', 'expiry', 'tender_brief'])
@@ -95,6 +94,18 @@ class LandingController extends Controller
     public function about()
     {
         return Inertia::render('About', [
+        ]);
+    }
+
+    public function contacts()
+    {
+        return Inertia::render('Contacts', [
+        ]);
+    }
+
+    public function faqs()
+    {
+        return Inertia::render('Faqs', [
         ]);
     }
 
@@ -186,62 +197,117 @@ class LandingController extends Controller
     }
     public function unlock($slug)
     {
-        $payment = Payments::where('trans_id', '=', $slug)
-            ->where('completed', '=', true)
-            ->where('waiting', '=', false)
-            ->first();
-        // return dd($payment);  
-        
-        $clientNumber = $payment->phone;
-        $clientInvoice = $payment->account;
-        $clientEmail = $payment->user_email;
-        $clientName = urlencode($payment->user_name);
-        $tenderID = $payment->info;
-        $post = Post::where(['_id' => $tenderID])->first();
+        $user = auth()->user();
 
-        if ($payment->sms_sent == 0) {
+        if($user){
+            if($user->membership=="Annualy"){
+                $subscriptionDate = new DateTime($user->membership_date);
+                $now = new DateTime();
+                $diffInYears = $now->diff($subscriptionDate)->y;
 
-            $curl = curl_init();
+                if ($diffInYears <= 1) {
+                    $payment = Payments::where('user_email', $user->email)
+                      ->where('info', 'Annualy')
+                      ->first();
 
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile={$clientNumber}&msg=Thank+you+{$clientName}+for+the+purchase%21+Your+invoice+number+is+{$clientInvoice}.+Thank+you+for+choosing+Bidders+Portal&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
-                // CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile={$clientNumber}&msg=Thank+you+{$clientName}+for+the+purchase%21+Your+invoice+number+is+{$clientInvoice}.+Tender+and+Invoice+details+have+been+mailed+to+the+submitted+email+{$clientEmail}.+Thank+you+for+choosing+Bidders+Portal&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => "",
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 30,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "GET",
-                CURLOPT_HTTPHEADER => array(
-                    "cache-control: no-cache"
-                ),
-            ));
-
-            $response = curl_exec($curl);
-            $err = curl_error($curl);
-
-            curl_close($curl);
-
-            if ($err) {
-                echo "cURL Error #:" . $err;
-            } else {
-                $sms_sent = true;
-                $payment = Payments::where(['trans_id' => $slug])->first();
-                if ($payment) {
-                    $payment->sms_sent = true;
-                    $payment->save();
+                    return Inertia::render('Unlocked', [
+                        'post' => Post::where('_id', '=', $slug)->first(),
+                        'status' => 'Unlocked',
+                        'transId' => 'Annualy',
+                        'payment' => $payment,
+            
+                    ]);
+                } else {
+                    echo 'Subscription is not within 1 year duration from the current time.';
+                    return Inertia::render('Selected', [
+                        'post' => Post::where('_id', '=', $slug)->first(),
+                        'Status' => ''
+                    ]); 
                 }
-                // echo $response;
+
+            }else if($user->membership=="Monthly"){
+                $subscriptionDate = new DateTime($user->membership_date);
+                $now = new DateTime();
+                $diffInMonths = $now->diff($subscriptionDate)->m + ($now->diff($subscriptionDate)->y * 12);
+
+                if ($diffInMonths <= 1) {
+                    $payment = Payments::where('user_email', $user->email)
+                      ->where('info', 'Annualy')
+                      ->first();
+
+                    return Inertia::render('Unlocked', [
+                        'post' => Post::where('_id', '=', $slug)->first(),
+                        'status' => 'Unlocked',
+                        'transId' => 'Annualy',
+                        'payment' => $payment,
+            
+                    ]);
+                } else {
+                    echo 'Subscription is not within 1 year duration from the current time.';
+                    return Inertia::render('Selected', [
+                        'post' => Post::where('_id', '=', $slug)->first(),
+                        'Status' => ''
+                    ]); 
+                }
             }
+        }else{
+
+            $payment = Payments::where('trans_id', '=', $slug)
+                ->where('completed', '=', true)
+                ->where('waiting', '=', false)
+                ->first();
+            
+            $clientNumber = $payment->phone;
+            $clientInvoice = $payment->account;
+            $clientEmail = $payment->user_email;
+            $clientName = urlencode($payment->user_name);
+            $tenderID = $payment->info;
+            $post = Post::where(['_id' => $tenderID])->first();
+    
+            if ($payment->sms_sent == 0) {
+    
+                $curl = curl_init();
+    
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile={$clientNumber}&msg=Thank+you+{$clientName}+for+the+purchase%21+Your+invoice+number+is+{$clientInvoice}.+Thank+you+for+choosing+Bidders+Portal&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
+                    // CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send?userid=textduka&password=Ht7WGsX2&mobile={$clientNumber}&msg=Thank+you+{$clientName}+for+the+purchase%21+Your+invoice+number+is+{$clientInvoice}.+Tender+and+Invoice+details+have+been+mailed+to+the+submitted+email+{$clientEmail}.+Thank+you+for+choosing+Bidders+Portal&senderid=Bids-Portal&msgType=text&duplicatecheck=true&output=json&sendMethod=quick",
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => "",
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 30,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => "GET",
+                    CURLOPT_HTTPHEADER => array(
+                        "cache-control: no-cache"
+                    ),
+                ));
+    
+                $response = curl_exec($curl);
+                $err = curl_error($curl);
+    
+                curl_close($curl);
+    
+                if ($err) {
+                    echo "cURL Error #:" . $err;
+                } else {
+                    $sms_sent = true;
+                    $payment = Payments::where(['trans_id' => $slug])->first();
+                    if ($payment) {
+                        $payment->sms_sent = true;
+                        $payment->save();
+                    }
+                    // echo $response;
+                }
+            }
+    
+            return Inertia::render('Unlocked', [
+                'post' => Post::where('_id', '=', $payment->info)->first(),
+                'status' => 'Unlocked',
+                'transId' => $slug,
+                'payment' => $payment,
+    
+            ]);
         }
-
-        return Inertia::render('Unlocked', [
-            'post' => Post::where('_id', '=', $payment->info)->first(),
-            'status' => 'Unlocked',
-            'transId' => $slug,
-            'payment' => $payment,
-
-        ]);
     }
 
     public function downloadTender($slug)
@@ -583,13 +649,19 @@ class LandingController extends Controller
         $slugValue = str_replace($baseURL . '/invoice/', '', $currentURL);
         // return dd( $baseURL, $currentURL, $slugValue );
 
-        // $post = $request->post;
-        $post = Post::where('_id', '=', $slugValue)->first();
+        $post = $request->post;
         // return dd($post);
-        if ($post == 'bronze' || $post == 'silver' || $post == 'gold' || $post == 'platinum' || $post == 'diamond') {
+        if ($post == 3000 || $post == 30000) {
             $post_id = $post;
+            if($post==3000){
+                $post = 'Monthly';
+            }
+            if($post==30000){
+                $post = 'Annualy';
+            }
         } else {
             $post_id = $slugValue;
+            $post = Post::where('_id', '=', $slugValue)->first();
             // $post_id = $post['_id'];
             // return dd($post_id);
         }
@@ -637,8 +709,8 @@ class LandingController extends Controller
 
         return Inertia::render('Invoice', [
             // 'post' => $request->post,
-            // 'post' => $post,
-            'post' => Post::where('_id', '=', $slugValue)->first(),
+            // 'post' => Post::where('_id', '=', $slugValue)->first(),
+            'post' => $post,
             'user' => $user,
             'invoiceStatus' => $invoicePaid,
             'invoiceDetails' => json_decode($createdInvoice),

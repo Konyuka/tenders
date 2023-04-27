@@ -185,7 +185,7 @@
                       class="mr-2 font-heading-font font-extrabold text-indigo-600 text-xl sm:text-2xl"
                       >
                       <!-- {{ this.amount }} -->
-                      1500
+                      500
                       </span
                     >
                   </span>

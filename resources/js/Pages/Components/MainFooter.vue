@@ -43,7 +43,7 @@
                     </span>
                     All Rights Reserved
                     <span class="text-gray-500 font-extrabold"
-                        >OCHANGABERG LTD </span
+                        >BIDDERS PORTAL</span
                     >.
                 </span>
                 <div

@@ -40,12 +40,6 @@
               :src="'/img/bp.png'"
               alt="circle"
             />
-            <!-- < class="object-cover h-48 w-96" > -->
-            <!-- <h1
-              class="font-bold-font text-4xl sm:text-6xl leading-6 text-indigo-700 dark:text-white"
-            >
-              Bidders Portal
-            </h1> -->
           </a>
 
           <div v-if="!user" class="hidden sm:flex flex-row space-x-4">

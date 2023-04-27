@@ -179,6 +179,36 @@
               Payments
             </a>
 
+            <!-- :href="route('admin.payment')" -->
+            <a
+                v-if="admin"
+                :class="
+                  this.activeMenu == 'admin.notification'
+                    ? 'bg-white text-black'
+                    : 'bg-indigo-800'
+                "
+                class="mb-4 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
+              >
+                <!-- Heroicon name: outline/home -->
+                <i class="fas fa-bell fa-xl text-gray-200 mr-2"></i>
+                Notifications
+              </a>
+
+            <!-- :href="route('admin.payment')" -->
+            <a
+              v-if="admin"
+              :class="
+                this.activeMenu == 'admin.tenders'
+                  ? 'bg-white text-black'
+                  : 'bg-indigo-800'
+              "
+              class="mb-4 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
+            >
+              <!-- Heroicon name: outline/home -->
+              <i class="fas fa-book-open fa-xl text-gray-200 mr-2"></i>
+              Tender Info
+            </a>
+
             <a
               v-if="admin"
               :href="route('admin.apitwitter')"
