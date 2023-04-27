@@ -271,28 +271,32 @@ export default {
   watch: {},
   computed: {
     subscriptionStatus(){
-      if(this.user.membership=="Annualy"){
-        const subscriptionDate = new Date(this.user.membership_date);
-        const now = new Date();
-
-        const diffInMs = now.getTime() - subscriptionDate.getTime();
-        const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365);
-        if (diffInYears <= 1) {
-          return true
-         } else {
-          alert('Annual Subscription Expired')
-          return false
-        }
-      }else if(this.user.membership == "Monthly"){
-        const subscriptionDate = new Date(this.user.membership_date);
-        const now = new Date();
-
-        // const diffInMs = now.getTime() - subscriptionDate.getTime();
-        const diffInMonths = (now.getFullYear() - subscriptionDate.getFullYear()) * 12 + (now.getMonth() - subscriptionDate.getMonth());
-        if (diffInMonths  <= 1) {
-          return true
-        } else {
-          alert('Monthly Subscription Expired')
+      if(this.user!=null){
+        if(this.user.membership=="Annualy"){
+          const subscriptionDate = new Date(this.user.membership_date);
+          const now = new Date();
+  
+          const diffInMs = now.getTime() - subscriptionDate.getTime();
+          const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365);
+          if (diffInYears <= 1) {
+            return true
+           } else {
+            alert('Annual Subscription Expired')
+            return false
+          }
+        }else if(this.user.membership == "Monthly"){
+          const subscriptionDate = new Date(this.user.membership_date);
+          const now = new Date();
+  
+          // const diffInMs = now.getTime() - subscriptionDate.getTime();
+          const diffInMonths = (now.getFullYear() - subscriptionDate.getFullYear()) * 12 + (now.getMonth() - subscriptionDate.getMonth());
+          if (diffInMonths  <= 1) {
+            return true
+          } else {
+            alert('Monthly Subscription Expired')
+            return false
+          }
+        }else{
           return false
         }
       }else{
