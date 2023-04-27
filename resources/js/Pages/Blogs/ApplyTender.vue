@@ -1,7 +1,7 @@
 <template>
     <div class="h-screen">
         <body class="overflow-x-hidden antialiased">
-            <TopBanner />
+            <!-- <TopBanner /> -->
             <MainMenu />
 
             <div>

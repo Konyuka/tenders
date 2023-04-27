@@ -97,6 +97,18 @@ class LandingController extends Controller
         ]);
     }
 
+    public function contacts()
+    {
+        return Inertia::render('Contacts', [
+        ]);
+    }
+
+    public function faqs()
+    {
+        return Inertia::render('Faqs', [
+        ]);
+    }
+
     public function subscriptions()
     {
         return Inertia::render('Subscriptions', [

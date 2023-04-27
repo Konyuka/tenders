@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen">
     <body class="overflow-x-hidden antialiased flex flex-col h-screen">
-      <TopBanner />
+      <!-- <TopBanner /> -->
       <MainMenu />
 
       <div class="text-gray-600 body-font">

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopBanner />
+    <!-- <TopBanner /> -->
     <MainMenu class="sticky top-0 z-50" />
 
     <div class="p-10">

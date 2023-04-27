@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="bg-white">
-      <TopBanner />
+      <!-- <TopBanner /> -->
       <MainMenu class="sticky top-0 z-50" />
 
       <main class="overflow-hidden">
@@ -16,7 +16,7 @@
               <p
                 class="text-4xl font-extrabold tracking-tight text-warm-gray-900 sm:text-5xl lg:text-6xl"
               >
-                About Us & Contacts
+                About Us
               </p>
               <p
                 class="font-primary-font mt-4 max-w-7xl text-xl text-gray-700 lg:mx-auto text-left"
