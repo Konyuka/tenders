@@ -608,7 +608,11 @@ export default {
                 return 3000;
             } else if (this.post == "Annualy") {
                 return 30000;
-            } 
+            } else if (this.post == "Monthly Notification"){
+                return 500;
+            } else if (this.post == "Annualy Notification"){
+                return 5000;
+            }
         },
         membershipSub() {
             if (typeof this.post === "object") {

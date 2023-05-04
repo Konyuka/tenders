@@ -470,6 +470,10 @@ export default {
                 return 'Monthly';
             } else if (this.membership == 30000) {
                 return 'Yearly';
+            }else if(this.membership == 500){
+                return 'Monthly';
+            }else if(this.membership == 5000){
+                return 'Yearly';
             }
         },
         amountMembership() {
@@ -477,6 +481,10 @@ export default {
                 return 3000;
             } else if (this.membership == 30000) {
                 return 30000;
+            } else if (this.membership == 500){
+                return 500;
+            } else if (this.membership == 5000){
+                return 5000;
             }
         },
         waiting() {

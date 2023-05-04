@@ -183,6 +183,9 @@ export default {
   components: {
     // Spinner
   },
+  props: {
+    user: Object, // define the prop "message"
+  },
   data() {
     return {
       servicesDropdown: false,

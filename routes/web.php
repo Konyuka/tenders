@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\URL;
 Route::get('/', [LandingController::class, 'index'])
     ->name('landing');
 
+Route::get('/subscribed/{slug}', [LandingController::class, 'indexSubscribed'])
+    ->name('landing_subscription');
+
 Route::post('/view_cart', [LandingController::class, 'viewCart'])
     ->name('view_cart');
 

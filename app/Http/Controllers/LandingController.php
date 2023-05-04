@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Post;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Invoice;
 use Safaricom\Mpesa\Mpesa;
 use App\Models\Payments;
@@ -51,6 +53,24 @@ class LandingController extends Controller
         Meta::addMeta('title', 'Bidders Portal Tenders Kenya');
         Meta::addMeta('description', 'Tenders in Kenya | Government Tenders | Free Tenders Kenya | Public Tenders Kenya | Open tenders | Bidding Kenya | Kenya Tenders Today');
         return Inertia::render('Landing', ['allPosts' => $posts]);
+    }
+
+    public function indexSubscribed($slug)
+    {
+
+        $posts = Post::
+        select(['_id', 'created_at', 'expiry', 'tender_brief'])
+        ->latest()
+        ->limit(6)
+        ->get();
+
+        $user = auth()->user();
+       
+        return Inertia::render('Landing', [
+            'allPosts' => $posts,
+            'subscription' => $user->membership,
+            'confirmMessage' => $slug,
+        ]);
     }
 
     public function viewCart(Request $request)
@@ -201,7 +221,7 @@ class LandingController extends Controller
 
         if($user){
             if($user->membership=="Annualy"){
-                $subscriptionDate = new DateTime($user->membership_date);
+                $subscriptionDate = DateTime::createFromFormat('U', $user->membership_date);
                 $now = new DateTime();
                 $diffInYears = $now->diff($subscriptionDate)->y;
 
@@ -226,7 +246,12 @@ class LandingController extends Controller
                 }
 
             }else if($user->membership=="Monthly"){
-                $subscriptionDate = new DateTime($user->membership_date);
+                // $subscriptionDate = new DateTime::createFromFormat('U', $user->membership_date);
+                // $subscriptionDate = new DateTime('Y-m-d H:i:s', $user->membership_date);
+                // $now = new DateTime();
+                // $diffInMonths = $now->diff($subscriptionDate)->m + ($now->diff($subscriptionDate)->y * 12);
+
+                $subscriptionDate = DateTime::createFromFormat('U', $user->membership_date);
                 $now = new DateTime();
                 $diffInMonths = $now->diff($subscriptionDate)->m + ($now->diff($subscriptionDate)->y * 12);
 
@@ -650,14 +675,19 @@ class LandingController extends Controller
         // return dd( $baseURL, $currentURL, $slugValue );
 
         $post = $request->post;
-        // return dd($post);
-        if ($post == 3000 || $post == 30000) {
+        if ($post == 3000 || $post == 30000 || $post == 500 || $post == 5000) {
             $post_id = $post;
             if($post==3000){
                 $post = 'Monthly';
             }
+            if($post==500){
+                $post = 'Monthly Notification';
+            }
             if($post==30000){
                 $post = 'Annualy';
+            }
+            if($post==5000){
+                $post = 'Annualy Notification';
             }
         } else {
             $post_id = $slugValue;

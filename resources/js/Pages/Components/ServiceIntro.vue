@@ -642,11 +642,33 @@ export default {
   computed: {},
   methods: {
     setNotification(value){
-      if(value=='monthly'){
-
-      }else if(value == 'annualy'){
-
+      if (value == 'monthly') {
+        if (this.$parent.user == null) {
+          this.notificationPlansModal = false
+          this.chooseAuth = true;
+        } else {
+          let membershipAmount = 500
+          let payload = {
+            membership: membershipAmount,
+            user: this.$parent.user,
+          };
+          this.$inertia.post(`/checkout/${membershipAmount}`, payload);
+        }
       }
+      if (value == 'annualy') {
+        if (this.$parent.user == null) {
+          this.notificationPlansModal = false
+          this.chooseAuth = true;
+        } else {
+          let membershipAmount = 5000
+          let payload = {
+            membership: membershipAmount,
+            user: this.$parent.user,
+          };
+          this.$inertia.post(`/checkout/${membershipAmount}`, payload);
+        }
+      }
+
     },
     membership(value) {
       console.log(value);
@@ -672,7 +694,6 @@ export default {
       }
     },
     subscription(value) {
-      // console.log(this.$parent.user)
       if (value == 3000) {
         if (this.$parent.user == null) {
           this.chooseAuth = true;
