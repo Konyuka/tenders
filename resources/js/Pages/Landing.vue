@@ -3,7 +3,7 @@
     <body class="overflow-x-hidden overflow-y-scroll antialiased">
       <div class="flex flex-col h-screen">
         <!-- <TopBanner /> -->
-        <MainMenu class="sticky top-0 z-50" />
+        <MainMenu :user="user" class="sticky top-0 z-50" />
         <HeroSection @modalState="searchModal = true" />
         <FeaturedTenders :user="user" />
         <ServiceIntro />

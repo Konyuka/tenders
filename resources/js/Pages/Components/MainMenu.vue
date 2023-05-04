@@ -212,6 +212,9 @@ export default {
     },
   },
   computed: {
+    props:{
+      'user': Object
+    },
     storecount() {
       return this.$store.state.tenderIDs.length
     },

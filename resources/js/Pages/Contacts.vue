@@ -118,8 +118,8 @@
                                                     <label for="first-name"
                                                         class="block text-sm font-medium text-gray-900">First name</label>
                                                     <div class="mt-1">
-                                                        <input type="text" name="first-name" id="first-name"
-                                                            autocomplete="given-name"
+                                                        <input v-model="email.fname" type="text" name="first-name"
+                                                            id="first-name" autocomplete="given-name"
                                                             class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
                                                     </div>
                                                 </div>
@@ -127,8 +127,8 @@
                                                     <label for="last-name"
                                                         class="block text-sm font-medium text-gray-900">Last name</label>
                                                     <div class="mt-1">
-                                                        <input type="text" name="last-name" id="last-name"
-                                                            autocomplete="family-name"
+                                                        <input v-model="email.lname" type="text" name="last-name"
+                                                            id="last-name" autocomplete="family-name"
                                                             class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
                                                     </div>
                                                 </div>
@@ -136,7 +136,8 @@
                                                     <label for="email"
                                                         class="block text-sm font-medium text-gray-900">Email</label>
                                                     <div class="mt-1">
-                                                        <input id="email" name="email" type="email" autocomplete="email"
+                                                        <input v-model="email.email" id="email" name="email" type="email"
+                                                            autocomplete="email"
                                                             class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
                                                     </div>
                                                 </div>
@@ -148,7 +149,8 @@
                                                             class="text-sm text-gray-500">Optional</span>
                                                     </div>
                                                     <div class="mt-1">
-                                                        <input type="text" name="phone" id="phone" autocomplete="tel"
+                                                        <input v-model="email.lname" type="number" name="phone" id="phone"
+                                                            autocomplete="tel"
                                                             class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
                                                             aria-describedby="phone-optional" />
                                                     </div>
@@ -157,7 +159,8 @@
                                                     <label for="subject"
                                                         class="block text-sm font-medium text-gray-900">Subject</label>
                                                     <div class="mt-1">
-                                                        <input type="text" name="subject" id="subject"
+                                                        <input v-model="email.subject" type="text" name="subject"
+                                                            id="subject"
                                                             class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
                                                     </div>
                                                 </div>
@@ -169,13 +172,14 @@
                                                             characters</span>
                                                     </div>
                                                     <div class="mt-1">
-                                                        <textarea id="message" name="message" rows="4"
+                                                        <textarea v-model="email.message" id="message" name="message"
+                                                            rows="4"
                                                             class="py-3 px-4 block w-full shadow-sm text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"
                                                             aria-describedby="message-max"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="sm:col-span-2 sm:flex sm:justify-end">
-                                                    <button type="submit"
+                                                    <button @click="sendMail" type="submit"
                                                         class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto">
                                                         Submit
                                                     </button>
@@ -203,6 +207,7 @@
 import TopBanner from "./Components/TopBanner.vue";
 import MainMenu from "./Components/MainMenu.vue";
 import MainFooter from "./Components/MainFooter.vue";
+import axios from "axios";
 
 export default {
     name: "About",
@@ -214,11 +219,29 @@ export default {
     data() {
         return {
             showForm: false,
+            email: {
+                fname: null,
+                lname: null,
+                email: null,
+                subject: null,
+                message: null,
+            }
         };
     },
     watch: {},
     computed: {},
     methods: {
+        sendMail() {
+
+            axios.post('/send/from_client', this.email)
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+
+        },
         formButton(value) {
             if (value == "close") {
                 this.showForm = false;

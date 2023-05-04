@@ -177,8 +177,8 @@
                   </span>
                 </div>
 
-                <div class="flex">
-                  <span
+                <div class="flex justify-around">
+                  <div
                     class="title-font font-medium text-xl sm:text-2xl text-gray-900 font-heading-font"
                     >KES
                     <span
@@ -188,40 +188,51 @@
                       500
                       </span
                     >
-                  </span>
-                  <a
-                    @click="purchase"
-                    class="ml-2 cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex text-white hover:text-black border-0 py-2 px-2 text-xs sm:text-lg sm:px-6 focus:outline-none rounded"
-                    >Purchase</a
-                  >
-                  <a
-                    @click="addToCart(post._id)"
-                    class=" cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-2 px-2 text-xs sm:text-lg sm:px-6 focus:outline-none rounded"
-                    >
-                    To Cart 
-                  <!-- <i class="fa-solid fa-cart-shopping p-1"></i>  -->
-                  </a
-                  >
+                  </div>
 
+                  <div class="flex justify-around gap-5">
+                    <a
+                      @click="purchase"
+                      class="font-bold ml-2 cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex text-white hover:text-black border-0 py-2 px-1 text-xs sm:text-lg sm:px-6 focus:outline-none rounded"
+                      >
+                      <span class="mt-2">
+                        Purchase
+                      </span>
+                    </a
+                    >
+                    <a
+                      @click="addToCart(post._id)"
+                      class="font-bold cursor-pointer transform transition hover:scale-75 duration-700 ease-in-out bg-indigo-600 hover:bg-gray-200 flex ml-auto text-white hover:text-black border-0 py-1 px-2 text-xs sm:text-lg sm:px-6 focus:outline-none rounded"
+                      >
+                      <span class="mt-2">
+                        Cart 
+                      </span>
+                    <!-- <i class="fa-solid fa-cart-shopping p-1"></i>  -->
+                    </a
+                    >
+                  </div>
+
+                  <div class="m-4 flex gap-5">
+                    <button
+                      @click="shareSocial('whatsapp')"
+                      class="transform transition hover:scale-150 duration-700 hover:text-bold rounded-full w-5 h-5 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-black ml-4"
+                    >
+                      <i class="fa-2xl fab fa-whatsapp"></i>
+                    </button>
+                    <button
+                      @click="shareSocial('twitter')"
+                      class="transform transition hover:scale-150 duration-700 hover:text-bold rounded-full w-5 h-5 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-black ml-4"
+                    >
+                      <i class="fa-2xl fab fa-twitter"></i>
+                    </button>
+                    <button
+                      @click="shareSocial('facebook')"
+                      class="transform transition hover:scale-150 duration-700 hover:text-bold rounded-full w-5 h-5 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-black ml-4"
+                    >
+                      <i class="fa-2xl fab fa-facebook"></i>
+                    </button>
+                  </div>
                   
-                  <button
-                    @click="shareSocial('whatsapp')"
-                    class="hover:bg-indigo-500 hover:text-white rounded-full w-5 h-5 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-900 ml-4"
-                  >
-                    <i class="fab fa-whatsapp"></i>
-                  </button>
-                  <button
-                    @click="shareSocial('twitter')"
-                    class="hover:bg-indigo-500 hover:text-white rounded-full w-5 h-5 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-900 ml-4"
-                  >
-                    <i class="fab fa-twitter"></i>
-                  </button>
-                  <button
-                    @click="shareSocial('facebook')"
-                    class="hover:bg-indigo-500 hover:text-white rounded-full w-5 h-5 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-900 ml-4"
-                  >
-                    <i class="fab fa-facebook"></i>
-                  </button>
                   <!-- <a
                     href="mailto:?subject= Bidders Portal Share Tender &amp;body=Hey there! This is a shared tender from Bidders Portal that might be in your favour. Click the link for more details:"
                   >
@@ -231,6 +242,7 @@
                       <i class="fab fa-google"></i>
                     </button>
                   </a> -->
+
                 </div>
               </div>
 
@@ -296,6 +308,8 @@ import MainFooter from "./Components/MainFooter.vue";
 import Spinner from "./Components/Spinner.vue";
 import CartButton from "./Components/CartButton.vue";
 import moment from "moment";
+// import express from "express";
+// import Facebook from "facebook-js-sdk";
 
 import dateFormat from "dateformat";
 const now = new Date();
@@ -404,6 +418,19 @@ export default {
 
     },
     shareSocial(value) {
+      // let shareUrl =
+      //   "Hey there! This is a shared tender from Bidders Portal that might be in your favour. Click the link for more details: https://biddersportal.com/selected/" +
+      //   this.post._id;
+      // if (value == "whatsapp") {
+      //   window.open(`https://api.whatsapp.com/send?&text=${shareUrl}`, "_blank");
+      // } else if (value == "twitter") {
+      //   // https://twitter.com/intent/tweet?url=link_to_be_shared
+      //   window.open(`https://twitter.com/intent/tweet?url=${shareUrl}`, "_blank");
+      //   // alert("twitter");
+      // } else if (value == "google") {
+      //   alert("google");
+      // }
+
       let shareUrl =
         "Hey there! This is a shared tender from Bidders Portal that might be in your favour. Click the link for more details: https://biddersportal.com/selected/" +
         this.post._id;
@@ -412,10 +439,11 @@ export default {
       } else if (value == "twitter") {
         // https://twitter.com/intent/tweet?url=link_to_be_shared
         window.open(`https://twitter.com/intent/tweet?url=${shareUrl}`, "_blank");
-        // alert("twitter");
-      } else if (value == "google") {
-        alert("google");
+      } else if (value == "facebook") {
+        // https://www.facebook.com/sharer/sharer.php?u=link_to_be_shared
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, "_blank");
       }
+
     },
     checkDateExpryFormat(value) {
       var str = value;
