@@ -69,7 +69,14 @@
 
         <Spinner v-if="spinner" />
 
-        <CartButton class="z-90" />
+        
+        <div  class="cursor:pointer fixed z-50 bottom-16 right-5  flex transform transition hover:scale-150 duration-700 ease-in-out">
+          <a  href="https://api.whatsapp.com/send?phone=254100571601&text=Hey%20Bidders!%20I%20would%20like%20to%20have%20a%20chat%20concerning%20one%20of%20your%20services.%20Kindly%20reach%20out.%20Thank%20you" 
+          class="mr-4 fa-2xl text-black fab fa-whatsapp p-1">
+        </a>
+      </div>
+      
+      <CartButton class="z-90" />
 
       </div>
     </body>

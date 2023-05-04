@@ -38,39 +38,39 @@
                       <li class="font-primary">
                         <a @click.prevent="goToListing"
                           class="rounded-xs transform transition hover:scale-90 duration-700 ease-in-out dropdown-item text-xs py-2 px-2 font-semibold  block w-full whitespace-nowrap bg-transparent text-gray-700 hover:text-white bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 "
-                          href="#"><i class="fas fa-caret-right mr-1 text-indigo-600"></i> Tender Information Services</a>
+                          ><i class="fas fa-caret-right mr-1 text-indigo-600"></i> Tender Information Services</a>
+                      </li>
+                      <li>
+                        <a :href="route('contacts')" class="rounded-xs transform transition hover:scale-90 duration-700 ease-in-out dropdown-item text-xs py-2 px-2 font-semibold block w-full whitespace-nowrap bg-transparent text-gray-700 hover:text-white bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500"
+                          ><i class="fas fa-caret-right mr-1 text-indigo-600"></i> Auto Tender Notifcations</a>
                       </li>
                       <li>
                         <a class="rounded-xs transform transition hover:scale-90 duration-700 ease-in-out dropdown-item text-xs py-2 px-2 font-semibold block w-full whitespace-nowrap bg-transparent text-gray-700 hover:text-white bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500"
-                          href="#"><i class="fas fa-caret-right mr-1 text-indigo-600"></i> Auto Tender Notifcations</a>
+                          :href="route('contacts')"><i class="fas fa-caret-right mr-1 text-indigo-600"></i>Supplier Prequalification Services</a>
                       </li>
                       <li>
                         <a class="rounded-xs transform transition hover:scale-90 duration-700 ease-in-out dropdown-item text-xs py-2 px-2 font-semibold block w-full whitespace-nowrap bg-transparent text-gray-700 hover:text-white bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500"
-                          href="#"><i class="fas fa-caret-right mr-1 text-indigo-600"></i>Supplier Prequalification Services</a>
+                          :href="route('contacts')"><i class="fas fa-caret-right mr-1 text-indigo-600"></i> Bid Bond Services </a>
                       </li>
                       <li>
                         <a class="rounded-xs transform transition hover:scale-90 duration-700 ease-in-out dropdown-item text-xs py-2 px-2 font-semibold block w-full whitespace-nowrap bg-transparent text-gray-700 hover:text-white bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500"
-                          href="#"><i class="fas fa-caret-right mr-1 text-indigo-600"></i> Bid Bond Services </a>
+                          :href="route('contacts')"><i class="fas fa-caret-right mr-1 text-indigo-600"></i>Tender Representation</a>
                       </li>
                       <li>
                         <a class="rounded-xs transform transition hover:scale-90 duration-700 ease-in-out dropdown-item text-xs py-2 px-2 font-semibold block w-full whitespace-nowrap bg-transparent text-gray-700 hover:text-white bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500"
-                          href="#"><i class="fas fa-caret-right mr-1 text-indigo-600"></i>Tender Representation</a>
+                          :href="route('contacts')"><i class="fas fa-caret-right mr-1 text-indigo-600"></i>Bidding Assistance</a>
                       </li>
                       <li>
                         <a class="rounded-xs transform transition hover:scale-90 duration-700 ease-in-out dropdown-item text-xs py-2 px-2 font-semibold block w-full whitespace-nowrap bg-transparent text-gray-700 hover:text-white bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500"
-                          href="#"><i class="fas fa-caret-right mr-1 text-indigo-600"></i>Bidding Assistance</a>
+                          :href="route('contacts')"><i class="fas fa-caret-right mr-1 text-indigo-600"></i> Tender Analysis</a>
                       </li>
                       <li>
                         <a class="rounded-xs transform transition hover:scale-90 duration-700 ease-in-out dropdown-item text-xs py-2 px-2 font-semibold block w-full whitespace-nowrap bg-transparent text-gray-700 hover:text-white bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500"
-                          href="#"><i class="fas fa-caret-right mr-1 text-indigo-600"></i> Tender Analysis</a>
+                          :href="route('contacts')"><i class="fas fa-caret-right mr-1 text-indigo-600"></i>Contract Awards</a>
                       </li>
                       <li>
                         <a class="rounded-xs transform transition hover:scale-90 duration-700 ease-in-out dropdown-item text-xs py-2 px-2 font-semibold block w-full whitespace-nowrap bg-transparent text-gray-700 hover:text-white bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500"
-                          href="#"><i class="fas fa-caret-right mr-1 text-indigo-600"></i>Contract Awards</a>
-                      </li>
-                      <li>
-                        <a class="rounded-xs transform transition hover:scale-90 duration-700 ease-in-out dropdown-item text-xs py-2 px-2 font-semibold block w-full whitespace-nowrap bg-transparent text-gray-700 hover:text-white bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500"
-                          href="#"><i class="fas fa-caret-right mr-1 text-indigo-600"></i>Dispute Redressal</a>
+                          :href="route('contacts')"><i class="fas fa-caret-right mr-1 text-indigo-600"></i>Dispute Redressal</a>
                       </li>
                     </ul>
                   </div>

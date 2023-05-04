@@ -94,7 +94,7 @@
                                 </p>
                                 <p v-if="membershipSub"
                                     class="text-lg font-semibold leading-6 dark:text-white text-gray-800">
-                                    KES {{ amountMembership }}
+                                    KES {{ formatMoney(amountMembership) }}
                                 </p>
                             </div>
 
@@ -733,6 +733,9 @@ export default {
         };
     },
     methods: {
+        formatMoney(n) {
+            return "" + (Math.round(n * 100) / 100).toLocaleString();
+        },
         startConfrirm(data) {
             console.log*(data)
             const myInterval = window.setInterval(() => {
