@@ -56,8 +56,6 @@
         gtag('config', 'G-HVZJ5KQXEK');
     </script> -->
 
-    
-
     {!! \App\Meta::render() !!}
 </head>
 
