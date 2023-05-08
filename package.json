@@ -50,7 +50,6 @@
         "v-calendar": "^2.4.1",
         "vue-meta": "^2.4.0",
         "vue-paginate": "^3.6.0",
-        "vue-timer-hook": "^1.0.0",
         "vue2-filters": "^0.14.0",
         "vue2-flip-countdown": "^0.12.1",
         "vue3-flip-countdown": "^0.1.6",

@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Post;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Route;
 
 use function PHPUnit\Framework\isNull;
 
@@ -117,29 +119,35 @@ class PaymentsController extends Controller
                     'email' => $user['userEmail'],
                 ]);
             }else{
-                if($post_id == 'Annualy' || $post_id == 'Monthly'){
 
+                if($post_id == 'Annualy' || $post_id == 'Monthly' || $post_id == 'Annualy Notification' || $post_id == 'Monthly Notification'){
+
+                    $user = auth()->user();
                     User::where('id', '=', $user->id)->update([
                         'membership' => $post_id,
                         'membership_date' => time(),
                     ]);
 
-                    $posts = Post::
-                    select(['_id', 'created_at', 'expiry', 'tender_brief'])
-                    ->latest()
-                    ->limit(6)
-                    ->get();
+                    // $posts = Post::
+                    // select(['_id', 'created_at', 'expiry', 'tender_brief'])
+                    // ->latest()
+                    // ->limit(6)
+                    // ->get();
 
-                    // return dd(json_decode($posts, true));
+                    $url = route('landing_subscription', ['slug' => $post_id]);
+                    return Inertia::location($url);
 
-                    // return Inertia::render('Landings');
-                    Meta::addMeta('title', 'Bidders Portal Tenders Kenya');
-                    Meta::addMeta('description', 'Tenders in Kenya | Government Tenders | Free Tenders Kenya | Public Tenders Kenya | Open tenders | Bidding Kenya | Kenya Tenders Today');
-                    return Inertia::render('Landing', [
+                    return Redirect::route('landing_subscription')->with([
                         'allPosts' => $posts,
-                        'subscription' => $post_id,
-                    
+                        'subscription' => $user->membership,
+                        'confirmMessage' => $post_id,
                     ]);
+
+                    // return Inertia::render('Landing', [
+                    //     'allPosts' => $posts,
+                    //     'subscription' => $user->membership,
+                    //     'confirmMessage' => $post_id,
+                    // ]);
 
                 }else{
                     return Inertia::render('Selected', [
@@ -164,7 +172,7 @@ class PaymentsController extends Controller
                 ]);
             }else{
                 
-                if($post_id == 'Annualy' || $post_id == 'Monthly'){
+                if($post_id == 'Annualy' || $post_id == 'Monthly' || $post_id == 'Annualy Notification' || $post_id == 'Monthly Notification'){
                     $actualPost = $post_id;
                 }else{
                     $actualPost = Post::where('_id', '=', $post_id)->first();
@@ -192,7 +200,7 @@ class PaymentsController extends Controller
                     'invoiceDetails' => $invoiceDetails,
                 ]);
             }else{
-                if($post_id == 'Annualy' || $post_id == 'Monthly'){
+                if($post_id == 'Annualy' || $post_id == 'Monthly' || $post_id == 'Annualy Notification' || $post_id == 'Monthly Notification'){
                     $actualPost = $post_id;
                 }else{
                     $actualPost = Post::where('_id', '=', $post_id)->first();
@@ -220,7 +228,7 @@ class PaymentsController extends Controller
                         'invoiceDetails' => $invoiceDetails,
                     ]);
                 }else{
-                    if($post_id == 'Annualy' || $post_id == 'Monthly'){
+                    if($post_id == 'Annualy' || $post_id == 'Monthly' || $post_id == 'Annualy Notification' || $post_id == 'Monthly Notification'){
                         $actualPost = $post_id;
                     }else{
                         $actualPost = Post::where('_id', '=', $post_id)->first();
@@ -275,8 +283,8 @@ class PaymentsController extends Controller
         $BusinessShortCode=env('MPESA_STK_SHORTCODE');
         $LipaNaMpesaPasskey=env('MPESA_PASSKEY');
         $TransactionType="CustomerPayBillOnline";
-        // $Amount=1;
         $Amount=$amount;
+        // $Amount=1;
         $PartyA=$phone;
         $PartyB=env('MPESA_STK_SHORTCODE');
         $PhoneNumber=$phone;
@@ -337,7 +345,7 @@ class PaymentsController extends Controller
         // ]);
 
 
-        if(is_string($post) && $post_id === 'Annualy' || $post_id === 'Monthly' ){
+        if(is_string($post) && $post_id === 'Annualy' || $post_id === 'Monthly' || $post_id === 'Monthly Notification' || $post_id === 'Annualy Notification' ){
 
             return Inertia::render('Invoice', [
                 // 'post' => $request->post,

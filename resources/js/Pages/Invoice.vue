@@ -94,7 +94,7 @@
                                 </p>
                                 <p v-if="membershipSub"
                                     class="text-lg font-semibold leading-6 dark:text-white text-gray-800">
-                                    KES {{ amountMembership }}
+                                    KES {{ formatMoney(amountMembership) }}
                                 </p>
                             </div>
 
@@ -608,7 +608,11 @@ export default {
                 return 3000;
             } else if (this.post == "Annualy") {
                 return 30000;
-            } 
+            } else if (this.post == "Monthly Notification"){
+                return 500;
+            } else if (this.post == "Annualy Notification"){
+                return 5000;
+            }
         },
         membershipSub() {
             if (typeof this.post === "object") {
@@ -729,6 +733,9 @@ export default {
         };
     },
     methods: {
+        formatMoney(n) {
+            return "" + (Math.round(n * 100) / 100).toLocaleString();
+        },
         startConfrirm(data) {
             console.log*(data)
             const myInterval = window.setInterval(() => {

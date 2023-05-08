@@ -4,8 +4,7 @@
       <div class="container px-1 py-6 mx-auto">
         <div class="">
           <h1
-            class="font-primary-font flex justify-around text-3xl font-bold text-indigo-600 capitalize lg:text-5xl dark:text-white"
-          >
+            class="font-primary-font flex justify-around text-3xl font-bold text-indigo-600 capitalize lg:text-5xl dark:text-white">
             Featured Tenders
           </h1>
         </div>
@@ -14,17 +13,11 @@
           <div class="flex flex-row my-5 mx-2">
             <div class="md:w-4/5 w-full sm:mr-5">
               <div class="columns-1">
-                <a
-                  v-for="post in this.posts.slice(0, 1)"
-                  :key="post._id"
-                  :href="route('free', post._id)"
-                  class="hover:bg-green-100 animate-wiggle border-double mb-16 group bg-white border-4 mt-1 my-2 border-indigo-500 rounded-lg shadow-2xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl items-start"
-                >
+                <a v-for="post in this.posts.slice(0, 1)" :key="post._id" :href="route('free', post._id)"
+                  class="hover:bg-green-100 animate-wiggle border-double mb-16 group bg-white border-4 mt-1 my-2 border-indigo-500 rounded-lg shadow-2xl transform transition hover:scale-75 duration-700 hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl items-start">
                   <div class="flex justify-between w-full">
                     <div class="text-center">
-                      <h1
-                        class="flex text-lg sm:text-3xl text-gray-600 font-heading-font font-bold mt-0 mb-2"
-                      >
+                      <h1 class="flex text-lg sm:text-3xl text-gray-600 font-heading-font font-bold mt-0 mb-2">
                         Daily
                         <span class="text-green-600 font-bold-font ml-2 mr-2">Free</span>
                         Tender
@@ -40,14 +33,10 @@
                         {{ ago(post.created_at) }}</span
                       >
                     </div> -->
-                    <div
-                      class="invisible sm:visible font-heading-font font-extrabold"
-                      v-if="expired(post)"
-                    >
+                    <div class="invisible sm:visible font-heading-font font-extrabold" v-if="expired(post)">
                       Last date of Bid:
                       <span
-                        class="inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest"
-                      >
+                        class="inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest">
                         Tender Closed
                       </span>
                     </div>
@@ -67,14 +56,11 @@
                     </div> -->
                   </div>
                   <p
-                    class="text-xs sm:text-lg m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
-                  >
+                    class="text-xs sm:text-lg m-3 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold">
                     {{ post.tender_brief }}
                   </p>
 
-                  <div
-                    class="flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full"
-                  >
+                  <div class="flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full">
                     <!-- <span
                       class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
                     >
@@ -82,29 +68,18 @@
                       {{ post.funded_by }}
                     </span> -->
                     <span
-                      class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-                    >
-                      <i
-                        class="w-4 h-4 mr-1 fas fa-location-crosshairs text-green-500"
-                      ></i>
+                      class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                      <i class="w-4 h-4 mr-1 fas fa-location-crosshairs text-green-500"></i>
                       <!-- {{ post.country }} -->
                       Kenya
                     </span>
                   </div>
 
                   <div class="mt-4">
-                    <a
-                      class="text-green-500 inline-flex items-center font-heading-font font-extrabold italics text-lg"
-                      >Get Tender Details for free
-                      <svg
-                        class="w-4 h-4 ml-2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
+                    <a class="text-green-500 inline-flex items-center font-heading-font font-extrabold italics text-lg">Get
+                      Tender Details for free
+                      <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14"></path>
                         <path d="M12 5l7 7-7 7"></path>
                       </svg>
@@ -112,19 +87,14 @@
                   </div>
                 </a>
 
-                <a
-                  v-for="post in this.getArray.slice(1)"
-                  :key="post._id"
-                  class="group bg-white border-2 mt-1 my-2 border-indigo-600 rounded-lg shadow-xl hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl items-start"
-                >
+                <a v-for="post in this.getArray.slice(1)" :key="post._id"
+                  class="group bg-white border-2 mt-1 my-2 border-indigo-600 rounded-lg shadow-xl hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl items-start">
                   <div class="flex justify-between w-full">
                     <div class="text-xs sm:text-lg font-heading-font font-extrabold">
                       Posted:
                       <span
-                        class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"
-                      >
-                        {{ ago(post.created_at) }}</span
-                      >
+                        class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest">
+                        {{ ago(post.created_at) }}</span>
                     </div>
                     <!-- <div
                       class="text-xs sm:text-lg font-heading-font font-extrabold"
@@ -152,8 +122,7 @@
                     </div> -->
                   </div>
                   <p
-                    class="text-xs sm:text-lg mt-2 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
-                  >
+                    class="text-xs sm:text-lg mt-2 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold">
                     <!-- <span
                                             class="rounded bg-indigo-50 text-indigo-500 text-md font-extrabold font-heading-font tracking-widest mr-2"
                                             ># {{ i + 1 }}
@@ -162,9 +131,7 @@
                     {{ post.tender_brief }}
                   </p>
 
-                  <div
-                    class="flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full"
-                  >
+                  <div class="flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full">
                     <!-- <span
                       class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none pr-3 py-1 border-r-2 border-gray-200"
                     >
@@ -172,25 +139,17 @@
                       {{ post.funded_by }}
                     </span> -->
                     <span
-                      class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none pr-3 py-1 border-r-2 border-gray-200"
-                    >
-                      <i
-                        class="w-4 h-4 mr-1 fas fa-location-crosshairs text-indigo-600"
-                      ></i>
+                      class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none pr-3 py-1 border-r-2 border-gray-200">
+                      <i class="w-4 h-4 mr-1 fas fa-location-crosshairs text-indigo-600"></i>
                       <!-- {{ post.country }} -->
                       Kenya
                     </span>
                     <span
-                      class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none pr-3 py-1 border-r-2 border-gray-200"
-                    >
-                      <i
-                        class="w-4 h-4 mr-1 fas fa-money-bill-transfer text-indigo-600"
-                      ></i>
+                      class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none pr-3 py-1 border-r-2 border-gray-200">
+                      <i class="w-4 h-4 mr-1 fas fa-money-bill-transfer text-indigo-600"></i>
                       <!-- {{ post.country }} -->
                       KES
-                      <span
-                        class="ml-1 text-green-500 font-heading-font font-extrabold text-xs sm:text-lg"
-                      >
+                      <span class="ml-1 text-green-500 font-heading-font font-extrabold text-xs sm:text-lg">
                         <!-- {{ amount(post.created_at) }} -->
                         500
                       </span>
@@ -199,17 +158,14 @@
 
                   <div class="flex w-full justify-between mt-10 text-lg">
                     <!-- :href="" -->
-                    <button
-                      @click="checkLockStatus(post._id)"
-                      class="text-indigo-600 text-sm sm:text-lg inline-flex items-center font-heading-font font-extrabold transform transition hover:scale-110 hover:font-bold duration-700"
-                      >Details & Single Checkout <i class="fa-solid fa-book-open-reader p-1"></i>
+                    <button @click="checkLockStatus(post._id)"
+                      class="text-indigo-600 text-sm sm:text-lg inline-flex items-center font-heading-font font-extrabold transform transition hover:scale-110 hover:font-bold duration-700">Details
+                      & Single Checkout <i class="fa-solid fa-book-open-reader p-1"></i>
                     </button>
 
-                    <a
-                      @click="addToCart(post._id)"
-                      href="#"
-                      class="text-indigo-600 text-sm sm:text-lg inline-flex items-center font-heading-font font-extrabold transform transition hover:scale-110 hover:font-bold duration-700"
-                      >Add To Cart <i class="fa-solid fa-cart-shopping p-1"></i>
+                    <a @click="addToCart(post._id)" href="#"
+                      class="text-indigo-600 text-sm sm:text-lg inline-flex items-center font-heading-font font-extrabold transform transition hover:scale-110 hover:font-bold duration-700">Add
+                      To Cart <i class="fa-solid fa-cart-shopping p-1"></i>
                     </a>
                   </div>
                 </a>
@@ -217,9 +173,7 @@
               </div>
             </div>
 
-            <div
-              class="hidden sm:flex border-indigo-600 border-2 p-5 rounded-lg shadow-2xl"
-            >
+            <div class="hidden sm:flex border-indigo-600 border-2 p-5 rounded-lg shadow-2xl">
               <SearchFilter />
             </div>
           </div>
@@ -227,8 +181,7 @@
 
         <a :href="route('listing')" class="mt-10 flex justify-center">
           <button
-            class="transform transition hover:scale-125 duration-700 ease-in-out text-xl font-extrabold font-heading-font leading-4 text-white bg-indigo-600 sm:w-auto w-full rounded p-4 focus:outline-none hover:bg-gray-200 focus:ring-2 focus:ring-offset-2 focus:ring-white"
-          >
+            class="transform transition hover:scale-125 duration-700 ease-in-out text-xl font-extrabold font-heading-font leading-4 text-white bg-indigo-600 sm:w-auto w-full rounded p-4 focus:outline-none hover:bg-gray-200 focus:ring-2 focus:ring-offset-2 focus:ring-white">
             View All Tenders
           </button>
         </a>
@@ -270,37 +223,36 @@ export default {
   },
   watch: {},
   computed: {
-    subscriptionStatus(){
-      if(this.user!=null){
-        if(this.user.membership=="Annualy"){
-          const subscriptionDate = new Date(this.user.membership_date);
+    subscriptionStatus() {
+      if (this.user !== null) {
+        if (this.user.membership == "Annualy") {
+          const subscriptionDate = new Date(this.user.membership_date * 1000);
           const now = new Date();
-  
+
           const diffInMs = now.getTime() - subscriptionDate.getTime();
           const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365);
           if (diffInYears <= 1) {
             return true
-           } else {
+          } else {
             alert('Annual Subscription Expired')
             return false
           }
-        }else if(this.user.membership == "Monthly"){
-          const subscriptionDate = new Date(this.user.membership_date);
+        } else if (this.user.membership == "Monthly") {
+          const subscriptionDate = new Date(this.user.membership_date * 1000);
           const now = new Date();
-  
+
           // const diffInMs = now.getTime() - subscriptionDate.getTime();
           const diffInMonths = (now.getFullYear() - subscriptionDate.getFullYear()) * 12 + (now.getMonth() - subscriptionDate.getMonth());
-          if (diffInMonths  <= 1) {
+          if (diffInMonths <= 1) {
             return true
           } else {
             alert('Monthly Subscription Expired')
             return false
           }
-        }else{
+        } else {
           return false
-          
         }
-      }else{
+      } else {
         return false
       }
     },
@@ -316,21 +268,21 @@ export default {
   },
   methods: {
     checkLockStatus(postID) {
-      if (this.subscriptionStatus==true) {
+      if (this.subscriptionStatus == true) {
         this.$inertia.get(`/unlock/${postID}`);
       } else {
         this.$inertia.get(`/selected/${postID}`);
       }
     },
-    async addToCart(postID){
+    async addToCart(postID) {
       let currentItems = this.$store.state.tenderIDs
       // console.log(currentItems)
-      if (currentItems.includes(postID)){
+      if (currentItems.includes(postID)) {
         alert('Tender Already in Cart')
-      }else{
+      } else {
         await this.$store.commit('addToCart', postID)
         alert('Tender Added To Cart')
-      } 
+      }
 
     },
     amount(value) {
@@ -446,31 +398,39 @@ export default {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
 }
+
 @-moz-keyframes AnimationName {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
 }
+
 @keyframes AnimationName {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
