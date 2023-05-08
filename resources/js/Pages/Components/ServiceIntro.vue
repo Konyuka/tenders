@@ -585,11 +585,11 @@
                 <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Choose Notification Plan</h3>
                 <div class="mt-2">
 
-                  <div class="m-10 flex justify-between mx-10">
-                    <button @click="setNotification('monthly')" type="button" class="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                  <div class="m-10 flex justify-between mx-10 gap-2">
+                    <button @click="setNotification('monthly')" type="button" class="rounded-md bg-indigo-600 px-1 sm:px-5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                       Monthly at KES 500
                     </button>
-                    <button @click="setNotification('annualy')" type="button" class="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <button @click="setNotification('annualy')" type="button" class="rounded-md bg-indigo-600 px-1 sm:px-5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                       Yearly at KES 5000
                     </button>
                   </div>
