@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\URL;
 
 
 Route::get('/', [LandingController::class, 'index'])
-    ->name('landing');
+->name('landing');
+
+Route::get('/send/from-client', [LandingController::class, 'sendEmail'])
+    ->name('send_client_email');
 
 Route::get('/subscribed/{slug}', [LandingController::class, 'indexSubscribed'])
     ->name('landing_subscription');
