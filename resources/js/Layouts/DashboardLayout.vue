@@ -165,6 +165,18 @@
             </a>
 
             <a
+              :href="route('admin.clientSub')"
+              :class="
+                this.activeMenu == 'admin.clientSub' ? 'bg-white text-black' : 'bg-indigo-800'
+              "
+              class="mb-4 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
+            >
+              <!-- Heroicon name: outline/home -->
+              <i class="fas fa-certificate fa-xl text-gray-200 mr-2"></i>
+              Subscriptions
+            </a>
+
+            <a
               v-if="admin"
               :href="route('admin.payment')"
               :class="

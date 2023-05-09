@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Models\Post;
 use App\Models\Payments;
 use App\Models\Blog;
+use App\Models\Tag;
 use App\Models\Upload;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ImportPost;
@@ -41,6 +42,41 @@ class DashboardController extends Controller
         return Inertia::render('Admin/Blogs', [
             // 'blogs' => $blogs,
         ]);
+    }
+
+    public function clientSub()
+    {
+        $userId = auth()->id();
+        $tags = Tag::select('tags')
+                    ->where('user_id', $userId)
+                    ->get();
+        $tagsArray = json_decode($tags, true);
+
+        
+        if(empty($tagsArray)){
+            $emptyObject = (object) [];
+            return Inertia::render('Admin/ClientSub', [
+                'tags' => $emptyObject,
+            ]);
+        }else{
+
+            return Inertia::render('Admin/ClientSub', [
+                'tags' => $tagsArray[0],
+            ]);
+        }
+
+    }
+
+    public function setTags(Request $request)
+    {
+        $tags = json_encode($request->data['tags']);
+        $tagsSet = Tag::create([
+            'user_id' => $request->data['user'],
+            'tags' => $tags,
+        ]);
+        return $tagsSet;
+
+        
     }
 
     public function blogs()

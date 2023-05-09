@@ -1,5 +1,6 @@
 <template>
   <div class="h-screen">
+
     <body class="overflow-x-hidden antialiased flex flex-col h-screen">
       <!-- <TopBanner /> -->
       <MainMenu />
@@ -16,125 +17,72 @@
 
         <main id="top" class="sm:px-5 py-4 mx-auto">
           <div class="flex flex-col text-center w-full mb-6">
-            <h2
-              class="text-xl text-indigo-500 tracking-widest font-medium title-font m-5"
-            >
+            <h2 class="text-xl text-indigo-500 tracking-widest font-medium title-font m-5">
               BIDDERS PORTAL
             </h2>
-            <!-- <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">All Tenders Listing</h1> -->
           </div>
+
+          <div v-if="canExportAsAdmin" class="flex flex-row my-5 mx-5">
+            <button @click="exportToExcel()" type="button" class="mt-10 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              Export Result To Excel
+            </button>
+          </div>
+
 
           <div class="flex flex-row my-5 mx-5">
             <div class="sm:w-4/5 w-full sm:mr-5 min-h-screen">
               <div class="w-full bg-white dark:bg-gray-800">
                 <div
-                  class="container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0"
-                >
+                  class="container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0">
                   <div class="-mx-2"></div>
 
                   <div class="text-gray-500 dark:text-gray-400">
                     Page
-                    <span class="font-medium text-gray-700 dark:text-gray-100"
-                      >{{ formatMoney(page) }} - {{ formatMoney(pages.length)  }}</span
-                    >
+                    <span class="font-medium text-gray-700 dark:text-gray-100">{{ formatMoney(page) }} - {{
+                      formatMoney(pages.length) }}</span>
                     of
                     <span class="text-indigo-600 font-primary-font ml-1 text-xl">{{
-                      formatMoney(this.Posts.length) 
+                      formatMoney(this.Posts.length)
                     }}</span>
                     Tenders
                   </div>
                 </div>
               </div>
               <div class="columns-1">
-                <a
-                  v-for="(post, i) in displayedPosts"
-                  :key="post._id"
-                  class="group bg-white border-2 mt-1 my-2 border-indigo-600 shadow-xl hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl items-start"
-                >
+                <a v-for="(post, i) in displayedPosts" :key="post._id"
+                  class="group bg-white border-2 mt-1 my-2 border-indigo-600 shadow-xl hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl items-start">
                   <div class="flex justify-between w-full">
                     <div class="text-xs sm:text-lg font-heading-font font-extrabold">
                       Posted:
                       <span
-                        class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest"
-                      >
-                        {{ ago(post.created_at) }}</span
-                      >
+                        class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest">
+                        {{ ago(post.created_at) }}</span>
                     </div>
-                    <!-- <div
-                      class="text-xs sm:text-lg font-heading-font font-extrabold"
-                      v-if="expired(post)"
-                    >
-                      Last date of Bid:
-                      <span
-                        class="inline-block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-bold tracking-widest"
-                      >
-                        {{ dateFormat(post.expiry) }}
-                      </span>
-                    </div>
-                    <div
-                      v-else
-                      class="text-xs sm:text-lg font-heading-font font-extrabold"
-                    >
-                      Last Day of Bid:
-                      <span
-                        class="inline-block py-1 px-2 rounded bg-green-100 text-green-500 text-xs font-bold tracking-widest"
-                      >
-                        {{
-                          // togoFormat(post.expiry)
-                          dateFormat(post.expiry)
-                        }}</span
-                      >
-                    </div> -->
+
                   </div>
 
                   <p
-                    class="text-xs sm:text-lg mt-2 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold"
-                  >
-                    <!-- <span
-                                            class="mb-2 inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-lg font-extrabold font-heading-font tracking-widest"
-                                        >
-                                        </span> -->
+                    class="text-xs sm:text-lg mt-2 flex justify-center leading-relaxed mb-2 font-primary-font font-extrabold">
+
                     <span
-                      class="rounded bg-white sm:bg-indigo-50 text-indigo-500 text-md font-extrabold font-heading-font tracking-widest mr-2"
-                    >
-                      <!-- # {{ i + 1 }} # -->
+                      class="rounded bg-white sm:bg-indigo-50 text-indigo-500 text-md font-extrabold font-heading-font tracking-widest mr-2">
                       {{ postNumber(i) }}
-                      <!-- # {{  cnt }} -->
-                      <!-- {{ updateCnt(i) }} -->
                     </span>
                     {{ post.tender_brief }}
                   </p>
 
-                  <div
-                    class="flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full"
-                  >
-                    <!-- <span
-                      class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none pr-3 py-1 border-r-2 border-gray-200"
-                    >
-                      <i class="w-4 h-4 mr-1 fas fa-coins text-indigo-600"></i>
-                      {{ post.funded_by }}
-                    </span> -->
+                  <div class="flex items-center flex-wrap mt-4 border-b-2 border-gray-100 w-full">
+
                     <span
-                      class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none pr-3 py-1 border-r-2 border-gray-200"
-                    >
-                      <i
-                        class="w-4 h-4 mr-1 fas fa-location-crosshairs text-indigo-600"
-                      ></i>
-                      <!-- {{ post.country }} -->
+                      class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none pr-3 py-1 border-r-2 border-gray-200">
+                      <i class="w-4 h-4 mr-1 fas fa-location-crosshairs text-indigo-600"></i>
                       Kenya
                     </span>
                     <span
-                      class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none pr-3 py-1 border-r-2 border-gray-200"
-                    >
-                      <i
-                        class="w-4 h-4 mr-1 fas fa-money-bill-transfer text-indigo-600"
-                      ></i>
-                      <!-- {{ post.country }} -->
+                      class="text-xs sm:text-sm text-gray-400 font-heading-font mr-3 inline-flex items-center ml-0 leading-none pr-3 py-1 border-r-2 border-gray-200">
+                      <i class="w-4 h-4 mr-1 fas fa-money-bill-transfer text-indigo-600"></i>
                       KES
-                      <span
-                        class="ml-1 text-green-500 font-heading-font font-extrabold text-xs sm:text-lg"
-                      >
-                        <!-- {{ amount(post.created_at) }} -->
+                      <span class="ml-1 text-green-500 font-heading-font font-extrabold text-xs sm:text-lg">
                         500
                       </span>
                     </span>
@@ -145,7 +93,7 @@
                       class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold transform transition hover:scale-110 hover:font-bold duration-700">More
                       Tender Details <i class="fa-solid fa-book-open-reader p-1"></i>
                     </a>
-                  
+
                     <a @click="addToCart(post._id)" href="#"
                       class="text-indigo-600 inline-flex items-center font-heading-font font-extrabold transform transition hover:scale-110 hover:font-bold duration-700">Add
                       Tender To Cart <i class="fa-solid fa-cart-shopping p-1"></i>
@@ -155,28 +103,17 @@
               </div>
 
               <footer class="flex justify-around mt-4">
-                <button
-                  @click="page--"
-                  v-bind:class="disableButton"
-                  class="inline-flex items-center py-4 px-6 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
+                <button @click="page--" v-bind:class="disableButton"
+                  class="inline-flex items-center py-4 px-6 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                   Previous
                 </button>
 
                 <button v-if="page == 1"></button>
 
                 <div class="bg-white h-2 py-1 rounded text-center">
-                  <div
-                    id="otp"
-                    class="flex flex-row justify-center text-center px-2 mt-1"
-                  >
-                    <input
-                      @keyup.enter="setPageNumber"
-                      v-model="jumpPage"
-                      class="text-xs m-2 border h-10 w-10 text-center form-control rounded"
-                      type="text"
-                      id="fourth"
-                    />
+                  <div id="otp" class="flex flex-row justify-center text-center px-2 mt-1">
+                    <input @keyup.enter="setPageNumber" v-model="jumpPage"
+                      class="text-xs m-2 border h-10 w-10 text-center form-control rounded" type="text" id="fourth" />
                   </div>
 
                   <div class="flex justify-center text-center mt-1">
@@ -198,33 +135,22 @@
 
                   <div class="text-xs sm:text-lg text-gray-500 dark:text-gray-400">
                     Page
-                    <span class="font-medium text-gray-700 dark:text-gray-100"
-                      >{{ page }} - {{ pages.length }}</span
-                    >
+                    <span class="font-medium text-gray-700 dark:text-gray-100">{{ page }} - {{ pages.length }}</span>
                     of
-                    <span
-                      class="text-indigo-600 font-primary-font ml-1 text-xs sm:text-xl"
-                      >{{ this.Posts.length }}</span
-                    >
+                    <span class="text-indigo-600 font-primary-font ml-1 text-xs sm:text-xl">{{ this.Posts.length }}</span>
                     tenders
                   </div>
                 </div>
 
                 <button v-if="page == this.pages.length"></button>
 
-                <button
-                  @click.prevent="setPageNumber"
-                  v-if="switchToJump && jumpPage != ''"
-                  class="inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
+                <button @click.prevent="setPageNumber" v-if="switchToJump && jumpPage != ''"
+                  class="inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                   Jump to Page {{ jumpPage }}
                 </button>
 
-                <button
-                  @click="page++"
-                  v-if="page < pages.length && switchToJump == false"
-                  class="inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
+                <button @click="page++" v-if="page < pages.length && switchToJump == false"
+                  class="inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                   Next
                 </button>
 
@@ -237,8 +163,7 @@
               </footer>
               <div class="mt-6 w-full bg-white dark:bg-gray-800">
                 <div
-                  class="container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0"
-                >
+                  class="container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0">
                   <div class="-mx-2"></div>
 
                   <!-- <div
@@ -268,36 +193,18 @@
         </main>
       </div>
 
-      <div
-        v-if="searchModal"
-        class="z-50 fixed left-0 w-full h-full outline-none overflow-x-hidden overflow-y-auto"
-        id="exampleModalScrollable"
-        tabindex="-1"
-        aria-labelledby="exampleModalScrollableLabel"
-        aria-hidden="true"
-      >
-        <div
-          class="sm:h-[calc(100%-3rem)] max-w-lg mt-32 mx-auto relative w-auto pointer-events-none"
-        >
+      <div v-if="searchModal" class="z-50 fixed left-0 w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+        id="exampleModalScrollable" tabindex="-1" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
+        <div class="sm:h-[calc(100%-3rem)] max-w-lg mt-32 mx-auto relative w-auto pointer-events-none">
           <div
-            class="max-h-full overflow-hidden border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current"
-          >
-            <div
-              class="flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md"
-            >
-              <h5
-                class="text-xl font-medium leading-normal text-gray-800"
-                id="exampleModalScrollableLabel"
-              >
+            class="max-h-full overflow-hidden border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+            <div class="flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+              <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalScrollableLabel">
                 <!-- Modal title -->
               </h5>
-              <button
-                @click="searchModal = false"
-                type="button"
+              <button @click="searchModal = false" type="button"
                 class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              >
+                data-bs-dismiss="modal" aria-label="Close">
                 <i class="fas fa-xmark text-black fa-xl"></i>
               </button>
             </div>
@@ -342,15 +249,15 @@ import SearchFilter from "./Components/SearchFilter.vue";
 import Spinner from "./Components/Spinner.vue";
 import CartButton from "./Components/CartButton.vue";
 import dateFormat from "dateformat";
-
 import Vue from "vue";
 import Vue2Filters from "vue2-filters";
 import Button from "../Jetstream/Button.vue";
 Vue.use(Vue2Filters);
 import moment from "moment";
-
-// window.$ = window.jQuery = require('jquery')
 import $ from "jquery";
+import exportFromJSON from "export-from-json";
+
+
 
 export default {
   name: "Listing",
@@ -358,6 +265,7 @@ export default {
   props: {
     Posts: "",
     Amount: String,
+    isAdmin: Boolean,
   },
   components: {
     Spinner,
@@ -384,7 +292,7 @@ export default {
     },
   },
   mounted() {
-    // console.log(this.$route.name);
+
     this.searchModal = false;
     if (this.dateChangeFormat) {
       var given = moment(this.formatedDate, "YYYY-MM-DD");
@@ -403,12 +311,26 @@ export default {
     this.setPages();
   },
   computed: {
+    isSearchRoute() {
+      const route = window.location.pathname;
+
+      if (route === '/search') {
+        return true
+      }
+    },
     disableButton() {
       return this.page == 1 ? "cursor-not-allowed" : "";
     },
     displayedPosts() {
       return this.paginate(this.Posts);
     },
+    canExportAsAdmin(){
+      if(this.isSearchRoute && this.isAdmin){
+        return true
+      }else{
+        return true
+      }
+    }
   },
   data() {
     return {
@@ -426,6 +348,16 @@ export default {
     };
   },
   methods: {
+    exportToExcel(){
+
+     const data = this.Posts;
+      const fileName = "np-data";
+      const exportType = exportFromJSON.types.csv;
+
+      if (data) exportFromJSON({ data, fileName, exportType });
+
+
+    },
     formatMoney(n) {
       return "" + (Math.round(n * 100) / 100).toLocaleString();
     },
@@ -596,8 +528,8 @@ export default {
     ago(value) {
       return moment(value).fromNow();
     },
-    clearFilters() {},
-    loadFilters() {},
+    clearFilters() { },
+    loadFilters() { },
   },
 };
 </script>

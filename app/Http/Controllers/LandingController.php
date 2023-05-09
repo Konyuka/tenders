@@ -553,38 +553,21 @@ class LandingController extends Controller
 
     public function search(Request $request)
     {
-        // return dd($request->keyword);
 
-        // $key = \Request::get('payload');
-        // $key = \Request::get('keyword');
         $key = str_replace(' ', '%', $request->keyword);
-        // return dd($key);
         $region = $request->region;
         $entity = str_replace(' ', '%', $request->entity);
         $number = str_replace(' ', '%', $request->number);
         $price = str_replace(' ', '%', $request->price);
         $closing = str_replace(' ', '%', $request->closing);
         $publishing = str_replace(' ', '%', $request->publishing);
-
-
-        // $publishFormat = Carbon::parse($publishing)->format('Y-m-d');
         $publishFormat = date('Y-m-d', strtotime($publishing));
         $closingFormat = Carbon::parse($closing)->format('Y-m-d');
-        // return dd($publishFormat);
-        // $search = Post::where('created_at', 'like', '%' . strtotime('2022-05-29') . '%')->get();
-        // $search = Post::where('created_at', 'like', '%' . $publishFormat . '%')->latest()->get();
-        // $search = Post::where('created_at', 'like', '%' . $closingFormat . '%')->latest()->get();;
-        // date('Y-m-d', strtotime($date))
-        // return dd(json_decode($search));
 
-        // $results = (new Search())->registerModel(Model::class, function(ModelSearchAspect $modelSearchAspect) { $modelSearchAspect->addSearchableAttribute('title') ->orderBy('title'); })->search(str_replace(' ', '%', $request->input('query'))); return response()->json($results);
-
-        // str_replace(' ', '%', $request->input('query'))
-        $search = Post::where('title', 'like', '%' . $key . '%')
+        $search = Post::select(['_id', 'created_at', 'expiry', 'tender_brief' ])->where('title', 'like', '%' . $key . '%')
             ->orWhere('tender_brief', 'like', '%' . $key . '%')
             ->orWhere('funded_by', 'like', '%' . $key . '%')
             ->orWhere('country', 'like', '%' . $key . '%')
-            // ->orWhere('work_detail', 'like', '%' . $key . '%')
             ->orWhere('address', 'like', '%' . $region . '%')
             ->orWhere('tender_number', 'like', '%' . $number . '%')
             ->orWhere('purchasing_authority', 'like', '%' . $entity . '%')
@@ -595,7 +578,19 @@ class LandingController extends Controller
             ->orWhere('created_at', 'like', '%' . $publishFormat . '%')
             ->latest()->get();
 
-        return Inertia::render('Listing', ['Posts' => json_decode($search, true)]);
+
+        $user = auth()->user();
+
+        if($user->admin==1){
+            $isAdmin = true;
+        }else{
+            $isAdmin = false;
+        }
+
+        return Inertia::render('Listing', [
+            'Posts' => json_decode($search, true),
+            'isAdmin' => $isAdmin
+        ]);
     }
 
     public function invoiceMultiple(Request $request){
