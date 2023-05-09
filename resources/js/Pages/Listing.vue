@@ -35,11 +35,11 @@
                   <div class="text-gray-500 dark:text-gray-400">
                     Page
                     <span class="font-medium text-gray-700 dark:text-gray-100"
-                      >{{ page }} - {{ pages.length }}</span
+                      >{{ formatMoney(page) }} - {{ formatMoney(pages.length)  }}</span
                     >
                     of
                     <span class="text-indigo-600 font-primary-font ml-1 text-xl">{{
-                      this.Posts.length
+                      formatMoney(this.Posts.length) 
                     }}</span>
                     Tenders
                   </div>
@@ -426,6 +426,9 @@ export default {
     };
   },
   methods: {
+    formatMoney(n) {
+      return "" + (Math.round(n * 100) / 100).toLocaleString();
+    },
     addToCart(postID) {
       this.$store.commit('addToCart', postID)
       alert('Tender Added To Cart')

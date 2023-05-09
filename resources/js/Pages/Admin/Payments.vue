@@ -89,8 +89,9 @@
                                         </td>
                                         <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
                                             <a target="_blank" :href="route('free', payment.info)"
-                                                class="underline font-bold font-primary-font text-indigo-600">{{
-                                                    payment.info }}</a>
+                                                class="underline font-bold font-primary-font text-indigo-600">
+                                               View Tender Info
+                                            </a>
                                         </td>
                                         <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
                                             <a href="" class="underline font-bold font-primary-font text-indigo-600">{{

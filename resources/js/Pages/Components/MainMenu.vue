@@ -17,19 +17,14 @@
               <!-- <a :href="route('landing')" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white bg-indigo-600 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">Home</a> -->
               <a :href="route('landing')"
                 class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-2 py-2 font-bold text-lg leading-3 shadow-md rounded-md">
-                <span class="text-indigo-600"> <i class="fas fa-home"></i></span>
                 Home</a>
 
               <div class="flex justify-center">
                 <div>
                   <div class="dropdown relative">
                     <button @click="servicesDropdown = !servicesDropdown"
-                      class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-2 py-2 font-bold text-lg leading-3 shadow-md rounded-md"><span
-                        class="text-indigo-600">
-                        <i class="fas fa-briefcase"></i></span>
+                      class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-2 py-2 font-bold text-lg leading-3 shadow-md rounded-md">
                       Our Services
-                      <!-- <i v-if="servicesDropdown" class="ml-5 fas fa-arrow-up-short-wide text-black"></i> -->
-                      <!-- <i v-else class="ml-5 fas fa-arrow-down-short-wide text-black"></i> -->
                     </button>
 
                     <ul v-if="servicesDropdown"
@@ -84,23 +79,20 @@
                 Tenders Listing</a
               > -->
               <a :href="route('about')"
-                class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-2 py-2 font-bold text-lg leading-3 shadow-md rounded-md"><span
-                  class="text-indigo-600"> <i class="fas fa-address-card"></i></span>
-                About Us</a>
+                class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-2 py-2 font-bold text-lg leading-3 shadow-md rounded-md">
+                              About Us</a>
 
               <a :href="route('contacts')"
-                class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-2 py-2 font-bold text-lg leading-3 shadow-md rounded-md"><span
-                  class="text-indigo-600"> <i class="fas fa-paper-plane"></i></span>
-                Contact Us</a>
+                class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-2 py-2 font-bold text-lg leading-3 shadow-md rounded-md">
+                             Contact Us</a>
 
               <a :href="route('blogs')"
-                class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-2 py-2 font-bold text-lg leading-3 shadow-md rounded-md"><span
-                  class="text-indigo-600"> <i class="fas fa-blog"></i></span>
-                Blogs</a>
+                class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-2 py-2 font-bold text-lg leading-3 shadow-md rounded-md">
+                      Blogs</a>
 
               <a :href="route('faqs')"
-                class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-2 py-2 font-bold text-lg leading-3 shadow-md rounded-md"><span
-                  class="text-indigo-600"> <i class="fas fa-circle-question"></i></span>
+                class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-blue-300 hover:to-purple-500 transform transition hover:scale-75 duration-700 ease-in-out active:animate-ping font-primary-font focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 hover:text-white border border-white bg-indigo-200 cursor-pointer px-2 py-2 font-bold text-lg leading-3 shadow-md rounded-md">
+                
                 FAQs</a>
 
             </ul>
