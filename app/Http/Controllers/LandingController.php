@@ -507,11 +507,55 @@ class LandingController extends Controller
 
     public function listing()
     {
-        $posts = Post::select(['_id', 'created_at', 'expiry', 'tender_brief' ])
-        ->latest()
-        ->get();
+       
+        $postCount = Post::count();        
+        $posts = Post::select(['_id', 'created_at', 'expiry', 'tender_brief'])
+            ->latest()
+            ->limit(10)->get();
 
-        return Inertia::render('Listing', ['Posts' => json_decode($posts, true)]);
+
+
+        // $posts = Post::select(['_id', 'created_at', 'expiry', 'tender_brief'])
+        //     ->latest()
+        //     ->offset(10)
+        //     ->limit(10)->get();
+
+        return Inertia::render('Listing', [
+            'Posts' => $posts,
+            'PostCount' => $postCount,
+            'PageNumber' => 1,
+            'NumberPages' => $postCount/10
+            // 'Posts' => json_decode($posts, true)
+        ]);    
+
+    }
+
+    public function listingPage(Request $request)
+    {
+        $currentPageNUmber = $request->pageNumber;
+        $scrollType = $request->type;
+        
+        $getOffset = $currentPageNUmber * 10;
+
+        $posts = Post::select(['_id', 'created_at', 'expiry', 'tender_brief'])
+            ->latest()
+            ->offset($getOffset)
+            ->limit(10)->get();
+
+        if ($scrollType == "previous") {
+            return response()->json([
+                'Posts' => $posts,
+                'PageNumber' => $currentPageNUmber - 1
+            ]);
+        } else if ($scrollType == "next") {
+            return response()->json([
+                'Posts' => $posts,
+                'PageNumber' => $currentPageNUmber + 1
+            ]);
+        }    
+
+            
+
     }
 
     public function pricing($slug)

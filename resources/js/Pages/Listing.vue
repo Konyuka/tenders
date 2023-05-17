@@ -2,18 +2,9 @@
   <div class="h-screen">
 
     <body class="overflow-x-hidden antialiased flex flex-col h-screen">
-      <!-- <TopBanner /> -->
       <MainMenu />
 
       <div class="text-gray-600 body-font">
-        <!-- <header class="sticky top-2 z-50">
-                    <button
-                        @click="modal = true"
-                        class="flex mx-auto mt-10 text-white bg-indigo-600 font-heading-font font-extrabold border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-                    >
-                        Tenders Search Filters
-                    </button>
-                </header> -->
 
         <main id="top" class="sm:px-5 py-4 mx-auto">
           <div class="flex flex-col text-center w-full mb-6">
@@ -23,14 +14,15 @@
           </div>
 
           <div v-if="canExportAsAdmin" class="flex flex-row my-5 mx-5">
-            <button @click="exportToExcel()" type="button" class="mt-10 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            <button @click="exportToExcel()" type="button"
+              class="mt-10 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
               Export Result To Excel
             </button>
           </div>
 
-
           <div class="flex flex-row my-5 mx-5">
             <div class="sm:w-4/5 w-full sm:mr-5 min-h-screen">
+              
               <div class="w-full bg-white dark:bg-gray-800">
                 <div
                   class="container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0">
@@ -38,25 +30,28 @@
 
                   <div class="text-gray-500 dark:text-gray-400">
                     Page
-                    <span class="font-medium text-gray-700 dark:text-gray-100">{{ formatMoney(page) }} - {{
-                      formatMoney(pages.length) }}</span>
+                    <span class="font-medium text-gray-700 dark:text-gray-100">{{ formatMoney(actualPageNumber) }} - {{
+                      formatMoney(roundOffPages(NumberPages)) }}</span>
                     of
                     <span class="text-indigo-600 font-primary-font ml-1 text-xl">{{
-                      formatMoney(this.Posts.length)
+                      formatMoney(PostCount)
                     }}</span>
                     Tenders
                   </div>
                 </div>
               </div>
+
               <div class="columns-1">
-                <a v-for="(post, i) in displayedPosts" :key="post._id"
+                <a 
+                v-for="(post, i) in actualPosts" :key="post._id"
                   class="group bg-white border-2 mt-1 my-2 border-indigo-600 shadow-xl hover:shadow-2xl p-5 md:w-full flex flex-col min-h-2xl items-start">
                   <div class="flex justify-between w-full">
                     <div class="text-xs sm:text-lg font-heading-font font-extrabold">
                       Posted:
                       <span
                         class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-bold tracking-widest">
-                        {{ ago(post.created_at) }}</span>
+                        {{ ago(post.created_at) }}
+                      </span>
                     </div>
 
                   </div>
@@ -103,85 +98,25 @@
               </div>
 
               <footer class="flex justify-around mt-4">
-                <button @click="page--" v-bind:class="disableButton"
+                <button
+                  @click="setPage('previous')"
                   class="inline-flex items-center py-4 px-6 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                   Previous
                 </button>
 
-                <button v-if="page == 1"></button>
 
-                <div class="bg-white h-2 py-1 rounded text-center">
-                  <div id="otp" class="flex flex-row justify-center text-center px-2 mt-1">
-                    <input @keyup.enter="setPageNumber" v-model="jumpPage"
-                      class="text-xs m-2 border h-10 w-10 text-center form-control rounded" type="text" id="fourth" />
-                  </div>
-
-                  <div class="flex justify-center text-center mt-1">
-                    <!-- <a
-                                            @click.prevent="setPageNumber"
-                                            href=""
-                                            class="rounded bg-gray-200 py-1 px-1 flex items-center text-gray-500 hover:text-indigo-500 cursor-pointer hover:underline"
-                                            ><span
-                                                class="text-sm sm:text-lg font-bold"
-                                                >Jump To Page
-                                                <i
-                                                    class="fas fa-caret-right"
-                                                ></i></span
-                                            ><i
-                                                class="bx bx-caret-right ml-1"
-                                            ></i
-                                        ></a> -->
-                  </div>
-
-                  <div class="text-xs sm:text-lg text-gray-500 dark:text-gray-400">
-                    Page
-                    <span class="font-medium text-gray-700 dark:text-gray-100">{{ page }} - {{ pages.length }}</span>
-                    of
-                    <span class="text-indigo-600 font-primary-font ml-1 text-xs sm:text-xl">{{ this.Posts.length }}</span>
-                    tenders
-                  </div>
-                </div>
-
-                <button v-if="page == this.pages.length"></button>
-
-                <button @click.prevent="setPageNumber" v-if="switchToJump && jumpPage != ''"
-                  class="inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                  Jump to Page {{ jumpPage }}
-                </button>
-
-                <button @click="page++" v-if="page < pages.length && switchToJump == false"
+                <button
+                  @click="setPage('next')" 
                   class="inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                   Next
                 </button>
 
-                <!-- <button
-                                    @click="scroll"
-                                    class="inline-flex items-center py-4 px-6 ml-3 text-sm font-medium text-white bg-indigo-600 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                                >
-                                    scroll
-                                </button> -->
               </footer>
+             
               <div class="mt-6 w-full bg-white dark:bg-gray-800">
                 <div
                   class="container flex flex-col items-center px-6 py-5 mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0">
                   <div class="-mx-2"></div>
-
-                  <!-- <div
-                                        class="text-gray-500 dark:text-gray-400"
-                                    >
-                                        Page
-                                        <span
-                                            class="font-medium text-gray-700 dark:text-gray-100"
-                                            >{{ page }} -
-                                            {{ pages.length }}</span
-                                        >
-                                        of
-                                        <span
-                                            class="text-indigo-600 font-primary-font ml-1 text-xl"
-                                            >{{ this.Posts.length }}</span
-                                        >
-                                        tenders
-                                    </div> -->
                 </div>
               </div>
             </div>
@@ -190,6 +125,7 @@
               <SearchFilter />
             </div>
           </div>
+
         </main>
       </div>
 
@@ -211,23 +147,6 @@
             <div class="flex-auto overflow-y-auto relative p-4">
               <SearchFilter />
             </div>
-            <!-- <div
-                class="flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md"
-              >
-                <button
-                  type="button"
-                  class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 fdivs:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button
-                  type="button"
-                  class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
-                >
-                  Save changes
-                </button>
-              </div> -->
           </div>
         </div>
       </div>
@@ -256,6 +175,7 @@ Vue.use(Vue2Filters);
 import moment from "moment";
 import $ from "jquery";
 import exportFromJSON from "export-from-json";
+import axios from "axios";
 
 
 
@@ -266,6 +186,9 @@ export default {
     Posts: "",
     Amount: String,
     isAdmin: Boolean,
+    PostCount: "",
+    PageNumber: "",
+    NumberPages: "",
   },
   components: {
     Spinner,
@@ -292,6 +215,9 @@ export default {
     },
   },
   mounted() {
+
+    this.actualPageNumber = this.PageNumber
+    this.actualPosts = this.Posts
 
     this.searchModal = false;
     if (this.dateChangeFormat) {
@@ -324,16 +250,18 @@ export default {
     displayedPosts() {
       return this.paginate(this.Posts);
     },
-    canExportAsAdmin(){
-      if(this.isSearchRoute && this.isAdmin){
+    canExportAsAdmin() {
+      if (this.isSearchRoute && this.isAdmin) {
         return true
-      }else{
+      } else {
         return true
       }
     }
   },
   data() {
     return {
+      actualPosts:null,
+      actualPageNumber:null,
       searchModal: false,
       switchToJump: false,
       spinner: false,
@@ -348,9 +276,23 @@ export default {
     };
   },
   methods: {
-    exportToExcel(){
+    setPage(value){
+      axios.post('/listing_page', {
+        pageNumber: this.actualPageNumber,
+        type: value,
+      })
+        .then(response => {
+          this.actualPosts = response.data.Posts
+          this.actualPageNumber = response.data.PageNumber
+          this.scroll()
+        })
+    },
+    roundOffPages(value){
+      return Math.round(value)
+    },
+    exportToExcel() {
 
-     const data = this.Posts;
+      const data = this.Posts;
       const fileName = "np-data";
       const exportType = exportFromJSON.types.csv;
 
