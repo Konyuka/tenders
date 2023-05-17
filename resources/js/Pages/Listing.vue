@@ -282,6 +282,7 @@ export default {
         type: value,
       })
         .then(response => {
+          console.log(response.data)
           this.actualPosts = response.data.Posts
           this.actualPageNumber = response.data.PageNumber
           this.scroll()

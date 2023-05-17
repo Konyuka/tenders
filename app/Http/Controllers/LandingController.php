@@ -19,6 +19,7 @@ use DateTime;
 use Illuminate\Support\Facades\DB;
 // use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
 use App\Mail\BiddersEmail;
 use Illuminate\Support\Facades\Mail;
 use Dompdf\Dompdf;
@@ -534,24 +535,34 @@ class LandingController extends Controller
     {
         $currentPageNUmber = $request->pageNumber;
         $scrollType = $request->type;
+        // $getOffset = $currentPageNUmber * 10;
         
-        $getOffset = $currentPageNUmber * 10;
+        if ($scrollType == "previous") {
+            $getOffset = ($currentPageNUmber * 10) - 10;
 
-        $posts = Post::select(['_id', 'created_at', 'expiry', 'tender_brief'])
+            $posts = Post::select(['_id', 'created_at', 'expiry', 'tender_brief'])
             ->latest()
             ->offset($getOffset)
             ->limit(10)->get();
 
-        if ($scrollType == "previous") {
             return response()->json([
                 'Posts' => $posts,
                 'PageNumber' => $currentPageNUmber - 1
             ]);
+
         } else if ($scrollType == "next") {
+            $getOffset = $currentPageNUmber * 10;
+
+            $posts = Post::select(['_id', 'created_at', 'expiry', 'tender_brief'])
+            ->latest()
+            ->offset($getOffset)
+            ->limit(10)->get();
+
             return response()->json([
                 'Posts' => $posts,
                 'PageNumber' => $currentPageNUmber + 1
             ]);
+
         }    
 
             
