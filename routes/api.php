@@ -6,7 +6,7 @@ use App\Http\Controllers\MpesaResponseController;
 
 // header("Access-Control-Allow-Origin: *");
 // header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS");
-// header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Headers: *");
 
 Route::post('validation', [MpesaResponseController::class, 'validation']);
 Route::post('confirmation', [MpesaResponseController::class, 'confirmation']);
